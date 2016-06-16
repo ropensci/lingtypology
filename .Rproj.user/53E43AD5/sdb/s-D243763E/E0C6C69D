@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Catalogue of languages of the world\n#'\n#' A dataset containes the catalogue of languages of the world\n#' involving genealogical affiliation, macro-area, country, iso code,\n#' and coordinates.\n#'\n#' Glottolog 2.7. Hammarstrom, Harald & Forkel, Robert & Haspelmath, Martin &\n#' Bank, Sebastian. 2016.\n#' Max Planck Institute for the Science of Human History.\n#' Accessed on 2016-06-15.\n#'\n#' @format A data frame with 8286 rows and 7 variables:\n#' \\describe{\n#'   \\item{iso}{code based on ISO 639-3 \\url{http://www-01.sil.org/iso639-3/}}\n#'   \\item{languoid}{name of the languoid}\n#'   \\item{affiliation}{genealogical affiliation}\n#'   \\item{macro_area}{have six values Africa, Australia, Eurasia, North America, Papunesia, South America}\n#'   \\item{country}{list of countries, where the language is spoken}\n#'   \\item{latitude}{latitude}\n#'   \\item{longitude}{longitude}\n#' }\n#' @source \\url{http://glottolog.org/}\n\"glottolog\"\n",
+    "created" : 1466107575616.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "744923130",
+    "id" : "E0C6C69D",
+    "lastKnownWriteTime" : 1466107585,
+    "last_content_update" : 1466107585916,
+    "path" : "~/_DATA/OneDrive1/_Work/github/lingtypology/R/glottolog.R",
+    "project_path" : "R/glottolog.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
