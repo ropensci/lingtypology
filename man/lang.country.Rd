@@ -7,10 +7,16 @@
 lang.country(x)
 }
 \arguments{
-\item{x}{A character vector of the countries (can be written in lower case)}
+\item{x}{character vector of the countries (can be written in lower case)}
 }
 \description{
 Takes any vector of countries and return languoids.
+}
+\examples{
+lang.country("Bali")
+lang.country(c("Bali", "Luxembourg"))
+## What languoids are both in North Korea and in South Korea?
+lang.country("Korea")
 }
 \author{
 George Moroz <agricolamz@gmail.com>

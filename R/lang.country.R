@@ -1,7 +1,12 @@
 #' Get languoids by country
 #'
 #' Takes any vector of countries and return languoids.
-#' @param x A character vector of the countries (can be written in lower case)
+#' @param x character vector of the countries (can be written in lower case)
+#' @examples
+#' lang.country("Bali")
+#' lang.country(c("Bali", "Luxembourg"))
+#' ## What languoids are both in North Korea and in South Korea?
+#' lang.country("Korea")
 #' @author George Moroz <agricolamz@gmail.com>
 #' @export
 

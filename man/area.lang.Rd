@@ -7,10 +7,14 @@
 area.lang(x)
 }
 \arguments{
-\item{x}{A character vector of the languoids (can be written in lower case)}
+\item{x}{character vector of the languoids (can be written in lower case)}
 }
 \description{
 Takes any vector of languoids and return macro area.
+}
+\examples{
+area.lang("Adyghe")
+area.lang(c("Adyghe", "Aduge"))
 }
 \author{
 George Moroz <agricolamz@gmail.com>

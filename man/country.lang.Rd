@@ -4,13 +4,20 @@
 \alias{country.lang}
 \title{Get country by languoid}
 \usage{
-country.lang(x)
+country.lang(x, intersection = FALSE)
 }
 \arguments{
-\item{x}{A character vector of the languoids (can be written in lower case)}
+\item{x}{character vector of the languoids (can be written in lower case)}
+
+\item{intersection}{logical. If TRUE, function reterns vector of countries, where all languoids from x argument are spoken.}
 }
 \description{
 Takes any vector of languoids and return affiliation.
+}
+\examples{
+country.lang("Udi")
+country.lang(c("Udi", "Laz"))
+country.lang(c("Udi", "Laz"), intersection = T)
 }
 \author{
 George Moroz <agricolamz@gmail.com>

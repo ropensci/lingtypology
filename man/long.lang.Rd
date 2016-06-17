@@ -12,6 +12,12 @@ long.lang(x)
 \description{
 Takes any vector of languoids and return longitude.
 }
+\examples{
+lat.lang("Adyghe")
+long.lang("Adyghe")
+lat.lang(c("Adyghe", "Russian"))
+long.lang(c("Adyghe", "Russian"))
+}
 \author{
 George Moroz <agricolamz@gmail.com>
 }

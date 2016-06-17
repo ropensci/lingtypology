@@ -12,6 +12,10 @@ aff.lang(x)
 \description{
 Takes any vector of languoids and return affiliation.
 }
+\examples{
+aff.lang("Korean")
+aff.lang(c("Korean", "Polish"))
+}
 \author{
 George Moroz <agricolamz@gmail.com>
 }

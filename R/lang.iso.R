@@ -3,6 +3,9 @@
 #' Takes any vector of ISO codes and return languoids.
 #' @param x A character vector of the ISO codes.
 #' @author George Moroz <agricolamz@gmail.com>
+#' @examples
+#' lang.iso("ady")
+#' lang.iso(c("ady", "rus"))
 #' @export
 
 lang.iso <- function(x){

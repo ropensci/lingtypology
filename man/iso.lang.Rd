@@ -12,6 +12,10 @@ iso.lang(x)
 \description{
 Takes any vector of languoids and return ISO code.
 }
+\examples{
+iso.lang("Adyghe")
+iso.lang(c("Adyghe", "Udi"))
+}
 \author{
 George Moroz <agricolamz@gmail.com>
 }

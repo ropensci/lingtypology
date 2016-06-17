@@ -12,6 +12,10 @@ lang.aff(x)
 \description{
 Takes any vector of affiliations and return languoids.
 }
+\examples{
+lang.aff("Balto-Slavic")
+lang.aff(c("East Slavic", "West Slavic"))
+}
 \author{
 George Moroz <agricolamz@gmail.com>
 }

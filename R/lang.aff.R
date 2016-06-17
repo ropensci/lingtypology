@@ -3,6 +3,9 @@
 #' Takes any vector of affiliations and return languoids.
 #' @param x A character vector of the affiliations (can be written in lower case)
 #' @author George Moroz <agricolamz@gmail.com>
+#' @examples
+#' lang.aff("Balto-Slavic")
+#' lang.aff(c("East Slavic", "West Slavic"))
 #' @export
 
 lang.aff <- function(x){
