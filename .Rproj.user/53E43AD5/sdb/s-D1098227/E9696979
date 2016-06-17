@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Map a set of linguoids\n#'\n#' Takes any vector of linguoids and return a map.\n#' @param x A character vector of linguoids (can be written in lower case)\n#' @author George Moroz <agricolamz@gmail.com>\n#' @examples\n#' map.lang(c(\"Adyghe\", \"Russian\"))\n#' ## Map all Slavic languages\n#' map.lang(lang.aff(c(\"Slavic\")))\n#' @export\n\nmap.lang <- function(x){\n  input <- tolower(x)\n  link <- NA\n  lat <- NA\n  long <- NA\n  for (i in 1:length(x)) {\n    link[i] <- paste(c(\"<a href='\",\n                     \"http://glottolog.org/resource/languoid/iso/\",\n                     glottolog[tolower(glottolog$languoid) == input[i],]$iso,\n                     \"' target='_blank'>\",\n                     x[i],\n                     \"</a>\"), sep = \"\", collapse = \"\")\n    lat[i] <- glottolog[tolower(glottolog$languoid) == input[i],]$latitude\n    long[i] <- glottolog[tolower(glottolog$languoid) == input[i],]$longitude\n  }\n  map.df <- data.frame(x, link, lat, long)\n  map.df <- map.df[stats::complete.cases(map.df),]\n  m <- leaflet::leaflet(map.df) %>%\n    leaflet::addTiles() %>%\n    leaflet::addCircleMarkers(lng=map.df$long,\n                              lat=map.df$lat,\n                              popup= map.df$link,\n                              stroke = T,\n                              radius = 5,\n                              fillOpacity = 1,\n                              group = map.df$x) %>%\n    leaflet::addLayersControl(overlayGroups = map.df$x,\n                              options = layersControlOptions(collapsed = F))\n  m}\n",
+    "created" : 1466168480793.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2260768028",
+    "id" : "E9696979",
+    "lastKnownWriteTime" : 1466168020,
+    "last_content_update" : 1466168020,
+    "path" : "~/_DATA/OneDrive1/_Work/github/lingtypology/R/map.lang.R",
+    "project_path" : "R/map.lang.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
