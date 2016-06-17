@@ -7,7 +7,7 @@
 #' @examples
 #' country.lang("Udi")
 #' country.lang(c("Udi", "Laz"))
-#' country.lang(c("Udi", "Laz"), intersection = T)
+#' country.lang(c("Udi", "Laz"), intersection = TRUE)
 #' @export
 
 country.lang <- function(x, intersection = FALSE){

@@ -17,7 +17,7 @@ Takes any vector of languoids and return affiliation.
 \examples{
 country.lang("Udi")
 country.lang(c("Udi", "Laz"))
-country.lang(c("Udi", "Laz"), intersection = T)
+country.lang(c("Udi", "Laz"), intersection = TRUE)
 }
 \author{
 George Moroz <agricolamz@gmail.com>
