@@ -7,5 +7,6 @@ lingtypology provides R with the glottolog database http://glottolog.org/ (v. 2.
 Get the released version from github:
 
 ```R
+install.packages(devtools)
 devtools::install_github("agricolamz/lingtypology")
 ```
