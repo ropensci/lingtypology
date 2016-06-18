@@ -6,6 +6,7 @@
 #' @examples
 #' map.iso(c("ady", "rus"))
 #' @export
+#' @import leaflet
 
 map.iso <- function(x){
   input <- tolower(x)

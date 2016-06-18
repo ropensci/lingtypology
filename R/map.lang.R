@@ -8,6 +8,7 @@
 #' ## Map all Slavic languages
 #' map.lang(lang.aff(c("Slavic")))
 #' @export
+#' @import leaflet
 
 map.lang <- function(x){
   input <- tolower(x)
