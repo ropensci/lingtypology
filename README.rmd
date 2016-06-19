@@ -1,0 +1,24 @@
+---
+title: "lingtypology"
+author: "G. Moroz"
+output: html_document
+---
+
+lingtypology provides R with the glottolog database http://glottolog.org/ (v. 2.7) and some more abilities for purposes of linguistic typology. The glottolog database containes the catalogue of languages of the world. This package helps researchers to make a linguistic maps, using philosophy of The Cross-Linguistic Linked Data project (http://clld.org/), which allows for while at the same time facilitating uniform access to the data across publications.
+
+## Installation
+
+Get the released version from github:
+
+```{r}
+install.packages("devtools")
+devtools::install_github("agricolamz/lingtypology")
+```
+
+погнали... потом переведу
+## Базовые функции
+В пакет встроены фрагменты базы данных Glottolog: языкоиды (linguoids), ISO коды, координаты, аффилиация и страны распространения языков. Для того, чтобы даставать эту информацию в пакете lingtypology есть несколько функций, имеющих структуру дай мне X на основе Y.
+```{r}
+library(lingtypology)
+lang.iso("Adyghe")
+```

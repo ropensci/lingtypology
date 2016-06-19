@@ -17,7 +17,7 @@ makelink <- function(x, popup = NULL){
                        "</a><br>", as.character(popup[i])), sep = "", collapse = "")
     } else{
       link[i] <- NA
-      warning("There is an a languoid or an ISO code which is absent in database")
+      warning("There is a languoid or an ISO code which is absent in database")
     }}
   link
 }
