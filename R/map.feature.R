@@ -28,6 +28,20 @@ map.feature <- function(languages, features = "none", popup = "",
                               domain = mapfeat.df$features)
   levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
+  if(length(table(mapfeat.df$features)) <= 1){
+    m <- leaflet::leaflet(mapfeat.df) %>%
+      leaflet::addTiles() %>%
+      leaflet::addCircleMarkers(lng=mapfeat.df$long,
+                                lat=mapfeat.df$lat,
+                                popup= mapfeat.df$link,
+                                stroke = T,
+                                radius = 5,
+                                fillOpacity = 1,
+                                group = mapfeat.df$languages) %>%
+      leaflet::addLayersControl(overlayGroups = mapfeat.df$languages,
+                                options = layersControlOptions(collapsed = F))
+    m
+  } else{
   m <- leaflet::leaflet(mapfeat.df) %>%
     leaflet::addTiles() %>%
     leaflet::addCircleMarkers(lng=mapfeat.df$long,
@@ -46,4 +60,5 @@ map.feature <- function(languages, features = "none", popup = "",
                        values = mapfeat.df$features,
                        opacity = 1)
   m
-}
+  }
+  }
