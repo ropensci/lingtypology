@@ -8,6 +8,8 @@ makelink(x, popup = NULL)
 }
 \arguments{
 \item{x}{A character vector of linguoids (can be written in lower case)}
+
+\item{popup}{character vector of strings that will appear in pop-up window}
 }
 \description{
 Takes any vector of linguoids and return links.

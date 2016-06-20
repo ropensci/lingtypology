@@ -7,15 +7,39 @@
 map.feature(languages, features = "none", popup = "", title = NULL)
 }
 \arguments{
-\item{x}{A character vector of linguoids (can be written in lower case)}
+\item{languages}{character vector of linguoids (can be written in lower case)}
+
+\item{features}{character vector of features}
+
+\item{popup}{character vector of strings that will appear in pop-up window}
+
+\item{title}{of a legend}
 }
 \description{
 Takes any vector of linguoids and return a map.
 }
 \examples{
-map.lang(c("Adyghe", "Russian"))
+map.feature(c("Adyghe", "Russian"))
+
 ## Map all Slavic languages
-map.lang(lang.aff(c("Slavic")))
+map.feature(lang.aff(c("Slavic")))
+
+## Color linguoids by feature
+df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"))
+map.feature(df$lang, df$feature)
+
+## Adding pop-up
+df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+map.feature(df$lang, df$feature, df$popup)
+
+## Adding title
+df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+map.feature(df$lang, df$feature, df$popup, title = "type of a language")
 }
 \author{
 George Moroz <agricolamz@gmail.com>

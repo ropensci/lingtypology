@@ -2,6 +2,7 @@
 #'
 #' Takes any vector of linguoids and return links.
 #' @param x A character vector of linguoids (can be written in lower case)
+#' @param popup character vector of strings that will appear in pop-up window
 #' @author George Moroz <agricolamz@gmail.com>
 #' @export
 
