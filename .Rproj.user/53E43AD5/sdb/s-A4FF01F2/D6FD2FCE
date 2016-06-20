@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Get macro area by languoid\n#'\n#' Takes any vector of languoids and return macro area.\n#' @param x character vector of the languoids (can be written in lower case)\n#' @author George Moroz <agricolamz@gmail.com>\n#' @examples\n#' area.lang(\"Adyghe\")\n#' area.lang(c(\"Adyghe\", \"Aduge\"))\n#' @export\n\narea.lang <- function(x){\n  input <- tolower(x)\n  a <- NA\n  for (i in 1:length(input)) {\n    a <- c(a, glottolog[tolower(glottolog$lang) == input[i],]$macro_area)\n  }\n  ret <- unique(a[complete.cases(a)])\n  if (length(ret) < 1) {\n    warning('There is no such a languoid')\n  } else {\n    if (length(ret) != length(x)) warning('one or more macro area are missed')\n    ret}}\n",
+    "created" : 1466413648523.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1665386849",
+    "id" : "D6FD2FCE",
+    "lastKnownWriteTime" : 1466413389,
+    "last_content_update" : 1466413389,
+    "path" : "~/_DATA/OneDrive1/_Work/github/lingtypology/R/area.lang.R",
+    "project_path" : "R/area.lang.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -28,7 +28,7 @@ map.feature <- function(languages, features = "none", popup = "",
                               domain = mapfeat.df$features)
   levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
-  if(length(table(mapfeat.df$features)) <= 1){
+  if (length(table(mapfeat.df$features)) <= 1){
     m <- leaflet::leaflet(mapfeat.df) %>%
       leaflet::addTiles() %>%
       leaflet::addCircleMarkers(lng=mapfeat.df$long,

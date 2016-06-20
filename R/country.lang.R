@@ -20,8 +20,8 @@ country.lang <- function(x, intersection = FALSE){
   if (length(ret) < 1) {
     warning('There is no such a languoid')
   } else {
-    if(length(ret) != length(x))warning('one or more countries are missed')
-    if(intersection == T){
+    if (length(ret) != length(x))warning('one or more countries are missed')
+    if (intersection == TRUE){
       b <- unlist(strsplit(paste(ret, collapse = ", "), ", "))
       names(table(b)[table(b) > 1])
     } else{ret}}}

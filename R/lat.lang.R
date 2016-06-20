@@ -20,5 +20,5 @@ lat.lang <- function(x){
   if (length(ret) < 1) {
     warning('There is no such a languoid')
   } else {
-    if(length(ret) != length(x))warning('one or more macro area are missed')
+    if (length(ret) != length(x)) warning('one or more macro area are missed')
     ret}}

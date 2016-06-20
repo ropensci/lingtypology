@@ -30,6 +30,11 @@ iso.lang("Adyghe")
 lang.iso("ady")
 [1] "Adyghe"
 ```
+- узнать макрорегион, в котором распространен язык
+```R
+area.lang("Adyghe")
+[1] "Eurasia"
+```
 - узнать страны, в которых говорят на языке
 ```R
 country.lang("Adyghe")
