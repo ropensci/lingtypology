@@ -4,7 +4,7 @@
 \alias{is.glottolog}
 \title{Is it in glottolog?}
 \usage{
-is.glottolog(x)
+is.glottolog(x, response = F)
 }
 \arguments{
 \item{x}{A character vector of linguoids (can be written in lower case)or ISO codes}
