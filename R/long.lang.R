@@ -11,14 +11,18 @@
 #' @export
 
 long.lang <- function(x){
-  input <- tolower(x)
-  a <- NA
-  for (i in 1:length(input)) {
-    a <- c(a, glottolog[tolower(glottolog$lang) == input[i],]$longitude)
-  }
-  ret <- unique(a[complete.cases(a)])
-  if (length(ret) < 1) {
-    warning('There is no such a languoid')
+  input <- tolower(x[is.glottolog(x)])
+  if (length(input) == 0) {
+    warning('Some of the listed linguoids are absent in the database')
   } else {
-    if (length(ret) != length(x)) warning('one or more macro area are missed')
-    ret}}
+    a <- NA
+    for (i in 1:length(input)) {
+      a <- c(a, glottolog[tolower(glottolog$lang) == input[i],]$longitude)
+    }
+    ret <- a[-1]
+    if (length(ret) < 1) {
+      ret <- NA
+      warning('Some of the listed linguoids are absent in the database')
+    } else {
+      if (length(ret) != length(x)) warning('Some of the listed linguoids are absent in the database')
+      ret}}}
