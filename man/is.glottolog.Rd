@@ -2,15 +2,28 @@
 % Please edit documentation in R/is.glottolog.R
 \name{is.glottolog}
 \alias{is.glottolog}
-\title{Is it in glottolog?}
+\title{Are these langoids in glottolog?}
 \usage{
 is.glottolog(x, response = F)
 }
 \arguments{
 \item{x}{A character vector of linguoids (can be written in lower case)or ISO codes}
+
+\item{response}{logical. If TRUE, when languoid is absent, return warnings with a possible candidates.}
 }
 \description{
 Takes any vector of linguoids or ISO codes and return a logical vector.
+}
+\examples{
+is.glottolog(c("Adyghe", "Russsian")
+TRUE FALSE
+
+is.glottolog(c("Adyghe", "Russsian", response = T)
+TRUE FALSE
+Warning:
+In is.glottolog(c("Adyghe", "Russsian"), response = T) :
+Languoid Russsian is absent in our database. Did you mean Russian?
+
 }
 \author{
 George Moroz <agricolamz@gmail.com>

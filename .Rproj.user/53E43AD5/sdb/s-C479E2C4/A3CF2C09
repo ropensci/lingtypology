@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Are these langoids in glottolog?\n#'\n#' Takes any vector of linguoids or ISO codes and return a logical vector.\n#' @param x A character vector of linguoids (can be written in lower case)or ISO codes\n#' @param response logical. If TRUE, when languoid is absent, return warnings with a possible candidates.\n#' @author George Moroz <agricolamz@gmail.com>\n#' @examples\n#' is.glottolog(c(\"Adyghe\", \"Russsian\")\n#' TRUE FALSE\n#'\n#' is.glottolog(c(\"Adyghe\", \"Russsian\", response = T)\n#' TRUE FALSE\n#' Warning:\n#' In is.glottolog(c(\"Adyghe\", \"Russsian\"), response = T) :\n#' Languoid Russsian is absent in our database. Did you mean Russian?\n#'\n#' @export\n#' @import stringdist\n\nis.glottolog <- function(x, response = F){\nif(response == T) {\nresult <- NA\n    for (i in 1:length(x)) {\n    result[i] <- sum(tolower(glottolog$languoid)==tolower(x[i]) | tolower(glottolog$iso)==tolower(x[i])) > 0\n    if (result[i] == FALSE) {\n      cand <- stringdist::stringdist(x[i], glottolog$languoid, method = \"lv\")\n      candidates <- paste(glottolog[cand == cand[which.min(cand)],]$languoid, collapse = \", \")\n      warning(paste(\"Languoid \", x[i], \" is absent in our database. Did you mean \",\n                    candidates, \"?\", sep = \"\"))\n      x <- c(4, 4, 9, 9)\n      x[x == x[which.min(x)]]\n      which.min(x)\n    }\n  }\n} else {\nresult <- NA\n  for (i in 1:length(x)) {\n  result[i] <- sum(tolower(glottolog$languoid)==tolower(x[i]) | tolower(glottolog$iso)==tolower(x[i])) > 0\n  }}\nreturn(result)\n}\n",
+    "created" : 1466619103527.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3029466648",
+    "id" : "A3CF2C09",
+    "lastKnownWriteTime" : 1466625486,
+    "last_content_update" : 1466625486822,
+    "path" : "~/_DATA/OneDrive1/_Work/github/lingtypology/R/is.glottolog.R",
+    "project_path" : "R/is.glottolog.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
