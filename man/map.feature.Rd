@@ -16,6 +16,8 @@ map.feature(languages, features = "none", popup = "", latitude = NULL,
 
 \item{latitude}{numeric vector of latitudes}
 
+\item{longitude}{numeric vector of longitudes}
+
 \item{title}{of a legend}
 }
 \description{
@@ -43,6 +45,9 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, df$popup, title = "type of a language")
+
+## Add coordinates from User
+map.feature("Adyghe", latitude = 43, longitude = 57)
 }
 \author{
 George Moroz <agricolamz@gmail.com>

@@ -5,6 +5,7 @@
 #' @param features character vector of features
 #' @param popup character vector of strings that will appear in pop-up window
 #' @param latitude numeric vector of latitudes
+#' @param longitude numeric vector of longitudes
 #' @param title of a legend
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -29,6 +30,9 @@
 #' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
 #' popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 #' map.feature(df$lang, df$feature, df$popup, title = "type of a language")
+#'
+#' ## Add coordinates from User
+#' map.feature("Adyghe", latitude = 43, longitude = 57)
 #' @export
 #' @import leaflet
 

@@ -4,7 +4,7 @@
 \alias{is.glottolog}
 \title{Are these langoids in glottolog?}
 \usage{
-is.glottolog(x, response = F)
+is.glottolog(x, response = FALSE)
 }
 \arguments{
 \item{x}{A character vector of linguoids (can be written in lower case)or ISO codes}
@@ -15,14 +15,14 @@ is.glottolog(x, response = F)
 Takes any vector of linguoids or ISO codes and return a logical vector.
 }
 \examples{
-is.glottolog(c("Adyghe", "Russsian")
-TRUE FALSE
+is.glottolog(c("Adyghe", "Russsian"))
 
-is.glottolog(c("Adyge", "Russian", response = T)
-FALSE TRUE
-Warning message:
-In is.glottolog(c("Adyge", "Russian"), response = T) :
-Languoid Russsian is absent in our database. Did you mean Aduge, Adyghe?
+# Add warning message with sugestions
+is.glottolog(c("Adyge", "Russian"), response = TRUE)
+# > FALSE TRUE
+# Warning message:
+# In is.glottolog(c("Adyge", "Russian"), response = TRUE) :
+# Languoid Russsian is absent in our database. Did you mean Aduge, Adyghe?
 
 }
 \author{

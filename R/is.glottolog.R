@@ -5,20 +5,20 @@
 #' @param response logical. If TRUE, when languoid is absent, return warnings with a possible candidates.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
-#' is.glottolog(c("Adyghe", "Russsian")
-#' TRUE FALSE
+#' is.glottolog(c("Adyghe", "Russsian"))
 #'
-#' is.glottolog(c("Adyge", "Russian", response = T)
-#' FALSE TRUE
-#' Warning message:
-#' In is.glottolog(c("Adyge", "Russian"), response = T) :
-#' Languoid Russsian is absent in our database. Did you mean Aduge, Adyghe?
+#' # Add warning message with sugestions
+#' is.glottolog(c("Adyge", "Russian"), response = TRUE)
+#' # > FALSE TRUE
+#' # Warning message:
+#' # In is.glottolog(c("Adyge", "Russian"), response = TRUE) :
+#' # Languoid Russsian is absent in our database. Did you mean Aduge, Adyghe?
 #'
 #' @export
 #' @import stringdist
 
-is.glottolog <- function(x, response = F){
-if(response == T) {
+is.glottolog <- function(x, response = FALSE){
+if(response == TRUE) {
 result <- NA
     for (i in 1:length(x)) {
     result[i] <- sum(tolower(glottolog$languoid)==tolower(x[i]) | tolower(glottolog$iso)==tolower(x[i])) > 0

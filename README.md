@@ -99,8 +99,13 @@ c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"))
 Кроме того имеет смысл добавить заглавие, это делает аргумент `title`:
 ```R
 map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-"тип языка")
+features = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+popup = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+title = "тип языка")
 ```
 Естественно, совершенно не стоит помнить наизусть, чему какой аргумент соответствует. Всегда имеет смысл вызвать справку или воспользоваться автозаполнением.
+
+Функция `map.feature` может принимать и координаты на вход (аргументы `latitude` и `longitude`). Таким образом можно отмечать, например, диалекты или населенные пункты:
+```R
+map.feature(c("Adyghe", "Russian"), latitude = c(43, 57),  longitude = c(57, 43))
+```
