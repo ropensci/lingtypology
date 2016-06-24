@@ -4,7 +4,8 @@
 \alias{map.feature}
 \title{Map a set of linguoids and color them by feature}
 \usage{
-map.feature(languages, features = "none", popup = "", title = NULL)
+map.feature(languages, features = "none", popup = "", latitude = NULL,
+  longitude = NULL, title = NULL)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -12,6 +13,8 @@ map.feature(languages, features = "none", popup = "", title = NULL)
 \item{features}{character vector of features}
 
 \item{popup}{character vector of strings that will appear in pop-up window}
+
+\item{latitude}{numeric vector of latitudes}
 
 \item{title}{of a legend}
 }

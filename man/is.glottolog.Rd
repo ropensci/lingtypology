@@ -18,11 +18,11 @@ Takes any vector of linguoids or ISO codes and return a logical vector.
 is.glottolog(c("Adyghe", "Russsian")
 TRUE FALSE
 
-is.glottolog(c("Adyghe", "Russsian", response = T)
-TRUE FALSE
-Warning:
-In is.glottolog(c("Adyghe", "Russsian"), response = T) :
-Languoid Russsian is absent in our database. Did you mean Russian?
+is.glottolog(c("Adyge", "Russian", response = T)
+FALSE TRUE
+Warning message:
+In is.glottolog(c("Adyge", "Russian"), response = T) :
+Languoid Russsian is absent in our database. Did you mean Aduge, Adyghe?
 
 }
 \author{

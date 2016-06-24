@@ -9,14 +9,13 @@
 #' @export
 
 area.lang <- function(x){
-  input <- tolower(x)
-  a <- NA
-  for (i in 1:length(input)) {
-    a <- c(a, glottolog[tolower(glottolog$lang) == input[i],]$macro_area)
+    input <- tolower(x)
+    a <- NA
+    for (i in 1:length(input)) {
+      if (is.glottolog(x[i], response = T) == T) {
+        a <- c(a, glottolog[tolower(glottolog$lang) == input[i],]$macro_area)
+      } else {
+        a <- c(a, NA)
+      }}
+    ret <- a[-1]; ret
   }
-  ret <- unique(a[complete.cases(a)])
-  if (length(ret) < 1) {
-    warning('There is no such a languoid')
-  } else {
-    if (length(ret) != length(x)) warning('one or more macro area are missed')
-    ret}}

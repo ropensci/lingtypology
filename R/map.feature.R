@@ -4,6 +4,7 @@
 #' @param languages character vector of linguoids (can be written in lower case)
 #' @param features character vector of features
 #' @param popup character vector of strings that will appear in pop-up window
+#' @param latitude numeric vector of latitudes
 #' @param title of a legend
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -31,16 +32,28 @@
 #' @export
 #' @import leaflet
 
-map.feature <- function(languages, features = "none", popup = "", title = NULL){
+map.feature <- function(languages,
+                        features = "none",
+                        popup = "",
+                        latitude = NULL,
+                        longitude = NULL,
+                        title = NULL){
 
 # 23 color set --------------------------------------------------------------
   mycolors <- c("dodgerblue2","#E31A1C", "green4", "#6A3D9A", "#FF7F00", "skyblue2","#FB9A99",  "palegreen2", "#CAB2D6",  "#FDBF6F", "gray70", "khaki2", "maroon","orchid1","deeppink1","blue1","steelblue4", "darkturquoise","green1","yellow4","yellow3", "darkorange4","brown")
 
 # creat dataframe ---------------------------------------------------------
+  if (is.null(latitude) & is.null(longitude)) {  # if there are no latitude and longitude
   mapfeat.df <- data.frame(languages, features,
                            long = long.lang(languages),
                            lat = lat.lang(languages),
                            popup = popup)
+  } else {   # if there are latitude and longitude
+    mapfeat.df <- data.frame(languages, features,
+                             long = longitude,
+                             lat = latitude,
+                             popup = popup)
+  }
 
 # creat link --------------------------------------------------------------
   mapfeat.df$link <- makelink(as.character(mapfeat.df$languages), popup = mapfeat.df$popup)

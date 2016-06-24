@@ -11,18 +11,13 @@
 #' @export
 
 lat.lang <- function(x){
-  input <- tolower(x[is.glottolog(x)])
-  if (length(input) == 0) {
-    warning('Some of the listed linguoids are absent in the database')
-  } else {
+  input <- tolower(x)
   a <- NA
   for (i in 1:length(input)) {
-    a <- c(a, glottolog[tolower(glottolog$lang) == input[i],]$latitude)
-  }
-  ret <- a[-1]
-  if (length(ret) < 1) {
-    ret <- NA
-    warning('Some of the listed linguoids are absent in the database')
-  } else {
-    if (length(ret) != length(x)) warning('Some of the listed linguoids are absent in the database')
-    ret}}}
+    if (is.glottolog(x[i], response = T) == T) {
+      a <- c(a, glottolog[(tolower(glottolog$lang) == input[i]),]$latitude)
+    } else {
+      a <- c(a, NA)
+    }}
+  ret <- a[-1]; ret
+}

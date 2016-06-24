@@ -14,14 +14,13 @@ country.lang <- function(x, intersection = FALSE){
   input <- tolower(x)
   a <- NA
   for (i in 1:length(input)) {
-    a <- c(a, glottolog[tolower(glottolog$lang) == input[i],]$country)
-  }
-  ret <- unique(a[complete.cases(a)])
-  if (length(ret) < 1) {
-    warning('There is no such a languoid')
-  } else {
-    if (length(ret) != length(x))warning('one or more countries are missed')
-    if (intersection == TRUE){
-      b <- unlist(strsplit(paste(ret, collapse = ", "), ", "))
-      names(table(b)[table(b) > 1])
-    } else{ret}}}
+    if (is.glottolog(x[i], response = T) == T) {
+      a <- c(a, glottolog[tolower(glottolog$lang) == input[i],]$country)
+    } else {
+      a <- c(a, NA)
+    }}
+  ret <- a[-1]; ret
+  if (intersection == TRUE){
+    b <- unlist(strsplit(paste(ret, collapse = ", "), ", "))
+    names(table(b)[table(b) > 1])
+    } else{ret}}
