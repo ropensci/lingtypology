@@ -34,7 +34,7 @@
 #' ## Add coordinates from User
 #' map.feature("Adyghe", latitude = 43, longitude = 57)
 #' @export
-#' @import leaflet
+#' @import leaflet stats
 
 map.feature <- function(languages,
                         features = "none",

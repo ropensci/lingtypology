@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# lingtypology\n\nlingtypology provides R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and some more abilities for purposes of linguistic typology. The glottolog database containes the catalogue of languages of the world. This package helps researchers to make a linguistic maps, using philosophy of [The Cross-Linguistic Linked Data project](http://clld.org/), which allows for while at the same time facilitating uniform access to the data across publications.\n\n## Installation\n\nGet the released version from github:\n\n```R\ninstall.packages(\"devtools\")\ndevtools::install_github(\"agricolamz/lingtypology\")\n```\n\nLoad a library:\n```R\nlibrary(lingtypology)\n```\n",
+    "created" : 1466847123382.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3329779168",
+    "id" : "8A4C31F",
+    "lastKnownWriteTime" : 1466847146,
+    "last_content_update" : 1466847146642,
+    "path" : "~/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/README.md",
+    "project_path" : "README.md",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}

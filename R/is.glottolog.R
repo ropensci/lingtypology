@@ -18,9 +18,11 @@
 #' @import stringdist
 
 is.glottolog <- function(x, response = FALSE){
-if(response == TRUE) {
-result <- NA
-    for (i in 1:length(x)) {
+
+  if(response == TRUE) {
+# check whether there are linguoids in database ---------------------------
+  result <- NA
+  for (i in 1:length(x)) {
     result[i] <- sum(tolower(glottolog$languoid)==tolower(x[i]) | tolower(glottolog$iso)==tolower(x[i])) > 0
     if (result[i] == FALSE) {
       cand <- stringdist::stringdist(x[i], glottolog$languoid, method = "lv")
