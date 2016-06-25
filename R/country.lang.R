@@ -10,6 +10,7 @@
 #' country.lang(c("Udi", "Laz"), intersection = TRUE)
 #' @export
 
+
 country.lang <- function(x, intersection = FALSE){
   input <- tolower(x)
   a <- NA
@@ -22,5 +23,5 @@ country.lang <- function(x, intersection = FALSE){
   ret <- a[-1]; ret
   if (intersection == TRUE){
     b <- unlist(strsplit(paste(ret, collapse = ", "), ", "))
-    names(table(b)[table(b) > 1])
-    } else{ret}}
+    names(table(b)[table(b) == max(table(b))])
+  } else{ret}}

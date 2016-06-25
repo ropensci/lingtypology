@@ -4,7 +4,7 @@ lingtypology provides R with the [Glottolog database (v. 2.7)](http://glottolog.
 
 ## Installation
 
-Get the released version from github:
+Get the released version from GitHub:
 
 ```R
 install.packages("devtools")
