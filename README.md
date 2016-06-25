@@ -15,3 +15,5 @@ Load a library:
 ```R
 library(lingtypology)
 ```
+
+For a detailed tutorial see [GitHub wiki](https://github.com/agricolamz/lingtypology/wiki).
