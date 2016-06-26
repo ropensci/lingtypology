@@ -14,9 +14,18 @@ lang.country <- function(x){
   input <- tolower(x)
   a <- NA
   for (i in 1:length(input)) {
+# abbreviation -----------------------------------------
+    if (sum(input[i]==tolower(countries$abbreviation)) > 0) {
+      input[i]<- tolower(as.character(countries$common[input[i]==tolower(countries$abbreviation)]))
+    }
+# common -----------------------------------------
+    if (sum(input[i]==tolower(countries$official)) > 0) {
+      input[i]<- tolower(as.character(countries$common[input[i]==tolower(countries$official)]))
+    }
+# get country -------------------------------------------------------------
     a <- c(a, glottolog[grepl(input[i], tolower(glottolog$country)),]$languoid)
   }
-  ret <- unique(a[complete.cases(a)])
+  ret <- a[complete.cases(a)]
   if (length(ret) < 1) {
     warning('There is no such a country')
   } else {ret}}

@@ -20,7 +20,7 @@ country.lang <- function(x, intersection = FALSE){
     } else {
       a <- c(a, NA)
     }}
-  ret <- a[-1]; ret
+  ret <- a[-1]
   if (intersection == TRUE){
     b <- unlist(strsplit(paste(ret, collapse = ", "), ", "))
     names(table(b)[table(b) == max(table(b))])
