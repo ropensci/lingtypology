@@ -5,7 +5,7 @@
 \title{Map a set of linguoids and color them by feature}
 \usage{
 map.feature(languages, features = "none", popup = "", latitude = NULL,
-  longitude = NULL, title = NULL)
+  longitude = NULL, color = NULL, title = NULL)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -17,6 +17,8 @@ map.feature(languages, features = "none", popup = "", latitude = NULL,
 \item{latitude}{numeric vector of latitudes}
 
 \item{longitude}{numeric vector of longitudes}
+
+\item{color}{vector of colors}
 
 \item{title}{of a legend}
 }
@@ -46,7 +48,7 @@ feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, df$popup, title = "type of a language")
 
-## Add coordinates from User
+## Add your own coordinates
 map.feature("Adyghe", latitude = 43, longitude = 57)
 }
 \author{

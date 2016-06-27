@@ -6,6 +6,7 @@
 #' @param popup character vector of strings that will appear in pop-up window
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
+#' @param color vector of colors
 #' @param title of a legend
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -31,7 +32,7 @@
 #' popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 #' map.feature(df$lang, df$feature, df$popup, title = "type of a language")
 #'
-#' ## Add coordinates from User
+#' ## Add your own coordinates
 #' map.feature("Adyghe", latitude = 43, longitude = 57)
 #' @export
 #' @import leaflet stats
@@ -41,6 +42,7 @@ map.feature <- function(languages,
                         popup = "",
                         latitude = NULL,
                         longitude = NULL,
+                        color = NULL,
                         title = NULL){
 
 # 23 color set --------------------------------------------------------------
@@ -66,14 +68,22 @@ map.feature <- function(languages,
   mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df),]
 
 # creata a pallet ---------------------------------------------------------
-  pal <- leaflet::colorFactor(mycolors[1:length(unique(mapfeat.df$features))],
+  if (is.null(color)) {
+  pal <- leaflet::colorFactor(sample(mycolors, length(unique(mapfeat.df$features))),
                               domain = mapfeat.df$features)
+  } else {
+    pal <- leaflet::colorFactor(color,
+                                domain = mapfeat.df$features)
+  }
 
 # change feature names ----------------------------------------------------
   levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
 # if there are only one feature -------------------------------------------
   if (length(table(mapfeat.df$features)) <= 1){
+    if (is.null(color)) {
+      color <- "blue"
+    }
     m <- leaflet::leaflet(mapfeat.df) %>%
       leaflet::addTiles() %>%
       leaflet::addCircleMarkers(lng=mapfeat.df$long,
@@ -81,6 +91,7 @@ map.feature <- function(languages,
                                 popup= mapfeat.df$link,
                                 stroke = T,
                                 radius = 5,
+                                color = color,
                                 fillOpacity = 1,
                                 group = mapfeat.df$languages) %>%
       leaflet::addLayersControl(overlayGroups = mapfeat.df$languages,
