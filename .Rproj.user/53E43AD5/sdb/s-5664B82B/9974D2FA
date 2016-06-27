@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Make a link for a languoid\n#'\n#' Takes any vector of linguoids and return links.\n#' @param x A character vector of linguoids (can be written in lower case)\n#' @param popup character vector of strings that will appear in pop-up window\n#' @author George Moroz <agricolamz@gmail.com>\n#' @export\n\nmakelink <- function(x, popup = NULL){\n  link <- NA\n  for (i in 1:length(x)) {\n    if (is.glottolog(x[i]) == T) {\n    link[i] <- paste(c(\"<a href='\",\n                       \"http://glottolog.org/resource/languoid/iso/\",\n                       glottolog[tolower(glottolog$languoid) == tolower(x[i]),]$iso,\n                       \"' target='_blank'>\",\n                       x[i],\n                       \"</a><br>\", as.character(popup[i])), sep = \"\", collapse = \"\")\n    } else{\n      link[i] <- NA\n    }}\n  link\n}\n",
+    "created" : 1467011307754.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1537332326",
+    "id" : "9974D2FA",
+    "lastKnownWriteTime" : 1466709107,
+    "last_content_update" : 1466709107,
+    "path" : "~/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/R/makelink.R",
+    "project_path" : "R/makelink.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
