@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1467042375007.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "84B1D578",
+    "lastKnownWriteTime" : 7882798121504305780,
+    "last_content_update" : 1467042375007,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "akn1kkli9o",
+        "caption" : "glottolog",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=glottolog&cache_key=akn1kkli9o",
+        "displayedObservations" : 8288,
+        "environment" : "",
+        "object" : "glottolog",
+        "totalObservations" : 8288,
+        "variables" : 7
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

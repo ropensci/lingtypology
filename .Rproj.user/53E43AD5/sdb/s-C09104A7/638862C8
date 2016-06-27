@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# align languages and affiliation -----------------------------------------\nsetwd(\"/home/agricolamz/_DATA/OneDrive1/_Work/Scripts/_R/data Glottolog/languoids\")\nlang <- read.csv(\"lff.txt\", header = F, stringsAsFactors = F, sep = \";\")\nlang$language <- grepl(\"\\\\[\", lang$V1)\nlang$discription <- NA\ni <- 1\n\nfor (i in which(lang$language == F)) {\nif(lang$language[i] == F){\n  j <- i+1\n  while(lang$language[j] == T){\n    lang$discription[j] <- lang$V1[i]\n  j <- j+1}\n}}\n\nlang <- lang[lang$language == T,]\nlang <- lang[, -2]\n\nlango <- read.csv(\"lof.txt\", header = F, stringsAsFactors = F, sep = \";\", quote = \"\")\nlango$language <- grepl(\"\\\\[\", lango$V1)\ni  <-  1\nlango$discription <- NA\n\nfor (i in which(lango$language == F)) {\n  if(lango$language[i] == F){\n    j <- i+1\n    while(lango$language[j] == T){\n      lango$discription[j] <- lango$V1[i]\n      j <- j+1}\n  }}\n\n\nlango <- lango[lango$language == T,]\nlango <- lango[, -2]\ncolnames(lang)[1] <- \"language\"\ncolnames(lango)[1] <- \"language\"\n\nlangall <- rbind.data.frame(lang, lango)\nwrite.csv2(langall, \"glottolog.csv\", row.names = F)\n\n# separate iso and languages ----------------------------------------------\ndf <- read.csv(\"glottolog.csv\", stringsAsFactors = F, sep = \";\")\n\nlang <- NA\niso <- NA\ni <- 1\nfor (i in 1:8284) {\n  check <- unlist(strsplit(df$language[i], \" \"))\n  check <- check[check != \"\"]\n  iso[i] <- check[length(check)]\n  lang[i] <- paste(check[1:(length(check)-1)], collapse = \" \")\n}\n\ndf$lang <- lang\ndf$iso <- iso\ndf <- df[,-1]\ncolnames(df)[3] <- \"affiliation\"\nwrite.csv2(df, \"glottolog.csv\", row.names = F)\n\n# add more information ----------------------------------------------------\ndf <- read.csv2(\"glottolog.csv\", stringsAsFactors = F, sep = \",\")\ndf2 <- read.csv(\"lginfo.csv\", stringsAsFactors = F)\ncolnames(df2)[1] <- \"iso\"\ncolnames(df)[3] <- \"iso\"\ndfall <- merge(df, df2, by = \"iso\", all = TRUE)\ndfall2 <- dfall[complete.cases(dfall$lang),]\ndfall2 <- dfall2[,-7]\nwrite.csv2(dfall2, \"glottolog.csv\", row.names = F)\n\n\n# add countries -----------------------------------------------------------\ndf <- read.csv2(\"glottolog.csv\", stringsAsFactors = F)\ncountrydf <- read.csv(\"forkel_countries.tab\", stringsAsFactors = F, sep = \";\", header = F)\nfor (i in 1:8283) {\n  countrydf[i, 1] <- sub(\"\\t\", \";\", countrydf[i, 1])\n}\nwrite.csv(countrydf, \"forkel_countries.csv\", row.names = F)\ncountrydf <- read.csv(\"forkel_countries.csv\", sep = \",\")\ncountrydf <- countrydf[,c(1, 2)]\ncolnames(countrydf) <- c(\"iso\", \"country\")\ncountry <- merge(df, countrydf, by = \"iso\", all = TRUE)\ncountry <- country[complete.cases(country$lang),]\ncountry <- country[,-8]\nwrite.csv2(glottolog, \"glottolog.csv\", row.names = F)\n\nglottolog <- read.csv2(\"glottolog.csv\", stringsAsFactors = F, sep = \"\\t\")\nsetwd(\"/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology\")\nsetwd(\"/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology\")\ndf <- read.csv(\"country.names.csv\", sep = \"\\t\")\ncountries <- df\ndevtools::use_data(glottolog, glottolog, overwrite = T)\ndevtools::use_data(countries, countries, overwrite = T)\n\nsetwd(\"/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology\")\ncircassian <- read.csv(\"adyghe.lat.csv\")\nsetwd(\"/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology\")\ndevtools::use_data(circassian, circassian, overwrite = T)\n",
+    "created" : 1467041339370.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1521255144",
+    "id" : "638862C8",
+    "lastKnownWriteTime" : 1467041821,
+    "last_content_update" : 1467041821037,
+    "path" : "~/_DATA/OneDrive1/_Work/Scripts/_R/data Glottolog/how i get my database.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
