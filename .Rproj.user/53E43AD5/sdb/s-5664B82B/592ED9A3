@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "",
+    "contents" : "df <- data.frame(language = c(\"Adyghe\", \"Kabardian\", \"Polish\", \"Russian\", \"Bulgarian\"),\n                 features = c(\"polysynthetic\", \"polysynthetic\", \"fusional\", \"fusional\", \"fusional\"))\nmap.feature(languages = df$language, features = df$features,\n            title = \"morphological type\")\n",
     "created" : 1467005511098.000,
-    "dirty" : false,
+    "dirty" : true,
     "encoding" : "",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "49689182",
     "id" : "592ED9A3",
     "lastKnownWriteTime" : 0,
-    "last_content_update" : 1467005511098,
+    "last_content_update" : 1467009343118,
     "path" : null,
     "project_path" : null,
     "properties" : {
