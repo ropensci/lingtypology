@@ -5,7 +5,7 @@
 \title{Map a set of linguoids and color them by feature}
 \usage{
 map.feature(languages, features = "none", popup = "", latitude = NULL,
-  longitude = NULL, color = NULL, title = NULL)
+  longitude = NULL, color = NULL, title = NULL, control = TRUE)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -21,6 +21,8 @@ map.feature(languages, features = "none", popup = "", latitude = NULL,
 \item{color}{vector of colors}
 
 \item{title}{of a legend}
+
+\item{control}{logical. If FALSE, function doesn't show layer control buttons.}
 }
 \description{
 Takes any vector of linguoids and return a map.
@@ -50,6 +52,15 @@ map.feature(df$lang, df$feature, df$popup, title = "type of a language")
 
 ## Add your own coordinates
 map.feature("Adyghe", latitude = 43, longitude = 57)
+
+## Add you own colors
+df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+map.feature(df$lang, df$feature, df$popup, color = c("green", "navy"))
+
+## Remove control buttons
+map.feature(lang.aff("Sign"), control = FALSE)
 }
 \author{
 George Moroz <agricolamz@gmail.com>
