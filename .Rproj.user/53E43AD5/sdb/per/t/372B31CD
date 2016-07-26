@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: lingtypology\nType: Package\nTitle: Lingustic Typology and Maping\nVersion: 1.0.0\nDepends: R (>= 2.10)\nImports:\n    leaflet,\n    stats,\n    stringdist\nAuthor: George Moroz <agricolamz@gmail.com>\nMaintainer: George Moroz <agricolamz@gmail.com>\nDescription: This package provides R with the glottolog database (http://glottolog.org/) and some more abilities for purposes of linguistic typology. The glottolog database containes the catalogue of languages of the world. This package helps researchers to make a linguistic maps, using philosophy of the Cross-Linguistic Linked Data project (http://clld.org/), which allows for while at the same time facilitating uniform access to the data across publications. A tutorial for this package is avaliable on GitHub (https://github.com/agricolamz/lingtypology/wiki).\nLicense: GPL (>= 2)\nURL: https://github.com/agricolamz/lingtypology\nLazyData: TRUE\nRoxygenNote: 5.0.1\n",
+    "created" : 1468936506938.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1728340164",
+    "id" : "372B31CD",
+    "lastKnownWriteTime" : 1468936571,
+    "last_content_update" : 1468936571761,
+    "path" : "~/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}
