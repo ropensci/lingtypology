@@ -8,7 +8,7 @@ Get the released version from GitHub:
 
 ```R
 install.packages("devtools")
-devtools::install_github("agricolamz/lingtypology")
+devtools::install_github("agricolamz/lingtypology", dependencies = TRUE)
 ```
 
 Load a library:
