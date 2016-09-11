@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# install.packages(\"devtools\")\n# devtools::install_github(\"agricolamz/lingtypology\", dependencies = TRUE)\nlibrary(lingtypology)\n\nsetwd(\"/home/agricolamz/_DATA/OneDrive1/_Work/Scripts/_R/lingtypology for WALS\")\ndf <- read.csv(\"Dryer, M. S. (2013) Prefixing vs. Suffixing in Inflectional Morphology.tab\", header = T, sep = \"\\t\")\n\nset.seed(2)\nmap.feature(languages = df$name,\n            features = df$description,\n            popup = df$description,\n            latitude = df$latitude,\n            longitude = df$longitude,\n            title = \"Dryer (2013) Prefixing vs. Suffixing\")\n",
+    "created" : 1467814617672.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "638066526",
+    "id" : "C4158959",
+    "lastKnownWriteTime" : 1473335914,
+    "last_content_update" : 1473335914214,
+    "path" : "~/_DATA/OneDrive1/_Work/Scripts/_R/lingtypology for WALS/Dryer, M. S. (2013) Prefixing vs. Suffixing in Inflectional Morphology.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
