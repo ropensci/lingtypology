@@ -4,10 +4,12 @@
 \alias{lang.aff}
 \title{Get languoids by affiliation}
 \usage{
-lang.aff(x)
+lang.aff(x, list = FALSE)
 }
 \arguments{
 \item{x}{A character vector of the affiliations (can be written in lower case)}
+
+\item{list}{logical. If TRUE, returns a list of languoids, if ELSE return a named vector.}
 }
 \description{
 Takes any vector of affiliations and return languoids.

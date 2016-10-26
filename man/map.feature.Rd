@@ -5,7 +5,7 @@
 \title{Map a set of linguoids and color them by feature}
 \usage{
 map.feature(languages, features = "none", popup = "", latitude = NULL,
-  longitude = NULL, color = NULL, title = NULL, control = TRUE)
+  longitude = NULL, color = NULL, title = NULL, control = TRUE, ...)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -23,6 +23,8 @@ map.feature(languages, features = "none", popup = "", latitude = NULL,
 \item{title}{of a legend}
 
 \item{control}{logical. If FALSE, function doesn't show layer control buttons.}
+
+\item{...}{further arguments of leaflet package.}
 }
 \description{
 Takes any vector of linguoids and return a map.

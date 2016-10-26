@@ -9,13 +9,7 @@
 #' @export
 
 aff.lang <- function(x){
-  input <- tolower(x)
-  a <- NA
-  for (i in 1:length(input)) {
-    if (is.glottolog(x[i], response = T) == T) {
-      a <- c(a, glottolog[tolower(glottolog$lang) == input[i],]$affiliation)
-    } else {
-      a <- c(a, NA)
-    }}
-  ret <- a[-1]; ret
-  }
+  sapply(x, function(y){
+    ifelse(is.glottolog(y, response = TRUE) == TRUE,
+           glottolog[tolower(glottolog$lang) == tolower(y),]$affiliation,
+           NA)})}

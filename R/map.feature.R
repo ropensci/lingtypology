@@ -9,6 +9,7 @@
 #' @param color vector of colors
 #' @param title of a legend
 #' @param control logical. If FALSE, function doesn't show layer control buttons.
+#' @param ...	further arguments of leaflet package.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
@@ -54,7 +55,8 @@ map.feature <- function(languages,
                         longitude = NULL,
                         color = NULL,
                         title = NULL,
-                        control = TRUE){
+                        control = TRUE,
+                        ...){
 
   # 23 color set --------------------------------------------------------------
   mycolors <- c("dodgerblue2","#E31A1C", "green4", "#6A3D9A", "#FF7F00", "skyblue2","#FB9A99",  "palegreen2", "#CAB2D6",  "#FDBF6F", "gray70", "khaki2", "maroon","orchid1","deeppink1","blue1","steelblue4", "darkturquoise","green1","yellow4","yellow3", "darkorange4","brown")

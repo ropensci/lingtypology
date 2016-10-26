@@ -18,26 +18,26 @@
 #' @import stringdist
 
 is.glottolog <- function(x, response = FALSE){
-
-  if(response == TRUE) {
+  y <- tolower(x)
 # check whether there are linguoids in database ---------------------------
-  result <- NA
-  for (i in 1:length(x)) {
-    result[i] <- sum(tolower(glottolog$languoid)==tolower(x[i]) | tolower(glottolog$iso)==tolower(x[i])) > 0
-    if (result[i] == FALSE) {
-      cand <- stringdist::stringdist(x[i], glottolog$languoid, method = "lv")
-      candidates <- paste(glottolog[cand == cand[which.min(cand)],]$languoid, collapse = ", ")
-      warning(paste("Languoid ", x[i], " is absent in our database. Did you mean ",
-                    candidates, "?", sep = ""))
-      x <- c(4, 4, 9, 9)
-      x[x == x[which.min(x)]]
-      which.min(x)
-    }
-  }
-} else {
-result <- NA
-  for (i in 1:length(x)) {
-  result[i] <- sum(tolower(glottolog$languoid)==tolower(x[i]) | tolower(glottolog$iso)==tolower(x[i])) > 0
-  }}
-return(result)
+  result <- y %in% tolower(glottolog$languoid)
+  if(response == TRUE){
+    sapply(x[!result], function(z){
+
+# computes pairwise string Levenshtein distance ---------------------------
+      cand <- stringdist::stringdist(tolower(z),
+                                     tolower(glottolog$languoid),
+                                     method = "lv")
+
+# make a string with all candidates ---------------------------------------
+      candidate <- paste(glottolog[cand == cand[which.min(cand)],]$languoid,
+                         collapse = ", ")
+
+# make a warning message --------------------------------------------------
+      warning(paste("Languoid ",
+                    z,
+                    " is absent in our database. Did you mean ",
+                    candidate, "?",
+                    sep = ""))})}
+  return(result)
 }

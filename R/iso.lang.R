@@ -9,14 +9,7 @@
 #' @export
 
 iso.lang <- function(x){
-  input <- tolower(x)
-  a <- NA
-  for (i in 1:length(input)) {
-    a <- c(a, glottolog[tolower(glottolog$languoid) == input[i],]$iso)
-  }
-  ret <- unique(a[complete.cases(a)])
-  if (length(ret) < 1) {
-    warning('There is no such a languoid')
-  } else {
-    if (length(ret) != length(x)) warning('one or more iso-codes are missed')
-    ret}}
+  sapply(x, function(y){
+    ifelse(is.glottolog(y, response = TRUE) == TRUE,
+           glottolog[tolower(glottolog$lang) == tolower(y),]$iso,
+           NA)})}
