@@ -9,7 +9,7 @@ lang.aff(x, list = FALSE)
 \arguments{
 \item{x}{A character vector of the affiliations (can be written in lower case)}
 
-\item{list}{logical. If TRUE, returns a list of languoids, if ELSE return a named vector.}
+\item{list}{logical. If TRUE, returns a list of languoids, if FALSE return a named vector.}
 }
 \description{
 Takes any vector of affiliations and return languoids.
@@ -17,6 +17,7 @@ Takes any vector of affiliations and return languoids.
 \examples{
 lang.aff("Balto-Slavic")
 lang.aff(c("East Slavic", "West Slavic"))
+lang.aff(c("East Slavic", "West Slavic"), list = TRUE)
 }
 \author{
 George Moroz <agricolamz@gmail.com>

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Get languoids by country\n#'\n#' Takes any vector of countries and return languoids.\n#' @param x character vector of the countries (can be written in lower case)\n#' @param list logical. If TRUE, returns a list of languoids, if FALSE return a vector.\n#' @examples\n#' lang.country(\"Bali\")\n#' lang.country(c(\"Bali\", \"Luxembourg\"))\n#' lang.country(c(\"Bali\", \"Luxembourg\"), list = TRUE)\n#' ## What languoids are both in North Korea and in South Korea?\n#' lang.country(\"Korea\")\n#' @author George Moroz <agricolamz@gmail.com>\n#' @export\n\nlang.country <- function(x, list = FALSE){\n  ret <- lapply(x, function(y){\n    cntr <- countries$common[(tolower(countries$common) %in% tolower(y) |\n                                tolower(countries$official) %in% tolower(y) |\n                                tolower(countries$abbreviation) %in% tolower(y))]\n    if(length(cntr) > 0){\n      glottolog[grep(cntr, glottolog$country),]$languoid}\n    else{NA}})\n  if(list == TRUE){\n    return(ret)} else {\n      return(unlist(ret))}}\n",
+    "created" : 1477551931959.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "892271170",
+    "id" : "AE1035C4",
+    "lastKnownWriteTime" : 1477733171,
+    "last_content_update" : 1477733171867,
+    "path" : "~/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/R/lang.country.R",
+    "project_path" : "R/lang.country.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
