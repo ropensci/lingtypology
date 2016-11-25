@@ -3,10 +3,12 @@
 #' Takes any vector of linguoids and return a map.
 #' @param languages character vector of linguoids (can be written in lower case)
 #' @param features character vector of features
+#' @param stroke.features additional independent stroke features
 #' @param popup character vector of strings that will appear in pop-up window
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
 #' @param color vector of colors
+#' @param stroke.color vector of stroke colors
 #' @param title of a legend
 #' @param control logical. If FALSE, function doesn't show layer control buttons.
 #' @param ...	further arguments of leaflet package.
@@ -45,15 +47,22 @@
 #'
 #' ## Remove control buttons
 #' map.feature(lang.aff("Sign"), control = FALSE)
+#'
+#' ## Use strokes for aditional features
+#' map.feature(df$language, features = df$languoid, stroke.features = df$language, latitude = df$latitude, longitude = df$longitude, control = F)
 #' @export
-#' @import leaflet stats
+#' @import leaflet
+#' @import stats
+#' @import grDevices
 
 map.feature <- function(languages,
                         features = "none",
+                        stroke.features = NULL,
                         popup = "",
                         latitude = NULL,
                         longitude = NULL,
                         color = NULL,
+                        stroke.color = NULL,
                         title = NULL,
                         control = TRUE,
                         ...){
@@ -74,6 +83,11 @@ map.feature <- function(languages,
                              popup = popup)
   }
 
+  ifelse(is.null(stroke.features),
+         mapfeat.df,
+         mapfeat.df$stroke.features <- stroke.features)
+
+
   # creat link --------------------------------------------------------------
   mapfeat.df$link <- makelink(as.character(mapfeat.df$languages), popup = mapfeat.df$popup)
 
@@ -88,6 +102,17 @@ map.feature <- function(languages,
     pal <- leaflet::colorFactor(color,
                                 domain = mapfeat.df$features)
   }
+
+  if(!is.null(stroke.features)){
+    mystrokecolors <- grDevices::gray(length(stroke.features):0 / length(stroke.features))
+    if (is.null(stroke.color)) {
+      stroke.pal <- leaflet::colorFactor(mystrokecolors,
+                                domain = mapfeat.df$stroke.features)
+      } else {
+        stroke.pal <- leaflet::colorFactor(stroke.color,
+                                           domain = mapfeat.df$stroke.features)
+        }
+    }
 
   # change feature names ----------------------------------------------------
   levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
@@ -112,6 +137,40 @@ map.feature <- function(languages,
                                 options = layersControlOptions(collapsed = F))
     }
 
+# map: if there are stroke features ---------------------------------------
+  } else if(!is.null(stroke.features)){
+    m <- leaflet::leaflet(mapfeat.df) %>%
+      leaflet::addTiles() %>%
+      leaflet::addCircleMarkers(lng=mapfeat.df$long,
+                                lat=mapfeat.df$lat,
+                                popup= mapfeat.df$link,
+                                stroke = F,
+                                radius = 9.5,
+                                fillOpacity = 1,
+                                color = stroke.pal(mapfeat.df$stroke.features),
+                                group = mapfeat.df$stroke.features) %>%
+      leaflet::addCircleMarkers(lng=mapfeat.df$long,
+                                lat=mapfeat.df$lat,
+                                popup= mapfeat.df$link,
+                                stroke = F,
+                                radius = 5,
+                                fillOpacity = 0.6,
+                                color = pal(mapfeat.df$features),
+                                group = mapfeat.df$features) %>%
+      leaflet::addLegend(title = title,
+                         position = c("bottomleft"),
+                         pal = pal,
+                         values = mapfeat.df$features,
+                         opacity = 1) %>%
+      leaflet::addLegend(title = "",
+                         position = c("bottomleft"),
+                         pal = stroke.pal,
+                         values = mapfeat.df$stroke.features,
+                         opacity = 1)
+    if (control == TRUE) {
+      m <- m  %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
+                                            options = layersControlOptions(collapsed = F))
+    }
     # map: if there are more than one feature -------------------------------------------
   } else{
     m <- leaflet::leaflet(mapfeat.df) %>%

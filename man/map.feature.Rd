@@ -4,13 +4,16 @@
 \alias{map.feature}
 \title{Map a set of linguoids and color them by feature}
 \usage{
-map.feature(languages, features = "none", popup = "", latitude = NULL,
-  longitude = NULL, color = NULL, title = NULL, control = TRUE, ...)
+map.feature(languages, features = "none", stroke.features = NULL,
+  popup = "", latitude = NULL, longitude = NULL, color = NULL,
+  stroke.color = NULL, title = NULL, control = TRUE, ...)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
 
 \item{features}{character vector of features}
+
+\item{stroke.features}{additional independent stroke features}
 
 \item{popup}{character vector of strings that will appear in pop-up window}
 
@@ -19,6 +22,8 @@ map.feature(languages, features = "none", popup = "", latitude = NULL,
 \item{longitude}{numeric vector of longitudes}
 
 \item{color}{vector of colors}
+
+\item{stroke.color}{vector of stroke colors}
 
 \item{title}{of a legend}
 
@@ -63,6 +68,9 @@ map.feature(df$lang, df$feature, df$popup, color = c("green", "navy"))
 
 ## Remove control buttons
 map.feature(lang.aff("Sign"), control = FALSE)
+
+## Use strokes for aditional features
+map.feature(df$language, features = df$languoid, stroke.features = df$language, latitude = df$latitude, longitude = df$longitude, control = F)
 }
 \author{
 George Moroz <agricolamz@gmail.com>

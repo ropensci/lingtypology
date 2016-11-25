@@ -20,6 +20,7 @@
 #'   \item{longitude}{longitude}
 #' }
 #' @source \url{http://glottolog.org/}
+#'
 
 "glottolog"
 

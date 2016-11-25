@@ -13,5 +13,6 @@
 #'   \item{languoid}{names of the Circassian dialects}
 #'   \item{language}{according standard Circassian devision there are Adyghe and Kabardian languages}
 #' }
+#'
 
 "circassian"
