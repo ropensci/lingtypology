@@ -70,7 +70,7 @@ map.feature(df$lang, df$feature, df$popup, color = c("green", "navy"))
 map.feature(lang.aff("Sign"), control = FALSE)
 
 ## Use strokes for aditional features
-map.feature(df$language, features = df$languoid, stroke.features = df$language, latitude = df$latitude, longitude = df$longitude, control = F)
+map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude)
 }
 \author{
 George Moroz <agricolamz@gmail.com>

@@ -49,7 +49,7 @@
 #' map.feature(lang.aff("Sign"), control = FALSE)
 #'
 #' ## Use strokes for aditional features
-#' map.feature(df$language, features = df$languoid, stroke.features = df$language, latitude = df$latitude, longitude = df$longitude, control = F)
+#' map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude)
 #' @export
 #' @import leaflet
 #' @import stats
@@ -108,8 +108,12 @@ map.feature <- function(languages,
     if (is.null(stroke.color)) {
       stroke.pal <- leaflet::colorFactor(mystrokecolors,
                                 domain = mapfeat.df$stroke.features)
+      rev.stroke.pal <- leaflet::colorFactor(rev(mystrokecolors),
+                                         domain = mapfeat.df$stroke.features)
       } else {
         stroke.pal <- leaflet::colorFactor(stroke.color,
+                                           domain = mapfeat.df$stroke.features)
+        rev.stroke.pal <- leaflet::colorFactor(rev(stroke.color),
                                            domain = mapfeat.df$stroke.features)
         }
     }
@@ -145,6 +149,13 @@ map.feature <- function(languages,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
                                 stroke = F,
+                                radius = 11,
+                                fillOpacity = 1,
+                                color = "black") %>%
+      leaflet::addCircleMarkers(lng=mapfeat.df$long,
+                                lat=mapfeat.df$lat,
+                                popup= mapfeat.df$link,
+                                stroke = F,
                                 radius = 9.5,
                                 fillOpacity = 1,
                                 color = stroke.pal(mapfeat.df$stroke.features),
@@ -154,11 +165,19 @@ map.feature <- function(languages,
                                 popup= mapfeat.df$link,
                                 stroke = F,
                                 radius = 5,
+                                fillOpacity = 1,
+                                color = rev.stroke.pal(mapfeat.df$stroke.features),
+                                group = mapfeat.df$stroke.features) %>%
+      leaflet::addCircleMarkers(lng=mapfeat.df$long,
+                                lat=mapfeat.df$lat,
+                                popup= mapfeat.df$link,
+                                stroke = F,
+                                radius = 4,
                                 fillOpacity = 0.6,
                                 color = pal(mapfeat.df$features),
                                 group = mapfeat.df$features) %>%
       leaflet::addLegend(title = title,
-                         position = c("bottomleft"),
+                         position = c("topright"),
                          pal = pal,
                          values = mapfeat.df$features,
                          opacity = 1) %>%
@@ -167,10 +186,6 @@ map.feature <- function(languages,
                          pal = stroke.pal,
                          values = mapfeat.df$stroke.features,
                          opacity = 1)
-    if (control == TRUE) {
-      m <- m  %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
-                                            options = layersControlOptions(collapsed = F))
-    }
     # map: if there are more than one feature -------------------------------------------
   } else{
     m <- leaflet::leaflet(mapfeat.df) %>%
