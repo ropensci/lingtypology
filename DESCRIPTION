@@ -9,7 +9,8 @@ Imports:
     stringdist,
     magrittr,
     htmlwidgets,
-    grDevices
+    grDevices,
+    rowr
 Author: George Moroz <agricolamz@gmail.com>
 Maintainer: George Moroz <agricolamz@gmail.com>
 Description: This package provides R with the glottolog database (http://glottolog.org/) and some more abilities for purposes of linguistic typology. The glottolog database containes the catalogue of languages of the world. This package helps researchers to make a linguistic maps, using philosophy of the Cross-Linguistic Linked Data project (http://clld.org/), which allows for while at the same time facilitating uniform access to the data across publications. A tutorial for this package is avaliable on GitHub (https://github.com/agricolamz/lingtypology/wiki).

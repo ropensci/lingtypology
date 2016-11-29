@@ -54,6 +54,7 @@
 #' @import leaflet
 #' @import stats
 #' @import grDevices
+#' @import rowr
 
 map.feature <- function(languages,
                         features = "none",
@@ -83,16 +84,16 @@ map.feature <- function(languages,
                              popup = popup)
   }
 
-  ifelse(is.null(stroke.features),
-         mapfeat.df,
-         mapfeat.df$stroke.features <- stroke.features)
-
-
   # creat link --------------------------------------------------------------
   mapfeat.df$link <- makelink(as.character(mapfeat.df$languages), popup = mapfeat.df$popup)
 
   # remove any rows with NAs ------------------------------------------------
   mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df),]
+
+  # create a stroke dataframe -----------------------------------------------
+  if(!is.null(stroke.features)){
+    mapfeat.stroke <- rowr::cbind.fill(mapfeat.df[,-2], data.frame(stroke.features))
+    mapfeat.stroke <- mapfeat.stroke[stats::complete.cases(mapfeat.stroke),]}
 
   # creata a pallet ---------------------------------------------------------
   if (is.null(color)) {
@@ -104,24 +105,25 @@ map.feature <- function(languages,
   }
 
   if(!is.null(stroke.features)){
-    mystrokecolors <- grDevices::gray(length(stroke.features):0 / length(stroke.features))
     if (is.null(stroke.color)) {
-      stroke.pal <- leaflet::colorFactor(mystrokecolors,
-                                domain = mapfeat.df$stroke.features)
-      rev.stroke.pal <- leaflet::colorFactor(rev(mystrokecolors),
-                                         domain = mapfeat.df$stroke.features)
+      lev <- nlevels(stroke.features[stats::complete.cases(stroke.features)])
+      strokecolors <- grDevices::gray(lev :0 / lev)
+      stroke.pal <- leaflet::colorFactor(strokecolors,
+                                domain = mapfeat.stroke$stroke.features)
+      rev.stroke.pal <- leaflet::colorFactor(rev(strokecolors),
+                                         domain = mapfeat.stroke$stroke.features)
       } else {
         stroke.pal <- leaflet::colorFactor(stroke.color,
-                                           domain = mapfeat.df$stroke.features)
+                                           domain = mapfeat.stroke$stroke.features)
         rev.stroke.pal <- leaflet::colorFactor(rev(stroke.color),
-                                           domain = mapfeat.df$stroke.features)
+                                           domain = mapfeat.stroke$stroke.features)
         }
     }
 
-  # change feature names ----------------------------------------------------
+# change feature names ----------------------------------------------------
   levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
-  # map: if there are only one feature -------------------------------------------
+# map: if there are only one feature -------------------------------------------
   if (length(table(mapfeat.df$features)) <= 1){
     if (is.null(color)) {
       color <- "blue"
@@ -143,31 +145,31 @@ map.feature <- function(languages,
 
 # map: if there are stroke features ---------------------------------------
   } else if(!is.null(stroke.features)){
-    m <- leaflet::leaflet(mapfeat.df) %>%
+    m <- leaflet::leaflet(mapfeat.stroke) %>%
       leaflet::addTiles() %>%
-      leaflet::addCircleMarkers(lng=mapfeat.df$long,
-                                lat=mapfeat.df$lat,
-                                popup= mapfeat.df$link,
+      leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
+                                lat=mapfeat.stroke$lat,
+                                popup= mapfeat.stroke$link,
                                 stroke = F,
                                 radius = 11,
                                 fillOpacity = 1,
                                 color = "black") %>%
-      leaflet::addCircleMarkers(lng=mapfeat.df$long,
-                                lat=mapfeat.df$lat,
-                                popup= mapfeat.df$link,
+      leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
+                                lat=mapfeat.stroke$lat,
+                                popup= mapfeat.stroke$link,
                                 stroke = F,
                                 radius = 9.5,
                                 fillOpacity = 1,
-                                color = stroke.pal(mapfeat.df$stroke.features),
-                                group = mapfeat.df$stroke.features) %>%
-      leaflet::addCircleMarkers(lng=mapfeat.df$long,
-                                lat=mapfeat.df$lat,
-                                popup= mapfeat.df$link,
+                                color = stroke.pal(mapfeat.stroke$stroke.features),
+                                group = mapfeat.stroke$stroke.features) %>%
+      leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
+                                lat=mapfeat.stroke$lat,
+                                popup= mapfeat.stroke$link,
                                 stroke = F,
                                 radius = 5,
                                 fillOpacity = 1,
-                                color = rev.stroke.pal(mapfeat.df$stroke.features),
-                                group = mapfeat.df$stroke.features) %>%
+                                color = rev.stroke.pal(mapfeat.stroke$stroke.features),
+                                group = mapfeat.stroke$stroke.features) %>%
       leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
@@ -184,7 +186,7 @@ map.feature <- function(languages,
       leaflet::addLegend(title = "",
                          position = c("bottomleft"),
                          pal = stroke.pal,
-                         values = mapfeat.df$stroke.features,
+                         values = mapfeat.stroke$stroke.features,
                          opacity = 1)
     # map: if there are more than one feature -------------------------------------------
   } else{
