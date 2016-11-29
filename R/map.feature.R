@@ -93,6 +93,8 @@ map.feature <- function(languages,
   # create a stroke dataframe -----------------------------------------------
   if(!is.null(stroke.features)){
     mapfeat.stroke <- rowr::cbind.fill(mapfeat.df[,-2], data.frame(stroke.features))
+    mapfeat.stroke$long <- as.numeric(levels(mapfeat.stroke$long))[mapfeat.stroke$long]
+    mapfeat.stroke$lat <- as.numeric(levels(mapfeat.stroke$lat))[mapfeat.stroke$lat]
     mapfeat.stroke <- mapfeat.stroke[stats::complete.cases(mapfeat.stroke),]}
 
   # creata a pallet ---------------------------------------------------------
@@ -164,7 +166,7 @@ map.feature <- function(languages,
                                 group = mapfeat.stroke$stroke.features) %>%
       leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                 lat=mapfeat.stroke$lat,
-                                popup= mapfeat.stroke$link,
+                                popup= mapfeat.df$link,
                                 stroke = F,
                                 radius = 5,
                                 fillOpacity = 1,
