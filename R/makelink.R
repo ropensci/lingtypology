@@ -12,7 +12,7 @@ makelink <- function(x, popup = NULL){
     if (is.glottolog(x[i]) == T) {
       link[i] <- paste(c("<a href='",
                          "http://glottolog.org/resource/languoid/iso/",
-                         glottolog[tolower(glottolog$languoid) == tolower(x[i]),]$iso,
+                         as.character(glottolog[tolower(glottolog$languoid) == tolower(x[i]),]$iso),
                          "' target='_blank'>",
                          x[i],
                          "</a><br>", as.character(popup[i])), sep = "", collapse = "")
