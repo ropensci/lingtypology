@@ -11,6 +11,7 @@
 #' @param stroke.color vector of stroke colors
 #' @param title of a legend
 #' @param control logical. If FALSE, function doesn't show layer control buttons.
+#' @param legend logical. If FALSE, function doesn't show legend.
 #' @param ...	further arguments of leaflet package.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -66,6 +67,7 @@ map.feature <- function(languages,
                         stroke.color = NULL,
                         title = NULL,
                         control = TRUE,
+                        legend = TRUE,
                         ...){
 
   # 23 color set --------------------------------------------------------------
@@ -84,11 +86,11 @@ map.feature <- function(languages,
                              popup = popup)
   }
 
-  # creat link --------------------------------------------------------------
-  mapfeat.df$link <- makelink(as.character(mapfeat.df$languages), popup = mapfeat.df$popup)
-
   # remove any rows with NAs ------------------------------------------------
   mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df),]
+
+  # creat link --------------------------------------------------------------
+  mapfeat.df$link <- makelink(as.character(mapfeat.df$languages), popup = mapfeat.df$popup)
 
   # create a stroke dataframe -----------------------------------------------
   if(!is.null(stroke.features)){
@@ -99,11 +101,11 @@ map.feature <- function(languages,
 
   # creata a pallet ---------------------------------------------------------
   if (is.null(color)) {
-    pal <- leaflet::colorFactor(sample(mycolors, length(unique(mapfeat.df$features))),
+    pal <- leaflet::colorFactor(sample(mycolors, length(unique(mapfeat.df$features)), replace = T),
                                 domain = mapfeat.df$features)
   } else {
     pal <- leaflet::colorFactor(color,
-                                domain = mapfeat.df$features)
+                                domain = mapfeat.df$color)
   }
 
   if(!is.null(stroke.features)){
@@ -179,17 +181,19 @@ map.feature <- function(languages,
                                 radius = 4,
                                 fillOpacity = 0.6,
                                 color = pal(mapfeat.df$features),
-                                group = mapfeat.df$features) %>%
-      leaflet::addLegend(title = title,
-                         position = c("topright"),
-                         pal = pal,
-                         values = mapfeat.df$features,
-                         opacity = 1) %>%
-      leaflet::addLegend(title = "",
-                         position = c("bottomleft"),
-                         pal = stroke.pal,
-                         values = mapfeat.stroke$stroke.features,
-                         opacity = 1)
+                                group = mapfeat.df$features)
+    if (legend == TRUE) {
+      m <- m %>% leaflet::addLegend(title = title,
+                               position = c("topright"),
+                               pal = pal,
+                               values = mapfeat.df$features,
+                               opacity = 1) %>%
+        leaflet::addLegend(title = "",
+                           position = c("bottomleft"),
+                           pal = stroke.pal,
+                           values = mapfeat.stroke$stroke.features,
+                           opacity = 1)
+      }
     # map: if there are more than one feature -------------------------------------------
   } else{
     m <- leaflet::leaflet(mapfeat.df) %>%
@@ -201,16 +205,18 @@ map.feature <- function(languages,
                                 radius = 5,
                                 fillOpacity = 1,
                                 color = pal(mapfeat.df$features),
-                                group = mapfeat.df$features) %>%
-      leaflet::addLegend(title = title,
-                         position = c("bottomleft"),
-                         pal = pal,
-                         values = mapfeat.df$features,
-                         opacity = 1)
+                                group = mapfeat.df$features)
     if (control == TRUE) {
     m <- m  %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
                                           options = layersControlOptions(collapsed = F))
     }
+    if (legend == TRUE) {
+      m <- m  %>% leaflet::addLegend(title = title,
+                                     position = c("bottomleft"),
+                                     pal = pal,
+                                     values = mapfeat.df$features,
+                                     opacity = 1)
+      }
   }
 m
 }
