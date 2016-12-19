@@ -1,3 +1,5 @@
+#' Create a map
+#'
 #' Map a set of linguoids and color them by feature
 #'
 #' Takes any vector of linguoids and return a map.

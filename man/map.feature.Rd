@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.feature.R
 \name{map.feature}
 \alias{map.feature}
-\title{Map a set of linguoids and color them by feature}
+\title{Create a map}
 \usage{
 map.feature(languages, features = "none", stroke.features = NULL,
   popup = "", latitude = NULL, longitude = NULL, color = NULL,
@@ -34,6 +34,9 @@ map.feature(languages, features = "none", stroke.features = NULL,
 \item{...}{further arguments of leaflet package.}
 }
 \description{
+Map a set of linguoids and color them by feature
+}
+\details{
 Takes any vector of linguoids and return a map.
 }
 \examples{
