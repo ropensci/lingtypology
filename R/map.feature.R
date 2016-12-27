@@ -15,6 +15,8 @@
 #' @param control logical. If FALSE, function doesn't show layer control buttons.
 #' @param legend logical. If FALSE, function doesn't show legend.
 #' @param radius a numeric vector of radii for the circles.
+#' @param opacity a numeric vector of marker opacity.
+#' @param stroke.opacity a numeric vector of stroke opacity.
 #' @param ...	further arguments of leaflet package.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -73,6 +75,8 @@ map.feature <- function(languages,
                         legend = TRUE,
                         radius = 5,
                         stroke.radius = 9.5,
+                        opacity = 1,
+                        stroke.opacity = 1,
                         ...){
 
   # 23 color set --------------------------------------------------------------
@@ -145,7 +149,7 @@ map.feature <- function(languages,
                                 stroke = F,
                                 radius = radius,
                                 color = color,
-                                fillOpacity = 1,
+                                fillOpacity = opacity,
                                 group = mapfeat.df$languages)
     if (control == TRUE) {
     m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$languages,
@@ -161,14 +165,14 @@ map.feature <- function(languages,
                                 popup= mapfeat.stroke$link,
                                 stroke = F,
                                 radius = stroke.radius*1.15,
-                                fillOpacity = 1,
+                                fillOpacity = stroke.opacity,
                                 color = "black") %>%
       leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                 lat=mapfeat.stroke$lat,
                                 popup= mapfeat.stroke$link,
                                 stroke = F,
                                 radius = stroke.radius,
-                                fillOpacity = 1,
+                                fillOpacity = stroke.opacity,
                                 color = stroke.pal(mapfeat.stroke$stroke.features),
                                 group = mapfeat.stroke$stroke.features) %>%
       leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
@@ -176,14 +180,14 @@ map.feature <- function(languages,
                                 popup= mapfeat.df$link,
                                 stroke = F,
                                 radius = 1.15*radius,
-                                fillOpacity = 1,
+                                fillOpacity = opacity,
                                 color = rev.stroke.pal(mapfeat.stroke$stroke.features),
                                 group = mapfeat.stroke$stroke.features) %>%
       leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
                                 stroke = F,
-                                radius = radius,
+                                radius = opacity,
                                 fillOpacity = 0.6,
                                 color = pal(mapfeat.df$features),
                                 group = mapfeat.df$features)
@@ -192,7 +196,7 @@ map.feature <- function(languages,
                                position = c("topright"),
                                pal = pal,
                                values = mapfeat.df$features,
-                               opacity = 1) %>%
+                               opacity = opacity) %>%
         leaflet::addLegend(title = "",
                            position = c("bottomleft"),
                            pal = stroke.pal,
@@ -208,7 +212,7 @@ map.feature <- function(languages,
                                 popup= mapfeat.df$link,
                                 stroke = F,
                                 radius = radius,
-                                fillOpacity = 1,
+                                fillOpacity = opacity,
                                 color = pal(mapfeat.df$features),
                                 group = mapfeat.df$features)
     if (control == TRUE) {
@@ -220,7 +224,7 @@ map.feature <- function(languages,
                                      position = c("bottomleft"),
                                      pal = pal,
                                      values = mapfeat.df$features,
-                                     opacity = 1)
+                                     opacity = opacity)
       }
   }
 m
