@@ -7,7 +7,7 @@
 map.feature(languages, features = "none", stroke.features = NULL,
   popup = "", latitude = NULL, longitude = NULL, color = NULL,
   stroke.color = NULL, title = NULL, control = TRUE, legend = TRUE,
-  radius = 5, ...)
+  radius = 5, stroke.radius = 9.5, ...)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
