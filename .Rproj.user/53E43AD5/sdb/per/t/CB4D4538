@@ -1,20 +1,20 @@
 {
     "collab_server" : "",
     "contents" : "library(lingtypology)\nsetwd(\"/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology\")\nwrite.csv(glottolog, \"glottolog.csv\", row.names = F)\nglottolog <- read.csv(\"glottolog.csv\", stringsAsFactors = F)\n\nsetwd(\"/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/data\")\nsave(glottolog, file=\"glottolog.rda\")\n",
-    "created" : 1482813274938.000,
+    "created" : 1482818436428.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "2083124059",
-    "id" : "4DC656EC",
+    "id" : "CB4D4538",
     "lastKnownWriteTime" : 1482813446,
-    "last_content_update" : 1482813446526,
+    "last_content_update" : 1482813446,
     "path" : "~/_DATA/OneDrive1/_Work/github/lingtypology/changes in glottolog.R",
     "project_path" : null,
     "properties" : {
         "tempName" : "Untitled1"
     },
-    "relative_order" : 2,
+    "relative_order" : 1,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

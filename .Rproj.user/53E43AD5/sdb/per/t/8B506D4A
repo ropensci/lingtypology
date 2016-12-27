@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\noutput: html_document\n---\n\n```{r setup, include=FALSE, warning=F}\nknitr::opts_chunk$set(echo=FALSE, message=FALSE)\n```\n\n###  The World Consonant Alternation Database {.tabset .tabset-fade .tabset-pills}\nSome characters may be displayed incorrectly.\n\n#### about database\nHere is a map of the languages from WCAD:\n```{r}\nsetwd(\"/home/agricolamz/_DATA/OneDrive1/_Work/github/wcad\")\nbibliography <- read.csv(\"bibliography.csv\", sep = \"\\t\", na.strings = \"\")\nwwsb <- read.csv(\"database.csv\", sep = \"\\t\", na.strings = \"\")\nnames(wwsb)[2:3] <- c(\"X→\", \"→Y\")\nlibrary(lingtypology)\nmap.feature(unique(bibliography$language), control = F)\n```\n\n#### search\n```{r}\nlibrary(DT)\ndatatable(wwsb, filter = 'top', rownames = FALSE, options = list(dom = 'tip'), escape = FALSE)\n```\n\n#### bibliography\n```{r}\nlibrary(DT)\ndatatable(bibliography, filter = 'top', rownames = FALSE, options = list(autoWidth = FALSE), escape = FALSE)\n```\n",
+    "created" : 1482818711158.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3971315984",
+    "id" : "8B506D4A",
+    "lastKnownWriteTime" : 1482820914,
+    "last_content_update" : 1482820914516,
+    "path" : "~/_DATA/OneDrive1/_Work/github/wcad/README.rmd",
+    "project_path" : null,
+    "properties" : {
+        "last_setup_crc32" : "CFE1D164fd2a02e1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
