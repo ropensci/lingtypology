@@ -6,7 +6,8 @@
 \usage{
 map.feature(languages, features = "none", stroke.features = NULL,
   popup = "", latitude = NULL, longitude = NULL, color = NULL,
-  stroke.color = NULL, title = NULL, control = TRUE, legend = TRUE, ...)
+  stroke.color = NULL, title = NULL, control = TRUE, legend = TRUE,
+  radius = 5, ...)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -30,6 +31,8 @@ map.feature(languages, features = "none", stroke.features = NULL,
 \item{control}{logical. If FALSE, function doesn't show layer control buttons.}
 
 \item{legend}{logical. If FALSE, function doesn't show legend.}
+
+\item{radius}{a numeric vector of radii for the circles.}
 
 \item{...}{further arguments of leaflet package.}
 }

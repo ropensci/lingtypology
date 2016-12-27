@@ -14,6 +14,7 @@
 #' @param title of a legend
 #' @param control logical. If FALSE, function doesn't show layer control buttons.
 #' @param legend logical. If FALSE, function doesn't show legend.
+#' @param radius a numeric vector of radii for the circles.
 #' @param ...	further arguments of leaflet package.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -70,6 +71,7 @@ map.feature <- function(languages,
                         title = NULL,
                         control = TRUE,
                         legend = TRUE,
+                        radius = 5,
                         ...){
 
   # 23 color set --------------------------------------------------------------
@@ -140,7 +142,7 @@ map.feature <- function(languages,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
                                 stroke = F,
-                                radius = 5,
+                                radius = radius,
                                 color = color,
                                 fillOpacity = 1,
                                 group = mapfeat.df$languages)
@@ -204,7 +206,7 @@ map.feature <- function(languages,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
                                 stroke = F,
-                                radius = 5,
+                                radius = radius,
                                 fillOpacity = 1,
                                 color = pal(mapfeat.df$features),
                                 group = mapfeat.df$features)
