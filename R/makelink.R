@@ -7,17 +7,13 @@
 #' @export
 
 makelink <- function(x, popup = NULL){
-  link <- NA
-  for (i in 1:length(x)) {
-    if (is.glottolog(x[i]) == T) {
-      link[i] <- paste(c("<a href='",
-                         "http://glottolog.org/resource/languoid/iso/",
-                         as.character(glottolog[tolower(glottolog$languoid) == tolower(x[i]),]$iso),
-                         "' target='_blank'>",
-                         x[i],
-                         "</a><br>", as.character(popup[i])), sep = "", collapse = "")
-    } else{
-      link[i] <- NA
-    }}
-  link
+  link <- paste("<a href='",
+                "http://glottolog.org/resource/languoid/iso/",
+                glottolog[tolower(glottolog$languoid) %in% tolower(x),]$iso,
+                "' target='_blank'>",
+                as.character(x),
+                "</a><br>",
+                as.character(popup),
+                sep = "")
+  return(link)
 }

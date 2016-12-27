@@ -57,7 +57,7 @@ map.feature(df$lang, df$feature)
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
-map.feature(df$lang, df$feature, df$popup)
+map.feature(df$lang, df$feature, popup = df$popup)
 
 ## Adding title
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
