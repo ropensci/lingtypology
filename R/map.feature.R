@@ -62,8 +62,8 @@
 
 map.feature <- function(languages,
                         features = "none",
-                        stroke.features = NULL,
                         popup = "",
+                        stroke.features = NULL,
                         latitude = NULL,
                         longitude = NULL,
                         color = NULL,

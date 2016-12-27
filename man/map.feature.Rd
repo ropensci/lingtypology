@@ -4,19 +4,19 @@
 \alias{map.feature}
 \title{Create a map}
 \usage{
-map.feature(languages, features = "none", stroke.features = NULL,
-  popup = "", latitude = NULL, longitude = NULL, color = NULL,
-  stroke.color = NULL, title = NULL, control = TRUE, legend = TRUE,
-  radius = 5, stroke.radius = 9.5, ...)
+map.feature(languages, features = "none", popup = "",
+  stroke.features = NULL, latitude = NULL, longitude = NULL,
+  color = NULL, stroke.color = NULL, title = NULL, control = TRUE,
+  legend = TRUE, radius = 5, stroke.radius = 9.5, ...)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
 
 \item{features}{character vector of features}
 
-\item{stroke.features}{additional independent stroke features}
-
 \item{popup}{character vector of strings that will appear in pop-up window}
+
+\item{stroke.features}{additional independent stroke features}
 
 \item{latitude}{numeric vector of latitudes}
 
