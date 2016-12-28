@@ -19,4 +19,7 @@ iso.lang(c("Adyghe", "Udi"))
 \author{
 George Moroz <agricolamz@gmail.com>
 }
+\seealso{
+\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
+}
 

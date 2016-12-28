@@ -35,6 +35,8 @@ map.feature(languages, features = "none", popup = "",
 
 \item{radius}{a numeric vector of radii for the circles.}
 
+\item{stroke.radius}{a numeric vector of stroke radii for the circles.}
+
 \item{opacity}{a numeric vector of marker opacity.}
 
 \item{stroke.opacity}{a numeric vector of stroke opacity.}
@@ -81,15 +83,6 @@ map.feature(df$lang, df$feature, df$popup, color = c("green", "navy"))
 
 ## Remove control buttons
 map.feature(lang.aff("Sign"), control = FALSE)
-
-## Use strokes for aditional features
-map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude)
-
-## Set radii
-map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude, radius = 7, stroke.radius = 13)
-
-## Set opacity
-map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude, opacity = 0.7, stroke.opacity = 0.6)
 
 }
 \author{

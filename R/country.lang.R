@@ -4,6 +4,7 @@
 #' @param x character vector of the languoids (can be written in lower case)
 #' @param intersection logical. If TRUE, function reterns vector of countries, where all languoids from x argument are spoken.
 #' @author George Moroz <agricolamz@gmail.com>
+#' @seealso \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 #' @examples
 #' country.lang("Udi")
 #' country.lang(c("Udi", "Laz"))
@@ -14,7 +15,7 @@
 country.lang <- function(x, intersection = FALSE){
   ret <- sapply(x, function(y){
     ifelse(is.glottolog(y, response = TRUE) == TRUE,
-           glottolog[tolower(glottolog$lang) == tolower(y),]$country,
+           lingtypology::glottolog[tolower(lingtypology::glottolog$lang) == tolower(y),]$country,
            NA)})
   if (intersection == TRUE){
     b <- unlist(strsplit(paste(ret, collapse = ", "), ", "))

@@ -19,4 +19,7 @@ aff.lang(c("Korean", "Polish"))
 \author{
 George Moroz <agricolamz@gmail.com>
 }
+\seealso{
+\code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
+}
 

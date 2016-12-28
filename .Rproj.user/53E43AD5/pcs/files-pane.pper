@@ -3,11 +3,11 @@
     "sortOrder" : [
         {
             "ascending" : true,
-            "columnIndex" : 1
+            "columnIndex" : 2
         },
         {
             "ascending" : true,
-            "columnIndex" : 2
+            "columnIndex" : 1
         }
     ]
 }

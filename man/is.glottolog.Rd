@@ -22,7 +22,7 @@ is.glottolog(c("Adyge", "Russian"), response = TRUE)
 # > FALSE TRUE
 # Warning message:
 # In is.glottolog(c("Adyge", "Russian"), response = TRUE) :
-# Languoid Russsian is absent in our database. Did you mean Aduge, Adyghe?
+# Languoid Adyge is absent in our database. Did you mean Aduge, Adyghe?
 
 }
 \author{

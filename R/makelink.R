@@ -9,7 +9,7 @@
 makelink <- function(x, popup = NULL){
   link <- paste("<a href='",
                 "http://glottolog.org/resource/languoid/iso/",
-                glottolog[tolower(glottolog$languoid) %in% tolower(x),]$iso,
+                lingtypology::glottolog[tolower(lingtypology::glottolog$languoid) %in% tolower(x),]$iso,
                 "' target='_blank'>",
                 as.character(x),
                 "</a><br>",

@@ -22,4 +22,7 @@ country.lang(c("Udi", "Laz"), intersection = TRUE)
 \author{
 George Moroz <agricolamz@gmail.com>
 }
+\seealso{
+\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
+}
 

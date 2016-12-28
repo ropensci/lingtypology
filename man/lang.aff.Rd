@@ -22,4 +22,7 @@ lang.aff(c("East Slavic", "West Slavic"), list = TRUE)
 \author{
 George Moroz <agricolamz@gmail.com>
 }
+\seealso{
+\code{\link{lang.country}}, \code{\link{lang.iso}}
+}
 

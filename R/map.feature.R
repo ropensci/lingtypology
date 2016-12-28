@@ -15,6 +15,7 @@
 #' @param control logical. If FALSE, function doesn't show layer control buttons.
 #' @param legend logical. If FALSE, function doesn't show legend.
 #' @param radius a numeric vector of radii for the circles.
+#' @param stroke.radius a numeric vector of stroke radii for the circles.
 #' @param opacity a numeric vector of marker opacity.
 #' @param stroke.opacity a numeric vector of stroke opacity.
 #' @param ...	further arguments of leaflet package.
@@ -54,15 +55,6 @@
 #' ## Remove control buttons
 #' map.feature(lang.aff("Sign"), control = FALSE)
 #'
-#' ## Use strokes for aditional features
-#' map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude)
-#'
-#' ## Set radii
-#' map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude, radius = 7, stroke.radius = 13)
-#'
-#' ## Set opacity
-#' map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude, opacity = 0.7, stroke.opacity = 0.6)
-#'
 #' @export
 #' @import leaflet
 #' @import stats
@@ -86,6 +78,7 @@ map.feature <- function(languages,
                         stroke.opacity = 1,
                         ...){
 
+  if(sum(is.glottolog(languages, response = T)) == 0){stop("There is no data to map")}
   # 23 color set --------------------------------------------------------------
   mycolors <- c("dodgerblue2","#E31A1C", "green4", "#6A3D9A", "#FF7F00", "skyblue2","#FB9A99",  "palegreen2", "#CAB2D6",  "#FDBF6F", "gray70", "khaki2", "maroon","orchid1","deeppink1","blue1","steelblue4", "darkturquoise","green1","yellow4","yellow3", "darkorange4","brown")
 
