@@ -56,6 +56,13 @@
 #'
 #' ## Use strokes for aditional features
 #' map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude)
+#'
+#' ## Set radii
+#' map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude, radius = 7, stroke.radius = 13)
+#'
+#' ## Set opacity
+#' map.feature(circassian$language, features = circassian$languoid, stroke.features = circassian$language, latitude = circassian$latitude, longitude = circassian$longitude, opacity = 0.7, stroke.opacity = 0.6)
+#'
 #' @export
 #' @import leaflet
 #' @import stats
@@ -187,8 +194,8 @@ map.feature <- function(languages,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
                                 stroke = F,
-                                radius = opacity,
-                                fillOpacity = 0.6,
+                                radius = radius,
+                                fillOpacity = opacity,
                                 color = pal(mapfeat.df$features),
                                 group = mapfeat.df$features)
     if (legend == TRUE) {
