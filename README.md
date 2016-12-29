@@ -4,8 +4,11 @@
 
 ## Installation
 
-Get the released version from GitHub:
-
+Get the stable version from CRAN:
+```R
+install.packages("lingtypology")
+```
+… or get the development version from GitHub:
 ```R
 install.packages("devtools")
 devtools::install_github("agricolamz/lingtypology", dependencies = TRUE)

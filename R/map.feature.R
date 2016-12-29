@@ -60,6 +60,8 @@
 #' @import stats
 #' @import grDevices
 #' @import rowr
+#' @import magrittr
+#'
 
 map.feature <- function(languages,
                         features = "none",
