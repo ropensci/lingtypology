@@ -6,9 +6,9 @@
 \usage{
 map.feature(languages, features = "none", popup = "",
   stroke.features = NULL, latitude = NULL, longitude = NULL,
-  color = NULL, stroke.color = NULL, title = NULL, control = TRUE,
-  legend = TRUE, radius = 5, stroke.radius = 9.5, opacity = 1,
-  stroke.opacity = 1, ...)
+  color = NULL, stroke.color = NULL, title = NULL, stroke.title = NULL,
+  control = TRUE, legend = TRUE, stroke.legend = TRUE, radius = 5,
+  stroke.radius = 9.5, opacity = 1, stroke.opacity = 1, ...)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -29,9 +29,13 @@ map.feature(languages, features = "none", popup = "",
 
 \item{title}{of a legend}
 
+\item{stroke.title}{title of a stroke.legend}
+
 \item{control}{logical. If FALSE, function doesn't show layer control buttons.}
 
 \item{legend}{logical. If FALSE, function doesn't show legend.}
+
+\item{stroke.legend}{logical. If FALSE, function doesn't show stroke.legend.}
 
 \item{radius}{a numeric vector of radii for the circles.}
 

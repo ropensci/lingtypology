@@ -1,0 +1,3 @@
+"0","my.data <- data.frame(language = c(""Chamalal"", ""Tsez"", ""Chechen"", ""Lak""),"
+"0","                   feature = c(""a"", ""b"", ""b"", ""c""))"
+"0","head(my.data)"

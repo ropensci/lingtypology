@@ -12,8 +12,10 @@
 #' @param color vector of colors
 #' @param stroke.color vector of stroke colors
 #' @param title of a legend
+#' @param stroke.title title of a stroke.legend
 #' @param control logical. If FALSE, function doesn't show layer control buttons.
 #' @param legend logical. If FALSE, function doesn't show legend.
+#' @param stroke.legend logical. If FALSE, function doesn't show stroke.legend.
 #' @param radius a numeric vector of radii for the circles.
 #' @param stroke.radius a numeric vector of stroke radii for the circles.
 #' @param opacity a numeric vector of marker opacity.
@@ -72,8 +74,10 @@ map.feature <- function(languages,
                         color = NULL,
                         stroke.color = NULL,
                         title = NULL,
+                        stroke.title = NULL,
                         control = TRUE,
                         legend = TRUE,
+                        stroke.legend = TRUE,
                         radius = 5,
                         stroke.radius = 9.5,
                         opacity = 1,
@@ -198,12 +202,17 @@ map.feature <- function(languages,
                                position = c("topright"),
                                pal = pal,
                                values = mapfeat.df$features,
-                               opacity = opacity) %>%
-        leaflet::addLegend(title = "",
+                               opacity = opacity)}
+    if (stroke.legend == TRUE) {
+      m <- m %>% leaflet::addLegend(title = stroke.title,
                            position = c("bottomleft"),
                            pal = stroke.pal,
                            values = mapfeat.stroke$stroke.features,
                            opacity = 1)
+    if (control == TRUE) {
+      m <- m  %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
+                                              options = layersControlOptions(collapsed = F))
+    }
       }
     # map: if there are more than one feature -------------------------------------------
   } else{

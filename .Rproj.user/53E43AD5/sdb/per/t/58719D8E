@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Инструкция по созданию карт для дагестанского атласа\"\nauthor: \"G. Moroz\"\ndate: '30 декабря 2016 г '\noutput: html_document\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\n\nДанный текст является инструкцией для построения карт для [дагестанского атласа](http://dagatlas.hol.es/).\n\nНам понадобяться библиотеки\n```{r}\nlibrary(lingtypology); library(leaflet); library(dplyr)\n```\nЕсли у Вас еще не установлен пакет `lingtypology`, следуйте указаниям [отсюда](https://github.com/agricolamz/lingtypology#lingtypology). Все мои действия происходят с версией пакета 1.0.1\n\n## Данные\nВ данной инструкции мы будем использовать искусственные данные:\n```{r}\nmy.data <- data.frame(language = c(\"Chamalal\", \"Tsez\", \"Chechen\", \"Lak\"),\n                   feature = c(\"a\", \"b\", \"b\", \"c\"))\nhead(my.data)\n```\nВы можете загрузить создать подобный файл у себя на компьютере и загрузить .csv\n\nКроме того нам нужен файл [Dagestanian_atlas.csv](http://web-corpora.net/~agricolamz/talks/16.12.30%20Atlas/Dagestanian_atlas.csv), который следует скачать, положить в рабочую деректорию и загрузить в рабочее пространство.\n```{r}\nvillages <- read.csv(\"Dagestanian_atlas.csv\", stringsAsFactors = F, sep = \";\")\nhead(villages)\n```\n\n\n## WALS style\nПакет `lingtypology` рисует карты WALS-style при помощи базы данных [Glottolog](http://glottolog.org/). Здесь я не буду описывать возможности пакета, подробнее смотрите [здесь](https://github.com/agricolamz/lingtypology/wiki). Сделаем преобразование таблицы:\n```{r}\n#data.frame with a languages\ncauc_lang <- unique(villages[,c(2,6)])\n# join\nwals_df <- left_join(cauc_lang, my.data)\nhead(wals_df)\n```\nМы видим, что последний столбец нашего датафрейма теперь содержит значения feature, а пропуски заполнены `NA`. Построим карту:\n```{r}\nmap.feature(languages = wals_df$language,\n            features = wals_df$language,\n            stroke.features = wals_df$feature,\n            color = wals_df$color,\n            legend = F, # иначе появится слишком большая легенда\n            control = F) # иначе появится слишком большая панель контроля\n```\nНа данной карте языки обозначены тем же цветом, что и во всем Дагесатнском атласе, а обводка появилась только у тех языков, которые имели признак в нашей переменной `my.data`.\n\n## All villages\nОбъединим данные:\n```{r}\nfinal_df <- left_join(villages, my.data)\nhead(final_df)\n```\nМы видим, что последний столбец нашего датафрейма теперь содержит значения feature, а пропуски заполнены `NA`.\n```{r}\nmap.feature(languages = final_df$language,\n            features = final_df$language,\n            latitude = final_df$latitude,\n            longitude = final_df$longitude,\n            stroke.features = final_df$feature,\n            color = final_df$color,\n            legend = F, # иначе появится слишком большая легенда\n            control = F) # иначе появится слишком большая панель контроля\n```\n",
+    "created" : 1483100430411.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2857019080",
+    "id" : "58719D8E",
+    "lastKnownWriteTime" : 1483104567,
+    "last_content_update" : 1483104567102,
+    "path" : "~/_DATA/OneDrive1/_Work/Atlas.of.Caucasian.Languages/Dagestanian.atlas/data/instruction/instruction.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "last_setup_crc32" : "",
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
