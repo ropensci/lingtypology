@@ -106,13 +106,13 @@ map.feature <- function(languages,
   # create a stroke dataframe -----------------------------------------------
   if(!is.null(stroke.features)){
     mapfeat.stroke <- rowr::cbind.fill(mapfeat.df[,-2], data.frame(stroke.features))
-    mapfeat.stroke$long <- as.numeric(levels(mapfeat.stroke$long))[mapfeat.stroke$long]
-    mapfeat.stroke$lat <- as.numeric(levels(mapfeat.stroke$lat))[mapfeat.stroke$lat]
-    mapfeat.stroke <- mapfeat.stroke[stats::complete.cases(mapfeat.stroke),]}
+    mapfeat.stroke <- mapfeat.stroke[stats::complete.cases(mapfeat.stroke),]
+    }
 
   # creata a pallet ---------------------------------------------------------
+  replase_argument <- length(mapfeat.df$features) < length(mycolors)
   if (is.null(color)) {
-    pal <- leaflet::colorFactor(sample(mycolors, length(unique(mapfeat.df$features)), replace = T),
+    pal <- leaflet::colorFactor(sample(mycolors, length(unique(mapfeat.df$features)), replace = replase_argument),
                                 domain = mapfeat.df$features)
   } else {
     pal <- leaflet::colorFactor(color,
