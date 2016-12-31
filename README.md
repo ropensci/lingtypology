@@ -19,4 +19,4 @@ Load a library:
 library(lingtypology)
 ```
 
-For a detailed tutorial see [GitHub wiki](https://github.com/agricolamz/lingtypology/wiki).
+For a detailed tutorial see [GitHub pages](https://agricolamz.github.io/lingtypology/).

@@ -103,15 +103,10 @@ map.feature(circassian$language,
             control = FALSE)
 
 ## ---- message= F, fig.width=6.2------------------------------------------
-library(dplyr)
 # create newfeature variable
-newfeature <- circassian
+newfeature <- circassian[,c(5,6)]
 # set language feature of the Baksan villages to NA and reduce newfeature from dataframe to vector
-newfeature %>% 
-  mutate(language = replace(language, languoid == "Baksan", NA)) %>% 
-  select(language) %>% 
-  unlist() ->
-  newfeature
+newfeature <-  replace(newfeature$language, newfeature$languoid == "Baksan", NA)
 # create a map
 set.seed(7)
 map.feature(circassian$language,
