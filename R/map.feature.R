@@ -12,10 +12,10 @@
 #' @param color vector of colors
 #' @param stroke.color vector of stroke colors
 #' @param title of a legend
-#' @param stroke.title title of a stroke.legend
-#' @param control logical. If FALSE, function doesn't show layer control buttons.
-#' @param legend logical. If FALSE, function doesn't show legend.
-#' @param stroke.legend logical. If FALSE, function doesn't show stroke.legend.
+#' @param stroke.title title of a stroke-feature legend
+#' @param control logical. If TRUE, function show layer control buttons. By default is TRUE.
+#' @param legend logical. If FALSE, function doesn't show legend. By default is FALSE.
+#' @param stroke.legend logical. If FALSE, function doesn't show stroke.legend.By default is FALSE.
 #' @param radius a numeric vector of radii for the circles.
 #' @param stroke.radius a numeric vector of stroke radii for the circles.
 #' @param opacity a numeric vector of marker opacity.
@@ -24,6 +24,12 @@
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
+#'
+#' ## All Sign languages
+#' map.feature(lang.aff("Sign"))
+#'
+#' ## Add control buttons
+#' map.feature(c("Adyghe", "Russian"), control = TRUE)
 #'
 #' ## Map all Slavic languages
 #' map.feature(lang.aff(c("Slavic")))
@@ -54,9 +60,6 @@
 #' popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 #' map.feature(df$lang, df$feature, df$popup, color = c("green", "navy"))
 #'
-#' ## Remove control buttons
-#' map.feature(lang.aff("Sign"), control = FALSE)
-#'
 #' @export
 #' @import leaflet
 #' @import stats
@@ -75,7 +78,7 @@ map.feature <- function(languages,
                         stroke.color = NULL,
                         title = NULL,
                         stroke.title = NULL,
-                        control = TRUE,
+                        control = FALSE,
                         legend = TRUE,
                         stroke.legend = TRUE,
                         radius = 5,

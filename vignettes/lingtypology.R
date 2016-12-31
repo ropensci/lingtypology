@@ -91,7 +91,9 @@ map.feature(languages = df$language,
             color = c("yellowgreen", "navy"))
 
 ## ---- fig.width=6.2------------------------------------------------------
-map.feature(lang.aff("Sign Language"), control = FALSE)
+map.feature(languages = df$language,
+            features = df$features,
+            control = TRUE)
 
 ## ---- fig.width=6.2------------------------------------------------------
 set.seed(7)
@@ -99,8 +101,7 @@ map.feature(circassian$language,
             features = circassian$languoid,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
-            longitude = circassian$longitude,
-            control = FALSE)
+            longitude = circassian$longitude)
 
 ## ---- message= F, fig.width=6.2------------------------------------------
 # create newfeature variable
@@ -113,8 +114,7 @@ map.feature(circassian$language,
             features = circassian$languoid, 
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            stroke.features = newfeature,
-            control = FALSE)
+            stroke.features = newfeature)
 
 ## ---- fig.width=6.2------------------------------------------------------
 set.seed(7)
@@ -123,7 +123,6 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            control = FALSE,
             radius = 7, stroke.radius = 13)
 
 set.seed(7)
@@ -132,7 +131,6 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            control = FALSE,
             opacity = 0.7, stroke.opacity = 0.6)
 
 ## ---- fig.width=6.2------------------------------------------------------
@@ -142,7 +140,6 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            control = FALSE,
             legend = FALSE, stroke.legend = TRUE)
 
 set.seed(7)
@@ -151,7 +148,6 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            control = FALSE,
             title = "Circassian dialects", stroke.title = "Languages")
 
 ## ---- fig.width=6.2------------------------------------------------------

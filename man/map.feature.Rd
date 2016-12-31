@@ -7,7 +7,7 @@
 map.feature(languages, features = "none", popup = "",
   stroke.features = NULL, latitude = NULL, longitude = NULL,
   color = NULL, stroke.color = NULL, title = NULL, stroke.title = NULL,
-  control = TRUE, legend = TRUE, stroke.legend = TRUE, radius = 5,
+  control = FALSE, legend = TRUE, stroke.legend = TRUE, radius = 5,
   stroke.radius = 9.5, opacity = 1, stroke.opacity = 1, ...)
 }
 \arguments{
@@ -29,13 +29,13 @@ map.feature(languages, features = "none", popup = "",
 
 \item{title}{of a legend}
 
-\item{stroke.title}{title of a stroke.legend}
+\item{stroke.title}{title of a stroke-feature legend}
 
-\item{control}{logical. If FALSE, function doesn't show layer control buttons.}
+\item{control}{logical. If TRUE, function show layer control buttons. By default is TRUE.}
 
-\item{legend}{logical. If FALSE, function doesn't show legend.}
+\item{legend}{logical. If FALSE, function doesn't show legend. By default is FALSE.}
 
-\item{stroke.legend}{logical. If FALSE, function doesn't show stroke.legend.}
+\item{stroke.legend}{logical. If FALSE, function doesn't show stroke.legend.By default is FALSE.}
 
 \item{radius}{a numeric vector of radii for the circles.}
 
@@ -55,6 +55,12 @@ Takes any vector of linguoids and return a map.
 }
 \examples{
 map.feature(c("Adyghe", "Russian"))
+
+## All Sign languages
+map.feature(lang.aff("Sign"))
+
+## Add control buttons
+map.feature(c("Adyghe", "Russian"), control = TRUE)
 
 ## Map all Slavic languages
 map.feature(lang.aff(c("Slavic")))
@@ -84,9 +90,6 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, df$popup, color = c("green", "navy"))
-
-## Remove control buttons
-map.feature(lang.aff("Sign"), control = FALSE)
 
 }
 \author{

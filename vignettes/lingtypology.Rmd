@@ -187,13 +187,13 @@ map.feature(languages = df$language,
 ```
 
 ### 3.6 Set control box
-The automatically generated control box that allows users to toggle the visibility of points and features can become inconvenient when there is a large amount of features on the map. To disable it there is an argument  `control` in the `map.feature` function:
+Package can generate the automatically generated control box that allows users to toggle the visibility of points and feature. To anable it there is an argument  `control` in the `map.feature` function:
 
 ```{r, fig.width=6.2}
-map.feature(lang.aff("Sign Language"), control = FALSE)
+map.feature(languages = df$language,
+            features = df$features,
+            control = TRUE)
 ```
-
-To disable the automatically generated legend there is an argument  `legend` in the `map.feature` function that can be set to `FALSE`.
 
 ### 3.7 Set an additional set of features using strokes
 The `map.feature` function has an additional argument `stroke.features`. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so for two levels it will be black and white, for three --- black, grey, white end so on), but users can set their own colors using the argument `stroke.color`:
@@ -203,8 +203,7 @@ map.feature(circassian$language,
             features = circassian$languoid,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
-            longitude = circassian$longitude,
-            control = FALSE)
+            longitude = circassian$longitude)
 ```
 
 It is important to note that `stroke.features` can work with `NA` values. The function won't plot anything if there is an `NA` value. Let's set a language value to `NA` in all Baksan villages from the `circassian` dataset
@@ -219,8 +218,7 @@ map.feature(circassian$language,
             features = circassian$languoid, 
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            stroke.features = newfeature,
-            control = FALSE)
+            stroke.features = newfeature)
 ```
 
 ### 3.8 Set radii and an opacity feature
@@ -232,7 +230,6 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            control = FALSE,
             radius = 7, stroke.radius = 13)
 
 set.seed(7)
@@ -241,7 +238,6 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            control = FALSE,
             opacity = 0.7, stroke.opacity = 0.6)
 ```
 
@@ -254,7 +250,6 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            control = FALSE,
             legend = FALSE, stroke.legend = TRUE)
 
 set.seed(7)
@@ -263,7 +258,6 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            control = FALSE,
             title = "Circassian dialects", stroke.title = "Languages")
 ```
 
