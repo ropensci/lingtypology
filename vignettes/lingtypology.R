@@ -54,10 +54,6 @@ set.seed(40)
 map.feature(df$language, df$features)
 
 ## ---- fig.width=6.2------------------------------------------------------
-set.seed(40)
-map.feature(df$language, df$features, title = "morphological type")
-
-## ---- fig.width=6.2------------------------------------------------------
 df$popup <- aff.lang(df$language)
 
 ## ---- fig.width=6.2------------------------------------------------------
@@ -103,7 +99,8 @@ map.feature(circassian$language,
             features = circassian$languoid,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
-            longitude = circassian$longitude)
+            longitude = circassian$longitude,
+            control = FALSE)
 
 ## ---- message= F, fig.width=6.2------------------------------------------
 library(dplyr)
@@ -121,7 +118,8 @@ map.feature(circassian$language,
             features = circassian$languoid, 
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            stroke.features = newfeature)
+            stroke.features = newfeature,
+            control = FALSE)
 
 ## ---- fig.width=6.2------------------------------------------------------
 set.seed(7)
@@ -130,6 +128,7 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
+            control = FALSE,
             radius = 7, stroke.radius = 13)
 
 set.seed(7)
@@ -138,14 +137,34 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
+            control = FALSE,
             opacity = 0.7, stroke.opacity = 0.6)
 
 ## ---- fig.width=6.2------------------------------------------------------
-library(leaflet) # for correct work of %>% operator
+set.seed(7)
+map.feature(circassian$language,
+            features = circassian$languoid,
+            stroke.features = circassian$language,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            control = FALSE,
+            legend = FALSE, stroke.legend = TRUE)
+
+set.seed(7)
+map.feature(circassian$language,
+            features = circassian$languoid,
+            stroke.features = circassian$language,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            control = FALSE,
+            title = "Circassian dialects", stroke.title = "Languages")
+
+## ---- fig.width=6.2------------------------------------------------------
+library(leaflet) # for correct work ofaddProviderTiles()
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
-set.seed(7)
+set.seed(11)
 map.feature(df$lang, df$feature, df$popup) %>% 
 addProviderTiles("Stamen.Toner")
 

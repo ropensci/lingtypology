@@ -136,12 +136,6 @@ map.feature(df$language, df$features)
 ```
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
-There is a `title` argument for adding a title to the legend:
-```{r, fig.width=6.2}
-set.seed(40)
-map.feature(df$language, df$features, title = "morphological type")
-```
-
 ### 3.3 Set pop-up boxes
 Sometimes it is a good idea to add some additional information to pop-up boxes, e.g. language affiliation,  references or even examples. In order to do so, first of all we need to create an extra vector of strings in our dataframe:
 ```{r, fig.width=6.2}
@@ -192,7 +186,7 @@ map.feature(languages = df$language,
             color = c("yellowgreen", "navy"))
 ```
 
-### 3.6 Set control box and legend
+### 3.6 Set control box
 The automatically generated control box that allows users to toggle the visibility of points and features can become inconvenient when there is a large amount of features on the map. To disable it there is an argument  `control` in the `map.feature` function:
 
 ```{r, fig.width=6.2}
@@ -209,7 +203,8 @@ map.feature(circassian$language,
             features = circassian$languoid,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
-            longitude = circassian$longitude)
+            longitude = circassian$longitude,
+            control = FALSE)
 ```
 
 It is important to note that `stroke.features` can work with `NA` values. The function won't plot anything if there is an `NA` value. Let's set a language value to `NA` in all Baksan villages from the `circassian` dataset
@@ -229,10 +224,11 @@ map.feature(circassian$language,
             features = circassian$languoid, 
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            stroke.features = newfeature)
+            stroke.features = newfeature,
+            control = FALSE)
 ```
 
-### 3.8 Set radius and opacity
+### 3.8 Set radii and an opacity feature
 All markers have their own radius and opacity, so it can be set by users. Just use arguments `radius`, `stroke.radius`, `opacity` and `stroke.opacity`:
 ```{r, fig.width=6.2}
 set.seed(7)
@@ -241,6 +237,7 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
+            control = FALSE,
             radius = 7, stroke.radius = 13)
 
 set.seed(7)
@@ -249,17 +246,40 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
+            control = FALSE,
             opacity = 0.7, stroke.opacity = 0.6)
 ```
 
-### 3.9 Set layouts and other leaflet features
+### 3.9 Customizing legends
+By default legend appear in the left bottom corner. If there are stroke features, two legends are generated. There are additional arguments that control appearence and title of the legends.
+```{r, fig.width=6.2}
+set.seed(7)
+map.feature(circassian$language,
+            features = circassian$languoid,
+            stroke.features = circassian$language,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            control = FALSE,
+            legend = FALSE, stroke.legend = TRUE)
+
+set.seed(7)
+map.feature(circassian$language,
+            features = circassian$languoid,
+            stroke.features = circassian$language,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            control = FALSE,
+            title = "Circassian dialects", stroke.title = "Languages")
+```
+
+### 3.10 Set layouts and other leaflet features
 Since the `lingtypology` package is based on the [`leaflet` package](https://rstudio.github.io/leaflet/), it is possible to add some map features from that package using the magrittr pipe operator (`%>%`). For example many popular base-maps can be added using the `addProviderTiles()` function from the [`leaflet` package](https://rstudio.github.io/leaflet/) ([here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html) is the complete set of base-maps).
 ```{r, fig.width=6.2}
-library(leaflet) # for correct work of %>% operator
+library(leaflet) # for correct work ofaddProviderTiles()
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
-set.seed(7)
+set.seed(11)
 map.feature(df$lang, df$feature, df$popup) %>% 
 addProviderTiles("Stamen.Toner")
 ```

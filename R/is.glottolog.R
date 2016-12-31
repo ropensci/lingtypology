@@ -16,6 +16,7 @@
 #'
 #' @export
 #' @import stringdist
+#'
 
 is.glottolog <- function(x, response = FALSE){
   y <- tolower(x)

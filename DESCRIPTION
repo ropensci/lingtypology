@@ -8,8 +8,6 @@ Imports:
     stats,
     stringdist,
     magrittr,
-    dplyr,
-    htmlwidgets,
     grDevices,
     rowr
 Author: George Moroz
