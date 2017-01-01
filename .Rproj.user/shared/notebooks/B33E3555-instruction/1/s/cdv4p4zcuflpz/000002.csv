@@ -1,2 +1,0 @@
-"0","villages <- read.csv(""Dagestanian_atlas.csv"", stringsAsFactors = F, sep = "";"")"
-"0","head(villages)"

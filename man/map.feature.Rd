@@ -27,15 +27,15 @@ map.feature(languages, features = "none", popup = "",
 
 \item{stroke.color}{vector of stroke colors}
 
-\item{title}{of a legend}
+\item{title}{title of a legend}
 
 \item{stroke.title}{title of a stroke-feature legend}
 
 \item{control}{logical. If TRUE, function show layer control buttons. By default is TRUE.}
 
-\item{legend}{logical. If FALSE, function doesn't show legend. By default is FALSE.}
+\item{legend}{logical. If TRUE, function show legend. By default is FALSE.}
 
-\item{stroke.legend}{logical. If FALSE, function doesn't show stroke.legend.By default is FALSE.}
+\item{stroke.legend}{logical. If TRUE, function show stroke.legend.By default is FALSE.}
 
 \item{radius}{a numeric vector of radii for the circles.}
 
@@ -48,10 +48,7 @@ map.feature(languages, features = "none", popup = "",
 \item{...}{further arguments of leaflet package.}
 }
 \description{
-Map a set of linguoids and color them by feature
-}
-\details{
-Takes any vector of linguoids and return a map.
+Map a set of linguoids and color them by feature or two sets of features.
 }
 \examples{
 map.feature(c("Adyghe", "Russian"))
@@ -59,27 +56,29 @@ map.feature(c("Adyghe", "Russian"))
 ## All Sign languages
 map.feature(lang.aff("Sign"))
 
-## Add control buttons
-map.feature(c("Adyghe", "Russian"), control = TRUE)
-
 ## Map all Slavic languages
 map.feature(lang.aff(c("Slavic")))
+
+## Add control buttons
+map.feature(c("Adyghe", "Russian"), control = TRUE)
 
 ## Color linguoids by feature
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"))
 map.feature(df$lang, df$feature)
+## ... or add a control buttons for features
+map.feature(df$lang, df$feature, control = TRUE)
 
 ## Adding pop-up
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, df$popup)
 
 ## Adding title
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, df$popup, title = "type of a language")
 
 ## Add your own coordinates
@@ -88,8 +87,15 @@ map.feature("Adyghe", latitude = 43, longitude = 57)
 ## Add you own colors
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, df$popup, color = c("green", "navy"))
+
+## Map two sets of features
+df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
+map.feature(df$lang, df$feature, df$popup,
+stroke.features = df$popup)
 
 }
 \author{

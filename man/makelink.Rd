@@ -9,10 +9,10 @@ makelink(x, popup = NULL)
 \arguments{
 \item{x}{A character vector of linguoids (can be written in lower case)}
 
-\item{popup}{character vector of strings that will appear in pop-up window}
+\item{popup}{character vector of strings that will appear in pop-up window of the function map.feature}
 }
 \description{
-Takes any vector of linguoids and return links.
+Takes any vector of linguoids and return links to glottolog pages.
 }
 \author{
 George Moroz <agricolamz@gmail.com>

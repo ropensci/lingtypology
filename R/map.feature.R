@@ -1,8 +1,7 @@
 #' Create a map
 #'
-#' Map a set of linguoids and color them by feature
+#' Map a set of linguoids and color them by feature or two sets of features.
 #'
-#' Takes any vector of linguoids and return a map.
 #' @param languages character vector of linguoids (can be written in lower case)
 #' @param features character vector of features
 #' @param stroke.features additional independent stroke features
@@ -11,11 +10,11 @@
 #' @param longitude numeric vector of longitudes
 #' @param color vector of colors
 #' @param stroke.color vector of stroke colors
-#' @param title of a legend
+#' @param title title of a legend
 #' @param stroke.title title of a stroke-feature legend
 #' @param control logical. If TRUE, function show layer control buttons. By default is TRUE.
-#' @param legend logical. If FALSE, function doesn't show legend. By default is FALSE.
-#' @param stroke.legend logical. If FALSE, function doesn't show stroke.legend.By default is FALSE.
+#' @param legend logical. If TRUE, function show legend. By default is FALSE.
+#' @param stroke.legend logical. If TRUE, function show stroke.legend.By default is FALSE.
 #' @param radius a numeric vector of radii for the circles.
 #' @param stroke.radius a numeric vector of stroke radii for the circles.
 #' @param opacity a numeric vector of marker opacity.
@@ -28,27 +27,29 @@
 #' ## All Sign languages
 #' map.feature(lang.aff("Sign"))
 #'
-#' ## Add control buttons
-#' map.feature(c("Adyghe", "Russian"), control = TRUE)
-#'
 #' ## Map all Slavic languages
 #' map.feature(lang.aff(c("Slavic")))
+#'
+#' ## Add control buttons
+#' map.feature(c("Adyghe", "Russian"), control = TRUE)
 #'
 #' ## Color linguoids by feature
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"))
 #' map.feature(df$lang, df$feature)
+#' ## ... or add a control buttons for features
+#' map.feature(df$lang, df$feature, control = TRUE)
 #'
 #' ## Adding pop-up
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-#' popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+#' popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 #' map.feature(df$lang, df$feature, df$popup)
 #'
 #' ## Adding title
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-#' popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+#' popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 #' map.feature(df$lang, df$feature, df$popup, title = "type of a language")
 #'
 #' ## Add your own coordinates
@@ -57,8 +58,15 @@
 #' ## Add you own colors
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-#' popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+#' popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 #' map.feature(df$lang, df$feature, df$popup, color = c("green", "navy"))
+#'
+#' ## Map two sets of features
+#' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+#' popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
+#' map.feature(df$lang, df$feature, df$popup,
+#' stroke.features = df$popup)
 #'
 #' @export
 #' @import leaflet
@@ -128,7 +136,7 @@ map.feature <- function(languages,
 
   if(!is.null(stroke.features)){
     if (is.null(stroke.color)) {
-      lev <- nlevels(stroke.features[stats::complete.cases(stroke.features)])
+      lev <- nlevels(as.factor(stroke.features[stats::complete.cases(stroke.features)]))
       strokecolors <- grDevices::gray(lev :0 / lev)
       stroke.pal <- leaflet::colorFactor(strokecolors,
                                 domain = mapfeat.stroke$stroke.features)

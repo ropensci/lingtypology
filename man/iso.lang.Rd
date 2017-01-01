@@ -2,7 +2,7 @@
 % Please edit documentation in R/iso.lang.R
 \name{iso.lang}
 \alias{iso.lang}
-\title{Get ISO 639-3 code by languoid}
+\title{Get ISO 639--3 code by languoid}
 \usage{
 iso.lang(x)
 }

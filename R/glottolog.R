@@ -9,9 +9,9 @@
 #' Max Planck Institute for the Science of Human History.
 #' Accessed on 2016-06-15.
 #'
-#' @format A data frame with 8286 rows and 7 variables:
+#' @format A data frame with 8304 rows and 7 variables:
 #' \describe{
-#'   \item{iso}{code based on ISO 639-3 \url{http://www-01.sil.org/iso639-3/}}
+#'   \item{iso}{code based on ISO 639--3 \url{http://www-01.sil.org/iso639-3/}}
 #'   \item{languoid}{name of the languoid}
 #'   \item{affiliation}{genealogical affiliation}
 #'   \item{macro_area}{have six values Africa, Australia, Eurasia, North America, Papunesia, South America}

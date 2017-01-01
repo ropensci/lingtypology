@@ -14,7 +14,7 @@ Author: George Moroz
 Maintainer: George Moroz <agricolamz@gmail.com>
 Description: Provides R with the Glottolog database <http://glottolog.org> and some more abilities for purposes of linguistic cartography. The Glottolog database contains the catalogue of languages of the world. This package helps researchers to make a linguistic maps, using philosophy of the Cross-Linguistic Linked Data project <http://clld.org/>, which allows for while at the same time facilitating uniform access to the data across publications. A tutorial for this package is available on GitHub pages <https://agricolamz.github.io/lingtypology/> and package vignette.
 License: GPL (>= 2)
-URL: https://github.com/agricolamz/lingtypology/
+URL: https://cran.r-project.org/web/packages/lingtypology/, https://github.com/agricolamz/lingtypology/
 LazyData: TRUE
 RoxygenNote: 5.0.1
 Suggests:

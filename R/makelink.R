@@ -1,8 +1,8 @@
 #' Make a link for a languoid
 #'
-#' Takes any vector of linguoids and return links.
+#' Takes any vector of linguoids and return links to glottolog pages.
 #' @param x A character vector of linguoids (can be written in lower case)
-#' @param popup character vector of strings that will appear in pop-up window
+#' @param popup character vector of strings that will appear in pop-up window of the function map.feature
 #' @author George Moroz <agricolamz@gmail.com>
 #' @export
 

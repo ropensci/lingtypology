@@ -1,4 +1,4 @@
-#' Get ISO 639-3 code by languoid
+#' Get ISO 639--3 code by languoid
 #'
 #' Takes any vector of languoids and return ISO code.
 #' @param x A character vector of the languoids (can be written in lower case)

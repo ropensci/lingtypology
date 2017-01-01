@@ -1,7 +1,0 @@
-"0","map.feature(languages = final_df$language,"
-"0","            features = final_df$language,"
-"0","            latitude = final_df$latitude,"
-"0","            longitude = final_df$longitude,"
-"0","            stroke.features = final_df$feature,"
-"0","            color = final_df$color,"
-"0","            legend = F) # иначе появится слишком большая легенда"

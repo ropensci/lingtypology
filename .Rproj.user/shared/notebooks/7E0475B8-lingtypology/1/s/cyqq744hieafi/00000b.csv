@@ -1,5 +1,0 @@
-"0","set.seed(40)"
-"0","map.feature(languages = df$language, features = df$features)"
-"2","Ошибка в map.feature(languages = df$language, features = df$features) :
-  There is no data to map
-"
