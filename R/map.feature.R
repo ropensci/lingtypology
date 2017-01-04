@@ -10,6 +10,11 @@
 #' @param longitude numeric vector of longitudes
 #' @param color vector of colors
 #' @param stroke.color vector of stroke colors
+#' @param images.url character vector of URLs with an images
+#' @param images.width numeric vector of image widths
+#' @param images.height numeric vector of image heights
+#' @param images.X.shift numeric vector of image's X axis shift relative to the latitude-longitude point
+#' @param images.Y.shift numeric vector of image's Y axis shift relative to the latitude-longitude point
 #' @param title title of a legend
 #' @param stroke.title title of a stroke-feature legend
 #' @param control logical. If TRUE, function show layer control buttons. By default is TRUE.
@@ -68,6 +73,16 @@
 #' map.feature(df$lang, df$feature, df$popup,
 #' stroke.features = df$popup)
 #'
+#' ## Add a pictures to plot
+#' df <- data.frame(lang = c("Russian", "Russian"),
+#' lat  = c(55.75, 59.95),
+#' long = c(37.616667, 30.3),
+#' urls = c("https://goo.gl/5OUv1E", "https://goo.gl/UWmvDw"))
+#' map.feature(languages = df$lang,
+#' latitude = df$lat,
+#' longitude = df$long,
+#' image.url = df$urls)
+#'
 #' @export
 #' @import leaflet
 #' @import stats
@@ -84,6 +99,11 @@ map.feature <- function(languages,
                         longitude = NULL,
                         color = NULL,
                         stroke.color = NULL,
+                        image.url = NULL,
+                        image.width = 100,
+                        image.height = 100,
+                        image.X.shift = 0,
+                        image.Y.shift = 0,
                         title = NULL,
                         stroke.title = NULL,
                         control = FALSE,
@@ -117,6 +137,13 @@ map.feature <- function(languages,
 
   # creat link --------------------------------------------------------------
   mapfeat.df$link <- makelink(as.character(mapfeat.df$languages), popup = mapfeat.df$popup)
+
+
+  # add images --------------------------------------------------------------
+  if(!is.null(image.url)){
+    mapfeat.image <- rowr::cbind.fill(mapfeat.df[,-2], data.frame(image.url))
+    mapfeat.image <- mapfeat.image[stats::complete.cases(mapfeat.image),]
+  }
 
   # create a stroke dataframe -----------------------------------------------
   if(!is.null(stroke.features)){
@@ -169,9 +196,22 @@ map.feature <- function(languages,
                                 fillOpacity = opacity,
                                 group = mapfeat.df$languages)
     if (control == TRUE) {
-    m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$languages,
+      m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$languages,
                                 options = layersControlOptions(collapsed = F))
     }
+
+    if (!is.null(image.url)) {
+      m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
+                                     lat=mapfeat.image$lat,
+                                     popup= mapfeat.image$link,
+                                     icon = icons(
+                                       iconUrl = as.character(mapfeat.image$image.url),
+                                       iconWidth = image.width,
+                                       iconHeight = image.height,
+                                       iconAnchorX = - image.X.shift,
+                                       iconAnchorY = image.Y.shift))
+    }
+
 
 # map: if there are stroke features ---------------------------------------
   } else if(!is.null(stroke.features)){
@@ -220,12 +260,24 @@ map.feature <- function(languages,
                            pal = stroke.pal,
                            values = mapfeat.stroke$stroke.features,
                            opacity = 1)
+      if (!is.null(image.url)) {
+        m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
+                                       lat=mapfeat.image$lat,
+                                       popup= mapfeat.image$link,
+                                       icon = icons(
+                                         iconUrl = as.character(mapfeat.image$image.url),
+                                         iconWidth = image.width,
+                                         iconHeight = image.height,
+                                         iconAnchorX = - image.X.shift,
+                                         iconAnchorY = image.Y.shift))
+      }
     if (control == TRUE) {
       m <- m  %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
                                               options = layersControlOptions(collapsed = F))
     }
       }
-    # map: if there are more than one feature -------------------------------------------
+
+# map: if there are more than one feature -------------------------------------------
   } else{
     m <- leaflet::leaflet(mapfeat.df) %>%
       leaflet::addTiles() %>%
@@ -240,6 +292,17 @@ map.feature <- function(languages,
     if (control == TRUE) {
     m <- m  %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
                                           options = layersControlOptions(collapsed = F))
+    }
+    if (!is.null(image.url)) {
+      m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
+                                     lat=mapfeat.image$lat,
+                                     popup= mapfeat.image$link,
+                                     icon = icons(
+                                       iconUrl = as.character(mapfeat.image$image.url),
+                                       iconWidth = image.width,
+                                       iconHeight = image.height,
+                                       iconAnchorX = - image.X.shift,
+                                       iconAnchorY = image.Y.shift))
     }
     if (legend == TRUE) {
       m <- m  %>% leaflet::addLegend(title = title,

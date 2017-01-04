@@ -159,3 +159,45 @@ set.seed(11)
 map.feature(df$lang, df$feature, df$popup) %>% 
 addProviderTiles("Stamen.Toner")
 
+## ---- fig.width=6.2------------------------------------------------------
+df <- data.frame(lang = c("Russian", "Russian"),
+                 lat  = c(55.75, 59.95),
+                 long = c(37.616667, 30.3),
+# I use here URL shorter by Google
+                 urls = c("https://goo.gl/5OUv1E",
+                          "https://goo.gl/UWmvDw"))
+map.feature(languages = df$lang,
+            latitude = df$lat,
+            longitude = df$long,
+            image.url = df$urls)
+
+## ---- fig.width=6.2------------------------------------------------------
+df <- data.frame(lang = c("Russian", "Russian"),
+                 lat  = c(55.75, 59.95),
+                 long = c(37.616667, 30.3),
+# I use here URL shorter by Google
+                 urls = c("https://goo.gl/5OUv1E",
+                          "https://goo.gl/UWmvDw"))
+map.feature(languages = df$lang,
+            latitude = df$lat,
+            longitude = df$long,
+            image.url = df$urls,
+            image.width = 200,
+            image.height = 200)
+
+## ---- fig.width=6.2------------------------------------------------------
+df <- data.frame(lang = c("Russian", "Russian"),
+                 lat  = c(55.75, 59.95),
+                 long = c(37.616667, 30.3),
+# I use here URL shorter by Google
+                 urls = c("https://goo.gl/5OUv1E",
+                          "https://goo.gl/UWmvDw"))
+map.feature(languages = df$lang,
+            latitude = df$lat,
+            longitude = df$long,
+            image.url = df$urls,
+            image.width = 150,
+            image.height = 150,
+            image.X.shift = 10,
+            image.Y.shift = 0)
+

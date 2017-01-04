@@ -6,9 +6,11 @@
 \usage{
 map.feature(languages, features = "none", popup = "",
   stroke.features = NULL, latitude = NULL, longitude = NULL,
-  color = NULL, stroke.color = NULL, title = NULL, stroke.title = NULL,
-  control = FALSE, legend = TRUE, stroke.legend = TRUE, radius = 5,
-  stroke.radius = 9.5, opacity = 1, stroke.opacity = 1, ...)
+  color = NULL, stroke.color = NULL, image.url = NULL,
+  image.width = 100, image.height = 100, image.X.shift = 0,
+  image.Y.shift = 0, title = NULL, stroke.title = NULL, control = FALSE,
+  legend = TRUE, stroke.legend = TRUE, radius = 5, stroke.radius = 9.5,
+  opacity = 1, stroke.opacity = 1, ...)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -46,6 +48,16 @@ map.feature(languages, features = "none", popup = "",
 \item{stroke.opacity}{a numeric vector of stroke opacity.}
 
 \item{...}{further arguments of leaflet package.}
+
+\item{images.url}{character vector of URLs with an images}
+
+\item{images.width}{numeric vector of image widths}
+
+\item{images.height}{numeric vector of image heights}
+
+\item{images.X.shift}{numeric vector of image's X axis shift relative to the latitude-longitude point}
+
+\item{images.Y.shift}{numeric vector of image's Y axis shift relative to the latitude-longitude point}
 }
 \description{
 Map a set of linguoids and color them by feature or two sets of features.
@@ -96,6 +108,16 @@ feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
 popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, df$popup,
 stroke.features = df$popup)
+
+## Add a pictures to plot
+df <- data.frame(lang = c("Russian", "Russian"),
+lat  = c(55.75, 59.95),
+long = c(37.616667, 30.3),
+urls = c("https://goo.gl/5OUv1E", "https://goo.gl/UWmvDw"))
+map.feature(languages = df$lang,
+latitude = df$lat,
+longitude = df$long,
+image.url = df$urls)
 
 }
 \author{
