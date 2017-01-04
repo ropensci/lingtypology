@@ -1,2 +1,9 @@
+1.0.1
+  - fix all warnings in CRAN check
+  - fix the bug with two feature set mapping
+  - additional map.feature argument for legends (stroke.title, stroke.legend)
+  - changed defaults for control argument
+  - Rmd and help corrected
+
 1.0.0
   - initial release
