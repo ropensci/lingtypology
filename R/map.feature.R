@@ -19,7 +19,9 @@
 #' @param stroke.title title of a stroke-feature legend
 #' @param control logical. If TRUE, function show layer control buttons. By default is TRUE.
 #' @param legend logical. If TRUE, function show legend. By default is FALSE.
-#' @param stroke.legend logical. If TRUE, function show stroke.legend.By default is FALSE.
+#' @param legend.opacity a numeric vector of legend opacity.
+#' @param stroke.legend logical. If TRUE, function show stroke.legend. By default is FALSE.
+#' @param stroke.legend.opacity a numeric vector of stroke.legend opacity.
 #' @param radius a numeric vector of radii for the circles.
 #' @param stroke.radius a numeric vector of stroke radii for the circles.
 #' @param opacity a numeric vector of marker opacity.
@@ -108,7 +110,9 @@ map.feature <- function(languages,
                         stroke.title = NULL,
                         control = FALSE,
                         legend = TRUE,
+                        legend.opacity = 1,
                         stroke.legend = TRUE,
+                        stroke.legend.opacity = 1,
                         radius = 5,
                         stroke.radius = 9.5,
                         opacity = 1,
@@ -253,14 +257,14 @@ map.feature <- function(languages,
                                position = c("topright"),
                                pal = pal,
                                values = mapfeat.df$features,
-                               opacity = opacity)
+                               opacity = legend.opacity)
       }
     if (stroke.legend == TRUE) {
       m <- m %>% leaflet::addLegend(title = stroke.title,
                            position = c("bottomleft"),
                            pal = stroke.pal,
                            values = mapfeat.stroke$stroke.features,
-                           opacity = 1)
+                           opacity = stroke.legend.opacity)
       }
     if (!is.null(image.url)) {
         m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
