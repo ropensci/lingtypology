@@ -121,7 +121,7 @@ Now we can draw a map:
 map.feature(languages = df$language, features = df$features)
 ```
 
-Since colors are chosen randomly by default, it is better to use the function `set.seed` to get reproducible color 
+Since colors are chosen randomly by default, it is better to use the function `set.seed` to get reproducible color
 palette (or choose colors by yourself, see section 3.5):
 ```{r, fig.width=6.2}
 set.seed(40)
@@ -141,7 +141,7 @@ Sometimes it is a good idea to add some additional information to pop-up boxes, 
 ```{r, fig.width=6.2}
 df$popup <- aff.lang(df$language)
 ```
-The function `aff.lang()`  creates a vector of genealogical affiliations that can be easily mapped: 
+The function `aff.lang()`  creates a vector of genealogical affiliations that can be easily mapped:
 ```{r, fig.width=6.2}
 set.seed(40)
 map.feature(languages = df$language, features = df$features, popup = df$popup)
@@ -215,7 +215,7 @@ newfeature <-  replace(newfeature$language, newfeature$languoid == "Baksan", NA)
 # create a map
 set.seed(7)
 map.feature(circassian$language,
-            features = circassian$languoid, 
+            features = circassian$languoid,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
             stroke.features = newfeature)
@@ -262,15 +262,14 @@ map.feature(circassian$language,
 ```
 
 ### 3.10 Set layouts and other leaflet features
-Since the `lingtypology` package is based on the [`leaflet` package](https://rstudio.github.io/leaflet/), it is possible to add some map features from that package using the magrittr pipe operator (`%>%`). For example many popular base-maps can be added using the `addProviderTiles()` function from the [`leaflet` package](https://rstudio.github.io/leaflet/) ([here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html) is the complete set of base-maps).
+It is possible to use different map tiles  using `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 ```{r, fig.width=6.2}
-library(leaflet) # for correct work ofaddProviderTiles()
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 set.seed(11)
-map.feature(df$lang, df$feature, df$popup) %>% 
-addProviderTiles("Stamen.Toner")
+map.feature(df$lang, df$feature, df$popup,
+            tile = "Stamen.Toner")
 ```
 
 ### 3.11 Add a picture to a map

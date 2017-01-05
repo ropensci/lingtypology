@@ -5,6 +5,7 @@
   - changed default for control argument to FALSE
   - Rmd, examples and help corrected
   - added image arguments
+  - added tile argument
 
 1.0.0
   - initial release

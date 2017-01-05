@@ -9,8 +9,9 @@ map.feature(languages, features = "none", popup = "",
   color = NULL, stroke.color = NULL, image.url = NULL,
   image.width = 100, image.height = 100, image.X.shift = 0,
   image.Y.shift = 0, title = NULL, stroke.title = NULL, control = FALSE,
-  legend = TRUE, stroke.legend = TRUE, radius = 5, stroke.radius = 9.5,
-  opacity = 1, stroke.opacity = 1, ...)
+  legend = TRUE, legend.opacity = 1, stroke.legend = TRUE,
+  stroke.legend.opacity = 1, radius = 5, stroke.radius = 9.5,
+  opacity = 1, stroke.opacity = 1, tile = "OpenStreetMap.Mapnik", ...)
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -37,7 +38,11 @@ map.feature(languages, features = "none", popup = "",
 
 \item{legend}{logical. If TRUE, function show legend. By default is FALSE.}
 
-\item{stroke.legend}{logical. If TRUE, function show stroke.legend.By default is FALSE.}
+\item{legend.opacity}{a numeric vector of legend opacity.}
+
+\item{stroke.legend}{logical. If TRUE, function show stroke.legend. By default is FALSE.}
+
+\item{stroke.legend.opacity}{a numeric vector of stroke.legend opacity.}
 
 \item{radius}{a numeric vector of radii for the circles.}
 
@@ -46,6 +51,8 @@ map.feature(languages, features = "none", popup = "",
 \item{opacity}{a numeric vector of marker opacity.}
 
 \item{stroke.opacity}{a numeric vector of stroke opacity.}
+
+\item{tile}{a character verctor with a map tile, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
 
 \item{...}{further arguments of leaflet package.}
 
@@ -95,6 +102,9 @@ map.feature(df$lang, df$feature, df$popup, title = "type of a language")
 
 ## Add your own coordinates
 map.feature("Adyghe", latitude = 43, longitude = 57)
+
+## Change map tile
+map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap")
 
 ## Add you own colors
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),

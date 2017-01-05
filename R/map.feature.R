@@ -26,6 +26,7 @@
 #' @param stroke.radius a numeric vector of stroke radii for the circles.
 #' @param opacity a numeric vector of marker opacity.
 #' @param stroke.opacity a numeric vector of stroke opacity.
+#' @param tile a character verctor with a map tile, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
 #' @param ...	further arguments of leaflet package.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -61,6 +62,9 @@
 #'
 #' ## Add your own coordinates
 #' map.feature("Adyghe", latitude = 43, longitude = 57)
+#'
+#' ## Change map tile
+#' map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap")
 #'
 #' ## Add you own colors
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -117,6 +121,7 @@ map.feature <- function(languages,
                         stroke.radius = 9.5,
                         opacity = 1,
                         stroke.opacity = 1,
+                        tile = "OpenStreetMap.Mapnik",
                         ...){
 
   if(sum(is.glottolog(languages, response = T)) == 0){stop("There is no data to map")}
@@ -190,7 +195,7 @@ map.feature <- function(languages,
       color <- "blue"
     }
     m <- leaflet::leaflet(mapfeat.df) %>%
-      leaflet::addTiles() %>%
+      leaflet::addProviderTiles(tile) %>%
       leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
@@ -220,7 +225,7 @@ map.feature <- function(languages,
 # map: if there are stroke features ---------------------------------------
   } else if(!is.null(stroke.features)){
     m <- leaflet::leaflet(mapfeat.stroke) %>%
-      leaflet::addTiles() %>%
+      leaflet::addProviderTiles(tile) %>%
       leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                 lat=mapfeat.stroke$lat,
                                 popup= mapfeat.stroke$link,
@@ -285,7 +290,7 @@ map.feature <- function(languages,
 # map: if there are more than one feature -------------------------------------------
   } else{
     m <- leaflet::leaflet(mapfeat.df) %>%
-      leaflet::addTiles() %>%
+      leaflet::addProviderTiles(tile) %>%
       leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
