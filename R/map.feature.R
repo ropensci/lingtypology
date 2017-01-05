@@ -253,14 +253,16 @@ map.feature <- function(languages,
                                position = c("topright"),
                                pal = pal,
                                values = mapfeat.df$features,
-                               opacity = opacity)}
+                               opacity = opacity)
+      }
     if (stroke.legend == TRUE) {
       m <- m %>% leaflet::addLegend(title = stroke.title,
                            position = c("bottomleft"),
                            pal = stroke.pal,
                            values = mapfeat.stroke$stroke.features,
                            opacity = 1)
-      if (!is.null(image.url)) {
+      }
+    if (!is.null(image.url)) {
         m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
                                        lat=mapfeat.image$lat,
                                        popup= mapfeat.image$link,
@@ -275,7 +277,6 @@ map.feature <- function(languages,
       m <- m  %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
                                               options = layersControlOptions(collapsed = F))
     }
-      }
 
 # map: if there are more than one feature -------------------------------------------
   } else{
