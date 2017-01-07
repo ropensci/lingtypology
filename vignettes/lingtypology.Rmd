@@ -292,7 +292,7 @@ map.feature(languages = df$lang,
             image.url = df$urls)
 ```
 
-Pictures are on the map, but they are too small...
+Users can change the size of the pictures.
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Russian", "Russian"),
                  lat  = c(55.75, 59.95),
@@ -326,4 +326,11 @@ map.feature(languages = df$lang,
             image.Y.shift = 0)
 ```
 
-Using this argument users can plot their own markers, any chart connected to the point or even their own legend.
+Using this argument users can plot their own markers, any chart connected to the point or even their own legend. It is important to know, that using transparent .png files, user can can plot additional legend text on the map.
+
+## 4. Citing `lingtyplogy`
+It is realy important to cite R and R packages when you use them. For this purpose use `citation` R function:
+```{r}
+citation("lingtypology")
+```
+

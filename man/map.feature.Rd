@@ -30,6 +30,16 @@ map.feature(languages, features = "none", popup = "",
 
 \item{stroke.color}{vector of stroke colors}
 
+\item{image.url}{character vector of URLs with an images}
+
+\item{image.width}{numeric vector of image widths}
+
+\item{image.height}{numeric vector of image heights}
+
+\item{image.X.shift}{numeric vector of image's X axis shift relative to the latitude-longitude point}
+
+\item{image.Y.shift}{numeric vector of image's Y axis shift relative to the latitude-longitude point}
+
 \item{title}{title of a legend}
 
 \item{stroke.title}{title of a stroke-feature legend}
@@ -55,16 +65,6 @@ map.feature(languages, features = "none", popup = "",
 \item{tile}{a character verctor with a map tile, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
 
 \item{...}{further arguments of leaflet package.}
-
-\item{images.url}{character vector of URLs with an images}
-
-\item{images.width}{numeric vector of image widths}
-
-\item{images.height}{numeric vector of image heights}
-
-\item{images.X.shift}{numeric vector of image's X axis shift relative to the latitude-longitude point}
-
-\item{images.Y.shift}{numeric vector of image's Y axis shift relative to the latitude-longitude point}
 }
 \description{
 Map a set of linguoids and color them by feature or two sets of features.

@@ -10,11 +10,11 @@
 #' @param longitude numeric vector of longitudes
 #' @param color vector of colors
 #' @param stroke.color vector of stroke colors
-#' @param images.url character vector of URLs with an images
-#' @param images.width numeric vector of image widths
-#' @param images.height numeric vector of image heights
-#' @param images.X.shift numeric vector of image's X axis shift relative to the latitude-longitude point
-#' @param images.Y.shift numeric vector of image's Y axis shift relative to the latitude-longitude point
+#' @param image.url character vector of URLs with an images
+#' @param image.width numeric vector of image widths
+#' @param image.height numeric vector of image heights
+#' @param image.X.shift numeric vector of image's X axis shift relative to the latitude-longitude point
+#' @param image.Y.shift numeric vector of image's Y axis shift relative to the latitude-longitude point
 #' @param title title of a legend
 #' @param stroke.title title of a stroke-feature legend
 #' @param control logical. If TRUE, function show layer control buttons. By default is TRUE.
