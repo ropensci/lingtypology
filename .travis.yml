@@ -1,0 +1,5 @@
+language: r
+sudo: false
+cache: packages
+repos:
+  CRAN: https://CRAN.R-project.org/package=lingtypology
