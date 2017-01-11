@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/agricolamz/lingtypology.svg?branch=master)](https://travis-ci.org/agricolamz/lingtypology)
 [![CRAN
 version](http://www.r-pkg.org/badges/version/lingtypology)](https://cran.r-project.org/package=lingtypology)
+[![Coverage Status](https://img.shields.io/codecov/c/github/agricolamz/lingtypology/master.svg)](https://codecov.io/github/agricolamz/lingtypology?branch=master)
 
 `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides additional functionality for linguistic typology. The Glottolog database contains the catalogue of the world's languages. This package helps researchers to make linguistic maps, using philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which uniform access to the data across publications. This package is based on [`leaflet` package](https://rstudio.github.io/leaflet/), so `lingtypology` package is a package for linguistic interactive cartography.
 
