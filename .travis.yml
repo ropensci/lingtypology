@@ -5,7 +5,9 @@ notifications:
   email:
     on_success: never
     on_failure: always
+    
 r_packages:
   - covr
+
 after_success:
-  - Rscript -e 'library(covr); codecov()'
+  - Rscript -e 'covr::codecov()'
