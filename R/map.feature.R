@@ -26,8 +26,7 @@
 #' @param stroke.radius a numeric vector of stroke radii for the circles.
 #' @param opacity a numeric vector of marker opacity.
 #' @param stroke.opacity a numeric vector of stroke opacity.
-#' @param tile a character verctor with a map tile, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
-#' @param ...	further arguments of leaflet package.
+#' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
@@ -65,6 +64,7 @@
 #'
 #' ## Change map tile
 #' map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap")
+#' map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
 #'
 #' ## Add you own colors
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -121,8 +121,7 @@ map.feature <- function(languages,
                         stroke.radius = 9.5,
                         opacity = 1,
                         stroke.opacity = 1,
-                        tile = "OpenStreetMap.Mapnik",
-                        ...){
+                        tile = "OpenStreetMap.Mapnik"){
 
   if(sum(is.glottolog(languages, response = T)) == 0){stop("There is no data to map")}
   # 23 color set --------------------------------------------------------------
@@ -195,18 +194,38 @@ map.feature <- function(languages,
       color <- "blue"
     }
     m <- leaflet::leaflet(mapfeat.df) %>%
-      leaflet::addProviderTiles(tile) %>%
-      leaflet::addCircleMarkers(lng=mapfeat.df$long,
-                                lat=mapfeat.df$lat,
-                                popup= mapfeat.df$link,
-                                stroke = F,
-                                radius = radius,
-                                color = color,
-                                fillOpacity = opacity,
-                                group = mapfeat.df$languages)
-    if (control == TRUE) {
-      m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$languages,
-                                options = layersControlOptions(collapsed = F))
+      leaflet::addTiles(tile[1]) %>%
+      leaflet::addProviderTiles(tile[1])
+      if(length(tile) > 1){
+        sapply(tile[-1], function(other.tiles){
+          m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tiles)
+          })
+        }
+    m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
+                                        lat=mapfeat.df$lat,
+                                        popup= mapfeat.df$link,
+                                        stroke = F,
+                                        radius = radius,
+                                        color = color,
+                                        fillOpacity = opacity,
+                                        group = mapfeat.df$languages)
+
+    if(length(tile) > 1){
+      if (control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(
+          baseGroups = tile,
+          overlayGroups = mapfeat.df$languages,
+          options = layersControlOptions(collapsed = FALSE))
+      } else {
+        m <- m %>% leaflet::addLayersControl(
+          baseGroups = tile,
+          options = layersControlOptions(collapsed = FALSE))
+      }
+    } else {
+      if (control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$languages,
+                                             options = layersControlOptions(collapsed = F))
+      }
     }
 
     if (!is.null(image.url)) {
@@ -225,8 +244,14 @@ map.feature <- function(languages,
 # map: if there are stroke features ---------------------------------------
   } else if(!is.null(stroke.features)){
     m <- leaflet::leaflet(mapfeat.stroke) %>%
-      leaflet::addProviderTiles(tile) %>%
-      leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
+      leaflet::addTiles(tile[1]) %>%
+      leaflet::addProviderTiles(tile[1])
+    if(length(tile) > 1){
+      sapply(tile[-1], function(other.tiles){
+        m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tiles)
+      })
+    }
+    m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                 lat=mapfeat.stroke$lat,
                                 popup= mapfeat.stroke$link,
                                 stroke = F,
@@ -282,27 +307,62 @@ map.feature <- function(languages,
                                          iconAnchorX = - image.X.shift,
                                          iconAnchorY = image.Y.shift))
       }
-    if (control == TRUE) {
-      m <- m  %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
-                                              options = layersControlOptions(collapsed = F))
+
+    if(length(tile) > 1){
+      if (control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(
+          baseGroups = tile,
+          overlayGroups = mapfeat.df$features,
+          options = layersControlOptions(collapsed = FALSE))
+      } else {
+        m <- m %>% leaflet::addLayersControl(
+          baseGroups = tile,
+          options = layersControlOptions(collapsed = FALSE))
+      }
+    } else {
+      if (control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
+                                             options = layersControlOptions(collapsed = F))
+      }
     }
 
 # map: if there are more than one feature -------------------------------------------
   } else{
     m <- leaflet::leaflet(mapfeat.df) %>%
-      leaflet::addProviderTiles(tile) %>%
-      leaflet::addCircleMarkers(lng=mapfeat.df$long,
-                                lat=mapfeat.df$lat,
-                                popup= mapfeat.df$link,
-                                stroke = F,
-                                radius = radius,
-                                fillOpacity = opacity,
-                                color = pal(mapfeat.df$features),
-                                group = mapfeat.df$features)
-    if (control == TRUE) {
-    m <- m  %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
-                                          options = layersControlOptions(collapsed = F))
+      leaflet::addTiles(tile[1]) %>%
+      leaflet::addProviderTiles(tile[1])
+    if(length(tile) > 1){
+      sapply(tile[-1], function(other.tiles){
+        m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tiles)
+      })
     }
+    m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
+                                         lat=mapfeat.df$lat,
+                                         popup= mapfeat.df$link,
+                                         stroke = F,
+                                         radius = radius,
+                                         fillOpacity = opacity,
+                                         color = pal(mapfeat.df$features),
+                                         group = mapfeat.df$features)
+
+    if(length(tile) > 1){
+      if (control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(
+          baseGroups = tile,
+          overlayGroups = mapfeat.df$features,
+          options = layersControlOptions(collapsed = FALSE))
+      } else {
+        m <- m %>% leaflet::addLayersControl(
+          baseGroups = tile,
+          options = layersControlOptions(collapsed = FALSE))
+      }
+    } else {
+      if (control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
+                                             options = layersControlOptions(collapsed = F))
+      }
+    }
+
     if (!is.null(image.url)) {
       m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
                                      lat=mapfeat.image$lat,

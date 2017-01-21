@@ -261,7 +261,7 @@ map.feature(circassian$language,
             title = "Circassian dialects", stroke.title = "Languages")
 ```
 
-### 3.10 Set layouts and other leaflet features
+### 3.10 Set layouts
 It is possible to use different map tiles  using `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -270,6 +270,27 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
 set.seed(11)
 map.feature(df$lang, df$feature, df$popup,
             tile = "Stamen.Toner")
+```
+
+It is possible to use different map tiles at the same map. Just add a vector with tiles.
+```{r, fig.width=6.2}
+df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+set.seed(11)
+map.feature(df$lang, df$feature, df$popup,
+                        tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"))
+```
+
+It is possible to combine different tiles and control box.
+```{r, fig.width=6.2}
+df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+set.seed(11)
+map.feature(df$lang, df$feature, df$popup,
+            tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"),
+            control = TRUE)
 ```
 
 ### 3.11 Add a picture to a map
