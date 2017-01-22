@@ -48,10 +48,10 @@ Some of them help to define a vector of languoids.
 * **lang.aff()** — get languoid by affiliation
 * **lang.iso()** — get languoid by ISO 639-3 code
 
-The most important functionality of ' lingtypology' is the ability to create interactive maps based on features and sets of languoids (see the [the next section](https://github.com/agricolamz/lingtypology/wiki/2.-Creating-maps))
+The most important functionality of `lingtypology` is the ability to create interactive maps based on features and sets of languoids (see the [the next section](https://github.com/agricolamz/lingtypology/wiki/2.-Creating-maps))
 * **map.feature()**
 
-[Glottolog database (v. 2.7)](http://glottolog.org/) provides 'lingtypology' with  languoid names, ISO codes, genealogical affiliation, macro area, countries and coordinates.
+[Glottolog database (v. 2.7)](http://glottolog.org/) provides `lingtypology` with  languoid names, ISO codes, genealogical affiliation, macro area, countries and coordinates.
 
 ### 2.2 Using base functions
 All functions introduced in the previous section are regular functions, so they can take the following objects as input:
@@ -92,13 +92,30 @@ aff.lang("Adyge")
 ```
 
 ### 2.4 Changes in the glottolog database
-Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not perfect, so some changes had to be made:
+Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not perfect for all my tasks, so I changed it a little bit:
 
 * Added some Dargwa languages: Chirag, Cudaxar, Itsari, Kajtak, Kubachi, Tanti, Mehweb. Dargwa is still present in the database as an individual languoid, so one can use Dargwa or any Dargwa language listed above. (07.09.2016)
 * Tabassaran is renamed Tabasaran (07.09.2016)
 * Added coordinates to Silesian and Slavomolisano (11.09.2016)
 * North Azerbaijani is renamed Azerbaijani. Added some Dargwa languages: Amuzgi-Shiri, Gapshima, North-Dargwa, Verhnevurkunskij. Added some Avar dialects: Avar (Andalal), Avar (Antsukh), Avar (Batlukh), Avar (Gid), Avar (Karah), Avar (Karata), Avar (Zakatal)  (11.12.2016)
 * Sauk (Trans New Guinea) is renamed Ma Manda. (27.12.2016)
+
+After [Robert Forkel's issue](https://github.com/agricolamz/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody have an access to "original" (by default) and "modified" glottolog versions:
+```{r}
+is.glottolog(c("Tabasaran", "Tabassaran"), glottolog.source = "original")
+```
+```{r}
+is.glottolog(c("Tabasaran", "Tabassaran"), glottolog.source = "modified")
+```
+
+It is common practice in R to reduce both function arguments and its values. So it could be done with `lingtypology` functions either.
+```{r}
+is.glottolog(c("Tabasaran", "Tabassaran"), g = "o")
+```
+```{r}
+is.glottolog(c("Tabasaran", "Tabassaran"), g = "m")
+```
+
 
 ## 3. Map features with `map.feature`
 ### 3.1 Base map

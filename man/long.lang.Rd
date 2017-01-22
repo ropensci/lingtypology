@@ -4,10 +4,12 @@
 \alias{long.lang}
 \title{Get longitude by languoid}
 \usage{
-long.lang(x)
+long.lang(x, glottolog.source = "original")
 }
 \arguments{
 \item{x}{A character vector of the languoids (can be written in lower case)}
+
+\item{glottolog.source}{A character vector that define which glottolog database is used: "original" (by default) or "modified"}
 }
 \description{
 Takes any vector of languoids and return longitude.

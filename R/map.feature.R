@@ -27,6 +27,7 @@
 #' @param opacity a numeric vector of marker opacity.
 #' @param stroke.opacity a numeric vector of stroke opacity.
 #' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
+#' @param glottolog.source A character vector that define which glottolog database is used: "original" (by default) or "modified"
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
@@ -121,17 +122,19 @@ map.feature <- function(languages,
                         stroke.radius = 9.5,
                         opacity = 1,
                         stroke.opacity = 1,
-                        tile = "OpenStreetMap.Mapnik"){
+                        tile = "OpenStreetMap.Mapnik",
+                        glottolog.source = "original"){
 
-  if(sum(is.glottolog(languages, response = T)) == 0){stop("There is no data to map")}
+  ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
+  if(sum(is.glottolog(languages, response = T, glottolog.source = glottolog.source)) == 0){stop("There is no data to map")}
   # 23 color set --------------------------------------------------------------
   mycolors <- c("dodgerblue2","#E31A1C", "green4", "#6A3D9A", "#FF7F00", "skyblue2","#FB9A99",  "palegreen2", "#CAB2D6",  "#FDBF6F", "gray70", "khaki2", "maroon","orchid1","deeppink1","blue1","steelblue4", "darkturquoise","green1","yellow4","yellow3", "darkorange4","brown")
 
   # creat dataframe ---------------------------------------------------------
   if (is.null(latitude) & is.null(longitude)) {  # if there are no latitude and longitude
     mapfeat.df <- data.frame(languages, features,
-                             long = long.lang(languages),
-                             lat = lat.lang(languages),
+                             long = long.lang(languages, glottolog.source = glottolog.source),
+                             lat = lat.lang(languages, glottolog.source = glottolog.source),
                              popup = popup)
   } else {   # if there are latitude and longitude
     mapfeat.df <- data.frame(languages, features,
@@ -144,7 +147,7 @@ map.feature <- function(languages,
   mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df),]
 
   # creat link --------------------------------------------------------------
-  mapfeat.df$link <- makelink(as.character(mapfeat.df$languages), popup = mapfeat.df$popup)
+  mapfeat.df$link <- makelink(as.character(mapfeat.df$languages), popup = mapfeat.df$popup, glottolog.source = glottolog.source)
 
 
   # add images --------------------------------------------------------------

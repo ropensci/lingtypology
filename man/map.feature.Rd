@@ -11,7 +11,8 @@ map.feature(languages, features = "none", popup = "",
   image.Y.shift = 0, title = NULL, stroke.title = NULL, control = FALSE,
   legend = TRUE, legend.opacity = 1, stroke.legend = TRUE,
   stroke.legend.opacity = 1, radius = 5, stroke.radius = 9.5,
-  opacity = 1, stroke.opacity = 1, tile = "OpenStreetMap.Mapnik")
+  opacity = 1, stroke.opacity = 1, tile = "OpenStreetMap.Mapnik",
+  glottolog.source = "original")
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -63,6 +64,8 @@ map.feature(languages, features = "none", popup = "",
 \item{stroke.opacity}{a numeric vector of stroke opacity.}
 
 \item{tile}{a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
+
+\item{glottolog.source}{A character vector that define which glottolog database is used: "original" (by default) or "modified"}
 }
 \description{
 Map a set of linguoids and color them by feature or two sets of features.

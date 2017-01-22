@@ -4,10 +4,12 @@
 \alias{lang.iso}
 \title{Get languoid by ISO 639--3 code}
 \usage{
-lang.iso(x)
+lang.iso(x, glottolog.source = "original")
 }
 \arguments{
 \item{x}{A character vector of the ISO codes.}
+
+\item{glottolog.source}{A character vector that define which glottolog database is used: "original" (by default) or "modified"}
 }
 \description{
 Takes any vector of ISO codes and return languoids.

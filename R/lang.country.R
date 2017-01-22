@@ -3,6 +3,7 @@
 #' Takes any vector of countries and return languoids.
 #' @param x character vector of the countries (can be written in lower case)
 #' @param list logical. If TRUE, returns a list of languoids, if FALSE return a vector.
+#' @param glottolog.source A character vector that define which glottolog database is used: "original" (by default) or "modified"
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{lang.aff}}, \code{\link{lang.iso}}
 #' @examples
@@ -13,13 +14,14 @@
 #' lang.country("Korea")
 #' @export
 
-lang.country <- function(x, list = FALSE){
+lang.country <- function(x, list = FALSE, glottolog.source = "original"){
+  ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
   ret <- lapply(x, function(y){
     cntr <- lingtypology::countries$common[(tolower(lingtypology::countries$common) %in% tolower(y) |
                                 tolower(lingtypology::countries$official) %in% tolower(y) |
                                 tolower(lingtypology::countries$abbreviation) %in% tolower(y))]
     if(length(cntr) > 0){
-      lingtypology::glottolog[grep(cntr, lingtypology::glottolog$country),]$languoid}
+      glottolog[grep(cntr, glottolog$country),]$languoid}
     else{NA}})
   if(list == TRUE){
     return(ret)} else {

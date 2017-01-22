@@ -4,12 +4,14 @@
 \alias{is.glottolog}
 \title{Are these langoids in glottolog?}
 \usage{
-is.glottolog(x, response = FALSE)
+is.glottolog(x, response = FALSE, glottolog.source = "original")
 }
 \arguments{
 \item{x}{A character vector of linguoids (can be written in lower case)or ISO codes}
 
 \item{response}{logical. If TRUE, when languoid is absent, return warnings with a possible candidates.}
+
+\item{glottolog.source}{A character vector that define which glottolog database is used: "original" (by default) or "modified"}
 }
 \description{
 Takes any vector of linguoids or ISO codes and return a logical vector.

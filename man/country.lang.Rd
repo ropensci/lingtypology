@@ -4,12 +4,14 @@
 \alias{country.lang}
 \title{Get country by languoid}
 \usage{
-country.lang(x, intersection = FALSE)
+country.lang(x, intersection = FALSE, glottolog.source = "original")
 }
 \arguments{
 \item{x}{character vector of the languoids (can be written in lower case)}
 
 \item{intersection}{logical. If TRUE, function reterns vector of countries, where all languoids from x argument are spoken.}
+
+\item{glottolog.source}{A character vector that define which glottolog database is used: "original" (by default) or "modified"}
 }
 \description{
 Takes any vector of languoids and return affiliation.
