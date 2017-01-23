@@ -127,8 +127,6 @@ map.feature <- function(languages,
 
   ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
   if(sum(is.glottolog(languages, response = T, glottolog.source = glottolog.source)) == 0){stop("There is no data to map")}
-  # 23 color set --------------------------------------------------------------
-  mycolors <- c("dodgerblue2","#E31A1C", "green4", "#6A3D9A", "#FF7F00", "skyblue2","#FB9A99",  "palegreen2", "#CAB2D6",  "#FDBF6F", "gray70", "khaki2", "maroon","orchid1","deeppink1","blue1","steelblue4", "darkturquoise","green1","yellow4","yellow3", "darkorange4","brown")
 
   # creat dataframe ---------------------------------------------------------
   if (is.null(latitude) & is.null(longitude)) {  # if there are no latitude and longitude
@@ -163,9 +161,8 @@ map.feature <- function(languages,
     }
 
   # creata a pallet ---------------------------------------------------------
-  replase_argument <- length(mapfeat.df$features) < length(mycolors)
   if (is.null(color)) {
-    pal <- leaflet::colorFactor(sample(mycolors, length(unique(mapfeat.df$features)), replace = replase_argument),
+    pal <- leaflet::colorFactor(sample(rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)
   } else {
     pal <- leaflet::colorFactor(color,

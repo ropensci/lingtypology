@@ -139,17 +139,16 @@ Now we can draw a map:
 map.feature(languages = df$language, features = df$features)
 ```
 
-Since colors are chosen randomly by default, it is better to use the function `set.seed` to get reproducible color
-palette (or choose colors by yourself, see section 3.5):
+Since correspondence between color palette and maped features is chosen randomly by default, it is better to use the function `set.seed` to get reproducible map (or choose colors by yourself, see section 3.5):
 ```{r, fig.width=6.2}
-set.seed(40)
+set.seed(42)
 map.feature(languages = df$language, features = df$features)
 ```
 
 
 Like in most R functions, it is not necessary to name all arguments, so the same result can be obtained by:
 ```{r, fig.width=6.2}
-set.seed(40)
+set.seed(42)
 map.feature(df$language, df$features)
 ```
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
@@ -161,13 +160,13 @@ df$popup <- aff.lang(df$language)
 ```
 The function `aff.lang()`  creates a vector of genealogical affiliations that can be easily mapped:
 ```{r, fig.width=6.2}
-set.seed(40)
+set.seed(42)
 map.feature(languages = df$language, features = df$features, popup = df$popup)
 ```
 
 Like before, it is not necessary to name all arguments, so the same result can be obtained by this:
 ```{r, fig.width=6.2}
-set.seed(40)
+set.seed(42)
 map.feature(df$language, df$features, df$popup)
 ```
 Pop-up strings can contain HTML tags, so it is easy to insert a link, a couple of lines or a table. Here is how pop-up boxes can demonstrate language examples:
@@ -179,14 +178,14 @@ df$popup <- c ("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
                "ya id-u<br> 1sg go-1sg.npst <br> 'I go'",
                "id-a<br> go-1sg.prs<br> 'I go'")
 # create a map
-set.seed(40)
+set.seed(42)
 map.feature(df$language, df$features, df$popup)
 ```
 
 ### 3.4 Set coordinates
 Users can set their own coordinates using the arguments `latitude` and `longitude`. I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
 ```{r, fig.width=6.2}
-set.seed(7)
+set.seed(42)
 map.feature(languages = circassian$language,
             features = circassian$languoid,
             popup = circassian$village,
@@ -208,6 +207,7 @@ map.feature(languages = df$language,
 Package can generate the automatically generated control box that allows users to toggle the visibility of points and feature. To anable it there is an argument  `control` in the `map.feature` function:
 
 ```{r, fig.width=6.2}
+set.seed(42)
 map.feature(languages = df$language,
             features = df$features,
             control = TRUE)
@@ -216,7 +216,7 @@ map.feature(languages = df$language,
 ### 3.7 Set an additional set of features using strokes
 The `map.feature` function has an additional argument `stroke.features`. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so for two levels it will be black and white, for three --- black, grey, white end so on), but users can set their own colors using the argument `stroke.color`:
 ```{r, fig.width=6.2}
-set.seed(7)
+set.seed(42)
 map.feature(circassian$language,
             features = circassian$languoid,
             stroke.features = circassian$language,
@@ -231,7 +231,7 @@ newfeature <- circassian[,c(5,6)]
 # set language feature of the Baksan villages to NA and reduce newfeature from dataframe to vector
 newfeature <-  replace(newfeature$language, newfeature$languoid == "Baksan", NA)
 # create a map
-set.seed(7)
+set.seed(42)
 map.feature(circassian$language,
             features = circassian$languoid,
             latitude = circassian$latitude,
@@ -242,7 +242,7 @@ map.feature(circassian$language,
 ### 3.8 Set radii and an opacity feature
 All markers have their own radius and opacity, so it can be set by users. Just use arguments `radius`, `stroke.radius`, `opacity` and `stroke.opacity`:
 ```{r, fig.width=6.2}
-set.seed(7)
+set.seed(42)
 map.feature(circassian$language,
             features = circassian$languoid,
             stroke.features = circassian$language,
@@ -250,7 +250,7 @@ map.feature(circassian$language,
             longitude = circassian$longitude,
             radius = 7, stroke.radius = 13)
 
-set.seed(7)
+set.seed(42)
 map.feature(circassian$language,
             features = circassian$languoid,
             stroke.features = circassian$language,
@@ -262,7 +262,7 @@ map.feature(circassian$language,
 ### 3.9 Customizing legends
 By default legend appear in the left bottom corner. If there are stroke features, two legends are generated. There are additional arguments that control appearence and title of the legends.
 ```{r, fig.width=6.2}
-set.seed(7)
+set.seed(42)
 map.feature(circassian$language,
             features = circassian$languoid,
             stroke.features = circassian$language,
@@ -270,7 +270,7 @@ map.feature(circassian$language,
             longitude = circassian$longitude,
             legend = FALSE, stroke.legend = TRUE)
 
-set.seed(7)
+set.seed(42)
 map.feature(circassian$language,
             features = circassian$languoid,
             stroke.features = circassian$language,
@@ -285,7 +285,7 @@ It is possible to use different map tiles  using `tile` argument. For more tiles
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
-set.seed(11)
+set.seed(42)
 map.feature(df$lang, df$feature, df$popup,
             tile = "Stamen.Toner")
 ```
@@ -295,7 +295,7 @@ It is possible to use different map tiles at the same map. Just add a vector wit
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
-set.seed(11)
+set.seed(42)
 map.feature(df$lang, df$feature, df$popup,
                         tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"))
 ```
@@ -305,7 +305,7 @@ It is possible to combine different tiles and control box.
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
-set.seed(11)
+set.seed(42)
 map.feature(df$lang, df$feature, df$popup,
             tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"),
             control = TRUE)
