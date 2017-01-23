@@ -4,14 +4,14 @@
 \alias{lang.aff}
 \title{Get languoids by affiliation}
 \usage{
-lang.aff(x, list = FALSE, glottolog.source = "original")
+lang.aff(x, list = FALSE, glottolog.source = "modified")
 }
 \arguments{
 \item{x}{A character vector of the affiliations (can be written in lower case)}
 
 \item{list}{logical. If TRUE, returns a list of languoids, if FALSE return a named vector.}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" (by default) or "modified"}
+\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
 }
 \description{
 Takes any vector of affiliations and return languoids.

@@ -4,14 +4,14 @@
 \alias{lang.country}
 \title{Get languoids by country}
 \usage{
-lang.country(x, list = FALSE, glottolog.source = "original")
+lang.country(x, list = FALSE, glottolog.source = "modified")
 }
 \arguments{
 \item{x}{character vector of the countries (can be written in lower case)}
 
 \item{list}{logical. If TRUE, returns a list of languoids, if FALSE return a vector.}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" (by default) or "modified"}
+\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
 }
 \description{
 Takes any vector of countries and return languoids.

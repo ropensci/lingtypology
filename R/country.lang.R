@@ -3,7 +3,7 @@
 #' Takes any vector of languoids and return affiliation.
 #' @param x character vector of the languoids (can be written in lower case)
 #' @param intersection logical. If TRUE, function reterns vector of countries, where all languoids from x argument are spoken.
-#' @param glottolog.source A character vector that define which glottolog database is used: "original" (by default) or "modified"
+#' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 #' @examples
@@ -13,7 +13,7 @@
 #' @export
 
 
-country.lang <- function(x, intersection = FALSE, glottolog.source = "original"){
+country.lang <- function(x, intersection = FALSE, glottolog.source = "modified"){
   ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
   ret <- sapply(x, function(y){
     ifelse(is.glottolog(y, response = TRUE, glottolog.source = glottolog.source) == TRUE,

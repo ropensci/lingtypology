@@ -3,7 +3,7 @@
 #' Takes any vector of linguoids or ISO codes and return a logical vector.
 #' @param x A character vector of linguoids (can be written in lower case)or ISO codes
 #' @param response logical. If TRUE, when languoid is absent, return warnings with a possible candidates.
-#' @param glottolog.source A character vector that define which glottolog database is used: "original" (by default) or "modified"
+#' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' is.glottolog(c("Adyghe", "Russsian"))
@@ -19,7 +19,7 @@
 #' @import stringdist
 #'
 
-is.glottolog <- function(x, response = FALSE, glottolog.source = "original"){
+is.glottolog <- function(x, response = FALSE, glottolog.source = "modified"){
   ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
   y <- tolower(x)
 # check whether there are linguoids in database ---------------------------

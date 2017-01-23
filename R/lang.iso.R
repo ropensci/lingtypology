@@ -2,7 +2,7 @@
 #'
 #' Takes any vector of ISO codes and return languoids.
 #' @param x A character vector of the ISO codes.
-#' @param glottolog.source A character vector that define which glottolog database is used: "original" (by default) or "modified"
+#' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{lang.aff}}, \code{\link{lang.country}}
 #' @examples
@@ -10,7 +10,7 @@
 #' lang.iso(c("ady", "rus"))
 #' @export
 
-lang.iso <- function(x, glottolog.source = "original"){
+lang.iso <- function(x, glottolog.source = "modified"){
   ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
   sapply(x, function(y){
     ifelse(y %in% glottolog$iso,

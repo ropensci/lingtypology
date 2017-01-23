@@ -27,7 +27,7 @@
 #' @param opacity a numeric vector of marker opacity.
 #' @param stroke.opacity a numeric vector of stroke opacity.
 #' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
-#' @param glottolog.source A character vector that define which glottolog database is used: "original" (by default) or "modified"
+#' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
@@ -123,7 +123,7 @@ map.feature <- function(languages,
                         opacity = 1,
                         stroke.opacity = 1,
                         tile = "OpenStreetMap.Mapnik",
-                        glottolog.source = "original"){
+                        glottolog.source = "modified"){
 
   ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
   if(sum(is.glottolog(languages, response = T, glottolog.source = glottolog.source)) == 0){stop("There is no data to map")}

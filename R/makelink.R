@@ -3,11 +3,11 @@
 #' Takes any vector of linguoids and return links to glottolog pages.
 #' @param x A character vector of linguoids (can be written in lower case)
 #' @param popup character vector of strings that will appear in pop-up window of the function map.feature
-#' @param glottolog.source A character vector that define which glottolog database is used: "original" (by default) or "modified"
+#' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @export
 
-makelink <- function(x, popup = NULL, glottolog.source = "original"){
+makelink <- function(x, popup = NULL, glottolog.source = "modified"){
   ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
   link <- paste("<a href='",
                 "http://glottolog.org/resource/languoid/iso/",

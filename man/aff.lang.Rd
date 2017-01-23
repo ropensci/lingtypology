@@ -4,12 +4,12 @@
 \alias{aff.lang}
 \title{Get affiliation by languoid}
 \usage{
-aff.lang(x, glottolog.source = "original")
+aff.lang(x, glottolog.source = "modified")
 }
 \arguments{
 \item{x}{A character vector of the languoids (can be written in lower case)}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" (by default) or "modified"}
+\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
 }
 \description{
 Takes any vector of languoids and return affiliation.
