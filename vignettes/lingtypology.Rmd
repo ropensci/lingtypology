@@ -194,7 +194,7 @@ map.feature(languages = circassian$language,
 ```
 
 ### 3.5 Set colors
-By default colors are chosen randomly, but user can set their own colors using argument `color`:
+By default color palette is created by `rainbow()` function, but user can set their own colors using argument `color`:
 ```{r, fig.width=6.2}
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
                  features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
