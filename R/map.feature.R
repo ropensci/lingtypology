@@ -145,7 +145,9 @@ map.feature <- function(languages,
   mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df),]
 
   # creat link --------------------------------------------------------------
-  mapfeat.df$link <- makelink(as.character(mapfeat.df$languages), popup = mapfeat.df$popup, glottolog.source = glottolog.source)
+  mapfeat.df$link <- makelink(as.character(mapfeat.df$languages),
+                              popup = mapfeat.df$popup,
+                              glottolog.source = glottolog.source)
 
 
   # add images --------------------------------------------------------------

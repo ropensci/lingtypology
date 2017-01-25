@@ -8,6 +8,7 @@
   - added tile argument for layouts
   - multiple tile argument
   - added argument glottolog.source (Many thanks Robert Forkel for his issue!)
+  - makelink function corrected
 
 1.0.0
   - initial release

@@ -4,14 +4,14 @@
 \alias{makelink}
 \title{Make a link for a languoid}
 \usage{
-makelink(x, popup = NULL, glottolog.source = "modified")
+makelink(langs, popup = NULL, glottolog.source = "modified")
 }
 \arguments{
-\item{x}{A character vector of linguoids (can be written in lower case)}
-
 \item{popup}{character vector of strings that will appear in pop-up window of the function map.feature}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+
+\item{x}{A character vector of linguoids (can be written in lower case)}
 }
 \description{
 Takes any vector of linguoids and return links to glottolog pages.
