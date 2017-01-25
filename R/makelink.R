@@ -7,15 +7,15 @@
 #' @author George Moroz <agricolamz@gmail.com>
 #' @export
 
-makelink <- function(langs, popup = NULL, glottolog.source = "modified"){
+makelink <- function(x, popup = NULL, glottolog.source = "modified"){
   ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
-  link <- mapply(function(x, popup){
+  link <- mapply(function(langs, popup){
     paste0("<a href='",
            "http://glottolog.org/resource/languoid/iso/",
-           glottolog[tolower(glottolog$languoid) %in% tolower(x),]$iso,
+           glottolog[tolower(glottolog$languoid) %in% tolower(langs),]$iso,
            "' target='_blank'>",
-           as.character(x),
+           as.character(langs),
            "</a><br>",
-           as.character(popup))}, langs, popup)
+           as.character(popup))}, x, popup)
   return(unname(link))
 }
