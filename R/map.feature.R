@@ -168,7 +168,7 @@ map.feature <- function(languages,
                                 domain = mapfeat.df$features)
   } else {
     pal <- leaflet::colorFactor(color,
-                                domain = mapfeat.df$color)
+                                domain = mapfeat.df$features)
   }
 
   if(!is.null(stroke.features)){

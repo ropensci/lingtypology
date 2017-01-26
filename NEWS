@@ -1,14 +1,16 @@
 1.0.1
-  - fix all warnings in CRAN check
-  - fix the bug with two feature set mapping
+  - fixed all warnings in CRAN checks
+  - fixed the bug with two feature set mapping
   - added map.feature arguments for legends (stroke.title, stroke.legend)
   - changed default for control argument to FALSE
-  - Rmd, examples and help corrected
+  - corrected Rmd, examples and help
   - added image arguments
   - added tile argument for layouts
-  - multiple tile argument
-  - added argument glottolog.source (Many thanks Robert Forkel for his issue!)
-  - makelink function corrected
+  - added multiple tile argument
+  - added argument glottolog.source (Many thanks to Robert Forkel for his issue and his work!)
+  - fixed coloring probleme
+  - fixed makelink function
+  - some coordinates and language names corrected and stored in glottolog.modified
 
 1.0.0
   - initial release
