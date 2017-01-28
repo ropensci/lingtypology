@@ -288,7 +288,7 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 set.seed(42)
 map.feature(df$lang, df$feature, df$popup,
-            tile = "Stamen.Toner")
+            tile = "Thunderforest.OpenCycleMap")
 ```
 
 It is possible to use different map tiles at the same map. Just add a vector with tiles.
@@ -298,7 +298,7 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 set.seed(42)
 map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"))
+            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
 ```
 
 It is possible to name tiles using `tile.name` argument.
@@ -308,7 +308,7 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 set.seed(42)
 map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"),
+            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
             tile.name = c("b & w", "colored"))
 ```
 
@@ -319,7 +319,7 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 set.seed(42)
 map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"),
+            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
             control = TRUE)
 ```
 
