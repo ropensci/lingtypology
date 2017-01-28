@@ -7,7 +7,7 @@
 #' @author George Moroz <agricolamz@gmail.com>
 #' @export
 
-makelink <- function(x, popup = NULL, glottolog.source = "modified"){
+makelink <- function(x, popup = "", glottolog.source = "modified"){
   ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
   link <- mapply(function(langs, popup){
     paste0("<a href='",

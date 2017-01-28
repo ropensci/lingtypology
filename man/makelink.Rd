@@ -4,7 +4,7 @@
 \alias{makelink}
 \title{Make a link for a languoid}
 \usage{
-makelink(x, popup = NULL, glottolog.source = "modified")
+makelink(x, popup = "", glottolog.source = "modified")
 }
 \arguments{
 \item{x}{A character vector of linguoids (can be written in lower case)}

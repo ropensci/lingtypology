@@ -110,7 +110,7 @@ is.glottolog(c("Tabasaran", "Tabassaran"), glottolog.source = "original")
 is.glottolog(c("Tabasaran", "Tabassaran"), glottolog.source = "modified")
 ```
 
-It is common practice in R to reduce both function arguments and its values. So it could be done with `lingtypology` functions either.
+It is common practice in R to reduce both function arguments and its values, so it can also be done with the following lingtypology functions.
 ```{r}
 is.glottolog(c("Tabasaran", "Tabassaran"), g = "o")
 ```
@@ -281,7 +281,7 @@ map.feature(circassian$language,
 ```
 
 ### 3.10 Set layouts
-It is possible to use different map tiles  using `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
+It is possible to use different tiles on the same map  using `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
@@ -301,7 +301,7 @@ map.feature(df$lang, df$feature, df$popup,
                         tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"))
 ```
 
-It is possible to combine different tiles and control box.
+It is possible to combine different tiles wirh the control box.
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
@@ -313,7 +313,7 @@ map.feature(df$lang, df$feature, df$popup,
 ```
 
 ### 3.11 Add a picture to a map
-Argument `images.url` allows users to add their own pictures to the map, using url. In this part I will use two histograms on most numerous nations in Moscow and St. Petersburg based on last Russian Census data:
+Argument images.url allows users to add their own pictures to a map, using url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
 
 * [Moscow](http://web-corpora.net/~agricolamz/maps/lingtypology/Moscow.png)
 * [St. Petersburg](http://web-corpora.net/~agricolamz/maps/lingtypology/St.%20Petersburg.png)
@@ -323,7 +323,7 @@ Lets create a dataframe
 df <- data.frame(lang = c("Russian", "Russian"),
                  lat  = c(55.75, 59.95),
                  long = c(37.616667, 30.3),
-# I use here URL shorter by Google
+# I use here URL shortener by Google
                  urls = c("https://goo.gl/5OUv1E",
                           "https://goo.gl/UWmvDw"))
 map.feature(languages = df$lang,
@@ -366,7 +366,7 @@ map.feature(languages = df$lang,
             image.Y.shift = 0)
 ```
 
-Using this argument users can plot their own markers, any chart connected to the point or even their own legend. It is important to know, that using transparent .png files, user can can plot additional legend text on the map.
+Using this argument users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot additional legend text on the map. 
 
 ## 4. Citing `lingtyplogy`
 It is realy important to cite R and R packages when you use them. For this purpose use `citation` R function:
