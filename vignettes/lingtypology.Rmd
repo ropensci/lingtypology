@@ -301,7 +301,7 @@ map.feature(df$lang, df$feature, df$popup,
                         tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"))
 ```
 
-It is possible to combine different tiles wirh the control box.
+It is possible to combine tiles' control box with the features' control box.
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
