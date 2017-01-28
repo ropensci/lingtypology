@@ -15,16 +15,17 @@ The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](htt
 I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting this vignette.
 
 ## 1. Installation
-Get the stable version from CRAN:
+Since `lingtypology` is an R package, you should install [R](https://www.r-project.org/) on your PC if you haven't already done so. To install `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
 ```{r, eval=FALSE}
 install.packages("lingtypology")
 ```
 
-… or get the development version from GitHub:
+You can also get the development version from GitHub:
 ```{r, eval= F}
 install.packages("devtools")
 devtools::install_github("agricolamz/lingtypology", dependencies = TRUE)
 ```
+
 Load package:
 ```{r}
 library(lingtypology)
