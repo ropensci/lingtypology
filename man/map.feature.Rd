@@ -12,7 +12,7 @@ map.feature(languages, features = "none", popup = "",
   legend = TRUE, legend.opacity = 1, stroke.legend = TRUE,
   stroke.legend.opacity = 1, radius = 5, stroke.radius = 9.5,
   opacity = 1, stroke.opacity = 1, tile = "OpenStreetMap.Mapnik",
-  glottolog.source = "modified")
+  tile.name = NULL, glottolog.source = "modified")
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -65,6 +65,8 @@ map.feature(languages, features = "none", popup = "",
 
 \item{tile}{a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
 
+\item{tile.name}{a character verctor with a user's map tiles' names}
+
 \item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
 }
 \description{
@@ -107,6 +109,7 @@ map.feature("Adyghe", latitude = 43, longitude = 57)
 ## Change map tile
 map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap")
 map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
+map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap", tile.name = "colored")
 
 ## Add you own colors
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),

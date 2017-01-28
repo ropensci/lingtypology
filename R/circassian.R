@@ -4,7 +4,7 @@
 #' with genealogical affiliation, coordinates and district names. Most
 #' data collected during the fieldworks (2011--2016).
 #'
-#' @format A data frame with 8286 rows and 7 variables:
+#' @format A data frame with 157 rows and 6 variables:
 #' \describe{
 #'   \item{longitude}{longitude}
 #'   \item{latitude}{latitude}

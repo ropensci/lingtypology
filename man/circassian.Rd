@@ -4,7 +4,7 @@
 \name{circassian}
 \alias{circassian}
 \title{Circassian villages in Russia}
-\format{A data frame with 8286 rows and 7 variables:
+\format{A data frame with 157 rows and 6 variables:
 \describe{
   \item{longitude}{longitude}
   \item{latitude}{latitude}

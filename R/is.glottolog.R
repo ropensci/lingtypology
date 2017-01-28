@@ -41,6 +41,6 @@ is.glottolog <- function(x, response = FALSE, glottolog.source = "modified"){
                     z,
                     " is absent in our database. Did you mean ",
                     candidate, "?",
-                    sep = ""))})}
+                    sep = ""), call. = F)})}
   return(result)
 }

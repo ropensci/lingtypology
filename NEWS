@@ -7,6 +7,7 @@
   - added image arguments
   - added tile argument for layouts
   - added multiple tile argument
+  - added tile.name argument
   - added argument glottolog.source (Many thanks to Robert Forkel for his issue and his work!)
   - fixed coloring probleme
   - fixed makelink function

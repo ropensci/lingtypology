@@ -155,7 +155,7 @@ map.feature(df$language, df$features)
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
 ### 3.3 Set pop-up boxes
-Sometimes it is a good idea to add some additional information to pop-up boxes, e.g. language affiliation,  references or even examples. In order to do so, first of all we need to create an extra vector of strings in our dataframe:
+Sometimes it is a good idea to add some additional information (e.g. language affiliation,  references or even examples) to pop-up boxes that appear, when points are clicked. In order to do so, first of all we need to create an extra vector of strings in our dataframe:
 ```{r, fig.width=6.2}
 df$popup <- aff.lang(df$language)
 ```
@@ -298,7 +298,18 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 set.seed(42)
 map.feature(df$lang, df$feature, df$popup,
-                        tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"))
+            tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"))
+```
+
+It is possible to name tiles using `tile.name` argument.
+```{r, fig.width=6.2}
+df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+set.seed(42)
+map.feature(df$lang, df$feature, df$popup,
+            tile = c("OpenStreetMap.BlackAndWhite", "Stamen.Toner"),
+            tile.name = c("b & w", "colored"))
 ```
 
 It is possible to combine tiles' control box with the features' control box.

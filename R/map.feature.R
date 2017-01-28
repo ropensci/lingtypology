@@ -27,6 +27,7 @@
 #' @param opacity a numeric vector of marker opacity.
 #' @param stroke.opacity a numeric vector of stroke opacity.
 #' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
+#' @param tile.name a character verctor with a user's map tiles' names
 #' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -66,6 +67,7 @@
 #' ## Change map tile
 #' map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap")
 #' map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
+#' map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap", tile.name = "colored")
 #'
 #' ## Add you own colors
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -123,6 +125,7 @@ map.feature <- function(languages,
                         opacity = 1,
                         stroke.opacity = 1,
                         tile = "OpenStreetMap.Mapnik",
+                        tile.name = NULL,
                         glottolog.source = "modified"){
 
   ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
@@ -190,6 +193,15 @@ map.feature <- function(languages,
 # change feature names ----------------------------------------------------
   levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
+# change tile names if needed ---------------------------------------------
+  ifelse(is.null(tile.name), tile.name <- tile, NA)
+  if(length(tile.name) != length(tile)){
+    tile.name <- tile
+    ifelse(length(tile.name) > length(tile),
+           warning("number of tiles (tile argument) is less than number of tile names (tile.name argument)", call. = F),
+           warning("number of tile names (tile.name argument) is less than number of tiles (tile argument)", call. = F))
+    }
+
 # map: if there are only one feature -------------------------------------------
   if (length(table(mapfeat.df$features)) <= 1){
     if (is.null(color)) {
@@ -197,11 +209,11 @@ map.feature <- function(languages,
     }
     m <- leaflet::leaflet(mapfeat.df) %>%
       leaflet::addTiles(tile[1]) %>%
-      leaflet::addProviderTiles(tile[1])
+      leaflet::addProviderTiles(tile[1], group = tile.name[1])
       if(length(tile) > 1){
-        sapply(tile[-1], function(other.tiles){
-          m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tiles)
-          })
+        mapply(function(other.tiles, other.tile.names){
+          m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tile.names)
+          }, tile[-1], tile.name[-1])
         }
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                         lat=mapfeat.df$lat,
@@ -215,12 +227,12 @@ map.feature <- function(languages,
     if(length(tile) > 1){
       if (control == TRUE) {
         m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile,
+          baseGroups = tile.name,
           overlayGroups = mapfeat.df$languages,
           options = layersControlOptions(collapsed = FALSE))
       } else {
         m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile,
+          baseGroups = tile.name,
           options = layersControlOptions(collapsed = FALSE))
       }
     } else {
@@ -247,11 +259,11 @@ map.feature <- function(languages,
   } else if(!is.null(stroke.features)){
     m <- leaflet::leaflet(mapfeat.stroke) %>%
       leaflet::addTiles(tile[1]) %>%
-      leaflet::addProviderTiles(tile[1])
+      leaflet::addProviderTiles(tile[1], group = tile.name[1])
     if(length(tile) > 1){
-      sapply(tile[-1], function(other.tiles){
-        m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tiles)
-      })
+      mapply(function(other.tiles, other.tile.names){
+        m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tile.names)
+      }, tile[-1], tile.name[-1])
     }
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                 lat=mapfeat.stroke$lat,
@@ -313,12 +325,12 @@ map.feature <- function(languages,
     if(length(tile) > 1){
       if (control == TRUE) {
         m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile,
+          baseGroups = tile.name,
           overlayGroups = mapfeat.df$features,
           options = layersControlOptions(collapsed = FALSE))
       } else {
         m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile,
+          baseGroups = tile.name,
           options = layersControlOptions(collapsed = FALSE))
       }
     } else {
@@ -332,11 +344,11 @@ map.feature <- function(languages,
   } else{
     m <- leaflet::leaflet(mapfeat.df) %>%
       leaflet::addTiles(tile[1]) %>%
-      leaflet::addProviderTiles(tile[1])
+      leaflet::addProviderTiles(tile[1], group = tile.name[1])
     if(length(tile) > 1){
-      sapply(tile[-1], function(other.tiles){
-        m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tiles)
-      })
+      mapply(function(other.tiles, other.tile.names){
+        m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tile.names)
+      }, tile[-1], tile.name[-1])
     }
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                          lat=mapfeat.df$lat,
@@ -350,12 +362,12 @@ map.feature <- function(languages,
     if(length(tile) > 1){
       if (control == TRUE) {
         m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile,
+          baseGroups = tile.name,
           overlayGroups = mapfeat.df$features,
           options = layersControlOptions(collapsed = FALSE))
       } else {
         m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile,
+          baseGroups = tile.name,
           options = layersControlOptions(collapsed = FALSE))
       }
     } else {
