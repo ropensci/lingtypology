@@ -129,6 +129,8 @@ map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 
 As shown in the picture above, this function generates an interactive Leaflet map with a control box that allows users to toggle the visibility of any group of points on the map. All specific points on the map have a pop-up box that appears when markers are clicked (more about editing pop-up boxes see [below](https://github.com/agricolamz/lingtypology/wiki/Map-my-features-with-map.feature()#set-pop-ups)). By default, they contain languoid names linked to the glottolog site.
 
+If you are new to R, please find some information about how to import data to R. It is simple to make a .csv, .ods or .xls containing lists of languages and features and read it from R (.csv is an easiest way).
+
 ### 3.2 Set features
 The goal of this package is to allow typologists to map language types. A list of languoids and correspondent features can be stored in a `data.frame` as follows:
 ```{r}

@@ -9,7 +9,7 @@
   - added multiple tile argument
   - added tile.name argument
   - added argument glottolog.source (Many thanks to Robert Forkel for his issue and his work!)
-  - fixed coloring probleme
+  - fixed coloring problem
   - fixed makelink function
   - some coordinates and language names corrected and stored in glottolog.modified
 
