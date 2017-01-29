@@ -1,4 +1,4 @@
-1.0.1
+lingtypology 1.0.1 (29.01.2017)
   - fixed all warnings in CRAN checks
   - fixed the bug with two feature set mapping
   - added map.feature arguments for legends (stroke.title, stroke.legend)
@@ -13,5 +13,5 @@
   - fixed makelink function
   - some coordinates and language names corrected and stored in glottolog.modified
 
-1.0.0
+lingtypology 1.0.0 (29.12.2016)
   - initial release
