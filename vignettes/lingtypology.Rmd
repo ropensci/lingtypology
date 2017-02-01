@@ -10,8 +10,7 @@ vignette: >
 ---
 
 ## What is lingtypology?
-The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic cartography.[^1]
-[^1]: I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting this vignette.
+The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic cartography. I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting this vignette.
 
 ## 1. Installation
 Since `lingtypology` is an R package, you should install [R](https://www.r-project.org/) on your PC if you haven't already done so. To install `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
@@ -135,8 +134,7 @@ As shown in the picture above, this function generates an interactive Leaflet ma
 
 If you are new to R, please find some information about how to import data to R. It is simple to make a .csv, .ods or .xls containing lists of languages and features and read it from R (.csv is an easiest way).
 
-If for some reasons you are not using RStudio or you want automatically create and save a lot of maps, you can save a map to the variable and use `htmlwidgets` package for saving created maps to an .html file.[^2]
-[^2]: I would like to thank Timo Roettger for mentioning that problem.
+If for some reasons you are not using RStudio or you want automatically create and save a lot of maps, you can save a map to the variable and use `htmlwidgets` package for saving created maps to an .html file. I would like to thank Timo Roettger for mentioning that problem.
 
 ```{r, eval = FALSE}
 m <- map.feature(c("Adyghe", "Korean"))
