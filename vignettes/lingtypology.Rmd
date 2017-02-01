@@ -10,9 +10,8 @@ vignette: >
 ---
 
 ## What is lingtypology?
-The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic cartography.
-
-I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting this vignette.
+The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic cartography.[^1]
+[^1]: I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting this vignette.
 
 ## 1. Installation
 Since `lingtypology` is an R package, you should install [R](https://www.r-project.org/) on your PC if you haven't already done so. To install `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
@@ -64,6 +63,9 @@ lang.iso("ady")
 country.lang("Adyghe")
 lang.aff("Abkhaz-Adyge")
 ```
+I would like to mention that strings in R can be created using
+single or double quotes. Since inserting single quotes in a string created with single quotes causes a mistake in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is wrong string in R.
+
 * a vector of strings
 ```{r}
 area.lang(c("Adyghe", "Aduge"))
@@ -102,7 +104,8 @@ Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not p
 * Sauk (Trans New Guinea) is renamed Ma Manda. (27.12.2016)
 * Ache is renamed Ache (Sino Tibetian) and Ache (Tupian); Bari is renamed Bari (Chibchan) and Bari (Nilotic); Bugan is renamed Bugan and Bugan (Spurious); Calo is renamed Calo and Calo (Spurious); Chimakum is renamed Chimakum and Chimakum (Spurious); Garawa is renamed Garawa and Garawa (Spurious); Hamba is renamed Hamba (Atlantic-Congo) and Hamba (Unclassifiable); Hoti is renamed Hoti (Jodi-Saliban) and Hoti (Austronesian); Karipuna is renamed Karipuna (Pano-Tacanan) and Karipuna (Tupian); Kula is renamed Kula (Austronesian) and Kula (Timor-Alor-Pantar); Laru is renamed Laru (Atlantic-Congo) and Laru (Heiban); Maring is renamed Maring (Nuclear Trans New Guinea) and Maring (Sino-Tibetan); Mayo is renamed Mayo (Uto-Aztecan) and Mayo (Pano-Tacanan); Nabi is renamed Nabi (Austronesian) and Nabi (Nuclear Torricelli); Natugu is renamed Natugu and Natugu (Spurious); Naxi is renamed Naxi and Naxi (Spurious); Ngen is renamed Ngen (Mande) and Ngen (Austronesian); Purum is renamed Purum and Purum (Spurious); Saliba is renamed Saliba (Austronesian) and Saliba (Jodi-Saliban); Southern Betsimisaraka Malagasy is renamed Southern Betsimisaraka Malagasy and Southern Betsimisaraka Malagasy (Spurious); Surigaonon is renamed Surigaonon and Surigaonon (Spurious); Tai Pao is renamed Tai Pao and Tai Pao (Spurious); Tunen is renamed Tunen and Tunen (Spurious); Wara is renamed Wara (Atlantic-Congo) and Wara (Morehead-Wasur); Yendang is renamed Yendang and Yendang (Spurious) (22.01.2017)
 * 360+ longitude conversion made for Austral, Central Siberian Yupik, East Futuna, Hawaiian, Lauan, Mangarevam Naukan Yupik, Niuafo'ou, Niuatoputapu, Niuean, North Marquesan, Old Rapa, Penrhyn, Pitcairn-Norfolk, Pukapuka, Rakahanga-Manihiki, Rapanui, Rarotongan, Samoan, Sirenik Yupik, South Marquesan, Tahitian, Tokelau, Tonga (Tonga Islands), Tuamotuan, Wallisian (22.01.2017)
-* Abkhazian is changed to Abkhaz. Abkhazian, Abaza and Georgian coordinates are changed.
+* Abkhazian is changed to Abkhaz. Abkhazian, Abaza and Georgian coordinates are changed. (22.01.2017)
+* Northern Sahaptin names corrected. Central Guerrero Nahuatl is renamed Guerrero Nahuatl (thanks to Timo Roettger for mentioning that problems).
 
 After [Robert Forkel's issue](https://github.com/agricolamz/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody have an access to "original" and "modified" (by default) glottolog versions:
 ```{r}
@@ -131,6 +134,17 @@ map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 As shown in the picture above, this function generates an interactive Leaflet map with a control box that allows users to toggle the visibility of any group of points on the map. All specific points on the map have a pop-up box that appears when markers are clicked (more about editing pop-up boxes see [below](https://github.com/agricolamz/lingtypology/wiki/Map-my-features-with-map.feature()#set-pop-ups)). By default, they contain languoid names linked to the glottolog site.
 
 If you are new to R, please find some information about how to import data to R. It is simple to make a .csv, .ods or .xls containing lists of languages and features and read it from R (.csv is an easiest way).
+
+If for some reasons you are not using RStudio or you want automatically create and save a lot of maps, you can save a map to the variable and use `htmlwidgets` package for saving created maps to an .html file.[^2]
+[^2]: I would like to thank Timo Roettger for mentioning that problem.
+
+```{r, eval = FALSE}
+m <- map.feature(c("Adyghe", "Korean"))
+# installed.packages("htmlwidgets")
+library(htmlwidgets)
+saveWidget(m, file="/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/m.html")
+```
+
 
 ### 3.2 Set features
 The goal of this package is to allow typologists to map language types. A list of languoids and correspondent features can be stored in a `data.frame` as follows:
