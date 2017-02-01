@@ -51,7 +51,7 @@ map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 
 ## ---- eval = FALSE-------------------------------------------------------
 #  m <- map.feature(c("Adyghe", "Korean"))
-#  # installed.packages("htmlwidgets")
+#  # install.packages("htmlwidgets")
 #  library(htmlwidgets)
 #  saveWidget(m, file="/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/m.html")
 

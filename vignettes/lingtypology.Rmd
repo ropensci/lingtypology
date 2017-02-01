@@ -138,7 +138,7 @@ If for some reasons you are not using RStudio or you want automatically create a
 
 ```{r, eval = FALSE}
 m <- map.feature(c("Adyghe", "Korean"))
-# installed.packages("htmlwidgets")
+# install.packages("htmlwidgets")
 library(htmlwidgets)
 saveWidget(m, file="/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/m.html")
 ```
