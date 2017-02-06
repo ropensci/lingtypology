@@ -105,7 +105,8 @@ Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not p
 * 360+ longitude conversion made for Austral, Central Siberian Yupik, East Futuna, Hawaiian, Lauan, Mangarevam Naukan Yupik, Niuafo'ou, Niuatoputapu, Niuean, North Marquesan, Old Rapa, Penrhyn, Pitcairn-Norfolk, Pukapuka, Rakahanga-Manihiki, Rapanui, Rarotongan, Samoan, Sirenik Yupik, South Marquesan, Tahitian, Tokelau, Tonga (Tonga Islands), Tuamotuan, Wallisian (22.01.2017)
 * Abkhazian is changed to Abkhaz. Abkhazian, Abaza and Georgian coordinates are changed. (22.01.2017)
 * Northern Sahaptin names corrected. Central Guerrero Nahuatl is renamed Guerrero Nahuatl (thanks to Timo Roettger for mentioning that problems). (02.02.2017)
-* Some sign language changed. Thanks [Calle Börstell](https://borstell.github.io/#name) for data. (02.02.2017)
+* Some sign language changed. Thanks to [Calle Börstell](https://borstell.github.io/#name) for data. (02.02.2017)
+* Bininj Gun-Wok changed to Gunwinggu (thanks to Timo Roettger) (06.02.2017)
 
 After [Robert Forkel's issue](https://github.com/agricolamz/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody have an access to "original" and "modified" (by default) glottolog versions:
 ```{r}
