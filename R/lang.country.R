@@ -7,9 +7,9 @@
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{lang.aff}}, \code{\link{lang.iso}}
 #' @examples
-#' lang.country("Bali")
-#' lang.country(c("Bali", "Luxembourg"))
-#' lang.country(c("Bali", "Luxembourg"), list = TRUE)
+#' lang.country("North Korea")
+#' lang.country(c("North Korea", "Luxembourg"))
+#' lang.country(c("North Korea", "Luxembourg"), list = TRUE)
 #' ## What languoids are both in North Korea and in South Korea?
 #' lang.country("Korea")
 #' @export

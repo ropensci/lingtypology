@@ -17,9 +17,9 @@ lang.country(x, list = FALSE, glottolog.source = "modified")
 Takes any vector of countries and return languoids.
 }
 \examples{
-lang.country("Bali")
-lang.country(c("Bali", "Luxembourg"))
-lang.country(c("Bali", "Luxembourg"), list = TRUE)
+lang.country("North Korea")
+lang.country(c("North Korea", "Luxembourg"))
+lang.country(c("North Korea", "Luxembourg"), list = TRUE)
 ## What languoids are both in North Korea and in South Korea?
 lang.country("Korea")
 }

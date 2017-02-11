@@ -1,4 +1,5 @@
 library(testthat)
 library(lingtypology)
 
-test_check("lingtypology")
+test_package("lingtypology")
+devtools::build(quiet = T)

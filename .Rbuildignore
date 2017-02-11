@@ -1,6 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^README\.html$
-.travis.yml
 ^codecov\.yml$
 ^\.travis\.yml$
+^.*tests$
