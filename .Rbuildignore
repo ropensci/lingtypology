@@ -4,3 +4,4 @@
 ^codecov\.yml$
 ^\.travis\.yml$
 ^.*tests$
+^rsconnect
