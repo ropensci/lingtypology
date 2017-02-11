@@ -1,0 +1,8 @@
+name: Publish Document
+title:
+account: rpubs
+server: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/249224/96a2819f83da455d980c10f1f800e7d1
+bundleId: https://api.rpubs.com/api/v1/document/249224/96a2819f83da455d980c10f1f800e7d1
+url: http://rpubs.com/aGricoaMZ/249224
+when: 1486851379.29961
