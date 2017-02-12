@@ -198,8 +198,8 @@ map.feature <- function(languages,
   if(length(tile.name) != length(tile)){
     tile.name <- tile
     ifelse(length(tile.name) > length(tile),
-           warning("number of tiles (tile argument) is less than number of tile names (tile.name argument)", call. = F),
-           warning("number of tile names (tile.name argument) is less than number of tiles (tile argument)", call. = F))
+           warning('number of tiles (tile argument) is less than number of tile names (tile.name argument)', call. = F),
+           warning('number of tile names (tile.name argument) is less than number of tiles (tile argument)', call. = F))
     }
 
 # map: if there are only one feature -------------------------------------------
