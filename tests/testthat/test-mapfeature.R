@@ -15,6 +15,11 @@ test_that("map.feature source", {
                  "Languoid Tabasaran is absent in our database. Did you mean Tabassaran?")
 })
 
+test_that("map.feature no data to map", {
+  expect_error(expect_warning(map.feature("bla-bla-bla"), "Languoid bla-bla-bla is absent in our database. Did you mean Blablanga?", ignore.case = T),
+               "There is no data to map")
+})
+
 map_coord <- map.feature("Tabasaran",
                          latitude = 43,
                          longitude = 57)
@@ -43,10 +48,15 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
                  popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 map_stroke <-  map.feature(df$lang, df$feature, df$popup,
                            stroke.features = df$popup)
+map_stroke2 <-  map.feature(df$lang, df$feature, df$popup,
+                           stroke.features = df$popup,
+                           stroke.color = c("blue", "green"))
 
 test_that("map.feature stroke feature", {
   expect_equal(length(map_stroke$x$calls),
                8)
+  expect_equal(map_stroke2$x$calls[[4]]$args[[6]]$fillColor,
+               c("#0000FF", "#0000FF", "#00FF00", "#00FF00", "#00FF00"))
 })
 
 map_colorless <- map.feature(c("Tabasaran", "Adyghe"))
@@ -71,3 +81,12 @@ test_that("map.feature tiles", {
                c("OpenStreetMap.BlackAndWhite",
                  "Thunderforest.OpenCycleMap"))
 })
+
+map_control <- map.feature(c("Adyghe", "Russian"),
+                           control = TRUE)
+
+test_that("map.feature tiles", {
+  expect_equal(map_control$x$calls[[4]]$method,
+               "addLayersControl")
+})
+
