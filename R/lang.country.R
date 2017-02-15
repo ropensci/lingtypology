@@ -15,7 +15,9 @@
 #' @export
 
 lang.country <- function(x, list = FALSE, glottolog.source = "modified"){
-  ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
+  ifelse(grepl(glottolog.source, "original"),
+         glottolog <- lingtypology::glottolog.original,
+         glottolog <- lingtypology::glottolog.modified)
   ret <- lapply(x, function(y){
     cntr <- lingtypology::countries$common[(tolower(lingtypology::countries$common) %in% tolower(y) |
                                 tolower(lingtypology::countries$official) %in% tolower(y) |

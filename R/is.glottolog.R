@@ -20,7 +20,9 @@
 #'
 
 is.glottolog <- function(x, response = FALSE, glottolog.source = "modified"){
-  ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
+  ifelse(grepl(glottolog.source, "original"),
+         glottolog <- lingtypology::glottolog.original,
+         glottolog <- lingtypology::glottolog.modified)
   y <- tolower(x)
 # check whether there are linguoids in database ---------------------------
   result <- y %in% tolower(glottolog$languoid)
@@ -41,6 +43,6 @@ is.glottolog <- function(x, response = FALSE, glottolog.source = "modified"){
                     z,
                     " is absent in our database. Did you mean ",
                     candidate, "?",
-                    sep = ""), call. = F)})}
+                    sep = ""), call. = FALSE)})}
   return(result)
 }

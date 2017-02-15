@@ -13,7 +13,9 @@
 #' @export
 
 lang.aff <- function(x, list = FALSE, glottolog.source = "modified"){
-  ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
+  ifelse(grepl(glottolog.source, "original"),
+         glottolog <- lingtypology::glottolog.original,
+         glottolog <- lingtypology::glottolog.modified)
   if(list == FALSE){
     c(unlist(sapply(x, function(y){
       glottolog[grep(tolower(y), tolower(glottolog$affiliation)),]$languoid})))

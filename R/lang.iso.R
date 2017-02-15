@@ -11,7 +11,9 @@
 #' @export
 
 lang.iso <- function(x, glottolog.source = "modified"){
-  ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
+  ifelse(grepl(glottolog.source, "original"),
+         glottolog <- lingtypology::glottolog.original,
+         glottolog <- lingtypology::glottolog.modified)
   sapply(x, function(y){
     ifelse(y %in% glottolog$iso,
            glottolog[tolower(glottolog$iso) %in% tolower(y),]$languoid,

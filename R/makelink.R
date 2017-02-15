@@ -8,7 +8,9 @@
 #' @export
 
 makelink <- function(x, popup = "", glottolog.source = "modified"){
-  ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
+  ifelse(grepl(glottolog.source, "original"),
+         glottolog <- lingtypology::glottolog.original,
+         glottolog <- lingtypology::glottolog.modified)
   link <- mapply(function(langs, popup){
     paste0("<a href='",
            "http://glottolog.org/resource/languoid/iso/",
