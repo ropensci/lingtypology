@@ -159,6 +159,13 @@ Now we can draw a map:
 map.feature(languages = df$language, features = df$features)
 ```
 
+If you have a lot of features and they are appear in the legend in senseless order (by default it is alphabatical order), you can reorder them using factors (vector with ordered levels, for more information see `?factor`). For example, I want polysynthetic feature be first and fusional feature be last:
+
+```{r, fig.width=6.2}
+df$features <- factor(df$features, levels = c("polysynthetic", "fusional"))
+map.feature(languages = df$language, features = df$features)
+```
+
 Since correspondence between color palette and maped features is chosen randomly by default, it is better to use the function `set.seed` to get reproducible map (or choose colors by yourself, see section 3.5):
 ```{r, fig.width=6.2}
 set.seed(42)
