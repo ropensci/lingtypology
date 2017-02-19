@@ -13,15 +13,15 @@
 #' @export
 
 lang.aff <- function(x, list = FALSE, glottolog.source = "modified") {
-    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, 
+    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
         glottolog <- lingtypology::glottolog.modified)
     if (list == FALSE) {
         c(unlist(sapply(x, function(y) {
             glottolog[grep(tolower(y), tolower(glottolog$affiliation)), ]$languoid
         })))
     } else {
-        vapply(x, function(y) {
+        lapply(x, function(y) {
             glottolog[grep(tolower(y), tolower(glottolog$affiliation)), ]$languoid
-        }, character(1))
+        })
     }
 }
