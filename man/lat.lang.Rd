@@ -9,16 +9,16 @@ lat.lang(x, glottolog.source = "modified")
 \arguments{
 \item{x}{A character vector of the languoids (can be written in lower case)}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of languoids and return latitude.
 }
 \examples{
-lat.lang("Adyghe")
-long.lang("Adyghe")
-lat.lang(c("Adyghe", "Russian"))
-long.lang(c("Adyghe", "Russian"))
+lat.lang('Adyghe')
+long.lang('Adyghe')
+lat.lang(c('Adyghe', 'Russian'))
+long.lang(c('Adyghe', 'Russian'))
 }
 \author{
 George Moroz <agricolamz@gmail.com>

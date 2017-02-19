@@ -11,7 +11,7 @@ makelink(x, popup = "", glottolog.source = "modified")
 
 \item{popup}{character vector of strings that will appear in pop-up window of the function map.feature}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of linguoids and return links to glottolog pages.

@@ -11,17 +11,17 @@ lang.country(x, list = FALSE, glottolog.source = "modified")
 
 \item{list}{logical. If TRUE, returns a list of languoids, if FALSE return a vector.}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of countries and return languoids.
 }
 \examples{
-lang.country("North Korea")
-lang.country(c("North Korea", "Luxembourg"))
-lang.country(c("North Korea", "Luxembourg"), list = TRUE)
+lang.country('North Korea')
+lang.country(c('North Korea', 'Luxembourg'))
+lang.country(c('North Korea', 'Luxembourg'), list = TRUE)
 ## What languoids are both in North Korea and in South Korea?
-lang.country("Korea")
+lang.country('Korea')
 }
 \author{
 George Moroz <agricolamz@gmail.com>

@@ -9,14 +9,14 @@ lang.iso(x, glottolog.source = "modified")
 \arguments{
 \item{x}{A character vector of the ISO codes.}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of ISO codes and return languoids.
 }
 \examples{
-lang.iso("ady")
-lang.iso(c("ady", "rus"))
+lang.iso('ady')
+lang.iso(c('ady', 'rus'))
 }
 \author{
 George Moroz <agricolamz@gmail.com>

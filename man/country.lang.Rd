@@ -11,15 +11,15 @@ country.lang(x, intersection = FALSE, glottolog.source = "modified")
 
 \item{intersection}{logical. If TRUE, function reterns vector of countries, where all languoids from x argument are spoken.}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of languoids and return affiliation.
 }
 \examples{
-country.lang("Udi")
-country.lang(c("Udi", "Laz"))
-country.lang(c("Udi", "Laz"), intersection = TRUE)
+country.lang('Udi')
+country.lang(c('Udi', 'Laz'))
+country.lang(c('Udi', 'Laz'), intersection = TRUE)
 }
 \author{
 George Moroz <agricolamz@gmail.com>

@@ -11,19 +11,19 @@ is.glottolog(x, response = FALSE, glottolog.source = "modified")
 
 \item{response}{logical. If TRUE, when languoid is absent, return warnings with a possible candidates.}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of linguoids or ISO codes and return a logical vector.
 }
 \examples{
-is.glottolog(c("Adyghe", "Russsian"))
+is.glottolog(c('Adyghe', 'Russsian'))
 
 # Add warning message with sugestions
-is.glottolog(c("Adyge", "Russian"), response = TRUE)
+is.glottolog(c('Adyge', 'Russian'), response = TRUE)
 # > FALSE TRUE
 # Warning message:
-# In is.glottolog(c("Adyge", "Russian"), response = TRUE) :
+# In is.glottolog(c('Adyge', 'Russian'), response = TRUE) :
 # Languoid Adyge is absent in our database. Did you mean Aduge, Adyghe?
 
 }

@@ -9,14 +9,14 @@ area.lang(x, glottolog.source = "modified")
 \arguments{
 \item{x}{character vector of the languoids (can be written in lower case)}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of languoids and return macro area.
 }
 \examples{
-area.lang("Adyghe")
-area.lang(c("Adyghe", "Aduge"))
+area.lang('Adyghe')
+area.lang(c('Adyghe', 'Aduge'))
 }
 \author{
 George Moroz <agricolamz@gmail.com>

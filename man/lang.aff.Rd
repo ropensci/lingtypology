@@ -11,15 +11,15 @@ lang.aff(x, list = FALSE, glottolog.source = "modified")
 
 \item{list}{logical. If TRUE, returns a list of languoids, if FALSE return a named vector.}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of affiliations and return languoids.
 }
 \examples{
-lang.aff("Balto-Slavic")
-lang.aff(c("East Slavic", "West Slavic"))
-lang.aff(c("East Slavic", "West Slavic"), list = TRUE)
+lang.aff('Balto-Slavic')
+lang.aff(c('East Slavic', 'West Slavic'))
+lang.aff(c('East Slavic', 'West Slavic'), list = TRUE)
 }
 \author{
 George Moroz <agricolamz@gmail.com>

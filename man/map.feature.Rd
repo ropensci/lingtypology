@@ -67,68 +67,68 @@ map.feature(languages, features = "none", popup = "",
 
 \item{tile.name}{a character verctor with a user's map tiles' names}
 
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Map a set of linguoids and color them by feature or two sets of features.
 }
 \examples{
-map.feature(c("Adyghe", "Russian"))
+map.feature(c('Adyghe', 'Russian'))
 
 ## All Sign languages
-map.feature(lang.aff("Sign"))
+map.feature(lang.aff('Sign'))
 
 ## Map all Slavic languages
-map.feature(lang.aff(c("Slavic")))
+map.feature(lang.aff(c('Slavic')))
 
 ## Add control buttons
-map.feature(c("Adyghe", "Russian"), control = TRUE)
+map.feature(c('Adyghe', 'Russian'), control = TRUE)
 
 ## Color linguoids by feature
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"))
+df <- data.frame(lang = c('Adyghe', 'Kabardian', 'Polish', 'Russian', 'Bulgarian'),
+feature = c('polysynthetic', 'polysynthetic', 'fusion', 'fusion', 'fusion'))
 map.feature(df$lang, df$feature)
 ## ... or add a control buttons for features
 map.feature(df$lang, df$feature, control = TRUE)
 
 ## Adding pop-up
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
+df <- data.frame(lang = c('Adyghe', 'Kabardian', 'Polish', 'Russian', 'Bulgarian'),
+feature = c('polysynthetic', 'polysynthetic', 'fusion', 'fusion', 'fusion'),
+popup = c('Circassian', 'Circassian', 'Slavic', 'Slavic', 'Slavic'))
 map.feature(df$lang, df$feature, df$popup)
 
 ## Adding title
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
-map.feature(df$lang, df$feature, df$popup, title = "type of a language")
+df <- data.frame(lang = c('Adyghe', 'Kabardian', 'Polish', 'Russian', 'Bulgarian'),
+feature = c('polysynthetic', 'polysynthetic', 'fusion', 'fusion', 'fusion'),
+popup = c('Circassian', 'Circassian', 'Slavic', 'Slavic', 'Slavic'))
+map.feature(df$lang, df$feature, df$popup, title = 'type of a language')
 
 ## Add your own coordinates
-map.feature("Adyghe", latitude = 43, longitude = 57)
+map.feature('Adyghe', latitude = 43, longitude = 57)
 
 ## Change map tile
-map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap")
-map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
-map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap", tile.name = "colored")
+map.feature('Adyghe', tile = 'Thunderforest.OpenCycleMap')
+map.feature('Adyghe', tile = c('OpenStreetMap.BlackAndWhite', 'Thunderforest.OpenCycleMap'))
+map.feature('Adyghe', tile = 'Thunderforest.OpenCycleMap', tile.name = 'colored')
 
 ## Add you own colors
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
-map.feature(df$lang, df$feature, df$popup, color = c("green", "navy"))
+df <- data.frame(lang = c('Adyghe', 'Kabardian', 'Polish', 'Russian', 'Bulgarian'),
+feature = c('polysynthetic', 'polysynthetic', 'fusion', 'fusion', 'fusion'),
+popup = c('Circassian', 'Circassian', 'Slavic', 'Slavic', 'Slavic'))
+map.feature(df$lang, df$feature, df$popup, color = c('green', 'navy'))
 
 ## Map two sets of features
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
+df <- data.frame(lang = c('Adyghe', 'Kabardian', 'Polish', 'Russian', 'Bulgarian'),
+feature = c('polysynthetic', 'polysynthetic', 'fusion', 'fusion', 'fusion'),
+popup = c('Circassian', 'Circassian', 'Slavic', 'Slavic', 'Slavic'))
 map.feature(df$lang, df$feature, df$popup,
 stroke.features = df$popup)
 
 ## Add a pictures to plot
-df <- data.frame(lang = c("Russian", "Russian"),
+df <- data.frame(lang = c('Russian', 'Russian'),
 lat  = c(55.75, 59.95),
 long = c(37.616667, 30.3),
-urls = c("https://goo.gl/5OUv1E", "https://goo.gl/UWmvDw"))
+urls = c('https://goo.gl/5OUv1E', 'https://goo.gl/UWmvDw'))
 map.feature(languages = df$lang,
 latitude = df$lat,
 longitude = df$long,
