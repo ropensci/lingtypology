@@ -27,7 +27,7 @@ is.glottolog <- function(x, response = FALSE, glottolog.source = "modified"){
 # check whether there are linguoids in database ---------------------------
   result <- y %in% tolower(glottolog$languoid)
   if(response == TRUE){
-    sapply(x[!result], function(z){
+    vapply(x[!result], function(z){
 
 # computes pairwise string Levenshtein distance ---------------------------
       cand <- stringdist::stringdist(tolower(z),
@@ -43,6 +43,6 @@ is.glottolog <- function(x, response = FALSE, glottolog.source = "modified"){
                     z,
                     " is absent in our database. Did you mean ",
                     candidate, "?",
-                    sep = ""), call. = FALSE)})}
+                    sep = ""), call. = FALSE)}, character(1))}
   return(result)
 }

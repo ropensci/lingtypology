@@ -20,6 +20,8 @@ lang.aff <- function(x, list = FALSE, glottolog.source = "modified"){
     c(unlist(sapply(x, function(y){
       glottolog[grep(tolower(y), tolower(glottolog$affiliation)),]$languoid})))
     } else {
-      sapply(x, function(y){
-        glottolog[grep(tolower(y), tolower(glottolog$affiliation)),]$languoid})}
+      vapply(x, function(y){
+        glottolog[grep(tolower(y), tolower(glottolog$affiliation)),]$languoid},
+        character(1))
+      }
   }

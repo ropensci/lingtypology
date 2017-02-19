@@ -17,10 +17,10 @@ country.lang <- function(x, intersection = FALSE, glottolog.source = "modified")
   ifelse(grepl(glottolog.source, "original"),
          glottolog <- lingtypology::glottolog.original,
          glottolog <- lingtypology::glottolog.modified)
-  ret <- sapply(x, function(y){
+  ret <- vapply(x, function(y){
     ifelse(is.glottolog(y, response = TRUE, glottolog.source = glottolog.source) == TRUE,
            glottolog[tolower(glottolog$lang) == tolower(y),]$country,
-           NA)})
+           NA_character_)}, character(1))
   if (intersection == TRUE){
     b <- unlist(strsplit(paste(ret, collapse = ", "), ", "))
     names(table(b)[table(b) == max(table(b))])

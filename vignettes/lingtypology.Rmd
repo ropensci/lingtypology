@@ -146,6 +146,7 @@ library(htmlwidgets)
 saveWidget(m, file="/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/m.html")
 ```
 
+I've got an export button in RStudio, but for some reason it is not so easy to save map as .png or .jpg file. [Here](http://stackoverflow.com/a/34672309/6056442) is some solution.
 
 ### 3.2 Set features
 The goal of this package is to allow typologists to map language types. A list of languoids and correspondent features can be stored in a `data.frame` as follows:
