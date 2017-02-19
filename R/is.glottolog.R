@@ -16,28 +16,28 @@
 #' # Languoid Adyge is absent in our database. Did you mean Aduge, Adyghe?
 #'
 #' @export
-#' @import stringdist
+#' @importFrom stringdist stringdist
 #'
 
 is.glottolog <- function(x, response = FALSE, glottolog.source = "modified") {
-    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, 
+    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
         glottolog <- lingtypology::glottolog.modified)
     y <- tolower(x)
     # check whether there are linguoids in database ---------------------------
     result <- y %in% tolower(glottolog$languoid)
     if (response == TRUE) {
         vapply(x[!result], function(z) {
-            
+
             # computes pairwise string Levenshtein distance ---------------------------
-            cand <- stringdist::stringdist(tolower(z), tolower(glottolog$languoid), 
+            cand <- stringdist::stringdist(tolower(z), tolower(glottolog$languoid),
                 method = "lv")
-            
+
             # make a string with all candidates ---------------------------------------
-            candidate <- paste(glottolog[cand == cand[which.min(cand)], ]$languoid, 
+            candidate <- paste(glottolog[cand == cand[which.min(cand)], ]$languoid,
                 collapse = ", ")
-            
+
             # make a warning message --------------------------------------------------
-            warning(paste("Languoid ", z, " is absent in our database. Did you mean ", 
+            warning(paste("Languoid ", z, " is absent in our database. Did you mean ",
                 candidate, "?", sep = ""), call. = FALSE)
         }, character(1))
     }

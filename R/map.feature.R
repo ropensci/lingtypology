@@ -94,9 +94,9 @@
 #'
 #' @export
 #' @import leaflet
-#' @import stats
-#' @import grDevices
-#' @import rowr
+#' @importFrom stats complete.cases
+#' @importFrom grDevices gray rainbow
+#' @importFrom rowr cbind.fill
 #' @import magrittr
 #'
 
@@ -167,7 +167,7 @@ map.feature <- function(languages,
 
   # creata a pallet ---------------------------------------------------------
   if (is.null(color)) {
-    pal <- leaflet::colorFactor(sample(rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
+    pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)
   } else {
     pal <- leaflet::colorFactor(color,
