@@ -47,7 +47,8 @@ Some of them help to define a vector of languoids.
 * **lang.aff()** — get languoid by affiliation
 * **lang.iso()** — get languoid by ISO 639-3 code
 
-The most important functionality of `lingtypology` is the ability to create interactive maps based on features and sets of languoids (see the [the next section](https://github.com/agricolamz/lingtypology/wiki/2.-Creating-maps))
+The most important functionality of `lingtypology` is the ability to create interactive maps based on features and sets of languoids (see the third section):
+
 * **map.feature()**
 
 [Glottolog database (v. 2.7)](http://glottolog.org/) provides `lingtypology` with  languoid names, ISO codes, genealogical affiliation, macro area, countries and coordinates.
