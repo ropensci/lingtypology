@@ -18,7 +18,7 @@ install.packages("lingtypology")
 … or get the development version from GitHub:
 ```R
 install.packages("devtools")
-devtools::install_github("agricolamz/lingtypology", dependencies = TRUE)
+devtools::install_github("agricolamz/lingtypology")
 ```
 
 Load a library:

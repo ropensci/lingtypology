@@ -3,7 +3,7 @@
 
 ## ---- eval= F------------------------------------------------------------
 #  install.packages("devtools")
-#  devtools::install_github("agricolamz/lingtypology", dependencies = TRUE)
+#  devtools::install_github("agricolamz/lingtypology")
 
 ## ------------------------------------------------------------------------
 library(lingtypology)

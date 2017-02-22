@@ -21,7 +21,7 @@ install.packages("lingtypology")
 You can also get the development version from GitHub:
 ```{r, eval= F}
 install.packages("devtools")
-devtools::install_github("agricolamz/lingtypology", dependencies = TRUE)
+devtools::install_github("agricolamz/lingtypology")
 ```
 
 Load package:
