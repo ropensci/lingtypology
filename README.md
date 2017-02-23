@@ -1,6 +1,7 @@
 # lingtypology
 
 [![Build Status](https://travis-ci.org/agricolamz/lingtypology.svg?branch=master)](https://travis-ci.org/agricolamz/lingtypology)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/agricolamz/lingtypology?branch=master&svg=true)](https://ci.appveyor.com/project/agricolamz/lingtypology)
 [![Coverage Status](https://img.shields.io/codecov/c/github/agricolamz/lingtypology/master.svg)](https://codecov.io/github/agricolamz/lingtypology?branch=master)
 [![CRAN
 version](http://www.r-pkg.org/badges/version/lingtypology)](https://cran.r-project.org/package=lingtypology)
