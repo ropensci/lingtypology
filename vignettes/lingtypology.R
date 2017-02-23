@@ -174,6 +174,12 @@ map.feature(circassian$language,
             title = "Circassian dialects", stroke.title = "Languages")
 
 ## ---- fig.width=6.2------------------------------------------------------
+set.seed(42)
+map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+            scale.bar = TRUE,
+            scale.bar.position = "topright")
+
+## ---- fig.width=6.2------------------------------------------------------
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
    popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
@@ -206,6 +212,12 @@ set.seed(42)
 map.feature(df$lang, df$feature, df$popup,
             tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
             control = TRUE)
+
+## ---- fig.width=6.2------------------------------------------------------
+set.seed(42)
+map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+            minimap = TRUE,
+            minimap.position = "topright")
 
 ## ---- fig.width=6.2------------------------------------------------------
 df <- data.frame(lang = c("Russian", "Russian"),

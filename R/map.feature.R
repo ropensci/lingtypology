@@ -30,6 +30,12 @@
 #' @param stroke.opacity a numeric vector of stroke opacity.
 #' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
 #' @param tile.name a character verctor with a user's map tiles' names
+#' @param scale.bar logical. If TRUE, function show scale-bar. By default is TRUE.
+#' @param scale.bar.position the position of the scale-bar: "topright", "bottomright", "bottomleft","topleft"
+#' @param minimap = FALSE,
+#' @param minimap.position the position of the minimap: "topright", "bottomright", "bottomleft","topleft"
+#' @param minimap.width The width of the minimap in pixels.
+#' @param minimap.height The height of the minimap in pixels.
 #' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -109,7 +115,7 @@ map.feature <- function(languages,
                         stroke.features = NULL,
                         latitude = NULL,
                         longitude = NULL,
-                        color = "blue",
+                        color = NULL,
                         stroke.color = NULL,
                         image.url = NULL,
                         image.width = 100,
@@ -121,14 +127,20 @@ map.feature <- function(languages,
                         control = FALSE,
                         legend = TRUE,
                         legend.opacity = 1,
-                        legend.position = c("topright", "bottomright", "bottomleft","topleft"),
+                        legend.position = "topright",
                         stroke.legend = TRUE,
                         stroke.legend.opacity = 1,
-                        stroke.legend.position = c("bottomleft","topleft", "topright", "bottomright"),
+                        stroke.legend.position = "bottomleft",
                         radius = 5,
                         stroke.radius = 9.5,
                         opacity = 1,
                         stroke.opacity = 1,
+                        scale.bar = TRUE,
+                        scale.bar.position = "bottomleft",
+                        minimap = FALSE,
+                        minimap.position = "bottomright",
+                        minimap.width = 150,
+                        minimap.height = 150,
                         tile = "OpenStreetMap.Mapnik",
                         tile.name = NULL,
                         glottolog.source = "modified"){
@@ -178,6 +190,7 @@ map.feature <- function(languages,
   levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
   # create a pallet ---------------------------------------------------------
+  if (length(table(mapfeat.df$features)) <= 1){color <- "blue"}
   if (is.null(color)) {
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)
@@ -211,19 +224,18 @@ map.feature <- function(languages,
            warning('number of tile names (tile.name argument) is less than number of tiles (tile argument)', call. = FALSE))
   }
 
-  # map: if there are only one feature -------------------------------------------
+  ### create a map ------------------------------------------------------------
+  m <- leaflet::leaflet(mapfeat.df) %>%
+    leaflet::addTiles(tile[1]) %>%
+    leaflet::addProviderTiles(tile[1], group = tile.name[1])
+  if(length(tile) > 1){
+    mapply(function(other.tiles, other.tile.names){
+      m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tile.names)
+    }, tile[-1], tile.name[-1])
+  }
+
+  # map: if only one feature -------------------------------------------------
   if (length(table(mapfeat.df$features)) <= 1){
-    if (is.null(color)) {
-      color <- "blue"
-    }
-    m <- leaflet::leaflet(mapfeat.df) %>%
-      leaflet::addTiles(tile[1]) %>%
-      leaflet::addProviderTiles(tile[1], group = tile.name[1])
-    if(length(tile) > 1){
-      mapply(function(other.tiles, other.tile.names){
-        m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tile.names)
-      }, tile[-1], tile.name[-1])
-    }
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
@@ -233,47 +245,8 @@ map.feature <- function(languages,
                                          fillOpacity = opacity,
                                          group = mapfeat.df$languages)
 
-    if(length(tile) > 1){
-      if (control == TRUE) {
-        m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile.name,
-          overlayGroups = mapfeat.df$languages,
-          options = layersControlOptions(collapsed = FALSE))
-      } else {
-        m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile.name,
-          options = layersControlOptions(collapsed = FALSE))
-      }
-    } else {
-      if (control == TRUE) {
-        m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$languages,
-                                             options = layersControlOptions(collapsed = FALSE))
-      }
-    }
-
-    if (!is.null(image.url)) {
-      m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
-                                     lat=mapfeat.image$lat,
-                                     popup= mapfeat.image$link,
-                                     icon = icons(
-                                       iconUrl = as.character(mapfeat.image$image.url),
-                                       iconWidth = image.width,
-                                       iconHeight = image.height,
-                                       iconAnchorX = - image.X.shift,
-                                       iconAnchorY = image.Y.shift))
-    }
-
-
     # map: if there are stroke features ---------------------------------------
   } else if(!is.null(stroke.features)){
-    m <- leaflet::leaflet(mapfeat.stroke) %>%
-      leaflet::addTiles(tile[1]) %>%
-      leaflet::addProviderTiles(tile[1], group = tile.name[1])
-    if(length(tile) > 1){
-      mapply(function(other.tiles, other.tile.names){
-        m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tile.names)
-      }, tile[-1], tile.name[-1])
-    }
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                          lat=mapfeat.stroke$lat,
                                          popup= mapfeat.stroke$link,
@@ -305,60 +278,9 @@ map.feature <- function(languages,
                                 fillOpacity = opacity,
                                 color = pal(mapfeat.df$features),
                                 group = mapfeat.df$features)
-    if (legend == TRUE) {
-      m <- m %>% leaflet::addLegend(title = title,
-                                    position = legend.position,
-                                    pal = pal,
-                                    values = mapfeat.df$features,
-                                    opacity = legend.opacity)
-    }
-    if (stroke.legend == TRUE) {
-      m <- m %>% leaflet::addLegend(title = stroke.title,
-                                    position = stroke.legend.position,
-                                    pal = stroke.pal,
-                                    values = mapfeat.stroke$stroke.features,
-                                    opacity = stroke.legend.opacity)
-    }
-    if (!is.null(image.url)) {
-      m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
-                                     lat=mapfeat.image$lat,
-                                     popup= mapfeat.image$link,
-                                     icon = icons(
-                                       iconUrl = as.character(mapfeat.image$image.url),
-                                       iconWidth = image.width,
-                                       iconHeight = image.height,
-                                       iconAnchorX = - image.X.shift,
-                                       iconAnchorY = image.Y.shift))
-    }
 
-    if(length(tile) > 1){
-      if (control == TRUE) {
-        m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile.name,
-          overlayGroups = mapfeat.df$features,
-          options = layersControlOptions(collapsed = FALSE))
-      } else {
-        m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile.name,
-          options = layersControlOptions(collapsed = FALSE))
-      }
-    } else {
-      if (control == TRUE) {
-        m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
-                                             options = layersControlOptions(collapsed = FALSE))
-      }
-    }
-
-    # map: if there are more than one feature -------------------------------------------
+    # map: if there are several features ----------------------------------------
   } else{
-    m <- leaflet::leaflet(mapfeat.df) %>%
-      leaflet::addTiles(tile[1]) %>%
-      leaflet::addProviderTiles(tile[1], group = tile.name[1])
-    if(length(tile) > 1){
-      mapply(function(other.tiles, other.tile.names){
-        m <<- m %>% leaflet::addProviderTiles(other.tiles, group = other.tile.names)
-      }, tile[-1], tile.name[-1])
-    }
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
@@ -367,43 +289,72 @@ map.feature <- function(languages,
                                          fillOpacity = opacity,
                                          color = pal(mapfeat.df$features),
                                          group = mapfeat.df$features)
+  }
 
-    if(length(tile) > 1){
-      if (control == TRUE) {
-        m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile.name,
-          overlayGroups = mapfeat.df$features,
-          options = layersControlOptions(collapsed = FALSE))
-      } else {
-        m <- m %>% leaflet::addLayersControl(
-          baseGroups = tile.name,
-          options = layersControlOptions(collapsed = FALSE))
-      }
+  # map: images -------------------------------------------------------------
+  if (!is.null(image.url)) {
+    m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
+                                   lat=mapfeat.image$lat,
+                                   popup= mapfeat.image$link,
+                                   icon = icons(
+                                     iconUrl = as.character(mapfeat.image$image.url),
+                                     iconWidth = image.width,
+                                     iconHeight = image.height,
+                                     iconAnchorX = - image.X.shift,
+                                     iconAnchorY = image.Y.shift))
+  }
+
+  # map: tile and controll intaraction --------------------------------------
+  if(length(tile) > 1){
+    if (control == TRUE) {
+      m <- m %>% leaflet::addLayersControl(
+        baseGroups = tile.name,
+        overlayGroups = mapfeat.df$features,
+        options = layersControlOptions(collapsed = FALSE))
     } else {
-      if (control == TRUE) {
-        m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
-                                             options = layersControlOptions(collapsed = FALSE))
-      }
+      m <- m %>% leaflet::addLayersControl(
+        baseGroups = tile.name,
+        options = layersControlOptions(collapsed = FALSE))
     }
+  } else {
+    if (control == TRUE) {
+      m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
+                                           options = layersControlOptions(collapsed = FALSE))
+    }
+  }
 
-    if (!is.null(image.url)) {
-      m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
-                                     lat=mapfeat.image$lat,
-                                     popup= mapfeat.image$link,
-                                     icon = icons(
-                                       iconUrl = as.character(mapfeat.image$image.url),
-                                       iconWidth = image.width,
-                                       iconHeight = image.height,
-                                       iconAnchorX = - image.X.shift,
-                                       iconAnchorY = image.Y.shift))
-    }
-    if (legend == TRUE) {
-      m <- m  %>% leaflet::addLegend(title = title,
-                                     position = legend.position,
-                                     pal = pal,
-                                     values = mapfeat.df$features,
-                                     opacity = opacity)
-    }
+  # map: ScaleBar -----------------------------------------------------------
+  if (scale.bar == TRUE) {
+    m <- m %>% leaflet::addScaleBar(
+      position = scale.bar.position)
+  }
+
+
+  # map: legend -------------------------------------------------------------
+  if (length(table(mapfeat.df$features)) > 1 & legend == TRUE) {
+    m <- m %>% leaflet::addLegend(title = title,
+                                  position = legend.position,
+                                  pal = pal,
+                                  values = mapfeat.df$features,
+                                  opacity = legend.opacity)
+  }
+
+  # map: stroke.legend ------------------------------------------------------
+  if (!is.null(stroke.features) & stroke.legend == TRUE) {
+    m <- m %>% leaflet::addLegend(title = stroke.title,
+                                  position = stroke.legend.position,
+                                  pal = stroke.pal,
+                                  values = mapfeat.stroke$stroke.features,
+                                  opacity = stroke.legend.opacity)
+  }
+
+  # map: MiniMap ------------------------------------------------------------
+  if (minimap == TRUE) {
+    m <- m %>% leaflet::addMiniMap(
+      position = minimap.position,
+      width = minimap.width,
+      height = minimap.height
+    )
   }
   m
 }

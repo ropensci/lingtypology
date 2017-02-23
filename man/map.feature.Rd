@@ -6,15 +6,17 @@
 \usage{
 map.feature(languages, features = "none", popup = "",
   stroke.features = NULL, latitude = NULL, longitude = NULL,
-  color = "blue", stroke.color = NULL, image.url = NULL,
+  color = NULL, stroke.color = NULL, image.url = NULL,
   image.width = 100, image.height = 100, image.X.shift = 0,
   image.Y.shift = 0, title = NULL, stroke.title = NULL, control = FALSE,
-  legend = TRUE, legend.opacity = 1, legend.position = c("topright",
-  "bottomright", "bottomleft", "topleft"), stroke.legend = TRUE,
-  stroke.legend.opacity = 1, stroke.legend.position = c("bottomleft",
-  "topleft", "topright", "bottomright"), radius = 5, stroke.radius = 9.5,
-  opacity = 1, stroke.opacity = 1, tile = "OpenStreetMap.Mapnik",
-  tile.name = NULL, glottolog.source = "modified")
+  legend = TRUE, legend.opacity = 1, legend.position = "topright",
+  stroke.legend = TRUE, stroke.legend.opacity = 1,
+  stroke.legend.position = "bottomleft", radius = 5, stroke.radius = 9.5,
+  opacity = 1, stroke.opacity = 1, scale.bar = TRUE,
+  scale.bar.position = "bottomleft", minimap = FALSE,
+  minimap.position = "bottomright", minimap.width = 150,
+  minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
+  glottolog.source = "modified")
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -68,6 +70,18 @@ map.feature(languages, features = "none", popup = "",
 \item{opacity}{a numeric vector of marker opacity.}
 
 \item{stroke.opacity}{a numeric vector of stroke opacity.}
+
+\item{scale.bar}{logical. If TRUE, function show scale-bar. By default is TRUE.}
+
+\item{scale.bar.position}{the position of the scale-bar: "topright", "bottomright", "bottomleft","topleft"}
+
+\item{minimap}{= FALSE,}
+
+\item{minimap.position}{the position of the minimap: "topright", "bottomright", "bottomleft","topleft"}
+
+\item{minimap.width}{The width of the minimap in pixels.}
+
+\item{minimap.height}{The height of the minimap in pixels.}
 
 \item{tile}{a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
 

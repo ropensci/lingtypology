@@ -307,8 +307,18 @@ map.feature(circassian$language,
             longitude = circassian$longitude,
             title = "Circassian dialects", stroke.title = "Languages")
 ```
+There are arguments `legend.position` and `stroke.legend.position` that allow users to change legends position using "topright", "bottomright", "bottomleft" or "topleft" strings.
 
-### 3.10 Set layouts
+### 3.10 Set scale bar
+Scale bar is automatically added to a map, but users can control its appearance (set `scale.bar` argument to TRUE or FALSE) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
+```{r, fig.width=6.2}
+set.seed(42)
+map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+            scale.bar = TRUE,
+            scale.bar.position = "topright")
+```
+
+### 3.11 Set layouts
 It is possible to use different tiles on the same map  using `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -351,7 +361,16 @@ map.feature(df$lang, df$feature, df$popup,
             control = TRUE)
 ```
 
-### 3.11 Add a picture to a map
+### 3.12 Add a minimap to a map
+It is possible to add a minimap to a map. Users can control its appearance (set `minimap` argument to TRUE or FALSE) and its position (use `minimap.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
+```{r, fig.width=6.2}
+set.seed(42)
+map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+            minimap = TRUE,
+            minimap.position = "topright")
+```
+
+### 3.13 Add a picture to a map
 Argument images.url allows users to add their own pictures to a map, using url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
 
 * [Moscow](http://web-corpora.net/~agricolamz/maps/lingtypology/Moscow.png)
