@@ -229,8 +229,15 @@ map.feature(df$lang, df$feature, df$popup,
 ## ---- fig.width=6.2------------------------------------------------------
 set.seed(42)
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+            minimap = TRUE)
+
+## ---- fig.width=6.2------------------------------------------------------
+set.seed(42)
+map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap = TRUE,
-            minimap.position = "topright")
+            minimap.position = "topright",
+            minimap.height = 100,
+            minimap.width = 100)
 
 ## ---- fig.width=6.2------------------------------------------------------
 df <- data.frame(lang = c("Russian", "Russian"),

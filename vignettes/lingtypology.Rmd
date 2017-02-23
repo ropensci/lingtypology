@@ -383,13 +383,23 @@ map.feature(df$lang, df$feature, df$popup,
 ```
 
 ### 3.13 Add a minimap to a map
-It is possible to add a minimap to a map. Users can control its appearance (set `minimap` argument to TRUE or FALSE) and its position (use `minimap.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
+It is possible to add a minimap to a map.
+```{r, fig.width=6.2}
+set.seed(42)
+map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+            minimap = TRUE)
+```
+
+Users can control its appearance (set `minimap` argument to TRUE or FALSE), its position (use `minimap.position` argument values "topright", "bottomright", "bottomleft" or "topleft"), its height and width (arguments `minimap.height` and `minimap.width`).
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap = TRUE,
-            minimap.position = "topright")
+            minimap.position = "topright",
+            minimap.height = 100,
+            minimap.width = 100)
 ```
+
 
 ### 3.14 Add a picture to a map
 Argument images.url allows users to add their own pictures to a map, using url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
