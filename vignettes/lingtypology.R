@@ -98,6 +98,19 @@ set.seed(42)
 map.feature(df$language, df$features, df$popup)
 
 ## ---- fig.width=6.2------------------------------------------------------
+# Lets create a dataframe with links to video
+sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
+                 popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
+
+# Change popup to an HTML code
+sign_df$popup <- paste("<video width='200' height='150' controls> <source src='",
+                  as.character(sign_df$popup),
+                  "' type='video/mp4'></video>", sep = "")
+
+# create a map
+map.feature(languages = sign_df$languages, popup = sign_df$popup)
+
+## ---- fig.width=6.2------------------------------------------------------
 set.seed(42)
 map.feature(df$language, df$features,
             label = df$language)

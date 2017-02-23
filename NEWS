@@ -5,6 +5,7 @@ lingtypology 1.0.2 (23.02.2017)
   - added arguments for working with scale bar
   - added arguments for working with minimap
   - added arguments for working with labels
+  - all changes are illustrated in package vigniette
 
 lingtypology 1.0.1 (29.01.2017)
   - fixed all warnings in CRAN checks

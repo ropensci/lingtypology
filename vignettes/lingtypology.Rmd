@@ -13,7 +13,7 @@ vignette: >
 The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic cartography. I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting this vignette.
 
 ## 1. Installation
-Since `lingtypology` is an R package, you should install [R](https://www.r-project.org/) on your PC if you haven't already done so. To install `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
+Since `lingtypology` is an R package, you should install [R](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
 ```{r, eval=FALSE}
 install.packages("lingtypology")
 ```
@@ -63,8 +63,8 @@ lang.iso("ady")
 country.lang("Adyghe")
 lang.aff("Abkhaz-Adyge")
 ```
-I would like to mention that strings in R can be created using
-single or double quotes. Since inserting single quotes in a string created with single quotes causes a mistake in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is wrong string in R.
+I would like to point out that strings in R can be created using
+single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is an incorrect string in R.
 
 * a vector of strings
 ```{r}
@@ -72,7 +72,7 @@ area.lang(c("Adyghe", "Aduge"))
 lang <- c("Adyghe", "Russian")
 aff.lang(lang)
 ```
-*  other functions. For example, lets try to get vector of ISO codes for East Slavic languages
+*  other functions. For example, let's try to get vector of ISO codes for the East Slavic languages
 ```{r}
 iso.lang(lang.aff("East Slavic"))
 ```
@@ -108,9 +108,9 @@ Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not p
 * Northern Sahaptin names corrected. Central Guerrero Nahuatl is renamed Guerrero Nahuatl (thanks to Timo Roettger for mentioning that problems). (02.02.2017)
 * Some sign language changed. Thanks to [Calle Börstell](https://borstell.github.io/#name) for data. (02.02.2017)
 * Bininj Gun-Wok changed to Gunwinggu (thanks to Timo Roettger) (06.02.2017)
-* Country name Viet Nam changed to Vietnam. Madagascar and Togo to countries set added. (11.02.2017)
+* Country name Viet Nam changed to Vietnam. Madagascar and Togo added to countries set. (11.02.2017)
 
-After [Robert Forkel's issue](https://github.com/agricolamz/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody have an access to "original" and "modified" (by default) glottolog versions:
+After [Robert Forkel's issue](https://github.com/agricolamz/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
 ```{r}
 is.glottolog(c("Tabasaran", "Tabassaran"), glottolog.source = "original")
 ```
@@ -118,7 +118,7 @@ is.glottolog(c("Tabasaran", "Tabassaran"), glottolog.source = "original")
 is.glottolog(c("Tabasaran", "Tabassaran"), glottolog.source = "modified")
 ```
 
-It is common practice in R to reduce both function arguments and its values, so it can also be done with the following lingtypology functions.
+It is common practice in R to reduce both function arguments and its values, so this can also be done with the following lingtypology functions.
 ```{r}
 is.glottolog(c("Tabasaran", "Tabassaran"), g = "o")
 ```
@@ -134,11 +134,11 @@ The most important part of the `lingtypology` package is the function `map.featu
 map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 ```
 
-As shown in the picture above, this function generates an interactive Leaflet map with a control box that allows users to toggle the visibility of any group of points on the map. All specific points on the map have a pop-up box that appears when markers are clicked (more about editing pop-up boxes see [below](https://github.com/agricolamz/lingtypology/wiki/Map-my-features-with-map.feature()#set-pop-ups)). By default, they contain languoid names linked to the glottolog site.
+As shown in the picture above, this function generates an interactive Leaflet map with a control box that allows users to toggle the visibility of any group of points on the map. All specific points on the map have a pop-up box that appears when markers are clicked (see section 3.3 for more information about editing pop-up boxes). By default, they contain languoid names linked to the glottolog site.
 
-If you are new to R, please find some information about how to import data to R. It is simple to make a .csv, .ods or .xls containing lists of languages and features and read it from R (.csv is an easiest way).
+If you are new to R, please find some information about how to import data to R. It is simple to make a .csv, .ods or .xls files containing lists of languages and features and read it from R (.csv is the easiest way).
 
-If for some reasons you are not using RStudio or you want automatically create and save a lot of maps, you can save a map to the variable and use `htmlwidgets` package for saving created maps to an .html file. I would like to thank Timo Roettger for mentioning that problem.
+If for some reasons you are not using RStudio or you want to automatically create and save a lot of maps, you can save a map to a variable and use the `htmlwidgets` package for saving created maps to an .html file. I would like to thank Timo Roettger for mentioning this problem.
 
 ```{r, eval = FALSE}
 m <- map.feature(c("Adyghe", "Korean"))
@@ -147,10 +147,10 @@ library(htmlwidgets)
 saveWidget(m, file="/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/m.html")
 ```
 
-I've got an export button in RStudio, but for some reason it is not so easy to save map as .png or .jpg file. [Here](http://stackoverflow.com/a/34672309/6056442) is some solution.
+There is an export button in RStudio, but for some reason it is not so easy to save a map as a .png or .jpg file using code. [Here](http://stackoverflow.com/a/34672309/6056442) is a possible solution.
 
 ### 3.2 Set features
-The goal of this package is to allow typologists to map language types. A list of languoids and correspondent features can be stored in a `data.frame` as follows:
+The goal of this package is to allow typologists (or any other linguists) to map language features. A list of languoids and correspondent features can be stored in a `data.frame` as follows:
 ```{r}
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
                  features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
@@ -161,14 +161,14 @@ Now we can draw a map:
 map.feature(languages = df$language, features = df$features)
 ```
 
-If you have a lot of features and they are appear in the legend in senseless order (by default it is alphabatical order), you can reorder them using factors (vector with ordered levels, for more information see `?factor`). For example, I want polysynthetic feature be first and fusional feature be last:
+If you have a lot of features and they appear in the legend in a senseless order (by default it is ordered alphabetically), you can reorder them using factors (a vector with ordered levels, for more information see `?factor`). For example, I want the feature polysynthetic to be listed first, followed by fusional:
 
 ```{r, fig.width=6.2}
 df$features <- factor(df$features, levels = c("polysynthetic", "fusional"))
 map.feature(languages = df$language, features = df$features)
 ```
 
-Since correspondence between color palette and maped features is chosen randomly by default, it is better to use the function `set.seed` to get reproducible map (or choose colors by yourself, see section 3.5):
+Since the correspondence between a color palette and a mapped features is chosen randomly by default, it is better to use the function `set.seed`, to get a reproducible map (or choose colors yourself, see section 3.5):
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(languages = df$language, features = df$features)
@@ -183,10 +183,11 @@ map.feature(df$language, df$features)
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
 ### 3.3 Set pop-up boxes
-Sometimes it is a good idea to add some additional information (e.g. language affiliation,  references or even examples) to pop-up boxes that appear, when points are clicked. In order to do so, first of all we need to create an extra vector of strings in our dataframe:
+Sometimes it is a good idea to add some additional information (e.g. language affiliation,  references or even examples) to pop-up boxes that appear when points are clicked. In order to do so, first of all we need to create an extra vector of strings in our dataframe:
 ```{r, fig.width=6.2}
 df$popup <- aff.lang(df$language)
 ```
+
 The function `aff.lang()`  creates a vector of genealogical affiliations that can be easily mapped:
 ```{r, fig.width=6.2}
 set.seed(42)
@@ -198,7 +199,8 @@ Like before, it is not necessary to name all arguments, so the same result can b
 set.seed(42)
 map.feature(df$language, df$features, df$popup)
 ```
-Pop-up strings can contain HTML tags, so it is easy to insert a link, a couple of lines or a table. Here is how pop-up boxes can demonstrate language examples:
+
+Pop-up strings can contain HTML tags, so it is easy to insert a link, a couple of lines, a table or even a video and sound. Here is how pop-up boxes can demonstrate language examples:
 ```{r, fig.width=6.2}
 # change a df$popup vector
 df$popup <- c ("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
@@ -211,15 +213,32 @@ set.seed(42)
 map.feature(df$language, df$features, df$popup)
 ```
 
+How to say _moon_ in Sign Languages? Here is an example:
+```{r, fig.width=6.2}
+# Lets create a dataframe with links to video
+sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
+                 popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
+
+# Change popup to an HTML code
+sign_df$popup <- paste("<video width='200' height='150' controls> <source src='",
+                  as.character(sign_df$popup),
+                  "' type='video/mp4'></video>", sep = "")
+
+# create a map
+map.feature(languages = sign_df$languages, popup = sign_df$popup)
+```
+
+
+
 ### 3.4 Set labels
-An alternative way to add some short text to map is to use `label` option.
+An alternative way to add some short text to a map is to use the `label` option.
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(df$language, df$features,
             label = df$language)
 ```
 
-There are some additional arguments for customization: `label.fsize` for setting font size, `label.position` for controlling label position, and `label.hide` that gives user a control on label appearence: if `TRUE` than labels are displayed on mouse over (as on previous map), if `FALSE` than labels are displayed always (as on the next map).
+There are some additional arguments for customization: `label.fsize` for setting font size, `label.position` for controlling the label position, and `label.hide` to control the appearance of the label: if `TRUE`, the labels are displayed on mouse over (as on the previous map), if `FALSE`, the labels are always displayed (as on the next map).
 
 ```{r, fig.width=6.2}
 set.seed(42)
@@ -244,7 +263,7 @@ map.feature(languages = circassian$language,
 ```
 
 ### 3.6 Set colors
-By default color palette is created by `rainbow()` function, but user can set their own colors using argument `color`:
+By default the color palette is created by the `rainbow()` function, but users can set their own colors using the argument `color`:
 ```{r, fig.width=6.2}
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
                  features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
@@ -254,7 +273,7 @@ map.feature(languages = df$language,
 ```
 
 ### 3.7 Set control box
-Package can generate the automatically generated control box that allows users to toggle the visibility of points and feature. To anable it there is an argument  `control` in the `map.feature` function:
+The package can generate a control box that allows users to toggle the visibility of points and features. To enable it, there is an argument  `control` in the `map.feature` function:
 
 ```{r, fig.width=6.2}
 set.seed(42)
@@ -290,7 +309,7 @@ map.feature(circassian$language,
 ```
 
 ### 3.9 Set radii and an opacity feature
-All markers have their own radius and opacity, so it can be set by users. Just use arguments `radius`, `stroke.radius`, `opacity` and `stroke.opacity`:
+All markers have their own radius and opacity, so it can be set by users. Just use the arguments `radius`, `stroke.radius`, `opacity` and `stroke.opacity`:
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(circassian$language,
@@ -310,7 +329,7 @@ map.feature(circassian$language,
 ```
 
 ### 3.10 Customizing legends
-By default legend appear in the left bottom corner. If there are stroke features, two legends are generated. There are additional arguments that control appearence and title of the legends.
+By default the legend appears in the bottom left corner. If there are stroke features, two legends are generated. There are additional arguments that control the appearence and the title of the legends.
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(circassian$language,
@@ -328,10 +347,10 @@ map.feature(circassian$language,
             longitude = circassian$longitude,
             title = "Circassian dialects", stroke.title = "Languages")
 ```
-There are arguments `legend.position` and `stroke.legend.position` that allow users to change legends position using "topright", "bottomright", "bottomleft" or "topleft" strings.
+The arguments `legend.position` and `stroke.legend.position` allow users to change a legend's position using "topright", "bottomright", "bottomleft" or "topleft" strings.
 
 ### 3.11 Set scale bar
-Scale bar is automatically added to a map, but users can control its appearance (set `scale.bar` argument to TRUE or FALSE) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
+A scale bar is automatically added to a map, but users can control its appearance (set `scale.bar` argument to `TRUE` or `FALSE`) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
@@ -340,7 +359,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 ```
 
 ### 3.12 Set layouts
-It is possible to use different tiles on the same map  using `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
+It is possible to use different tiles on the same map  using the `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
@@ -350,7 +369,7 @@ map.feature(df$lang, df$feature, df$popup,
             tile = "Thunderforest.OpenCycleMap")
 ```
 
-It is possible to use different map tiles at the same map. Just add a vector with tiles.
+It is possible to use different map tiles on the same map. Just add a vector with tiles.
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
@@ -360,7 +379,7 @@ map.feature(df$lang, df$feature, df$popup,
             tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
 ```
 
-It is possible to name tiles using `tile.name` argument.
+It is possible to name tiles using the `tile.name` argument.
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
@@ -371,7 +390,7 @@ map.feature(df$lang, df$feature, df$popup,
             tile.name = c("b & w", "colored"))
 ```
 
-It is possible to combine tiles' control box with the features' control box.
+It is possible to combine the tiles' control box with the features' control box.
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
    feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
@@ -390,7 +409,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap = TRUE)
 ```
 
-Users can control its appearance (set `minimap` argument to TRUE or FALSE), its position (use `minimap.position` argument values "topright", "bottomright", "bottomleft" or "topleft"), its height and width (arguments `minimap.height` and `minimap.width`).
+Users can control its appearance (by setting the `minimap` argument to TRUE or FALSE), its position (by using the values "topright", "bottomright", "bottomleft" or "topleft" of the `minimap.position` argument) and its height and width (with the arguments `minimap.height` and `minimap.width`).
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
@@ -402,12 +421,12 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 
 
 ### 3.14 Add a picture to a map
-Argument images.url allows users to add their own pictures to a map, using url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
+The argument images.url allows users to add their own pictures to a map, using an url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
 
 * [Moscow](http://web-corpora.net/~agricolamz/maps/lingtypology/Moscow.png)
 * [St. Petersburg](http://web-corpora.net/~agricolamz/maps/lingtypology/St.%20Petersburg.png)
 
-Lets create a dataframe
+Let's create a dataframe.
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Russian", "Russian"),
                  lat  = c(55.75, 59.95),
@@ -455,10 +474,10 @@ map.feature(languages = df$lang,
             image.Y.shift = 0)
 ```
 
-Using this argument users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot additional legend text on the map. 
+Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot an additional legend text on the map. 
 
 ## 4. Citing `lingtyplogy`
-It is realy important to cite R and R packages when you use them. For this purpose use `citation` R function:
+It is important to cite R and R packages when you use them. For this purpose use the `citation` function in R:
 ```{r}
 citation("lingtypology")
 ```
