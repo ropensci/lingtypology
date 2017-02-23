@@ -20,8 +20,10 @@
 #' @param control logical. If TRUE, function show layer control buttons. By default is TRUE.
 #' @param legend logical. If TRUE, function show legend. By default is FALSE.
 #' @param legend.opacity a numeric vector of legend opacity.
+#' @param legend.position the position of the legend: "topright", "bottomright", "bottomleft","topleft"
 #' @param stroke.legend logical. If TRUE, function show stroke.legend. By default is FALSE.
 #' @param stroke.legend.opacity a numeric vector of stroke.legend opacity.
+#' @param stroke.legend.position the position of the stroke.legend: "topright", "bottomright", "bottomleft","topleft"
 #' @param radius a numeric vector of radii for the circles.
 #' @param stroke.radius a numeric vector of stroke radii for the circles.
 #' @param opacity a numeric vector of marker opacity.
@@ -95,7 +97,8 @@
 #' @export
 #' @import leaflet
 #' @importFrom stats complete.cases
-#' @importFrom grDevices gray rainbow
+#' @importFrom grDevices gray
+#' @importFrom grDevices rainbow
 #' @importFrom rowr cbind.fill
 #' @import magrittr
 #'
@@ -106,7 +109,7 @@ map.feature <- function(languages,
                         stroke.features = NULL,
                         latitude = NULL,
                         longitude = NULL,
-                        color = NULL,
+                        color = "blue",
                         stroke.color = NULL,
                         image.url = NULL,
                         image.width = 100,
@@ -118,8 +121,10 @@ map.feature <- function(languages,
                         control = FALSE,
                         legend = TRUE,
                         legend.opacity = 1,
+                        legend.position = c("topright", "bottomright", "bottomleft","topleft"),
                         stroke.legend = TRUE,
                         stroke.legend.opacity = 1,
+                        stroke.legend.position = c("bottomleft","topleft", "topright", "bottomright"),
                         radius = 5,
                         stroke.radius = 9.5,
                         opacity = 1,
@@ -128,8 +133,12 @@ map.feature <- function(languages,
                         tile.name = NULL,
                         glottolog.source = "modified"){
 
-  ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, glottolog <- lingtypology::glottolog.modified)
-  if(sum(is.glottolog(languages, response = TRUE, glottolog.source = glottolog.source)) == 0){stop("There is no data to map")}
+  ifelse(grepl(glottolog.source, "original"),
+         glottolog <- lingtypology::glottolog.original,
+         glottolog <- lingtypology::glottolog.modified)
+  if(sum(is.glottolog(languages, response = TRUE, glottolog.source = glottolog.source)) == 0){
+    stop("There is no data to map")
+    }
 
   # creat dataframe ---------------------------------------------------------
   if (is.null(latitude) & is.null(longitude)) {  # if there are no latitude and longitude
@@ -165,7 +174,10 @@ map.feature <- function(languages,
     mapfeat.stroke <- mapfeat.stroke[stats::complete.cases(mapfeat.stroke),]
   }
 
-  # creata a pallet ---------------------------------------------------------
+  # change feature names ----------------------------------------------------
+  levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
+
+  # create a pallet ---------------------------------------------------------
   if (is.null(color)) {
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)
@@ -189,9 +201,6 @@ map.feature <- function(languages,
                                              domain = mapfeat.stroke$stroke.features)
     }
   }
-
-  # change feature names ----------------------------------------------------
-  levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
   # change tile names if needed ---------------------------------------------
   ifelse(is.null(tile.name), tile.name <- tile, NA)
@@ -298,14 +307,14 @@ map.feature <- function(languages,
                                 group = mapfeat.df$features)
     if (legend == TRUE) {
       m <- m %>% leaflet::addLegend(title = title,
-                                    position = c("topright"),
+                                    position = legend.position,
                                     pal = pal,
                                     values = mapfeat.df$features,
                                     opacity = legend.opacity)
     }
     if (stroke.legend == TRUE) {
       m <- m %>% leaflet::addLegend(title = stroke.title,
-                                    position = c("bottomleft"),
+                                    position = stroke.legend.position,
                                     pal = stroke.pal,
                                     values = mapfeat.stroke$stroke.features,
                                     opacity = stroke.legend.opacity)
@@ -390,7 +399,7 @@ map.feature <- function(languages,
     }
     if (legend == TRUE) {
       m <- m  %>% leaflet::addLegend(title = title,
-                                     position = c("bottomleft"),
+                                     position = legend.position,
                                      pal = pal,
                                      values = mapfeat.df$features,
                                      opacity = opacity)

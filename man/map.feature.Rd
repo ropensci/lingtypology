@@ -6,11 +6,13 @@
 \usage{
 map.feature(languages, features = "none", popup = "",
   stroke.features = NULL, latitude = NULL, longitude = NULL,
-  color = NULL, stroke.color = NULL, image.url = NULL,
+  color = "blue", stroke.color = NULL, image.url = NULL,
   image.width = 100, image.height = 100, image.X.shift = 0,
   image.Y.shift = 0, title = NULL, stroke.title = NULL, control = FALSE,
-  legend = TRUE, legend.opacity = 1, stroke.legend = TRUE,
-  stroke.legend.opacity = 1, radius = 5, stroke.radius = 9.5,
+  legend = TRUE, legend.opacity = 1, legend.position = c("topright",
+  "bottomright", "bottomleft", "topleft"), stroke.legend = TRUE,
+  stroke.legend.opacity = 1, stroke.legend.position = c("bottomleft",
+  "topleft", "topright", "bottomright"), radius = 5, stroke.radius = 9.5,
   opacity = 1, stroke.opacity = 1, tile = "OpenStreetMap.Mapnik",
   tile.name = NULL, glottolog.source = "modified")
 }
@@ -51,9 +53,13 @@ map.feature(languages, features = "none", popup = "",
 
 \item{legend.opacity}{a numeric vector of legend opacity.}
 
+\item{legend.position}{the position of the legend: "topright", "bottomright", "bottomleft","topleft"}
+
 \item{stroke.legend}{logical. If TRUE, function show stroke.legend. By default is FALSE.}
 
 \item{stroke.legend.opacity}{a numeric vector of stroke.legend opacity.}
+
+\item{stroke.legend.position}{the position of the stroke.legend: "topright", "bottomright", "bottomleft","topleft"}
 
 \item{radius}{a numeric vector of radii for the circles.}
 
