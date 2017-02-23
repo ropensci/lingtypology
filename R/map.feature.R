@@ -6,6 +6,10 @@
 #' @param features character vector of features
 #' @param stroke.features additional independent stroke features
 #' @param popup character vector of strings that will appear in pop-up window
+#' @param label character vector of strings that will appear near points
+#' @param label.hide logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.
+#' @param label.fsize numeric value of the label font size. By default is 14.
+#' @param label.position the position of labels: "left", "right", "top", "bottom"
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
 #' @param color vector of colors
@@ -63,6 +67,12 @@
 #' popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 #' map.feature(df$lang, df$feature, df$popup)
 #'
+#' ## Adding labels
+#' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+#' popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
+#' map.feature(df$lang, df$feature, labels = df$lang)
+#'
 #' ## Adding title
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
@@ -100,6 +110,12 @@
 #' longitude = df$long,
 #' image.url = df$urls)
 #'
+#' ## Add a minimap to plot
+#' map.feature(c("Adyghe", "Russian"), minimap = TRUE)
+#'
+#' ## Remove scale bar
+#' map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
+#'
 #' @export
 #' @import leaflet
 #' @importFrom stats complete.cases
@@ -112,6 +128,10 @@
 map.feature <- function(languages,
                         features = "none",
                         popup = "",
+                        label = "",
+                        label.hide = FALSE,
+                        label.fsize = 14,
+                        label.position = "right",
                         stroke.features = NULL,
                         latitude = NULL,
                         longitude = NULL,
@@ -153,16 +173,18 @@ map.feature <- function(languages,
     }
 
   # creat dataframe ---------------------------------------------------------
+  mapfeat.df <- data.frame(languages, features,
+                           popup = popup)
+  if(sum(label == "") != length(label)){
+    mapfeat.df$label <- label
+    }
+
   if (is.null(latitude) & is.null(longitude)) {  # if there are no latitude and longitude
-    mapfeat.df <- data.frame(languages, features,
-                             long = long.lang(languages, glottolog.source = glottolog.source),
-                             lat = lat.lang(languages, glottolog.source = glottolog.source),
-                             popup = popup)
+    mapfeat.df$long <- long.lang(languages, glottolog.source = glottolog.source)
+    mapfeat.df$lat <- lat.lang(languages, glottolog.source = glottolog.source)
   } else {   # if there are latitude and longitude
-    mapfeat.df <- data.frame(languages, features,
-                             long = longitude,
-                             lat = latitude,
-                             popup = popup)
+    mapfeat.df$long <- longitude
+    mapfeat.df$lat <- latitude
   }
 
   # remove any rows with NAs ------------------------------------------------
@@ -172,7 +194,6 @@ map.feature <- function(languages,
   mapfeat.df$link <- makelink(as.character(mapfeat.df$languages),
                               popup = mapfeat.df$popup,
                               glottolog.source = glottolog.source)
-
 
   # add images --------------------------------------------------------------
   if(!is.null(image.url)){
@@ -239,6 +260,11 @@ map.feature <- function(languages,
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
+                                         label= mapfeat.df$label,
+                                         labelOptions = labelOptions(noHide = not(label.hide),
+                                                                     direction = label.position,
+                                                                     textOnly = TRUE,
+                                                                     style = list("font-size" = paste0(label.fsize, "px"))),
                                          stroke = FALSE,
                                          radius = radius,
                                          color = color,
@@ -265,6 +291,11 @@ map.feature <- function(languages,
       leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                 lat=mapfeat.stroke$lat,
                                 popup= mapfeat.df$link,
+                                label= mapfeat.df$label,
+                                labelOptions = labelOptions(noHide = not(label.hide),
+                                                            direction = label.position,
+                                                            textOnly = TRUE,
+                                                            style = list("font-size" = paste0(label.fsize, "px"))),
                                 stroke = FALSE,
                                 radius = 1.15*radius,
                                 fillOpacity = opacity,
@@ -273,6 +304,11 @@ map.feature <- function(languages,
       leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
+                                label= mapfeat.df$label,
+                                labelOptions = labelOptions(noHide = not(label.hide),
+                                                            direction = label.position,
+                                                            textOnly = TRUE,
+                                                            style = list("font-size" = paste0(label.fsize, "px"))),
                                 stroke = FALSE,
                                 radius = radius,
                                 fillOpacity = opacity,
@@ -284,6 +320,11 @@ map.feature <- function(languages,
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
+                                         label= mapfeat.df$label,
+                                         labelOptions = labelOptions(noHide = not(label.hide),
+                                                                     direction = label.position,
+                                                                     textOnly = TRUE,
+                                                                     style = list("font-size" = paste0(label.fsize, "px"))),
                                          stroke = FALSE,
                                          radius = radius,
                                          fillOpacity = opacity,

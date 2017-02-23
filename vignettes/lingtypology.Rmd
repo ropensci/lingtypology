@@ -211,7 +211,28 @@ set.seed(42)
 map.feature(df$language, df$features, df$popup)
 ```
 
-### 3.4 Set coordinates
+### 3.4 Set labels
+An alternative way to add some short text to map is to use `label` option.
+```{r, fig.width=6.2}
+set.seed(42)
+map.feature(df$language, df$features,
+            label = df$language)
+```
+
+There are some additional arguments for customization: `label.fsize` for setting font size, `label.position` for controlling label position, and `label.hide` that gives user a control on label appearence: if `TRUE` than labels are displayed on mouse over (as on previous map), if `FALSE` than labels are displayed always (as on the next map).
+
+```{r, fig.width=6.2}
+set.seed(42)
+map.feature(df$language, df$features,
+            label = df$language,
+            label.fsize = 20,
+            label.position = "left",
+            label.hide = TRUE)
+```
+
+
+
+### 3.5 Set coordinates
 Users can set their own coordinates using the arguments `latitude` and `longitude`. I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
 ```{r, fig.width=6.2}
 set.seed(42)
@@ -222,7 +243,7 @@ map.feature(languages = circassian$language,
             longitude = circassian$longitude)
 ```
 
-### 3.5 Set colors
+### 3.6 Set colors
 By default color palette is created by `rainbow()` function, but user can set their own colors using argument `color`:
 ```{r, fig.width=6.2}
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -232,7 +253,7 @@ map.feature(languages = df$language,
             color = c("yellowgreen", "navy"))
 ```
 
-### 3.6 Set control box
+### 3.7 Set control box
 Package can generate the automatically generated control box that allows users to toggle the visibility of points and feature. To anable it there is an argument  `control` in the `map.feature` function:
 
 ```{r, fig.width=6.2}
@@ -242,7 +263,7 @@ map.feature(languages = df$language,
             control = TRUE)
 ```
 
-### 3.7 Set an additional set of features using strokes
+### 3.8 Set an additional set of features using strokes
 The `map.feature` function has an additional argument `stroke.features`. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so for two levels it will be black and white, for three --- black, grey, white end so on), but users can set their own colors using the argument `stroke.color`:
 ```{r, fig.width=6.2}
 set.seed(42)
@@ -268,7 +289,7 @@ map.feature(circassian$language,
             stroke.features = newfeature)
 ```
 
-### 3.8 Set radii and an opacity feature
+### 3.9 Set radii and an opacity feature
 All markers have their own radius and opacity, so it can be set by users. Just use arguments `radius`, `stroke.radius`, `opacity` and `stroke.opacity`:
 ```{r, fig.width=6.2}
 set.seed(42)
@@ -288,7 +309,7 @@ map.feature(circassian$language,
             opacity = 0.7, stroke.opacity = 0.6)
 ```
 
-### 3.9 Customizing legends
+### 3.10 Customizing legends
 By default legend appear in the left bottom corner. If there are stroke features, two legends are generated. There are additional arguments that control appearence and title of the legends.
 ```{r, fig.width=6.2}
 set.seed(42)
@@ -309,7 +330,7 @@ map.feature(circassian$language,
 ```
 There are arguments `legend.position` and `stroke.legend.position` that allow users to change legends position using "topright", "bottomright", "bottomleft" or "topleft" strings.
 
-### 3.10 Set scale bar
+### 3.11 Set scale bar
 Scale bar is automatically added to a map, but users can control its appearance (set `scale.bar` argument to TRUE or FALSE) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
 ```{r, fig.width=6.2}
 set.seed(42)
@@ -318,7 +339,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             scale.bar.position = "topright")
 ```
 
-### 3.11 Set layouts
+### 3.12 Set layouts
 It is possible to use different tiles on the same map  using `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 ```{r, fig.width=6.2}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -361,7 +382,7 @@ map.feature(df$lang, df$feature, df$popup,
             control = TRUE)
 ```
 
-### 3.12 Add a minimap to a map
+### 3.13 Add a minimap to a map
 It is possible to add a minimap to a map. Users can control its appearance (set `minimap` argument to TRUE or FALSE) and its position (use `minimap.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
 ```{r, fig.width=6.2}
 set.seed(42)
@@ -370,7 +391,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap.position = "topright")
 ```
 
-### 3.13 Add a picture to a map
+### 3.14 Add a picture to a map
 Argument images.url allows users to add their own pictures to a map, using url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
 
 * [Moscow](http://web-corpora.net/~agricolamz/maps/lingtypology/Moscow.png)

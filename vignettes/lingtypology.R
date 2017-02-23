@@ -99,6 +99,19 @@ map.feature(df$language, df$features, df$popup)
 
 ## ---- fig.width=6.2------------------------------------------------------
 set.seed(42)
+map.feature(df$language, df$features,
+            label = df$language)
+
+## ---- fig.width=6.2------------------------------------------------------
+set.seed(42)
+map.feature(df$language, df$features,
+            label = df$language,
+            label.fsize = 20,
+            label.position = "left",
+            label.hide = TRUE)
+
+## ---- fig.width=6.2------------------------------------------------------
+set.seed(42)
 map.feature(languages = circassian$language,
             features = circassian$languoid,
             popup = circassian$village,

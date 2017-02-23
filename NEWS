@@ -1,9 +1,10 @@
-lingtypology 1.0.1 (29.01.2017)
+lingtypology 1.0.2 (23.02.2017)
   - ROpenSci wishes met
   - coloring bug caused by leaflet new release fixed
   - added position arguments to everything
   - added scale bar
-  - added minimap options
+  - added minimap argument
+  - added label argument
 
 lingtypology 1.0.1 (29.01.2017)
   - fixed all warnings in CRAN checks

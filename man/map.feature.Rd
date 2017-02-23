@@ -4,7 +4,8 @@
 \alias{map.feature}
 \title{Create a map}
 \usage{
-map.feature(languages, features = "none", popup = "",
+map.feature(languages, features = "none", popup = "", label = "",
+  label.hide = FALSE, label.fsize = 14, label.position = "right",
   stroke.features = NULL, latitude = NULL, longitude = NULL,
   color = NULL, stroke.color = NULL, image.url = NULL,
   image.width = 100, image.height = 100, image.X.shift = 0,
@@ -24,6 +25,14 @@ map.feature(languages, features = "none", popup = "",
 \item{features}{character vector of features}
 
 \item{popup}{character vector of strings that will appear in pop-up window}
+
+\item{label}{character vector of strings that will appear near points}
+
+\item{label.hide}{logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.}
+
+\item{label.fsize}{numeric value of the label font size. By default is 14.}
+
+\item{label.position}{the position of labels: "left", "right", "top", "bottom"}
 
 \item{stroke.features}{additional independent stroke features}
 
@@ -117,6 +126,12 @@ feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
 popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, df$popup)
 
+## Adding labels
+df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
+map.feature(df$lang, df$feature, labels = df$lang)
+
 ## Adding title
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
@@ -153,6 +168,12 @@ map.feature(languages = df$lang,
 latitude = df$lat,
 longitude = df$long,
 image.url = df$urls)
+
+## Add a minimap to plot
+map.feature(c("Adyghe", "Russian"), minimap = TRUE)
+
+## Remove scale bar
+map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
 
 }
 \author{
