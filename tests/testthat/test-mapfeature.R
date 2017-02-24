@@ -58,10 +58,12 @@ test_that("map.feature colors", {
 })
 
 map_tiles <- map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
-
+map_tiles_control <- map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"), control = TRUE)
 test_that("map.feature tiles", {
     expect_equal(c(map_tiles$x$calls[[2]]$args[[1]], map_tiles$x$calls[[3]]$args[[1]]), c("OpenStreetMap.BlackAndWhite",
         "Thunderforest.OpenCycleMap"))
+    expect_equal(c(map_tiles_control$x$calls[[2]]$args[[1]], map_tiles_control$x$calls[[3]]$args[[1]]), c("OpenStreetMap.BlackAndWhite",
+                                                                                        "Thunderforest.OpenCycleMap"))
 })
 
 map_control <- map.feature(c("Adyghe", "Russian"), control = TRUE)
@@ -70,3 +72,17 @@ test_that("map.feature tiles", {
     expect_equal(map_control$x$calls[[4]]$method, "addLayersControl")
 })
 
+map_minimap <- map.feature(c("Adyghe", "Russian"), minimap = TRUE)
+
+test_that("map.feature minimap", {
+  expect_equal(map_minimap$x$calls[[5]]$method, "addMiniMap")
+})
+
+test_that("map.feature scale bar", {
+  expect_equal(map_minimap$x$calls[[4]]$method, "addScaleBar")
+})
+
+map_label <- map.feature(c("Adyghe", "Russian"), label = c("a", "b"))
+test_that("map.feature labels", {
+  expect_equal(map_label$x$calls[[3]]$args[11], list(c("a", "b")))
+})
