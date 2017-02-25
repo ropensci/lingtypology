@@ -238,7 +238,7 @@ map.feature(df$language, df$features,
             label = df$language)
 ```
 
-There are some additional arguments for customization: `label.fsize` for setting font size, `label.position` for controlling the label position, and `label.hide` to control the appearance of the label: if `TRUE`, the labels are displayed on mouse over (as on the previous map), if `FALSE`, the labels are always displayed (as on the next map).
+There are some additional arguments for customization: `label.fsize` for setting font size, `label.position` for controlling the label position, and `label.hide` to control the appearance of the label: if `TRUE`, the labels are displayed on mouse over (as on the next map), if `FALSE`, the labels are always displayed (as on the previous map).
 
 ```{r, fig.width=6.2}
 set.seed(42)
