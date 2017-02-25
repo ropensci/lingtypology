@@ -252,7 +252,7 @@ map.feature(df$language, df$features,
 
 
 ### 3.5 Set coordinates
-Users can set their own coordinates using the arguments `latitude` and `longitude`. I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
+Users can set their own coordinates using the arguments `latitude` and `longitude`. It is important to note, that `lingtypology` works only with decimal degrees (something like this: 0.1), not with  degrees, minutes and seconds (something like this: 0° 06′ 0″). I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(languages = circassian$language,
