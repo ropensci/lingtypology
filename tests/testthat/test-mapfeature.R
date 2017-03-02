@@ -47,6 +47,8 @@ test_that("map.feature stroke feature", {
 })
 
 map_colorless <- map.feature(c("Tabasaran", "Adyghe"))
+map_lang_colors <- map.feature(c("Tabasaran", "Adyghe"),
+                          color = "navy")
 map_colors <- map.feature(c("Tabasaran", "Adyghe"),
                           features = c("a", "b"),
                           color = c("navy", "yellowgreen"))
@@ -54,6 +56,7 @@ map_colors <- map.feature(c("Tabasaran", "Adyghe"),
 test_that("map.feature colors", {
     expect_equal(map_colors$x$calls[[3]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
     expect_equal(map_colorless$x$calls[[3]]$args[6][[1]]$color, "blue")
+    expect_equal(map_lang_colors$x$calls[[3]]$args[6][[1]]$color, "navy")
     expect_equal(map_stroke$x$calls[[3]]$args[6][[1]]$color, "black")
 })
 
