@@ -32,9 +32,17 @@ is.glottolog <- function(x, response = FALSE, glottolog.source = "modified") {
             cand <- stringdist::stringdist(tolower(z), tolower(glottolog$languoid),
                 method = "lv")
 
+            # add exact substrings ---------------------------------------------------
+            cand_subst <- c(grep(paste0(tolower(z), " "), tolower(glottolog$languoid)),
+                            grep(paste0(" ", tolower(z)), tolower(glottolog$languoid)),
+                            grep(paste0(tolower(z), "-"), tolower(glottolog$languoid)),
+                            grep(paste0("-", tolower(z)), tolower(glottolog$languoid)))
+
             # make a string with all candidates ---------------------------------------
-            candidate <- paste(glottolog[cand == cand[which.min(cand)], ]$languoid,
-                collapse = ", ")
+            candidate <- paste(unique(c(
+              glottolog[cand == cand[which.min(cand)], ]$languoid,
+              glottolog[cand_subst, ]$languoid)),
+              collapse = ", ")
 
             # make a warning message --------------------------------------------------
             warning(paste("Languoid ", z, " is absent in our database. Did you mean ",
