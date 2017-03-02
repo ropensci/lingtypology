@@ -208,7 +208,7 @@ map.feature <- function(languages,
   }
 
   # change feature names ----------------------------------------------------
-  levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
+  # levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
   # create a pallet ---------------------------------------------------------
   if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
