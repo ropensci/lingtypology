@@ -17,7 +17,7 @@ map.feature(languages, features = "none", popup = "", label = "",
   scale.bar.position = "bottomleft", minimap = FALSE,
   minimap.position = "bottomright", minimap.width = 150,
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
-  glottolog.source = "modified")
+  zoom.control = FALSE, glottolog.source = "modified")
 }
 \arguments{
 \item{languages}{character vector of linguoids (can be written in lower case)}
@@ -80,11 +80,11 @@ map.feature(languages, features = "none", popup = "", label = "",
 
 \item{stroke.opacity}{a numeric vector of stroke opacity.}
 
-\item{scale.bar}{logical. If TRUE, function show scale-bar. By default is TRUE.}
+\item{scale.bar}{logical. If TRUE, function shows scale-bar. By default is TRUE.}
 
 \item{scale.bar.position}{the position of the scale-bar: "topright", "bottomright", "bottomleft","topleft"}
 
-\item{minimap}{= FALSE,}
+\item{minimap}{logical. If TRUE, function shows mini map. By default is FALSE.}
 
 \item{minimap.position}{the position of the minimap: "topright", "bottomright", "bottomleft","topleft"}
 
@@ -95,6 +95,8 @@ map.feature(languages, features = "none", popup = "", label = "",
 \item{tile}{a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
 
 \item{tile.name}{a character verctor with a user's map tiles' names}
+
+\item{zoom.control}{logical. If TRUE, function shows zoom controls. By default is FALSE.}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
 }

@@ -34,13 +34,14 @@
 #' @param stroke.opacity a numeric vector of stroke opacity.
 #' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
 #' @param tile.name a character verctor with a user's map tiles' names
-#' @param scale.bar logical. If TRUE, function show scale-bar. By default is TRUE.
+#' @param scale.bar logical. If TRUE, function shows scale-bar. By default is TRUE.
 #' @param scale.bar.position the position of the scale-bar: "topright", "bottomright", "bottomleft","topleft"
-#' @param minimap = FALSE,
+#' @param minimap logical. If TRUE, function shows mini map. By default is FALSE.
 #' @param minimap.position the position of the minimap: "topright", "bottomright", "bottomleft","topleft"
 #' @param minimap.width The width of the minimap in pixels.
 #' @param minimap.height The height of the minimap in pixels.
 #' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
+#' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
@@ -163,6 +164,7 @@ map.feature <- function(languages,
                         minimap.height = 150,
                         tile = "OpenStreetMap.Mapnik",
                         tile.name = NULL,
+                        zoom.control = FALSE,
                         glottolog.source = "modified"){
 
   ifelse(grepl(glottolog.source, "original"),
@@ -214,8 +216,7 @@ map.feature <- function(languages,
   if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
   if (is.null(color)) {
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
-                                domain = mapfeat.df$features)
-  } else {
+                                domain = mapfeat.df$features)  } else {
     pal <- leaflet::colorFactor(color,
                                 domain = mapfeat.df$features)
   }
@@ -246,7 +247,7 @@ map.feature <- function(languages,
   }
 
   ### create a map ------------------------------------------------------------
-  m <- leaflet::leaflet(mapfeat.df) %>%
+  m <- leaflet::leaflet(mapfeat.df, option=leafletOptions(zoomControl = zoom.control)) %>%
     leaflet::addTiles(tile[1]) %>%
     leaflet::addProviderTiles(tile[1], group = tile.name[1])
   if(length(tile) > 1){

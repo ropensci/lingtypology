@@ -1,9 +1,10 @@
 lingtypology 1.0.3 (02.03.2017)
   - improved spellchecker
+  - added the argument for zoom panel appearence
 
 lingtypology 1.0.2 (23.02.2017)
   - ROpenSci wishes met
-  - coloring bug caused by leaflet new release fixed
+  - coloring the bug caused by leaflet new release fixed
   - added position arguments to every legend
   - added arguments for working with scale bar
   - added arguments for working with minimap
@@ -17,12 +18,12 @@ lingtypology 1.0.1 (29.01.2017)
   - changed default for control argument to FALSE
   - corrected Rmd, examples and help
   - added image arguments
-  - added tile argument for layouts
-  - added multiple tile argument
-  - added tile.name argument
-  - added argument glottolog.source (Many thanks to Robert Forkel for his issue and his work!)
-  - fixed coloring problem
-  - fixed makelink function
+  - added the tile argument for layouts
+  - added  the multiple tile argument
+  - added the tile.name argument
+  - added the argument glottolog.source (Many thanks to Robert Forkel for his issue and his work!)
+  - fixed the coloring problem
+  - fixed the makelink function
   - some coordinates and language names corrected and stored in glottolog.modified
 
 lingtypology 1.0.0 (29.12.2016)
