@@ -172,14 +172,14 @@ map.feature <- function(languages,
          glottolog <- lingtypology::glottolog.modified)
   if(sum(is.glottolog(languages, response = TRUE, glottolog.source = glottolog.source)) == 0){
     stop("There is no data to map")
-    }
+  }
 
   # creat dataframe ---------------------------------------------------------
   mapfeat.df <- data.frame(languages, features,
                            popup = popup)
   if(sum(label == "") != length(label)){
     mapfeat.df$label <- label
-    }
+  }
 
   if (is.null(latitude) & is.null(longitude)) {  # if there are no latitude and longitude
     mapfeat.df$long <- long.lang(languages, glottolog.source = glottolog.source)
@@ -217,9 +217,9 @@ map.feature <- function(languages,
   if (is.null(color)) {
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)  } else {
-    pal <- leaflet::colorFactor(color,
-                                domain = mapfeat.df$features)
-  }
+                                  pal <- leaflet::colorFactor(color,
+                                                              domain = mapfeat.df$features)
+                                }
 
   if(!is.null(stroke.features)){
     if (is.null(stroke.color)) {

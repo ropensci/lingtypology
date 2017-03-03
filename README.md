@@ -22,6 +22,8 @@ install.packages("devtools")
 devtools::install_github("agricolamz/lingtypology")
 ```
 
+Sometimes installation failed because of the absence of the package `crosstalk`. Just install it using command `install.packages("crosstalk")`.
+
 Load a library:
 ```R
 library(lingtypology)
