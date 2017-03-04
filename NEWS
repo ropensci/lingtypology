@@ -1,6 +1,7 @@
 lingtypology 1.0.3 (02.03.2017)
   - improved spellchecker
   - added the argument for zoom panel appearence
+  - added some official languages to the countries dataset
 
 lingtypology 1.0.2 (23.02.2017)
   - ROpenSci wishes met
