@@ -20,6 +20,7 @@
 #'
 
 is.glottolog <- function(x, response = FALSE, glottolog.source = "modified") {
+    if(typeof(x) == "list"){x <- unlist(x)}
     ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
         glottolog <- lingtypology::glottolog.modified)
     y <- tolower(x)

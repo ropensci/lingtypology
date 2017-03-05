@@ -13,6 +13,7 @@
 #' @export
 
 lang.aff <- function(x, list = FALSE, glottolog.source = "modified") {
+    if(typeof(x) == "list"){x <- unlist(x)}
     ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
         glottolog <- lingtypology::glottolog.modified)
     if (list == FALSE) {

@@ -476,9 +476,12 @@ map.feature(languages = df$lang,
             image.Y.shift = 0)
 ```
 
-Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot an additional legend text on the map. 
+Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot an additional legend text on the map.
 
-## 4. Citing `lingtyplogy`
+## 4. Tidyverse integration
+`map.feature`
+
+## 5. Citing `lingtyplogy`
 It is important to cite R and R packages when you use them. For this purpose use the `citation` function in R:
 ```{r}
 citation("lingtypology")

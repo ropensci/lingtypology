@@ -11,10 +11,11 @@
 #' @export
 
 lang.iso <- function(x, glottolog.source = "modified") {
-    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, 
+    if(typeof(x) == "list"){x <- unlist(x)}
+    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
         glottolog <- lingtypology::glottolog.modified)
     vapply(x, function(y) {
-        ifelse(y %in% glottolog$iso, glottolog[tolower(glottolog$iso) %in% tolower(y), 
+        ifelse(y %in% glottolog$iso, glottolog[tolower(glottolog$iso) %in% tolower(y),
             ]$languoid, NA_character_)
     }, character(1))
 }

@@ -8,11 +8,12 @@
 #' @export
 
 makelink <- function(x, popup = "", glottolog.source = "modified") {
-    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original, 
+    if(typeof(x) == "list"){x <- unlist(x)}
+    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
         glottolog <- lingtypology::glottolog.modified)
     link <- mapply(function(langs, popup) {
-        paste0("<a href='", "http://glottolog.org/resource/languoid/iso/", glottolog[tolower(glottolog$languoid) %in% 
-            tolower(langs), ]$iso, "' target='_blank'>", as.character(langs), "</a><br>", 
+        paste0("<a href='", "http://glottolog.org/resource/languoid/iso/", glottolog[tolower(glottolog$languoid) %in%
+            tolower(langs), ]$iso, "' target='_blank'>", as.character(langs), "</a><br>",
             as.character(popup))
     }, x, popup)
     return(unname(link))

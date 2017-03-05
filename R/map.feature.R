@@ -123,7 +123,7 @@
 #' @importFrom grDevices gray
 #' @importFrom grDevices rainbow
 #' @importFrom rowr cbind.fill
-#' @import magrittr
+#' @importFrom magrittr %>%
 #'
 
 map.feature <- function(languages,
@@ -170,6 +170,7 @@ map.feature <- function(languages,
   ifelse(grepl(glottolog.source, "original"),
          glottolog <- lingtypology::glottolog.original,
          glottolog <- lingtypology::glottolog.modified)
+  if(typeof(languages) == "list"){languages <- unlist(languages)}
   if(sum(is.glottolog(languages, response = TRUE, glottolog.source = glottolog.source)) == 0){
     stop("There is no data to map")
   }
@@ -262,7 +263,7 @@ map.feature <- function(languages,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
                                          label= mapfeat.df$label,
-                                         labelOptions = labelOptions(noHide = not(label.hide),
+                                         labelOptions = labelOptions(noHide = !(label.hide),
                                                                      direction = label.position,
                                                                      textOnly = TRUE,
                                                                      style = list("font-size" = paste0(label.fsize, "px"))),
@@ -293,7 +294,7 @@ map.feature <- function(languages,
                                 lat=mapfeat.stroke$lat,
                                 popup= mapfeat.df$link,
                                 label= mapfeat.df$label,
-                                labelOptions = labelOptions(noHide = not(label.hide),
+                                labelOptions = labelOptions(noHide = !(label.hide),
                                                             direction = label.position,
                                                             textOnly = TRUE,
                                                             style = list("font-size" = paste0(label.fsize, "px"))),
@@ -306,7 +307,7 @@ map.feature <- function(languages,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
                                 label= mapfeat.df$label,
-                                labelOptions = labelOptions(noHide = not(label.hide),
+                                labelOptions = labelOptions(noHide = !(label.hide),
                                                             direction = label.position,
                                                             textOnly = TRUE,
                                                             style = list("font-size" = paste0(label.fsize, "px"))),
@@ -322,7 +323,7 @@ map.feature <- function(languages,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
                                          label= mapfeat.df$label,
-                                         labelOptions = labelOptions(noHide = not(label.hide),
+                                         labelOptions = labelOptions(noHide = !(label.hide),
                                                                      direction = label.position,
                                                                      textOnly = TRUE,
                                                                      style = list("font-size" = paste0(label.fsize, "px"))),
