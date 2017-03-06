@@ -1,5 +1,5 @@
 ---
-title: "`lingtypology`: easy mapping for Lingustic Typology"
+title: "`lingtypology`: easy mapping for Linguistic Typology"
 author: "George Moroz"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -478,12 +478,73 @@ map.feature(languages = df$lang,
 
 Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot an additional legend text on the map.
 
-## 4. Tidyverse integration
-`map.feature`
+## 4. `magrittr` integration
+There is an R package --- [`magrittr`](https://CRAN.R-project.org/package=magrittr) --- which lets you transform nested function calls into a simple pipeline (we will look at `%>%`, but check out [the tutorial](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html)). It is widely used, so I give some examples, how to use pipes with `lingtypology` package.
+
+Lets start with a simple dataframe.
+```{r}
+df <- data.frame(my_langs = c("Adyghe", "French", "Zulu", "Tabassaran"))
+```
+
+Lets detect which languages from our dataframe are in the glottolog database:
+
+```{r}
+library(magrittr)
+df %>% 
+  is.glottolog()
+```
+
+Lets count how many languages from our dataframe are in the glottolog database:
+```{r}
+df %>% 
+  is.glottolog() %>% 
+  table()
+```
+As we see, result of the work of the one function is pushed to another. We can add a new line:
+
+```{r}
+df %>% 
+  is.glottolog() %>% 
+  table() %>% 
+  max()
+```
+
+By default, values that came from the pipe are treated as a first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Lets get affiliation of the Eurasia languages that are in our database.
+
+```{r}
+df %>% 
+  is.glottolog() %>% 
+  df[.,] %>% 
+  aff.lang()
+```
+
+We start with a value `df` (a dataframe). Then we check whether that language names are in the glottolog database. Then we select only row that are present in glottolog database. And the last line give us affiliations of those languages. Note how the code is arranged in the logical order of how you think about the task. It is definitly more readeble, than a horrible alternative:
+
+```{r, eval = FALSE}
+aff.lang(df[is.glottolog(df),])
+```
+
+Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Lets download and map all languages from that set. Lets download data:
+
+```{r}
+new_data <- read.csv("https://goo.gl/GgscBE")
+tail(new_data)
+```
+
+As we see, some values of the `Language.name` variable contain more then one language name. Some of the names probably have different name in our database. Imagine that we want to map all languages from Africa.
+
+```{r, fig.width=6.2}
+new_data$Language.name %>% 
+  gsub(pattern = " ", replacement = "", new_data$Language.name) %>% 
+  subset(., is.glottolog(.)) %>% 
+  subset(., area.lang(.) == "Africa") %>% 
+  map.feature()
+```
+
+We start with a value, here `new_data$Language.name` (a vector). Based on this we first remove spaces on the end of each string. Then we check, whether the language names are in glottolog database. Then we select only row that cantain languages of Africa. And the last line map all selected languages.
 
 ## 5. Citing `lingtyplogy`
 It is important to cite R and R packages when you use them. For this purpose use the `citation` function in R:
 ```{r}
 citation("lingtypology")
 ```
-

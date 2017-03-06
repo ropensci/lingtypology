@@ -295,5 +295,44 @@ map.feature(languages = df$lang,
             image.Y.shift = 0)
 
 ## ------------------------------------------------------------------------
+df <- data.frame(my_langs = c("Adyghe", "French", "Zulu", "Tabassaran"))
+
+## ------------------------------------------------------------------------
+library(magrittr)
+df %>% 
+  is.glottolog()
+
+## ------------------------------------------------------------------------
+df %>% 
+  is.glottolog() %>% 
+  table()
+
+## ------------------------------------------------------------------------
+df %>% 
+  is.glottolog() %>% 
+  table() %>% 
+  max()
+
+## ------------------------------------------------------------------------
+df %>% 
+  is.glottolog() %>% 
+  df[.,] %>% 
+  aff.lang()
+
+## ---- eval = FALSE-------------------------------------------------------
+#  aff.lang(df[is.glottolog(df),])
+
+## ------------------------------------------------------------------------
+new_data <- read.csv("https://goo.gl/GgscBE")
+tail(new_data)
+
+## ---- fig.width=6.2------------------------------------------------------
+new_data$Language.name %>% 
+  gsub(pattern = " ", replacement = "", new_data$Language.name) %>% 
+  subset(., is.glottolog(.)) %>% 
+  subset(., area.lang(.) == "Africa") %>% 
+  map.feature()
+
+## ------------------------------------------------------------------------
 citation("lingtypology")
 
