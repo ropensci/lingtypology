@@ -509,7 +509,7 @@ df %>%
   max()
 ```
 
-By default, values that came from the pipe are treated as a first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Lets get affiliation of the Eurasia languages that are in our database.
+By default, values that came from the pipe are treated as a first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Lets get affiliation of the languages that are in our dataframe.
 
 ```{r}
 df %>% 
