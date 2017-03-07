@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-## What is lingtypology?
+## What is `lingtypology`?
 The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic cartography. I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting this vignette.
 
 ## 1. Installation
@@ -120,7 +120,7 @@ is.glottolog(c("Tabasaran", "Tabassaran"), glottolog.source = "original")
 is.glottolog(c("Tabasaran", "Tabassaran"), glottolog.source = "modified")
 ```
 
-It is common practice in R to reduce both function arguments and its values, so this can also be done with the following lingtypology functions.
+It is common practice in R to reduce both function arguments and its values, so this can also be done with the following `lingtypology` functions.
 ```{r}
 is.glottolog(c("Tabasaran", "Tabassaran"), g = "o")
 ```
@@ -479,7 +479,7 @@ map.feature(languages = df$lang,
 Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot an additional legend text on the map.
 
 ## 4. `dplyr` integration
-It is possible to use `dplyr` functions and pipes with lingtypology. It is widely used, so I give some examples, how to use it with `lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Lets download and map all languages from that set. Lets download data:
+It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I give some examples, how to use it with `lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Lets download and map all languages from that set. Lets download data:
 
 ```{r}
 new_data <- read.csv("https://goo.gl/GgscBE")
