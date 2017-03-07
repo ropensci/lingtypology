@@ -295,43 +295,26 @@ map.feature(languages = df$lang,
             image.Y.shift = 0)
 
 ## ------------------------------------------------------------------------
-df <- data.frame(my_langs = c("Adyghe", "French", "Zulu", "Tabassaran"))
-
-## ------------------------------------------------------------------------
-library(magrittr)
-df %>% 
-  is.glottolog()
-
-## ------------------------------------------------------------------------
-df %>% 
-  is.glottolog() %>% 
-  table()
-
-## ------------------------------------------------------------------------
-df %>% 
-  is.glottolog() %>% 
-  table() %>% 
-  max()
-
-## ------------------------------------------------------------------------
-df %>% 
-  is.glottolog() %>% 
-  df[.,] %>% 
-  aff.lang()
-
-## ---- eval = FALSE-------------------------------------------------------
-#  aff.lang(df[is.glottolog(df),])
-
-## ------------------------------------------------------------------------
 new_data <- read.csv("https://goo.gl/GgscBE")
 tail(new_data)
 
-## ---- fig.width=6.2------------------------------------------------------
-new_data$Language.name %>% 
-  gsub(pattern = " ", replacement = "", new_data$Language.name) %>% 
-  subset(., is.glottolog(.)) %>% 
-  subset(., area.lang(.) == "Africa") %>% 
+## ---- fig.width=6.2, message= FALSE--------------------------------------
+library(dplyr)
+new_data %>%
+  mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
+  filter(is.glottolog(Language.name) == TRUE) %>% 
+  filter(area.lang(Language.name) == "Africa") %>% 
+  select(Language.name) %>% 
   map.feature()
+
+## ---- fig.width=6.2, message= FALSE--------------------------------------
+library(dplyr)
+new_data %>%
+  mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
+  filter(is.glottolog(Language.name) == TRUE) %>% 
+  filter(area.lang(Language.name) == "Africa") %>% 
+  select(Language.name) %>% 
+  map.feature(., minimap = TRUE)
 
 ## ------------------------------------------------------------------------
 citation("lingtypology")
