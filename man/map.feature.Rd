@@ -20,7 +20,7 @@ map.feature(languages, features = "none", popup = "", label = "",
   zoom.control = FALSE, glottolog.source = "modified")
 }
 \arguments{
-\item{languages}{character vector of linguoids (can be written in lower case)}
+\item{languages}{character vector of languoids (can be written in lower case)}
 
 \item{features}{character vector of features}
 
@@ -101,7 +101,7 @@ map.feature(languages, features = "none", popup = "", label = "",
 \item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
 }
 \description{
-Map a set of linguoids and color them by feature or two sets of features.
+Map a set of languoids and color them by feature or two sets of features.
 }
 \examples{
 map.feature(c("Adyghe", "Russian"))
@@ -115,7 +115,7 @@ map.feature(lang.aff(c("Slavic")))
 ## Add control buttons
 map.feature(c("Adyghe", "Russian"), control = TRUE)
 
-## Color linguoids by feature
+## Color languoids by feature
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"))
 map.feature(df$lang, df$feature)

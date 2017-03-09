@@ -1,10 +1,12 @@
 #' Make a link for a languoid
 #'
-#' Takes any vector of linguoids and return links to glottolog pages.
-#' @param x A character vector of linguoids (can be written in lower case)
+#' Takes any vector of languoids and return links to glottolog pages.
+#' @param x A character vector of languoids (can be written in lower case)
 #' @param popup character vector of strings that will appear in pop-up window of the function map.feature
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
+#' @examples
+#' makelink('Korean')
 #' @export
 
 makelink <- function(x, popup = "", glottolog.source = "modified") {

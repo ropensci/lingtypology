@@ -1,8 +1,8 @@
 #' Create a map
 #'
-#' Map a set of linguoids and color them by feature or two sets of features.
+#' Map a set of languoids and color them by feature or two sets of features.
 #'
-#' @param languages character vector of linguoids (can be written in lower case)
+#' @param languages character vector of languoids (can be written in lower case)
 #' @param features character vector of features
 #' @param stroke.features additional independent stroke features
 #' @param popup character vector of strings that will appear in pop-up window
@@ -55,7 +55,7 @@
 #' ## Add control buttons
 #' map.feature(c("Adyghe", "Russian"), control = TRUE)
 #'
-#' ## Color linguoids by feature
+#' ## Color languoids by feature
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"))
 #' map.feature(df$lang, df$feature)
