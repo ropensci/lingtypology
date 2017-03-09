@@ -213,11 +213,7 @@ map.feature <- function(languages,
   # change feature names ----------------------------------------------------
   # levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
-<<<<<<< HEAD
-  # create a pallete ---------------------------------------------------------
-=======
   # create a palette ---------------------------------------------------------
->>>>>>> 198fd283fa42a8b17eb0fc2d3b5ef03275d7bd78
   if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
   if (is.null(color)) {
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
@@ -351,11 +347,7 @@ map.feature <- function(languages,
                                      iconAnchorY = image.Y.shift))
   }
 
-<<<<<<< HEAD
-  # map: tile and control intaraction --------------------------------------
-=======
   # map: tile and control interaction --------------------------------------
->>>>>>> 198fd283fa42a8b17eb0fc2d3b5ef03275d7bd78
   if(length(tile) > 1){
     if (control == TRUE) {
       m <- m %>% leaflet::addLayersControl(
