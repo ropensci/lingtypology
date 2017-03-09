@@ -175,7 +175,7 @@ map.feature <- function(languages,
     stop("There is no data to map")
   }
 
-  # creat dataframe ---------------------------------------------------------
+  # create dataframe ---------------------------------------------------------
   mapfeat.df <- data.frame(languages, features,
                            popup = popup)
   if(sum(label == "") != length(label)){
@@ -193,7 +193,7 @@ map.feature <- function(languages,
   # remove any rows with NAs ------------------------------------------------
   mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df),]
 
-  # creat link --------------------------------------------------------------
+  # create link --------------------------------------------------------------
   mapfeat.df$link <- makelink(as.character(mapfeat.df$languages),
                               popup = mapfeat.df$popup,
                               glottolog.source = glottolog.source)
@@ -213,7 +213,7 @@ map.feature <- function(languages,
   # change feature names ----------------------------------------------------
   # levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
-  # create a pallet ---------------------------------------------------------
+  # create a palette ---------------------------------------------------------
   if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
   if (is.null(color)) {
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
@@ -347,7 +347,7 @@ map.feature <- function(languages,
                                      iconAnchorY = image.Y.shift))
   }
 
-  # map: tile and controll intaraction --------------------------------------
+  # map: tile and control interaction --------------------------------------
   if(length(tile) > 1){
     if (control == TRUE) {
       m <- m %>% leaflet::addLayersControl(
