@@ -126,7 +126,7 @@ map.feature(df$language, df$features,
 ## ---- fig.width=6.2------------------------------------------------------
 set.seed(42)
 map.feature(languages = circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             popup = circassian$village,
             latitude = circassian$latitude,
             longitude = circassian$longitude)
@@ -147,7 +147,7 @@ map.feature(languages = df$language,
 ## ---- fig.width=6.2------------------------------------------------------
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude)
@@ -160,7 +160,7 @@ newfeature <-  replace(newfeature$language, newfeature$languoid == "Baksan", NA)
 # create a map
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
             stroke.features = newfeature)
@@ -168,7 +168,7 @@ map.feature(circassian$language,
 ## ---- fig.width=6.2------------------------------------------------------
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
@@ -176,7 +176,7 @@ map.feature(circassian$language,
 
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
@@ -185,7 +185,7 @@ map.feature(circassian$language,
 ## ---- fig.width=6.2------------------------------------------------------
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
@@ -193,7 +193,7 @@ map.feature(circassian$language,
 
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
@@ -299,7 +299,7 @@ new_data <- read.csv("https://goo.gl/GgscBE")
 tail(new_data)
 
 ## ---- fig.width=6.2, message= FALSE--------------------------------------
-library(dplyr)
+require(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 
@@ -308,7 +308,7 @@ new_data %>%
   map.feature()
 
 ## ---- fig.width=6.2, message= FALSE--------------------------------------
-library(dplyr)
+require(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 

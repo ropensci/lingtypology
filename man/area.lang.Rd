@@ -2,17 +2,17 @@
 % Please edit documentation in R/area.lang.R
 \name{area.lang}
 \alias{area.lang}
-\title{Get macro area by languoid}
+\title{Get macro area by language}
 \usage{
 area.lang(x, glottolog.source = "modified")
 }
 \arguments{
-\item{x}{character vector of the languoids (can be written in lower case)}
+\item{x}{character vector of the languages (can be written in lower case)}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-Takes any vector of languoids and return macro area.
+Takes any vector of languages and return macro area.
 }
 \examples{
 area.lang('Adyghe')

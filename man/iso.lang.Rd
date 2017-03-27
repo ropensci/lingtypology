@@ -2,17 +2,17 @@
 % Please edit documentation in R/iso.lang.R
 \name{iso.lang}
 \alias{iso.lang}
-\title{Get ISO 639--3 code by languoid}
+\title{Get ISO 639--3 code by language}
 \usage{
 iso.lang(x, glottolog.source = "modified")
 }
 \arguments{
-\item{x}{A character vector of the languoids (can be written in lower case)}
+\item{x}{A character vector of the languages (can be written in lower case)}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-Takes any vector of languoids and return ISO code.
+Takes any vector of languages and return ISO code.
 }
 \examples{
 iso.lang('Adyghe')

@@ -2,24 +2,24 @@
 % Please edit documentation in R/lang.aff.R
 \name{lang.aff}
 \alias{lang.aff}
-\title{Get languoids by affiliation}
+\title{Get languages by affiliation}
 \usage{
 lang.aff(x, list = FALSE, glottolog.source = "modified")
 }
 \arguments{
 \item{x}{A character vector of the affiliations (can be written in lower case)}
 
-\item{list}{logical. If TRUE, returns a list of languoids, if FALSE return a named vector.}
+\item{list}{logical. If TRUE, returns a list of languages, if FALSE return a named vector.}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-Takes any vector of affiliations and return languoids.
+Takes any vector of affiliations and return languages.
 }
 \examples{
-lang.aff('Balto-Slavic')
-lang.aff(c('East Slavic', 'West Slavic'))
-lang.aff(c('East Slavic', 'West Slavic'), list = TRUE)
+lang.aff('Slavic')
+lang.aff(c('Slavic', 'Celtic'))
+lang.aff(c('Slavic', 'Celtic'), list = TRUE)
 }
 \author{
 George Moroz <agricolamz@gmail.com>

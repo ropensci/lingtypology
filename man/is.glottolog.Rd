@@ -2,29 +2,30 @@
 % Please edit documentation in R/is.glottolog.R
 \name{is.glottolog}
 \alias{is.glottolog}
-\title{Are these langoids in glottolog?}
+\title{Are these languages in glottolog?}
 \usage{
 is.glottolog(x, response = FALSE, glottolog.source = "modified")
 }
 \arguments{
-\item{x}{A character vector of languoids (can be written in lower case)or ISO codes}
+\item{x}{A character vector of languages (can be written in lower case)or ISO codes}
 
-\item{response}{logical. If TRUE, when languoid is absent, return warnings with a possible candidates.}
+\item{response}{logical. If TRUE, when language is absent, return warnings with a possible candidates.}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-Takes any vector of languoids or ISO codes and return a logical vector.
+Takes any vector of languages or ISO codes and return a logical vector.
 }
 \examples{
-is.glottolog(c('Adyghe', 'Russsian'))
+is.glottolog(c('Adyghe', 'Russian'))
+is.glottolog('Buyaka')
 
 # Add warning message with sugestions
-is.glottolog(c('Adyge', 'Russian'), response = TRUE)
+is.glottolog(c('Adygey', 'Russian'), response = TRUE)
 # > FALSE TRUE
 # Warning message:
 # In is.glottolog(c('Adyge', 'Russian'), response = TRUE) :
-# Languoid Adyge is absent in our database. Did you mean Aduge, Adyghe?
+# Language Adyge is absent in our database. Did you mean Aduge, Adyghe?
 
 }
 \author{

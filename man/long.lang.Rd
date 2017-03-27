@@ -2,17 +2,17 @@
 % Please edit documentation in R/long.lang.R
 \name{long.lang}
 \alias{long.lang}
-\title{Get longitude by languoid}
+\title{Get longitude by language}
 \usage{
 long.lang(x, glottolog.source = "modified")
 }
 \arguments{
-\item{x}{A character vector of the languoids (can be written in lower case)}
+\item{x}{A character vector of the languages (can be written in lower case)}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-Takes any vector of languoids and return longitude.
+Takes any vector of languages and return longitude.
 }
 \examples{
 lat.lang('Adyghe')

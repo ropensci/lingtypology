@@ -2,26 +2,24 @@
 % Please edit documentation in R/lang.country.R
 \name{lang.country}
 \alias{lang.country}
-\title{Get languoids by country}
+\title{Get languages by country}
 \usage{
 lang.country(x, list = FALSE, glottolog.source = "modified")
 }
 \arguments{
 \item{x}{character vector of the countries (can be written in lower case)}
 
-\item{list}{logical. If TRUE, returns a list of languoids, if FALSE return a vector.}
+\item{list}{logical. If TRUE, returns a list of languages, if FALSE return a vector.}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-Takes any vector of countries and return languoids.
+Takes any vector of countries and return languages.
 }
 \examples{
 lang.country('North Korea')
 lang.country(c('North Korea', 'Luxembourg'))
 lang.country(c('North Korea', 'Luxembourg'), list = TRUE)
-## What languoids are both in North Korea and in South Korea?
-lang.country('Korea')
 }
 \author{
 George Moroz <agricolamz@gmail.com>

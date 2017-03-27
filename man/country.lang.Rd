@@ -2,19 +2,19 @@
 % Please edit documentation in R/country.lang.R
 \name{country.lang}
 \alias{country.lang}
-\title{Get country by languoid}
+\title{Get country by language}
 \usage{
 country.lang(x, intersection = FALSE, glottolog.source = "modified")
 }
 \arguments{
-\item{x}{character vector of the languoids (can be written in lower case)}
+\item{x}{character vector of the languages (can be written in lower case)}
 
-\item{intersection}{logical. If TRUE, function reterns vector of countries, where all languoids from x argument are spoken.}
+\item{intersection}{logical. If TRUE, function reterns vector of countries, where all languages from x argument are spoken.}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-Takes any vector of languoids and return affiliation.
+Takes any vector of languages and return affiliation.
 }
 \examples{
 country.lang('Udi')

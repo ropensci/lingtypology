@@ -1,8 +1,11 @@
-lingtypology 1.0.3 (02.03.2017)
+lingtypology 1.0.3 (26.03.2017)
   - improved spellchecker
   - added the argument for zoom panel appearence
   - added some official languages to the countries dataset
   - added instructions for using dplyr with lingtypology
+  - glottolog databases are improved
+  - added search by alternative language names to is.glottolog() function
+  - makelink changed to make.url; link creation improved (Thanks  @languageSpaceLabs and @tzakharko)
 
 lingtypology 1.0.2 (23.02.2017)
   - ROpenSci wishes met

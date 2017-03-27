@@ -2,17 +2,17 @@
 % Please edit documentation in R/aff.lang.R
 \name{aff.lang}
 \alias{aff.lang}
-\title{Get affiliation by languoid}
+\title{Get affiliation by language}
 \usage{
 aff.lang(x, glottolog.source = "modified")
 }
 \arguments{
-\item{x}{A character vector of the languoids (can be written in lower case)}
+\item{x}{A character vector of the languages (can be written in lower case)}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-Takes any vector of languoids and return affiliation.
+Takes any vector of languages and return affiliation.
 }
 \examples{
 aff.lang('Korean')

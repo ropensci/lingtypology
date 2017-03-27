@@ -258,7 +258,7 @@ Users can set their own coordinates using the arguments `latitude` and `longitud
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(languages = circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             popup = circassian$village,
             latitude = circassian$latitude,
             longitude = circassian$longitude)
@@ -289,7 +289,7 @@ The `map.feature` function has an additional argument `stroke.features`. Using t
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude)
@@ -304,7 +304,7 @@ newfeature <-  replace(newfeature$language, newfeature$languoid == "Baksan", NA)
 # create a map
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
             stroke.features = newfeature)
@@ -315,7 +315,7 @@ All markers have their own radius and opacity, so it can be set by users. Just u
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
@@ -323,7 +323,7 @@ map.feature(circassian$language,
 
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
@@ -335,7 +335,7 @@ By default the legend appears in the bottom left corner. If there are stroke fea
 ```{r, fig.width=6.2}
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
@@ -343,7 +343,7 @@ map.feature(circassian$language,
 
 set.seed(42)
 map.feature(circassian$language,
-            features = circassian$languoid,
+            features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
@@ -489,7 +489,7 @@ tail(new_data)
 As we see, some values of the `Language.name` variable contain more then one language name. Some of the names probably have different name in our database. Imagine that we want to map all languages from Africa.
 
 ```{r, fig.width=6.2, message= FALSE}
-library(dplyr)
+require(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 
@@ -503,7 +503,7 @@ We start with a dataframe, here `new_data`. First we remove spaces on the end of
 By default, values that came from the pipe are treated as a first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Lets produce the same map with a minimap.
 
 ```{r, fig.width=6.2, message= FALSE}
-library(dplyr)
+require(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 
