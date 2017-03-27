@@ -192,6 +192,32 @@ glottolog.modified$language <- gsub("Northeast Sahaptin", "Walla Walla", glottol
 glottolog.modified$language <- gsub("Northwest Sahaptin", "Yakima", glottolog.modified$language)
 glottolog.modified$language <- gsub("Abkhazian", "Abkhaz", glottolog.modified$language)
 glottolog.original$language <- gsub("Tabasaran", "Tabassaran", glottolog.original$language)
+glottolog.modified[glottolog.modified$language %in% "International Sign", 7] <- "Eurasia"
+glottolog.modified[glottolog.modified$language %in% "'Hawai'i Pidgin Sign Language'", 7] <- "Papua"
+glottolog.modified[glottolog.modified$language %in% "Hawai'i Creole English", 7] <- "Papua"
+
+
+glottolog.modified[glottolog.modified$area %in% "Papua" &
+                     !is.na(glottolog.modified$longitude) &
+                     glottolog.modified$longitude < -80, 4] <- glottolog.modified[glottolog.modified$area %in% "Papua" & !is.na(glottolog.modified$longitude) & glottolog.modified$longitude < -80, 4] + 360
+glottolog.modified[glottolog.modified$area %in% "Eurasia" &
+                     !is.na(glottolog.modified$longitude) &
+                     glottolog.modified$longitude < -80, 4] <- glottolog.modified[glottolog.modified$area %in% "Eurasia" & !is.na(glottolog.modified$longitude) & glottolog.modified$longitude < -80, 4] + 360
+glottolog.modified[grepl("America", glottolog.modified$area) &
+                     !is.na(glottolog.modified$longitude), 4] <- glottolog.modified[grepl("America", glottolog.modified$area) & !is.na(glottolog.modified$longitude), 4] + 360
+
+glottolog.modified[glottolog.modified$language %in% "Georgian", 4] <- 44.318829
+glottolog.modified[glottolog.modified$language %in% "Georgian", 5] <- 41.815745
+glottolog.modified[glottolog.modified$language %in% "Abaza", 4] <- 41.7879221
+glottolog.modified[glottolog.modified$language %in% "Abaza", 5] <- 44.4498344
+glottolog.modified[glottolog.modified$language %in% "Ossetian", 4] <- 44.68333
+glottolog.modified[glottolog.modified$language %in% "Ossetian", 5] <- 43.01667
+glottolog.modified[glottolog.modified$language %in% "Ingush", 4] <- 44.81667
+glottolog.modified[glottolog.modified$language %in% "Ingush", 5] <- 43.16667
+glottolog.modified[is.na(glottolog.modified)
+
+]
+grep("America", area.lang(x))
 
 # 5.3 double languages ----------------------------------------------------
 double_languages <- table(glottolog.modified$language)
@@ -226,7 +252,6 @@ save(glottolog.original, file="glottolog.original.RData", compress='xz')
 save(circassian, file="circassian.RData", compress='xz')
 save(countries, file="countries.RData", compress='xz')
 rm(list = ls())
-
 
 # remove some files -------------------------------------------------------
 setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/database_creation/")

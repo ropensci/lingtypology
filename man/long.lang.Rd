@@ -4,10 +4,12 @@
 \alias{long.lang}
 \title{Get longitude by language}
 \usage{
-long.lang(x, glottolog.source = "modified")
+long.lang(x, map.orientation = "Pacific", glottolog.source = "modified")
 }
 \arguments{
 \item{x}{A character vector of the languages (can be written in lower case)}
+
+\item{map.orientation}{A character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
@@ -19,6 +21,7 @@ lat.lang('Adyghe')
 long.lang('Adyghe')
 lat.lang(c('Adyghe', 'Russian'))
 long.lang(c('Adyghe', 'Russian'))
+long.lang(c('Adyghe', 'Aleut'), map.orientation = "Pacific")
 }
 \author{
 George Moroz <agricolamz@gmail.com>

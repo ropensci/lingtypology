@@ -41,6 +41,7 @@
 #' @param minimap.width The width of the minimap in pixels.
 #' @param minimap.height The height of the minimap in pixels.
 #' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
+#' @param map.orientation a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".
 #' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -114,6 +115,10 @@
 #' ## Remove scale bar
 #' map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
 #'
+#' ## Change map to Atlantic-centric
+#' map.feature(languages = lang.aff(c('Celtic', "Panoan", "Celebic")),
+#' map.orientation = "Atlantic")
+#'
 #' @export
 #' @import leaflet
 #' @importFrom stats complete.cases
@@ -162,6 +167,7 @@ map.feature <- function(languages,
                         tile = "OpenStreetMap.Mapnik",
                         tile.name = NULL,
                         zoom.control = FALSE,
+                        map.orientation = "Pacific",
                         glottolog.source = "modified"){
 
   ifelse(grepl(glottolog.source, "original"),
@@ -180,7 +186,7 @@ map.feature <- function(languages,
   }
 
   if (is.null(latitude) & is.null(longitude)) {  # if there are no latitude and longitude
-    mapfeat.df$long <- long.lang(languages, glottolog.source = glottolog.source)
+    mapfeat.df$long <- long.lang(languages, map.orientation = map.orientation, glottolog.source = glottolog.source)
     mapfeat.df$lat <- lat.lang(languages, glottolog.source = glottolog.source)
   } else {   # if there are latitude and longitude
     mapfeat.df$long <- longitude
@@ -191,7 +197,7 @@ map.feature <- function(languages,
   mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df),]
 
   # create link --------------------------------------------------------------
-  mapfeat.df$link <- make.url(as.character(mapfeat.df$languages),
+  mapfeat.df$link <- url.lang(as.character(mapfeat.df$languages),
                               popup = mapfeat.df$popup,
                               glottolog.source = glottolog.source)
 

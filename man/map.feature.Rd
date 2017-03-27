@@ -17,7 +17,8 @@ map.feature(languages, features = "none", popup = "", label = "",
   scale.bar.position = "bottomleft", minimap = FALSE,
   minimap.position = "bottomright", minimap.width = 150,
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
-  zoom.control = FALSE, glottolog.source = "modified")
+  zoom.control = FALSE, map.orientation = "Pacific",
+  glottolog.source = "modified")
 }
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case)}
@@ -98,6 +99,8 @@ map.feature(languages, features = "none", popup = "", label = "",
 
 \item{zoom.control}{logical. If TRUE, function shows zoom controls. By default is FALSE.}
 
+\item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}
+
 \item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
 }
 \description{
@@ -173,6 +176,10 @@ map.feature(c("Adyghe", "Russian"), minimap = TRUE)
 
 ## Remove scale bar
 map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
+
+## Change map to Atlantic-centric
+map.feature(languages = lang.aff(c('Celtic', "Panoan", "Celebic")),
+map.orientation = "Atlantic")
 
 }
 \author{

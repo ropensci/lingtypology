@@ -5,7 +5,7 @@ context("Tests for map.feature function")
 
 df <-  data.frame("Tabasaran")
 map <- map.feature("Tabasaran")
-map2 <- map.feature("Tabassaran", glottolog.source = "o")
+map2 <- map.feature("Tabasaran", glottolog.source = "o")
 map3 <- map.feature(data.frame("Tabasaran"))
 
 test_that("map.feature source", {
@@ -13,7 +13,7 @@ test_that("map.feature source", {
     expect_equal(exists("map"), TRUE)
     expect_equal(exists("map3"), TRUE)
     expect_equal(exists("map2"), TRUE)
-    expect_warning(map.feature(c("Tabassaran", "Adyghe")), "Languoid Tabassaran is absent in our database. Did you mean Tabasaran?")
+    expect_warning(map.feature(c("Tabasaran", "Adyghe")), "Languoid Tabassaran is absent in our database. Did you mean Tabasaran?")
     expect_warning(map.feature(c("Tabasaran", "Adyghe"), glottolog.source = "o"), "Languoid Tabasaran is absent in our database. Did you mean Tabassaran?")
 })
 

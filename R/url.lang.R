@@ -6,11 +6,11 @@
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
-#' make.url('Korean')
-#' make.url(c('Gangou', 'Hachijo', 'Adyghe', 'Ganai'))
+#' url.lang('Korean')
+#' url.lang(c('Gangou', 'Hachijo', 'Adyghe', 'Ganai'))
 #' @export
 
-make.url <- function(x, popup = "", glottolog.source = "modified") {
+url.lang <- function(x, popup = "", glottolog.source = "modified") {
     if(typeof(x) == "list"){x <- unlist(x)}
     ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
         glottolog <- lingtypology::glottolog.modified)
