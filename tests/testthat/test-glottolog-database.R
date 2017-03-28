@@ -1,13 +1,13 @@
 library(lingtypology)
 context("Tests for is.glottolog function")
 
-df <- data.frame(my_langs = c("Tabassaran", "Tabasaran"))
+df <- data.frame(my_langs = c("Abkhazian", "Abkhaz"))
 
 test_that("database part", {
     expect_equal(is.glottolog("Adyghe"), TRUE)
-    expect_equal(is.glottolog(c("Tabassaran", "Tabasaran")), c(FALSE, TRUE))
+    expect_equal(is.glottolog(c("Abkhazian", "Abkhaz")), c(FALSE, TRUE))
     expect_equal(is.glottolog(df), c(FALSE, TRUE))
-    expect_equal(is.glottolog(c("Tabassaran", "Tabasaran"), glottolog.source = "original"), c(TRUE, FALSE))
+    expect_equal(is.glottolog(c("Abkhazian", "Abkhaz"), glottolog.source = "original"), c(TRUE, FALSE))
 })
 
 test_that("is.glottolog spell checker", {

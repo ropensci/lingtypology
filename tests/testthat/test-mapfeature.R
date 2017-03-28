@@ -1,20 +1,18 @@
 library(lingtypology)
-library(magrittr)
-library(leaflet)
 context("Tests for map.feature function")
 
-df <-  data.frame("Tabasaran")
-map <- map.feature("Tabasaran")
-map2 <- map.feature("Tabasaran", glottolog.source = "o")
-map3 <- map.feature(data.frame("Tabasaran"))
+df <-  data.frame("Abkhaz")
+map <- map.feature("Abkhaz")
+map2 <- map.feature("Abkhaz", glottolog.source = "o")
+map3 <- map.feature(data.frame("Abkhaz"))
 
 test_that("map.feature source", {
     expect_equal(exists("map"), TRUE)
     expect_equal(exists("map"), TRUE)
     expect_equal(exists("map3"), TRUE)
     expect_equal(exists("map2"), TRUE)
-    expect_warning(map.feature(c("Tabasaran", "Adyghe")), "Languoid Tabassaran is absent in our database. Did you mean Tabasaran?")
-    expect_warning(map.feature(c("Tabasaran", "Adyghe"), glottolog.source = "o"), "Languoid Tabasaran is absent in our database. Did you mean Tabassaran?")
+    expect_warning(map.feature(c("Abkhazian", "Adyghe")), "Language Abkhazian is absent in our database. Did you mean Akkadian, Abkhaz?")
+    expect_warning(map.feature(c("Abkhaz", "Adyghe"), glottolog.source = "o"), "Language Abkhaz is absent in our database. Did you mean Akha?")
 })
 
 test_that("map.feature no data to map", {
