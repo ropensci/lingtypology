@@ -3,7 +3,7 @@ context("Tests for map.feature function")
 
 df <-  data.frame("Abkhaz")
 map <- map.feature("Abkhaz")
-map2 <- map.feature("Abkhaz", glottolog.source = "o")
+map2 <- map.feature("Abkhazian", glottolog.source = "o")
 map3 <- map.feature(data.frame("Abkhaz"))
 
 test_that("map.feature source", {
