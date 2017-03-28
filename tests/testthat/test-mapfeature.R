@@ -20,11 +20,11 @@ test_that("map.feature no data to map", {
         ignore.case = T), "There is no data to map")
 })
 
-map_coord <- map.feature("Tabasaran", latitude = 43, longitude = 57)
+map_coord <- map.feature("Abkhaz", latitude = 43, longitude = 57)
 
 test_that("map.feature coordinates", {
-    expect_equal(map$x$limits[[1]][1], unname(lat.lang("Tabasaran")))
-    expect_equal(map$x$limits[[2]][1], unname(long.lang("Tabasaran")))
+    expect_equal(map$x$limits[[1]][1], unname(lat.lang("Abkhaz")))
+    expect_equal(map$x$limits[[2]][1], unname(long.lang("Abkhaz")))
     expect_equal(map_coord$x$limits[[1]][1], 43)
     expect_equal(map_coord$x$limits[[2]][1], 57)
 })
