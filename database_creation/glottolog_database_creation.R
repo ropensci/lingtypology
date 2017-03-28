@@ -191,7 +191,6 @@ glottolog.modified$language <- gsub("Central Guerrero Nahuatl", "Guerrero Nahuat
 glottolog.modified$language <- gsub("Northeast Sahaptin", "Walla Walla", glottolog.modified$language)
 glottolog.modified$language <- gsub("Northwest Sahaptin", "Yakima", glottolog.modified$language)
 glottolog.modified$language <- gsub("Abkhazian", "Abkhaz", glottolog.modified$language)
-glottolog.original$language <- gsub("Tabasaran", "Tabassaran", glottolog.original$language)
 glottolog.modified[glottolog.modified$language %in% "International Sign", 7] <- "Eurasia"
 glottolog.modified[glottolog.modified$language %in% "'Hawai'i Pidgin Sign Language'", 7] <- "Papua"
 glottolog.modified[glottolog.modified$language %in% "Hawai'i Creole English", 7] <- "Papua"

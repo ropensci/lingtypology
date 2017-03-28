@@ -219,6 +219,7 @@ map.feature <- function(languages,
   # create a palette ---------------------------------------------------------
   if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
   if (is.null(color)) {
+    set.seed(57)
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)  } else {
                                   pal <- leaflet::colorFactor(color,
