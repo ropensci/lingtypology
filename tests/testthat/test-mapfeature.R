@@ -11,12 +11,12 @@ test_that("map.feature source", {
     expect_equal(exists("map"), TRUE)
     expect_equal(exists("map3"), TRUE)
     expect_equal(exists("map2"), TRUE)
-    expect_warning(map.feature(c("Abkhazian", "Adyghe")), "Language Abkhazian is absent in our database. Did you mean Akkadian, Abkhaz?")
-    expect_warning(map.feature(c("Abkhaz", "Adyghe"), glottolog.source = "o"), "Language Abkhaz is absent in our database. Did you mean Akha?")
+    expect_warning(map.feature(c("Abkhazian", "Adyghe")), "Language Abkhazian is absent in our version of the Glottolog database. Did you mean Akkadian, Abkhaz?")
+    expect_warning(map.feature(c("Abkhaz", "Adyghe"), glottolog.source = "o"), "Language Abkhaz is absent in our version of the Glottolog database. Did you mean Akha?")
 })
 
 test_that("map.feature no data to map", {
-    expect_error(expect_warning(map.feature("bla-bla-bla"), "Languoid bla-bla-bla is absent in our database. Did you mean Blablanga?",
+    expect_error(expect_warning(map.feature("bla-bla-bla"), "Languoid bla-bla-bla is absent in our version of the Glottolog database. Did you mean Blablanga?",
         ignore.case = T), "There is no data to map")
 })
 

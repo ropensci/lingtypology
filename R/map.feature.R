@@ -12,7 +12,7 @@
 #' @param label.position the position of labels: "left", "right", "top", "bottom"
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
-#' @param color vector of colors
+#' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}
 #' @param stroke.color vector of stroke colors
 #' @param image.url character vector of URLs with an images
 #' @param image.width numeric vector of image widths
@@ -139,7 +139,6 @@ map.feature <- function(languages,
                         latitude = NULL,
                         longitude = NULL,
                         color = NULL,
-                        palette = "BuPu",
                         stroke.color = NULL,
                         image.url = NULL,
                         image.width = 100,
@@ -224,14 +223,17 @@ map.feature <- function(languages,
   if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
   if (is.null(color)) {
     if(is.numeric(mapfeat.df$features)){
-      pal <- leaflet::colorNumeric(palette = palette, domain = mapfeat.df$features)
+      pal <- leaflet::colorNumeric(palette = "BuPu", domain = mapfeat.df$features)
     } else {
     set.seed(42)
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)
     }} else {
-      pal <- leaflet::colorFactor(color, domain = mapfeat.df$features)
-      }
+      if(is.numeric(mapfeat.df$features)){
+        pal <- leaflet::colorNumeric(palette = color, domain = mapfeat.df$features)
+      }else {
+        pal <- leaflet::colorFactor(color, domain = mapfeat.df$features)
+      }}
 
   if(!is.null(stroke.features)){
     if (is.null(stroke.color)) {

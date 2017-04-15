@@ -4,7 +4,7 @@
 #' \describe{
 #'   \item{language}{language name}
 #'   \item{n.cons.lapsyd}{number of consonants. Based on \href{http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/}{LAPSyD} database.}
-#'   \item{ejective}{presence of ejective sounds}
+#'   \item{ejectives}{presence of ejective sounds}
 #' }
 
 "ejective_and_n_consonants"
