@@ -154,6 +154,7 @@ glottolog.original <- read_tsv("glottolog.original.tsv")
 glottolog.modified <- glottolog.original
 circassian <- read_csv("circassian.csv")
 countries <- read_tsv("country.names.csv")
+ejective_and_n_consonants <- read_csv("ejective_and_n_consonants.csv")
 
 # 5.1 add Calle Börstell SL data ----------------------------------------------
 sl_data <- read_delim("glottolog_sls.csv", delim = ";")
@@ -250,6 +251,7 @@ save(glottolog.modified, file="glottolog.modified.RData", compress= 'xz')
 save(glottolog.original, file="glottolog.original.RData", compress='xz')
 save(circassian, file="circassian.RData", compress='xz')
 save(countries, file="countries.RData", compress='xz')
+save(ejective_and_n_consonants, file="ejective_and_n_consonants.RData", compress='xz')
 rm(list = ls())
 
 # remove some files -------------------------------------------------------

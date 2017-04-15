@@ -7,7 +7,7 @@
 map.feature(languages, features = "none", popup = "", label = "",
   label.hide = FALSE, label.fsize = 14, label.position = "right",
   stroke.features = NULL, latitude = NULL, longitude = NULL,
-  color = NULL, stroke.color = NULL, image.url = NULL,
+  color = NULL, palette = "BuPu", stroke.color = NULL, image.url = NULL,
   image.width = 100, image.height = 100, image.X.shift = 0,
   image.Y.shift = 0, title = NULL, stroke.title = NULL, control = FALSE,
   legend = TRUE, legend.opacity = 1, legend.position = "topright",

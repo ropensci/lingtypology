@@ -1,6 +1,6 @@
 #' Get ISO 639--3 code by language
 #'
-#' Takes any vector of languages and return ISO code.
+#' Takes any vector of languages and returns ISO code.
 #' @param x A character vector of the languages (can be written in lower case)
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>

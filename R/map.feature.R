@@ -139,6 +139,7 @@ map.feature <- function(languages,
                         latitude = NULL,
                         longitude = NULL,
                         color = NULL,
+                        palette = "BuPu",
                         stroke.color = NULL,
                         image.url = NULL,
                         image.width = 100,
@@ -216,15 +217,21 @@ map.feature <- function(languages,
   # change feature names ----------------------------------------------------
   # levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
+  # if features are numeric -------------------------------------------------
+
+
   # create a palette ---------------------------------------------------------
   if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
   if (is.null(color)) {
-    set.seed(57)
+    if(is.numeric(mapfeat.df$features)){
+      pal <- leaflet::colorNumeric(palette = palette, domain = mapfeat.df$features)
+    } else {
+    set.seed(42)
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
-                                domain = mapfeat.df$features)  } else {
-                                  pal <- leaflet::colorFactor(color,
-                                                              domain = mapfeat.df$features)
-                                }
+                                domain = mapfeat.df$features)
+    }} else {
+      pal <- leaflet::colorFactor(color, domain = mapfeat.df$features)
+      }
 
   if(!is.null(stroke.features)){
     if (is.null(stroke.color)) {

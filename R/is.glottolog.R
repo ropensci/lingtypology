@@ -14,7 +14,7 @@
 #' # > FALSE TRUE
 #' # Warning message:
 #' # In is.glottolog(c('Adyge', 'Russian'), response = TRUE) :
-#' # Language Adyge is absent in our database. Did you mean Aduge, Adyghe?
+#' # Language Adyge is absent in our version of the Glottolog database. Did you mean Aduge, Adyghe?
 #'
 #' @export
 #' @importFrom stringdist stringdist
@@ -52,7 +52,7 @@ is.glottolog <- function(x, response = FALSE, glottolog.source = "modified") {
             candidate <- paste(candidate[!is.na(candidate)], collapse = ", ")
 
             # make a warning message --------------------------------------------------
-            warning(paste("Language ", z, " is absent in our database. Did you mean ",
+            warning(paste("Language ", z, " is absent in our version of the Glottolog database. Did you mean ",
                 candidate, "?", sep = ""), call. = FALSE)
         }, character(1))
     }
