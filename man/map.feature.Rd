@@ -41,7 +41,7 @@ map.feature(languages, features = "none", popup = "", label = "",
 
 \item{longitude}{numeric vector of longitudes}
 
-\item{color}{vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For an examples see \code{\link{colorNumeric}}}
+\item{color}{vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}}
 
 \item{stroke.color}{vector of stroke colors}
 

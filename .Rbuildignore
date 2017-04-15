@@ -8,3 +8,4 @@
 ^appveyor\.yml$
 ^glottolog_database_creation\.R
 ^database_creation$
+^docs$
