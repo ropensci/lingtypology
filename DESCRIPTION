@@ -23,6 +23,5 @@ Suggests:
     knitr,
     rmarkdown,
     testthat,
-    covr,
-    dplyr
+    covr
 VignetteBuilder: knitr

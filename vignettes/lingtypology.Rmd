@@ -488,8 +488,8 @@ tail(new_data)
 
 As we see, some values of the `Language.name` variable contain more then one language name. Some of the names probably have different name in our database. Imagine that we want to map all languages from Africa.
 
-```{r, fig.width=6.2, message= FALSE}
-require(dplyr)
+```{r, fig.width=6.2, message= FALSE, eval = FALSE}
+library(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 
@@ -502,8 +502,8 @@ We start with a dataframe, here `new_data`. First we remove spaces on the end of
 
 By default, values that came from the pipe are treated as a first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Lets produce the same map with a minimap.
 
-```{r, fig.width=6.2, message= FALSE}
-require(dplyr)
+```{r, fig.width=6.2, message= FALSE, eval = FALSE}
+library(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 
