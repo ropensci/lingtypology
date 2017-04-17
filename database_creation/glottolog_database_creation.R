@@ -214,10 +214,9 @@ glottolog.modified[glottolog.modified$language %in% "Ossetian", 4] <- 44.68333
 glottolog.modified[glottolog.modified$language %in% "Ossetian", 5] <- 43.01667
 glottolog.modified[glottolog.modified$language %in% "Ingush", 4] <- 44.81667
 glottolog.modified[glottolog.modified$language %in% "Ingush", 5] <- 43.16667
-glottolog.modified[is.na(glottolog.modified)
 
-]
-grep("America", area.lang(x))
+NWC <- read_csv("NWC.csv")
+glottolog.modified <- rbind.data.frame(glottolog.modified, NWC)
 
 # 5.3 double languages ----------------------------------------------------
 double_languages <- table(glottolog.modified$language)

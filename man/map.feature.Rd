@@ -109,9 +109,6 @@ Map a set of languages and color them by feature or two sets of features.
 \examples{
 map.feature(c("Adyghe", "Russian"))
 
-## All Sign languages
-map.feature(lang.aff("Sign"))
-
 ## Map all Slavic languages
 map.feature(lang.aff(c("Slavic")))
 
@@ -134,19 +131,11 @@ feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
 popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, label = df$lang)
 
-## Adding title
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
-map.feature(df$lang, df$feature, df$popup, title = "type of a language")
-
 ## Add your own coordinates
 map.feature("Adyghe", latitude = 43, longitude = 57)
 
 ## Change map tile
 map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap")
-map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
-map.feature("Adyghe", tile = "Thunderforest.OpenCycleMap", tile.name = "colored")
 
 ## Add you own colors
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -177,9 +166,6 @@ map.feature(c("Adyghe", "Russian"), minimap = TRUE)
 ## Remove scale bar
 map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
 
-## Change map to Atlantic-centric
-map.feature(languages = lang.aff(c('Celtic', "Panoan", "Celebic")),
-map.orientation = "Atlantic")
 
 }
 \author{
