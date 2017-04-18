@@ -65,7 +65,7 @@ test_that("map.feature colors", {
     expect_equal(map_colors$x$calls[[3]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
     expect_equal(map_colors2$x$calls[[3]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
     expect_equal(map_colorless$x$calls[[3]]$args[6][[1]]$color, "blue")
-    expect_equal(map_colorless2$x$calls[[3]]$args[6][[1]]$color, с("#F7FCFD", "#4D004B"))
+    expect_equal(map_colorless2$x$calls[[3]]$args[6][[1]]$color, c("#F7FCFD", "#4D004B"))
     expect_equal(map_lang_colors$x$calls[[3]]$args[6][[1]]$color, "navy")
     expect_equal(map_stroke$x$calls[[3]]$args[6][[1]]$color, "black")
 })
