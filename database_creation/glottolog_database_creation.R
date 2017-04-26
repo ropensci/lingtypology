@@ -44,7 +44,8 @@ glottocode_df$language[grep("ö", glottocode_df$language)] <- gsub("ö", "o", gl
 glottocode_df$language[grep("ü", glottocode_df$language)] <- gsub("ü", "u", glottocode_df$language[grep("ü", glottocode_df$language)])
 glottocode_df$language[grep("ö", glottocode_df$language)] <- gsub("ö", "o", glottocode_df$language[grep("ö", glottocode_df$language)])
 glottocode_df$language[grep("ü", glottocode_df$language)] <- gsub("ü", "u", glottocode_df$language[grep("ü", glottocode_df$language)])
-glottocode_df$language[grep("ç", glottocode_df$language)] <- gsub("ç", "u", glottocode_df$language[grep("ç", glottocode_df$language)])
+glottocode_df$language[grep("ç", glottocode_df$language)] <- gsub("ç", "c", glottocode_df$language[grep("ç", glottocode_df$language)])
+glottocode_df$language[grep("ñ", glottocode_df$language)] <- gsub("ñ", "n", glottocode_df$language[grep("ç", glottocode_df$language)])
 
 new_iso <- paste0("NOCODE_", gsub(" ", "-", glottocode_df[is.na(glottocode_df$iso),1]))
 glottocode_df[is.na(glottocode_df$iso),3] <- sapply(new_iso, function(x){
@@ -155,6 +156,7 @@ glottolog.modified <- glottolog.original
 circassian <- read_csv("circassian.csv")
 countries <- read_tsv("country.names.csv")
 ejective_and_n_consonants <- read_csv("ejective_and_n_consonants.csv")
+gltcless <- read_csv("gltcless.csv")
 
 # 5.1 add Calle Börstell SL data ----------------------------------------------
 sl_data <- read_delim("glottolog_sls.csv", delim = ";")
@@ -163,6 +165,9 @@ sl_data$latitude <- as.double(sl_data$latitude)
 
 sapply(1:length(sl_data$iso), function(x){
   glottolog.modified[which(glottolog.modified$iso == sl_data$iso[x]),c(2, 1, 5, 4)] <<- sl_data[x,]})
+
+sapply(1:length(gltcless$iso), function(x){
+  glottolog.modified[which(glottolog.modified$iso == gltcless$iso[x]), ] <<- gltcless[x,]})
 
 # 5.2 countries and symbols -------------------------------------------------
 glottolog.modified$country[c(1463)] <- c("Netherlands, Aruba")
@@ -195,7 +200,7 @@ glottolog.modified$language <- gsub("Abkhazian", "Abkhaz", glottolog.modified$la
 glottolog.modified[glottolog.modified$language %in% "International Sign", 7] <- "Eurasia"
 glottolog.modified[glottolog.modified$language %in% "'Hawai'i Pidgin Sign Language'", 7] <- "Papua"
 glottolog.modified[glottolog.modified$language %in% "Hawai'i Creole English", 7] <- "Papua"
-
+glottolog.modified[glottolog.modified$language %in% "Kalaallisut", 7] <- "North America"
 
 glottolog.modified[glottolog.modified$area %in% "Papua" &
                      !is.na(glottolog.modified$longitude) &
@@ -214,6 +219,10 @@ glottolog.modified[glottolog.modified$language %in% "Ossetian", 4] <- 44.68333
 glottolog.modified[glottolog.modified$language %in% "Ossetian", 5] <- 43.01667
 glottolog.modified[glottolog.modified$language %in% "Ingush", 4] <- 44.81667
 glottolog.modified[glottolog.modified$language %in% "Ingush", 5] <- 43.16667
+glottolog.modified[glottolog.modified$language %in% "Silesian", 4] <- 50.25
+glottolog.modified[glottolog.modified$language %in% "Silesian", 5] <- 19
+glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 4] <- 41.866702
+glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 5] <- 14.746984
 
 NWC <- read_csv("NWC.csv")
 glottolog.modified <- rbind.data.frame(glottolog.modified, NWC)
@@ -243,6 +252,9 @@ glottolog.modified[changes$id,1] <- changes$replacement
 
 glottolog.modified$language_status <- sapply(glottolog.modified$language_status, function(x){
   paste0(strsplit(x, "\\)")[[1]][1], ")")})
+
+glottolog.modified <- glottolog.modified[!is.na(glottolog.modified$language),]
+
 
 # save files --------------------------------------------------------------
 setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/data")

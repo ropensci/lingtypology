@@ -18,10 +18,9 @@ Takes any vector of ISO 639--3 codes and returns Glottocodes.
 gltc.iso('ady')
 gltc.iso(c('ady', 'rus'))
 }
-\author{
-George Moroz <agricolamz@gmail.com>
-}
 \seealso{
 \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 }
-
+\author{
+George Moroz <agricolamz@gmail.com>
+}

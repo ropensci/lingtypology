@@ -18,10 +18,9 @@ Takes any vector of Glotocodes and returns ISO code.
 iso.gltc('adyg1241')
 iso.gltc(c('adyg1241', 'udii1243'))
 }
-\author{
-George Moroz <agricolamz@gmail.com>
-}
 \seealso{
 \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 }
-
+\author{
+George Moroz <agricolamz@gmail.com>
+}

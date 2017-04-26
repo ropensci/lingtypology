@@ -21,10 +21,9 @@ lang.country('North Korea')
 lang.country(c('North Korea', 'Luxembourg'))
 lang.country(c('North Korea', 'Luxembourg'), list = TRUE)
 }
-\author{
-George Moroz <agricolamz@gmail.com>
-}
 \seealso{
 \code{\link{lang.aff}}, \code{\link{lang.iso}}
 }
-
+\author{
+George Moroz <agricolamz@gmail.com>
+}

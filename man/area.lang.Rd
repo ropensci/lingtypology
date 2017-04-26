@@ -18,10 +18,9 @@ Takes any vector of languages and return macro area.
 area.lang('Adyghe')
 area.lang(c('Adyghe', 'Aduge'))
 }
-\author{
-George Moroz <agricolamz@gmail.com>
-}
 \seealso{
 \code{\link{aff.lang}}, \code{\link{country.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 }
-
+\author{
+George Moroz <agricolamz@gmail.com>
+}

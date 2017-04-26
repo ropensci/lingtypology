@@ -179,6 +179,13 @@ map.feature <- function(languages,
     mapfeat.df$lat <- latitude
   }
 
+  # if there are no coordinates... ------------------------------------------
+  if(sum(is.na(mapfeat.df$long&mapfeat.df$lat))> 0){
+    warning(paste("There is no coordinates for languages",
+                    paste(mapfeat.df$languages[is.na(mapfeat.df$long&mapfeat.df$lat)], collapse = ", ")),
+            call. = FALSE)
+  }
+
   # remove any rows with NAs ------------------------------------------------
   mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df),]
 
@@ -201,9 +208,6 @@ map.feature <- function(languages,
 
   # change feature names ----------------------------------------------------
   # levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
-
-  # if features are numeric -------------------------------------------------
-
 
   # create a palette ---------------------------------------------------------
   if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}

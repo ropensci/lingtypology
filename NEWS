@@ -1,3 +1,7 @@
+lingtypology 1.0.4
+  - glottolog database is improved
+  - added warning for languages without coordinates
+
 lingtypology 1.0.3 (14.04.2017)
   - improved spellchecker
   - added the argument for zoom panel appearence

@@ -23,4 +23,3 @@ url.lang(c('Gangou', 'Hachijo', 'Adyghe', 'Ganai'))
 \author{
 George Moroz <agricolamz@gmail.com>
 }
-

@@ -18,10 +18,9 @@ Takes any vector of Glottocodes and return languages.
 lang.gltc('adyg1241')
 lang.gltc(c('adyg1241', 'udii1243'))
 }
-\author{
-George Moroz <agricolamz@gmail.com>
-}
 \seealso{
 \code{\link{lang.aff}}, \code{\link{lang.country}}
 }
-
+\author{
+George Moroz <agricolamz@gmail.com>
+}

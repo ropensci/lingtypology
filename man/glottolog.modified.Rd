@@ -43,4 +43,3 @@ Max Planck Institute for the Science of Human History.
 Accessed on 2016-06-15.
 }
 \keyword{datasets}
-

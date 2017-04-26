@@ -118,17 +118,14 @@ aff.lang("Adyge")
 Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not perfect for all my tasks, so I changed it a little bit:
 
 * Added some Dargwa languages: Chirag, Cudaxar, Itsari, Kajtak, Kubachi, Tanti, Mehweb. Dargwa is still present in the database as an individual language, so one can use Dargwa or any Dargwa language listed above. (07.09.2016)
-* Tabassaran is renamed Tabasaran (07.09.2016)
 * Added coordinates to Silesian and Slavomolisano (11.09.2016)
-* North Azerbaijani is renamed Azerbaijani. Added some Dargwa languages: Amuzgi-Shiri, Gapshima, North-Dargwa, Verhnevurkunskij. Added some Avar dialects: Avar (Andalal), Avar (Antsukh), Avar (Batlukh), Avar (Gid), Avar (Karah), Avar (Karata), Avar (Zakatal)  (11.12.2016)
-* Sauk (Trans New Guinea) is renamed Ma Manda. (27.12.2016)
 * Ache is renamed Ache (Sino Tibetian) and Ache (Tupian); Bari is renamed Bari (Chibchan) and Bari (Nilotic); Bugan is renamed Bugan and Bugan (Spurious); Calo is renamed Calo and Calo (Spurious); Chimakum is renamed Chimakum and Chimakum (Spurious); Garawa is renamed Garawa and Garawa (Spurious); Hamba is renamed Hamba (Atlantic-Congo) and Hamba (Unclassifiable); Hoti is renamed Hoti (Jodi-Saliban) and Hoti (Austronesian); Karipuna is renamed Karipuna (Pano-Tacanan) and Karipuna (Tupian); Kula is renamed Kula (Austronesian) and Kula (Timor-Alor-Pantar); Laru is renamed Laru (Atlantic-Congo) and Laru (Heiban); Maring is renamed Maring (Nuclear Trans New Guinea) and Maring (Sino-Tibetan); Mayo is renamed Mayo (Uto-Aztecan) and Mayo (Pano-Tacanan); Nabi is renamed Nabi (Austronesian) and Nabi (Nuclear Torricelli); Natugu is renamed Natugu and Natugu (Spurious); Naxi is renamed Naxi and Naxi (Spurious); Ngen is renamed Ngen (Mande) and Ngen (Austronesian); Purum is renamed Purum and Purum (Spurious); Saliba is renamed Saliba (Austronesian) and Saliba (Jodi-Saliban); Southern Betsimisaraka Malagasy is renamed Southern Betsimisaraka Malagasy and Southern Betsimisaraka Malagasy (Spurious); Surigaonon is renamed Surigaonon and Surigaonon (Spurious); Tai Pao is renamed Tai Pao and Tai Pao (Spurious); Tunen is renamed Tunen and Tunen (Spurious); Wara is renamed Wara (Atlantic-Congo) and Wara (Morehead-Wasur); Yendang is renamed Yendang and Yendang (Spurious) (22.01.2017)
-* 360+ longitude conversion made for Austral, Central Siberian Yupik, East Futuna, Hawaiian, Lauan, Mangarevam Naukan Yupik, Niuafo'ou, Niuatoputapu, Niuean, North Marquesan, Old Rapa, Penrhyn, Pitcairn-Norfolk, Pukapuka, Rakahanga-Manihiki, Rapanui, Rarotongan, Samoan, Sirenik Yupik, South Marquesan, Tahitian, Tokelau, Tonga (Tonga Islands), Tuamotuan, Wallisian (22.01.2017)
-* Abkhazian is changed to Abkhaz. Abkhazian, Abaza and Georgian coordinates are changed. (22.01.2017)
-* Northern Sahaptin names corrected. Central Guerrero Nahuatl is renamed Guerrero Nahuatl (thanks to Timo Roettger for mentioning that problems). (02.02.2017)
+* Abkhazian is changed to Abkhaz. Abkhazian, Abaza, Georgian, Ossetian and Ingush coordinates are changed. (22.01.2017)
+* Northeast Sahaptin is changed to Walla Walla. Northwest Sahaptin is changed to Yakima. Central Guerrero Nahuatl is renamed Guerrero Nahuatl (thanks to Timo Roettger for mentioning that problems). (02.02.2017)
 * Some sign language changed. Thanks to [Calle Börstell](https://borstell.github.io/#name) for data. (02.02.2017)
 * Bininj Gun-Wok changed to Gunwinggu (thanks to Timo Roettger) (06.02.2017)
 * Country name Viet Nam changed to Vietnam. Madagascar and Togo added to countries set. (11.02.2017)
+* country names are unified. Area affiliation changed: for International Sign to Eurasia; for Hawai'i Pidgin Sign Language to Papua; for Hawai'i Creole English to Papua; for Kalaallisut to North America.
 
 After [Robert Forkel's issue](https://github.com/agricolamz/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
 ```{r}

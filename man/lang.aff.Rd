@@ -21,10 +21,9 @@ lang.aff('Slavic')
 lang.aff(c('Slavic', 'Celtic'))
 lang.aff(c('Slavic', 'Celtic'), list = TRUE)
 }
-\author{
-George Moroz <agricolamz@gmail.com>
-}
 \seealso{
 \code{\link{lang.country}}, \code{\link{lang.iso}}
 }
-
+\author{
+George Moroz <agricolamz@gmail.com>
+}

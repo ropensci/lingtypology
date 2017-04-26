@@ -22,4 +22,3 @@ with genealogical affiliation, coordinates and district names. Most
 data collected during the fieldworks (2011--2016).
 }
 \keyword{datasets}
-

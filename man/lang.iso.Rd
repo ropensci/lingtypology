@@ -18,10 +18,9 @@ Takes any vector of ISO codes and return languages.
 lang.iso('ady')
 lang.iso(c('ady', 'rus'))
 }
-\author{
-George Moroz <agricolamz@gmail.com>
-}
 \seealso{
 \code{\link{lang.aff}}, \code{\link{lang.country}}
 }
-
+\author{
+George Moroz <agricolamz@gmail.com>
+}

@@ -18,4 +18,3 @@ countries
 Catalogue of countries names.
 }
 \keyword{datasets}
-

@@ -171,4 +171,3 @@ map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
 \author{
 George Moroz <agricolamz@gmail.com>
 }
-

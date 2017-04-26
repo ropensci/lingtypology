@@ -20,10 +20,9 @@ long.lang('Adyghe')
 lat.lang(c('Adyghe', 'Russian'))
 long.lang(c('Adyghe', 'Russian'))
 }
-\author{
-George Moroz <agricolamz@gmail.com>
-}
 \seealso{
 \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{iso.lang}}, \code{\link{long.lang}}
 }
-
+\author{
+George Moroz <agricolamz@gmail.com>
+}

@@ -31,4 +31,3 @@ is.glottolog(c('Adygey', 'Russian'), response = TRUE)
 \author{
 George Moroz <agricolamz@gmail.com>
 }
-

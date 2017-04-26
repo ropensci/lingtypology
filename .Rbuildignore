@@ -1,6 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^README\.html$
 ^codecov\.yml$
 ^\.travis\.yml$
 ^.*tests$
@@ -9,3 +8,4 @@
 ^glottolog_database_creation\.R
 ^database_creation$
 ^docs$
+^\.Rprofile$

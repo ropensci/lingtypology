@@ -31,7 +31,7 @@ is.glottolog <- function(x, response = FALSE, glottolog.source = "modified") {
         vapply(x[!result], function(z) {
 
             # computes pairwise string Levenshtein distance ---------------------------
-            cand <- stringdist::stringdist(tolower(z), tolower(glottolog$language),
+            cand <- stringdist::stringdist(tolower(as.character(z)), tolower(glottolog$language),
                 method = "lv")
 
             # add exact substrings ---------------------------------------------------
