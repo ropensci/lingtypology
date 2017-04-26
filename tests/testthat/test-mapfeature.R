@@ -15,11 +15,12 @@ test_that("map.feature source", {
     expect_warning(map.feature(c("Abkhaz", "Adyghe"), glottolog.source = "o"), "Language Abkhaz is absent in our version of the Glottolog database. Did you mean Akha?")
 })
 
-test_that("map.feature no data to map", {
-    expect_error(expect_warning(map.feature(c("Yugul", "Adyghe", "Selako")), "There is no coordinates for languages Yugul, Selako")
+test_that("map.feature no coordinates", {
+    expect_warning(map.feature(c("Yugul", "Adyghe", "Selako")),
+                                "There is no coordinates for languages Yugul, Selako")
 })
 
-test_that("map.feature no coordinates", {
+test_that("map.feature no data to map", {
   expect_error(expect_warning(map.feature("bla-bla-bla"), "Languoid bla-bla-bla is absent in our version of the Glottolog database. Did you mean Blablanga?",
                               ignore.case = T), "There is no data to map")
 })
