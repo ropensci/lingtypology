@@ -126,6 +126,7 @@ Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not p
 * Bininj Gun-Wok changed to Gunwinggu (thanks to Timo Roettger) (06.02.2017)
 * Country name Viet Nam changed to Vietnam. Madagascar and Togo added to countries set. (11.02.2017)
 * country names are unified. Area affiliation changed: for International Sign to Eurasia; for Hawai'i Pidgin Sign Language to Papua; for Hawai'i Creole English to Papua; for Kalaallisut to North America.
+* Estonian, Nuu-chah-nulth, Loup A and Obdorsk Khanty coordinates are added. (28.04.2017)
 
 After [Robert Forkel's issue](https://github.com/agricolamz/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
 ```{r}

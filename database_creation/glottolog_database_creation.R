@@ -223,6 +223,15 @@ glottolog.modified[glottolog.modified$language %in% "Silesian", 4] <- 50.25
 glottolog.modified[glottolog.modified$language %in% "Silesian", 5] <- 19
 glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 4] <- 41.866702
 glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 5] <- 14.746984
+glottolog.modified[glottolog.modified$language %in% "Estonian", 4] <- 25.82
+glottolog.modified[glottolog.modified$language %in% "Estonian", 5] <- 58.55
+glottolog.modified[glottolog.modified$language %in% "Obdorsk Khanty", 4] <- 67.09
+glottolog.modified[glottolog.modified$language %in% "Obdorsk Khanty", 5] <- 66.31
+glottolog.modified[glottolog.modified$language %in% "Nuu-chah-nulth", 4] <- 234.7256
+glottolog.modified[glottolog.modified$language %in% "Nuu-chah-nulth", 5] <- 48.898889
+glottolog.modified[glottolog.modified$language %in% "Loup A", 4] <- 287.6987
+glottolog.modified[glottolog.modified$language %in% "Loup A", 5] <- 42.374045
+
 
 NWC <- read_csv("NWC.csv")
 glottolog.modified <- rbind.data.frame(glottolog.modified, NWC)
