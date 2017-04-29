@@ -34,10 +34,25 @@ test_that("map.feature coordinates", {
     expect_equal(map_coord$x$limits[[2]][1], 57)
 })
 
+density1 <- map.feature(circassian$language, circassian$language,
+                        longitude = circassian$longitude,
+                        latitude = circassian$latitude,
+                        density.estimation = T)
+
+density2 <- map.feature(circassian$language, circassian$language,
+                        longitude = circassian$longitude,
+                        latitude = circassian$latitude,
+                        density.estimation = "blank")
+
+test_that("map.feature density estimation", {
+  expect_equal(exists("density1"), TRUE)
+  expect_equal(exists("density2"), TRUE)
+})
+
 map_image <- map.feature("Tabasaran", image.url = "https://goo.gl/Ycn6tJ")
 
 test_that("map.feature images", {
-    expect_equal(map_image$x$calls[[4]]$args[[3]]$iconUrl$data, "https://goo.gl/Ycn6tJ")
+    expect_equal(map_image$x$calls[[5]]$args[[3]]$iconUrl$data, "https://goo.gl/Ycn6tJ")
 })
 
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"), feature = c("polysynthetic",
@@ -48,7 +63,7 @@ map_stroke2 <- map.feature(df$lang, df$feature, df$popup, stroke.features = df$p
     "green"))
 
 test_that("map.feature stroke feature", {
-    expect_equal(length(map_stroke$x$calls), 9)
+    expect_equal(length(map_stroke$x$calls), 10)
     expect_equal(map_stroke2$x$calls[[4]]$args[[6]]$fillColor, c("#0000FF", "#0000FF", "#00FF00",
         "#00FF00", "#00FF00"))
 })
@@ -65,14 +80,13 @@ map_colors2 <- map.feature(c("Tabasaran", "Adyghe"),
 map_colorless2 <- map.feature(c("Tabasaran", "Adyghe"),
                            features = c(1, 2))
 
-
 test_that("map.feature colors", {
-    expect_equal(map_colors$x$calls[[3]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
-    expect_equal(map_colors2$x$calls[[3]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
-    expect_equal(map_colorless$x$calls[[3]]$args[6][[1]]$color, "blue")
-    expect_equal(map_colorless2$x$calls[[3]]$args[6][[1]]$color, c("#F7FCFD", "#4D004B"))
-    expect_equal(map_lang_colors$x$calls[[3]]$args[6][[1]]$color, "navy")
-    expect_equal(map_stroke$x$calls[[3]]$args[6][[1]]$color, "black")
+    expect_equal(map_colors$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
+    expect_equal(map_colors2$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
+    expect_equal(map_colorless$x$calls[[4]]$args[6][[1]]$color, c("#FF0000", "#FF0000"))
+    expect_equal(map_colorless2$x$calls[[4]]$args[6][[1]]$color, c("#F7FCFD", "#4D004B"))
+    expect_equal(map_lang_colors$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#000080"))
+    expect_equal(map_stroke$x$calls[[4]]$args[6][[1]]$color, c("#FFFFFF", "#FFFFFF", "#000000", "#000000", "#000000"))
 })
 
 map_tiles <- map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
@@ -91,22 +105,22 @@ test_that("map.feature tiles", {
 
 map_control <- map.feature(c("Adyghe", "Russian"), control = TRUE)
 
-test_that("map.feature tiles", {
-    expect_equal(map_control$x$calls[[4]]$method, "addLayersControl")
+test_that("control", {
+    expect_equal(map_control$x$calls[[5]]$method, "addLayersControl")
 })
 
 map_minimap <- map.feature(c("Adyghe", "Russian"), minimap = TRUE)
 
 test_that("map.feature minimap", {
-  expect_equal(map_minimap$x$calls[[5]]$method, "addMiniMap")
+  expect_equal(map_minimap$x$calls[[6]]$method, "addMiniMap")
 })
 
 test_that("map.feature scale bar", {
-  expect_equal(map_minimap$x$calls[[4]]$method, "addScaleBar")
+  expect_equal(map_minimap$x$calls[[5]]$method, "addScaleBar")
 })
 
 map_label <- map.feature(c("Adyghe", "Russian"), label = c("a", "b"))
 test_that("map.feature labels", {
-  expect_equal(map_label$x$calls[[3]]$args[11], list(c("a", "b")))
+  expect_equal(map_label$x$calls[[4]]$args[11], list(c("a", "b")))
 })
 

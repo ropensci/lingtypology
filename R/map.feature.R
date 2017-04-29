@@ -12,6 +12,8 @@
 #' @param label.position the position of labels: "left", "right", "top", "bottom"
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
+#' @param density.estimation mostly logical. If TRUE, it creates a density estimation polygon. If write here "blank", it creates density estimation polygon without points.
+#' @param density.estimation.opacity a numeric vector of density estimation opacity.
 #' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}
 #' @param stroke.color vector of stroke colors
 #' @param image.url character vector of URLs with an images
@@ -118,12 +120,14 @@ map.feature <- function(languages,
                         features = "none",
                         popup = "",
                         label = "",
-                        label.hide = FALSE,
+                        label.hide = TRUE,
                         label.fsize = 14,
                         label.position = "right",
                         stroke.features = NULL,
                         latitude = NULL,
                         longitude = NULL,
+                        density.estimation = FALSE,
+                        density.estimation.opacity = 0.2,
                         color = NULL,
                         stroke.color = NULL,
                         image.url = NULL,
@@ -210,7 +214,7 @@ map.feature <- function(languages,
   # levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
   # create a palette ---------------------------------------------------------
-  if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
+  #if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
   if (is.null(color)) {
     if(is.numeric(mapfeat.df$features)){
       pal <- leaflet::colorNumeric(palette = "BuPu", domain = mapfeat.df$features)
@@ -250,6 +254,15 @@ map.feature <- function(languages,
            warning('number of tile names (tile.name argument) is less than number of tiles (tile argument)', call. = FALSE))
   }
 
+  # create a density polygones --------------------------------------------
+  if(density.estimation != FALSE){
+    my_poly_names <- names(which(table(mapfeat.df$features) > 1))
+    my_poly <- lapply(my_poly_names, function(feature){
+      polygon.points(mapfeat.df[mapfeat.df$features == feature, 'lat'],
+                     mapfeat.df[mapfeat.df$features == feature, 'long'])
+  })
+  }
+
   ### create a map ------------------------------------------------------------
   m <- leaflet::leaflet(mapfeat.df, option=leafletOptions(zoomControl = zoom.control)) %>%
     leaflet::addTiles(tile[1]) %>%
@@ -260,24 +273,17 @@ map.feature <- function(languages,
     }, tile[-1], tile.name[-1])
   }
 
-  # map: if only one feature -------------------------------------------------
-  if (length(table(mapfeat.df$features)) <= 1){
-    m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
-                                         lat=mapfeat.df$lat,
-                                         popup= mapfeat.df$link,
-                                         label= mapfeat.df$label,
-                                         labelOptions = labelOptions(noHide = !(label.hide),
-                                                                     direction = label.position,
-                                                                     textOnly = TRUE,
-                                                                     style = list("font-size" = paste0(label.fsize, "px"))),
-                                         stroke = FALSE,
-                                         radius = radius,
-                                         color = color,
-                                         fillOpacity = opacity,
-                                         group = mapfeat.df$languages)
+  # if there is density estimation ------------------------------------------
+  if(density.estimation != FALSE){
+    lapply(seq_along(my_poly), function(x){
+      m <<- m %>% leaflet::addPolygons(data = my_poly[[x]],
+                                       color = pal(my_poly_names[x]),
+                                       opacity = 0.2,
+                                       fillOpacity = density.estimation.opacity)})
+  }
 
     # map: if there are stroke features ---------------------------------------
-  } else if(!is.null(stroke.features)){
+  if(!is.null(stroke.features)){
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                          lat=mapfeat.stroke$lat,
                                          popup= mapfeat.stroke$link,
@@ -305,24 +311,18 @@ map.feature <- function(languages,
                                 radius = 1.15*radius,
                                 fillOpacity = opacity,
                                 color = rev.stroke.pal(mapfeat.stroke$stroke.features),
-                                group = mapfeat.stroke$stroke.features) %>%
-      leaflet::addCircleMarkers(lng=mapfeat.df$long,
-                                lat=mapfeat.df$lat,
-                                popup= mapfeat.df$link,
-                                label= mapfeat.df$label,
-                                labelOptions = labelOptions(noHide = !(label.hide),
-                                                            direction = label.position,
-                                                            textOnly = TRUE,
-                                                            style = list("font-size" = paste0(label.fsize, "px"))),
-                                stroke = FALSE,
-                                radius = radius,
-                                fillOpacity = opacity,
-                                color = pal(mapfeat.df$features),
-                                group = mapfeat.df$features)
+                                group = mapfeat.stroke$stroke.features)}
 
-    # map: if there are several features ----------------------------------------
-  } else{
-    m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
+    # map: add points ----------------------------------------
+    if(density.estimation != "blank"){
+      m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
+                                         lat=mapfeat.df$lat,
+                                         popup= mapfeat.df$link,
+                                         stroke = FALSE,
+                                         radius = radius*1.1,
+                                         fillOpacity = opacity,
+                                         color = "black") %>%
+      leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
                                          label= mapfeat.df$label,
@@ -335,7 +335,7 @@ map.feature <- function(languages,
                                          fillOpacity = opacity,
                                          color = pal(mapfeat.df$features),
                                          group = mapfeat.df$features)
-  }
+    }
 
   # map: images -------------------------------------------------------------
   if (!is.null(image.url)) {

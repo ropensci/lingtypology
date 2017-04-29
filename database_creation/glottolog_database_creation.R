@@ -197,41 +197,49 @@ glottolog.modified$language <- gsub("Central Guerrero Nahuatl", "Guerrero Nahuat
 glottolog.modified$language <- gsub("Northeast Sahaptin", "Walla Walla", glottolog.modified$language)
 glottolog.modified$language <- gsub("Northwest Sahaptin", "Yakima", glottolog.modified$language)
 glottolog.modified$language <- gsub("Abkhazian", "Abkhaz", glottolog.modified$language)
-glottolog.modified[glottolog.modified$language %in% "International Sign", 7] <- "Eurasia"
-glottolog.modified[glottolog.modified$language %in% "'Hawai'i Pidgin Sign Language'", 7] <- "Papua"
-glottolog.modified[glottolog.modified$language %in% "Hawai'i Creole English", 7] <- "Papua"
-glottolog.modified[glottolog.modified$language %in% "Kalaallisut", 7] <- "North America"
+glottolog.modified$language <- gsub("Khwarshi-Inkhoqwari", "Inkhoqwari", glottolog.modified$language)
+
+glottolog.modified[glottolog.modified$language %in% "Georgian", 'longitude'] <- 44.318829
+glottolog.modified[glottolog.modified$language %in% "Georgian", 'latitude'] <- 41.815745
+glottolog.modified[glottolog.modified$language %in% "Abaza", 'longitude'] <- 41.7879221
+glottolog.modified[glottolog.modified$language %in% "Abaza", 'latitude'] <- 44.4498344
+glottolog.modified[glottolog.modified$language %in% "Ossetian", 'longitude'] <- 44.68333
+glottolog.modified[glottolog.modified$language %in% "Ossetian", 'latitude'] <- 43.01667
+glottolog.modified[glottolog.modified$language %in% "Ingush", 'longitude'] <- 44.81667
+glottolog.modified[glottolog.modified$language %in% "Ingush", 'latitude'] <- 43.16667
+glottolog.modified[glottolog.modified$language %in% "Silesian", 'longitude'] <- 50.25
+glottolog.modified[glottolog.modified$language %in% "Silesian", 'latitude'] <- 19
+glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 'longitude'] <- 41.866702
+glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 'latitude'] <- 14.746984
+glottolog.modified[glottolog.modified$language %in% "Estonian", 'longitude'] <- 25.82
+glottolog.modified[glottolog.modified$language %in% "Estonian", 'latitude'] <- 58.55
+glottolog.modified[glottolog.modified$language %in% "Obdorsk Khanty", 'longitude'] <- 67.09
+glottolog.modified[glottolog.modified$language %in% "Obdorsk Khanty", 'latitude'] <- 66.31
+glottolog.modified[glottolog.modified$language %in% "Nuu-chah-nulth", 'longitude'] <- 234.7256
+glottolog.modified[glottolog.modified$language %in% "Nuu-chah-nulth", 'latitude'] <- 48.898889
+glottolog.modified[glottolog.modified$language %in% "Loup A", 'longitude'] <- 287.6987
+glottolog.modified[glottolog.modified$language %in% "Loup A", 'latitude'] <- 42.374045
+glottolog.modified[glottolog.modified$language %in% "Archi", 'longitude'] <- 46.8678
+glottolog.modified[glottolog.modified$language %in% "Archi", 'latitude'] <- 42.0664
+glottolog.modified[glottolog.modified$language %in% "Inkhoqwari", 'longitude'] <- 46.044877
+glottolog.modified[glottolog.modified$language %in% "Inkhoqwari", 'latitude'] <- 42.410888
+glottolog.modified[glottolog.modified$language %in% "Inkhoqwari", 'affiliation'] <- "North Caucasian, East Caucasian, Tsezic, West Tsezic"
+glottolog.modified[glottolog.modified$language %in% "Hinuq", 'affiliation'] <- "North Caucasian, East Caucasian, Tsezic, West Tsezic"
+glottolog.modified[glottolog.modified$language %in% "Tsez", 'affiliation'] <- "North Caucasian, East Caucasian, Tsezic, West Tsezic"
+glottolog.modified[glottolog.modified$language %in% "Tabasaran", 'affiliation'] <- "North Caucasian, East Caucasian, Lezgic, Nuclear Lezgic, East Lezgic"
+glottolog.modified[glottolog.modified$language %in% "International Sign", 'area'] <- "Eurasia"
+glottolog.modified[glottolog.modified$language %in% "'Hawai'i Pidgin Sign Language'", 'area'] <- "Papua"
+glottolog.modified[glottolog.modified$language %in% "Hawai'i Creole English", 'area'] <- "Papua"
+glottolog.modified[glottolog.modified$language %in% "Kalaallisut", 'area'] <- "North America"
 
 glottolog.modified[glottolog.modified$area %in% "Papua" &
                      !is.na(glottolog.modified$longitude) &
-                     glottolog.modified$longitude < -80, 4] <- glottolog.modified[glottolog.modified$area %in% "Papua" & !is.na(glottolog.modified$longitude) & glottolog.modified$longitude < -80, 4] + 360
+                     glottolog.modified$longitude < -80, 'longitude'] <- glottolog.modified[glottolog.modified$area %in% "Papua" & !is.na(glottolog.modified$longitude) & glottolog.modified$longitude < -80, 4] + 360
 glottolog.modified[glottolog.modified$area %in% "Eurasia" &
                      !is.na(glottolog.modified$longitude) &
-                     glottolog.modified$longitude < -80, 4] <- glottolog.modified[glottolog.modified$area %in% "Eurasia" & !is.na(glottolog.modified$longitude) & glottolog.modified$longitude < -80, 4] + 360
+                     glottolog.modified$longitude < -80, 'longitude'] <- glottolog.modified[glottolog.modified$area %in% "Eurasia" & !is.na(glottolog.modified$longitude) & glottolog.modified$longitude < -80, 4] + 360
 glottolog.modified[grepl("America", glottolog.modified$area) &
-                     !is.na(glottolog.modified$longitude), 4] <- glottolog.modified[grepl("America", glottolog.modified$area) & !is.na(glottolog.modified$longitude), 4] + 360
-
-glottolog.modified[glottolog.modified$language %in% "Georgian", 4] <- 44.318829
-glottolog.modified[glottolog.modified$language %in% "Georgian", 5] <- 41.815745
-glottolog.modified[glottolog.modified$language %in% "Abaza", 4] <- 41.7879221
-glottolog.modified[glottolog.modified$language %in% "Abaza", 5] <- 44.4498344
-glottolog.modified[glottolog.modified$language %in% "Ossetian", 4] <- 44.68333
-glottolog.modified[glottolog.modified$language %in% "Ossetian", 5] <- 43.01667
-glottolog.modified[glottolog.modified$language %in% "Ingush", 4] <- 44.81667
-glottolog.modified[glottolog.modified$language %in% "Ingush", 5] <- 43.16667
-glottolog.modified[glottolog.modified$language %in% "Silesian", 4] <- 50.25
-glottolog.modified[glottolog.modified$language %in% "Silesian", 5] <- 19
-glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 4] <- 41.866702
-glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 5] <- 14.746984
-glottolog.modified[glottolog.modified$language %in% "Estonian", 4] <- 25.82
-glottolog.modified[glottolog.modified$language %in% "Estonian", 5] <- 58.55
-glottolog.modified[glottolog.modified$language %in% "Obdorsk Khanty", 4] <- 67.09
-glottolog.modified[glottolog.modified$language %in% "Obdorsk Khanty", 5] <- 66.31
-glottolog.modified[glottolog.modified$language %in% "Nuu-chah-nulth", 4] <- 234.7256
-glottolog.modified[glottolog.modified$language %in% "Nuu-chah-nulth", 5] <- 48.898889
-glottolog.modified[glottolog.modified$language %in% "Loup A", 4] <- 287.6987
-glottolog.modified[glottolog.modified$language %in% "Loup A", 5] <- 42.374045
-
+                     !is.na(glottolog.modified$longitude), 'longitude'] <- glottolog.modified[grepl("America", glottolog.modified$area) & !is.na(glottolog.modified$longitude), 4] + 360
 
 NWC <- read_csv("NWC.csv")
 glottolog.modified <- rbind.data.frame(glottolog.modified, NWC)

@@ -1,6 +1,8 @@
 lingtypology 1.0.4
   - glottolog database is improved
   - added warning for languages without coordinates
+  - label.hide option terned to TRUE
+  - added density estimation visualization
 
 lingtypology 1.0.3 (14.04.2017)
   - improved spellchecker
