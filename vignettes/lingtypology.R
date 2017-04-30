@@ -307,14 +307,14 @@ map.feature(languages = df$lang,
             image.X.shift = 10,
             image.Y.shift = 0)
 
-## ------------------------------------------------------------------------
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
             density.estimation = TRUE,
             color = "darkgreen")
 
-## ------------------------------------------------------------------------
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(circassian$language,
             features = circassian$language,
             longitude = circassian$longitude,
@@ -322,7 +322,7 @@ map.feature(circassian$language,
             density.estimation = TRUE,
             color = c("darkgreen", "blue"))
 
-## ------------------------------------------------------------------------
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(circassian$language,
             features = circassian$language,
             longitude = circassian$longitude,
