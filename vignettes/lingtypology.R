@@ -77,9 +77,9 @@ map.feature(df$language, df$features)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$ejectives)
+            ejective_and_n_consonants$ejectives) # categorical
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$n.cons.lapsyd)
+            ejective_and_n_consonants$n.cons.lapsyd) # numeric
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(ejective_and_n_consonants$language,
@@ -306,6 +306,29 @@ map.feature(languages = df$lang,
             image.height = 150,
             image.X.shift = 10,
             image.Y.shift = 0)
+
+## ------------------------------------------------------------------------
+map.feature(circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = TRUE,
+            color = "darkgreen")
+
+## ------------------------------------------------------------------------
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = TRUE,
+            color = c("darkgreen", "blue"))
+
+## ------------------------------------------------------------------------
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = "blank",
+            color = c("darkgreen", "blue"))
 
 ## ------------------------------------------------------------------------
 new_data <- read.csv("https://goo.gl/GgscBE")

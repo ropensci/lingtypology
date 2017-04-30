@@ -96,11 +96,10 @@ test_that("map.feature tiles", {
     expect_equal(c(map_tiles$x$calls[[2]]$args[[1]], map_tiles$x$calls[[3]]$args[[1]]), c("OpenStreetMap.BlackAndWhite",
         "Thunderforest.OpenCycleMap"))
     expect_equal(c(map_tiles_control$x$calls[[2]]$args[[1]], map_tiles_control$x$calls[[3]]$args[[1]]), c("OpenStreetMap.BlackAndWhite",                                                                                        "Thunderforest.OpenCycleMap"))
-# These tests should work, but they don't :(
-#    expect_warning(map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"), tile.name = c("first")),
-#                   'number of tile names (tile.name argument) is less than number of tiles (tile argument)')
-#    expect_warning(map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite"), tile.name = c("first", "second")),
-#                    'number of tile names (tile.name argument) is less than number of tiles (tile argument)')
+    expect_warning(map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"), tile.name = c("first")),
+                   "number of tile names \\(tile.name argument\\) is less than number of tiles \\(tile argument\\)")
+    expect_warning(map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite"), tile.name = c("first", "second")),
+                    'number of tile names \\(tile.name argument\\) is less than number of tiles \\(tile argument\\)')
     })
 
 map_control <- map.feature(c("Adyghe", "Russian"), control = TRUE)

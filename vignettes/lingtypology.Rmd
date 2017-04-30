@@ -119,14 +119,16 @@ Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not p
 
 * Added some Dargwa languages: Chirag, Cudaxar, Itsari, Kajtak, Kubachi, Tanti, Mehweb. Dargwa is still present in the database as an individual language, so one can use Dargwa or any Dargwa language listed above. (07.09.2016)
 * Added coordinates to Silesian and Slavomolisano (11.09.2016)
-* Ache is renamed Ache (Sino Tibetian) and Ache (Tupian); Bari is renamed Bari (Chibchan) and Bari (Nilotic); Bugan is renamed Bugan and Bugan (Spurious); Calo is renamed Calo and Calo (Spurious); Chimakum is renamed Chimakum and Chimakum (Spurious); Garawa is renamed Garawa and Garawa (Spurious); Hamba is renamed Hamba (Atlantic-Congo) and Hamba (Unclassifiable); Hoti is renamed Hoti (Jodi-Saliban) and Hoti (Austronesian); Karipuna is renamed Karipuna (Pano-Tacanan) and Karipuna (Tupian); Kula is renamed Kula (Austronesian) and Kula (Timor-Alor-Pantar); Laru is renamed Laru (Atlantic-Congo) and Laru (Heiban); Maring is renamed Maring (Nuclear Trans New Guinea) and Maring (Sino-Tibetan); Mayo is renamed Mayo (Uto-Aztecan) and Mayo (Pano-Tacanan); Nabi is renamed Nabi (Austronesian) and Nabi (Nuclear Torricelli); Natugu is renamed Natugu and Natugu (Spurious); Naxi is renamed Naxi and Naxi (Spurious); Ngen is renamed Ngen (Mande) and Ngen (Austronesian); Purum is renamed Purum and Purum (Spurious); Saliba is renamed Saliba (Austronesian) and Saliba (Jodi-Saliban); Southern Betsimisaraka Malagasy is renamed Southern Betsimisaraka Malagasy and Southern Betsimisaraka Malagasy (Spurious); Surigaonon is renamed Surigaonon and Surigaonon (Spurious); Tai Pao is renamed Tai Pao and Tai Pao (Spurious); Tunen is renamed Tunen and Tunen (Spurious); Wara is renamed Wara (Atlantic-Congo) and Wara (Morehead-Wasur); Yendang is renamed Yendang and Yendang (Spurious) (22.01.2017)
-* Abkhazian is changed to Abkhaz. Abkhazian, Abaza, Georgian, Ossetian and Ingush coordinates are changed. (22.01.2017)
+* Abkhazian is changed to Abkhaz. Abkhazian, Abaza, Georgian, Ossetian, Archi and Ingush coordinates are changed. (22.01.2017)
 * Northeast Sahaptin is changed to Walla Walla. Northwest Sahaptin is changed to Yakima. Central Guerrero Nahuatl is renamed Guerrero Nahuatl (thanks to Timo Roettger for mentioning that problems). (02.02.2017)
 * Some sign language changed. Thanks to [Calle Börstell](https://borstell.github.io/#name) for data. (02.02.2017)
 * Bininj Gun-Wok changed to Gunwinggu (thanks to Timo Roettger) (06.02.2017)
 * Country name Viet Nam changed to Vietnam. Madagascar and Togo added to countries set. (11.02.2017)
 * country names are unified. Area affiliation changed: for International Sign to Eurasia; for Hawai'i Pidgin Sign Language to Papua; for Hawai'i Creole English to Papua; for Kalaallisut to North America.
 * Estonian, Nuu-chah-nulth, Loup A and Obdorsk Khanty coordinates are added. (28.04.2017)
+* Language duplicates renamed: Voro (Niger-Congo), Voro (Uralic), Ache (Tupian), Ache (Sino-Tibetan), Karipuna (Panoan), Karipuna (Tupian), Calo (Spurious), Calo (Mixed language), Wara (Niger-Congo), Wara (South-Central Papuan), Saliba (Austronesian), Saliba (Salivan), Bari (Nilo-Saharan), Bari (Chibchan) (30.04.2017)
+
+More ditailed information about how our database was created can be seen from [GitHub folder](https://github.com/agricolamz/lingtypology/tree/master/database_creation).
 
 After [Robert Forkel's issue](https://github.com/agricolamz/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
 ```{r}
@@ -192,18 +194,18 @@ map.feature(df$language, df$features)
 ```
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
-There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 27 languages from [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have two variables: categorical variable `ejectives` indicates whether language have any ejective sound, numeric variable `n.cons.lapsyd` contain information about number of consonants (based on LAPSyD database). Lets create two maps with categorical variable and with numeric variable:
+There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 27 languages from [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have two variables: categorical variable `ejectives` indicates whether language have any ejective sound, numeric variable `n.cons.lapsyd` contain information about number of consonants (based on LAPSyD database). We can create two maps with categorical variable and with numeric variable:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$ejectives)
+            ejective_and_n_consonants$ejectives) # categorical
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$n.cons.lapsyd)
+            ejective_and_n_consonants$n.cons.lapsyd) # numeric
 ```
 
-Default colors are not perfect for this goal, but the main point is clear. For creating correct map, you should correctly define the tipe of the variable.
+Default colors are not perfect for this goal, but the main point is clear. For creating correct map, you should correctly define the type of the variable.
 
-This dataset also can be used to show one other parameter of the `map.feature` function. There are two possible ways to show the World map: with the Atlantic sea or with the Pacific sea in the middle. If you don't need default Pacific view use the `map.orientation` parameter:
+This dataset also can be used to show one other parameter of the `map.feature` function. There are two possible ways to show the World map: with the Atlantic sea or with the Pacific sea in the middle. If you don't need default Pacific view use the `map.orientation` parameter (thanks  @languageSpaceLabs and @tzakharko for that idea):
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(ejective_and_n_consonants$language,
             ejective_and_n_consonants$n.cons.lapsyd,
@@ -510,6 +512,39 @@ map.feature(languages = df$lang,
 ```
 
 Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot an additional legend text on the map.
+
+### 3.14 Add a kernal density estimation plot to a map
+Sometimes it is easear to look at kernal density estimation plot. It can be created using `density.estimation` argument:
+```{r}
+map.feature(circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = TRUE,
+            color = "darkgreen")
+```
+
+If there are some levels of the `features` argument, kernal density estimation plot will be created for each level:
+```{r}
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = TRUE,
+            color = c("darkgreen", "blue"))
+```
+
+It is possible to remove points and display only kernal density estimation plot, using the `"blank"` value:
+
+```{r}
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = "blank",
+            color = c("darkgreen", "blue"))
+```
+
+It is important to note, that this type of visualisation have some shortcomings. Kernal density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use different coordinate projection. That allows not to treat Earth as a flat object.
 
 ## 4. `dplyr` integration
 It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I give some examples, how to use it with `lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Lets download and map all languages from that set. Lets download data:

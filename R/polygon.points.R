@@ -17,10 +17,7 @@ polygon.points <- function(latitude, longitude){
                               max(stats::density(longitude)$x),
                               min(stats::density(latitude)$x),
                               max(stats::density(latitude)$x)))
-
   CL <- grDevices::contourLines(kde$x , kde$y , kde$z)
-
-  ## CONVERT CONTOUR LINES TO POLYGONS
   pgons <- lapply(1:length(CL), function(i){
     sp::Polygons(list(sp::Polygon(cbind(CL[[i]]$x, CL[[i]]$y))), ID=i)})
   sp::SpatialPolygons(pgons)
