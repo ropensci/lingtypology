@@ -330,6 +330,15 @@ map.feature(circassian$language,
             density.estimation = "blank",
             color = c("darkgreen", "blue"))
 
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = "blank",
+            density.estimation.opacity = 0.5,
+            color = c("darkgreen", "blue"))
+
 ## ------------------------------------------------------------------------
 new_data <- read.csv("https://goo.gl/GgscBE")
 tail(new_data)

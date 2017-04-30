@@ -544,6 +544,19 @@ map.feature(circassian$language,
             color = c("darkgreen", "blue"))
 ```
 
+It is possible to change kernal density estimation plot opacity using `density.estimation.opacity` argument:
+
+```{r, fig.width=6.2, fig.height=3.4}
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = "blank",
+            density.estimation.opacity = 0.5,
+            color = c("darkgreen", "blue"))
+```
+
+
 It is important to note, that this type of visualisation have some shortcomings. Kernal density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use different coordinate projection. That allows not to treat Earth as a flat object.
 
 ## 4. `dplyr` integration
