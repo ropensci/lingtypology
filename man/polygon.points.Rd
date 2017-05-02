@@ -4,12 +4,16 @@
 \alias{polygon.points}
 \title{Get kernel density estimation poligon from coordinates}
 \usage{
-polygon.points(latitude, longitude)
+polygon.points(latitude, longitude, latitude_width, longitude_width)
 }
 \arguments{
 \item{latitude}{numeric vector of latitudes}
 
 \item{longitude}{numeric vector of longitudes}
+
+\item{latitude_width}{bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).}
+
+\item{longitude_width}{bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).}
 }
 \description{
 This function is based on this answer: https://gis.stackexchange.com/a/203623

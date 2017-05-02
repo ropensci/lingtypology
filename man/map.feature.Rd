@@ -8,6 +8,7 @@ map.feature(languages, features = "none", popup = "", label = "",
   label.hide = TRUE, label.fsize = 14, label.position = "right",
   stroke.features = NULL, latitude = NULL, longitude = NULL,
   density.estimation = FALSE, density.estimation.opacity = 0.2,
+  density.longitude.width = NULL, density.latitude.width = NULL,
   color = NULL, stroke.color = NULL, image.url = NULL,
   image.width = 100, image.height = 100, image.X.shift = 0,
   image.Y.shift = 0, title = NULL, stroke.title = NULL, control = FALSE,
@@ -45,6 +46,10 @@ map.feature(languages, features = "none", popup = "", label = "",
 \item{density.estimation}{mostly logical. If TRUE, it creates a density estimation polygon. If write here "blank", it creates density estimation polygon without points.}
 
 \item{density.estimation.opacity}{a numeric vector of density estimation opacity.}
+
+\item{density.longitude.width}{bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).}
+
+\item{density.latitude.width}{bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).}
 
 \item{color}{vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}}
 

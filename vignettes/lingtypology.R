@@ -339,6 +339,36 @@ map.feature(circassian$language,
             density.estimation.opacity = 0.5,
             color = c("darkgreen", "blue"))
 
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = T,
+            density.longitude.width = 0.3,
+            density.latitude.width = 0.3, 
+            color = c("darkgreen", "blue"))
+
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = T,
+            density.longitude.width = 0.7,
+            density.latitude.width = 0.7, 
+            color = c("darkgreen", "blue"))
+
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = T,
+            density.longitude.width = 1.3,
+            density.latitude.width = 0.9, 
+            color = c("darkgreen", "blue"))
+
 ## ------------------------------------------------------------------------
 new_data <- read.csv("https://goo.gl/GgscBE")
 tail(new_data)
