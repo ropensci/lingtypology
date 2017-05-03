@@ -113,7 +113,7 @@
 #' @import leaflet
 #' @importFrom stats complete.cases
 #' @importFrom grDevices gray
-#' @importFrom grDevices rainbow
+#' @importFrom grDevices topo.colors
 #' @importFrom rowr cbind.fill
 #' @importFrom magrittr %>%
 #'
@@ -218,13 +218,12 @@ map.feature <- function(languages,
   # levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
   # create a palette ---------------------------------------------------------
-  #if (length(table(mapfeat.df$features)) <= 1 & is.null(color)){color <- "blue"}
   if (is.null(color)) {
     if(is.numeric(mapfeat.df$features)){
       pal <- leaflet::colorNumeric(palette = "BuPu", domain = mapfeat.df$features)
     } else {
     set.seed(42)
-    pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
+    pal <- leaflet::colorFactor(sample(grDevices::topo.colors(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)
     }} else {
       if(is.numeric(mapfeat.df$features)){
