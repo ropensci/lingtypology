@@ -4,7 +4,7 @@
 \alias{map.feature}
 \title{Create a map}
 \usage{
-map.feature(languages, features = "none", popup = "", label = "",
+map.feature(languages, features = "", popup = "", label = "",
   label.hide = TRUE, label.fsize = 14, label.position = "right",
   stroke.features = NULL, latitude = NULL, longitude = NULL,
   density.estimation = FALSE, density.estimation.opacity = 0.2,

@@ -119,7 +119,7 @@
 #'
 
 map.feature <- function(languages,
-                        features = "none",
+                        features = "",
                         popup = "",
                         label = "",
                         label.hide = TRUE,
@@ -223,7 +223,7 @@ map.feature <- function(languages,
       pal <- leaflet::colorNumeric(palette = "BuPu", domain = mapfeat.df$features)
     } else {
     set.seed(42)
-    pal <- leaflet::colorFactor(sample(grDevices::topo.colors(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
+    pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)
     }} else {
       if(is.numeric(mapfeat.df$features)){
@@ -382,7 +382,7 @@ map.feature <- function(languages,
 
 
   # map: legend -------------------------------------------------------------
-  if (length(table(mapfeat.df$features)) > 1 & legend == TRUE) {
+  if (sum(mapfeat.df$features == "") < length(mapfeat.df$features) & legend == TRUE) {
     m <- m %>% leaflet::addLegend(title = title,
                                   position = legend.position,
                                   pal = pal,
