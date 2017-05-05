@@ -2,7 +2,6 @@ Package: lingtypology
 Type: Package
 Title: Linguistic Typology and Mapping
 Version: 1.0.4
-Date: 2017-05-03
 Depends: R (>= 2.10)
 Imports:
     leaflet,

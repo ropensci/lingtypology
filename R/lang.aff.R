@@ -14,8 +14,9 @@
 
 lang.aff <- function(x, list = FALSE, glottolog.source = "modified") {
     if(typeof(x) == "list"){x <- unlist(x)}
-    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
-        glottolog <- lingtypology::glottolog.modified)
+    ifelse(grepl(glottolog.source, "original"),
+           glottolog <- lingtypology::glottolog.original,
+           glottolog <- lingtypology::glottolog.modified)
     result <- lapply(x, function(y) {
       glottolog[grep(tolower(y), tolower(glottolog$affiliation)), ]$language
       })
@@ -23,5 +24,5 @@ lang.aff <- function(x, list = FALSE, glottolog.source = "modified") {
       unlist(result)
       } else {
         result
-        }
+      }
     }

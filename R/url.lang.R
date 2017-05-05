@@ -12,8 +12,9 @@
 
 url.lang <- function(x, popup = "", glottolog.source = "modified") {
     if(typeof(x) == "list"){x <- unlist(x)}
-    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
-        glottolog <- lingtypology::glottolog.modified)
+    ifelse(grepl(glottolog.source, "original"),
+           glottolog <- lingtypology::glottolog.original,
+           glottolog <- lingtypology::glottolog.modified)
 
     df <- glottolog[tolower(glottolog$language) %in% tolower(x), 1:3]
     df <- df[match(tolower(x), tolower(df$language)),]

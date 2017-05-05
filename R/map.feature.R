@@ -110,7 +110,22 @@
 #'
 #'
 #' @export
-#' @import leaflet
+#' @importFrom leaflet colorNumeric
+#' @importFrom leaflet colorFactor
+#' @importFrom leaflet leaflet
+#' @importFrom leaflet addTiles
+#' @importFrom leaflet addProviderTiles
+#' @importFrom leaflet addPolygons
+#' @importFrom leaflet addCircleMarkers
+#' @importFrom leaflet addMarkers
+#' @importFrom leaflet addLayersControl
+#' @importFrom leaflet addScaleBar
+#' @importFrom leaflet addLegend
+#' @importFrom leaflet addMiniMap
+#' @importFrom leaflet leafletOptions
+#' @importFrom leaflet labelOptions
+#' @importFrom leaflet layersControlOptions
+#' @importFrom leaflet icons
 #' @importFrom stats complete.cases
 #' @importFrom grDevices gray
 #' @importFrom grDevices topo.colors
@@ -168,7 +183,9 @@ map.feature <- function(languages,
          glottolog <- lingtypology::glottolog.original,
          glottolog <- lingtypology::glottolog.modified)
   if(typeof(languages) == "list"){languages <- unlist(languages)}
-  if(sum(is.glottolog(languages, response = TRUE, glottolog.source = glottolog.source)) == 0){
+  if(sum(is.glottolog(languages,
+                      response = TRUE,
+                      glottolog.source = glottolog.source)) == 0){
     stop("There is no data to map")
   }
 
@@ -180,7 +197,9 @@ map.feature <- function(languages,
   }
 
   if (is.null(latitude) & is.null(longitude)) {  # if there are no latitude and longitude
-    mapfeat.df$long <- long.lang(languages, map.orientation = map.orientation, glottolog.source = glottolog.source)
+    mapfeat.df$long <- long.lang(languages,
+                                 map.orientation = map.orientation,
+                                 glottolog.source = glottolog.source)
     mapfeat.df$lat <- lat.lang(languages, glottolog.source = glottolog.source)
   } else {   # if there are latitude and longitude
     mapfeat.df$long <- longitude
@@ -220,14 +239,14 @@ map.feature <- function(languages,
   # create a palette ---------------------------------------------------------
   if (is.null(color)) {
     if(is.numeric(mapfeat.df$features)){
-      pal <- leaflet::colorNumeric(palette = "BuPu", domain = mapfeat.df$features)
+      pal <- leaflet::colorNumeric(palette = "BuPu", domain=mapfeat.df$features)
     } else {
     set.seed(42)
     pal <- leaflet::colorFactor(sample(grDevices::rainbow(length(unique(mapfeat.df$features))), length(unique(mapfeat.df$features))),
                                 domain = mapfeat.df$features)
     }} else {
       if(is.numeric(mapfeat.df$features)){
-        pal <- leaflet::colorNumeric(palette = color, domain = mapfeat.df$features)
+        pal <- leaflet::colorNumeric(palette = color,domain=mapfeat.df$features)
       }else {
         pal <- leaflet::colorFactor(color, domain = mapfeat.df$features)
       }}
@@ -269,7 +288,7 @@ map.feature <- function(languages,
   }
 
   ### create a map ------------------------------------------------------------
-  m <- leaflet::leaflet(mapfeat.df, option=leafletOptions(zoomControl = zoom.control)) %>%
+  m <- leaflet::leaflet(mapfeat.df, option=leaflet::leafletOptions(zoomControl = zoom.control)) %>%
     leaflet::addTiles(tile[1]) %>%
     leaflet::addProviderTiles(tile[1], group = tile.name[1])
   if(length(tile) > 1){
@@ -284,7 +303,7 @@ map.feature <- function(languages,
       m <<- m %>% leaflet::addPolygons(data = my_poly[[x]],
                                        color = pal(my_poly_names[x]),
                                        opacity = 0.2,
-                                       fillOpacity = density.estimation.opacity)})
+                                       fillOpacity=density.estimation.opacity)})
   }
 
     # map: if there are stroke features ---------------------------------------
@@ -302,13 +321,13 @@ map.feature <- function(languages,
                                 stroke = FALSE,
                                 radius = stroke.radius,
                                 fillOpacity = stroke.opacity,
-                                color = stroke.pal(mapfeat.stroke$stroke.features),
+                                color=stroke.pal(mapfeat.stroke$stroke.features),
                                 group = mapfeat.stroke$stroke.features) %>%
       leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                 lat=mapfeat.stroke$lat,
                                 popup= mapfeat.df$link,
                                 label= mapfeat.df$label,
-                                labelOptions = labelOptions(noHide = !(label.hide),
+                                labelOptions = leaflet::labelOptions(noHide = !(label.hide),
                                                             direction = label.position,
                                                             textOnly = TRUE,
                                                             style = list("font-size" = paste0(label.fsize, "px"))),
@@ -331,7 +350,7 @@ map.feature <- function(languages,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
                                          label= mapfeat.df$label,
-                                         labelOptions = labelOptions(noHide = !(label.hide),
+                                         labelOptions = leaflet::labelOptions(noHide = !(label.hide),
                                                                      direction = label.position,
                                                                      textOnly = TRUE,
                                                                      style = list("font-size" = paste0(label.fsize, "px"))),
@@ -347,7 +366,7 @@ map.feature <- function(languages,
     m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
                                    lat=mapfeat.image$lat,
                                    popup= mapfeat.image$link,
-                                   icon = icons(
+                                   icon = leaflet::icons(
                                      iconUrl = as.character(mapfeat.image$image.url),
                                      iconWidth = image.width,
                                      iconHeight = image.height,
@@ -361,16 +380,16 @@ map.feature <- function(languages,
       m <- m %>% leaflet::addLayersControl(
         baseGroups = tile.name,
         overlayGroups = mapfeat.df$features,
-        options = layersControlOptions(collapsed = FALSE))
+        options = leaflet::layersControlOptions(collapsed = FALSE))
     } else {
       m <- m %>% leaflet::addLayersControl(
         baseGroups = tile.name,
-        options = layersControlOptions(collapsed = FALSE))
+        options = leaflet::layersControlOptions(collapsed = FALSE))
     }
   } else {
     if (control == TRUE) {
       m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
-                                           options = layersControlOptions(collapsed = FALSE))
+                                           options = leaflet::layersControlOptions(collapsed = FALSE))
     }
   }
 

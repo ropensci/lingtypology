@@ -16,11 +16,13 @@
 
 long.lang <- function(x, map.orientation = "Pacific", glottolog.source = "modified") {
     if(typeof(x) == "list"){x <- unlist(x)}
-    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
-        glottolog <- lingtypology::glottolog.modified)
+    ifelse(grepl(glottolog.source, "original"),
+           glottolog <- lingtypology::glottolog.original,
+           glottolog <- lingtypology::glottolog.modified)
     result <- vapply(x, function(y) {
         ifelse(is.glottolog(y, response = TRUE, glottolog.source = glottolog.source) == TRUE,
-               glottolog[tolower(glottolog$language) %in% tolower(y), ]$longitude, NA_real_)
+               glottolog[tolower(glottolog$language) %in% tolower(y), ]$longitude,
+               NA_real_)
     }, double(1))
     if(map.orientation == "Atlantic"){
       am <- grep("America", area.lang(x))

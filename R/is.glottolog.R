@@ -22,25 +22,29 @@
 
 is.glottolog <- function(x, response = FALSE, glottolog.source = "modified") {
     if(typeof(x) == "list"){x <- unlist(x)}
-    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
-        glottolog <- lingtypology::glottolog.modified)
+    ifelse(grepl(glottolog.source, "original"),
+           glottolog <- lingtypology::glottolog.original,
+           glottolog <- lingtypology::glottolog.modified)
     y <- tolower(x)
-    # check whether there are languages in database ---------------------------
+# check whether there are languages in database ---------------------------
     result <- y %in% tolower(glottolog$language)
     if (response == TRUE) {
         vapply(x[!result], function(z) {
+# computes pairwise string Levenshtein distance ---------------------------
+            cand <- stringdist::stringdist(tolower(as.character(z)),
+                                           tolower(glottolog$language),
+                                           method = "lv")
+# add exact substrings ---------------------------------------------------
+            cand_subst <- c(grep(paste0(tolower(z), " "),
+                                 tolower(glottolog$language)),
+                            grep(paste0(" ", tolower(z)),
+                                 tolower(glottolog$language)),
+                            grep(paste0(tolower(z), "-"),
+                                 tolower(glottolog$language)),
+                            grep(paste0("-", tolower(z)),
+                                 tolower(glottolog$language)))
 
-            # computes pairwise string Levenshtein distance ---------------------------
-            cand <- stringdist::stringdist(tolower(as.character(z)), tolower(glottolog$language),
-                method = "lv")
-
-            # add exact substrings ---------------------------------------------------
-            cand_subst <- c(grep(paste0(tolower(z), " "), tolower(glottolog$language)),
-                            grep(paste0(" ", tolower(z)), tolower(glottolog$language)),
-                            grep(paste0(tolower(z), "-"), tolower(glottolog$language)),
-                            grep(paste0("-", tolower(z)), tolower(glottolog$language)))
-
-            # alternative names -------------------------------------------------------
+# alternative names -------------------------------------------------------
             alternates <- grepl(tolower(z), tolower(glottolog$alternate_names))
 
             # make a string with all candidates ---------------------------------------
@@ -53,7 +57,8 @@ is.glottolog <- function(x, response = FALSE, glottolog.source = "modified") {
 
             # make a warning message --------------------------------------------------
             warning(paste("Language ", z, " is absent in our version of the Glottolog database. Did you mean ",
-                candidate, "?", sep = ""), call. = FALSE)
+                          candidate, "?",
+                          sep = ""), call. = FALSE)
         }, character(1))
     }
     return(result)

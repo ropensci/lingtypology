@@ -12,10 +12,12 @@
 
 lang.iso <- function(x, glottolog.source = "modified") {
     if(typeof(x) == "list"){x <- unlist(x)}
-    ifelse(grepl(glottolog.source, "original"), glottolog <- lingtypology::glottolog.original,
-        glottolog <- lingtypology::glottolog.modified)
+    ifelse(grepl(glottolog.source, "original"),
+           glottolog <- lingtypology::glottolog.original,
+           glottolog <- lingtypology::glottolog.modified)
     vapply(x, function(y) {
-        ifelse(y %in% glottolog$iso, glottolog[tolower(glottolog$iso) %in% tolower(y),
-            ]$language, NA_character_)
+        ifelse(y %in% glottolog$iso,
+               glottolog[tolower(glottolog$iso) %in% tolower(y),]$language,
+               NA_character_)
     }, character(1))
 }
