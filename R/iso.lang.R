@@ -16,7 +16,8 @@ iso.lang <- function(x, glottolog.source = "modified") {
            glottolog <- lingtypology::glottolog.original,
            glottolog <- lingtypology::glottolog.modified)
     vapply(x, function(y) {
-        ifelse(is.glottolog(y, response = TRUE, glottolog.source = glottolog.source) == TRUE,
+        ifelse(is.glottolog(y, response = TRUE,
+                            glottolog.source = glottolog.source) == TRUE,
                glottolog[tolower(glottolog$language) %in% tolower(y), ]$iso,
                NA_character_)
     }, character(1))

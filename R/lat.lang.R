@@ -18,7 +18,8 @@ lat.lang <- function(x, glottolog.source = "modified") {
          glottolog <- lingtypology::glottolog.original,
          glottolog <- lingtypology::glottolog.modified)
   vapply(x, function(y) {
-    ifelse(is.glottolog(y, response = TRUE, glottolog.source = glottolog.source) == TRUE,
+    ifelse(is.glottolog(y, response = TRUE,
+                        glottolog.source = glottolog.source) == TRUE,
            glottolog[tolower(glottolog$language) %in% tolower(y), ]$latitude,
            NA_real_)
   }, double(1))
