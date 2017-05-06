@@ -21,7 +21,7 @@ install.packages("lingtypology")
 You can also get the development version from GitHub:
 ```{r, eval= F}
 install.packages("devtools")
-devtools::install_github("agricolamz/lingtypology")
+devtools::install_github("ropensci/lingtypology")
 ```
 
 Sometimes installation failed because of the absence of the package `crosstalk` or any other. Just install it using command `install.packages("crosstalk")`.

@@ -3,6 +3,7 @@ lingtypology 1.0.4
   - added warning for languages without coordinates
   - label.hide option terned to TRUE
   - added density estimation visualization
+  - transfered to ropensci
 
 lingtypology 1.0.3 (14.04.2017)
   - improved spellchecker

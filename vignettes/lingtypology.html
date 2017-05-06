@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2017-05-05" />
+<meta name="date" content="2017-05-06" />
 
 <title>lingtypology: easy mapping for Linguistic Typology</title>
 
@@ -85,7 +85,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: easy mapping for Linguistic Typology</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2017-05-05</em></h4>
+<h4 class="date"><em>2017-05-06</em></h4>
 
 
 
@@ -99,7 +99,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;lingtypology&quot;</span>)</code></pre></div>
 <p>You can also get the development version from GitHub:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;agricolamz/lingtypology&quot;</span>)</code></pre></div>
+devtools::<span class="kw">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</code></pre></div>
 <p>Sometimes installation failed because of the absence of the package <code>crosstalk</code> or any other. Just install it using command <code>install.packages(&quot;crosstalk&quot;)</code>.</p>
 <p>Load package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lingtypology)</code></pre></div>
@@ -204,7 +204,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;agricola
 ## [5] &quot;Angloromani&quot;                &quot;Northern Pashto&quot;</code></pre>
 <p>All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</code></pre></div>
-<pre><code>## Warning: Language Adyge is absent in our version of the Glottolog database.
+<pre><code>## Warning: Language Adyge is absent in our version of theGlottolog database.
 ## Did you mean Adyghe, Aduge?</code></pre>
 <pre><code>## Adyge 
 ##    NA</code></pre>
@@ -697,7 +697,7 @@ newfeature &lt;-<span class="st">  </span><span class="kw">replace</span>(newfea
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

@@ -14,10 +14,10 @@ Imports:
     sp
 Author: George Moroz
 Maintainer: George Moroz <agricolamz@gmail.com>
-Description: Provides R with the Glottolog database <http://glottolog.org> and some more abilities for purposes of linguistic mapping. The Glottolog database contains the catalogue of languages of the world. This package helps researchers to make a linguistic maps, using philosophy of the Cross-Linguistic Linked Data project <http://clld.org/>, which allows for while at the same time facilitating uniform access to the data across publications. A tutorial for this package is available on GitHub pages <https://agricolamz.github.io/lingtypology/> and package vignette. Maps created by this package can be used both for the investigation and linguistic teaching.
+Description: Provides R with the Glottolog database <http://glottolog.org> and some more abilities for purposes of linguistic mapping. The Glottolog database contains the catalogue of languages of the world. This package helps researchers to make a linguistic maps, using philosophy of the Cross-Linguistic Linked Data project <http://clld.org/>, which allows for while at the same time facilitating uniform access to the data across publications. A tutorial for this package is available on GitHub pages <https://ropensci.github.io/lingtypology/> and package vignette. Maps created by this package can be used both for the investigation and linguistic teaching.
 License: GPL (>= 2)
-URL: https://CRAN.R-project.org/package=lingtypology, https://github.com/agricolamz/lingtypology/
-BugReports: https://github.com/agricolamz/lingtypology/issues
+URL: https://CRAN.R-project.org/package=lingtypology, https://github.com/ropensci/lingtypology/
+BugReports: https://github.com/ropensci/lingtypology/issues
 LazyData: TRUE
 RoxygenNote: 6.0.1
 Suggests:
