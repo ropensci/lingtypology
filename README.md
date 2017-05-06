@@ -30,7 +30,7 @@ Load a library:
 library(lingtypology)
 ```
 
-For a detailed tutorial see [GitHub pages](https://agricolamz.github.io/lingtypology/) or package vign.
+For a detailed tutorial see [GitHub pages](https://agricolamz.github.io/lingtypology/).
 
 You can contribute to `lingtypology` by
 
