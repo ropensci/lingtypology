@@ -9,7 +9,7 @@ sapply(1:length(letters), function(i){
          envir = .GlobalEnv)})
 rm(links)
 all <- eval(parse(text =
-                    paste0("c(", paste(ls(), collapse = ", "), ")")
+                    paste0("c(", paste(ls(), collapкракозябруse = ", "), ")")
 ))
 
 glottocode_df <- data.frame(matrix(vector(), 0, 3,
@@ -207,10 +207,12 @@ glottolog.modified[glottolog.modified$language %in% "Ossetian", 'longitude'] <- 
 glottolog.modified[glottolog.modified$language %in% "Ossetian", 'latitude'] <- 43.01667
 glottolog.modified[glottolog.modified$language %in% "Ingush", 'longitude'] <- 44.81667
 glottolog.modified[glottolog.modified$language %in% "Ingush", 'latitude'] <- 43.16667
-glottolog.modified[glottolog.modified$language %in% "Silesian", 'longitude'] <- 50.25
-glottolog.modified[glottolog.modified$language %in% "Silesian", 'latitude'] <- 19
-glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 'longitude'] <- 41.866702
-glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 'latitude'] <- 14.746984
+glottolog.modified[glottolog.modified$language %in% "Avar", 'longitude'] <- 46.66639
+glottolog.modified[glottolog.modified$language %in% "Avar", 'latitude'] <- 42.43056
+glottolog.modified[glottolog.modified$language %in% "Silesian", 'longitude'] <- 19
+glottolog.modified[glottolog.modified$language %in% "Silesian", 'latitude'] <- 50.25
+glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 'longitude'] <- 14.746984
+glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 'latitude'] <- 41.866702
 glottolog.modified[glottolog.modified$language %in% "Estonian", 'longitude'] <- 25.82
 glottolog.modified[glottolog.modified$language %in% "Estonian", 'latitude'] <- 58.55
 glottolog.modified[glottolog.modified$language %in% "Obdorsk Khanty", 'longitude'] <- 67.09

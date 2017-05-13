@@ -2,11 +2,14 @@
 title: "`lingtypology`: easy mapping for Linguistic Typology"
 author: "George Moroz"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{`lingtypology`: easy mapping for Lingustic Typology}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output:
+  html_document:
+    theme: lumen
+    highlight: tango
+    toc: yes
+    toc_position: right
+    toc_float: yes
+    smooth_scroll: false
 ---
 
 ## What is `lingtypology`?
