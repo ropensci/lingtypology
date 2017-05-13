@@ -57,7 +57,7 @@ is.glottolog <- function(x, response = FALSE, glottolog.source = "modified") {
 
             # make a warning message --------------------------------------------------
             warning(paste("Language ", z, " is absent in our version of the",
-                          "Glottolog database. Did you mean ",
+                          " Glottolog database. Did you mean ",
                           candidate, "?",
                           sep = ""), call. = FALSE)
         }, character(1))
