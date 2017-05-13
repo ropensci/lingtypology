@@ -128,9 +128,9 @@ Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not p
 * Estonian, Nuu-chah-nulth, Loup A and Obdorsk Khanty coordinates are added. (28.04.2017)
 * Language duplicates renamed: Voro (Niger-Congo), Voro (Uralic), Ache (Tupian), Ache (Sino-Tibetan), Karipuna (Panoan), Karipuna (Tupian), Calo (Spurious), Calo (Mixed language), Wara (Niger-Congo), Wara (South-Central Papuan), Saliba (Austronesian), Saliba (Salivan), Bari (Nilo-Saharan), Bari (Chibchan) (30.04.2017)
 
-More ditailed information about how our database was created can be seen from [GitHub folder](https://github.com/agricolamz/lingtypology/tree/master/database_creation).
+More ditailed information about how our database was created can be seen from [GitHub folder](https://github.com/ropensci/lingtypology/tree/master/database_creation).
 
-After [Robert Forkel's issue](https://github.com/agricolamz/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
+After [Robert Forkel's issue](https://github.com/ropensci/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
 ```{r}
 is.glottolog(c("Abkhaz", "Abkhazian"), glottolog.source = "original")
 ```
@@ -161,7 +161,7 @@ If for some reasons you are not using RStudio or you want to automatically creat
 m <- map.feature(c("Adyghe", "Korean"))
 # install.packages("htmlwidgets")
 library(htmlwidgets)
-saveWidget(m, file="/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/m.html")
+saveWidget(m, file="TYPE_FILE_PATH/m.html")
 ```
 
 There is an export button in RStudio, but for some reason it is not so easy to save a map as a .png or .jpg file using code. [Here](http://stackoverflow.com/a/34672309/6056442) is a possible solution.

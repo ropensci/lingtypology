@@ -56,7 +56,7 @@ map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 #  m <- map.feature(c("Adyghe", "Korean"))
 #  # install.packages("htmlwidgets")
 #  library(htmlwidgets)
-#  saveWidget(m, file="/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/m.html")
+#  saveWidget(m, file="TYPE_FILE_PATH/m.html")
 
 ## ------------------------------------------------------------------------
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
