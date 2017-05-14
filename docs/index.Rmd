@@ -16,7 +16,7 @@ output:
 The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting this vignette.
 
 ## 1. Installation
-Since `lingtypology` is an R package, you should install [R](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
+Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
 ```{r, eval=FALSE}
 install.packages("lingtypology")
 ```
