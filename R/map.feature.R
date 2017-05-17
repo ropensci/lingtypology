@@ -255,8 +255,13 @@ map.feature <- function(languages,
       if(is.numeric(mapfeat.df$features)){
         pal <- leaflet::colorNumeric(palette = color,domain=mapfeat.df$features)
       }else {
-        pal <- leaflet::colorFactor(color, domain = mapfeat.df$features)
-      }}
+        if(length(mapfeat.df$features) == length(color)){
+          df <- unique(data.frame(feature = mapfeat.df$features, color))
+          color <- as.character(df[order(df$feature),]$color)
+          }
+        pal <- leaflet::colorFactor(unique(color), domain = mapfeat.df$features)
+      }
+    }
 
   if(!is.null(stroke.features)){
     if (is.null(stroke.color)) {

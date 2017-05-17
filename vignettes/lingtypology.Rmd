@@ -246,7 +246,7 @@ map.feature(df$language, df$features, df$popup)
 
 How to say _moon_ in Sign Languages? Here is an example:
 ```{r, fig.width=6.2, fig.height=3.4}
-# Lets create a dataframe with links to video
+# Create a dataframe with links to video
 sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
                  popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
 

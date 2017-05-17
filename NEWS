@@ -1,3 +1,6 @@
+lingtypology 1.0.5
+ - coloring bug corrected
+
 lingtypology 1.0.4 (13.05.2017)
   - glottolog database is improved
   - added warning for languages without coordinates
