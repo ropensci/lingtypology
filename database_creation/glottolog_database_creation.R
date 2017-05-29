@@ -274,6 +274,9 @@ glottolog.modified$language_status <- sapply(glottolog.modified$language_status,
 
 glottolog.modified <- glottolog.modified[!is.na(glottolog.modified$language),]
 
+# 6. autotype data --------------------------------------------------------
+autotyp <- read.csv("https://raw.githubusercontent.com/autotyp/autotyp-data/master/data/Register.csv")
+autotyp <- cbind.data.frame(LID = autotyp$LID, Glottocode = autotyp$Glottocode)
 
 # save files --------------------------------------------------------------
 setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/data")
@@ -282,6 +285,7 @@ save(glottolog.original, file="glottolog.original.RData", compress='xz')
 save(circassian, file="circassian.RData", compress='xz')
 save(countries, file="countries.RData", compress='xz')
 save(ejective_and_n_consonants, file="ejective_and_n_consonants.RData", compress='xz')
+save(autotyp, file="autotyp.RData", compress='xz')
 rm(list = ls())
 
 # remove some files -------------------------------------------------------

@@ -6,6 +6,7 @@ Depends: R (>= 3.1.0)
 Imports:
     leaflet,
     stats,
+    utils,
     stringdist,
     magrittr,
     grDevices,
