@@ -4,10 +4,10 @@
 \alias{autotyp.feature}
 \title{Download AUTOTYP data}
 \usage{
-autotyp.feature(feature, na.rm = TRUE, glottolog.source = "modified")
+autotyp.feature(features, na.rm = TRUE, glottolog.source = "modified")
 }
 \arguments{
-\item{feature}{A character string with a feature name.}
+\item{features}{A character vector that define with a feature names from AUTOTYP.}
 
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology. By default is TRUE.}
 
@@ -17,7 +17,7 @@ autotyp.feature(feature, na.rm = TRUE, glottolog.source = "modified")
 This function downloads data from AUTOTYP. You need the internet connection.
 }
 \examples{
-# autotyp.feature('Gender')
+autotyp.feature(c('Gender', 'Numeral classifiers'))
 }
 \author{
 George Moroz <agricolamz@gmail.com>
