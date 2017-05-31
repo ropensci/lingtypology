@@ -11,7 +11,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2017-05-14" />
+<meta name="date" content="2017-05-31" />
 
 <title>lingtypology: easy mapping for Linguistic Typology</title>
 
@@ -259,7 +259,7 @@ div.tocify {
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: easy mapping for Linguistic Typology</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2017-05-14</em></h4>
+<h4 class="date"><em>2017-05-31</em></h4>
 
 </div>
 
@@ -398,6 +398,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;ropensci
 <li>country names are unified. Area affiliation changed: for International Sign to Eurasia; for Hawai’i Pidgin Sign Language to Papua; for Hawai’i Creole English to Papua; for Kalaallisut to North America.</li>
 <li>Estonian, Nuu-chah-nulth, Loup A and Obdorsk Khanty coordinates are added. (28.04.2017)</li>
 <li>Language duplicates renamed: Voro (Niger-Congo), Voro (Uralic), Ache (Tupian), Ache (Sino-Tibetan), Karipuna (Panoan), Karipuna (Tupian), Calo (Spurious), Calo (Mixed language), Wara (Niger-Congo), Wara (South-Central Papuan), Saliba (Austronesian), Saliba (Salivan), Bari (Nilo-Saharan), Bari (Chibchan) (30.04.2017)</li>
+<li>Lezghian changed to Lezgian (31.05.2017)</li>
 </ul>
 <p>More ditailed information about how our database was created can be seen from <a href="https://github.com/ropensci/lingtypology/tree/master/database_creation">GitHub folder</a>.</p>
 <p>After <a href="https://github.com/ropensci/lingtypology/issues/1">Robert Forkel’s issue</a> I decided to add an argument <code>glottolog.source</code>, so that everybody has access to “original” and “modified” (by default) glottolog versions:</p>
@@ -496,7 +497,7 @@ df$popup &lt;-<span class="st"> </span><span class="kw">c</span> (<span class="s
 <div id="htmlwidget-0035eeecbb5583be9ea0" style="width:595.2px;height:326.4px;" class="leaflet html-widget"></div>
 <script type="application/json" data-for="htmlwidget-0035eeecbb5583be9ea0">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"zoomControl":false},"calls":[{"method":"addTiles","args":["OpenStreetMap.Mapnik",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addProviderTiles","args":["OpenStreetMap.Mapnik",null,"OpenStreetMap.Mapnik",{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addCircleMarkers","args":[[44,43.50822,51.843923,59,43.364585],[39.33,43.39182,18.625487,50,25.0469866667],5.5,null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":false,"color":"black","weight":5,"opacity":0.5,"fill":true,"fillColor":"black","fillOpacity":1,"dashArray":null},null,null,["<a href='http://glottolog.org/resource/languoid/iso/ady' target='_blank'>Adyghe<\/a><br>sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'","<a href='http://glottolog.org/resource/languoid/iso/kbd' target='_blank'>Kabardian<\/a><br>sɐ s-o-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'","<a href='http://glottolog.org/resource/languoid/iso/pol' target='_blank'>Polish<\/a><br>id-ę<br> go-1sg.npst<br> 'I go'","<a href='http://glottolog.org/resource/languoid/iso/rus' target='_blank'>Russian<\/a><br>ya id-u<br> 1sg go-1sg.npst <br> 'I go'","<a href='http://glottolog.org/resource/languoid/iso/bul' target='_blank'>Bulgarian<\/a><br>id-a<br> go-1sg.prs<br> 'I go'"],null,null,null,null]},{"method":"addCircleMarkers","args":[[44,43.50822,51.843923,59,43.364585],[39.33,43.39182,18.625487,50,25.0469866667],5,null,["polysynthetic","polysynthetic","fusional","fusional","fusional"],{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":false,"color":["#00FFFF","#00FFFF","#FF0000","#FF0000","#FF0000"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#00FFFF","#00FFFF","#FF0000","#FF0000","#FF0000"],"fillOpacity":1,"dashArray":null},null,null,["<a href='http://glottolog.org/resource/languoid/iso/ady' target='_blank'>Adyghe<\/a><br>sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'","<a href='http://glottolog.org/resource/languoid/iso/kbd' target='_blank'>Kabardian<\/a><br>sɐ s-o-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'","<a href='http://glottolog.org/resource/languoid/iso/pol' target='_blank'>Polish<\/a><br>id-ę<br> go-1sg.npst<br> 'I go'","<a href='http://glottolog.org/resource/languoid/iso/rus' target='_blank'>Russian<\/a><br>ya id-u<br> 1sg go-1sg.npst <br> 'I go'","<a href='http://glottolog.org/resource/languoid/iso/bul' target='_blank'>Bulgarian<\/a><br>id-a<br> go-1sg.prs<br> 'I go'"],null,null,{"clickable":false,"noHide":false,"direction":"right","opacity":1,"offset":[12,-15],"textsize":"10px","textOnly":true,"style":{"font-size":"14px"},"zoomAnimation":true,"className":""},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]},{"method":"addLegend","args":[{"colors":["#00FFFF","#FF0000"],"labels":["polysynthetic","fusional"],"na_color":null,"na_label":"NA","opacity":1,"position":"topright","type":"factor","title":null,"extra":null,"layerId":null,"className":"info legend"}]}],"limits":{"lat":[43.364585,59],"lng":[18.625487,50]}},"evals":[],"jsHooks":[]}</script>
 <p>How to say <em>moon</em> in Sign Languages? Here is an example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lets create a dataframe with links to video</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a dataframe with links to video</span>
 sign_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">languages =</span> <span class="kw">c</span>(<span class="st">&quot;American Sign Language&quot;</span>, <span class="st">&quot;Russian Sign Language&quot;</span>, <span class="st">&quot;French Sign Language&quot;</span>),
                  <span class="dt">popup =</span> <span class="kw">c</span>(<span class="st">&quot;https://media.spreadthesign.com/video/mp4/13/48600.mp4&quot;</span>, <span class="st">&quot;https://media.spreadthesign.com/video/mp4/12/17639.mp4&quot;</span>, <span class="st">&quot;https://media.spreadthesign.com/video/mp4/10/17638.mp4&quot;</span>))
 

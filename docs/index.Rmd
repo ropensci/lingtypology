@@ -130,6 +130,7 @@ Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not p
 * country names are unified. Area affiliation changed: for International Sign to Eurasia; for Hawai'i Pidgin Sign Language to Papua; for Hawai'i Creole English to Papua; for Kalaallisut to North America.
 * Estonian, Nuu-chah-nulth, Loup A and Obdorsk Khanty coordinates are added. (28.04.2017)
 * Language duplicates renamed: Voro (Niger-Congo), Voro (Uralic), Ache (Tupian), Ache (Sino-Tibetan), Karipuna (Panoan), Karipuna (Tupian), Calo (Spurious), Calo (Mixed language), Wara (Niger-Congo), Wara (South-Central Papuan), Saliba (Austronesian), Saliba (Salivan), Bari (Nilo-Saharan), Bari (Chibchan) (30.04.2017)
+* Lezghian changed to Lezgian (31.05.2017)
 
 More ditailed information about how our database was created can be seen from [GitHub folder](https://github.com/ropensci/lingtypology/tree/master/database_creation).
 
@@ -249,7 +250,7 @@ map.feature(df$language, df$features, df$popup)
 
 How to say _moon_ in Sign Languages? Here is an example:
 ```{r, fig.width=6.2, fig.height=3.4}
-# Lets create a dataframe with links to video
+# Create a dataframe with links to video
 sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
                  popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
 

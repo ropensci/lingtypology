@@ -194,6 +194,7 @@ glottolog.modified$country <- gsub("Viet Nam", "Vietnam", glottolog.modified$cou
 glottolog.modified$country <- gsub("Russian Federation \\(Asia\\)", "Russia", glottolog.modified$country)
 glottolog.modified$language <- gsub("Bininj Kun-Wok", "Gunwinggu", glottolog.modified$language)
 glottolog.modified$language <- gsub("Central Guerrero Nahuatl", "Guerrero Nahuatl", glottolog.modified$language)
+glottolog.modified$language <- gsub("Lezghian", "Lezgian", glottolog.modified$language)
 glottolog.modified$language <- gsub("Northeast Sahaptin", "Walla Walla", glottolog.modified$language)
 glottolog.modified$language <- gsub("Northwest Sahaptin", "Yakima", glottolog.modified$language)
 glottolog.modified$language <- gsub("Abkhazian", "Abkhaz", glottolog.modified$language)
