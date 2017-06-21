@@ -5,10 +5,13 @@
 \title{Create a map}
 \usage{
 map.feature(languages, features = "", popup = "", label = "",
-  label.hide = TRUE, label.fsize = 14, label.position = "right",
-  stroke.features = NULL, latitude = NULL, longitude = NULL,
-  density.estimation = FALSE, density.estimation.opacity = 0.2,
+  latitude = NULL, longitude = NULL, label.hide = TRUE,
+  label.fsize = 14, label.position = "right", stroke.features = NULL,
+  density.estimation = NULL, density.estimation.color = NULL,
+  density.estimation.opacity = 0.6, density.points = TRUE,
   density.longitude.width = NULL, density.latitude.width = NULL,
+  density.legend = TRUE, density.legend.opacity = 1,
+  density.legend.position = "bottomleft", density.title = "",
   color = NULL, stroke.color = NULL, image.url = NULL,
   image.width = 100, image.height = 100, image.X.shift = 0,
   image.Y.shift = 0, title = NULL, stroke.title = NULL, control = FALSE,
@@ -31,6 +34,10 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{label}{character vector of strings that will appear near points}
 
+\item{latitude}{numeric vector of latitudes}
+
+\item{longitude}{numeric vector of longitudes}
+
 \item{label.hide}{logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.}
 
 \item{label.fsize}{numeric value of the label font size. By default is 14.}
@@ -39,17 +46,25 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{stroke.features}{additional independent stroke features}
 
-\item{latitude}{numeric vector of latitudes}
+\item{density.estimation}{additional independent features, used for density estimation}
 
-\item{longitude}{numeric vector of longitudes}
+\item{density.estimation.color}{vector of density polygons' colors}
 
-\item{density.estimation}{mostly logical. If TRUE, it creates a density estimation polygon. If write here "blank", it creates density estimation polygon without points.}
+\item{density.estimation.opacity}{a numeric vector of density polygons opacity.}
 
-\item{density.estimation.opacity}{a numeric vector of density estimation opacity.}
+\item{density.points}{logical. If FALSE, it doesn't show points in polygones.}
 
 \item{density.longitude.width}{bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).}
 
 \item{density.latitude.width}{bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).}
+
+\item{density.legend}{logical. If TRUE, function show legend for density features. By default is FALSE.}
+
+\item{density.legend.opacity}{a numeric vector of density-legend opacity.}
+
+\item{density.legend.position}{the position of the legend: "topright", "bottomright", "bottomleft","topleft"}
+
+\item{density.title}{title of a density-feature legend}
 
 \item{color}{vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}}
 
@@ -107,7 +122,8 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{tile.name}{a character verctor with a user's map tiles' names}
 
-\item{zoom.control}{logical. If TRUE, function shows zoom controls. By default is FALSE.}
+\item{zoom.control}{logical. If TRUE, function shows zoom controls. By default is FALSE.
+#' @author George Moroz <agricolamz@gmail.com>}
 
 \item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}
 
@@ -177,7 +193,4 @@ map.feature(c("Adyghe", "Russian"), minimap = TRUE)
 map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
 
 
-}
-\author{
-George Moroz <agricolamz@gmail.com>
 }

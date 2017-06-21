@@ -2,7 +2,6 @@
 ^\.Rproj\.user$
 ^codecov\.yml$
 ^\.travis\.yml$
-^.*tests$
 ^rsconnect
 ^appveyor\.yml$
 ^glottolog_database_creation\.R

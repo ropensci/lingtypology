@@ -3,51 +3,57 @@
 #' Map a set of languages and color them by feature or two sets of features.
 #'
 #' @param languages character vector of languages (can be written in lower case)
-#' @param features character vector of features
-#' @param stroke.features additional independent stroke features
-#' @param popup character vector of strings that will appear in pop-up window
-#' @param label character vector of strings that will appear near points
-#' @param label.hide logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.
-#' @param label.fsize numeric value of the label font size. By default is 14.
-#' @param label.position the position of labels: "left", "right", "top", "bottom"
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
-#' @param density.estimation mostly logical. If TRUE, it creates a density estimation polygon. If write here "blank", it creates density estimation polygon without points.
-#' @param density.estimation.opacity a numeric vector of density estimation opacity.
-#' @param density.latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
-#' @param density.longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param features character vector of features
+#' @param stroke.features additional independent stroke features
+#' @param density.estimation additional independent features, used for density estimation
+#' @param popup character vector of strings that will appear in pop-up window
+#' @param label character vector of strings that will appear near points
+#' @param minimap logical. If TRUE, function shows mini map. By default is FALSE.
+#' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
+#' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}
-#' @param stroke.color vector of stroke colors
+#' @param control logical. If TRUE, function show layer control buttons. By default is TRUE.
+#' @param density.estimation.color vector of density polygons' colors
+#' @param density.estimation.opacity a numeric vector of density polygons opacity.
+#' @param density.latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param density.legend logical. If TRUE, function show legend for density features. By default is FALSE.
+#' @param density.legend.opacity a numeric vector of density-legend opacity.
+#' @param density.legend.position the position of the legend: "topright", "bottomright", "bottomleft","topleft"
+#' @param density.longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param density.points logical. If FALSE, it doesn't show points in polygones.
+#' @param density.title title of a density-feature legend
+#' @param image.height numeric vector of image heights
 #' @param image.url character vector of URLs with an images
 #' @param image.width numeric vector of image widths
-#' @param image.height numeric vector of image heights
 #' @param image.X.shift numeric vector of image's X axis shift relative to the latitude-longitude point
 #' @param image.Y.shift numeric vector of image's Y axis shift relative to the latitude-longitude point
-#' @param title title of a legend
-#' @param stroke.title title of a stroke-feature legend
-#' @param control logical. If TRUE, function show layer control buttons. By default is TRUE.
+#' @param label.fsize numeric value of the label font size. By default is 14.
+#' @param label.hide logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.
+#' @param label.position the position of labels: "left", "right", "top", "bottom"
 #' @param legend logical. If TRUE, function show legend. By default is FALSE.
 #' @param legend.opacity a numeric vector of legend opacity.
 #' @param legend.position the position of the legend: "topright", "bottomright", "bottomleft","topleft"
+#' @param map.orientation a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".
+#' @param minimap.height The height of the minimap in pixels.
+#' @param minimap.position the position of the minimap: "topright", "bottomright", "bottomleft","topleft"
+#' @param minimap.width The width of the minimap in pixels.
+#' @param opacity a numeric vector of marker opacity.
+#' @param radius a numeric vector of radii for the circles.
+#' @param scale.bar logical. If TRUE, function shows scale-bar. By default is TRUE.
+#' @param scale.bar.position the position of the scale-bar: "topright", "bottomright", "bottomleft","topleft"
+#' @param stroke.color vector of stroke colors
 #' @param stroke.legend logical. If TRUE, function show stroke.legend. By default is FALSE.
 #' @param stroke.legend.opacity a numeric vector of stroke.legend opacity.
 #' @param stroke.legend.position the position of the stroke.legend: "topright", "bottomright", "bottomleft","topleft"
-#' @param radius a numeric vector of radii for the circles.
-#' @param stroke.radius a numeric vector of stroke radii for the circles.
-#' @param opacity a numeric vector of marker opacity.
 #' @param stroke.opacity a numeric vector of stroke opacity.
-#' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
+#' @param stroke.radius a numeric vector of stroke radii for the circles.
+#' @param stroke.title title of a stroke-feature legend
 #' @param tile.name a character verctor with a user's map tiles' names
-#' @param scale.bar logical. If TRUE, function shows scale-bar. By default is TRUE.
-#' @param scale.bar.position the position of the scale-bar: "topright", "bottomright", "bottomleft","topleft"
-#' @param minimap logical. If TRUE, function shows mini map. By default is FALSE.
-#' @param minimap.position the position of the minimap: "topright", "bottomright", "bottomleft","topleft"
-#' @param minimap.width The width of the minimap in pixels.
-#' @param minimap.height The height of the minimap in pixels.
-#' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
-#' @param map.orientation a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".
+#' @param title title of a legend
 #' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
-#' @author George Moroz <agricolamz@gmail.com>
+#' #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
 #'
@@ -137,16 +143,22 @@ map.feature <- function(languages,
                         features = "",
                         popup = "",
                         label = "",
+                        latitude = NULL,
+                        longitude = NULL,
                         label.hide = TRUE,
                         label.fsize = 14,
                         label.position = "right",
                         stroke.features = NULL,
-                        latitude = NULL,
-                        longitude = NULL,
-                        density.estimation = FALSE,
-                        density.estimation.opacity = 0.2,
+                        density.estimation = NULL,
+                        density.estimation.color = NULL,
+                        density.estimation.opacity = 0.6,
+                        density.points = TRUE,
                         density.longitude.width = NULL,
                         density.latitude.width = NULL,
+                        density.legend = TRUE,
+                        density.legend.opacity = 1,
+                        density.legend.position = "bottomleft",
+                        density.title = "",
                         color = NULL,
                         stroke.color = NULL,
                         image.url = NULL,
@@ -196,6 +208,10 @@ map.feature <- function(languages,
     mapfeat.df$label <- label
   }
 
+  if(!is.null(density.estimation)){
+    mapfeat.df$density.estimation <- density.estimation
+  }
+
   # if there are no latitude and longitude
 
   if (is.null(latitude) & is.null(longitude)) {
@@ -242,14 +258,13 @@ map.feature <- function(languages,
   # levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
 
   # create a palette ---------------------------------------------------------
+  my_colors <- grDevices::colors()[!grepl("ivory|azure|white|gray|grey|black|pink|1", grDevices::colors())]
   if (is.null(color)) {
     if(is.numeric(mapfeat.df$features)){
       pal <- leaflet::colorNumeric(palette = "BuPu", domain=mapfeat.df$features)
-    } else {
-    set.seed(42)
-    pal <- leaflet::colorFactor(
-      sample(grDevices::rainbow(length(unique(mapfeat.df$features))),
-             length(unique(mapfeat.df$features))),
+    } else {set.seed(45)
+      pal <- leaflet::colorFactor(
+      sample(my_colors, length(unique(mapfeat.df$features))),
       domain = mapfeat.df$features)
     }} else {
       if(is.numeric(mapfeat.df$features)){
@@ -261,6 +276,23 @@ map.feature <- function(languages,
           }
         pal <- leaflet::colorFactor(unique(color), domain = mapfeat.df$features)
       }
+    }
+
+    if (is.null(density.estimation.color)) {
+    if(is.numeric(mapfeat.df$density.estimation)){
+      density.estimation.pal <- leaflet::colorNumeric(palette = "BuPu", domain=mapfeat.df$density.estimation)
+    } else {
+      set.seed(45)
+      density.estimation.pal <- leaflet::colorFactor(
+      sample(my_colors, length(unique(mapfeat.df$density.estimation)),
+             length(unique(mapfeat.df$density.estimation))),
+      domain = mapfeat.df$density.estimation)
+    }} else {
+        if(length(mapfeat.df$density.estimation) == length(density.estimation.color)){
+          df <- unique(data.frame(feature = mapfeat.df$density.estimation, color = density.estimation.color))
+          density.estimation.color <- as.character(df[order(df$feature),]$color)
+          }
+        density.estimation.pal <- leaflet::colorFactor(unique(density.estimation.color), domain = mapfeat.df$density.estimation)
     }
 
   if(!is.null(stroke.features)){
@@ -290,11 +322,11 @@ map.feature <- function(languages,
   }
 
   # create a density polygones --------------------------------------------
-  if(density.estimation != FALSE){
-    my_poly_names <- names(which(table(mapfeat.df$features) > 1))
+  if(!is.null(density.estimation)){
+    my_poly_names <- names(which(table(mapfeat.df$density.estimation) > 1))
     my_poly <- lapply(my_poly_names, function(feature){
-      polygon.points(mapfeat.df[mapfeat.df$features == feature, 'lat'],
-                     mapfeat.df[mapfeat.df$features == feature, 'long'],
+      polygon.points(mapfeat.df[mapfeat.df$density.estimation == feature, 'lat'],
+                     mapfeat.df[mapfeat.df$density.estimation == feature, 'long'],
                      latitude_width = density.latitude.width,
                      longitude_width = density.longitude.width)
   })
@@ -313,10 +345,10 @@ map.feature <- function(languages,
   }
 
   # if there is density estimation ------------------------------------------
-  if(density.estimation != FALSE){
+  if(!is.null(density.estimation)){
     lapply(seq_along(my_poly), function(x){
       m <<- m %>% leaflet::addPolygons(data = my_poly[[x]],
-                                       color = pal(my_poly_names[x]),
+                                       color = density.estimation.pal(my_poly_names[x]),
                                        opacity = 0.2,
                                        fillOpacity=density.estimation.opacity)})
   }
@@ -353,7 +385,7 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                     group = mapfeat.stroke$stroke.features)}
 
     # map: add points ----------------------------------------
-    if(density.estimation != "blank"){
+    if(density.points != FALSE){
       m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
@@ -432,6 +464,15 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                   pal = stroke.pal,
                                   values = mapfeat.stroke$stroke.features,
                                   opacity = stroke.legend.opacity)
+  }
+
+  # map: density.legend ------------------------------------------------------
+  if (!is.null(density.estimation) & density.legend == TRUE) {
+    m <- m %>% leaflet::addLegend(title = density.title,
+                                  position = density.legend.position,
+                                  pal = density.estimation.pal,
+                                  values = mapfeat.df$density.estimation,
+                                  opacity = density.legend.opacity)
   }
 
   # map: MiniMap ------------------------------------------------------------

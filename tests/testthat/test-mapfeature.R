@@ -37,12 +37,13 @@ test_that("map.feature coordinates", {
 density1 <- map.feature(circassian$language, circassian$language,
                         longitude = circassian$longitude,
                         latitude = circassian$latitude,
-                        density.estimation = T)
+                        density.estimation = circassian$language)
 
 density2 <- map.feature(circassian$language, circassian$language,
                         longitude = circassian$longitude,
                         latitude = circassian$latitude,
-                        density.estimation = "blank")
+                        density.estimation = circassian$language,
+                        density.points = FALSE)
 
 test_that("map.feature density estimation", {
   expect_equal(exists("density1"), TRUE)
@@ -83,7 +84,7 @@ map_colorless2 <- map.feature(c("Tabasaran", "Adyghe"),
 test_that("map.feature colors", {
     expect_equal(map_colors$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
     expect_equal(map_colors2$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
-    expect_equal(map_colorless$x$calls[[4]]$args[6][[1]]$color, c("#FF0000", "#FF0000"))
+    expect_equal(map_colorless$x$calls[[4]]$args[6][[1]]$color, c("#CD8500", "#CD8500"))
     expect_equal(map_colorless2$x$calls[[4]]$args[6][[1]]$color, c("#F7FCFD", "#4D004B"))
     expect_equal(map_lang_colors$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#000080"))
     expect_equal(map_stroke$x$calls[[4]]$args[6][[1]]$color, c("#FFFFFF", "#FFFFFF", "#000000", "#000000", "#000000"))

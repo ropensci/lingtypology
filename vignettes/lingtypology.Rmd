@@ -190,9 +190,9 @@ map.feature(languages = df$language, features = df$features)
 
 Like in most R functions, it is not necessary to name all arguments, so the same result can be obtained by:
 ```{r, fig.width=6.2, fig.height=3.4}
-
 map.feature(df$language, df$features)
 ```
+
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
 There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 27 languages from [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have two variables: categorical variable `ejectives` indicates whether language have any ejective sound, numeric variable `n.cons.lapsyd` contain information about number of consonants (based on LAPSyD database). We can create two maps with categorical variable and with numeric variable:
@@ -226,12 +226,6 @@ The function `aff.lang()`  creates a vector of genealogical affiliations that ca
 map.feature(languages = df$language, features = df$features, popup = df$popup)
 ```
 
-Like before, it is not necessary to name all arguments, so the same result can be obtained by this:
-```{r, fig.width=6.2, fig.height=3.4}
-
-map.feature(df$language, df$features, df$popup)
-```
-
 Pop-up strings can contain HTML tags, so it is easy to insert a link, a couple of lines, a table or even a video and sound. Here is how pop-up boxes can demonstrate language examples:
 ```{r, fig.width=6.2, fig.height=3.4}
 # change a df$popup vector
@@ -242,7 +236,9 @@ df$popup <- c ("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
                "id-a<br> go-1sg.prs<br> 'I go'")
 # create a map
 
-map.feature(df$language, df$features, df$popup)
+map.feature(df$language,
+            features = df$features,
+            popup = df$popup)
 ```
 
 How to say _moon_ in Sign Languages? Here is an example:
@@ -278,12 +274,9 @@ map.feature(df$language, df$features,
             label.hide = TRUE)
 ```
 
-
-
 ### 3.5 Set coordinates
 Users can set their own coordinates using the arguments `latitude` and `longitude`. It is important to note, that `lingtypology` works only with decimal degrees (something like this: 0.1), not with  degrees, minutes and seconds (something like this: 0° 06′ 0″). I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
 ```{r, fig.width=6.2, fig.height=3.4}
-
 map.feature(languages = circassian$language,
             features = circassian$dialect,
             popup = circassian$village,
@@ -309,7 +302,6 @@ map.feature(ejective_and_n_consonants$language,
             color = "magma")
 ```
 
-
 ### 3.7 Set control box
 The package can generate a control box that allows users to toggle the visibility of points and features. To enable it, there is an argument  `control` in the `map.feature` function:
 
@@ -331,7 +323,8 @@ map.feature(circassian$language,
             longitude = circassian$longitude)
 ```
 
-It is important to note that `stroke.features` can work with `NA` values. The function won't plot anything if there is an `NA` value. Let's set a language value to `NA` in all Baksan villages from the `circassian` dataset
+It is important to note that `stroke.features` can work with `NA` values. The function won't plot anything if there is an `NA` value. Let's set a language value to `NA` in all Baksan villages from the `circassian` dataset.
+
 ```{r, message= F, fig.width=6.2, fig.height=3.4}
 # create newfeature variable
 newfeature <- circassian[,c(5,6)]
@@ -369,14 +362,12 @@ map.feature(circassian$language,
 ### 3.10 Customizing legends
 By default the legend appears in the bottom left corner. If there are stroke features, two legends are generated. There are additional arguments that control the appearence and the title of the legends.
 ```{r, fig.width=6.2, fig.height=3.4}
-
 map.feature(circassian$language,
             features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
             legend = FALSE, stroke.legend = TRUE)
-
 
 map.feature(circassian$language,
             features = circassian$dialect,
@@ -390,7 +381,6 @@ The arguments `legend.position` and `stroke.legend.position` allow users to chan
 ### 3.11 Set scale bar
 A scale bar is automatically added to a map, but users can control its appearance (set `scale.bar` argument to `TRUE` or `FALSE`) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
 ```{r, fig.width=6.2, fig.height=3.4}
-
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             scale.bar = TRUE,
             scale.bar.position = "topright")
@@ -410,8 +400,8 @@ map.feature(df$lang, df$feature, df$popup,
 It is possible to use different map tiles on the same map. Just add a vector with tiles.
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
 map.feature(df$lang, df$feature, df$popup,
             tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
@@ -420,8 +410,8 @@ map.feature(df$lang, df$feature, df$popup,
 It is possible to name tiles using the `tile.name` argument.
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
 map.feature(df$lang, df$feature, df$popup,
             tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
@@ -431,8 +421,8 @@ map.feature(df$lang, df$feature, df$popup,
 It is possible to combine the tiles' control box with the features' control box.
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
 map.feature(df$lang, df$feature, df$popup,
             tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
@@ -442,7 +432,6 @@ map.feature(df$lang, df$feature, df$popup,
 ### 3.13 Add a minimap to a map
 It is possible to add a minimap to a map.
 ```{r, fig.width=6.2, fig.height=3.4}
-
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap = TRUE)
 ```
@@ -456,7 +445,6 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap.height = 100,
             minimap.width = 100)
 ```
-
 
 ### 3.14 Add a picture to a map
 The argument images.url allows users to add their own pictures to a map, using an url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
@@ -520,41 +508,36 @@ Sometimes it is easear to look at density contour plot. It can be created using 
 map.feature(circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = TRUE,
-            color = "darkgreen")
+            density.estimation = circassian$language)
 ```
 
-If there are some levels of the `features` argument, kernal density estimation plot will be created for each level:
+Density estimation plot can be colored by :
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
-            features = circassian$language,
+            features = circassian$dialect,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = TRUE,
-            color = c("darkgreen", "blue"))
+            density.estimation = circassian$language)
 ```
 
-It is possible to remove points and display only kernal density estimation plot, using the `"blank"` value:
+It is possible to remove points and display only kernal density estimation plot, using the `density.points` argument:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
-            features = circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = "blank",
-            color = c("darkgreen", "blue"))
+            density.estimation = circassian$language,
+            density.points = FALSE)
 ```
 
 It is possible to change kernal density estimation plot opacity using `density.estimation.opacity` argument:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
-            features = circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = "blank",
-            density.estimation.opacity = 0.5,
-            color = c("darkgreen", "blue"))
+            density.estimation = circassian$language,
+            density.estimation.opacity = 0.9)
 ```
 
 Since this type of visualisation is based on kernal density estimation, there are parametres `density.longitude.width` and `density.latitude.width` that increase/decrease area:
@@ -563,7 +546,7 @@ map.feature(circassian$language,
             features = circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = T,
+            density.estimation = "Circassian",
             density.longitude.width = 0.3,
             density.latitude.width = 0.3, 
             color = c("darkgreen", "blue"))
@@ -573,7 +556,7 @@ map.feature(circassian$language,
             features = circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = T,
+            density.estimation = "Circassian",
             density.longitude.width = 0.7,
             density.latitude.width = 0.7, 
             color = c("darkgreen", "blue"))
@@ -583,7 +566,7 @@ map.feature(circassian$language,
             features = circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = T,
+            density.estimation = "Circassian",
             density.longitude.width = 1.3,
             density.latitude.width = 0.9, 
             color = c("darkgreen", "blue"))

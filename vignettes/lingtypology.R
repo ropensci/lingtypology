@@ -72,7 +72,6 @@ df$features <- factor(df$features, levels = c("polysynthetic", "fusional"))
 map.feature(languages = df$language, features = df$features)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-
 map.feature(df$language, df$features)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
@@ -94,10 +93,6 @@ df$popup <- aff.lang(df$language)
 map.feature(languages = df$language, features = df$features, popup = df$popup)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-
-map.feature(df$language, df$features, df$popup)
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 # change a df$popup vector
 df$popup <- c ("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
                "sɐ s-o-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
@@ -106,10 +101,12 @@ df$popup <- c ("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
                "id-a<br> go-1sg.prs<br> 'I go'")
 # create a map
 
-map.feature(df$language, df$features, df$popup)
+map.feature(df$language,
+            features = df$features,
+            popup = df$popup)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-# Lets create a dataframe with links to video
+# Create a dataframe with links to video
 sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
                  popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
 
@@ -132,7 +129,6 @@ map.feature(df$language, df$features,
             label.hide = TRUE)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-
 map.feature(languages = circassian$language,
             features = circassian$dialect,
             popup = circassian$village,
@@ -196,14 +192,12 @@ map.feature(circassian$language,
             opacity = 0.7, stroke.opacity = 0.6)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-
 map.feature(circassian$language,
             features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
             legend = FALSE, stroke.legend = TRUE)
-
 
 map.feature(circassian$language,
             features = circassian$dialect,
@@ -213,7 +207,6 @@ map.feature(circassian$language,
             title = "Circassian dialects", stroke.title = "Languages")
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             scale.bar = TRUE,
             scale.bar.position = "topright")
@@ -228,16 +221,16 @@ map.feature(df$lang, df$feature, df$popup,
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
 map.feature(df$lang, df$feature, df$popup,
             tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
 map.feature(df$lang, df$feature, df$popup,
             tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
@@ -245,15 +238,14 @@ map.feature(df$lang, df$feature, df$popup,
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
 map.feature(df$lang, df$feature, df$popup,
             tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
             control = TRUE)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap = TRUE)
 
@@ -311,40 +303,35 @@ map.feature(languages = df$lang,
 map.feature(circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = TRUE,
-            color = "darkgreen")
+            density.estimation = circassian$language)
+
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(circassian$language,
+            features = circassian$dialect,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = circassian$language)
+
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = circassian$language,
+            density.points = FALSE)
+
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            density.estimation = circassian$language,
+            density.estimation.opacity = 0.9)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(circassian$language,
             features = circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = TRUE,
-            color = c("darkgreen", "blue"))
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            features = circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = "blank",
-            color = c("darkgreen", "blue"))
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            features = circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = "blank",
-            density.estimation.opacity = 0.5,
-            color = c("darkgreen", "blue"))
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            features = circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = T,
+            density.estimation = "Circassian",
             density.longitude.width = 0.3,
             density.latitude.width = 0.3, 
             color = c("darkgreen", "blue"))
@@ -354,7 +341,7 @@ map.feature(circassian$language,
             features = circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = T,
+            density.estimation = "Circassian",
             density.longitude.width = 0.7,
             density.latitude.width = 0.7, 
             color = c("darkgreen", "blue"))
@@ -364,7 +351,7 @@ map.feature(circassian$language,
             features = circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = T,
+            density.estimation = "Circassian",
             density.longitude.width = 1.3,
             density.latitude.width = 0.9, 
             color = c("darkgreen", "blue"))
