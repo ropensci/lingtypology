@@ -226,6 +226,9 @@ glottolog.modified[glottolog.modified$language %in% "Archi", 'longitude'] <- 46.
 glottolog.modified[glottolog.modified$language %in% "Archi", 'latitude'] <- 42.0664
 glottolog.modified[glottolog.modified$language %in% "Inkhoqwari", 'longitude'] <- 46.044877
 glottolog.modified[glottolog.modified$language %in% "Inkhoqwari", 'latitude'] <- 42.410888
+glottolog.modified[glottolog.modified$language %in% "Situ", 'longitude'] <- 102.66
+glottolog.modified[glottolog.modified$language %in% "Situ", 'latitude'] <- 31.59
+
 glottolog.modified[glottolog.modified$language %in% "Inkhoqwari", 'affiliation'] <- "North Caucasian, East Caucasian, Tsezic, West Tsezic"
 glottolog.modified[glottolog.modified$language %in% "Hinuq", 'affiliation'] <- "North Caucasian, East Caucasian, Tsezic, West Tsezic"
 glottolog.modified[glottolog.modified$language %in% "Tsez", 'affiliation'] <- "North Caucasian, East Caucasian, Tsezic, West Tsezic"
