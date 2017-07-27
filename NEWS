@@ -1,5 +1,5 @@
 lingtypology 1.0.6
- - all functions that takes iso or glottolog codes from user remove spaces and punctuation marks. So users can make mistakes (like `lang.gltc('icel1247   ')` or `lang.gltc('icel1247,')`), but functions will ignore them. (Thanks @macleginn for this idea)
+ - all functions that takes iso or glottolog codes from user remove spaces and punctuation marks. So users can make mistakes (like lang.gltc('icel1247   ') or lang.gltc('icel1247,')), but functions will ignore them. (Thanks @macleginn for this idea)
 
 lingtypology 1.0.5 (21.06.2017)
  - coloring bug corrected
