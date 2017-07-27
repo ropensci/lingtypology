@@ -15,6 +15,7 @@ iso.gltc <- function(x, glottolog.source = "modified") {
   ifelse(grepl(glottolog.source, "original"),
          glottolog <- lingtypology::glottolog.original,
          glottolog <- lingtypology::glottolog.modified)
+  x <- gsub("\\W", "", x)
   vapply(x, function(y) {
     ifelse(y %in% glottolog$glottocode,
            glottolog[tolower(glottolog$glottocode) %in% tolower(y),]$iso,
