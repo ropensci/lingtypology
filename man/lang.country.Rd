@@ -4,12 +4,15 @@
 \alias{lang.country}
 \title{Get languages by country}
 \usage{
-lang.country(x, list = FALSE, glottolog.source = "modified")
+lang.country(x, list = FALSE, official = FALSE,
+  glottolog.source = "modified")
 }
 \arguments{
 \item{x}{character vector of the countries (can be written in lower case)}
 
 \item{list}{logical. If TRUE, returns a list of languages, if FALSE return a vector.}
+
+\item{official}{logical. If TRUE, returns a vector of official languages, if FALSE return a vector from Glottolog database.}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
@@ -20,6 +23,7 @@ Takes any vector of countries and return languages.
 lang.country('North Korea')
 lang.country(c('North Korea', 'Luxembourg'))
 lang.country(c('North Korea', 'Luxembourg'), list = TRUE)
+
 }
 \seealso{
 \code{\link{lang.aff}}, \code{\link{lang.iso}}

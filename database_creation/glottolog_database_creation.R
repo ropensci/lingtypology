@@ -154,7 +154,7 @@ setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/d
 glottolog.original <- read_tsv("glottolog.original.tsv")
 glottolog.modified <- glottolog.original
 circassian <- read_csv("circassian.csv")
-countries <- read_tsv("country.names.csv")
+countries <- read_csv("country.names.csv")
 ejective_and_n_consonants <- read_csv("ejective_and_n_consonants.csv")
 gltcless <- read_csv("gltcless.csv")
 
