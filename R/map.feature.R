@@ -205,7 +205,7 @@ map.feature <- function(languages,
   mapfeat.df <- data.frame(languages, features,
                            popup = popup)
   if(sum(label == "") != length(label)){
-    mapfeat.df$label <- label
+    mapfeat.df$label <- as.character(label)
   }
 
   if(!is.null(density.estimation)){
