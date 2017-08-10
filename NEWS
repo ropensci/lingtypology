@@ -1,10 +1,11 @@
 lingtypology 1.0.6
  - all functions that takes iso or glottolog codes from user remove spaces and punctuation marks. So users can make mistakes (like lang.gltc('icel1247   ') or lang.gltc('icel1247,')), but functions will ignore them. (Thanks @macleginn for this idea)
  - add argument "official" to function lang.country()
+ - add function phoible.feature() for downloading PHOIBLE data
 
-lingtypology 1.0.5 (21.06.2017)
+lingtypology 1.0.5 (21
  - coloring bug corrected
- - add function for downloading AUTOTYP data
+ - add function autotyp.feature() for downloading AUTOTYP data
  - density estimation arguments works with independent features
 
 lingtypology 1.0.4 (13.05.2017)
