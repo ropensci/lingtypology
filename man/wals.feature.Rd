@@ -17,7 +17,7 @@ wals.feature(features, na.rm = TRUE, glottolog.source = "modified")
 This function downloads data from WALS (http://wals.info). You need the internet connection.
 }
 \examples{
-wals.feature(c("1a", "20a"))
+# wals.feature(c("1a", "20a"))
 }
 \author{
 George Moroz <agricolamz@gmail.com>

@@ -20,7 +20,7 @@ phoible.feature(features = "all", source = "all", na.rm = TRUE,
 This function downloads data from PHOIBLE (http://phoible.org/). You need the internet connection.
 }
 \examples{
-phoible.feature(c('Consonants', 'Vowels'), source = "UPSID")
+# phoible.feature(c('Consonants', 'Vowels'), source = "UPSID")
 }
 \author{
 George Moroz <agricolamz@gmail.com>

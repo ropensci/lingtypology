@@ -17,7 +17,7 @@ autotyp.feature(features, na.rm = TRUE, glottolog.source = "modified")
 This function downloads data from AUTOTYP (https://github.com/autotyp/autotyp-data#the-autotyp-database). You need the internet connection.
 }
 \examples{
-autotyp.feature(c('Gender', 'Numeral classifiers'))
+# autotyp.feature(c('Gender', 'Numeral classifiers'))
 }
 \author{
 George Moroz <agricolamz@gmail.com>
