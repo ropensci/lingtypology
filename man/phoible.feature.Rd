@@ -12,12 +12,12 @@ phoible.feature(features = "all", source = "all", na.rm = TRUE,
 
 \item{source}{A character vector that define with a source names from PHOIBLE (possible values: "all", "AA", "GM", "PH", "RA", "SAPHON", "SPA", "UPSID").}
 
-\item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology. By default is TRUE.}
+\item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-This function downloads data from PHOIBLE. You need the internet connection.
+This function downloads data from PHOIBLE (http://phoible.org/). You need the internet connection.
 }
 \examples{
 phoible.feature(c('Consonants', 'Vowels'), source = "UPSID")

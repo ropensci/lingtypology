@@ -1,9 +1,9 @@
 #' Download AUTOTYP data
 #'
-#' This function downloads data from AUTOTYP. You need the internet connection.
+#' This function downloads data from AUTOTYP (https://github.com/autotyp/autotyp-data#the-autotyp-database). You need the internet connection.
 #'
 #' @param features A character vector that define with a feature names from AUTOTYP.
-#' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology. By default is TRUE.
+#' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
