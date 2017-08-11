@@ -7,7 +7,7 @@
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
-#' wals.feature(c("1a", "20a"))
+#' # wals.feature(c("1a", "20a"))
 #' @export
 #'
 #' @importFrom utils read.csv

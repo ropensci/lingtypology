@@ -7,7 +7,7 @@
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
-#' autotyp.feature(c('Gender', 'Numeral classifiers'))
+#' # autotyp.feature(c('Gender', 'Numeral classifiers'))
 #' @export
 #'
 #' @importFrom utils read.csv
