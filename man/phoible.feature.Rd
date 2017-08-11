@@ -17,7 +17,7 @@ phoible.feature(features = "all", source = "all", na.rm = TRUE,
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-This function downloads data from PHOIBLE (http://phoible.org/). You need the internet connection.
+This function downloads data from PHOIBLE (http://phoible.org/) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # phoible.feature(c('Consonants', 'Vowels'), source = "UPSID")

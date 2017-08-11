@@ -14,7 +14,7 @@ autotyp.feature(features, na.rm = TRUE, glottolog.source = "modified")
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-This function downloads data from AUTOTYP (https://github.com/autotyp/autotyp-data#the-autotyp-database). You need the internet connection.
+This function downloads data from AUTOTYP (https://github.com/autotyp/autotyp-data#the-autotyp-database) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # autotyp.feature(c('Gender', 'Numeral classifiers'))

@@ -1,6 +1,6 @@
 #' Download AUTOTYP data
 #'
-#' This function downloads data from AUTOTYP (https://github.com/autotyp/autotyp-data#the-autotyp-database). You need the internet connection.
+#' This function downloads data from AUTOTYP (https://github.com/autotyp/autotyp-data#the-autotyp-database) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param features A character vector that define with a feature names from AUTOTYP.
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.

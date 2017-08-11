@@ -14,7 +14,7 @@ wals.feature(features, na.rm = TRUE, glottolog.source = "modified")
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
-This function downloads data from WALS (http://wals.info). You need the internet connection.
+This function downloads data from WALS (http://wals.info) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # wals.feature(c("1a", "20a"))

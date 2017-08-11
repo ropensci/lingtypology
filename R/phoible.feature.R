@@ -1,6 +1,6 @@
 #' Download PHOIBLE data
 #'
-#' This function downloads data from PHOIBLE (http://phoible.org/). You need the internet connection.
+#' This function downloads data from PHOIBLE (http://phoible.org/) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param features A character vector that define with a feature names from PHOIBLE (possible values: "all", "Phonemes", "Consonants", "Tones", "Vowels").
 #' @param source A character vector that define with a source names from PHOIBLE (possible values: "all", "AA", "GM", "PH", "RA", "SAPHON", "SPA", "UPSID").

@@ -3,6 +3,7 @@ lingtypology 1.0.6
  - add argument "official" to function lang.country()
  - add function phoible.feature() for downloading PHOIBLE data
  - add function wals.feature() for downloading WALS data
+ - add function afbo.feature() for downloading AfBo data
 
 lingtypology 1.0.5 (21
  - coloring bug corrected
