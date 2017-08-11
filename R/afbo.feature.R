@@ -3,7 +3,6 @@
 #' This function downloads data from AfBo (http://afbo.info) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param features A character vector that define with an affix functions from AfBo (e. g. "all", "adjectivizer", "focus").
-#' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
