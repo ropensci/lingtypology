@@ -19,6 +19,9 @@ This function downloads data from AUTOTYP (https://github.com/autotyp/autotyp-da
 \examples{
 # autotyp.feature(c('Gender', 'Numeral classifiers'))
 }
+\seealso{
+\code{\link{afbo.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}
+}
 \author{
 George Moroz <agricolamz@gmail.com>
 }

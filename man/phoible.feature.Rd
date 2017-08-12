@@ -22,6 +22,9 @@ This function downloads data from PHOIBLE (http://phoible.org/) and changes lang
 \examples{
 # phoible.feature(c('Consonants', 'Vowels'), source = "UPSID")
 }
+\seealso{
+\code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}
+}
 \author{
 George Moroz <agricolamz@gmail.com>
 }

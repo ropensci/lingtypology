@@ -19,6 +19,9 @@ This function downloads data from WALS (http://wals.info) and changes language n
 \examples{
 # wals.feature(c("1a", "20a"))
 }
+\seealso{
+\code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}
+}
 \author{
 George Moroz <agricolamz@gmail.com>
 }

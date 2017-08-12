@@ -5,6 +5,7 @@
 #' @param features A character vector that define with an affix functions from AfBo (e. g. "all", "adjectivizer", "focus").
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
+#' @seealso \code{\link{autotyp.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}
 #' @examples
 #' # afbo.feature()
 #' # afbo.feature(c("adjectivizer", "focus"))

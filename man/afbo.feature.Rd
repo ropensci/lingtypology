@@ -18,6 +18,9 @@ This function downloads data from AfBo (http://afbo.info) and changes language n
 # afbo.feature()
 # afbo.feature(c("adjectivizer", "focus"))
 }
+\seealso{
+\code{\link{autotyp.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}
+}
 \author{
 George Moroz <agricolamz@gmail.com>
 }
