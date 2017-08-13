@@ -480,7 +480,8 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
     m <- m %>% leaflet::addMiniMap(
       position = minimap.position,
       width = minimap.width,
-      height = minimap.height
+      height = minimap.height,
+      toggleDisplay = TRUE
     )
   }
   m
