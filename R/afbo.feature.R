@@ -17,29 +17,36 @@
 #'
 
 afbo.feature <- function(features = "all", glottolog.source = "modified"){
-  temp1 <- tempfile()
-  temp2 <- tempfile()
-  utils::download.file("http://afbo.info/static/download/afbo-pair.csv.zip", destfile = temp1)
-  utils::unzip(temp1, exdir = temp2)
-  df <- utils::read.csv(paste0(temp2, "/pair.csv"), stringsAsFactors = FALSE)
+  features <- gsub(c(" |:|/|\\(|\\)"), ".", tolower(features))
+  features_set <- c("all", "comparative", "superlative", "adjectivizer", "adverbializer", "clause.level.TAM", "clause.linking", "case..dative", "case..ergative", "case..non.locative.peripheral.case", "case..locative", "case..comparative","gender..human.", "noun.class..inanimate.","diminutive", "augmentative","definite.indefinite", "topic","focus", "nominalizer..miscellaneous","nominalizer..agent", "nominalizer..abstract","nominalizer..social.group", "nominalizer..place.name","number..plural", "number..dual","number..singular", "nominal.derivation..miscellaneous.","privative", "possessor.indexing","numeral.classifier", "numeral.derivation..ordinals","numeral.and.quantifier.derivation", "valency..passive","valency..causative", "valency..reflexive","valency..applicative", "valency..reciprocal","verbal.TAM", "verbal.derivation..miscellaneous.","subject.object.indexing", "verbalizer","relativizer.subordinator", "verbal.negation")
+  if(sum(!features %in% features_set) < 1){
+    temp1 <- tempfile()
+    temp2 <- tempfile()
+    utils::download.file("http://afbo.info/static/download/afbo-pair.csv.zip", destfile = temp1)
+    utils::unzip(temp1, exdir = temp2)
+    df <- utils::read.csv(paste0(temp2, "/pair.csv"), stringsAsFactors = FALSE)
 
-  vapply(seq_along(df$Recipient.name), function(i){
-    ifelse(!is.na(lang.gltc(df$Recipient.glottocode[i])),
-           df$Recipient.name[i] <<- lingtypology::lang.gltc(df$Recipient.glottocode[i]),
-           df$Recipient.name[i] <<- df$Recipient.name[i])
-  }, character(1))
+    vapply(seq_along(df$Recipient.name), function(i){
+      ifelse(!is.na(lang.gltc(df$Recipient.glottocode[i])),
+             df$Recipient.name[i] <<- lingtypology::lang.gltc(df$Recipient.glottocode[i]),
+             df$Recipient.name[i] <<- df$Recipient.name[i])
+    }, character(1))
 
-  vapply(seq_along(df$Donor.name), function(i){
-    ifelse(!is.na(lang.gltc(df$Donor.glottocode[i])),
-           df$Donor.name[i] <<- lingtypology::lang.gltc(df$Donor.glottocode[i]),
-           df$Donor.name[i] <<- df$Donor.name[i])
-  }, character(1))
+    vapply(seq_along(df$Donor.name), function(i){
+      ifelse(!is.na(lang.gltc(df$Donor.glottocode[i])),
+             df$Donor.name[i] <<- lingtypology::lang.gltc(df$Donor.glottocode[i]),
+             df$Donor.name[i] <<- df$Donor.name[i])
+    }, character(1))
 
-  features <- gsub(c(" |:|/|\\(|\\)"), ".", features)
-
-  ifelse(features == "all",
-         final_df <- df,
-         final_df <- cbind(df[, c(2:12, 14)], df[, features]))
-
+    ifelse(features == "all",
+           final_df <- df,
+           final_df <- cbind(df[, c(2:12, 14)], df[, features]))
+    } else {
+      not_features <- features[which(!features %in% features_set)]
+      stop(paste(
+        "There is no features",
+        paste0("'", not_features, "'", collapse = ", "),
+        "in AfBo database."))
+      }
   return(final_df)
 }

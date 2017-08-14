@@ -20,7 +20,8 @@ phoible.feature(features = "all", source = "all", na.rm = TRUE,
 This function downloads data from PHOIBLE (http://phoible.org/) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
-# phoible.feature(c('Consonants', 'Vowels'), source = "UPSID")
+# phoible.feature()
+# phoible.feature(c('consonants', 'vowels'), source = "UPSID")
 }
 \seealso{
 \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}

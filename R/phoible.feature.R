@@ -9,30 +9,40 @@
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}
 #' @examples
-#' # phoible.feature(c('Consonants', 'Vowels'), source = "UPSID")
+#' # phoible.feature()
+#' # phoible.feature(c('consonants', 'vowels'), source = "UPSID")
 #' @export
 #'
 #' @importFrom utils read.csv
 #'
 
 phoible.feature <- function(features = "all", source = "all", na.rm = TRUE, glottolog.source = "modified"){
-  final_df <- utils::read.csv("https://raw.githubusercontent.com/clld/phoible/master/data/phoible-aggregated.tsv",
-                              sep = "\t", stringsAsFactors = FALSE)
+  features <- tolower(features)
+  features_set <- c("all", "phonemes", "consonants", "tones", "vowels")
+  if(sum(!features %in% features_set) < 1){
+    final_df <- utils::read.csv("https://raw.githubusercontent.com/clld/phoible/master/data/phoible-aggregated.tsv",
+                                sep = "\t", stringsAsFactors = FALSE)
+    ifelse(source == "all",
+           final_df <- final_df,
+           final_df <- final_df[final_df$Source %in% source,])
 
-  ifelse(source == "all",
-         final_df <- final_df,
-         final_df <- final_df[final_df$Source %in% source,])
+    final_df$language <- lingtypology::lang.iso(final_df$LanguageCode,
+                                                glottolog.source = glottolog.source)
+    na_rm <- is.na(final_df$language)
+    ifelse(na.rm == TRUE,
+           final_df <- final_df[!na_rm,],
+           final_df[is.na(final_df$language), "language"] <- final_df[is.na(final_df$language), "LanguageName"])
 
-  final_df$language <- lingtypology::lang.iso(final_df$LanguageCode,
-                                              glottolog.source = glottolog.source)
-  na_rm <- is.na(final_df$language)
-  ifelse(na.rm == TRUE,
-         final_df <- final_df[!na_rm,],
-         final_df[is.na(final_df$language), "language"] <- final_df[is.na(final_df$language), "LanguageName"])
-
-  ifelse(features == "all",
-         final_df <- final_df[, 13:17],
-         final_df <- final_df[, c(features, "language")])
-
+    colnames(final_df) <- tolower(colnames(final_df))
+    ifelse(features == "all",
+           final_df <- final_df[, 13:17],
+           final_df <- final_df[, c(features, "language")])
+  } else {
+    not_features <- features[which(!features %in% features_set)]
+    stop(paste(
+      "There is no features",
+      paste0("'", not_features, "'", collapse = ", "),
+      "in PHOIBLE database."))
+    }
   return(final_df)
 }
