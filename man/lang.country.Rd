@@ -23,6 +23,7 @@ Takes any vector of countries and return languages.
 lang.country('North Korea')
 lang.country(c('North Korea', 'Luxembourg'))
 lang.country(c('North Korea', 'Luxembourg'), list = TRUE)
+lang.country(c('Germany', 'Luxembourg'), official = TRUE)
 
 }
 \seealso{

@@ -11,6 +11,7 @@
 #' lang.country('North Korea')
 #' lang.country(c('North Korea', 'Luxembourg'))
 #' lang.country(c('North Korea', 'Luxembourg'), list = TRUE)
+#' lang.country(c('Germany', 'Luxembourg'), official = TRUE)
 #'
 #' @export
 
@@ -41,7 +42,7 @@ lang.country <- function(x, list = FALSE, official = FALSE, glottolog.source = "
           which(unlist(lingtypology::countries) %in% y) %%
             nrow(lingtypology::countries)]
         if (length(cntr) > 0) {
-          strsplit(lingtypology::countries[cntr == lingtypology::countries$common, ]$official_languages, ", ")
+          unlist(strsplit(lingtypology::countries[cntr == lingtypology::countries$common, ]$official_languages, ", "))
         } else {
           NA
         }
