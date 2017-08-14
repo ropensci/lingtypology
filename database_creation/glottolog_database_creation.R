@@ -1,4 +1,4 @@
-library(tidyverse); library(stringr)
+library(tidyverse); library(stringr); library(zoo)
 # lets download data from glottolog-data github ---------------------------
 # 1. glottocodes ----------------------------------------------------------
 rm(list = ls())
@@ -9,7 +9,7 @@ sapply(1:length(letters), function(i){
          envir = .GlobalEnv)})
 rm(links)
 all <- eval(parse(text =
-                    paste0("c(", paste(ls(), collapкракозябруse = ", "), ")")
+                    paste0("c(", paste(ls(), collapse = ", "), ")")
 ))
 
 glottocode_df <- data.frame(matrix(vector(), 0, 3,
@@ -45,7 +45,7 @@ glottocode_df$language[grep("ü", glottocode_df$language)] <- gsub("ü", "u", gl
 glottocode_df$language[grep("ö", glottocode_df$language)] <- gsub("ö", "o", glottocode_df$language[grep("ö", glottocode_df$language)])
 glottocode_df$language[grep("ü", glottocode_df$language)] <- gsub("ü", "u", glottocode_df$language[grep("ü", glottocode_df$language)])
 glottocode_df$language[grep("ç", glottocode_df$language)] <- gsub("ç", "c", glottocode_df$language[grep("ç", glottocode_df$language)])
-glottocode_df$language[grep("ñ", glottocode_df$language)] <- gsub("ñ", "n", glottocode_df$language[grep("ç", glottocode_df$language)])
+glottocode_df$language[grep("ñ", glottocode_df$language)] <- gsub("ñ", "n", glottocode_df$language[grep("ñ", glottocode_df$language)])
 
 new_iso <- paste0("NOCODE_", gsub(" ", "-", glottocode_df[is.na(glottocode_df$iso),1]))
 glottocode_df[is.na(glottocode_df$iso),3] <- sapply(new_iso, function(x){
@@ -74,6 +74,7 @@ somthing_useless <- sapply(1:length(lginfo), function(x){
 })
 
 lginfo <- data_frame(iso, lang, lat, area)
+lginfo[lginfo$iso == "est", 1] <- "ekk"
 glottocode_df <- read_tsv("glottocode_df.tsv")
 glottocode_df <- full_join(lginfo, glottocode_df)
 glottocode_df <- glottocode_df[!(grepl("NOCODE", glottocode_df$iso) & is.na(glottocode_df$glottocode)),]
@@ -94,55 +95,55 @@ database <- data_frame(slot = sapply(1:length(database), function(x){
   paste(str_split(database[x], ": ")[[1]][-1], collapse = "")
 }))
 
-slots <- names(table(database$slot))
-new_df <- data.frame(matrix(vector(), 0, length(slots),
-                       dimnames=list(c(), str_replace(slots, " |-|\\+", "_"))),
-                stringsAsFactors=F)
+database <- database[-c(28198, 31218:31227, 95766, 101556, 106806),]
+# remove duplicates "Nauo", "Eka", "Yugh", "Kurnai"
 
-i <- 0
-sapply(1:nrow(database), function(j){
-  if(database$slot[j] == "name"){i <<- i+1}
-  new_df[i,which(database$slot[j] == slots)] <<- database$content[j]
-  })
+database$iso <-  NA
+database[which(database$slot == "name"), 3] <- database[which(database$slot == "ISO 639-3"), 2]
+database$iso <- na.locf(database$iso)
 
-new_df <- new_df[,-c(1, 5:7, 10:11, 14:15, 23)]
+database %>%
+  unique() %>%
+  filter(slot != "ISO 639-3",
+         slot != "code+name",) %>%
+  spread(key = slot, value = content) ->
+  database_new
 
-names(new_df)[6] <- "iso"
-names(new_df) <- tolower(names(new_df))
-names(new_df)[c(11, 2, 3)] <- c("language", "affiliation", "affiliation-HH")
-new_df <- new_df[, c(11, 6, 2, 1, 3:5, 7:10, 12:17)]
+database_new <- database_new[,-c(2, 6:7, 10:14, 18:20, 22:23)]
+names(database_new) <- tolower(names(database_new))
+names(database_new)[c(3, 4)] <- c("affiliation", "affiliation-HH")
 
-new_df$language[grep(", ", new_df$language)] <-
-  sapply(grep(", ", new_df$language), function(i){
-    paste(str_split(new_df$language[i], ", ")[[1]][2],
-          str_split(new_df$language[i], ", ")[[1]][1])
-  })
-
-new_df$language[new_df$language == "Norwegian Bokm\\aa{}l"] <- "Norwegian Bokmal"
-new_df$language[new_df$language == "\\textdoublebarpipe{}Hua"] <- "Hua"
-new_df$language[new_df$language == "\\textdoublebarpipe{}Kx'au||'ein"] <- "Kx'au||'ein"
-new_df$language[new_df$language == "Old Proven\\c{c}al"] <- "Old Provencal"
-new_df$language[grep("\\\\['~`^]", new_df$language)] <- gsub("\\\\['~`^]", "", new_df$language[grep("\\\\['~`^]", new_df$language)])
-new_df$language[grep('\\\\["]', new_df$language)] <- gsub('\\\\["]', "", new_df$language[grep('\\\\["]', new_df$language)])
-new_df$alternate_names[grep("\\\\['~`^]", new_df$alternate_names)] <- gsub("\\\\['~`^]", "", new_df$alternate_names[grep("\\\\['~`^]", new_df$alternate_names)])
-new_df$alternate_names[grep('\\\\["]', new_df$alternate_names)] <- gsub('\\\\["]', "", new_df$alternate_names[grep('\\\\["]', new_df$alternate_names)])
-new_df$affiliation[grep("\\\\['~`^]", new_df$affiliation)] <- gsub("\\\\['~`^]", "", new_df$affiliation[grep("\\\\['~`^]", new_df$affiliation)])
-new_df$affiliation[grep('\\\\["]', new_df$affiliation)] <- gsub('\\\\["]', "", new_df$affiliation[grep('\\\\["]', new_df$affiliation)])
-new_df$dialects[grep("\\\\['~`^]", new_df$dialects)] <- gsub("\\\\['~`^]", "", new_df$dialects[grep("\\\\['~`^]", new_df$dialects)])
-new_df$dialects[grep('\\\\["]', new_df$dialects)] <- gsub('\\\\["]', "", new_df$dialects[grep('\\\\["]', new_df$dialects)])
+# new_df$language[grep(", ", new_df$language)] <-
+#   sapply(grep(", ", new_df$language), function(i){
+#     paste(str_split(new_df$language[i], ", ")[[1]][2],
+#           str_split(new_df$language[i], ", ")[[1]][1])
+#   })
+#
+# new_df$language[new_df$language == "Norwegian Bokm\\aa{}l"] <- "Norwegian Bokmal"
+# new_df$language[new_df$language == "\\textdoublebarpipe{}Hua"] <- "Hua"
+# new_df$language[new_df$language == "\\textdoublebarpipe{}Kx'au||'ein"] <- "Kx'au||'ein"
+# new_df$language[new_df$language == "Old Proven\\c{c}al"] <- "Old Provencal"
+# new_df$language[grep("\\\\['~`^]", new_df$language)] <- gsub("\\\\['~`^]", "", new_df$language[grep("\\\\['~`^]", new_df$language)])
+# new_df$language[grep('\\\\["]', new_df$language)] <- gsub('\\\\["]', "", new_df$language[grep('\\\\["]', new_df$language)])
+# new_df$alternate_names[grep("\\\\['~`^]", new_df$alternate_names)] <- gsub("\\\\['~`^]", "", new_df$alternate_names[grep("\\\\['~`^]", new_df$alternate_names)])
+# new_df$alternate_names[grep('\\\\["]', new_df$alternate_names)] <- gsub('\\\\["]', "", new_df$alternate_names[grep('\\\\["]', new_df$alternate_names)])
+# new_df$affiliation[grep("\\\\['~`^]", new_df$affiliation)] <- gsub("\\\\['~`^]", "", new_df$affiliation[grep("\\\\['~`^]", new_df$affiliation)])
+# new_df$affiliation[grep('\\\\["]', new_df$affiliation)] <- gsub('\\\\["]', "", new_df$affiliation[grep('\\\\["]', new_df$affiliation)])
+# new_df$dialects[grep("\\\\['~`^]", new_df$dialects)] <- gsub("\\\\['~`^]", "", new_df$dialects[grep("\\\\['~`^]", new_df$dialects)])
+# new_df$dialects[grep('\\\\["]', new_df$dialects)] <- gsub('\\\\["]', "", new_df$dialects[grep('\\\\["]', new_df$dialects)])
 
 setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/database_creation")
-write_tsv(new_df, "new_df.tsv")
+write_tsv(database_new, "new_df.tsv")
 rm(list = ls())
 
 
 # 4. combine --------------------------------------------------------------
 glottocode_df <- read_tsv("glottocode_df.tsv")
 new_df <- read_tsv("new_df.tsv")
-glottocode_df <- left_join(glottocode_df, new_df, by = c("iso", "language"))
+glottocode_df <- left_join(glottocode_df, new_df, by = c("iso"))
 names(glottocode_df)[c(2, 3)] <- c("longitude", "latitude")
 
-glottocode_df <- glottocode_df[,c(5, 1, 6, 2, 3, 8, 4, 7, 9, 10:21)]
+glottocode_df <- glottocode_df[,c(5, 1, 6, 2, 3, 8, 4, 7, 9, 10:17)]
 glottocode_df[is.na(glottocode_df$affiliation), 8] <- glottocode_df[is.na(glottocode_df$affiliation), 9]
 
 setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/database_creation")
@@ -248,7 +249,7 @@ glottolog.modified[grepl("America", glottolog.modified$area) &
                      !is.na(glottolog.modified$longitude), 'longitude'] <- glottolog.modified[grepl("America", glottolog.modified$area) & !is.na(glottolog.modified$longitude), 4] + 360
 
 NWC <- read_csv("NWC.csv")
-glottolog.modified <- rbind.data.frame(glottolog.modified, NWC)
+glottolog.modified <- rbind(glottolog.modified, NWC)
 
 # 5.3 double languages ----------------------------------------------------
 double_languages <- table(glottolog.modified$language)
@@ -273,8 +274,8 @@ changes <- changes[-1,]
 
 glottolog.modified[changes$id,1] <- changes$replacement
 
-glottolog.modified$language_status <- sapply(glottolog.modified$language_status, function(x){
-  paste0(strsplit(x, "\\)")[[1]][1], ")")})
+#glottolog.modified$language_status <- sapply(glottolog.modified$language_status, function(x){
+#  paste0(strsplit(x, "\\)")[[1]][1], ")")})
 
 glottolog.modified <- glottolog.modified[!is.na(glottolog.modified$language),]
 
