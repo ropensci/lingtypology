@@ -4,10 +4,13 @@
 \alias{afbo.feature}
 \title{Download AfBo data}
 \usage{
-afbo.feature(features = "all", glottolog.source = "modified")
+afbo.feature(features = "all", na.rm = TRUE,
+  glottolog.source = "modified")
 }
 \arguments{
 \item{features}{A character vector that define with an affix functions from AfBo (e. g. "all", "adjectivizer", "focus").}
+
+\item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }

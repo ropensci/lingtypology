@@ -10,7 +10,7 @@ vignette: >
 ---
 
 ## What is `lingtypology`?
-The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting this vignette.
+The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. In addition, package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting some versions of this vignette.
 
 ## 1. Installation
 Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
@@ -575,7 +575,92 @@ map.feature(circassian$language,
 
 It is important to note, that this type of visualisation have some shortcomings. Kernal density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use different coordinate projection. That allows not to treat Earth as a flat object.
 
-## 4. `dplyr` integration
+## 4. typological databases API
+`lingtypology` provides an ability to download data from these typological databases
+
+* [World Atlas of Language Structures](http://wals.info/)
+* [AUTOTYP](https://github.com/autotyp/autotyp-data#the-autotyp-database)
+* [PHOIBLE](http://phoible.org/)
+* [Affix Borrowing database](http://afbo.info)
+* [South American Indigenous Language Structures](http://sails.clld.org/)
+* [Austronesian Basic Vocabulary Database](https://abvd.shh.mpg.de/austronesian/)
+
+All database function names have identical structure: **database_name.feature**. All functions have as first argument `feature`. All functions create dataframe with column `language` that can be used in `map.feature()` function. It should be noted that all functions cut out the data that can't be maped, so if you want to prevent functions from this behaviour set argument `na.rm` to `FALSE`.
+
+### 4.1 WALS
+The names of the WALS features can be typed in lower case. Function preserves the coordinates from WALS, so you can map coordinates from the WALS or use coordinates from `lingtypology`.
+```{r, eval= FALSE}
+df <- wals.feature(c("1a", "20a"))
+head(df)
+map.feature(df$language,
+            features = df$`1a`,
+            latitude = df$latitude,
+            longitude = df$longitude,
+            label = df$language,
+            title = "Consonant Inventories")
+```
+
+### 4.2 AUTOTYP
+The AUTOTYP features are listed on [the GitHub page](https://github.com/autotyp/autotyp-data#the-autotyp-database). You can use more human way with spaces.
+
+```{r, eval= FALSE}
+df <- autotyp.feature(c('Gender', 'Numeral classifiers'))
+head(df)
+map.feature(df$language,
+            features = df$NumClass.Presence,
+            label = df$language,
+            title = "Presence of Numeral Classifiers")
+```
+
+### 4.3 PHOIBLE
+I used only four features from PHOIBLE: the number of phonemes, the number of consonants, the number of tones and the number of vowels. If you need only set of them, just specify it in the `features` argument. Since there are a lot of doubling information in the PHOIBLE database, there is an argument `source`.
+```{r, eval= FALSE}
+df <- phoible.feature(source = "UPSID")
+head(df)
+map.feature(df$language,
+            features = df$phonemes,
+            label = df$language,
+            title = "Number of Phonemes")
+```
+
+### 4.4 AfBo
+The AfBo database has a lot of features that destinguish affix functions, but again you can use bare function without any arguments to download the whole database. There will be no difference in time, since this function downloads the whole database to your PC. The main destinction is that this database provides recipient and donor languages, so other column names should be used.
+
+```{r, eval= FALSE}
+df <- afbo.feature()
+head(df)
+map.feature(df$Recipient.name,
+            features = df$adjectivizer,
+            label = df$Recipient.name,
+            title = "Numeral Classifiers Borrowing")
+```
+
+### 4.5 SAILS
+The SAILS database provide a lot of [features](http://sails.clld.org/parameters), so the function work with their ids:
+```{r, eval = FALSE}
+df <- sails.feature(features = "ics10")
+head(df)
+map.feature(df$language,
+            features = df$ics10_description,
+            longitude = df$longitude,
+            latitude = df$latitude,
+            label = df$language,
+            title = "Are there numeral classifiers?")
+```
+
+### 4.6 ABVD
+The ABVD database is lexical database, so it is differ from other clld databases. First of all, ABVD have its own language classification ids. Information about the same language from different sourses recieve in this database different ids. So I select several languages and map them coloring by word with meaning'hand'.
+```{r, eval = FALSE}
+df <- abvd.feature(50:55)
+head(df)
+new_df <- df[df$word == "hand",]
+map.feature(new_df$language,
+            features = new_df$item,
+            label = new_df$language)
+```
+
+
+## 5. `dplyr` integration
 It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I give some examples, how to use it with `lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Lets download and map all languages from that set. Lets download data:
 
 ```{r}
@@ -607,7 +692,7 @@ new_data %>%
   map.feature(., minimap = TRUE)
 ```
 
-## 5. Citing `lingtyplogy`
+## 6. Citing `lingtyplogy`
 It is important to cite R and R packages when you use them. For this purpose use the `citation` function:
 ```{r}
 citation("lingtypology")
