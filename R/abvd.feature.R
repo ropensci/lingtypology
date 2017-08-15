@@ -23,7 +23,7 @@ abvd.feature <- function(feature, glottolog.source = "modified"){
     lines <- readLines(x, n = 26)
     skip <- grep(pattern = "^id", lines)[2]
     utils::read.csv(x, sep = "\t", skip = skip-1, stringsAsFactors = FALSE)[, c(2:4)]})
-  langs <- lang.gltc(abvd[feature, 2], glottolog.source = glottolog.source)
+  langs <- lang.gltc(lingtypology::abvd[feature, 2], glottolog.source = glottolog.source)
   lapply(seq_along(feature), function(i){
     datalist[[i]]$language <<- langs[i]})
   final_df <- Reduce(function(x,y){rbind.data.frame(x,y)}, datalist)
