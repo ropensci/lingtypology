@@ -19,26 +19,19 @@ sails.feature <- function(features, glottolog.source = "modified"){
     links <- paste0("http://sails.clld.org/parameters/", toupper(features), ".tab")
     datalist  <-  lapply(links, function(x){utils::read.csv(x,
                                                             sep = "\t",
-                                                            skip = 1,
                                                             na.strings = "N/A",
-                                                            header = FALSE,
                                                             stringsAsFactors = FALSE)})
-
-    vapply(seq_along(datalist), function(i){
-      colnames(datalist[[i]]) <<- c("iso-639-3", "name", "value", "description", "latitude", "longitude", "family")
-      }, character(7))
-
+    oldw <- getOption("warn"); options(warn = -1)
     final_df <- Reduce(function(x,y){merge(x,y, all = TRUE,
-                                           by = c("iso-639-3",
+                                           by = c("iso.639.3",
                                                   "name",
                                                   "latitude",
                                                   "longitude",
                                                   "family"))}, datalist)
-
+    options(warn = oldw)
     colnames(final_df)[grep("description", colnames(final_df))] <- paste(features, "description", sep = "_")
     colnames(final_df)[grep("value", colnames(final_df))] <- paste(features, "value", sep = "_")
-
-    final_df$language <- lingtypology::lang.iso(final_df$`iso-639-3`,
+    final_df$language <- lingtypology::lang.iso(final_df$iso.639.3,
                                                  glottolog.source = glottolog.source)
     final_df <- final_df[, -c(1:2, 5)]
     final_df <- final_df[, c(ncol(final_df), 1:(ncol(final_df)-1))]
