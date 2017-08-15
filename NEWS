@@ -5,7 +5,7 @@ lingtypology 1.0.6
  - add function wals.feature() for downloading WALS data
  - add function afbo.feature() for downloading AfBo data
  - add function sails.feature() for downloading SAILS data
- - add function advb.feature() for downloading ADVB data
+ - add function abvd.feature() for downloading ABVD data
 
 lingtypology 1.0.5 (21
  - coloring bug corrected
