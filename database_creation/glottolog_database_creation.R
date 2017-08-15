@@ -287,6 +287,9 @@ autotyp <- cbind.data.frame(LID = autotyp$LID, Glottocode = autotyp$Glottocode)
 wals <- read_tsv("http://wals.info/languoid.tab?sEcho=1&iSortingCols=1&iSortCol_0=0&sSortDir_0=asc")[, 1:2]
 colnames(wals)[1] <- "wals.code"
 
+# 8. abvd data ------------------------------------------------------------
+abvd <- read_tsv("abvd.tsv")
+
 # save files --------------------------------------------------------------
 setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/data")
 save(glottolog.modified, file="glottolog.modified.RData", compress= 'xz')
@@ -296,6 +299,7 @@ save(countries, file="countries.RData", compress='xz')
 save(ejective_and_n_consonants, file="ejective_and_n_consonants.RData", compress='xz')
 save(autotyp, file="autotyp.RData", compress='xz')
 save(wals, file="wals.RData", compress='xz')
+save(abvd, file="abvd.RData", compress='xz')
 rm(list = ls())
 
 # remove some files -------------------------------------------------------
