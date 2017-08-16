@@ -2,7 +2,7 @@
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/ropensci/lingtypology.svg?branch=master)](https://travis-ci.org/ropensci/lingtypology)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/ih3r5ubdndb34iap?svg=true)](https://ci.appveyor.com/project/agricolamz/lingtypology-p2nmi)
+[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/84ntv1rlqkuhepfj?svg=true)](https://ci.appveyor.com/project/agricolamz/lingtypology-67x52)
 [![Coverage Status](https://img.shields.io/codecov/c/github/ropensci/lingtypology/master.svg)](https://codecov.io/github/ropensci/lingtypology?branch=master)
 
 [![CRAN
