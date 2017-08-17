@@ -11,7 +11,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2017-08-15" />
+<meta name="date" content="2017-08-17" />
 
 <title>lingtypology: easy mapping for Linguistic Typology</title>
 
@@ -259,7 +259,7 @@ div.tocify {
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: easy mapping for Linguistic Typology</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2017-08-15</em></h4>
+<h4 class="date"><em>2017-08-17</em></h4>
 
 </div>
 
@@ -334,8 +334,8 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;ropensci
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">country.lang</span>(<span class="st">&quot;Adyghe&quot;</span>)</code></pre></div>
 <pre><code>##                                                                                                                  Adyghe 
 ## &quot;Turkey, United States, Israel, Australia, Egypt, Macedonia, France, Russia, Netherlands, Germany, Syria, Jordan, Iraq&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.aff</span>(<span class="st">&quot;Abkhaz-Adyge&quot;</span>)</code></pre></div>
-<pre><code>## character(0)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Adyghe&quot;    &quot;Abkhaz&quot;    &quot;Abaza&quot;     &quot;Ubykh&quot;     &quot;Kabardian&quot;</code></pre>
 <p>I would like to point out that strings in R can be created using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that <code>'Ma'ya'</code> is an incorrect string in R.</p>
 <ul>
 <li>a vector of strings</li>
@@ -352,8 +352,15 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;ropensci
 <ul>
 <li>other functions. For example, let’s try to get vector of ISO codes for the East Slavic languages</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">iso.lang</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;East Slavic&quot;</span>))</code></pre></div>
-<pre><code>## named character(0)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">iso.lang</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Slavic&quot;</span>))</code></pre></div>
+<pre><code>## Lower Sorbian     Ukrainian     Kajkavian      Croatian      Silesian 
+##         &quot;dsb&quot;         &quot;ukr&quot;         &quot;kjv&quot;         &quot;hrv&quot;         &quot;szl&quot; 
+##       Serbian         Czech         Rusyn       Russian Slavomolisano 
+##         &quot;srp&quot;         &quot;ces&quot;         &quot;rue&quot;         &quot;rus&quot;         &quot;svm&quot; 
+##    Belarusian     Slovenian        Slovak       Bosnian     Kashubian 
+##         &quot;bel&quot;         &quot;slv&quot;         &quot;slk&quot;         &quot;bos&quot;         &quot;csb&quot; 
+##    Macedonian Church Slavic     Bulgarian Upper Sorbian        Polish 
+##         &quot;mkd&quot;         &quot;chu&quot;         &quot;bul&quot;         &quot;hsb&quot;         &quot;pol&quot;</code></pre>
 <p>If you are a new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import created file to R using a standard tools.</p>
 <p>The behavior of most functions is rather predictable, but the function <code>country.lang</code> has an additional feature. By default this function takes a vector of languages and returns a vector of countries. But if you set the argument <code>intersection = TRUE</code>, then the function returns a vector of countries where all languages from the query are spoken.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">country.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Udi&quot;</span>, <span class="st">&quot;Laz&quot;</span>))</code></pre></div>
@@ -746,7 +753,7 @@ newfeature &lt;-<span class="st">  </span><span class="kw">replace</span>(newfea
 <p>Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot an additional legend text on the map.</p>
 </div>
 <div id="add-a-density-contour-plot-to-a-map" class="section level3">
-<h3>3.15 Add a density contour plot to a map</h3>
+<h3>3.14 Add a density contour plot to a map</h3>
 <p>Sometimes it is easear to look at density contour plot. It can be created using <code>density.estimation</code> argument:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian$language,
             <span class="dt">longitude =</span> circassian$longitude,

@@ -79,7 +79,7 @@ All functions introduced in the previous section are regular functions, so they 
 iso.lang("Adyghe")
 lang.iso("ady")
 country.lang("Adyghe")
-lang.aff("Abkhaz-Adyge")
+lang.aff("West Caucasian")
 ```
 
 I would like to point out that strings in R can be created using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is an incorrect string in R.
@@ -93,7 +93,7 @@ aff.lang(lang)
 
 *  other functions. For example, let's try to get vector of ISO codes for the East Slavic languages
 ```{r}
-iso.lang(lang.aff("East Slavic"))
+iso.lang(lang.aff("Slavic"))
 ```
 
 If you are a new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import created file to R using a standard tools.
@@ -505,7 +505,7 @@ map.feature(languages = df$lang,
 
 Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot an additional legend text on the map.
 
-### 3.15 Add a density contour plot to a map
+### 3.14 Add a density contour plot to a map
 Sometimes it is easear to look at density contour plot. It can be created using `density.estimation` argument:
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
@@ -660,7 +660,6 @@ map.feature(new_df$language,
             features = new_df$item,
             label = new_df$language)
 ```
-
 
 ## 5. `dplyr` integration
 It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I give some examples, how to use it with `lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Lets download and map all languages from that set. Lets download data:

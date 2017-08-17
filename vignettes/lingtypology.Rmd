@@ -76,7 +76,7 @@ All functions introduced in the previous section are regular functions, so they 
 iso.lang("Adyghe")
 lang.iso("ady")
 country.lang("Adyghe")
-lang.aff("Abkhaz-Adyge")
+lang.aff("West Caucasian")
 ```
 
 I would like to point out that strings in R can be created using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is an incorrect string in R.
@@ -90,7 +90,7 @@ aff.lang(lang)
 
 *  other functions. For example, let's try to get vector of ISO codes for the East Slavic languages
 ```{r}
-iso.lang(lang.aff("East Slavic"))
+iso.lang(lang.aff("Slavic"))
 ```
 
 If you are a new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import created file to R using a standard tools.
