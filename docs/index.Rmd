@@ -13,23 +13,23 @@ output:
 ---
 
 ## What is `lingtypology`?
-The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. In addition, package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich and Samira Verhees for reading and correcting some versions of this vignette.
+The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating a uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya  Klyagina for reading and correcting some versions of this vignette.
 
 ## 1. Installation
-Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
+Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get a stable version from CRAN:
 ```{r, eval=FALSE}
 install.packages("lingtypology")
 ```
 
-You can also get the development version from GitHub:
+You can also get a development version from GitHub:
 ```{r, eval= F}
 install.packages("devtools")
 devtools::install_github("ropensci/lingtypology")
 ```
 
-Sometimes installation failed because of the absence of the package `crosstalk` or any other. Just install it using command `install.packages("crosstalk")`.
+Sometimes installation fails because of the absence of the package `crosstalk` or any other. Just install it using command `install.packages("crosstalk")`.
 
-Load package:
+Load the package:
 ```{r}
 library(lingtypology)
 ```
@@ -54,7 +54,7 @@ Some of them help to define a vector of languages.
 * **lang.iso()** — get language by ISO 639-3 code
 * **lang.gltc()** — get language by glottocode
 
-Additionaly there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:
+Additionally there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:
 
 * **gltc.iso()** — get glottocode by ISO 639-3 code
 * **iso.gltc()** — get ISO 639-3 code by glottocode
@@ -63,7 +63,7 @@ The most important functionality of `lingtypology` is the ability to create inte
 
 * **map.feature()**
 
-[Glottolog database (v. 2.7)](http://glottolog.org/) provides `lingtypology` with  language names, ISO codes, genealogical affiliation, macro area, countries, coordinates, and many information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out an additional information that is preserved in version of the Glottolog database used in `lingtypology`:
+[Glottolog database (v. 2.7)](http://glottolog.org/) provides `lingtypology` with language names, ISO codes, genealogical affiliation, macro area, countries, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
 
 ```{r}
 names(glottolog.original)
@@ -82,7 +82,7 @@ country.lang("Adyghe")
 lang.aff("West Caucasian")
 ```
 
-I would like to point out that strings in R can be created using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is an incorrect string in R.
+I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is an incorrect string in R.
 
 * a vector of strings
 ```{r}
@@ -91,12 +91,12 @@ lang <- c("Adyghe", "Russian")
 aff.lang(lang)
 ```
 
-*  other functions. For example, let's try to get vector of ISO codes for the East Slavic languages
+*  other functions. For example, let's try to get a vector of ISO codes for the East Slavic languages
 ```{r}
 iso.lang(lang.aff("Slavic"))
 ```
 
-If you are a new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import created file to R using a standard tools.
+If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.
 
 The behavior of most functions is rather predictable, but the function `country.lang`  has an additional feature. By default this function takes a vector of languages and returns a vector of countries.  But if you set the argument `intersection = TRUE`,  then the function returns a vector of countries where all languages from the query are spoken.
 ```{r}
@@ -105,7 +105,7 @@ country.lang(c("Udi", "Laz"), intersection = TRUE)
 ```
 
 ### 2.3 Spell Checker: look carefully at warnings!
-There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example  _Ivory Coast_ or _Cote d'Ivoire_), all official country names and standard abbreviations are stored in the database:
+There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users from the trouble of having to figure out the exact name stored in the database (for example  _Ivory Coast_ or _Cote d'Ivoire_), all official country names and standard abbreviations are stored in the database:
 
 ```{r}
 lang.country("Cape Verde")
@@ -132,7 +132,7 @@ Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not p
 * Language duplicates renamed: Voro (Niger-Congo), Voro (Uralic), Ache (Tupian), Ache (Sino-Tibetan), Karipuna (Panoan), Karipuna (Tupian), Calo (Spurious), Calo (Mixed language), Wara (Niger-Congo), Wara (South-Central Papuan), Saliba (Austronesian), Saliba (Salivan), Bari (Nilo-Saharan), Bari (Chibchan) (30.04.2017)
 * Lezghian changed to Lezgian (31.05.2017)
 
-More ditailed information about how our database was created can be seen from [GitHub folder](https://github.com/ropensci/lingtypology/tree/master/database_creation).
+More detailed information about how our database was created can be seen from [GitHub folder](https://github.com/ropensci/lingtypology/tree/master/database_creation).
 
 After [Robert Forkel's issue](https://github.com/ropensci/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
 ```{r}
@@ -198,7 +198,7 @@ map.feature(df$language, df$features)
 
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
-There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 27 languages from [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have two variables: categorical variable `ejectives` indicates whether language have any ejective sound, numeric variable `n.cons.lapsyd` contain information about number of consonants (based on LAPSyD database). We can create two maps with categorical variable and with numeric variable:
+There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in the data set `ejective_and_n_consonants` that contains 27 languages from [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have two variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, the numeric variable `n.cons.lapsyd` contains information about the number of consonants (based on LAPSyD database). We can create two maps with categorical variable and with numeric variable:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(ejective_and_n_consonants$language,
@@ -207,7 +207,7 @@ map.feature(ejective_and_n_consonants$language,
             ejective_and_n_consonants$n.cons.lapsyd) # numeric
 ```
 
-Default colors are not perfect for this goal, but the main point is clear. For creating correct map, you should correctly define the type of the variable.
+Default colors are not perfect for this goal, but the main point is clear. For creating a correct map, you should correctly define the type of the variable.
 
 This dataset also can be used to show one other parameter of the `map.feature` function. There are two possible ways to show the World map: with the Atlantic sea or with the Pacific sea in the middle. If you don't need default Pacific view use the `map.orientation` parameter (thanks  @languageSpaceLabs and @tzakharko for that idea):
 ```{r, fig.width=6.2, fig.height=3.4}
@@ -218,7 +218,7 @@ map.feature(ejective_and_n_consonants$language,
 
 
 ### 3.3 Set pop-up boxes
-Sometimes it is a good idea to add some additional information (e.g. language affiliation,  references or even examples) to pop-up boxes that appear when points are clicked. In order to do so, first of all we need to create an extra vector of strings in our dataframe:
+Sometimes it is a good idea to add some additional information (e.g. language affiliation,  references or even examples) to pop-up boxes that appear when points are clicked. In order to do so, first of all  we need to create an extra vector of strings in our dataframe:
 ```{r, fig.width=6.2, fig.height=3.4}
 df$popup <- aff.lang(df$language)
 ```
@@ -297,7 +297,7 @@ map.feature(languages = df$language,
             color = c("yellowgreen", "navy"))
 ```
 
-There are some built in packages that also can be used as a color argument: [RColorBrewer](https://CRAN.R-project.org/package=RColorBrewer) or [viridis](https://CRAN.R-project.org/package=viridis).
+There are some builts in packages that also can be used as a color argument: [RColorBrewer](https://CRAN.R-project.org/package=RColorBrewer) or [viridis](https://CRAN.R-project.org/package=viridis).
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(ejective_and_n_consonants$language,
@@ -306,7 +306,7 @@ map.feature(ejective_and_n_consonants$language,
 ```
 
 ### 3.7 Set control box
-The package can generate a control box that allows users to toggle the visibility of points and features. To enable it, there is an argument  `control` in the `map.feature` function:
+The package can generate a control box that allows users to toggle the visibility of points and features. To enable it, there is an argument `control` in the `map.feature` function:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 
@@ -503,10 +503,10 @@ map.feature(languages = df$lang,
             image.Y.shift = 0)
 ```
 
-Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, the user can plot an additional legend text on the map.
+Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, a user can plot an additional legend text on the map.
 
 ### 3.14 Add a density contour plot to a map
-Sometimes it is easear to look at density contour plot. It can be created using `density.estimation` argument:
+Sometimes it is easear to look at a density contour plot. It can be created using `density.estimation` argument:
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
             longitude = circassian$longitude,
@@ -523,7 +523,7 @@ map.feature(circassian$language,
             density.estimation = circassian$language)
 ```
 
-It is possible to remove points and display only kernal density estimation plot, using the `density.points` argument:
+It is possible to remove points and display only the kernal density estimation plot, using the `density.points` argument:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
@@ -533,7 +533,7 @@ map.feature(circassian$language,
             density.points = FALSE)
 ```
 
-It is possible to change kernal density estimation plot opacity using `density.estimation.opacity` argument:
+It is possible to change kernal density estimation plot opacity using the`density.estimation.opacity` argument:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
@@ -543,7 +543,7 @@ map.feature(circassian$language,
             density.estimation.opacity = 0.9)
 ```
 
-Since this type of visualisation is based on kernal density estimation, there are parametres `density.longitude.width` and `density.latitude.width` that increase/decrease area:
+Since this type of visualisation is based on the kernal density estimation, there are parametres `density.longitude.width` and `density.latitude.width` that increase/decrease area:
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
             features = circassian$language,
@@ -576,7 +576,7 @@ map.feature(circassian$language,
 ```
 
 
-It is important to note, that this type of visualisation have some shortcomings. Kernal density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use different coordinate projection. That allows not to treat Earth as a flat object.
+It is important to note, that this type of visualisation have some shortcomings. The kernal density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
 
 ## 4. typological databases API
 `lingtypology` provides an ability to download data from these typological databases
@@ -591,7 +591,7 @@ It is important to note, that this type of visualisation have some shortcomings.
 All database function names have identical structure: **database_name.feature**. All functions have as first argument `feature`. All functions create dataframe with column `language` that can be used in `map.feature()` function. It should be noted that all functions cut out the data that can't be maped, so if you want to prevent functions from this behaviour set argument `na.rm` to `FALSE`.
 
 ### 4.1 WALS
-The names of the WALS features can be typed in lower case. Function preserves the coordinates from WALS, so you can map coordinates from the WALS or use coordinates from `lingtypology`.
+The names of the WALS features can be typed in a lower case. This function preserves coordinates from WALS, so you can map coordinates from the WALS or use coordinates from `lingtypology`.
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- wals.feature(c("1a", "20a"))
 head(df)
@@ -615,7 +615,7 @@ map.feature(df$language,
 ```
 
 ### 4.3 PHOIBLE
-I used only four features from PHOIBLE: the number of phonemes, the number of consonants, the number of tones and the number of vowels. If you need only set of them, just specify it in the `features` argument. Since there are a lot of doubling information in the PHOIBLE database, there is an argument `source`.
+I used only four features from PHOIBLE: the number of phonemes, the number of consonants, the number of tones and the number of vowels. If you need only a set of them, just specify it in the `features` argument. Since there is a lot of doubling information in the PHOIBLE database, there is an argument `source`.
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- phoible.feature(source = "UPSID")
 head(df)
@@ -626,7 +626,7 @@ map.feature(df$language,
 ```
 
 ### 4.4 AfBo
-The AfBo database has a lot of features that destinguish affix functions, but again you can use bare function without any arguments to download the whole database. There will be no difference in time, since this function downloads the whole database to your PC. The main destinction is that this database provides recipient and donor languages, so other column names should be used.
+The AfBo database has a lot of features that distinguish affix functions, but again you can use a bare function without any arguments to download the whole database. There will be no difference in time, since this function downloads the whole database to your PC. The main destinction is that this database provides recipient and donor languages, so other column names should be used.
 
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- afbo.feature()
@@ -651,7 +651,7 @@ map.feature(df$language,
 ```
 
 ### 4.6 ABVD
-The ABVD database is lexical database, so it is differ from other clld databases. First of all, ABVD have its own language classification ids. Information about the same language from different sourses recieve in this database different ids. So I select several languages and map them coloring by word with meaning'hand'.
+The ABVD database is a lexical database, so it is different from other clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring with the word that means 'hand'.
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- abvd.feature(50:55)
 head(df)
@@ -662,14 +662,14 @@ map.feature(new_df$language,
 ```
 
 ## 5. `dplyr` integration
-It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I give some examples, how to use it with `lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Lets download and map all languages from that set. Lets download data:
-
+It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. Let’s download the data:
+ 
 ```{r}
 new_data <- read.csv("https://goo.gl/GgscBE")
 tail(new_data)
 ```
 
-As we see, some values of the `Language.name` variable contain more then one language name. Some of the names probably have different name in our database. Imagine that we want to map all languages from Africa. For correct work of the following examples use `library(dplyr)`.
+As we see, some values of the `Language.name` variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use `library(dplyr)`.
 
 ```{r, fig.width=6.2, fig.height=3.4, message= FALSE, eval = FALSE}
 new_data %>%
@@ -680,9 +680,9 @@ new_data %>%
   map.feature()
 ```
 
-We start with a dataframe, here `new_data`. First we remove spaces on the end of each string. Then we check, whether the language names are in glottolog database. Then we select only row that cantain languages of Africa. Then we select the `Language.name` variable. And the last line map all selected languages.
+We start with a dataframe, here a `new_data`. First we remove spaces at the end of each string. Then we check, whether the language names are in the glottolog database. Then we select only rows that contain languages of Africa. Then we select the `Language.name` variable. And the last line maps all selected languages.
 
-By default, values that came from the pipe are treated as a first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Lets produce the same map with a minimap.
+By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.
 
 ```{r, fig.width=6.2, fig.height=3.4, message= FALSE, eval = FALSE}
 new_data %>%
