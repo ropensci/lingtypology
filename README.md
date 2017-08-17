@@ -36,10 +36,7 @@ library(lingtypology)
 
 For a detailed tutorial see [GitHub pages](https://ropensci.github.io/lingtypology/).
 
-You can contribute to `lingtypology` by
-
-* creating an issue
-* then opening a Pull Request
+You can contribute to `lingtypology`, but [contribution info](https://github.com/ropensci/lingtypology/blob/master/CONTRIBUTING.md) before.
 
 ---
 

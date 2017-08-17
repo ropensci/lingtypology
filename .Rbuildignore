@@ -8,3 +8,5 @@
 ^docs$
 ^\.Rprofile$
 ^README.md
+^CONTRIBUTING.md
+^ISSUE_TEMPLATE.md
