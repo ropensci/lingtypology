@@ -578,7 +578,7 @@ map.feature(circassian$language,
 
 It is important to note, that this type of visualisation have some shortcomings. The kernal density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
 
-## 4. typological databases API
+## 4. Typological databases API
 `lingtypology` provides an ability to download data from these typological databases
 
 * [World Atlas of Language Structures](http://wals.info/)
