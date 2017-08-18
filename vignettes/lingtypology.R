@@ -15,7 +15,7 @@ names(glottolog.original)
 iso.lang("Adyghe")
 lang.iso("ady")
 country.lang("Adyghe")
-lang.aff("Abkhaz-Adyge")
+lang.aff("West Caucasian")
 
 ## ------------------------------------------------------------------------
 area.lang(c("Adyghe", "Aduge"))
@@ -23,7 +23,7 @@ lang <- c("Adyghe", "Russian")
 aff.lang(lang)
 
 ## ------------------------------------------------------------------------
-iso.lang(lang.aff("East Slavic"))
+iso.lang(lang.aff("Slavic"))
 
 ## ------------------------------------------------------------------------
 country.lang(c("Udi", "Laz"))
@@ -356,7 +356,7 @@ map.feature(circassian$language,
             density.latitude.width = 0.9, 
             color = c("darkgreen", "blue"))
 
-## ---- eval= FALSE--------------------------------------------------------
+## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
 #  df <- wals.feature(c("1a", "20a"))
 #  head(df)
 #  map.feature(df$language,
@@ -366,7 +366,7 @@ map.feature(circassian$language,
 #              label = df$language,
 #              title = "Consonant Inventories")
 
-## ---- eval= FALSE--------------------------------------------------------
+## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
 #  df <- autotyp.feature(c('Gender', 'Numeral classifiers'))
 #  head(df)
 #  map.feature(df$language,
@@ -374,7 +374,7 @@ map.feature(circassian$language,
 #              label = df$language,
 #              title = "Presence of Numeral Classifiers")
 
-## ---- eval= FALSE--------------------------------------------------------
+## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
 #  df <- phoible.feature(source = "UPSID")
 #  head(df)
 #  map.feature(df$language,
@@ -382,7 +382,7 @@ map.feature(circassian$language,
 #              label = df$language,
 #              title = "Number of Phonemes")
 
-## ---- eval= FALSE--------------------------------------------------------
+## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
 #  df <- afbo.feature()
 #  head(df)
 #  map.feature(df$Recipient.name,
@@ -390,7 +390,7 @@ map.feature(circassian$language,
 #              label = df$Recipient.name,
 #              title = "Numeral Classifiers Borrowing")
 
-## ---- eval = FALSE-------------------------------------------------------
+## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
 #  df <- sails.feature(features = "ics10")
 #  head(df)
 #  map.feature(df$language,
@@ -400,7 +400,7 @@ map.feature(circassian$language,
 #              label = df$language,
 #              title = "Are there numeral classifiers?")
 
-## ---- eval = FALSE-------------------------------------------------------
+## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
 #  df <- abvd.feature(50:55)
 #  head(df)
 #  new_df <- df[df$word == "hand",]
@@ -408,11 +408,12 @@ map.feature(circassian$language,
 #              features = new_df$item,
 #              label = new_df$language)
 
-## ------------------------------------------------------------------------
-new_data <- read.csv("https://goo.gl/GgscBE")
-tail(new_data)
+## ---- eval=FALSE---------------------------------------------------------
+#  new_data <- read.csv("https://goo.gl/GgscBE")
+#  tail(new_data)
 
-## ---- fig.width=6.2, fig.height=3.4, message= FALSE, eval = FALSE--------
+## ---- fig.width=6.2, fig.height=3.4, message= FALSE, eval=FALSE----------
+#  library(dplyr)
 #  new_data %>%
 #    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>%
 #    filter(is.glottolog(Language.name) == TRUE) %>%
@@ -420,7 +421,7 @@ tail(new_data)
 #    select(Language.name) %>%
 #    map.feature()
 
-## ---- fig.width=6.2, fig.height=3.4, message= FALSE, eval = FALSE--------
+## ---- fig.width=6.2, fig.height=3.4, message= FALSE, eval=FALSE----------
 #  new_data %>%
 #    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>%
 #    filter(is.glottolog(Language.name) == TRUE) %>%

@@ -16,12 +16,12 @@ output:
 The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating a uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya  Klyagina for reading and correcting some versions of this vignette.
 
 ## 1. Installation
-Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get a stable version from CRAN:
+Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
 ```{r, eval=FALSE}
 install.packages("lingtypology")
 ```
 
-You can also get a development version from GitHub:
+You can also get the development version from GitHub:
 ```{r, eval= F}
 install.packages("devtools")
 devtools::install_github("ropensci/lingtypology")
@@ -105,7 +105,7 @@ country.lang(c("Udi", "Laz"), intersection = TRUE)
 ```
 
 ### 2.3 Spell Checker: look carefully at warnings!
-There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users from the trouble of having to figure out the exact name stored in the database (for example  _Ivory Coast_ or _Cote d'Ivoire_), all official country names and standard abbreviations are stored in the database:
+There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example  _Ivory Coast_ or _Cote d'Ivoire_), all official country names and standard abbreviations are stored in the database:
 
 ```{r}
 lang.country("Cape Verde")
@@ -152,7 +152,7 @@ is.glottolog(c("Abkhaz", "Abkhazian"), g = "m")
 
 ## 3. Map features with `map.feature`
 ### 3.1 Base map
-The most important part of the `lingtypology` package is the function `map.feature`. This function allows a user to produce maps similar to known projects within [the Cross-Linguistic Linked Data philosophy](http://clld.org/), such as [WALS](http://wals.info/) and [Glottolog](http://glottolog.org/):
+The most important part of the `lingtypology` package is the function `map.feature`. This function allows you to produce maps similar to known projects within [the Cross-Linguistic Linked Data philosophy](http://clld.org/), such as [WALS](http://wals.info/) and [Glottolog](http://glottolog.org/):
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 ```
@@ -198,7 +198,7 @@ map.feature(df$language, df$features)
 
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
-There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in the data set `ejective_and_n_consonants` that contains 27 languages from [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have two variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, the numeric variable `n.cons.lapsyd` contains information about the number of consonants (based on LAPSyD database). We can create two maps with categorical variable and with numeric variable:
+There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 27 languages from [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have two variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, the numeric variable `n.cons.lapsyd` contains information about the number of consonants (based on LAPSyD database). We can create two maps with categorical variable and with numeric variable:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(ejective_and_n_consonants$language,
@@ -278,7 +278,7 @@ map.feature(df$language, df$features,
 ```
 
 ### 3.5 Set coordinates
-Users can set their own coordinates using the arguments `latitude` and `longitude`. It is important to note, that `lingtypology` works only with decimal degrees (something like this: 0.1), not with  degrees, minutes and seconds (something like this: 0° 06′ 0″). I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
+You can set your own coordinates using the arguments `latitude` and `longitude`. It is important to note, that `lingtypology` works only with decimal degrees (something like this: 0.1), not with  degrees, minutes and seconds (something like this: 0° 06′ 0″). I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(languages = circassian$language,
             features = circassian$dialect,
@@ -288,7 +288,7 @@ map.feature(languages = circassian$language,
 ```
 
 ### 3.6 Set colors
-By default the color palette is created by the `rainbow()` function, but users can set their own colors using the argument `color`:
+By default the color palette is created by the `rainbow()` function, but you can set your own colors using the argument `color`:
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
                  features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
@@ -297,7 +297,7 @@ map.feature(languages = df$language,
             color = c("yellowgreen", "navy"))
 ```
 
-There are some builts in packages that also can be used as a color argument: [RColorBrewer](https://CRAN.R-project.org/package=RColorBrewer) or [viridis](https://CRAN.R-project.org/package=viridis).
+Arguments from [RColorBrewer](https://CRAN.R-project.org/package=RColorBrewer) or [viridis](https://CRAN.R-project.org/package=viridis) also can be used as a color argument:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(ejective_and_n_consonants$language,
@@ -316,7 +316,7 @@ map.feature(languages = df$language,
 ```
 
 ### 3.8 Set an additional set of features using strokes
-The `map.feature` function has an additional argument `stroke.features`. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so for two levels it will be black and white, for three --- black, grey, white end so on), but users can set their own colors using the argument `stroke.color`:
+The `map.feature` function has an additional argument `stroke.features`. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so for two levels it will be black and white, for three --- black, grey, white end so on), but you can set your own colors using the argument `stroke.color`:
 ```{r, fig.width=6.2, fig.height=3.4}
 
 map.feature(circassian$language,
@@ -343,7 +343,7 @@ map.feature(circassian$language,
 ```
 
 ### 3.9 Set radii and an opacity feature
-All markers have their own radius and opacity, so it can be set by users. Just use the arguments `radius`, `stroke.radius`, `opacity` and `stroke.opacity`:
+All markers have their own radius and opacity, so you can set it. Just use the arguments `radius`, `stroke.radius`, `opacity` and `stroke.opacity`:
 ```{r, fig.width=6.2, fig.height=3.4}
 
 map.feature(circassian$language,
@@ -379,10 +379,10 @@ map.feature(circassian$language,
             longitude = circassian$longitude,
             title = "Circassian dialects", stroke.title = "Languages")
 ```
-The arguments `legend.position` and `stroke.legend.position` allow users to change a legend's position using "topright", "bottomright", "bottomleft" or "topleft" strings.
+The arguments `legend.position` and `stroke.legend.position` allow you to change a legend's position using "topright", "bottomright", "bottomleft" or "topleft" strings.
 
 ### 3.11 Set scale bar
-A scale bar is automatically added to a map, but users can control its appearance (set `scale.bar` argument to `TRUE` or `FALSE`) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
+A scale bar is automatically added to a map, but you can control its appearance (set `scale.bar` argument to `TRUE` or `FALSE`) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or "topleft").
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             scale.bar = TRUE,
@@ -439,7 +439,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap = TRUE)
 ```
 
-Users can control its appearance (by setting the `minimap` argument to TRUE or FALSE), its position (by using the values "topright", "bottomright", "bottomleft" or "topleft" of the `minimap.position` argument) and its height and width (with the arguments `minimap.height` and `minimap.width`).
+You can control its appearance (by setting the `minimap` argument to TRUE or FALSE), its position (by using the values "topright", "bottomright", "bottomleft" or "topleft" of the `minimap.position` argument) and its height and width (with the arguments `minimap.height` and `minimap.width`).
 ```{r, fig.width=6.2, fig.height=3.4}
 
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
@@ -450,7 +450,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 ```
 
 ### 3.14 Add a picture to a map
-The argument images.url allows users to add their own pictures to a map, using an url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
+The argument images.url allows you to add your own pictures to a map, using an url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
 
 * [Moscow](http://web-corpora.net/~agricolamz/maps/lingtypology/Moscow.png)
 * [St. Petersburg](http://web-corpora.net/~agricolamz/maps/lingtypology/St.%20Petersburg.png)
@@ -469,7 +469,7 @@ map.feature(languages = df$lang,
             image.url = df$urls)
 ```
 
-Users can change the size of the pictures.
+You can change the size of the pictures.
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- data.frame(lang = c("Russian", "Russian"),
                  lat  = c(55.75, 59.95),
@@ -503,7 +503,7 @@ map.feature(languages = df$lang,
             image.Y.shift = 0)
 ```
 
-Using this argument, users can plot their own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, a user can plot an additional legend text on the map.
+Using this argument, you can plot your own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, you can plot an additional legend text on the map.
 
 ### 3.14 Add a density contour plot to a map
 Sometimes it is easear to look at a density contour plot. It can be created using `density.estimation` argument:
@@ -651,7 +651,7 @@ map.feature(df$language,
 ```
 
 ### 4.6 ABVD
-The ABVD database is a lexical database, so it is different from other clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring with the word that means 'hand'.
+The ABVD database is a lexical database, so it is different from clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring by word with the meaning 'hand'.
 ```{r, fig.width=6.2, fig.height=3.4}
 df <- abvd.feature(50:55)
 head(df)
@@ -662,7 +662,7 @@ map.feature(new_df$language,
 ```
 
 ## 5. `dplyr` integration
-It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. Let’s download the data:
+It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. First download the data:
  
 ```{r}
 new_data <- read.csv("https://goo.gl/GgscBE")
@@ -671,7 +671,8 @@ tail(new_data)
 
 As we see, some values of the `Language.name` variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use `library(dplyr)`.
 
-```{r, fig.width=6.2, fig.height=3.4, message= FALSE, eval = FALSE}
+```{r, fig.width=6.2, fig.height=3.4, message= FALSE}
+library(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 
@@ -684,7 +685,7 @@ We start with a dataframe, here a `new_data`. First we remove spaces at the end 
 
 By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.
 
-```{r, fig.width=6.2, fig.height=3.4, message= FALSE, eval = FALSE}
+```{r, fig.width=6.2, fig.height=3.4, message= FALSE}
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 
