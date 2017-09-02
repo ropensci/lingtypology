@@ -271,10 +271,10 @@ map.feature <- function(languages,
         pal <- leaflet::colorNumeric(palette = color,domain=mapfeat.df$features)
       }else {
         if(length(mapfeat.df$features) == length(color)){
-          df <- unique(data.frame(feature = mapfeat.df$features, color))
-          color <- as.character(df[order(df$feature),]$color)
-          }
-        pal <- leaflet::colorFactor(unique(color), domain = mapfeat.df$features)
+           df <- unique(data.frame(feature = mapfeat.df$features, color))
+           color <- as.character(df[order(df$feature),]$color)
+           }
+        pal <- leaflet::colorFactor(color, domain = mapfeat.df$features)
       }
     }
 
