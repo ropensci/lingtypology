@@ -22,7 +22,7 @@ map.feature(languages, features = "", popup = "", label = "",
   scale.bar.position = "bottomleft", minimap = FALSE,
   minimap.position = "bottomright", minimap.width = 150,
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
-  zoom.control = FALSE, map.orientation = "Pacific",
+  zoom.control = FALSE, zoom.level = NULL, map.orientation = "Pacific",
   glottolog.source = "modified")
 }
 \arguments{
@@ -122,7 +122,9 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{tile.name}{a character verctor with a user's map tiles' names}
 
-\item{zoom.control}{logical. If TRUE, function shows zoom controls. By default is FALSE.
+\item{zoom.control}{logical. If TRUE, function shows zoom controls. By default is FALSE.}
+
+\item{zoom.level}{a numeric value of the zoom level.
 #' @author George Moroz <agricolamz@gmail.com>}
 
 \item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}

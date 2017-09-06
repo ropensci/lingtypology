@@ -53,6 +53,7 @@
 #' @param tile.name a character verctor with a user's map tiles' names
 #' @param title title of a legend
 #' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
+#' @param zoom.level a numeric value of the zoom level.
 #' #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
@@ -188,6 +189,7 @@ map.feature <- function(languages,
                         tile = "OpenStreetMap.Mapnik",
                         tile.name = NULL,
                         zoom.control = FALSE,
+                        zoom.level = NULL,
                         map.orientation = "Pacific",
                         glottolog.source = "modified"){
 
@@ -484,5 +486,16 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
       toggleDisplay = TRUE
     )
   }
+  # zoom.level argument -----------------------------------------------------
+  if(!is.null(zoom.level)) {
+    m <- m %>% leaflet::setView(
+      lng = mean(mapfeat.df$long),
+      lat = mean(mapfeat.df$lat),
+      zoom = zoom.level
+    )
+  }
   m
 }
+
+
+
