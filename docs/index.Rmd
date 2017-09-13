@@ -575,7 +575,6 @@ map.feature(circassian$language,
             color = c("darkgreen", "blue"))
 ```
 
-
 It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
 
 ## 4. Typological databases API
@@ -592,7 +591,7 @@ All database function names have identical structure: **database_name.feature**.
 
 ### 4.1 WALS
 The names of the WALS features can be typed in a lower case. This function preserves coordinates from WALS, so you can map coordinates from the WALS or use coordinates from `lingtypology`.
-```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
+```{r, fig.width=6.2, fig.height=3.4}
 df <- wals.feature(c("1a", "20a"))
 head(df)
 map.feature(df$language,
@@ -605,7 +604,7 @@ map.feature(df$language,
 
 ### 4.2 AUTOTYP
 The AUTOTYP features are listed on [the GitHub page](https://github.com/autotyp/autotyp-data#the-autotyp-database). You can use more human way with spaces.
-```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
+```{r, fig.width=6.2, fig.height=3.4}
 df <- autotyp.feature(c('Gender', 'Numeral classifiers'))
 head(df)
 map.feature(df$language,
@@ -616,7 +615,7 @@ map.feature(df$language,
 
 ### 4.3 PHOIBLE
 I used only four features from PHOIBLE: the number of phonemes, the number of consonants, the number of tones and the number of vowels. If you need only a set of them, just specify it in the `features` argument. Since there is a lot of doubling information in the PHOIBLE database, there is an argument `source`.
-```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
+```{r, fig.width=6.2, fig.height=3.4}
 df <- phoible.feature(source = "UPSID")
 head(df)
 map.feature(df$language,
@@ -627,8 +626,7 @@ map.feature(df$language,
 
 ### 4.4 AfBo
 The AfBo database has a lot of features that distinguish affix functions, but again you can use a bare function without any arguments to download the whole database. There will be no difference in time, since this function downloads the whole database to your PC. The main destinction is that this database provides recipient and donor languages, so other column names should be used.
-
-```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
+```{r, fig.width=6.2, fig.height=3.4}
 df <- afbo.feature()
 head(df)
 map.feature(df$Recipient.name,
@@ -639,7 +637,7 @@ map.feature(df$Recipient.name,
 
 ### 4.5 SAILS
 The SAILS database provide a lot of [features](http://sails.clld.org/parameters), so the function work with their ids:
-```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
+```{r, fig.width=6.2, fig.height=3.4}
 df <- sails.feature(features = "ics10")
 head(df)
 map.feature(df$language,
@@ -652,7 +650,7 @@ map.feature(df$language,
 
 ### 4.6 ABVD
 The ABVD database is a lexical database, so it is different from clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring by word with the meaning 'hand'.
-```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
+```{r, fig.width=6.2, fig.height=3.4}
 df <- abvd.feature(50:55)
 head(df)
 new_df <- df[df$word == "hand",]
@@ -664,14 +662,14 @@ map.feature(new_df$language,
 ## 5. `dplyr` integration
 It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. First download the data:
  
-```{r, eval=FALSE}
+```{r}
 new_data <- read.csv("https://goo.gl/GgscBE")
 tail(new_data)
 ```
 
 As we see, some values of the `Language.name` variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use `library(dplyr)`.
 
-```{r, fig.width=6.2, fig.height=3.4, message= FALSE, eval=FALSE}
+```{r, fig.width=6.2, fig.height=3.4, message= FALSE}
 library(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
@@ -685,7 +683,7 @@ We start with a dataframe, here a `new_data`. First we remove spaces at the end 
 
 By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.
 
-```{r, fig.width=6.2, fig.height=3.4, message= FALSE, eval=FALSE}
+```{r, fig.width=6.2, fig.height=3.4, message= FALSE}
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 
