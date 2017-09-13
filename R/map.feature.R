@@ -256,9 +256,6 @@ map.feature <- function(languages,
     mapfeat.stroke <- mapfeat.stroke[stats::complete.cases(mapfeat.stroke),]
   }
 
-  # change feature names ----------------------------------------------------
-  # levels(mapfeat.df$features) <- paste(names(table(mapfeat.df$features)), " (", table(mapfeat.df$features), ")", sep = "")
-
   # create a palette ---------------------------------------------------------
   my_colors <- grDevices::colors()[!grepl("ivory|azure|white|gray|grey|black|pink|1", grDevices::colors())]
   if (is.null(color)) {
@@ -375,7 +372,6 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
 leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                     lat=mapfeat.stroke$lat,
                     popup= mapfeat.df$link,
-                    label= mapfeat.df$label,
                     labelOptions = leaflet::labelOptions(noHide = !(label.hide),
                         direction = label.position,
                         textOnly = TRUE,
@@ -496,6 +492,3 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
   }
   m
 }
-
-
-

@@ -15,7 +15,7 @@ The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](htt
 ## 1. Installation
 Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
 ```{r, eval=FALSE}
-install.packages("lingtypology")
+install.packages("lingtypology", dependencies = TRUE)
 ```
 
 You can also get the development version from GitHub:
@@ -88,9 +88,9 @@ lang <- c("Adyghe", "Russian")
 aff.lang(lang)
 ```
 
-*  other functions. For example, let's try to get a vector of ISO codes for the East Slavic languages
+*  other functions. For example, let's try to get a vector of ISO codes for the Circassian languages
 ```{r}
-iso.lang(lang.aff("Slavic"))
+iso.lang(lang.aff("Circassian"))
 ```
 
 If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.
@@ -107,7 +107,7 @@ There are some functions that take country names as input. Unfortunately, some c
 ```{r}
 lang.country("Cape Verde")
 lang.country("Cabo Verde")
-head(lang.country("UK"))
+head(lang.country("USA"))
 ```
 All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.
 ```{r}
@@ -503,7 +503,7 @@ map.feature(languages = df$lang,
 Using this argument, you can plot your own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, you can plot an additional legend text on the map.
 
 ### 3.14 Add a density contour plot to a map
-Sometimes it is easear to look at a density contour plot. It can be created using `density.estimation` argument:
+Sometimes it is easier to look at a density contour plot. It can be created using `density.estimation` argument:
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
             longitude = circassian$longitude,
@@ -540,7 +540,7 @@ map.feature(circassian$language,
             density.estimation.opacity = 0.9)
 ```
 
-Since this type of visualisation is based on the kernal density estimation, there are parametres `density.longitude.width` and `density.latitude.width` that increase/decrease area:
+Since this type of visualisation is based on the kernal density estimation, there are parameters `density.longitude.width` and `density.latitude.width` that increase/decrease area:
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
             features = circassian$language,
@@ -573,7 +573,7 @@ map.feature(circassian$language,
 ```
 
 
-It is important to note, that this type of visualisation have some shortcomings. The kernal density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
+It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
 
 ## 4. Typological databases API
 `lingtypology` provides an ability to download data from these typological databases

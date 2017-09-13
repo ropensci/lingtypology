@@ -18,7 +18,7 @@ The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](htt
 ## 1. Installation
 Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
 ```{r, eval=FALSE}
-install.packages("lingtypology")
+install.packages("lingtypology", dependencies = TRUE)
 ```
 
 You can also get the development version from GitHub:
@@ -91,9 +91,9 @@ lang <- c("Adyghe", "Russian")
 aff.lang(lang)
 ```
 
-*  other functions. For example, let's try to get a vector of ISO codes for the East Slavic languages
+*  other functions. For example, let's try to get a vector of ISO codes for the Circassian languages
 ```{r}
-iso.lang(lang.aff("Slavic"))
+iso.lang(lang.aff("Circassian"))
 ```
 
 If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.
@@ -110,7 +110,7 @@ There are some functions that take country names as input. Unfortunately, some c
 ```{r}
 lang.country("Cape Verde")
 lang.country("Cabo Verde")
-head(lang.country("UK"))
+head(lang.country("USA"))
 ```
 All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.
 ```{r}
@@ -506,7 +506,7 @@ map.feature(languages = df$lang,
 Using this argument, you can plot your own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, you can plot an additional legend text on the map.
 
 ### 3.14 Add a density contour plot to a map
-Sometimes it is easear to look at a density contour plot. It can be created using `density.estimation` argument:
+Sometimes it is easier to look at a density contour plot. It can be created using `density.estimation` argument:
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
             longitude = circassian$longitude,
@@ -543,7 +543,7 @@ map.feature(circassian$language,
             density.estimation.opacity = 0.9)
 ```
 
-Since this type of visualisation is based on the kernal density estimation, there are parametres `density.longitude.width` and `density.latitude.width` that increase/decrease area:
+Since this type of visualisation is based on the kernal density estimation, there are parameters `density.longitude.width` and `density.latitude.width` that increase/decrease area:
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,
             features = circassian$language,
@@ -576,7 +576,7 @@ map.feature(circassian$language,
 ```
 
 
-It is important to note, that this type of visualisation have some shortcomings. The kernal density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
+It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
 
 ## 4. Typological databases API
 `lingtypology` provides an ability to download data from these typological databases
@@ -592,7 +592,7 @@ All database function names have identical structure: **database_name.feature**.
 
 ### 4.1 WALS
 The names of the WALS features can be typed in a lower case. This function preserves coordinates from WALS, so you can map coordinates from the WALS or use coordinates from `lingtypology`.
-```{r, fig.width=6.2, fig.height=3.4}
+```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
 df <- wals.feature(c("1a", "20a"))
 head(df)
 map.feature(df$language,
@@ -605,7 +605,7 @@ map.feature(df$language,
 
 ### 4.2 AUTOTYP
 The AUTOTYP features are listed on [the GitHub page](https://github.com/autotyp/autotyp-data#the-autotyp-database). You can use more human way with spaces.
-```{r, fig.width=6.2, fig.height=3.4}
+```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
 df <- autotyp.feature(c('Gender', 'Numeral classifiers'))
 head(df)
 map.feature(df$language,
@@ -616,7 +616,7 @@ map.feature(df$language,
 
 ### 4.3 PHOIBLE
 I used only four features from PHOIBLE: the number of phonemes, the number of consonants, the number of tones and the number of vowels. If you need only a set of them, just specify it in the `features` argument. Since there is a lot of doubling information in the PHOIBLE database, there is an argument `source`.
-```{r, fig.width=6.2, fig.height=3.4}
+```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
 df <- phoible.feature(source = "UPSID")
 head(df)
 map.feature(df$language,
@@ -628,7 +628,7 @@ map.feature(df$language,
 ### 4.4 AfBo
 The AfBo database has a lot of features that distinguish affix functions, but again you can use a bare function without any arguments to download the whole database. There will be no difference in time, since this function downloads the whole database to your PC. The main destinction is that this database provides recipient and donor languages, so other column names should be used.
 
-```{r, fig.width=6.2, fig.height=3.4}
+```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
 df <- afbo.feature()
 head(df)
 map.feature(df$Recipient.name,
@@ -639,7 +639,7 @@ map.feature(df$Recipient.name,
 
 ### 4.5 SAILS
 The SAILS database provide a lot of [features](http://sails.clld.org/parameters), so the function work with their ids:
-```{r, fig.width=6.2, fig.height=3.4}
+```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
 df <- sails.feature(features = "ics10")
 head(df)
 map.feature(df$language,
@@ -652,7 +652,7 @@ map.feature(df$language,
 
 ### 4.6 ABVD
 The ABVD database is a lexical database, so it is different from clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring by word with the meaning 'hand'.
-```{r, fig.width=6.2, fig.height=3.4}
+```{r, fig.width=6.2, fig.height=3.4, eval=FALSE}
 df <- abvd.feature(50:55)
 head(df)
 new_df <- df[df$word == "hand",]
@@ -664,14 +664,14 @@ map.feature(new_df$language,
 ## 5. `dplyr` integration
 It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. First download the data:
  
-```{r}
+```{r, eval=FALSE}
 new_data <- read.csv("https://goo.gl/GgscBE")
 tail(new_data)
 ```
 
 As we see, some values of the `Language.name` variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use `library(dplyr)`.
 
-```{r, fig.width=6.2, fig.height=3.4, message= FALSE}
+```{r, fig.width=6.2, fig.height=3.4, message= FALSE, eval=FALSE}
 library(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
@@ -685,7 +685,7 @@ We start with a dataframe, here a `new_data`. First we remove spaces at the end 
 
 By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.
 
-```{r, fig.width=6.2, fig.height=3.4, message= FALSE}
+```{r, fig.width=6.2, fig.height=3.4, message= FALSE, eval=FALSE}
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 

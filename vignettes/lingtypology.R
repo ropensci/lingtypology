@@ -1,5 +1,5 @@
 ## ---- eval=FALSE---------------------------------------------------------
-#  install.packages("lingtypology")
+#  install.packages("lingtypology", dependencies = TRUE)
 
 ## ---- eval= F------------------------------------------------------------
 #  install.packages("devtools")
@@ -23,7 +23,7 @@ lang <- c("Adyghe", "Russian")
 aff.lang(lang)
 
 ## ------------------------------------------------------------------------
-iso.lang(lang.aff("Slavic"))
+iso.lang(lang.aff("Circassian"))
 
 ## ------------------------------------------------------------------------
 country.lang(c("Udi", "Laz"))
@@ -32,7 +32,7 @@ country.lang(c("Udi", "Laz"), intersection = TRUE)
 ## ------------------------------------------------------------------------
 lang.country("Cape Verde")
 lang.country("Cabo Verde")
-head(lang.country("UK"))
+head(lang.country("USA"))
 
 ## ------------------------------------------------------------------------
 aff.lang("Adyge")
