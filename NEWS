@@ -1,5 +1,7 @@
 lingtypology 1.0.7
-" - add argument ""zoom.level"" to function map.feature()."
+ - add argument ""zoom.level"" to function map.feature()."
+ - colour repetition bug corrected. Issue #18
+ - NA bug in stroke.features corrected. Issue #19
 
 lingtypology 1.0.6 (16.08.2017)
  - all functions that takes iso or glottolog codes from user remove spaces and punctuation marks. So users can make mistakes (like lang.gltc('icel1247   ') or lang.gltc('icel1247,')), but functions will ignore them. (Thanks @macleginn for this idea)
