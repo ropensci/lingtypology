@@ -22,8 +22,9 @@ map.feature(languages, features = "", popup = "", label = "",
   scale.bar.position = "bottomleft", minimap = FALSE,
   minimap.position = "bottomright", minimap.width = 150,
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
-  zoom.control = FALSE, zoom.level = NULL, map.orientation = "Pacific",
-  glottolog.source = "modified")
+  zoom.control = FALSE, zoom.level = NULL, rectangle.lng = NULL,
+  rectangle.lat = NULL, rectangle.color = "black",
+  map.orientation = "Pacific", glottolog.source = "modified")
 }
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case)}
@@ -80,9 +81,9 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{image.Y.shift}{numeric vector of image's Y axis shift relative to the latitude-longitude point}
 
-\item{title}{title of a legend}
+\item{title}{title of a legend.}
 
-\item{stroke.title}{title of a stroke-feature legend}
+\item{stroke.title}{title of a stroke-feature legend.}
 
 \item{control}{logical. If TRUE, function show layer control buttons. By default is TRUE.}
 
@@ -120,12 +121,17 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{tile}{a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
 
-\item{tile.name}{a character verctor with a user's map tiles' names}
+\item{tile.name}{a character verctor with a user's map tiles' names.}
 
 \item{zoom.control}{logical. If TRUE, function shows zoom controls. By default is FALSE.}
 
-\item{zoom.level}{a numeric value of the zoom level.
-#' @author George Moroz <agricolamz@gmail.com>}
+\item{zoom.level}{a numeric value of the zoom level.}
+
+\item{rectangle.lng}{vector of two longitude values for rectangle.}
+
+\item{rectangle.lat}{vector of two latitude values for rectangle.}
+
+\item{rectangle.color}{vector of rectangle border color.}
 
 \item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}
 
@@ -195,4 +201,7 @@ map.feature(c("Adyghe", "Russian"), minimap = TRUE)
 map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
 
 
+}
+\author{
+George Moroz <agricolamz@gmail.com>
 }

@@ -49,12 +49,15 @@
 #' @param stroke.legend.position the position of the stroke.legend: "topright", "bottomright", "bottomleft","topleft"
 #' @param stroke.opacity a numeric vector of stroke opacity.
 #' @param stroke.radius a numeric vector of stroke radii for the circles.
-#' @param stroke.title title of a stroke-feature legend
-#' @param tile.name a character verctor with a user's map tiles' names
-#' @param title title of a legend
+#' @param stroke.title title of a stroke-feature legend.
+#' @param tile.name a character verctor with a user's map tiles' names.
+#' @param title title of a legend.
+#' @param rectangle.lng vector of two longitude values for rectangle.
+#' @param rectangle.lat vector of two latitude values for rectangle.
+#' @param rectangle.color vector of rectangle border color.
 #' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
 #' @param zoom.level a numeric value of the zoom level.
-#' #' @author George Moroz <agricolamz@gmail.com>
+#' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
 #'
@@ -190,6 +193,9 @@ map.feature <- function(languages,
                         tile.name = NULL,
                         zoom.control = FALSE,
                         zoom.level = NULL,
+                        rectangle.lng = NULL,
+                        rectangle.lat = NULL,
+                        rectangle.color = "black",
                         map.orientation = "Pacific",
                         glottolog.source = "modified"){
 
@@ -343,6 +349,20 @@ map.feature <- function(languages,
     }, tile[-1], tile.name[-1])
   }
 
+  # map: add rectangle ------------------------------------------------------
+  if (!is.null(rectangle.lng)&!is.null(rectangle.lat)) {
+    m <- m %>% leaflet::addRectangles(
+      lng1= rectangle.lng[1],
+      lat1=rectangle.lat[1],
+      lng2=rectangle.lng[2],
+      lat2=rectangle.lat[2],
+      color = rectangle.color,
+      opacity = 1,
+      weight = 3,
+      fillColor = "transparent"
+    )
+  }
+
   # if there is density estimation ------------------------------------------
   if(!is.null(density.estimation)){
     lapply(seq_along(my_poly), function(x){
@@ -482,6 +502,7 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
       toggleDisplay = TRUE
     )
   }
+
   # zoom.level argument -----------------------------------------------------
   if(!is.null(zoom.level)) {
     m <- m %>% leaflet::setView(

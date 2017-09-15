@@ -502,7 +502,20 @@ map.feature(languages = df$lang,
 
 Using this argument, you can plot your own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, you can plot an additional legend text on the map.
 
-### 3.14 Add a density contour plot to a map
+### 3.14 Add a rectangle to a map
+It is possible to highlight some part of your map with a rectangle. You need to provide a latitude and longitude of the diagonal (`rectangle.lat` and `rectangel.lng`) and color of the rectangle (`rectangle.color`):
+
+```{r, fig.width=6.2, fig.height=3.4}
+map.feature(circassian$language,
+            circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            rectangle.lng = c(42.7, 45),
+            rectangle.lat = c(42.7, 44.4),
+            rectangle.color = "green")
+```
+
+### 3.15 Add a density contour plot to a map
 Sometimes it is easier to look at a density contour plot. It can be created using `density.estimation` argument:
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(circassian$language,

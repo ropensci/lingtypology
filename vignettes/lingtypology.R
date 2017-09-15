@@ -301,6 +301,15 @@ map.feature(languages = df$lang,
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(circassian$language,
+            circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            rectangle.lng = c(42.7, 45),
+            rectangle.lat = c(42.7, 44.4),
+            rectangle.color = "green")
+
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
             density.estimation = circassian$language)
