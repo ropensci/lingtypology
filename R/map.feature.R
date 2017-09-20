@@ -24,7 +24,7 @@
 #' @param density.longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
 #' @param density.points logical. If FALSE, it doesn't show points in polygones.
 #' @param density.title title of a density-feature legend
-#' @param density.controle logical. If TRUE, function show layer control buttons for density plot. By default is FALSE
+#' @param density.control logical. If TRUE, function show layer control buttons for density plot. By default is FALSE
 #' @param image.height numeric vector of image heights
 #' @param image.url character vector of URLs with an images
 #' @param image.width numeric vector of image widths
