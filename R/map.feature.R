@@ -14,7 +14,7 @@
 #' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
 #' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}
-#' @param control logical. If TRUE, function show layer control buttons. By default is TRUE.
+#' @param control logical. If TRUE, function show layer control buttons. By default is FALSE
 #' @param density.estimation.color vector of density polygons' colors
 #' @param density.estimation.opacity a numeric vector of density polygons opacity.
 #' @param density.latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
@@ -24,6 +24,7 @@
 #' @param density.longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
 #' @param density.points logical. If FALSE, it doesn't show points in polygones.
 #' @param density.title title of a density-feature legend
+#' @param density.controle logical. If TRUE, function show layer control buttons for density plot. By default is FALSE
 #' @param image.height numeric vector of image heights
 #' @param image.url character vector of URLs with an images
 #' @param image.width numeric vector of image widths

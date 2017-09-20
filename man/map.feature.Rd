@@ -85,7 +85,7 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{stroke.title}{title of a stroke-feature legend.}
 
-\item{control}{logical. If TRUE, function show layer control buttons. By default is TRUE.}
+\item{control}{logical. If TRUE, function show layer control buttons. By default is FALSE}
 
 \item{legend}{logical. If TRUE, function show legend. By default is FALSE.}
 
@@ -136,6 +136,8 @@ map.feature(languages, features = "", popup = "", label = "",
 \item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+
+\item{density.controle}{logical. If TRUE, function show layer control buttons for density plot. By default is FALSE}
 }
 \description{
 Map a set of languages and color them by feature or two sets of features.
