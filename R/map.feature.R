@@ -68,20 +68,6 @@
 #' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"))
 #' map.feature(df$lang, df$feature)
-#' ## ... or add a control buttons for features
-#' map.feature(df$lang, df$feature, control = TRUE)
-#'
-#' ## Adding pop-up
-#' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-#' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-#' popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
-#' map.feature(df$lang, df$feature, df$popup)
-#'
-#' ## Adding labels
-#' df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-#' feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-#' popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
-#' map.feature(df$lang, df$feature, label = df$lang)
 #'
 #' ## Add your own coordinates
 #' map.feature("Adyghe", latitude = 43, longitude = 57)
@@ -102,22 +88,11 @@
 #' map.feature(df$lang, df$feature, df$popup,
 #' stroke.features = df$popup)
 #'
-#' ## Add a pictures to plot
-#' df <- data.frame(lang = c("Russian", "Russian"),
-#' lat  = c(55.75, 59.95),
-#' long = c(37.616667, 30.3),
-#' urls = c("https://goo.gl/5OUv1E", "https://goo.gl/UWmvDw"))
-#' map.feature(languages = df$lang,
-#' latitude = df$lat,
-#' longitude = df$long,
-#' image.url = df$urls)
-#'
 #' ## Add a minimap to plot
 #' map.feature(c("Adyghe", "Russian"), minimap = TRUE)
 #'
 #' ## Remove scale bar
 #' map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
-#'
 #'
 #' @export
 #' @importFrom leaflet colorNumeric
@@ -163,6 +138,7 @@ map.feature <- function(languages,
                         density.legend.opacity = 1,
                         density.legend.position = "bottomleft",
                         density.title = "",
+                        density.control = FALSE,
                         color = NULL,
                         stroke.color = NULL,
                         image.url = NULL,
@@ -369,7 +345,8 @@ map.feature <- function(languages,
       m <<- m %>% leaflet::addPolygons(data = my_poly[[x]],
                                        color = density.estimation.pal(my_poly_names[x]),
                                        opacity = 0.2,
-                                       fillOpacity=density.estimation.opacity)})
+                                       fillOpacity=density.estimation.opacity,
+                                       group = my_poly_names[x])})
   }
 
     # map: if there are stroke features ---------------------------------------
@@ -410,20 +387,21 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                          stroke = FALSE,
                                          radius = radius*1.1,
                                          fillOpacity = opacity,
-                                         color = "black") %>%
+                                         color = "black",
+                                         group = mapfeat.df$features) %>%
       leaflet::addCircleMarkers(lng=mapfeat.df$long,
-  lat=mapfeat.df$lat,
-  popup= mapfeat.df$link,
-  label= mapfeat.df$label,
-  labelOptions = leaflet::labelOptions(noHide = !(label.hide),
-                         direction = label.position,
-                         textOnly = TRUE,
-                         style = list("font-size" = paste0(label.fsize, "px"))),
-  stroke = FALSE,
-  radius = radius,
-  fillOpacity = opacity,
-  color = pal(mapfeat.df$features),
-  group = mapfeat.df$features)
+                                lat=mapfeat.df$lat,
+                                popup= mapfeat.df$link,
+                                label= mapfeat.df$label,
+      labelOptions = leaflet::labelOptions(noHide = !(label.hide),
+                                           direction = label.position,
+                                           textOnly = TRUE,
+                                           style = list("font-size" = paste0(label.fsize, "px"))),
+                                stroke = FALSE,
+                                radius = radius,
+                                fillOpacity = opacity,
+                                color = pal(mapfeat.df$features),
+                                group = mapfeat.df$features)
   }
 
   # map: images -------------------------------------------------------------
@@ -446,6 +424,11 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
         baseGroups = tile.name,
         overlayGroups = mapfeat.df$features,
         options = leaflet::layersControlOptions(collapsed = FALSE))
+    } else if (density.control == TRUE){
+      m <- m %>% leaflet::addLayersControl(
+        baseGroups = tile.name,
+        overlayGroups = my_poly_names,
+        options = leaflet::layersControlOptions(collapsed = FALSE))
     } else {
       m <- m %>% leaflet::addLayersControl(
         baseGroups = tile.name,
@@ -453,8 +436,13 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
     }
   } else {
     if (control == TRUE) {
-      m <- m %>% leaflet::addLayersControl(overlayGroups = mapfeat.df$features,
-                     options = leaflet::layersControlOptions(collapsed = FALSE))
+      m <- m %>% leaflet::addLayersControl(
+        overlayGroups = mapfeat.df$features,
+        options = leaflet::layersControlOptions(collapsed = FALSE))
+    } else if (density.control == TRUE){
+      m <- m %>% leaflet::addLayersControl(
+        overlayGroups = my_poly_names,
+        options = leaflet::layersControlOptions(collapsed = FALSE))
     }
   }
 

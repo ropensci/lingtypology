@@ -12,14 +12,14 @@ map.feature(languages, features = "", popup = "", label = "",
   density.longitude.width = NULL, density.latitude.width = NULL,
   density.legend = TRUE, density.legend.opacity = 1,
   density.legend.position = "bottomleft", density.title = "",
-  color = NULL, stroke.color = NULL, image.url = NULL,
-  image.width = 100, image.height = 100, image.X.shift = 0,
-  image.Y.shift = 0, title = NULL, stroke.title = NULL, control = FALSE,
-  legend = TRUE, legend.opacity = 1, legend.position = "topright",
-  stroke.legend = TRUE, stroke.legend.opacity = 1,
-  stroke.legend.position = "bottomleft", radius = 5, stroke.radius = 9.5,
-  opacity = 1, stroke.opacity = 1, scale.bar = TRUE,
-  scale.bar.position = "bottomleft", minimap = FALSE,
+  density.control = FALSE, color = NULL, stroke.color = NULL,
+  image.url = NULL, image.width = 100, image.height = 100,
+  image.X.shift = 0, image.Y.shift = 0, title = NULL,
+  stroke.title = NULL, control = FALSE, legend = TRUE,
+  legend.opacity = 1, legend.position = "topright", stroke.legend = TRUE,
+  stroke.legend.opacity = 1, stroke.legend.position = "bottomleft",
+  radius = 5, stroke.radius = 9.5, opacity = 1, stroke.opacity = 1,
+  scale.bar = TRUE, scale.bar.position = "bottomleft", minimap = FALSE,
   minimap.position = "bottomright", minimap.width = 150,
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
   zoom.control = FALSE, zoom.level = NULL, rectangle.lng = NULL,
@@ -150,20 +150,6 @@ map.feature(lang.aff(c("Slavic")))
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"))
 map.feature(df$lang, df$feature)
-## ... or add a control buttons for features
-map.feature(df$lang, df$feature, control = TRUE)
-
-## Adding pop-up
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
-map.feature(df$lang, df$feature, df$popup)
-
-## Adding labels
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
-map.feature(df$lang, df$feature, label = df$lang)
 
 ## Add your own coordinates
 map.feature("Adyghe", latitude = 43, longitude = 57)
@@ -184,22 +170,11 @@ popup = c("Circassian", "Circassian", "Slavic", "Slavic", "Slavic"))
 map.feature(df$lang, df$feature, df$popup,
 stroke.features = df$popup)
 
-## Add a pictures to plot
-df <- data.frame(lang = c("Russian", "Russian"),
-lat  = c(55.75, 59.95),
-long = c(37.616667, 30.3),
-urls = c("https://goo.gl/5OUv1E", "https://goo.gl/UWmvDw"))
-map.feature(languages = df$lang,
-latitude = df$lat,
-longitude = df$long,
-image.url = df$urls)
-
 ## Add a minimap to plot
 map.feature(c("Adyghe", "Russian"), minimap = TRUE)
 
 ## Remove scale bar
 map.feature(c("Adyghe", "Russian"), scale.bar = FALSE)
-
 
 }
 \author{
