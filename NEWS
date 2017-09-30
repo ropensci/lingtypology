@@ -1,5 +1,6 @@
 lingtypology 1.0.8
 - add argument "density.control" to function map.feature().
+- add argument "label.emphasize" to function map.feature().
 
 lingtypology 1.0.7 (15.09.2017)
  - add argument "zoom.level" to function map.feature().

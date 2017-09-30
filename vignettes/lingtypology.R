@@ -126,7 +126,15 @@ map.feature(df$language, df$features,
             label = df$language,
             label.fsize = 20,
             label.position = "left",
-            label.hide = TRUE)
+            label.hide = FALSE)
+
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(df$language, df$features,
+            label = df$language,
+            label.fsize = 20,
+            label.position = "left",
+            label.hide = FALSE,
+            label.emphasize = list(2:4, "red"))
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(languages = circassian$language,

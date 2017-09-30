@@ -264,15 +264,28 @@ map.feature(df$language, df$features,
             label = df$language)
 ```
 
-There are some additional arguments for customization: `label.fsize` for setting font size, `label.position` for controlling the label position, and `label.hide` to control the appearance of the label: if `TRUE`, the labels are displayed on mouse over (as on the next map), if `FALSE`, the labels are always displayed (as on the previous map).
+There are some additional arguments for customization: `label.fsize` for setting font size, `label.position` for controlling the label position, and `label.hide` to control the appearance of the label: if `TRUE`, the labels are displayed on mouse over (as on the previous map), if `FALSE`, the labels are always displayed (as on the next map).
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(df$language, df$features,
             label = df$language,
             label.fsize = 20,
             label.position = "left",
-            label.hide = TRUE)
+            label.hide = FALSE)
 ```
+
+There is an additional tool for emphasis of some points on the map. The argument `label.emphasize` allows to emphasize selected points with the color specified by a user.
+
+```{r, fig.width=6.2, fig.height=3.4}
+map.feature(df$language, df$features,
+            label = df$language,
+            label.fsize = 20,
+            label.position = "left",
+            label.hide = FALSE,
+            label.emphasize = list(2:4, "red"))
+```
+
+In this example the first vector of the list in the `label.emphasize` argument is vector `2:4` that produce elements `2`, `3` and `4`. You can create your own selected rows. e. g. `c(1, 3, 4)`. The second vector of the list is the string with a color.
 
 ### 3.5 Set coordinates
 You can set your own coordinates using the arguments `latitude` and `longitude`. It is important to note, that `lingtypology` works only with decimal degrees (something like this: 0.1), not with  degrees, minutes and seconds (something like this: 0° 06′ 0″). I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:

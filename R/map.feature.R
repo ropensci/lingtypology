@@ -33,6 +33,7 @@
 #' @param label.fsize numeric value of the label font size. By default is 14.
 #' @param label.hide logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.
 #' @param label.position the position of labels: "left", "right", "top", "bottom"
+#' @param label.emphasize is the list. First argument is a vector of points in datframe that should be emphasized. Second argument is a string with a color for emphasis.
 #' @param legend logical. If TRUE, function show legend. By default is FALSE.
 #' @param legend.opacity a numeric vector of legend opacity.
 #' @param legend.position the position of the legend: "topright", "bottomright", "bottomleft","topleft"
@@ -128,6 +129,7 @@ map.feature <- function(languages,
                         label.hide = TRUE,
                         label.fsize = 14,
                         label.position = "right",
+                        label.emphasize = list(NULL, "black"),
                         stroke.features = NULL,
                         density.estimation = NULL,
                         density.estimation.color = NULL,
@@ -191,6 +193,10 @@ map.feature <- function(languages,
                            popup = popup)
   if(sum(label == "") != length(label)){
     mapfeat.df$label <- as.character(label)
+    if(!is.null(label.emphasize[[1]])){
+      mapfeat.df$emph <- "emph"
+      mapfeat.df$emph[-label.emphasize[[1]]] <- "no"
+    }
   }
 
   if(!is.null(density.estimation)){
@@ -246,35 +252,35 @@ map.feature <- function(languages,
       pal <- leaflet::colorNumeric(palette = "BuPu", domain=mapfeat.df$features)
     } else {set.seed(45)
       pal <- leaflet::colorFactor(
-      sample(my_colors, length(unique(mapfeat.df$features))),
-      domain = mapfeat.df$features)
+        sample(my_colors, length(unique(mapfeat.df$features))),
+        domain = mapfeat.df$features)
     }} else {
       if(is.numeric(mapfeat.df$features)){
         pal <- leaflet::colorNumeric(palette = color,domain=mapfeat.df$features)
       }else {
         if(length(mapfeat.df$features) == length(color)){
-           df <- unique(data.frame(feature = mapfeat.df$features, color))
-           color <- as.character(df[order(df$feature),]$color)
-           }
+          df <- unique(data.frame(feature = mapfeat.df$features, color))
+          color <- as.character(df[order(df$feature),]$color)
+        }
         pal <- leaflet::colorFactor(color, domain = mapfeat.df$features)
       }
     }
 
-    if (is.null(density.estimation.color)) {
+  if (is.null(density.estimation.color)) {
     if(is.numeric(mapfeat.df$density.estimation)){
       density.estimation.pal <- leaflet::colorNumeric(palette = "BuPu", domain=mapfeat.df$density.estimation)
     } else {
       set.seed(45)
       density.estimation.pal <- leaflet::colorFactor(
-      sample(my_colors, length(unique(mapfeat.df$density.estimation)),
-             length(unique(mapfeat.df$density.estimation))),
-      domain = mapfeat.df$density.estimation)
+        sample(my_colors, length(unique(mapfeat.df$density.estimation)),
+               length(unique(mapfeat.df$density.estimation))),
+        domain = mapfeat.df$density.estimation)
     }} else {
-        if(length(mapfeat.df$density.estimation) == length(density.estimation.color)){
-          df <- unique(data.frame(feature = mapfeat.df$density.estimation, color = density.estimation.color))
-          density.estimation.color <- as.character(df[order(df$feature),]$color)
-          }
-        density.estimation.pal <- leaflet::colorFactor(unique(density.estimation.color), domain = mapfeat.df$density.estimation)
+      if(length(mapfeat.df$density.estimation) == length(density.estimation.color)){
+        df <- unique(data.frame(feature = mapfeat.df$density.estimation, color = density.estimation.color))
+        density.estimation.color <- as.character(df[order(df$feature),]$color)
+      }
+      density.estimation.pal <- leaflet::colorFactor(unique(density.estimation.color), domain = mapfeat.df$density.estimation)
     }
 
   if(!is.null(stroke.features)){
@@ -283,14 +289,14 @@ map.feature <- function(languages,
         stroke.features[stats::complete.cases(stroke.features)]))
       strokecolors <- grDevices::gray(lev :0 / lev)
       stroke.pal <- leaflet::colorFactor(strokecolors,
-                                        domain = mapfeat.stroke$stroke.features)
+                                         domain = mapfeat.stroke$stroke.features)
       rev.stroke.pal <- leaflet::colorFactor(rev(strokecolors),
-                                        domain = mapfeat.stroke$stroke.features)
+                                             domain = mapfeat.stroke$stroke.features)
     } else {
       stroke.pal <- leaflet::colorFactor(stroke.color,
-                                        domain = mapfeat.stroke$stroke.features)
+                                         domain = mapfeat.stroke$stroke.features)
       rev.stroke.pal <- leaflet::colorFactor(rev(stroke.color),
-                                        domain = mapfeat.stroke$stroke.features)
+                                             domain = mapfeat.stroke$stroke.features)
     }
   }
 
@@ -311,7 +317,7 @@ map.feature <- function(languages,
                      mapfeat.df[mapfeat.df$density.estimation == feature, 'long'],
                      latitude_width = density.latitude.width,
                      longitude_width = density.longitude.width)
-  })
+    })
   }
 
   ### create a map ------------------------------------------------------------
@@ -350,7 +356,7 @@ map.feature <- function(languages,
                                        group = my_poly_names[x])})
   }
 
-    # map: if there are stroke features ---------------------------------------
+  # map: if there are stroke features ---------------------------------------
   if(!is.null(stroke.features)){
     m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                          lat=mapfeat.stroke$lat,
@@ -359,30 +365,30 @@ map.feature <- function(languages,
                                          radius = stroke.radius*1.15,
                                          fillOpacity = stroke.opacity,
                                          color = "black") %>%
-leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
-                  lat=mapfeat.stroke$lat,
-                  popup= mapfeat.stroke$link,
-                  stroke = FALSE,
-                  radius = stroke.radius,
-                  fillOpacity = stroke.opacity,
-                  color=stroke.pal(mapfeat.stroke$stroke.features),
-                  group = mapfeat.stroke$stroke.features) %>%
-leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
-                    lat=mapfeat.stroke$lat,
-                    popup= mapfeat.df$link,
-                    labelOptions = leaflet::labelOptions(noHide = !(label.hide),
-                        direction = label.position,
-                        textOnly = TRUE,
-                        style = list("font-size" = paste0(label.fsize, "px"))),
-                    stroke = FALSE,
-                    radius = 1.15*radius,
-                    fillOpacity = opacity,
-                    color = rev.stroke.pal(mapfeat.stroke$stroke.features),
-                    group = mapfeat.stroke$stroke.features)}
+      leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
+                                lat=mapfeat.stroke$lat,
+                                popup= mapfeat.stroke$link,
+                                stroke = FALSE,
+                                radius = stroke.radius,
+                                fillOpacity = stroke.opacity,
+                                color=stroke.pal(mapfeat.stroke$stroke.features),
+                                group = mapfeat.stroke$stroke.features) %>%
+      leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
+                                lat=mapfeat.stroke$lat,
+                                popup= mapfeat.df$link,
+                                labelOptions = leaflet::labelOptions(noHide = !(label.hide),
+                                                                     direction = label.position,
+                                                                     textOnly = TRUE,
+                                                                     style = list("font-size" = paste0(label.fsize, "px"))),
+                                stroke = FALSE,
+                                radius = 1.15*radius,
+                                fillOpacity = opacity,
+                                color = rev.stroke.pal(mapfeat.stroke$stroke.features),
+                                group = mapfeat.stroke$stroke.features)}
 
-    # map: add points ----------------------------------------
-    if(density.points != FALSE){
-      m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
+  # map: add points ----------------------------------------
+  if(density.points != FALSE){
+    m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df$long,
                                          lat=mapfeat.df$lat,
                                          popup= mapfeat.df$link,
                                          stroke = FALSE,
@@ -394,28 +400,44 @@ leaflet::addCircleMarkers(lng=mapfeat.stroke$long,
                                 lat=mapfeat.df$lat,
                                 popup= mapfeat.df$link,
                                 label= mapfeat.df$label,
-      labelOptions = leaflet::labelOptions(noHide = !(label.hide),
-                                           direction = label.position,
-                                           textOnly = TRUE,
-                                           style = list("font-size" = paste0(label.fsize, "px"))),
+                                labelOptions = leaflet::labelOptions(noHide = !(label.hide),
+                                                                     direction = label.position,
+                                                                     textOnly = TRUE,
+                                                                     style = list("font-size" = paste0(label.fsize, "px"))),
                                 stroke = FALSE,
                                 radius = radius,
                                 fillOpacity = opacity,
                                 color = pal(mapfeat.df$features),
                                 group = mapfeat.df$features)
+    if("emph" %in% colnames(mapfeat.df)){
+      m <- m %>% leaflet::addCircleMarkers(lng=mapfeat.df[mapfeat.df$emph == "emph",]$long,
+                                           lat=mapfeat.df[mapfeat.df$emph == "emph",]$lat,
+                                           popup= mapfeat.df[mapfeat.df$emph == "emph",]$link,
+                                           label= mapfeat.df[mapfeat.df$emph == "emph",]$label,
+                                           labelOptions = leaflet::labelOptions(noHide = !(label.hide),
+                                                                                direction = label.position,
+                                                                                textOnly = TRUE,
+                                                                                style = list("font-size" = paste0(label.fsize, "px"),
+                                                                                             "color" = label.emphasize[[2]])),
+                                           stroke = FALSE,
+                                           radius = radius,
+                                           fillOpacity = opacity,
+                                           color = pal(mapfeat.df$features),
+                                           group = mapfeat.df$features)
+    }
   }
 
   # map: images -------------------------------------------------------------
   if (!is.null(image.url)) {
     m <- m %>% leaflet::addMarkers(lng=mapfeat.image$long,
-                             lat=mapfeat.image$lat,
-                             popup= mapfeat.image$link,
-                             icon = leaflet::icons(
-                               iconUrl = as.character(mapfeat.image$image.url),
-                               iconWidth = image.width,
-                               iconHeight = image.height,
-                               iconAnchorX = - image.X.shift,
-                               iconAnchorY = image.Y.shift))
+                                   lat=mapfeat.image$lat,
+                                   popup= mapfeat.image$link,
+                                   icon = leaflet::icons(
+                                     iconUrl = as.character(mapfeat.image$image.url),
+                                     iconWidth = image.width,
+                                     iconHeight = image.height,
+                                     iconAnchorX = - image.X.shift,
+                                     iconAnchorY = image.Y.shift))
   }
 
   # map: tile and control interaction --------------------------------------
