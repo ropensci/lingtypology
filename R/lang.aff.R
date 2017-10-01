@@ -12,17 +12,24 @@
 #' lang.aff(c('Slavic', 'Celtic'), list = TRUE)
 #' @export
 
-lang.aff <- function(x, list = FALSE, glottolog.source = "modified") {
-    if(typeof(x) == "list"){x <- unlist(x)}
-    ifelse(grepl(glottolog.source, "original"),
-           glottolog <- lingtypology::glottolog.original,
-           glottolog <- lingtypology::glottolog.modified)
+lang.aff <-
+  function(x,
+           list = FALSE,
+           glottolog.source = "modified") {
+    if (typeof(x) == "list") {
+      x <- unlist(x)
+    }
+    ifelse(
+      grepl(glottolog.source, "original"),
+      glottolog <- lingtypology::glottolog.original,
+      glottolog <- lingtypology::glottolog.modified
+    )
     result <- lapply(x, function(y) {
-      glottolog[grep(tolower(y), tolower(glottolog$affiliation)), ]$language
-      })
+      glottolog[grep(tolower(y), tolower(glottolog$affiliation)),]$language
+    })
     if (list == FALSE) {
       unlist(result)
-      } else {
-        result
-      }
+    } else {
+      result
     }
+  }

@@ -12,21 +12,30 @@
 #' country.lang(c('Udi', 'Laz'), intersection = TRUE)
 #' @export
 
-country.lang <- function(x, intersection = FALSE, glottolog.source ="modified"){
-    if(typeof(x) == "list"){x <- unlist(x)}
-    ifelse(grepl(glottolog.source, "original"),
-           glottolog <- lingtypology::glottolog.original,
-           glottolog <- lingtypology::glottolog.modified)
+country.lang <-
+  function(x,
+           intersection = FALSE,
+           glottolog.source = "modified") {
+    if (typeof(x) == "list") {
+      x <- unlist(x)
+    }
+    ifelse(
+      grepl(glottolog.source, "original"),
+      glottolog <- lingtypology::glottolog.original,
+      glottolog <- lingtypology::glottolog.modified
+    )
     ret <- vapply(x, function(y) {
-        ifelse(is.glottolog(y, response = TRUE,
-                            glottolog.source = glottolog.source) == TRUE,
-            glottolog[tolower(glottolog$language) %in% tolower(y), ]$country,
-            NA_character_)
+      ifelse(
+        is.glottolog(y, response = TRUE,
+                     glottolog.source = glottolog.source) == TRUE,
+        glottolog[tolower(glottolog$language) %in% tolower(y),]$country,
+        NA_character_
+      )
     }, character(1))
     if (intersection == TRUE) {
-        b <- unlist(strsplit(paste(ret, collapse = ", "), ", "))
-        names(table(b)[table(b) == max(table(b))])
+      b <- unlist(strsplit(paste(ret, collapse = ", "), ", "))
+      names(table(b)[table(b) == max(table(b))])
     } else {
-        ret
+      ret
     }
-}
+  }

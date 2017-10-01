@@ -15,34 +15,40 @@
 #'
 #' @export
 
-lang.country <- function(x, list = FALSE, official = FALSE, glottolog.source = "modified") {
-    if(typeof(x) == "list"){x <- unlist(x)}
-    ifelse(grepl(glottolog.source, "original"),
-           glottolog <- lingtypology::glottolog.original,
-           glottolog <- lingtypology::glottolog.modified)
-    if(official == FALSE){
+lang.country <-
+  function(x,
+           list = FALSE,
+           official = FALSE,
+           glottolog.source = "modified") {
+    if (typeof(x) == "list") {
+      x <- unlist(x)
+    }
+    ifelse(
+      grepl(glottolog.source, "original"),
+      glottolog <- lingtypology::glottolog.original,
+      glottolog <- lingtypology::glottolog.modified
+    )
+    if (official == FALSE) {
       ret <- lapply(x, function(y) {
-        cntr <- lingtypology::countries$common[
-          which(unlist(lingtypology::countries) %in% y) %%
-            nrow(lingtypology::countries)]
-          if (length(cntr) > 0) {
-              glottolog[grep(cntr, glottolog$country), ]$language
-          } else {
-              NA
-          }
+        cntr <- lingtypology::countries$common[which(unlist(lingtypology::countries) %in% y) %%
+                                                 nrow(lingtypology::countries)]
+        if (length(cntr) > 0) {
+          glottolog[grep(cntr, glottolog$country),]$language
+        } else {
+          NA
+        }
       })
       if (list == TRUE) {
-          return(ret)
+        return(ret)
       } else {
-          return(unlist(ret))
+        return(unlist(ret))
       }
     } else {
       ret <- lapply(x, function(y) {
-        cntr <- lingtypology::countries$common[
-          which(unlist(lingtypology::countries) %in% y) %%
-            nrow(lingtypology::countries)]
+        cntr <- lingtypology::countries$common[which(unlist(lingtypology::countries) %in% y) %%
+                                                 nrow(lingtypology::countries)]
         if (length(cntr) > 0) {
-          unlist(strsplit(lingtypology::countries[cntr == lingtypology::countries$common, ]$official_languages, ", "))
+          unlist(strsplit(lingtypology::countries[cntr == lingtypology::countries$common,]$official_languages, ", "))
         } else {
           NA
         }
@@ -53,4 +59,4 @@ lang.country <- function(x, list = FALSE, official = FALSE, glottolog.source = "
         return(unlist(ret))
       }
     }
-}
+  }

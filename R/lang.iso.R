@@ -11,14 +11,18 @@
 #' @export
 
 lang.iso <- function(x, glottolog.source = "modified") {
-    if(typeof(x) == "list"){x <- unlist(x)}
-    ifelse(grepl(glottolog.source, "original"),
-           glottolog <- lingtypology::glottolog.original,
-           glottolog <- lingtypology::glottolog.modified)
-    x <- gsub("\\W", "", x)
-    vapply(x, function(y) {
-        ifelse(y %in% glottolog$iso,
-               glottolog[tolower(glottolog$iso) %in% tolower(y),]$language,
-               NA_character_)
-    }, character(1))
+  if (typeof(x) == "list") {
+    x <- unlist(x)
+  }
+  ifelse(
+    grepl(glottolog.source, "original"),
+    glottolog <- lingtypology::glottolog.original,
+    glottolog <- lingtypology::glottolog.modified
+  )
+  x <- gsub("\\W", "", x)
+  vapply(x, function(y) {
+    ifelse(y %in% glottolog$iso,
+           glottolog[tolower(glottolog$iso) %in% tolower(y), ]$language,
+           NA_character_)
+  }, character(1))
 }

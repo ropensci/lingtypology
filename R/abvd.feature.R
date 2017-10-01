@@ -13,19 +13,31 @@
 #' @importFrom utils read.csv
 #'
 
-abvd.feature <- function(feature, glottolog.source = "modified"){
-  if(is.numeric(feature)){
-    links <- paste0("https://abvd.shh.mpg.de/utils/save/?type=tdf&section=austronesian&language=", feature)
+abvd.feature <- function(feature, glottolog.source = "modified") {
+  if (is.numeric(feature)) {
+    links <-
+      paste0(
+        "https://abvd.shh.mpg.de/utils/save/?type=tdf&section=austronesian&language=",
+        feature
+      )
   } else{
     stop("You need to provide a numeric vector with language id from ABVD.")
   }
-  datalist  <-  lapply(links, function(x){
+  datalist  <-  lapply(links, function(x) {
     lines <- readLines(x, n = 26)
     skip <- grep(pattern = "^id", lines)[2]
-    utils::read.csv(x, sep = "\t", skip = skip-1, stringsAsFactors = FALSE)[, c(2:4)]})
-  langs <- lang.gltc(lingtypology::abvd[feature, 2], glottolog.source = glottolog.source)
-  lapply(seq_along(feature), function(i){
-    datalist[[i]]$language <<- langs[i]})
-  final_df <- Reduce(function(x,y){rbind.data.frame(x,y)}, datalist)
+    utils::read.csv(x,
+                    sep = "\t",
+                    skip = skip - 1,
+                    stringsAsFactors = FALSE)[, c(2:4)]
+  })
+  langs <-
+    lang.gltc(lingtypology::abvd[feature, 2], glottolog.source = glottolog.source)
+  lapply(seq_along(feature), function(i) {
+    datalist[[i]]$language <<- langs[i]
+  })
+  final_df <- Reduce(function(x, y) {
+    rbind.data.frame(x, y)
+  }, datalist)
   return(final_df)
 }
