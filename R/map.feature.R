@@ -122,6 +122,7 @@
 #' @importFrom rowr cbind.fill
 #' @importFrom magrittr %>%
 #' @importFrom leaflet.minicharts addMinicharts
+#' @importFrom leaflet.minicharts popupArgs
 #'
 
 map.feature <- function(languages,
@@ -524,16 +525,35 @@ map.feature <- function(languages,
     if (is.null(color)) {
       color = my_colors
     }
+
+    # create tables for each popup
+    tables <- ""
+    if(length(colnames(minichart.data)) > 1){
+    new <-
+      as.data.frame(matrix(paste0(
+        colnames(minichart.data),
+        ": ",
+        as.matrix(minichart.data),
+        "<br> "
+      ), ncol = length(colnames(minichart.data))))
+    df_args <- c(new, sep = "")
+    tables <- do.call(paste, df_args)
+    }
+
+
     m <- m %>% leaflet.minicharts::addMinicharts(
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
       chartdata = minichart.data,
       type = minichart,
       legend = legend,
+      labelText = mapfeat.df$label,
+      popup = leaflet.minicharts::popupArgs(html = paste0(mapfeat.df$link, tables)),
       time = minichart.time,
       legendPosition = legend.position,
       opacity = opacity,
-      colorPalette = color
+      colorPalette = color,
+      fillColor = color[1]
     )
   }
 
