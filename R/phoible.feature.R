@@ -46,7 +46,7 @@ phoible.feature <-
 
       colnames(final_df) <- tolower(colnames(final_df))
       ifelse(features == "all",
-             final_df <- final_df[, 13:17],
+             final_df <- final_df[, c(2, 13:17)],
              final_df <- final_df[, c(features, "language")])
     } else {
       not_features <- features[which(!features %in% features_set)]

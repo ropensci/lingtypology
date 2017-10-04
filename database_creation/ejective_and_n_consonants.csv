@@ -1,28 +1,20 @@
-language,n.cons.lapsyd,ejectives
-Turkish,24,no
-Korean,21,no
-Tiwi,21,no
-Liberia Kpelle,22,no
-Tulu,21,no
-Mapudungun,20,no
-Kiowa,19,no
-Paraguayan Guarani,18,no
-Japanese,15,no
-Batak,17,no
-Yoruba,18,no
-Finnish,17,no
-Kayardild,17,no
-Hawaiian,8,no
-Maori,10,no
-Hungarian,26,no
-Kannada,30,no
-Georgian,28,yes
-Ingush,34,yes
-Abkhaz,58,yes
-Amharic,32,yes
-Sandawe,47,yes
-Tlingit,42,yes
-Lakota,30,yes
-Yucatec Maya,20,yes
-Southern Aymara,27,yes
-Pomo,26,yes
+"language","ejectives","consonants","vowels"
+"Turkish","no",25,8
+"Korean","no",21,11
+"Tiwi","no",22,4
+"Liberia Kpelle","no",22,12
+"Tulu","no",24,13
+"Mapudungun","no",20,6
+"Kiowa","no",22,20
+"Paraguayan Guarani","no",24,12
+"Japanese","no",15,5
+"Yoruba","no",18,11
+"Finnish","no",17,8
+"Hawaiian","no",8,5
+"Hungarian","no",26,14
+"Georgian","yes",28,6
+"Amharic","yes",30,7
+"Sandawe","yes",47,7
+"Tlingit","yes",43,5
+"Lakota","yes",28,8
+"Yucatec Maya","yes",20,10

@@ -78,11 +78,11 @@ map.feature(df$language, df$features)
 map.feature(ejective_and_n_consonants$language,
             ejective_and_n_consonants$ejectives) # categorical
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$n.cons.lapsyd) # numeric
+            ejective_and_n_consonants$consonants) # numeric
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$n.cons.lapsyd,
+            ejective_and_n_consonants$consonants,
             map.orientation = "Atlantic")
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
@@ -152,7 +152,7 @@ map.feature(languages = df$language,
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$n.cons.lapsyd,
+            ejective_and_n_consonants$consonants,
             color = "magma")
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
@@ -266,46 +266,23 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap.width = 100)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df <- data.frame(lang = c("Russian", "Russian"),
-                 lat  = c(55.75, 59.95),
-                 long = c(37.616667, 30.3),
-# I use here URL shortener by Google
-                 urls = c("https://goo.gl/5OUv1E",
-                          "https://goo.gl/UWmvDw"))
-map.feature(languages = df$lang,
-            latitude = df$lat,
-            longitude = df$long,
-            image.url = df$urls)
+map.feature(languages = ejective_and_n_consonants$language,
+            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+            minichart = "bar")
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df <- data.frame(lang = c("Russian", "Russian"),
-                 lat  = c(55.75, 59.95),
-                 long = c(37.616667, 30.3),
-# I use here URL shorter by Google
-                 urls = c("https://goo.gl/5OUv1E",
-                          "https://goo.gl/UWmvDw"))
-map.feature(languages = df$lang,
-            latitude = df$lat,
-            longitude = df$long,
-            image.url = df$urls,
-            image.width = 200,
-            image.height = 200)
+map.feature(languages = ejective_and_n_consonants$language,
+            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+            minichart = "pie")
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df <- data.frame(lang = c("Russian", "Russian"),
-                 lat  = c(55.75, 59.95),
-                 long = c(37.616667, 30.3),
-# I use here URL shorter by Google
-                 urls = c("https://goo.gl/5OUv1E",
-                          "https://goo.gl/UWmvDw"))
-map.feature(languages = df$lang,
-            latitude = df$lat,
-            longitude = df$long,
-            image.url = df$urls,
-            image.width = 150,
-            image.height = 150,
-            image.X.shift = 10,
-            image.Y.shift = 0)
+map.feature(languages = ejective_and_n_consonants$language,
+            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+            minichart = "bar",
+            color = c("yellowgreen", "navy"),
+            opacity = 0.7,
+            label = ejective_and_n_consonants$language,
+            legend.position = "topleft")
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(circassian$language,

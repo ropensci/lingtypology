@@ -198,13 +198,13 @@ map.feature(df$language, df$features)
 
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
-There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 27 languages from [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have two variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, the numeric variable `n.cons.lapsyd` contains information about the number of consonants (based on LAPSyD database). We can create two maps with categorical variable and with numeric variable:
+There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 27 languages from [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have two variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, the numeric variable `consonants` contains information about the number of consonants (based on LAPSyD database). We can create two maps with categorical variable and with numeric variable:
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(ejective_and_n_consonants$language,
             ejective_and_n_consonants$ejectives) # categorical
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$n.cons.lapsyd) # numeric
+            ejective_and_n_consonants$consonants) # numeric
 ```
 
 Default colors are not perfect for this goal, but the main point is clear. For creating a correct map, you should correctly define the type of the variable.
@@ -212,7 +212,7 @@ Default colors are not perfect for this goal, but the main point is clear. For c
 This dataset also can be used to show one other parameter of the `map.feature` function. There are two possible ways to show the World map: with the Atlantic sea or with the Pacific sea in the middle. If you don't need default Pacific view use the `map.orientation` parameter (thanks  @languageSpaceLabs and @tzakharko for that idea):
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$n.cons.lapsyd,
+            ejective_and_n_consonants$consonants,
             map.orientation = "Atlantic")
 ```
 
@@ -314,7 +314,7 @@ Arguments from [RColorBrewer](https://CRAN.R-project.org/package=RColorBrewer) o
 
 ```{r, fig.width=6.2, fig.height=3.4}
 map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$n.cons.lapsyd,
+            ejective_and_n_consonants$consonants,
             color = "magma")
 ```
 
@@ -462,61 +462,34 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap.width = 100)
 ```
 
-### 3.14 Add a picture to a map
-The argument images.url allows you to add your own pictures to a map, using an url. In this part I will use two histograms on the most numerous nationalities in Moscow and St. Petersburg, based on data from the last Russian Census:
+### 3.14 Add minicharts instead of points
+This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piechart or barplot instead of standard point markers. In this part I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). Here is an example of barplot:
 
-* [Moscow](http://web-corpora.net/~agricolamz/maps/lingtypology/Moscow.png)
-* [St. Petersburg](http://web-corpora.net/~agricolamz/maps/lingtypology/St.%20Petersburg.png)
-
-Let's create a dataframe.
 ```{r, fig.width=6.2, fig.height=3.4}
-df <- data.frame(lang = c("Russian", "Russian"),
-                 lat  = c(55.75, 59.95),
-                 long = c(37.616667, 30.3),
-# I use here URL shortener by Google
-                 urls = c("https://goo.gl/5OUv1E",
-                          "https://goo.gl/UWmvDw"))
-map.feature(languages = df$lang,
-            latitude = df$lat,
-            longitude = df$long,
-            image.url = df$urls)
+map.feature(languages = ejective_and_n_consonants$language,
+            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+            minichart = "bar")
 ```
 
-You can change the size of the pictures.
+Here is an example of piechart:
 ```{r, fig.width=6.2, fig.height=3.4}
-df <- data.frame(lang = c("Russian", "Russian"),
-                 lat  = c(55.75, 59.95),
-                 long = c(37.616667, 30.3),
-# I use here URL shorter by Google
-                 urls = c("https://goo.gl/5OUv1E",
-                          "https://goo.gl/UWmvDw"))
-map.feature(languages = df$lang,
-            latitude = df$lat,
-            longitude = df$long,
-            image.url = df$urls,
-            image.width = 200,
-            image.height = 200)
+map.feature(languages = ejective_and_n_consonants$language,
+            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+            minichart = "pie")
 ```
 
-It can be moved from the actual point:
+Colors and opacity could be changed, legend moved:
 ```{r, fig.width=6.2, fig.height=3.4}
-df <- data.frame(lang = c("Russian", "Russian"),
-                 lat  = c(55.75, 59.95),
-                 long = c(37.616667, 30.3),
-# I use here URL shorter by Google
-                 urls = c("https://goo.gl/5OUv1E",
-                          "https://goo.gl/UWmvDw"))
-map.feature(languages = df$lang,
-            latitude = df$lat,
-            longitude = df$long,
-            image.url = df$urls,
-            image.width = 150,
-            image.height = 150,
-            image.X.shift = 10,
-            image.Y.shift = 0)
+map.feature(languages = ejective_and_n_consonants$language,
+            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+            minichart = "bar",
+            color = c("yellowgreen", "navy"),
+            opacity = 0.7,
+            label = ejective_and_n_consonants$language,
+            legend.position = "topleft")
 ```
 
-Using this argument, you can plot your own markers, any chart connected to a point or even their own legend. It is important to know that by using transparent .png files, you can plot an additional legend text on the map.
+Unfortunately, this argument limits work of the other arguments such as `label`, `popup` and others, but provides beutifull functionality of `leaflet.minicharts` library.
 
 ### 3.15 Add a rectangle to a map
 It is possible to highlight some part of your map with a rectangle. You need to provide a latitude and longitude of the diagonal (`rectangle.lat` and `rectangel.lng`) and color of the rectangle (`rectangle.color`):
