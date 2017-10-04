@@ -23,7 +23,8 @@ map.feature(languages, features = "", popup = "", label = "",
   minimap.position = "bottomright", minimap.width = 150,
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
   zoom.control = FALSE, zoom.level = NULL, rectangle.lng = NULL,
-  rectangle.lat = NULL, rectangle.color = "black",
+  rectangle.lat = NULL, minichart = NULL, minichart.data = NULL,
+  minichart.time = NULL, rectangle.color = "black",
   map.orientation = "Pacific", glottolog.source = "modified")
 }
 \arguments{

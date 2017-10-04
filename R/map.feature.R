@@ -41,6 +41,9 @@
 #' @param minimap.height The height of the minimap in pixels.
 #' @param minimap.position the position of the minimap: "topright", "bottomright", "bottomleft","topleft"
 #' @param minimap.width The width of the minimap in pixels.
+#' @param minichart citation from leaflet.minicharts package: "Possible values are "bar" for bar charts, "pie" for pie charts, "polar-area" and "polar-radius"."
+#' @param minichart.data citation from leaflet.minicharts package: "A numeric matrix with number of rows equal to the number of elements in lng or lat and number of column equal to the number of variables to represent. If parameter time is set, the number of rows must be equal to the length of lng times the number of unique time steps in the data."
+#' @param minichart.time citation from leaflet.minicharts package: "A vector with length equal to the number of rows in chartdata and containing either numbers representing time indices or dates or datetimes. Each unique value must appear as many times as the others. This parameter can be used when one wants to represent the evolution of some variables on a map."
 #' @param opacity a numeric vector of marker opacity.
 #' @param radius a numeric vector of radii for the circles.
 #' @param scale.bar logical. If TRUE, function shows scale-bar. By default is TRUE.
@@ -118,6 +121,7 @@
 #' @importFrom grDevices topo.colors
 #' @importFrom rowr cbind.fill
 #' @importFrom magrittr %>%
+#' @importFrom leaflet.minicharts addMinicharts
 #'
 
 map.feature <- function(languages,
@@ -174,6 +178,9 @@ map.feature <- function(languages,
                         zoom.level = NULL,
                         rectangle.lng = NULL,
                         rectangle.lat = NULL,
+                        minichart = NULL,
+                        minichart.data = NULL,
+                        minichart.time = NULL,
                         rectangle.color = "black",
                         map.orientation = "Pacific",
                         glottolog.source = "modified") {
@@ -234,7 +241,7 @@ map.feature <- function(languages,
   }
 
   # remove any rows with NAs ------------------------------------------------
-  mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df), ]
+  mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df),]
 
   # create link --------------------------------------------------------------
   mapfeat.df$link <- url.lang(
@@ -246,33 +253,43 @@ map.feature <- function(languages,
   # add images --------------------------------------------------------------
   if (!is.null(image.url)) {
     mapfeat.image <-
-      rowr::cbind.fill(mapfeat.df[, -2], data.frame(image.url))
+      rowr::cbind.fill(mapfeat.df[,-2], data.frame(image.url))
     mapfeat.image <-
-      mapfeat.image[stats::complete.cases(mapfeat.image), ]
+      mapfeat.image[stats::complete.cases(mapfeat.image),]
   }
 
   # create a stroke dataframe -----------------------------------------------
   if (!is.null(stroke.features)) {
-    mapfeat.stroke <- rowr::cbind.fill(mapfeat.df[, -2],
+    mapfeat.stroke <- rowr::cbind.fill(mapfeat.df[,-2],
                                        data.frame(stroke.features))
     mapfeat.stroke <-
-      mapfeat.stroke[stats::complete.cases(mapfeat.stroke), ]
+      mapfeat.stroke[stats::complete.cases(mapfeat.stroke),]
   }
 
   # create a palette ---------------------------------------------------------
+  set.seed(45)
   my_colors <-
-    grDevices::colors()[!grepl("ivory|azure|white|gray|grey|black|pink|1",
-                               grDevices::colors())]
+    c(
+      "#1f77b4",
+      "#ff7f0e",
+      "#2ca02c",
+      "#d62728",
+      "#9467bd",
+      "#8c564b",
+      "e377c2",
+      "#7f7f7f",
+      "#bcbd22",
+      "#17becf",
+      sample(grDevices::colors()[!grepl("ivory|azure|white|gray|grey|black|pink|1",
+                                        grDevices::colors())])
+    )
   if (is.null(color)) {
     if (is.numeric(mapfeat.df$features)) {
       pal <-
         leaflet::colorNumeric(palette = "BuPu", domain = mapfeat.df$features)
     } else {
-      set.seed(45)
-      pal <- leaflet::colorFactor(sample(my_colors, length(unique(
-        mapfeat.df$features
-      ))),
-      domain = mapfeat.df$features)
+      pal <- leaflet::colorFactor(my_colors[1:length(unique(mapfeat.df$features))],
+                                  domain = mapfeat.df$features)
     }
   } else {
     if (is.numeric(mapfeat.df$features)) {
@@ -281,7 +298,7 @@ map.feature <- function(languages,
     } else {
       if (length(mapfeat.df$features) == length(color)) {
         df <- unique(data.frame(feature = mapfeat.df$features, color))
-        color <- as.character(df[order(df$feature), ]$color)
+        color <- as.character(df[order(df$feature),]$color)
       }
       pal <-
         leaflet::colorFactor(color, domain = mapfeat.df$features)
@@ -314,7 +331,7 @@ map.feature <- function(languages,
           )
         )
       density.estimation.color <-
-        as.character(df[order(df$feature), ]$color)
+        as.character(df[order(df$feature),]$color)
     }
     density.estimation.pal <-
       leaflet::colorFactor(unique(density.estimation.color),
@@ -446,7 +463,7 @@ map.feature <- function(languages,
   }
 
   # map: add points ----------------------------------------
-  if (density.points != FALSE) {
+  if (density.points != FALSE & is.null(minichart)) {
     m <- m %>% leaflet::addCircleMarkers(
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
@@ -477,10 +494,10 @@ map.feature <- function(languages,
     if ("emph" %in% colnames(mapfeat.df)) {
       m <-
         m %>% leaflet::addCircleMarkers(
-          lng = mapfeat.df[mapfeat.df$emph == "emph", ]$long,
-          lat = mapfeat.df[mapfeat.df$emph == "emph", ]$lat,
-          popup = mapfeat.df[mapfeat.df$emph == "emph", ]$link,
-          label = mapfeat.df[mapfeat.df$emph == "emph", ]$label,
+          lng = mapfeat.df[mapfeat.df$emph == "emph",]$long,
+          lat = mapfeat.df[mapfeat.df$emph == "emph",]$lat,
+          popup = mapfeat.df[mapfeat.df$emph == "emph",]$link,
+          label = mapfeat.df[mapfeat.df$emph == "emph",]$label,
           labelOptions = leaflet::labelOptions(
             noHide = !(label.hide),
             direction = label.position,
@@ -498,6 +515,28 @@ map.feature <- function(languages,
         )
     }
   }
+
+
+
+  # map: add minicharts -----------------------------------------------------
+
+  if (!is.null(minichart)) {
+    if (is.null(color)) {
+      color = my_colors
+    }
+    m <- m %>% leaflet.minicharts::addMinicharts(
+      lng = mapfeat.df$long,
+      lat = mapfeat.df$lat,
+      chartdata = minichart.data,
+      type = minichart,
+      legend = legend,
+      time = minichart.time,
+      legendPosition = legend.position,
+      opacity = opacity,
+      colorPalette = color
+    )
+  }
+
 
   # map: images -------------------------------------------------------------
   if (!is.null(image.url)) {
@@ -557,7 +596,8 @@ map.feature <- function(languages,
 
   # map: legend -------------------------------------------------------------
   if (sum(mapfeat.df$features == "") < length(mapfeat.df$features) &
-      legend == TRUE) {
+      legend == TRUE &
+      is.null(minichart)) {
     m <- m %>% leaflet::addLegend(
       title = title,
       position = legend.position,
