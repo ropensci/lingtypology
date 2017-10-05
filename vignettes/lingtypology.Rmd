@@ -361,7 +361,7 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            radius = 7, stroke.radius = 13)
+            width = 7, stroke.radius = 13)
 
 
 map.feature(circassian$language,
@@ -486,7 +486,16 @@ map.feature(languages = ejective_and_n_consonants$language,
             legend.position = "topleft")
 ```
 
-Unfortunately, this argument limits work of the other arguments such as `label`, `popup` and others, but provides beutifull functionality of `leaflet.minicharts` library.
+It is possible to add values using argument `minichart.labels`:
+```{r, fig.width=6.2, fig.height=3.4}
+map.feature(languages = ejective_and_n_consonants$language,
+            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+            minichart = "pie",
+            minichart.labels = TRUE)
+```
+
+Unfortunately, this argument limits work of the `label` arguments, but provides beutifull functionality of `leaflet.minicharts` library.
+
 
 ### 3.15 Add a rectangle to a map
 It is possible to highlight some part of your map with a rectangle. You need to provide a latitude and longitude of the diagonal (`rectangle.lat` and `rectangel.lng`) and color of the rectangle (`rectangle.color`):
