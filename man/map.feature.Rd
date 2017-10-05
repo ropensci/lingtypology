@@ -143,6 +143,8 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{minichart.time}{citation from leaflet.minicharts package: "A vector with length equal to the number of rows in chartdata and containing either numbers representing time indices or dates or datetimes. Each unique value must appear as many times as the others. This parameter can be used when one wants to represent the evolution of some variables on a map."}
 
+\item{minichart.labels}{citation from leaflet.minicharts package: "Should values be displayed above chart elements."}
+
 \item{rectangle.color}{vector of rectangle border color.}
 
 \item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}

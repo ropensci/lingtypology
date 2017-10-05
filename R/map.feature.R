@@ -44,6 +44,7 @@
 #' @param minichart citation from leaflet.minicharts package: "Possible values are "bar" for bar charts, "pie" for pie charts, "polar-area" and "polar-radius"."
 #' @param minichart.data citation from leaflet.minicharts package: "A numeric matrix with number of rows equal to the number of elements in lng or lat and number of column equal to the number of variables to represent. If parameter time is set, the number of rows must be equal to the length of lng times the number of unique time steps in the data."
 #' @param minichart.time citation from leaflet.minicharts package: "A vector with length equal to the number of rows in chartdata and containing either numbers representing time indices or dates or datetimes. Each unique value must appear as many times as the others. This parameter can be used when one wants to represent the evolution of some variables on a map."
+#' @param minichart.labels citation from leaflet.minicharts package: "Should values be displayed above chart elements."
 #' @param opacity a numeric vector of marker opacity.
 #' @param width a numeric vector of radius for circles or width for barcharts in minicharts.
 #' @param scale.bar logical. If TRUE, function shows scale-bar. By default is TRUE.
