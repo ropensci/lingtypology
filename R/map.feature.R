@@ -315,8 +315,8 @@ map.feature <- function(languages,
     } else {
       set.seed(45)
       density.estimation.pal <-
-        leaflet::colorFactor(c(rev(my_colors[2:9]), my_colors[10:329]),
-        domain = mapfeat.df$density.estimation)
+        leaflet::colorFactor(c(rev(my_colors[1:9]), my_colors[10:329])[1:length(unique(mapfeat.df$density.estimation))],
+                             domain = mapfeat.df$density.estimation)
     }
   } else {
     if (length(mapfeat.df$density.estimation) == length(density.estimation.color)) {
