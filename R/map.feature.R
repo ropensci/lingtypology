@@ -529,15 +529,15 @@ map.feature <- function(languages,
     # create tables for each popup
     tables <- ""
     if(length(colnames(minichart.data)) > 1){
-    new <-
-      as.data.frame(matrix(paste0(
-        colnames(minichart.data),
-        ": ",
-        as.matrix(minichart.data),
-        "<br> "
-      ), ncol = length(colnames(minichart.data))))
-    df_args <- c(new, sep = "")
-    tables <- do.call(paste, df_args)
+      new <-
+        as.data.frame(matrix(paste0(
+          rep(colnames(minichart.data), each = nrow(minichart.data)),
+          ": ",
+          as.matrix(minichart.data),
+          "<br> "
+        ), ncol = length(colnames(minichart.data))))
+      df_args <- c(new, sep = "")
+      tables <- do.call(paste, df_args)
     }
 
 
