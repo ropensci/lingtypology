@@ -2,7 +2,8 @@ lingtypology 1.0.8
 - add argument "density.control" to function map.feature().
 - add argument "label.emphasize" to function map.feature().
 - add arguments "minichart", "minichart.data" and "minichart.time" to function map.feature().
-- coloring is changed.
+- coloring scheme is changed.
+- argument "radius" renamed to "width".
 
 lingtypology 1.0.7 (15.09.2017)
  - add argument "zoom.level" to function map.feature().

@@ -45,7 +45,7 @@
 #' @param minichart.data citation from leaflet.minicharts package: "A numeric matrix with number of rows equal to the number of elements in lng or lat and number of column equal to the number of variables to represent. If parameter time is set, the number of rows must be equal to the length of lng times the number of unique time steps in the data."
 #' @param minichart.time citation from leaflet.minicharts package: "A vector with length equal to the number of rows in chartdata and containing either numbers representing time indices or dates or datetimes. Each unique value must appear as many times as the others. This parameter can be used when one wants to represent the evolution of some variables on a map."
 #' @param opacity a numeric vector of marker opacity.
-#' @param radius a numeric vector of radii for the circles.
+#' @param width a numeric vector of radius for circles or width for barcharts in minicharts.
 #' @param scale.bar logical. If TRUE, function shows scale-bar. By default is TRUE.
 #' @param scale.bar.position the position of the scale-bar: "topright", "bottomright", "bottomleft","topleft"
 #' @param stroke.color vector of stroke colors
@@ -163,7 +163,7 @@ map.feature <- function(languages,
                         stroke.legend = TRUE,
                         stroke.legend.opacity = 1,
                         stroke.legend.position = "bottomleft",
-                        radius = 5,
+                        width = 5,
                         stroke.radius = 9.5,
                         opacity = 1,
                         stroke.opacity = 1,
@@ -456,7 +456,7 @@ map.feature <- function(languages,
           style = list("font-size" = paste0(label.fsize, "px"))
         ),
         stroke = FALSE,
-        radius = 1.15 * radius,
+        radius = 1.15 * width,
         fillOpacity = opacity,
         color = rev.stroke.pal(mapfeat.stroke$stroke.features),
         group = mapfeat.stroke$stroke.features
@@ -470,7 +470,7 @@ map.feature <- function(languages,
       lat = mapfeat.df$lat,
       popup = mapfeat.df$link,
       stroke = FALSE,
-      radius = radius * 1.1,
+      radius = width * 1.1,
       fillOpacity = opacity,
       color = "black",
       group = mapfeat.df$features
@@ -487,7 +487,7 @@ map.feature <- function(languages,
           style = list("font-size" = paste0(label.fsize, "px"))
         ),
         stroke = FALSE,
-        radius = radius,
+        radius = width,
         fillOpacity = opacity,
         color = pal(mapfeat.df$features),
         group = mapfeat.df$features
@@ -509,7 +509,7 @@ map.feature <- function(languages,
             )
           ),
           stroke = FALSE,
-          radius = radius,
+          radius = width,
           fillOpacity = opacity,
           color = pal(mapfeat.df$features),
           group = mapfeat.df$features
@@ -547,7 +547,9 @@ map.feature <- function(languages,
       chartdata = minichart.data,
       type = minichart,
       legend = legend,
+      width = width,
       labelText = mapfeat.df$label,
+      showLabels = TRUE,
       popup = leaflet.minicharts::popupArgs(html = paste0(mapfeat.df$link, tables)),
       time = minichart.time,
       legendPosition = legend.position,

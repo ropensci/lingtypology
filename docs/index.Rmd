@@ -364,7 +364,7 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            radius = 7, stroke.radius = 13)
+            width = 7, stroke.radius = 13)
 
 
 map.feature(circassian$language,

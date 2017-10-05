@@ -18,7 +18,7 @@ map.feature(languages, features = "", popup = "", label = "",
   title = NULL, stroke.title = NULL, control = FALSE, legend = TRUE,
   legend.opacity = 1, legend.position = "topright", stroke.legend = TRUE,
   stroke.legend.opacity = 1, stroke.legend.position = "bottomleft",
-  radius = 5, stroke.radius = 9.5, opacity = 1, stroke.opacity = 1,
+  width = 5, stroke.radius = 9.5, opacity = 1, stroke.opacity = 1,
   scale.bar = TRUE, scale.bar.position = "bottomleft", minimap = FALSE,
   minimap.position = "bottomright", minimap.width = 150,
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
@@ -104,7 +104,7 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{stroke.legend.position}{the position of the stroke.legend: "topright", "bottomright", "bottomleft","topleft"}
 
-\item{radius}{a numeric vector of radii for the circles.}
+\item{width}{a numeric vector of radius for circles or width for barcharts in minicharts.}
 
 \item{stroke.radius}{a numeric vector of stroke radii for the circles.}
 
