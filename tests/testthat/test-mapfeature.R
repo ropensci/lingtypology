@@ -121,6 +121,6 @@ test_that("map.feature scale bar", {
 
 map_label <- map.feature(c("Adyghe", "Russian"), label = c("a", "b"))
 test_that("map.feature labels", {
-  expect_equal(map_label$x$calls[[4]]$args[11], list(c("a", "b")))
+  expect_equal(map_label$x$calls[[5]]$args[11], list(c("a", "b")))
 })
 

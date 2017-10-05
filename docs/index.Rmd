@@ -497,8 +497,6 @@ map.feature(languages = ejective_and_n_consonants$language,
             minichart.labels = TRUE)
 ```
 
-Unfortunately, this argument limits work of the `label` arguments, but provides beutifull functionality of `leaflet.minicharts` library.
-
 ### 3.15 Add a rectangle to a map
 It is possible to highlight some part of your map with a rectangle. You need to provide a latitude and longitude of the diagonal (`rectangle.lat` and `rectangel.lng`) and color of the rectangle (`rectangle.color`):
 
