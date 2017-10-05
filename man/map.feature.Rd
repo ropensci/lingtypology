@@ -24,8 +24,9 @@ map.feature(languages, features = "", popup = "", label = "",
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
   zoom.control = FALSE, zoom.level = NULL, rectangle.lng = NULL,
   rectangle.lat = NULL, minichart = NULL, minichart.data = NULL,
-  minichart.time = NULL, rectangle.color = "black",
-  map.orientation = "Pacific", glottolog.source = "modified")
+  minichart.time = NULL, minichart.labels = FALSE,
+  rectangle.color = "black", map.orientation = "Pacific",
+  glottolog.source = "modified")
 }
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case)}

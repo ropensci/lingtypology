@@ -182,6 +182,7 @@ map.feature <- function(languages,
                         minichart = NULL,
                         minichart.data = NULL,
                         minichart.time = NULL,
+                        minichart.labels = FALSE,
                         rectangle.color = "black",
                         map.orientation = "Pacific",
                         glottolog.source = "modified") {
@@ -540,16 +541,14 @@ map.feature <- function(languages,
       tables <- do.call(paste, df_args)
     }
 
-
     m <- m %>% leaflet.minicharts::addMinicharts(
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
       chartdata = minichart.data,
       type = minichart,
       legend = legend,
-      width = width,
-      labelText = mapfeat.df$label,
-      showLabels = TRUE,
+      width = 7*width,
+      showLabels = minichart.labels,
       popup = leaflet.minicharts::popupArgs(html = paste0(mapfeat.df$link, tables)),
       time = minichart.time,
       legendPosition = legend.position,
@@ -558,7 +557,6 @@ map.feature <- function(languages,
       fillColor = color[1]
     )
   }
-
 
   # map: images -------------------------------------------------------------
   if (!is.null(image.url)) {
