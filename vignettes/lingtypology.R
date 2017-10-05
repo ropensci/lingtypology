@@ -189,7 +189,7 @@ map.feature(circassian$language,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
-            radius = 7, stroke.radius = 13)
+            width = 7, stroke.radius = 13)
 
 
 map.feature(circassian$language,
@@ -283,6 +283,12 @@ map.feature(languages = ejective_and_n_consonants$language,
             opacity = 0.7,
             label = ejective_and_n_consonants$language,
             legend.position = "topleft")
+
+## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+map.feature(languages = ejective_and_n_consonants$language,
+            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+            minichart = "pie",
+            minichart.labels = TRUE)
 
 ## ---- fig.width=6.2, fig.height=3.4--------------------------------------
 map.feature(circassian$language,

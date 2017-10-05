@@ -281,7 +281,6 @@ map.feature <- function(languages,
       "#8c564b",
       "#e377c2",
       "#7f7f7f",
-      "#bcbd22",
       "#17becf",
       sample(grDevices::colors()[!grepl("ivory|azure|white|gray|grey|black|pink|1",
                                         grDevices::colors())])
@@ -316,12 +315,7 @@ map.feature <- function(languages,
     } else {
       set.seed(45)
       density.estimation.pal <-
-        leaflet::colorFactor(sample(my_colors, length(
-          unique(mapfeat.df$density.estimation)
-        ),
-        length(
-          unique(mapfeat.df$density.estimation)
-        )),
+        leaflet::colorFactor(c(rev(my_colors[1:9]), my_colors[10:329]),
         domain = mapfeat.df$density.estimation)
     }
   } else {
