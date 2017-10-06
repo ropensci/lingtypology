@@ -76,7 +76,6 @@ test_that("map.feature density estimation", {
   expect_equal(exists("density1"), TRUE)
   expect_equal(exists("density2"), TRUE)
   expect_equal(exists("density3"), TRUE)
-  expect_equal(exists("density4"), TRUE)
 })
 
 map_image <-
