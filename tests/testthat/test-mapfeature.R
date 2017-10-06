@@ -76,6 +76,7 @@ test_that("map.feature density estimation", {
   expect_equal(exists("density1"), TRUE)
   expect_equal(exists("density2"), TRUE)
   expect_equal(exists("density3"), TRUE)
+  expect_equal(exists("density4"), TRUE)
 })
 
 map_image <-
@@ -243,4 +244,11 @@ test_that("map.feature rectangular", {
   expect_equal(map_rectangular$x$calls[[3]]$method, "addRectangles")
 })
 
+map_minicharts <-
+  map.feature(languages = ejective_and_n_consonants$language,
+              minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+              minichart = "pie")
 
+test_that("map.feature minicharts", {
+  expect_equal(exists("map_minicharts"), TRUE)
+})
