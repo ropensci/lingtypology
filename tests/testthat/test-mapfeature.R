@@ -7,106 +7,198 @@ map2 <- map.feature("Abkhazian", glottolog.source = "o")
 map3 <- map.feature(data.frame("Abkhaz"))
 
 test_that("map.feature source", {
-    expect_equal(exists("map"), TRUE)
-    expect_equal(exists("map"), TRUE)
-    expect_equal(exists("map3"), TRUE)
-    expect_equal(exists("map2"), TRUE)
-    expect_warning(map.feature(c("Abkhazian", "Adyghe")), "Language Abkhazian is absent in our version of the Glottolog database. Did you mean Akkadian, Abkhaz?")
-    expect_warning(map.feature(c("Abkhaz", "Adyghe"), glottolog.source = "o"), "Language Abkhaz is absent in our version of the Glottolog database. Did you mean Akha?")
+  expect_equal(exists("map"), TRUE)
+  expect_equal(exists("map"), TRUE)
+  expect_equal(exists("map3"), TRUE)
+  expect_equal(exists("map2"), TRUE)
+  expect_warning(
+    map.feature(c("Abkhazian", "Adyghe")),
+    "Language Abkhazian is absent in our version of the Glottolog database. Did you mean Akkadian, Abkhaz?"
+  )
+  expect_warning(
+    map.feature(c("Abkhaz", "Adyghe"), glottolog.source = "o"),
+    "Language Abkhaz is absent in our version of the Glottolog database. Did you mean Akha?"
+  )
 })
 
 test_that("map.feature no coordinates", {
-    expect_warning(map.feature(c("Yugul", "Adyghe", "Selako")),
-                                "There is no coordinates for languages Yugul, Selako")
+  expect_warning(map.feature(c("Yugul", "Adyghe", "Selako")),
+                 "There is no coordinates for languages Yugul, Selako")
 })
 
 test_that("map.feature no data to map", {
-  expect_error(expect_warning(map.feature("bla-bla-bla"), "Languoid bla-bla-bla is absent in our version of the Glottolog database. Did you mean Blablanga?",
-                              ignore.case = T), "There is no data to map")
+  expect_error(
+    expect_warning(
+      map.feature("bla-bla-bla"),
+      "Languoid bla-bla-bla is absent in our version of the Glottolog database. Did you mean Blablanga?",
+      ignore.case = T
+    ),
+    "There is no data to map"
+  )
 })
 
 map_coord <- map.feature("Abkhaz", latitude = 43, longitude = 57)
 
 test_that("map.feature coordinates", {
-    expect_equal(map$x$limits[[1]][1], unname(lat.lang("Abkhaz")))
-    expect_equal(map$x$limits[[2]][1], unname(long.lang("Abkhaz")))
-    expect_equal(map_coord$x$limits[[1]][1], 43)
-    expect_equal(map_coord$x$limits[[2]][1], 57)
+  expect_equal(map$x$limits[[1]][1], unname(lat.lang("Abkhaz")))
+  expect_equal(map$x$limits[[2]][1], unname(long.lang("Abkhaz")))
+  expect_equal(map_coord$x$limits[[1]][1], 43)
+  expect_equal(map_coord$x$limits[[2]][1], 57)
 })
 
-density1 <- map.feature(circassian$language, circassian$language,
-                        longitude = circassian$longitude,
-                        latitude = circassian$latitude,
-                        density.estimation = circassian$language)
+density1 <- map.feature(
+  circassian$language,
+  circassian$language,
+  longitude = circassian$longitude,
+  latitude = circassian$latitude,
+  density.estimation = circassian$language
+)
 
-density2 <- map.feature(circassian$language, circassian$language,
-                        longitude = circassian$longitude,
-                        latitude = circassian$latitude,
-                        density.estimation = circassian$language,
-                        density.points = FALSE)
+density2 <- map.feature(
+  circassian$language,
+  circassian$language,
+  longitude = circassian$longitude,
+  latitude = circassian$latitude,
+  density.estimation = circassian$language,
+  density.points = FALSE
+)
+
+density3 <- map.feature(
+  circassian$language,
+  circassian$language,
+  longitude = circassian$longitude,
+  latitude = circassian$latitude,
+  density.estimation = circassian$language,
+  density.control = TRUE
+)
 
 test_that("map.feature density estimation", {
   expect_equal(exists("density1"), TRUE)
   expect_equal(exists("density2"), TRUE)
+  expect_equal(exists("density3"), TRUE)
 })
 
-map_image <- map.feature("Tabasaran", image.url = "https://goo.gl/Ycn6tJ")
+map_image <-
+  map.feature("Tabasaran", image.url = "https://goo.gl/Ycn6tJ")
 
 test_that("map.feature images", {
-    expect_equal(map_image$x$calls[[5]]$args[[3]]$iconUrl$data, "https://goo.gl/Ycn6tJ")
+  expect_equal(map_image$x$calls[[5]]$args[[3]]$iconUrl$data,
+               "https://goo.gl/Ycn6tJ")
 })
 
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"), feature = c("polysynthetic",
-    "polysynthetic", "fusion", "fusion", "fusion"), popup = c("Circassian", "Circassian", "Slavic",
-    "Slavic", "Slavic"))
-map_stroke <- map.feature(df$lang, df$feature, df$popup, stroke.features = df$popup)
-map_stroke2 <- map.feature(df$lang, df$feature, df$popup, stroke.features = df$popup, stroke.color = c("blue",
-    "green"))
+df <-
+  data.frame(
+    lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+    feature = c("polysynthetic",
+                "polysynthetic", "fusion", "fusion", "fusion"),
+    popup = c("Circassian", "Circassian", "Slavic",
+              "Slavic", "Slavic")
+  )
+map_stroke <-
+  map.feature(df$lang, df$feature, df$popup, stroke.features = df$popup)
+map_stroke2 <-
+  map.feature(
+    df$lang,
+    df$feature,
+    df$popup,
+    stroke.features = df$popup,
+    stroke.color = c("blue",
+                     "green")
+  )
 
 test_that("map.feature stroke feature", {
-    expect_equal(length(map_stroke$x$calls), 10)
-    expect_equal(map_stroke2$x$calls[[4]]$args[[6]]$fillColor, c("#0000FF", "#0000FF", "#00FF00",
-        "#00FF00", "#00FF00"))
+  expect_equal(length(map_stroke$x$calls), 10)
+  expect_equal(
+    map_stroke2$x$calls[[4]]$args[[6]]$fillColor,
+    c("#0000FF", "#0000FF", "#00FF00",
+      "#00FF00", "#00FF00")
+  )
 })
 
 map_colorless <- map.feature(c("Tabasaran", "Adyghe"))
 map_lang_colors <- map.feature(c("Tabasaran", "Adyghe"),
-                          color = "navy")
-map_colors <- map.feature(c("Tabasaran", "Adyghe"),
-                          features = c("a", "b"),
-                          color = c("navy", "yellowgreen"))
-map_colors2 <- map.feature(c("Tabasaran", "Adyghe"),
-                          features = c(1, 2),
-                          color = c("navy", "yellowgreen"))
+                               color = "navy")
+map_colors <- map.feature(
+  c("Tabasaran", "Adyghe"),
+  features = c("a", "b"),
+  color = c("navy", "yellowgreen")
+)
+map_colors2 <- map.feature(
+  c("Tabasaran", "Adyghe"),
+  features = c(1, 2),
+  color = c("navy", "yellowgreen")
+)
 map_colorless2 <- map.feature(c("Tabasaran", "Adyghe"),
-                           features = c(1, 2))
+                              features = c(1, 2))
 
 test_that("map.feature colors", {
-    expect_equal(map_colors$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
-    expect_equal(map_colors2$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
-    expect_equal(map_colorless$x$calls[[4]]$args[6][[1]]$color, c("#1F77B4", "#1F77B4"))
-    expect_equal(map_colorless2$x$calls[[4]]$args[6][[1]]$color, c("#F7FCFD", "#4D004B"))
-    expect_equal(map_lang_colors$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#000080"))
-    expect_equal(map_stroke$x$calls[[4]]$args[6][[1]]$color, c("#FFFFFF", "#FFFFFF", "#000000", "#000000", "#000000"))
+  expect_equal(map_colors$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
+  expect_equal(map_colors2$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
+  expect_equal(map_colorless$x$calls[[4]]$args[6][[1]]$color,
+               c("#1F77B4", "#1F77B4"))
+  expect_equal(map_colorless2$x$calls[[4]]$args[6][[1]]$color,
+               c("#F7FCFD", "#4D004B"))
+  expect_equal(map_lang_colors$x$calls[[4]]$args[6][[1]]$color,
+               c("#000080", "#000080"))
+  expect_equal(
+    map_stroke$x$calls[[4]]$args[6][[1]]$color,
+    c("#FFFFFF", "#FFFFFF", "#000000", "#000000", "#000000")
+  )
 })
 
-map_tiles <- map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
-map_tiles_control <- map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"), control = TRUE)
+map_tiles <-
+  map.feature("Adyghe",
+              tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
+map_tiles_control <-
+  map.feature(
+    "Adyghe",
+    tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
+    control = TRUE
+  )
 
 test_that("map.feature tiles", {
-    expect_equal(c(map_tiles$x$calls[[2]]$args[[1]], map_tiles$x$calls[[3]]$args[[1]]), c("OpenStreetMap.BlackAndWhite",
-        "Thunderforest.OpenCycleMap"))
-    expect_equal(c(map_tiles_control$x$calls[[2]]$args[[1]], map_tiles_control$x$calls[[3]]$args[[1]]), c("OpenStreetMap.BlackAndWhite",                                                                                        "Thunderforest.OpenCycleMap"))
-    expect_warning(map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"), tile.name = c("first")),
-                   "number of tile names \\(tile.name argument\\) is less than number of tiles \\(tile argument\\)")
-    expect_warning(map.feature("Adyghe", tile = c("OpenStreetMap.BlackAndWhite"), tile.name = c("first", "second")),
-                    'number of tile names \\(tile.name argument\\) is less than number of tiles \\(tile argument\\)')
-    })
+  expect_equal(
+    c(map_tiles$x$calls[[2]]$args[[1]], map_tiles$x$calls[[3]]$args[[1]]),
+    c(
+      "OpenStreetMap.BlackAndWhite",
+      "Thunderforest.OpenCycleMap"
+    )
+  )
+  expect_equal(
+    c(
+      map_tiles_control$x$calls[[2]]$args[[1]],
+      map_tiles_control$x$calls[[3]]$args[[1]]
+    ),
+    c(
+      "OpenStreetMap.BlackAndWhite",
+      "Thunderforest.OpenCycleMap"
+    )
+  )
+  expect_warning(
+    map.feature(
+      "Adyghe",
+      tile = c(
+        "OpenStreetMap.BlackAndWhite",
+        "Thunderforest.OpenCycleMap"
+      ),
+      tile.name = c("first")
+    ),
+    "number of tile names \\(tile.name argument\\) is less than number of tiles \\(tile argument\\)"
+  )
+  expect_warning(
+    map.feature(
+      "Adyghe",
+      tile = c("OpenStreetMap.BlackAndWhite"),
+      tile.name = c("first", "second")
+    ),
+    'number of tile names \\(tile.name argument\\) is less than number of tiles \\(tile argument\\)'
+  )
+})
 
 map_control <- map.feature(c("Adyghe", "Russian"), control = TRUE)
 
 test_that("control", {
-    expect_equal(map_control$x$calls[[5]]$method, "addLayersControl")
+  expect_equal(map_control$x$calls[[5]]$method, "addLayersControl")
 })
 
 map_minimap <- map.feature(c("Adyghe", "Russian"), minimap = TRUE)
@@ -119,8 +211,36 @@ test_that("map.feature scale bar", {
   expect_equal(map_minimap$x$calls[[5]]$method, "addScaleBar")
 })
 
-map_label <- map.feature(c("Adyghe", "Russian"), label = c("a", "b"))
+map_label <-
+  map.feature(c("Adyghe", "Russian"), label = c("a", "b"))
 test_that("map.feature labels", {
   expect_equal(map_label$x$calls[[5]]$args[11], list(c("a", "b")))
 })
+
+map_label_emph <-
+  map.feature(c("Adyghe", "Russian"), label = c("a", "b"), label.emphasize = list(1, "red"))
+test_that("map.feature emphasized labels", {
+  expect_equal(map_label_emph$x$calls[[6]]$args[11], list(c("a")))
+  expect_equal(map_label_emph$x$calls[[6]]$args[12][[1]]$style$color, "red")
+})
+
+map_zoom <-
+  map.feature(c("Adyghe", "Russian"), zoom.level = 4)
+test_that("map.feature emphasized labels", {
+  expect_equal(map_zoom$x$setView[[2]], 4)
+})
+
+map_rectangular <-
+  map.feature(circassian$language,
+              circassian$language,
+              longitude = circassian$longitude,
+              latitude = circassian$latitude,
+              rectangle.lng = c(42.7, 45),
+              rectangle.lat = c(42.7, 44.3),
+              rectangle.color = "blue")
+
+test_that("map.feature rectangular", {
+  expect_equal(map_rectangular$x$calls[[3]]$method, "addRectangles")
+})
+
 
