@@ -211,6 +211,8 @@ glottolog.modified[glottolog.modified$language %in% "Ingush", 'longitude'] <- 44
 glottolog.modified[glottolog.modified$language %in% "Ingush", 'latitude'] <- 43.16667
 glottolog.modified[glottolog.modified$language %in% "Avar", 'longitude'] <- 46.66639
 glottolog.modified[glottolog.modified$language %in% "Avar", 'latitude'] <- 42.43056
+glottolog.modified[glottolog.modified$language %in% "Botlikh", 'longitude'] <- 46.22000
+glottolog.modified[glottolog.modified$language %in% "Botlikh", 'latitude'] <- 42.66500
 glottolog.modified[glottolog.modified$language %in% "Silesian", 'longitude'] <- 19
 glottolog.modified[glottolog.modified$language %in% "Silesian", 'latitude'] <- 50.25
 glottolog.modified[glottolog.modified$language %in% "Slavomolisano", 'longitude'] <- 14.746984
