@@ -213,7 +213,7 @@ wals.feature <-
         "144X",
         "144Y"
       )
-    if (sum(!toupper(features) %in% features_set) < 1) {
+    if (sum(!toupper(features) %in% features_set) < 1){
       links <-
         paste0("http://wals.info/feature/", toupper(features), ".tab")
       datalist  <-  lapply(links, function(x) {
@@ -239,7 +239,7 @@ wals.feature <-
       }, datalist)
 
       final_df <-
-        final_df[, c(1:4, grep("description", colnames(final_df)))]
+        final_df[, grep("description|wals.code|name|latitude|longitude", colnames(final_df))]
       colnames(final_df)[grep("description", colnames(final_df))] <-
         features
 

@@ -9,7 +9,7 @@
 #' @seealso \code{\link{autotyp.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}
 #' @examples
 #' # afbo.feature()
-#' # afbo.feature(c("adjectivizer", "focus"))
+#' # afbo.feature(c("adjectivizer", "adverbializer"))
 #' @export
 #'
 #' @importFrom utils download.file
@@ -42,16 +42,19 @@ afbo.feature <- function(features = "all", na.rm = TRUE, glottolog.source = "mod
     if(na.rm == TRUE){
     df <- df[is.glottolog(df$Donor.name),]
     df <- df[is.glottolog(df$Recipient.name),]}
+    indexes <- grep("Recipient.name|Donor.name|reliability", colnames(df))
 
     ifelse(features == "all",
-           final_df <- df,
-           final_df <- cbind(df[, c(2:12, 14)], df[, features]))
+           final_df <- df[, c(indexes, 15:57)],
+           final_df <- df[, c(indexes, which(colnames(df) %in% features))])
     } else {
       not_features <- features[which(!features %in% features_set)]
       stop(paste(
         "There is no features",
         paste0("'", not_features, "'", collapse = ", "),
         "in AfBo database."))
-      }
+    }
+  if("all" %in% features){features <- features_set[-1]}
+  final_df <- final_df[rowSums(data.frame(a = !is.na(final_df[,features]))) > 0,]
   return(final_df)
 }

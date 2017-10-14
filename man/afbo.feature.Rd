@@ -19,7 +19,7 @@ This function downloads data from AfBo (http://afbo.info) and changes language n
 }
 \examples{
 # afbo.feature()
-# afbo.feature(c("adjectivizer", "focus"))
+# afbo.feature(c("adjectivizer", "adverbializer"))
 }
 \seealso{
 \code{\link{autotyp.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}

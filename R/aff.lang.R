@@ -23,7 +23,7 @@ aff.lang <- function(x, glottolog.source = "modified") {
     ifelse(
       is.glottolog(y, response = TRUE,
                    glottolog.source = glottolog.source) == TRUE,
-      glottolog[tolower(glottolog$language) %in% tolower(y),]$affiliation,
+      glottolog[tolower(glottolog$language) %in% tolower(y), ]$affiliation,
       NA_character_
     )
   }, character(1))

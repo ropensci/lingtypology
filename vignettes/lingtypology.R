@@ -49,8 +49,8 @@ is.glottolog(c("Abkhaz", "Abkhazian"), g = "o")
 ## ------------------------------------------------------------------------
 is.glottolog(c("Abkhaz", "Abkhazian"), g = "m")
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 
 ## ---- eval = FALSE-------------------------------------------------------
 #  m <- map.feature(c("Adyghe", "Korean"))
@@ -63,300 +63,300 @@ df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulga
                  features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
 df
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(languages = df$language,
-            features = df$features)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(languages = df$language,
+#              features = df$features)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df$features <- factor(df$features, levels = c("polysynthetic", "fusional"))
-map.feature(languages = df$language, features = df$features)
+## ---- eval=FALSE---------------------------------------------------------
+#  df$features <- factor(df$features, levels = c("polysynthetic", "fusional"))
+#  map.feature(languages = df$language, features = df$features)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(df$language, df$features)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(df$language, df$features)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$ejectives) # categorical
-map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$consonants) # numeric
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(ejective_and_n_consonants$language,
+#              ejective_and_n_consonants$ejectives) # categorical
+#  map.feature(ejective_and_n_consonants$language,
+#              ejective_and_n_consonants$consonants) # numeric
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$consonants,
-            map.orientation = "Atlantic")
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(ejective_and_n_consonants$language,
+#              ejective_and_n_consonants$consonants,
+#              map.orientation = "Atlantic")
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df$popup <- aff.lang(df$language)
+## ---- eval=FALSE---------------------------------------------------------
+#  df$popup <- aff.lang(df$language)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+## ---- eval=FALSE---------------------------------------------------------
+#  
+#  map.feature(languages = df$language, features = df$features, popup = df$popup)
 
-map.feature(languages = df$language, features = df$features, popup = df$popup)
+## ---- eval=FALSE---------------------------------------------------------
+#  # change a df$popup vector
+#  df$popup <- c ("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
+#                 "sɐ s-o-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
+#                 "id-ę<br> go-1sg.npst<br> 'I go'",
+#                 "ya id-u<br> 1sg go-1sg.npst <br> 'I go'",
+#                 "id-a<br> go-1sg.prs<br> 'I go'")
+#  # create a map
+#  
+#  map.feature(df$language,
+#              features = df$features,
+#              popup = df$popup)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-# change a df$popup vector
-df$popup <- c ("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
-               "sɐ s-o-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
-               "id-ę<br> go-1sg.npst<br> 'I go'",
-               "ya id-u<br> 1sg go-1sg.npst <br> 'I go'",
-               "id-a<br> go-1sg.prs<br> 'I go'")
-# create a map
+## ---- eval=FALSE---------------------------------------------------------
+#  # Create a dataframe with links to video
+#  sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
+#                   popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
+#  
+#  # Change popup to an HTML code
+#  sign_df$popup <- paste("<video width='200' height='150' controls> <source src='",
+#                    as.character(sign_df$popup),
+#                    "' type='video/mp4'></video>", sep = "")
+#  # create a map
+#  map.feature(languages = sign_df$languages, popup = sign_df$popup)
 
-map.feature(df$language,
-            features = df$features,
-            popup = df$popup)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(df$language, df$features,
+#              label = df$language)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-# Create a dataframe with links to video
-sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
-                 popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(df$language, df$features,
+#              label = df$language,
+#              label.fsize = 20,
+#              label.position = "left",
+#              label.hide = FALSE)
 
-# Change popup to an HTML code
-sign_df$popup <- paste("<video width='200' height='150' controls> <source src='",
-                  as.character(sign_df$popup),
-                  "' type='video/mp4'></video>", sep = "")
-# create a map
-map.feature(languages = sign_df$languages, popup = sign_df$popup)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(df$language, df$features,
+#              label = df$language,
+#              label.fsize = 20,
+#              label.position = "left",
+#              label.hide = FALSE,
+#              label.emphasize = list(2:4, "red"))
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(df$language, df$features,
-            label = df$language)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(languages = circassian$language,
+#              features = circassian$dialect,
+#              popup = circassian$village,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(df$language, df$features,
-            label = df$language,
-            label.fsize = 20,
-            label.position = "left",
-            label.hide = FALSE)
+## ---- eval=FALSE---------------------------------------------------------
+#  df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#                   features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
+#  map.feature(languages = df$language,
+#              features = df$features,
+#              color = c("yellowgreen", "navy"))
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(df$language, df$features,
-            label = df$language,
-            label.fsize = 20,
-            label.position = "left",
-            label.hide = FALSE,
-            label.emphasize = list(2:4, "red"))
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(ejective_and_n_consonants$language,
+#              ejective_and_n_consonants$consonants,
+#              color = "magma")
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(languages = circassian$language,
-            features = circassian$dialect,
-            popup = circassian$village,
-            latitude = circassian$latitude,
-            longitude = circassian$longitude)
+## ---- eval=FALSE---------------------------------------------------------
+#  
+#  map.feature(languages = df$language,
+#              features = df$features,
+#              control = TRUE)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-                 features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
-map.feature(languages = df$language,
-            features = df$features,
-            color = c("yellowgreen", "navy"))
+## ---- eval=FALSE---------------------------------------------------------
+#  
+#  map.feature(circassian$language,
+#              features = circassian$dialect,
+#              stroke.features = circassian$language,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$consonants,
-            color = "magma")
+## ---- message= F, eval=FALSE---------------------------------------------
+#  # create newfeature variable
+#  newfeature <- circassian[,c(5,6)]
+#  # set language feature of the Baksan villages to NA and reduce newfeature from dataframe to vector
+#  newfeature <-  replace(newfeature$language, newfeature$language == "Baksan", NA)
+#  # create a map
+#  
+#  map.feature(circassian$language,
+#              features = circassian$dialect,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude,
+#              stroke.features = newfeature)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+## ---- eval=FALSE---------------------------------------------------------
+#  
+#  map.feature(circassian$language,
+#              features = circassian$dialect,
+#              stroke.features = circassian$language,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude,
+#              width = 7, stroke.radius = 13)
+#  
+#  
+#  map.feature(circassian$language,
+#              features = circassian$dialect,
+#              stroke.features = circassian$language,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude,
+#              opacity = 0.7, stroke.opacity = 0.6)
 
-map.feature(languages = df$language,
-            features = df$features,
-            control = TRUE)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(circassian$language,
+#              features = circassian$dialect,
+#              stroke.features = circassian$language,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude,
+#              legend = FALSE, stroke.legend = TRUE)
+#  
+#  map.feature(circassian$language,
+#              features = circassian$dialect,
+#              stroke.features = circassian$language,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude,
+#              title = "Circassian dialects", stroke.title = "Languages")
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+#              scale.bar = TRUE,
+#              scale.bar.position = "topright")
 
-map.feature(circassian$language,
-            features = circassian$dialect,
-            stroke.features = circassian$language,
-            latitude = circassian$latitude,
-            longitude = circassian$longitude)
+## ---- eval=FALSE---------------------------------------------------------
+#  df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#     feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+#     popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+#  
+#  map.feature(df$lang, df$feature, df$popup,
+#              tile = "Thunderforest.OpenCycleMap")
 
-## ---- message= F, fig.width=6.2, fig.height=3.4--------------------------
-# create newfeature variable
-newfeature <- circassian[,c(5,6)]
-# set language feature of the Baksan villages to NA and reduce newfeature from dataframe to vector
-newfeature <-  replace(newfeature$language, newfeature$language == "Baksan", NA)
-# create a map
+## ---- eval=FALSE---------------------------------------------------------
+#  df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#                   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+#                   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+#  
+#  map.feature(df$lang, df$feature, df$popup,
+#              tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
 
-map.feature(circassian$language,
-            features = circassian$dialect,
-            latitude = circassian$latitude,
-            longitude = circassian$longitude,
-            stroke.features = newfeature)
+## ---- eval=FALSE---------------------------------------------------------
+#  df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#                   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+#                   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+#  
+#  map.feature(df$lang, df$feature, df$popup,
+#              tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
+#              tile.name = c("b & w", "colored"))
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
+## ---- eval=FALSE---------------------------------------------------------
+#  df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#                   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+#                   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+#  
+#  map.feature(df$lang, df$feature, df$popup,
+#              tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
+#              control = TRUE)
 
-map.feature(circassian$language,
-            features = circassian$dialect,
-            stroke.features = circassian$language,
-            latitude = circassian$latitude,
-            longitude = circassian$longitude,
-            width = 7, stroke.radius = 13)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+#              minimap = TRUE)
 
+## ---- eval=FALSE---------------------------------------------------------
+#  
+#  map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+#              minimap = TRUE,
+#              minimap.position = "topright",
+#              minimap.height = 100,
+#              minimap.width = 100)
 
-map.feature(circassian$language,
-            features = circassian$dialect,
-            stroke.features = circassian$language,
-            latitude = circassian$latitude,
-            longitude = circassian$longitude,
-            opacity = 0.7, stroke.opacity = 0.6)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(languages = ejective_and_n_consonants$language,
+#              minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+#              minichart = "bar")
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            features = circassian$dialect,
-            stroke.features = circassian$language,
-            latitude = circassian$latitude,
-            longitude = circassian$longitude,
-            legend = FALSE, stroke.legend = TRUE)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(languages = ejective_and_n_consonants$language,
+#              minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+#              minichart = "pie")
 
-map.feature(circassian$language,
-            features = circassian$dialect,
-            stroke.features = circassian$language,
-            latitude = circassian$latitude,
-            longitude = circassian$longitude,
-            title = "Circassian dialects", stroke.title = "Languages")
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(languages = ejective_and_n_consonants$language,
+#              minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+#              minichart = "bar",
+#              color = c("yellowgreen", "navy"),
+#              opacity = 0.7,
+#              label = ejective_and_n_consonants$language,
+#              legend.position = "topleft")
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
-            scale.bar = TRUE,
-            scale.bar.position = "topright")
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(languages = ejective_and_n_consonants$language,
+#              minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+#              minichart = "pie",
+#              minichart.labels = TRUE)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(circassian$language,
+#              circassian$language,
+#              longitude = circassian$longitude,
+#              latitude = circassian$latitude,
+#              rectangle.lng = c(42.7, 45),
+#              rectangle.lat = c(42.7, 44.4),
+#              rectangle.color = "green")
 
-map.feature(df$lang, df$feature, df$popup,
-            tile = "Thunderforest.OpenCycleMap")
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(circassian$language,
+#              longitude = circassian$longitude,
+#              latitude = circassian$latitude,
+#              density.estimation = circassian$language)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(circassian$language,
+#              features = circassian$dialect,
+#              longitude = circassian$longitude,
+#              latitude = circassian$latitude,
+#              density.estimation = circassian$language)
 
-map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(circassian$language,
+#              longitude = circassian$longitude,
+#              latitude = circassian$latitude,
+#              density.estimation = circassian$language,
+#              density.points = FALSE)
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(circassian$language,
+#              longitude = circassian$longitude,
+#              latitude = circassian$latitude,
+#              density.estimation = circassian$language,
+#              density.estimation.opacity = 0.9)
 
-map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
-            tile.name = c("b & w", "colored"))
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(circassian$language,
+#              features = circassian$language,
+#              longitude = circassian$longitude,
+#              latitude = circassian$latitude,
+#              density.estimation = "Circassian",
+#              density.longitude.width = 0.3,
+#              density.latitude.width = 0.3,
+#              color = c("darkgreen", "blue"))
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(circassian$language,
+#              features = circassian$language,
+#              longitude = circassian$longitude,
+#              latitude = circassian$latitude,
+#              density.estimation = "Circassian",
+#              density.longitude.width = 0.7,
+#              density.latitude.width = 0.7,
+#              color = c("darkgreen", "blue"))
 
-map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
-            control = TRUE)
+## ---- eval=FALSE---------------------------------------------------------
+#  map.feature(circassian$language,
+#              features = circassian$language,
+#              longitude = circassian$longitude,
+#              latitude = circassian$latitude,
+#              density.estimation = "Circassian",
+#              density.longitude.width = 1.3,
+#              density.latitude.width = 0.9,
+#              color = c("darkgreen", "blue"))
 
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
-            minimap = TRUE)
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-
-map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
-            minimap = TRUE,
-            minimap.position = "topright",
-            minimap.height = 100,
-            minimap.width = 100)
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(languages = ejective_and_n_consonants$language,
-            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
-            minichart = "bar")
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(languages = ejective_and_n_consonants$language,
-            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
-            minichart = "pie")
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(languages = ejective_and_n_consonants$language,
-            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
-            minichart = "bar",
-            color = c("yellowgreen", "navy"),
-            opacity = 0.7,
-            label = ejective_and_n_consonants$language,
-            legend.position = "topleft")
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(languages = ejective_and_n_consonants$language,
-            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
-            minichart = "pie",
-            minichart.labels = TRUE)
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            rectangle.lng = c(42.7, 45),
-            rectangle.lat = c(42.7, 44.4),
-            rectangle.color = "green")
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = circassian$language)
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            features = circassian$dialect,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = circassian$language)
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = circassian$language,
-            density.points = FALSE)
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = circassian$language,
-            density.estimation.opacity = 0.9)
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            features = circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = "Circassian",
-            density.longitude.width = 0.3,
-            density.latitude.width = 0.3, 
-            color = c("darkgreen", "blue"))
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            features = circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = "Circassian",
-            density.longitude.width = 0.7,
-            density.latitude.width = 0.7, 
-            color = c("darkgreen", "blue"))
-
-## ---- fig.width=6.2, fig.height=3.4--------------------------------------
-map.feature(circassian$language,
-            features = circassian$language,
-            longitude = circassian$longitude,
-            latitude = circassian$latitude,
-            density.estimation = "Circassian",
-            density.longitude.width = 1.3,
-            density.latitude.width = 0.9, 
-            color = c("darkgreen", "blue"))
-
-## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
+## ---- eval=FALSE---------------------------------------------------------
 #  df <- wals.feature(c("1a", "20a"))
 #  head(df)
 #  map.feature(df$language,
@@ -366,7 +366,7 @@ map.feature(circassian$language,
 #              label = df$language,
 #              title = "Consonant Inventories")
 
-## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
+## ---- eval=FALSE---------------------------------------------------------
 #  df <- autotyp.feature(c('Gender', 'Numeral classifiers'))
 #  head(df)
 #  map.feature(df$language,
@@ -374,7 +374,7 @@ map.feature(circassian$language,
 #              label = df$language,
 #              title = "Presence of Numeral Classifiers")
 
-## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
+## ---- eval=FALSE---------------------------------------------------------
 #  df <- phoible.feature(source = "UPSID")
 #  head(df)
 #  map.feature(df$language,
@@ -382,15 +382,15 @@ map.feature(circassian$language,
 #              label = df$language,
 #              title = "Number of Phonemes")
 
-## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
-#  df <- afbo.feature()
+## ---- eval=FALSE---------------------------------------------------------
+#  df <- afbo.feature(c("adjectivizer", "adverbializer"))
 #  head(df)
 #  map.feature(df$Recipient.name,
 #              features = df$adjectivizer,
 #              label = df$Recipient.name,
-#              title = "Numeral Classifiers Borrowing")
+#              title = "Borrowed adjectivizer affixes")
 
-## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
+## ---- eval=FALSE---------------------------------------------------------
 #  df <- sails.feature(features = "ics10")
 #  head(df)
 #  map.feature(df$language,
@@ -400,7 +400,7 @@ map.feature(circassian$language,
 #              label = df$language,
 #              title = "Are there numeral classifiers?")
 
-## ---- fig.width=6.2, fig.height=3.4, eval=FALSE--------------------------
+## ---- eval=FALSE---------------------------------------------------------
 #  df <- abvd.feature(50:55)
 #  head(df)
 #  new_df <- df[df$word == "hand",]
@@ -412,7 +412,7 @@ map.feature(circassian$language,
 #  new_data <- read.csv("https://goo.gl/GgscBE")
 #  tail(new_data)
 
-## ---- fig.width=6.2, fig.height=3.4, message= FALSE, eval=FALSE----------
+## ---- eval=FALSE , message= FALSE----------------------------------------
 #  library(dplyr)
 #  new_data %>%
 #    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>%
@@ -421,7 +421,7 @@ map.feature(circassian$language,
 #    select(Language.name) %>%
 #    map.feature()
 
-## ---- fig.width=6.2, fig.height=3.4, message= FALSE, eval=FALSE----------
+## ---- eval=FALSE , message= FALSE----------------------------------------
 #  new_data %>%
 #    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>%
 #    filter(is.glottolog(Language.name) == TRUE) %>%

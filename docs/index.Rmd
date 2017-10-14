@@ -632,12 +632,12 @@ map.feature(df$language,
 ### 4.4 AfBo
 The AfBo database has a lot of features that distinguish affix functions, but again you can use a bare function without any arguments to download the whole database. There will be no difference in time, since this function downloads the whole database to your PC. The main destinction is that this database provides recipient and donor languages, so other column names should be used.
 ```{r, fig.width=6.2, fig.height=3.4}
-df <- afbo.feature()
+df <- afbo.feature(c("adjectivizer", "adverbializer"))
 head(df)
 map.feature(df$Recipient.name,
             features = df$adjectivizer,
             label = df$Recipient.name,
-            title = "Numeral Classifiers Borrowing")
+            title = "Borrowed adjectivizer affixes")
 ```
 
 ### 4.5 SAILS
