@@ -1,5 +1,6 @@
 lingtypology 1.0.9
 - correct queries of the length one for wals.feature() and afbo.feature() functions. #22
+ - add arguments for line (line.lng, line.lat, line.color)
 
 lingtypology 1.0.8 (07.10.2017)
 - add argument "density.control" to function map.feature().

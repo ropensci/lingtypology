@@ -61,6 +61,9 @@
 #' @param rectangle.lng vector of two longitude values for rectangle.
 #' @param rectangle.lat vector of two latitude values for rectangle.
 #' @param rectangle.color vector of rectangle border color.
+#' @param line.lng vector of two longitude values for line.
+#' @param line.lat vector of two latitude values for line.
+#' @param line.color vector of line color.
 #' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
 #' @param zoom.level a numeric value of the zoom level.
 #' @author George Moroz <agricolamz@gmail.com>
@@ -180,11 +183,14 @@ map.feature <- function(languages,
                         zoom.level = NULL,
                         rectangle.lng = NULL,
                         rectangle.lat = NULL,
+                        rectangle.color = "black",
+                        line.lng = NULL,
+                        line.lat = NULL,
+                        line.color = "black",
                         minichart = NULL,
                         minichart.data = NULL,
                         minichart.time = NULL,
                         minichart.labels = FALSE,
-                        rectangle.color = "black",
                         map.orientation = "Pacific",
                         glottolog.source = "modified") {
   ifelse(
@@ -681,5 +687,17 @@ map.feature <- function(languages,
       zoom = zoom.level
     )
   }
+
+  # add line ----------------------------------------------------------------
+  if (!is.null(line.lng) & !is.null(line.lat)) {
+    m <- m %>% leaflet::addPolylines(
+      lat = line.lat,
+      lng = line.lng,
+      color = line.color,
+      opacity = 1,
+      weight = 3
+    )
+  }
+
   m
 }

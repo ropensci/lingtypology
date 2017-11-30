@@ -23,10 +23,10 @@ map.feature(languages, features = "", popup = "", label = "",
   minimap.position = "bottomright", minimap.width = 150,
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
   zoom.control = FALSE, zoom.level = NULL, rectangle.lng = NULL,
-  rectangle.lat = NULL, minichart = NULL, minichart.data = NULL,
-  minichart.time = NULL, minichart.labels = FALSE,
-  rectangle.color = "black", map.orientation = "Pacific",
-  glottolog.source = "modified")
+  rectangle.lat = NULL, rectangle.color = "black", line.lng = NULL,
+  line.lat = NULL, line.color = "black", minichart = NULL,
+  minichart.data = NULL, minichart.time = NULL, minichart.labels = FALSE,
+  map.orientation = "Pacific", glottolog.source = "modified")
 }
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case)}
@@ -137,6 +137,14 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{rectangle.lat}{vector of two latitude values for rectangle.}
 
+\item{rectangle.color}{vector of rectangle border color.}
+
+\item{line.lng}{vector of two longitude values for line.}
+
+\item{line.lat}{vector of two latitude values for line.}
+
+\item{line.color}{vector of line color.}
+
 \item{minichart}{citation from leaflet.minicharts package: "Possible values are "bar" for bar charts, "pie" for pie charts, "polar-area" and "polar-radius"."}
 
 \item{minichart.data}{citation from leaflet.minicharts package: "A numeric matrix with number of rows equal to the number of elements in lng or lat and number of column equal to the number of variables to represent. If parameter time is set, the number of rows must be equal to the length of lng times the number of unique time steps in the data."}
@@ -144,8 +152,6 @@ map.feature(languages, features = "", popup = "", label = "",
 \item{minichart.time}{citation from leaflet.minicharts package: "A vector with length equal to the number of rows in chartdata and containing either numbers representing time indices or dates or datetimes. Each unique value must appear as many times as the others. This parameter can be used when one wants to represent the evolution of some variables on a map."}
 
 \item{minichart.labels}{citation from leaflet.minicharts package: "Should values be displayed above chart elements."}
-
-\item{rectangle.color}{vector of rectangle border color.}
 
 \item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}
 
