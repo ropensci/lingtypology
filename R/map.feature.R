@@ -61,8 +61,9 @@
 #' @param rectangle.lng vector of two longitude values for rectangle.
 #' @param rectangle.lat vector of two latitude values for rectangle.
 #' @param rectangle.color vector of rectangle border color.
-#' @param line.lng vector of two longitude values for line.
-#' @param line.lat vector of two latitude values for line.
+#' @param line.lng vector of two (or more) longitude values for line.
+#' @param line.lat vector of two (or more) latitude values for line.
+#' @param line.type a character string indicating which type of line is to be computed. One of "standard" (default), or "logit". The first one should be combined with the arguments line.lat and line.lng and provide simple lines. Other variant "logit" is the decision boundary of the logistic regression made using longitude and latitude coordinates (works only if feature argument have two levels).
 #' @param line.color vector of line color.
 #' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
 #' @param zoom.level a numeric value of the zoom level.
@@ -121,6 +122,10 @@
 #' @importFrom leaflet layersControlOptions
 #' @importFrom leaflet icons
 #' @importFrom stats complete.cases
+#' @importFrom stats sd
+#' @importFrom stats glm
+#' @importFrom stats binomial
+#' @importFrom stats coef
 #' @importFrom grDevices gray
 #' @importFrom grDevices topo.colors
 #' @importFrom rowr cbind.fill
@@ -186,6 +191,7 @@ map.feature <- function(languages,
                         rectangle.color = "black",
                         line.lng = NULL,
                         line.lat = NULL,
+                        line.type = "standard",
                         line.color = "black",
                         minichart = NULL,
                         minichart.data = NULL,
@@ -689,15 +695,34 @@ map.feature <- function(languages,
   }
 
   # add line ----------------------------------------------------------------
-  if (!is.null(line.lng) & !is.null(line.lat)) {
-    m <- m %>% leaflet::addPolylines(
-      lat = line.lat,
-      lng = line.lng,
-      color = line.color,
-      opacity = 1,
-      weight = 3
-    )
-  }
+  if(line.type == "standard"){
+    if (!is.null(line.lng) & !is.null(line.lat)) {
+      m <- m %>% leaflet::addPolylines(
+        lat = line.lat,
+        lng = line.lng,
+        color = line.color,
+        opacity = 1,
+        weight = 3)
+    }
+  } else if(line.type == "logit"){
+    if(length(table(mapfeat.df$features)) == 2){
+      logit <- stats::glm(mapfeat.df$features~mapfeat.df$long+mapfeat.df$lat,
+                          family=stats::binomial)
+      slope <- stats::coef(logit)[2]/(-stats::coef(logit)[3])
+      intercept <- stats::coef(logit)[1]/(-stats::coef(logit)[3])
+      line.lat <- range(circassian$latitude)+
+        c(-stats::sd(circassian$latitude), stats::sd(circassian$latitude))
+      line.lng <-  (line.lat - intercept)/slope
+      m <- m %>% leaflet::addPolylines(
+        lat = line.lat,
+        lng = line.lng,
+        color = line.color,
+        opacity = 1,
+        weight = 3)
+    } else{
+      warning("If you want to plot the decision boundary of the logistic regression, the argument features should contain two levels.")
+      }
+    }
 
   m
 }

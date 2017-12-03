@@ -1,0 +1,130 @@
+---
+title: "`lingtypology`: Glottolog functions"
+author: "George Moroz"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{`lingtypology`: Glottolog functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include=FALSE}
+library(lingtypology)
+```
+
+## 2. Glottolog functions
+This package is based on the [Glottolog database (v. 2.7)](http://glottolog.org/), so `lingtypology` has several functions for accessing data from that database.
+
+### 2.1 Command name's syntax
+Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. Most of them are based on _language name_.
+
+* **aff.lang()** — get affiliation by language
+* **area.lang()** — get macro area by language
+* **country.lang()** — get country by language
+* **iso.lang()** — get ISO 639-3 code by language
+* **gltc.lang()** — get glottocode (identifier for a language in the Glottolog database) code by language
+* **lat.lang()** — get latitude by language
+* **long.lang()** — get longitude by language
+
+Some of them help to define a vector of languages.
+
+* **lang.aff()** — get language by affiliation
+* **lang.iso()** — get language by ISO 639-3 code
+* **lang.gltc()** — get language by glottocode
+
+Additionally there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:
+
+  * **gltc.iso()** — get glottocode by ISO 639-3 code
+* **iso.gltc()** — get ISO 639-3 code by glottocode
+
+The most important functionality of `lingtypology` is the ability to create interactive maps based on features and sets of languages (see the third section):
+
+* **map.feature()**
+
+[Glottolog database (v. 2.7)](http://glottolog.org/) provides `lingtypology` with language names, ISO codes, genealogical affiliation, macro area, countries, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
+
+```{r}
+names(glottolog.original)
+```
+
+Using R functions for data manipulation you can create your own database for your purpose.
+
+### 2.2 Using base functions
+All functions introduced in the previous section are regular functions, so they can take the following objects as input:
+
+* a regular string
+```{r}
+iso.lang("Adyghe")
+lang.iso("ady")
+country.lang("Adyghe")
+lang.aff("West Caucasian")
+```
+
+I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is an incorrect string in R.
+
+* a vector of strings
+```{r}
+area.lang(c("Adyghe", "Aduge"))
+lang <- c("Adyghe", "Russian")
+aff.lang(lang)
+```
+
+*  other functions. For example, let's try to get a vector of ISO codes for the Circassian languages
+```{r}
+iso.lang(lang.aff("Circassian"))
+```
+
+If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.
+
+The behavior of most functions is rather predictable, but the function `country.lang`  has an additional feature. By default this function takes a vector of languages and returns a vector of countries.  But if you set the argument `intersection = TRUE`,  then the function returns a vector of countries where all languages from the query are spoken.
+```{r}
+country.lang(c("Udi", "Laz"))
+country.lang(c("Udi", "Laz"), intersection = TRUE)
+```
+
+### 2.3 Spell Checker: look carefully at warnings!
+There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example  _Ivory Coast_ or _Cote d'Ivoire_), all official country names and standard abbreviations are stored in the database:
+
+```{r}
+lang.country("Cape Verde")
+lang.country("Cabo Verde")
+head(lang.country("USA"))
+```
+All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.
+```{r}
+aff.lang("Adyge")
+```
+
+### 2.4 Changes in the glottolog database
+Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not perfect for all my tasks, so I changed it a little bit:
+
+* Added some Dargwa languages: Chirag, Cudaxar, Itsari, Kajtak, Kubachi, Tanti, Mehweb. Dargwa is still present in the database as an individual language, so one can use Dargwa or any Dargwa language listed above. (07.09.2016)
+* Added coordinates to Silesian and Slavomolisano (11.09.2016)
+* Abkhazian is changed to Abkhaz. Abkhaz, Abaza, Georgian, Ossetian, Archi, Avar and Ingush coordinates are changed. (22.01.2017)
+* Northeast Sahaptin is changed to Walla Walla. Northwest Sahaptin is changed to Yakima. Central Guerrero Nahuatl is renamed Guerrero Nahuatl (thanks to Timo Roettger for mentioning that problems). (02.02.2017)
+* Some sign language changed. Thanks to [Calle Börstell](https://borstell.github.io/#name) for data. (02.02.2017)
+* Bininj Gun-Wok changed to Gunwinggu (thanks to Timo Roettger) (06.02.2017)
+* Country name Viet Nam changed to Vietnam. Madagascar and Togo added to countries set. (11.02.2017)
+* country names are unified. Area affiliation changed: for International Sign to Eurasia; for Hawai'i Pidgin Sign Language to Papua; for Hawai'i Creole English to Papua; for Kalaallisut to North America.
+* Estonian, Nuu-chah-nulth, Loup A and Obdorsk Khanty coordinates are added. (28.04.2017)
+* Language duplicates renamed: Voro (Niger-Congo), Voro (Uralic), Ache (Tupian), Ache (Sino-Tibetan), Karipuna (Panoan), Karipuna (Tupian), Calo (Spurious), Calo (Mixed language), Wara (Niger-Congo), Wara (South-Central Papuan), Saliba (Austronesian), Saliba (Salivan), Bari (Nilo-Saharan), Bari (Chibchan) (30.04.2017)
+* Lezghian changed to Lezgian (31.05.2017)
+
+More detailed information about how our database was created can be seen from [GitHub folder](https://github.com/ropensci/lingtypology/tree/master/database_creation).
+
+After [Robert Forkel's issue](https://github.com/ropensci/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
+```{r}
+is.glottolog(c("Abkhaz", "Abkhazian"), glottolog.source = "original")
+```
+```{r}
+is.glottolog(c("Abkhaz", "Abkhazian"), glottolog.source = "modified")
+```
+
+It is common practice in R to reduce both function arguments and its values, so this can also be done with the following `lingtypology` functions.
+```{r}
+is.glottolog(c("Abkhaz", "Abkhazian"), g = "o")
+```
+```{r}
+is.glottolog(c("Abkhaz", "Abkhazian"), g = "m")
+```

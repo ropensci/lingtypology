@@ -12,9 +12,9 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2017-10-14" />
+<meta name="date" content="2017-12-03" />
 
-<title>lingtypology: easy mapping for Linguistic Typology</title>
+<title>lingtypology: creating maps</title>
 
 
 
@@ -68,159 +68,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<h1 class="title toc-ignore"><code>lingtypology</code>: easy mapping for Linguistic Typology</h1>
+<h1 class="title toc-ignore"><code>lingtypology</code>: creating maps</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2017-10-14</em></h4>
+<h4 class="date"><em>2017-12-03</em></h4>
 
 
 
-<div id="what-is-lingtypology" class="section level2">
-<h2>What is <code>lingtypology</code>?</h2>
-<p>The <code>lingtypology</code> package connects R with the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world’s languages. This package helps researchers to make linguistic maps, using the philosophy of <a href="http://clld.org/">the Cross-Linguistic Linked Data project</a>, which is creating a uniform access to linguistic data across publications. This package is based on the <a href="https://rstudio.github.io/leaflet/">leaflet package</a>, so <code>lingtypology</code> is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya Klyagina for reading and correcting some versions of this vignette.</p>
-</div>
-<div id="installation" class="section level2">
-<h2>1. Installation</h2>
-<p>Since <code>lingtypology</code> is an R package, you should install <a href="https://www.r-project.org/">R (version &gt;= 3.1.0)</a> on your PC if you haven’t already done so. To install the <code>lingtypology</code> package, run the following command at your R IDE, so you get the stable version from CRAN:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;lingtypology&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p>You can also get the development version from GitHub:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</code></pre></div>
-<p>Sometimes installation fails because of the absence of the package <code>crosstalk</code> or any other. Just install it using command <code>install.packages(&quot;crosstalk&quot;)</code>.</p>
-<p>Load the package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lingtypology)</code></pre></div>
-</div>
-<div id="glottolog-functions" class="section level2">
-<h2>2. Glottolog functions</h2>
-<p>This package is based on the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
-<div id="command-names-syntax" class="section level3">
-<h3>2.1 Command name’s syntax</h3>
-<p>Most of the functions in <code>lingtypology</code> have the same syntax: <strong>what you need.what you have</strong>. Most of them are based on <em>language name</em>.</p>
-<ul>
-<li><strong>aff.lang()</strong> — get affiliation by language</li>
-<li><strong>area.lang()</strong> — get macro area by language</li>
-<li><strong>country.lang()</strong> — get country by language</li>
-<li><strong>iso.lang()</strong> — get ISO 639-3 code by language</li>
-<li><strong>gltc.lang()</strong> — get glottocode (identifier for a language in the Glottolog database) code by language</li>
-<li><strong>lat.lang()</strong> — get latitude by language</li>
-<li><strong>long.lang()</strong> — get longitude by language</li>
-</ul>
-<p>Some of them help to define a vector of languages.</p>
-<ul>
-<li><strong>lang.aff()</strong> — get language by affiliation</li>
-<li><strong>lang.iso()</strong> — get language by ISO 639-3 code</li>
-<li><strong>lang.gltc()</strong> — get language by glottocode</li>
-</ul>
-<p>Additionally there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:</p>
-<ul>
-<li><strong>gltc.iso()</strong> — get glottocode by ISO 639-3 code</li>
-<li><strong>iso.gltc()</strong> — get ISO 639-3 code by glottocode</li>
-</ul>
-<p>The most important functionality of <code>lingtypology</code> is the ability to create interactive maps based on features and sets of languages (see the third section):</p>
-<ul>
-<li><strong>map.feature()</strong></li>
-</ul>
-<p><a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> provides <code>lingtypology</code> with language names, ISO codes, genealogical affiliation, macro area, countries, coordinates, and much information. This set of functions doesn’t have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in <code>lingtypology</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(glottolog.original)</code></pre></div>
-<pre><code>##  [1] &quot;language&quot;           &quot;iso&quot;                &quot;glottocode&quot;        
-##  [4] &quot;longitude&quot;          &quot;latitude&quot;           &quot;affiliation&quot;       
-##  [7] &quot;area&quot;               &quot;alternate names&quot;    &quot;affiliation-HH&quot;    
-## [10] &quot;country&quot;            &quot;dialects&quot;           &quot;language status&quot;   
-## [13] &quot;language use&quot;       &quot;location&quot;           &quot;population numeric&quot;
-## [16] &quot;typology&quot;           &quot;writing&quot;</code></pre>
-<p>Using R functions for data manipulation you can create your own database for your purpose.</p>
-</div>
-<div id="using-base-functions" class="section level3">
-<h3>2.2 Using base functions</h3>
-<p>All functions introduced in the previous section are regular functions, so they can take the following objects as input:</p>
-<ul>
-<li>a regular string</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">iso.lang</span>(<span class="st">&quot;Adyghe&quot;</span>)</code></pre></div>
-<pre><code>## Adyghe 
-##  &quot;ady&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.iso</span>(<span class="st">&quot;ady&quot;</span>)</code></pre></div>
-<pre><code>##      ady 
-## &quot;Adyghe&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">country.lang</span>(<span class="st">&quot;Adyghe&quot;</span>)</code></pre></div>
-<pre><code>##                                                                                                                  Adyghe 
-## &quot;Turkey, United States, Israel, Australia, Egypt, Macedonia, France, Russia, Netherlands, Germany, Syria, Jordan, Iraq&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;Adyghe&quot;    &quot;Abkhaz&quot;    &quot;Abaza&quot;     &quot;Ubykh&quot;     &quot;Kabardian&quot;</code></pre>
-<p>I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that <code>'Ma'ya'</code> is an incorrect string in R.</p>
-<ul>
-<li>a vector of strings</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">area.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Aduge&quot;</span>))</code></pre></div>
-<pre><code>##    Adyghe     Aduge 
-## &quot;Eurasia&quot;  &quot;Africa&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lang &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)
-<span class="kw">aff.lang</span>(lang)</code></pre></div>
-<pre><code>##                                        Adyghe 
-## &quot;North Caucasian, West Caucasian, Circassian&quot; 
-##                                       Russian 
-##                 &quot;Indo-European, Slavic, East&quot;</code></pre>
-<ul>
-<li>other functions. For example, let’s try to get a vector of ISO codes for the Circassian languages</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">iso.lang</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Circassian&quot;</span>))</code></pre></div>
-<pre><code>##    Adyghe Kabardian 
-##     &quot;ady&quot;     &quot;kbd&quot;</code></pre>
-<p>If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.</p>
-<p>The behavior of most functions is rather predictable, but the function <code>country.lang</code> has an additional feature. By default this function takes a vector of languages and returns a vector of countries. But if you set the argument <code>intersection = TRUE</code>, then the function returns a vector of countries where all languages from the query are spoken.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">country.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Udi&quot;</span>, <span class="st">&quot;Laz&quot;</span>))</code></pre></div>
-<pre><code>##                                                        Udi 
-##                &quot;Russia, Georgia, Azerbaijan, Turkmenistan&quot; 
-##                                                        Laz 
-## &quot;Turkey, Georgia, France, United States, Germany, Belgium&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">country.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Udi&quot;</span>, <span class="st">&quot;Laz&quot;</span>), <span class="dt">intersection =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## [1] &quot;Georgia&quot;</code></pre>
-</div>
-<div id="spell-checker-look-carefully-at-warnings" class="section level3">
-<h3>2.3 Spell Checker: look carefully at warnings!</h3>
-<p>There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example <em>Ivory Coast</em> or <em>Cote d’Ivoire</em>), all official country names and standard abbreviations are stored in the database:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.country</span>(<span class="st">&quot;Cape Verde&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;Kabuverdianu&quot; &quot;Portuguese&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.country</span>(<span class="st">&quot;Cabo Verde&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;Kabuverdianu&quot; &quot;Portuguese&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">lang.country</span>(<span class="st">&quot;USA&quot;</span>))</code></pre></div>
-<pre><code>## [1] &quot;Holikachuk&quot;       &quot;Hopi&quot;             &quot;Palewyami Yokuts&quot;
-## [4] &quot;Finnish&quot;          &quot;Mbum&quot;             &quot;Lower Sorbian&quot;</code></pre>
-<p>All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</code></pre></div>
-<pre><code>## Warning: Language Adyge is absent in our version of the Glottolog database.
-## Did you mean Adyghe, Aduge?</code></pre>
-<pre><code>## Adyge 
-##    NA</code></pre>
-</div>
-<div id="changes-in-the-glottolog-database" class="section level3">
-<h3>2.4 Changes in the glottolog database</h3>
-<p>Unfortunately, the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> is not perfect for all my tasks, so I changed it a little bit:</p>
-<ul>
-<li>Added some Dargwa languages: Chirag, Cudaxar, Itsari, Kajtak, Kubachi, Tanti, Mehweb. Dargwa is still present in the database as an individual language, so one can use Dargwa or any Dargwa language listed above. (07.09.2016)</li>
-<li>Added coordinates to Silesian and Slavomolisano (11.09.2016)</li>
-<li>Abkhazian is changed to Abkhaz. Abkhaz, Abaza, Georgian, Ossetian, Archi, Avar and Ingush coordinates are changed. (22.01.2017)</li>
-<li>Northeast Sahaptin is changed to Walla Walla. Northwest Sahaptin is changed to Yakima. Central Guerrero Nahuatl is renamed Guerrero Nahuatl (thanks to Timo Roettger for mentioning that problems). (02.02.2017)</li>
-<li>Some sign language changed. Thanks to <a href="https://borstell.github.io/#name">Calle Börstell</a> for data. (02.02.2017)</li>
-<li>Bininj Gun-Wok changed to Gunwinggu (thanks to Timo Roettger) (06.02.2017)</li>
-<li>Country name Viet Nam changed to Vietnam. Madagascar and Togo added to countries set. (11.02.2017)</li>
-<li>country names are unified. Area affiliation changed: for International Sign to Eurasia; for Hawai’i Pidgin Sign Language to Papua; for Hawai’i Creole English to Papua; for Kalaallisut to North America.</li>
-<li>Estonian, Nuu-chah-nulth, Loup A and Obdorsk Khanty coordinates are added. (28.04.2017)</li>
-<li>Language duplicates renamed: Voro (Niger-Congo), Voro (Uralic), Ache (Tupian), Ache (Sino-Tibetan), Karipuna (Panoan), Karipuna (Tupian), Calo (Spurious), Calo (Mixed language), Wara (Niger-Congo), Wara (South-Central Papuan), Saliba (Austronesian), Saliba (Salivan), Bari (Nilo-Saharan), Bari (Chibchan) (30.04.2017)</li>
-<li>Lezghian changed to Lezgian (31.05.2017)</li>
-</ul>
-<p>More detailed information about how our database was created can be seen from <a href="https://github.com/ropensci/lingtypology/tree/master/database_creation">GitHub folder</a>.</p>
-<p>After <a href="https://github.com/ropensci/lingtypology/issues/1">Robert Forkel’s issue</a> I decided to add an argument <code>glottolog.source</code>, so that everybody has access to “original” and “modified” (by default) glottolog versions:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">glottolog.source =</span> <span class="st">&quot;original&quot;</span>)</code></pre></div>
-<pre><code>## [1] FALSE  TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">glottolog.source =</span> <span class="st">&quot;modified&quot;</span>)</code></pre></div>
-<pre><code>## [1]  TRUE FALSE</code></pre>
-<p>It is common practice in R to reduce both function arguments and its values, so this can also be done with the following <code>lingtypology</code> functions.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">g =</span> <span class="st">&quot;o&quot;</span>)</code></pre></div>
-<pre><code>## [1] FALSE  TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">g =</span> <span class="st">&quot;m&quot;</span>)</code></pre></div>
-<pre><code>## [1]  TRUE FALSE</code></pre>
-</div>
-</div>
 <div id="map-features-with-map.feature" class="section level2">
 <h2>3. Map features with <code>map.feature</code></h2>
 <div id="base-map" class="section level3">
@@ -542,122 +395,6 @@ newfeature &lt;-<span class="st">  </span><span class="kw">replace</span>(newfea
             <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre></div>
 <p>It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.</p>
 </div>
-</div>
-<div id="typological-databases-api" class="section level2">
-<h2>4. Typological databases API</h2>
-<p><code>lingtypology</code> provides an ability to download data from these typological databases</p>
-<ul>
-<li><a href="http://wals.info/">World Atlas of Language Structures</a></li>
-<li><a href="https://github.com/autotyp/autotyp-data#the-autotyp-database">AUTOTYP</a></li>
-<li><a href="http://phoible.org/">PHOIBLE</a></li>
-<li><a href="http://afbo.info">Affix Borrowing database</a></li>
-<li><a href="http://sails.clld.org/">South American Indigenous Language Structures</a></li>
-<li><a href="https://abvd.shh.mpg.de/austronesian/">Austronesian Basic Vocabulary Database</a></li>
-</ul>
-<p>All database function names have identical structure: <strong>database_name.feature</strong>. All functions have as first argument <code>feature</code>. All functions create dataframe with column <code>language</code> that can be used in <code>map.feature()</code> function. It should be noted that all functions cut out the data that can’t be maped, so if you want to prevent functions from this behaviour set argument <code>na.rm</code> to <code>FALSE</code>.</p>
-<div id="wals" class="section level3">
-<h3>4.1 WALS</h3>
-<p>The names of the WALS features can be typed in a lower case. This function preserves coordinates from WALS, so you can map coordinates from the WALS or use coordinates from <code>lingtypology</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">wals.feature</span>(<span class="kw">c</span>(<span class="st">&quot;1a&quot;</span>, <span class="st">&quot;20a&quot;</span>))
-<span class="kw">head</span>(df)
-<span class="kw">map.feature</span>(df$language,
-            <span class="dt">features =</span> df$<span class="st">`</span><span class="dt">1a</span><span class="st">`</span>,
-            <span class="dt">latitude =</span> df$latitude,
-            <span class="dt">longitude =</span> df$longitude,
-            <span class="dt">label =</span> df$language,
-            <span class="dt">title =</span> <span class="st">&quot;Consonant Inventories&quot;</span>)</code></pre></div>
-</div>
-<div id="autotyp" class="section level3">
-<h3>4.2 AUTOTYP</h3>
-<p>The AUTOTYP features are listed on <a href="https://github.com/autotyp/autotyp-data#the-autotyp-database">the GitHub page</a>. You can use more human way with spaces.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">autotyp.feature</span>(<span class="kw">c</span>(<span class="st">'Gender'</span>, <span class="st">'Numeral classifiers'</span>))
-<span class="kw">head</span>(df)
-<span class="kw">map.feature</span>(df$language,
-            <span class="dt">features =</span> df$NumClass.Presence,
-            <span class="dt">label =</span> df$language,
-            <span class="dt">title =</span> <span class="st">&quot;Presence of Numeral Classifiers&quot;</span>)</code></pre></div>
-</div>
-<div id="phoible" class="section level3">
-<h3>4.3 PHOIBLE</h3>
-<p>I used only four features from PHOIBLE: the number of phonemes, the number of consonants, the number of tones and the number of vowels. If you need only a set of them, just specify it in the <code>features</code> argument. Since there is a lot of doubling information in the PHOIBLE database, there is an argument <code>source</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">phoible.feature</span>(<span class="dt">source =</span> <span class="st">&quot;UPSID&quot;</span>)
-<span class="kw">head</span>(df)
-<span class="kw">map.feature</span>(df$language,
-            <span class="dt">features =</span> df$phonemes,
-            <span class="dt">label =</span> df$language,
-            <span class="dt">title =</span> <span class="st">&quot;Number of Phonemes&quot;</span>)</code></pre></div>
-</div>
-<div id="afbo" class="section level3">
-<h3>4.4 AfBo</h3>
-<p>The AfBo database has a lot of features that distinguish affix functions, but again you can use a bare function without any arguments to download the whole database. There will be no difference in time, since this function downloads the whole database to your PC. The main destinction is that this database provides recipient and donor languages, so other column names should be used.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">afbo.feature</span>(<span class="kw">c</span>(<span class="st">&quot;adjectivizer&quot;</span>, <span class="st">&quot;adverbializer&quot;</span>))
-<span class="kw">head</span>(df)
-<span class="kw">map.feature</span>(df$Recipient.name,
-            <span class="dt">features =</span> df$adjectivizer,
-            <span class="dt">label =</span> df$Recipient.name,
-            <span class="dt">title =</span> <span class="st">&quot;Borrowed adjectivizer affixes&quot;</span>)</code></pre></div>
-</div>
-<div id="sails" class="section level3">
-<h3>4.5 SAILS</h3>
-<p>The SAILS database provide a lot of <a href="http://sails.clld.org/parameters">features</a>, so the function work with their ids:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">sails.feature</span>(<span class="dt">features =</span> <span class="st">&quot;ics10&quot;</span>)
-<span class="kw">head</span>(df)
-<span class="kw">map.feature</span>(df$language,
-            <span class="dt">features =</span> df$ics10_description,
-            <span class="dt">longitude =</span> df$longitude,
-            <span class="dt">latitude =</span> df$latitude,
-            <span class="dt">label =</span> df$language,
-            <span class="dt">title =</span> <span class="st">&quot;Are there numeral classifiers?&quot;</span>)</code></pre></div>
-</div>
-<div id="abvd" class="section level3">
-<h3>4.6 ABVD</h3>
-<p>The ABVD database is a lexical database, so it is different from clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring by word with the meaning ‘hand’.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">abvd.feature</span>(<span class="dv">50</span>:<span class="dv">55</span>)
-<span class="kw">head</span>(df)
-new_df &lt;-<span class="st"> </span>df[df$word ==<span class="st"> &quot;hand&quot;</span>,]
-<span class="kw">map.feature</span>(new_df$language,
-            <span class="dt">features =</span> new_df$item,
-            <span class="dt">label =</span> new_df$language)</code></pre></div>
-</div>
-</div>
-<div id="dplyr-integration" class="section level2">
-<h2>5. <code>dplyr</code> integration</h2>
-<p>It is possible to use <code>dplyr</code> functions and pipes with <code>lingtypology</code>. It is widely used, so I will give some examples, how to use it with the<code>lingtypology</code> package. Using query “list of languages csv” I found Vincent Garnier’s <a href="https://github.com/forxer/languages-list">languages-list repository</a>. Let’s download and map all the languages from that set. First download the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://goo.gl/GgscBE&quot;</span>)
-<span class="kw">tail</span>(new_data)</code></pre></div>
-<p>As we see, some values of the <code>Language.name</code> variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use <code>library(dplyr)</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-new_data %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Language.name =</span> <span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, Language.name)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.glottolog</span>(Language.name) ==<span class="st"> </span><span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">area.lang</span>(Language.name) ==<span class="st"> &quot;Africa&quot;</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Language.name) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">map.feature</span>()</code></pre></div>
-<p>We start with a dataframe, here a <code>new_data</code>. First we remove spaces at the end of each string. Then we check, whether the language names are in the glottolog database. Then we select only rows that contain languages of Africa. Then we select the <code>Language.name</code> variable. And the last line maps all selected languages.</p>
-<p>By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_data %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Language.name =</span> <span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, Language.name)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.glottolog</span>(Language.name) ==<span class="st"> </span><span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">area.lang</span>(Language.name) ==<span class="st"> &quot;Africa&quot;</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Language.name) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">map.feature</span>(., <span class="dt">minimap =</span> <span class="ot">TRUE</span>)</code></pre></div>
-</div>
-<div id="citing-lingtyplogy" class="section level2">
-<h2>6. Citing <code>lingtyplogy</code></h2>
-<p>It is important to cite R and R packages when you use them. For this purpose use the <code>citation</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">citation</span>(<span class="st">&quot;lingtypology&quot;</span>)</code></pre></div>
-<pre><code>## 
-## Moroz G (2017). _lingtypology: easy mapping for Linguistic
-## Typology_. &lt;URL: https://CRAN.R-project.org/package=lingtypology&gt;.
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {lingtypology: easy mapping for Linguistic Typology},
-##     author = {George Moroz},
-##     year = {2017},
-##     url = {https://CRAN.R-project.org/package=lingtypology},
-##   }</code></pre>
 </div>
 
 

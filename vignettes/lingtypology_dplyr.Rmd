@@ -1,0 +1,46 @@
+---
+title: "`lingtypology` and `dplyr`"
+author: "George Moroz"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{`lingtypology` and `dplyr`}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r, include=FALSE}
+library(lingtypology)
+```
+
+## 5. `dplyr` integration
+It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. First download the data:
+ 
+```{r, eval=FALSE}
+new_data <- read.csv("https://goo.gl/GgscBE")
+tail(new_data)
+```
+
+As we see, some values of the `Language.name` variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use `library(dplyr)`.
+
+```{r, eval=FALSE , message= FALSE}
+library(dplyr)
+new_data %>%
+  mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
+  filter(is.glottolog(Language.name) == TRUE) %>% 
+  filter(area.lang(Language.name) == "Africa") %>% 
+  select(Language.name) %>% 
+  map.feature()
+```
+
+We start with a dataframe, here a `new_data`. First we remove spaces at the end of each string. Then we check, whether the language names are in the glottolog database. Then we select only rows that contain languages of Africa. Then we select the `Language.name` variable. And the last line maps all selected languages.
+
+By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.
+
+```{r, eval=FALSE , message= FALSE}
+new_data %>%
+  mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
+  filter(is.glottolog(Language.name) == TRUE) %>% 
+  filter(area.lang(Language.name) == "Africa") %>% 
+  select(Language.name) %>% 
+  map.feature(., minimap = TRUE)
+```

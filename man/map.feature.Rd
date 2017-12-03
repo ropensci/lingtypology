@@ -24,9 +24,10 @@ map.feature(languages, features = "", popup = "", label = "",
   minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
   zoom.control = FALSE, zoom.level = NULL, rectangle.lng = NULL,
   rectangle.lat = NULL, rectangle.color = "black", line.lng = NULL,
-  line.lat = NULL, line.color = "black", minichart = NULL,
-  minichart.data = NULL, minichart.time = NULL, minichart.labels = FALSE,
-  map.orientation = "Pacific", glottolog.source = "modified")
+  line.lat = NULL, line.type = "standard", line.color = "black",
+  minichart = NULL, minichart.data = NULL, minichart.time = NULL,
+  minichart.labels = FALSE, map.orientation = "Pacific",
+  glottolog.source = "modified")
 }
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case)}
@@ -139,9 +140,11 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{rectangle.color}{vector of rectangle border color.}
 
-\item{line.lng}{vector of two longitude values for line.}
+\item{line.lng}{vector of two (or more) longitude values for line.}
 
-\item{line.lat}{vector of two latitude values for line.}
+\item{line.lat}{vector of two (or more) latitude values for line.}
+
+\item{line.type}{a character string indicating which type of line is to be computed. One of "standard" (default), or "logit". The first one should be combined with the arguments line.lat and line.lng and provide simple lines. Other variant "logit" is the decision boundary of the logistic regression made using longitude and latitude coordinates (works only if feature argument have two levels).}
 
 \item{line.color}{vector of line color.}
 

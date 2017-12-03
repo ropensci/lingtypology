@@ -1,75 +1,78 @@
-lingtypology 1.0.9
-- correct queries of the length one for wals.feature() and afbo.feature() functions. #22
- - add arguments for line (line.lng, line.lat, line.color)
+lingtypology 1.0.10 ( .12.2017)
+ - add argument line.type, that could be used for creating the decision boundary of the logistic regression on the map.
+
+lingtypology 1.0.9 (30.11.2017)
+ - correct queries of the length one for wals.feature() and afbo.feature() functions. #22
+ - add arguments for line (line.lng, line.lat, line.color).
 
 lingtypology 1.0.8 (07.10.2017)
-- add argument "density.control" to function map.feature().
-- add argument "label.emphasize" to function map.feature().
-- add arguments "minichart", "minichart.data", "minichart.labels" and "minichart.time" to function map.feature().
-- coloring scheme is changed.
-- argument "radius" renamed to "width".
+ - add argument "density.control" to function map.feature().
+ - add argument "label.emphasize" to function map.feature().
+ - add arguments "minichart", "minichart.data", "minichart.labels" and "minichart.time" to function map.feature().
+ - coloring scheme is changed.
+ - argument "radius" renamed to "width".
 
 lingtypology 1.0.7 (15.09.2017)
  - add argument "zoom.level" to function map.feature().
  - colour repetition bug corrected. Issue #18
  - NA bug in stroke.features corrected. Issue #19
- - add arguments for rectangle (rectangle.lng, rectangle.lat, rectangle.color)
+ - add arguments for rectangle (rectangle.lng, rectangle.lat, rectangle.color).
 
 lingtypology 1.0.6 (16.08.2017)
  - all functions that takes iso or glottolog codes from user remove spaces and punctuation marks. So users can make mistakes (like lang.gltc('icel1247   ') or lang.gltc('icel1247,')), but functions will ignore them. (Thanks @macleginn for this idea)
- - add argument "official" to function lang.country()
- - add function phoible.feature() for downloading PHOIBLE data
- - add function wals.feature() for downloading WALS data
- - add function afbo.feature() for downloading AfBo data
- - add function sails.feature() for downloading SAILS data
- - add function abvd.feature() for downloading ABVD data
+ - add argument "official" to function lang.country().
+ - add function phoible.feature() for downloading PHOIBLE data.
+ - add function wals.feature() for downloading WALS data.
+ - add function afbo.feature() for downloading AfBo data.
+ - add function sails.feature() for downloading SAILS data.
+ - add function abvd.feature() for downloading ABVD data.
 
 lingtypology 1.0.5 (21.06.2017)
- - coloring bug corrected
- - add function autotyp.feature() for downloading AUTOTYP data
- - density estimation arguments works with independent features
+ - coloring bug corrected.
+ - add function autotyp.feature() for downloading AUTOTYP data.
+ - density estimation arguments works with independent features.
 
 lingtypology 1.0.4 (13.05.2017)
-  - glottolog database is improved
-  - added warning for languages without coordinates
-  - label.hide option terned to TRUE
-  - added density estimation visualization
-  - transfered to ropensci
+  - glottolog database is improved.
+  - added warning for languages without coordinates.
+  - label.hide option terned to TRUE.
+  - added density estimation visualization.
+  - transfered to ropensci.
 
 lingtypology 1.0.3 (14.04.2017)
-  - improved spellchecker
-  - added the argument for zoom panel appearence
-  - added some official languages to the countries dataset
-  - added instructions for using dplyr with lingtypology
-  - glottolog databases are improved
-  - added search by alternative language names to is.glottolog() function
-  - makelink changed to make.url; link creation improved (Thanks  @languageSpaceLabs and @tzakharko for the comments)
-  - added numeric features processing (Thanks  @languageSpaceLabs and @tzakharko for the comments)
-  - map.orientation with values 'Pacific' and 'Atlantic' added (Thanks  @languageSpaceLabs and @tzakharko for the comments)
+  - improved spellchecker.
+  - added the argument for zoom panel appearence.
+  - added some official languages to the countries dataset.
+  - added instructions for using dplyr with lingtypology.
+  - glottolog databases are improved.
+  - added search by alternative language names to is.glottolog() function.
+  - makelink changed to make.url; link creation improved (Thanks  @languageSpaceLabs and @tzakharko for the comments).
+  - added numeric features processing (Thanks  @languageSpaceLabs and @tzakharko for the comments).
+  - map.orientation with values 'Pacific' and 'Atlantic' added (Thanks  @languageSpaceLabs and @tzakharko for the comments).
 
 lingtypology 1.0.2 (23.02.2017)
-  - ROpenSci wishes met
-  - coloring the bug caused by leaflet new release fixed
-  - added position arguments to every legend
-  - added arguments for working with scale bar
-  - added arguments for working with minimap
-  - added arguments for working with labels
-  - all changes are illustrated in package vigniette
+  - ROpenSci wishes met.
+  - coloring the bug caused by leaflet new release fixed.
+  - added position arguments to every legend.
+  - added arguments for working with scale bar.
+  - added arguments for working with minimap.
+  - added arguments for working with labels.
+  - all changes are illustrated in package vigniette.
 
 lingtypology 1.0.1 (29.01.2017)
-  - fixed all warnings in CRAN checks
-  - fixed the bug with two feature set mapping
-  - added map.feature arguments for legends (stroke.title, stroke.legend)
-  - changed default for control argument to FALSE
-  - corrected Rmd, examples and help
-  - added image arguments
-  - added the tile argument for layouts
-  - added  the multiple tile argument
-  - added the tile.name argument
-  - added the argument glottolog.source (Many thanks to Robert Forkel for his issue and his work!)
-  - fixed the coloring problem
-  - fixed the makelink function
-  - some coordinates and language names corrected and stored in glottolog.modified
+  - fixed all warnings in CRAN checks.
+  - fixed the bug with two feature set mapping.
+  - added map.feature arguments for legends (stroke.title, stroke.legend).
+  - changed default for control argument to FALSE.
+  - corrected Rmd, examples and help.
+  - added image arguments.
+  - added the tile argument for layouts.
+  - added  the multiple tile argument.
+  - added the tile.name argument.
+  - added the argument glottolog.source (Many thanks to Robert Forkel for his issue and his work!).
+  - fixed the coloring problem.
+  - fixed the makelink function.
+  - some coordinates and language names corrected and stored in glottolog.modified.
 
 lingtypology 1.0.0 (29.12.2016)
-  - initial release
+  - initial release.
