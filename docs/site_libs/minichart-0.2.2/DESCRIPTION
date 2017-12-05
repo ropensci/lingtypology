@@ -1,0 +1,30 @@
+Package: leaflet.minicharts
+Type: Package
+Title: Mini Charts for Interactive Maps
+Version: 0.5.1
+Authors@R: c(
+    person("Francois", "Guillem", , "francois.guillem@rte-france.com", role = c("aut", "cre")),
+    person("Jalal-Edine", "ZAWAM", , "jalal-edine.zawam@rte-france.com", role = "ctb"),
+    person("RTE", role = "cph")
+    )
+Maintainer: Francois Guillem <francois.guillem@rte-france.com>
+Description: Add and modify small charts on an interactive map created with 
+    package 'leaflet'. These charts can be used to represent at same time multiple 
+    variables on a single map.
+License: GPL (>= 2) | file LICENSE
+Depends: R (>= 2.10)
+Imports: leaflet (>= 1.1.0), htmltools
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Suggests: knitr, rmarkdown, dplyr, shiny, manipulateWidget, testthat,
+        covr
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2017-08-17 11:54:33 UTC; franguil
+Author: Francois Guillem [aut, cre],
+  Jalal-Edine ZAWAM [ctb],
+  RTE [cph]
+Repository: CRAN
+Date/Publication: 2017-08-17 15:16:16 UTC
+Built: R 3.4.2; ; 2017-10-04 15:55:06 UTC; unix

@@ -13,7 +13,7 @@
 
 <meta name="date" content="2017-12-05" />
 
-<title>lingtypology: introduction and installation</title>
+<title>lingtypology and dplyr</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -329,44 +329,34 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><code>lingtypology</code>: introduction and installation</h1>
+<h1 class="title toc-ignore"><code>lingtypology</code> and <code>dplyr</code></h1>
 <h4 class="author"><em>George Moroz</em></h4>
 <h4 class="date"><em>2017-12-05</em></h4>
 
 </div>
 
 
-<div id="what-is-lingtypology" class="section level2">
-<h2>What is <code>lingtypology</code>?</h2>
-<p>The <code>lingtypology</code> package connects R with the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world’s languages. This package helps researchers to make linguistic maps, using the philosophy of <a href="http://clld.org/">the Cross-Linguistic Linked Data project</a>, which is creating a uniform access to linguistic data across publications. This package is based on the <a href="https://rstudio.github.io/leaflet/">leaflet package</a>, so <code>lingtypology</code> is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya Klyagina for reading and correcting some versions of this vignette.</p>
-</div>
-<div id="installation" class="section level2">
-<h2>1. Installation</h2>
-<p>Since <code>lingtypology</code> is an R package, you should install <a href="https://www.r-project.org/">R (version &gt;= 3.1.0)</a> on your PC if you haven’t already done so. To install the <code>lingtypology</code> package, run the following command at your R IDE, so you get the stable version from CRAN:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;lingtypology&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p>You can also get the development version from GitHub:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</code></pre></div>
-<p>Sometimes installation fails because of the absence of the package <code>crosstalk</code> or any other. Just install it using command <code>install.packages(&quot;crosstalk&quot;)</code>.</p>
-<p>Load the package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lingtypology)</code></pre></div>
-</div>
-<div id="citing-lingtyplogy" class="section level2">
-<h2>2. Citing <code>lingtyplogy</code></h2>
-<p>It is important to cite R and R packages when you use them. For this purpose use the <code>citation</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">citation</span>(<span class="st">&quot;lingtypology&quot;</span>)</code></pre></div>
-<pre><code>## 
-## Moroz G (2017). _lingtypology: easy mapping for Linguistic
-## Typology_. &lt;URL: https://CRAN.R-project.org/package=lingtypology&gt;.
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {lingtypology: easy mapping for Linguistic Typology},
-##     author = {George Moroz},
-##     year = {2017},
-##     url = {https://CRAN.R-project.org/package=lingtypology},
-##   }</code></pre>
+<div id="dplyr-integration" class="section level2">
+<h2>5. <code>dplyr</code> integration</h2>
+<p>It is possible to use <code>dplyr</code> functions and pipes with <code>lingtypology</code>. It is widely used, so I will give some examples, how to use it with the<code>lingtypology</code> package. Using query “list of languages csv” I found Vincent Garnier’s <a href="https://github.com/forxer/languages-list">languages-list repository</a>. Let’s download and map all the languages from that set. First download the data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://goo.gl/GgscBE&quot;</span>)
+<span class="kw">tail</span>(new_data)</code></pre></div>
+<p>As we see, some values of the <code>Language.name</code> variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use <code>library(dplyr)</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+new_data %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Language.name =</span> <span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, Language.name)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.glottolog</span>(Language.name) ==<span class="st"> </span><span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">area.lang</span>(Language.name) ==<span class="st"> &quot;Africa&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Language.name) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">map.feature</span>()</code></pre></div>
+<p>We start with a dataframe, here a <code>new_data</code>. First we remove spaces at the end of each string. Then we check, whether the language names are in the glottolog database. Then we select only rows that contain languages of Africa. Then we select the <code>Language.name</code> variable. And the last line maps all selected languages.</p>
+<p>By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_data %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Language.name =</span> <span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, Language.name)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.glottolog</span>(Language.name) ==<span class="st"> </span><span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">area.lang</span>(Language.name) ==<span class="st"> &quot;Africa&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Language.name) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">map.feature</span>(., <span class="dt">minimap =</span> <span class="ot">TRUE</span>)</code></pre></div>
 </div>
 
 

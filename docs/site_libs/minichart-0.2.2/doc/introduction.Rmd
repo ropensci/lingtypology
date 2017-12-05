@@ -1,0 +1,184 @@
+---
+title: "Introduction to leaflet.minicharts"
+author: "Francois Guillem"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+For a few years now, it has become very to create interactive maps with R thanks to the package `leaflet` by the Rstudio team. Nevertheless, it only provides only a few functions to create basic shapes on a map, so the information that can be represented on a single map is limited: if you have some data associated to some points, you can only represent at most two variables by drawing circles and changing their radius and color according to data.
+
+`leaflet.minicharts` is an R package that provides two functions to add and update small charts on an interactive maps created with the package `leaflet`. These charts can be used to represent as many variables as desired associated to geographical points. Currently, three types of chart are supported: barcharts (the default), pie charts and polar area charts.
+
+let's have a look to a concrete example.
+
+## Data
+
+The package provides a table that contains the electric production, consumption and exchanges of France from january 2010 to february 2017 and of 12 french regions from january 2013 to february 2017. 
+
+In addition to the total production, the table contains one column for each type of production. The table also contains the lattitude and longitude of the center of the regions.
+
+```{r}
+library(leaflet.minicharts)
+data("eco2mix")
+head(eco2mix)
+```
+
+## Renewable productions in 2016
+
+Nowadays, France has an objective of 23% of renewable energies in the consumption of the country by 2020. Are the country close to its objective. Is the share of renewable energies similar in all regions? 
+
+To answer this question let us focus on the year 2016 We first prepare the required data with package `dplyr`:
+
+```{r message=FALSE}
+library(dplyr)
+
+prod2016 <- eco2mix %>%
+  mutate(
+    renewable = bioenergy + solar + wind + hydraulic,
+    non_renewable = total - bioenergy - solar - wind - hydraulic
+  ) %>%
+  filter(grepl("2016", month) & area != "France") %>%
+  select(-month) %>%
+  group_by(area, lat, lng) %>%
+  summarise_all(sum) %>%
+  ungroup()
+
+head(prod2016)
+```
+
+We also create a base map that will be used in all the following examples
+
+```{r message=FALSE, results='hide'}
+library(leaflet)
+
+tilesURL <- "http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+
+basemap <- leaflet(width = "100%", height = "400px") %>%
+  addTiles(tilesURL)
+```
+
+We now add to the base map a pie chart for each region that represents the share of renewable energies. We also change the width of the pie charts so their area is proportional to the total production of the corresponding region.
+
+```{r}
+colors <- c("#4fc13c", "#cccccc")
+
+basemap %>%
+  addMinicharts(
+    prod2016$lng, prod2016$lat,
+    type = "pie",
+    chartdata = prod2016[, c("renewable", "non_renewable")], 
+    colorPalette = colors, 
+    width = 60 * sqrt(prod2016$total) / sqrt(max(prod2016$total)), transitionTime = 0
+  )
+```
+
+We can see that the three south east regions exceed the target of 23%, but most regions are far from this objective. Globally, renewable energies represented only 19% percent of the production of 2016. 
+
+Now let's represent the different types of renewable production using bar charts.
+
+```{r}
+renewable2016 <- prod2016 %>% select(hydraulic, solar, wind)
+colors <- c("#3093e5", "#fcba50", "#a0d9e8")
+basemap %>%
+  addMinicharts(
+    prod2016$lng, prod2016$lat,
+    chartdata = renewable2016,
+    colorPalette = colors,
+    width = 45, height = 45
+  )
+```
+
+Hydraulic production is far more important than solar and wind. Without surprise, solar production is more important in south while wind production is more important in the north.
+
+## Representing a single variable
+
+`leaflet.minicharts` has been designed to represent multiple variables at once, but you still may want to use it to represent a single variable. In the next example, we represent the total load of each french region in 2016. When data passed to `addMinicharts` contains a single column, it automatically represents it with circle which area is proportional to the corresponding value. In the example we also use the parameter `showLabels` to display rounded values of the variable inside the circles. 
+
+```{r}
+basemap %>%
+  addMinicharts(
+    prod2016$lng, prod2016$lat,
+    chartdata = prod2016$load,
+    showLabels = TRUE,
+    width = 45
+  )
+```
+
+This is nice, isn't it?
+
+## Animated maps
+
+Until now, we have only represented aggregated data but it would be nice to create a map that represents the evolution over time of some variables. It is actually easy with `leaflet.minicharts`. The first step is to construct a table containing longitude, lattitude, a time column and the variables we want to represent. The table `eco2mix` already has all these columns. We only need to filter the rows containing data for the entire country.
+
+```{r}
+prodRegions <- eco2mix %>% filter(area != "France")
+```
+
+Now we can create our animated map by using the argument "time":
+
+```{r}
+basemap %>% 
+  addMinicharts(
+    prodRegions$lng, prodRegions$lat, 
+    chartdata = prodRegions[, c("hydraulic", "solar", "wind")],
+    time = prodRegions$month,
+    colorPalette = colors,
+    width = 45, height = 45
+  )
+```
+
+## Represent flows
+
+Since version 0.2, `leaflet.minicharts` has also functions to represent flows between points and their evolution. To illustrate this, let's represent the evolution of electricity exchanges between France and Neighboring countries. 
+
+To do that, we use function `addFlows`. It requires coordinates of two points for each flow and the value of the flow. Other arguments are similar to `addMinicharts`.
+
+```{r}
+data("eco2mixBalance")
+bal <- eco2mixBalance
+basemap %>%
+  addFlows(
+    bal$lng0, bal$lat0, bal$lng1, bal$lat1,
+    flow = bal$balance,
+    time = bal$month
+  )
+```
+
+Of course, you can represent flows and minicharts on the same map!
+
+## Use in shiny web applications
+
+In shiny applications, you can create nice transition effects by using functions `leafletproxy` and `updateMinicharts`/`updateFlows`. In the server function you first need to initialize the map and the minicharts. The important thing here is to use parameter `layerId` so that `updateMinicharts` can know which chart to update with which values. 
+
+```{r eval = FALSE}
+server <- function(input, output, session) {
+  # Initialize map
+  output$mymap <- renderLeaflet(
+    leaflet() %>% addTiles() %>%
+      addMinicharts(lon, lat, layerId = uniqueChartIds)
+  )
+}
+```
+
+Then use `leafletProxy()` and `updateMinicharts` in your reactive code:
+
+```{r eval = FALSE} 
+server <- function(input, output, session) {
+  # Initialize map
+  ...
+  
+  # Update map
+  observe({
+    newdata <- getData(input$myinput)
+    
+    leafletProxy("mymap") %>% 
+      updateMinicharts(uniqueChartIds, chartdata = newdata, ...)
+  })
+}
+```
+
+You can find a [live example here](https://francoisguillem.shinyapps.io/shiny-demo/).

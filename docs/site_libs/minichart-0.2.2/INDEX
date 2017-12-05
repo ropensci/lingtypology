@@ -1,0 +1,7 @@
+addFlows                Add or modify flows on a leaflet map
+addMinicharts           Add or update charts on a leaflet map
+d3.schemeCategory10     d3 color palette
+eco2mix                 Electric production, consumption and exchanges
+                        of France
+popupArgs               Options for popup generation
+syncWith                Synchronize multiple maps

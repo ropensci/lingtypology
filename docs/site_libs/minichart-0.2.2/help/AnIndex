@@ -1,0 +1,13 @@
+addFlows	addFlows
+addMinicharts	addMinicharts
+clearFlows	addFlows
+clearMinicharts	addMinicharts
+d3.schemeCategory10	d3.schemeCategory10
+eco2mix	eco2mix
+eco2mixBalance	eco2mix
+popupArgs	popupArgs
+removeFlows	addFlows
+removeMinicharts	addMinicharts
+syncWith	syncWith
+updateFlows	addFlows
+updateMinicharts	addMinicharts

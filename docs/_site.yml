@@ -1,0 +1,13 @@
+name: ''
+navbar:
+  left:
+  - text: Glottolog functions
+    href: lingtypology_glottolog_functions.html
+  - text: creating maps
+    href: lingtypology_creating_maps.html
+  - text: databases API
+    href: lingtypology_db_API.html
+  - text: lingtypology and dplyr
+    href: lingtypology_dplyr.html
+output_dir: .
+
