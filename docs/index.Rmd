@@ -1,7 +1,6 @@
 ---
 title: "`lingtypology`: introduction and installation"
-author: "George Moroz"
-date: "`r Sys.Date()`"
+author: "[George Moroz](mailto:agricolamz@gmail.com)"
 ---
 
 ## What is `lingtypology`?

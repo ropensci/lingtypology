@@ -1,4 +1,4 @@
-name: 'lingtypology'
+name: lingtypology
 navbar:
   left:
   - text: installation
@@ -11,5 +11,9 @@ navbar:
     href: lingtypology_db_API.html
   - text: lingtypology and dplyr
     href: lingtypology_dplyr.html
-output_dir: .
+output_dir: '.'
+output:
+  html_document:
+    lib_dir: site_libs
+    self_contained: no
 

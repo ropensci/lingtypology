@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2017-12-03" />
+<meta name="date" content="2017-12-06" />
 
 <title>lingtypology: creating maps</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: creating maps</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2017-12-03</em></h4>
+<h4 class="date"><em>2017-12-06</em></h4>
 
 
 
@@ -394,6 +394,30 @@ newfeature &lt;-<span class="st">  </span><span class="kw">replace</span>(newfea
             <span class="dt">density.latitude.width =</span> <span class="fl">0.9</span>, 
             <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre></div>
 <p>It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.</p>
+</div>
+<div id="add-lines" class="section level3">
+<h3>3.17 Add lines</h3>
+<p>It is possible to show some lines on the map using coordinates (<code>line.lng</code> and <code>line.lat</code> arguments).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian$language,
+            <span class="dt">features =</span> circassian$language,
+            <span class="dt">longitude =</span> circassian$longitude,
+            <span class="dt">latitude =</span> circassian$latitude,
+            <span class="dt">line.lng =</span> <span class="kw">c</span>(<span class="dv">39</span>, <span class="dv">43</span>),
+            <span class="dt">line.lat =</span> <span class="kw">c</span>(<span class="fl">44.5</span>, <span class="dv">43</span>))</code></pre></div>
+<p>If there are more then two coordinates, multiple lines will appear. It is also possible to change the color of the line using the <code>line.color</code> argument.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian$language,
+            <span class="dt">features =</span> circassian$language,
+            <span class="dt">longitude =</span> circassian$longitude,
+            <span class="dt">latitude =</span> circassian$latitude,
+            <span class="dt">line.lng =</span> <span class="kw">c</span>(<span class="dv">43</span>, <span class="dv">39</span>, <span class="fl">38.5</span>),
+            <span class="dt">line.lat =</span> <span class="kw">c</span>(<span class="dv">43</span>, <span class="fl">44.5</span>, <span class="dv">45</span>),
+            <span class="dt">line.color =</span> <span class="st">&quot;green&quot;</span>)</code></pre></div>
+<p>If there are two levels in the <code>features</code> variable, it is possible to draw a boundary line between point clusters (the logistic regression is used for calculation).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian$language,
+            <span class="dt">features =</span> circassian$language,
+            <span class="dt">longitude =</span> circassian$longitude,
+            <span class="dt">latitude =</span> circassian$latitude,
+            <span class="dt">line.type =</span> <span class="st">&quot;logit&quot;</span>)</code></pre></div>
 </div>
 </div>
 

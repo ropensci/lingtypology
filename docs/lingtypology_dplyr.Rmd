@@ -1,7 +1,6 @@
 ---
 title: "`lingtypology` and `dplyr`"
-author: "George Moroz"
-date: "`r Sys.Date()`"
+author: "[George Moroz](mailto:agricolamz@gmail.com)"
 ---
 
 ```{r, include=FALSE}

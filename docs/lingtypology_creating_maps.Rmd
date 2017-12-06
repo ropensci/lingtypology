@@ -1,7 +1,6 @@
 ---
 title: "`lingtypology`: creating maps"
-author: "George Moroz"
-date: "`r Sys.Date()`"
+author: "[George Moroz](mailto:agricolamz@gmail.com)"
 ---
 
 ```{r, include=FALSE}
@@ -441,3 +440,36 @@ map.feature(circassian$language,
 
 
 It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
+
+### 3.17 Add lines
+It is possible to show some lines on the map using coordinates (`line.lng` and `line.lat` arguments).
+```{r}
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            line.lng = c(39, 43),
+            line.lat = c(44.5, 43))
+```
+
+If there are more then two coordinates, multiple lines will appear. It is also possible to change the color of the line using the `line.color` argument.
+
+```{r}
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            line.lng = c(43, 39, 38.5),
+            line.lat = c(43, 44.5, 45),
+            line.color = "green")
+```
+
+If there are two levels in the `features` variable, it is possible to draw a boundary line between point clusters (the logistic regression is used for calculation).
+```{r}
+map.feature(circassian$language,
+            features = circassian$language,
+            longitude = circassian$longitude,
+            latitude = circassian$latitude,
+            line.type = "logit")
+```
+
