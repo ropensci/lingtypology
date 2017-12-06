@@ -1,6 +1,8 @@
-name: ''
+name: 'lingtypology'
 navbar:
   left:
+  - text: installation
+    href: index.html
   - text: Glottolog functions
     href: lingtypology_glottolog_functions.html
   - text: creating maps
