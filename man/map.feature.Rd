@@ -4,7 +4,7 @@
 \alias{map.feature}
 \title{Create a map}
 \usage{
-map.feature(languages, features = "", popup = "", label = "",
+map.feature(languages, features = "", label = "", popup = "",
   latitude = NULL, longitude = NULL, label.hide = TRUE,
   label.fsize = 14, label.position = "right", label.emphasize = list(NULL,
   "black"), stroke.features = NULL, density.estimation = NULL,
@@ -34,9 +34,9 @@ map.feature(languages, features = "", popup = "", label = "",
 
 \item{features}{character vector of features}
 
-\item{popup}{character vector of strings that will appear in pop-up window}
-
 \item{label}{character vector of strings that will appear near points}
+
+\item{popup}{character vector of strings that will appear in pop-up window}
 
 \item{latitude}{numeric vector of latitudes}
 
@@ -147,6 +147,10 @@ map.feature(languages, features = "", popup = "", label = "",
 \item{line.type}{a character string indicating which type of line is to be computed. One of "standard" (default), or "logit". The first one should be combined with the arguments line.lat and line.lng and provide simple lines. Other variant "logit" is the decision boundary of the logistic regression made using longitude and latitude coordinates (works only if feature argument have two levels).}
 
 \item{line.color}{vector of line color.}
+
+\item{line.opacity}{a numeric vector of line opacity.}
+
+\item{line.label}{character vector that will appear near the line.}
 
 \item{minichart}{citation from leaflet.minicharts package: "Possible values are "bar" for bar charts, "pie" for pie charts, "polar-area" and "polar-radius"."}
 

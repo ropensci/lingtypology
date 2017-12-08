@@ -107,7 +107,7 @@ map_stroke2 <-
   )
 
 test_that("map.feature stroke feature", {
-  expect_equal(length(map_stroke$x$calls), 10)
+  expect_equal(length(map_stroke$x$calls), 11)
   expect_equal(
     map_stroke2$x$calls[[4]]$args[[6]]$fillColor,
     c("#0000FF", "#0000FF", "#00FF00",
@@ -218,7 +218,11 @@ test_that("map.feature labels", {
 })
 
 map_label_emph <-
-  map.feature(c("Adyghe", "Russian"), label = c("a", "b"), label.emphasize = list(1, "red"))
+  map.feature(
+    c("Adyghe", "Russian"),
+    label = c("a", "b"),
+    label.emphasize = list(1, "red")
+  )
 test_that("map.feature emphasized labels", {
   expect_equal(map_label_emph$x$calls[[6]]$args[11], list(c("a")))
   expect_equal(map_label_emph$x$calls[[6]]$args[12][[1]]$style$color, "red")
@@ -231,23 +235,67 @@ test_that("map.feature emphasized labels", {
 })
 
 map_rectangular <-
-  map.feature(circassian$language,
-              circassian$language,
-              longitude = circassian$longitude,
-              latitude = circassian$latitude,
-              rectangle.lng = c(42.7, 45),
-              rectangle.lat = c(42.7, 44.3),
-              rectangle.color = "blue")
+  map.feature(
+    circassian$language,
+    circassian$language,
+    longitude = circassian$longitude,
+    latitude = circassian$latitude,
+    rectangle.lng = c(42.7, 45),
+    rectangle.lat = c(42.7, 44.3),
+    rectangle.color = "blue"
+  )
 
 test_that("map.feature rectangular", {
   expect_equal(map_rectangular$x$calls[[3]]$method, "addRectangles")
 })
 
 map_minicharts <-
-  map.feature(languages = ejective_and_n_consonants$language,
-              minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
-              minichart = "pie")
+  map.feature(
+    languages = ejective_and_n_consonants$language,
+    minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+    minichart = "pie"
+  )
 
 test_that("map.feature minicharts", {
   expect_equal(exists("map_minicharts"), TRUE)
+})
+
+line <- map.feature(
+  circassian$language,
+  circassian$language,
+  longitude = circassian$longitude,
+  latitude = circassian$latitude,
+  line.lng = c(43, 45),
+  line.lat = c(43, 44)
+)
+
+line.logit <- map.feature(
+  circassian$language,
+  circassian$language,
+  longitude = circassian$longitude,
+  latitude = circassian$latitude,
+  line.type = "logit"
+)
+
+map.feature(
+  circassian$language,
+  circassian$dialect,
+  longitude = circassian$longitude,
+  latitude = circassian$latitude,
+  line.type = "logit"
+)
+
+test_that("map.feature lines", {
+  expect_equal(line$x$calls[[7]]$args[[4]]$stroke, TRUE)
+  expect_equal(line.logit$x$calls[[7]]$args[[4]]$stroke, TRUE)
+  expect_warning(
+    map.feature(
+      circassian$language,
+      circassian$dialect,
+      longitude = circassian$longitude,
+      latitude = circassian$latitude,
+      line.type = "logit"
+    ),
+    "If you want to plot the decision boundary of the logistic regression, the argument features should contain two levels."
+  )
 })

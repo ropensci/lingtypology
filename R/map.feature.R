@@ -3,9 +3,9 @@
 #' Map a set of languages and color them by feature or two sets of features.
 #'
 #' @param languages character vector of languages (can be written in lower case)
+#' @param features character vector of features
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
-#' @param features character vector of features
 #' @param stroke.features additional independent stroke features
 #' @param density.estimation additional independent features, used for density estimation
 #' @param popup character vector of strings that will appear in pop-up window
@@ -65,6 +65,8 @@
 #' @param line.lat vector of two (or more) latitude values for line.
 #' @param line.type a character string indicating which type of line is to be computed. One of "standard" (default), or "logit". The first one should be combined with the arguments line.lat and line.lng and provide simple lines. Other variant "logit" is the decision boundary of the logistic regression made using longitude and latitude coordinates (works only if feature argument have two levels).
 #' @param line.color vector of line color.
+#' @param line.label character vector that will appear near the line.
+#' @param line.opacity a numeric vector of line opacity.
 #' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
 #' @param zoom.level a numeric value of the zoom level.
 #' @author George Moroz <agricolamz@gmail.com>
@@ -136,8 +138,8 @@
 
 map.feature <- function(languages,
                         features = "",
-                        popup = "",
                         label = "",
+                        popup = "",
                         latitude = NULL,
                         longitude = NULL,
                         label.hide = TRUE,
@@ -722,8 +724,8 @@ map.feature <- function(languages,
                           family=stats::binomial)
       slope <- stats::coef(logit)[2]/(-stats::coef(logit)[3])
       intercept <- stats::coef(logit)[1]/(-stats::coef(logit)[3])
-      line.lat <- range(circassian$latitude)+
-        c(-stats::sd(circassian$latitude), stats::sd(circassian$latitude))
+      line.lat <- range(mapfeat.df$lat)+
+        c(-stats::sd(mapfeat.df$lat), stats::sd(mapfeat.df$lat))
       line.lng <-  (line.lat - intercept)/slope
       m <- m %>% leaflet::addPolylines(
         lat = line.lat,
