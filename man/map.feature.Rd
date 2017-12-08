@@ -25,9 +25,9 @@ map.feature(languages, features = "", popup = "", label = "",
   zoom.control = FALSE, zoom.level = NULL, rectangle.lng = NULL,
   rectangle.lat = NULL, rectangle.color = "black", line.lng = NULL,
   line.lat = NULL, line.type = "standard", line.color = "black",
-  minichart = NULL, minichart.data = NULL, minichart.time = NULL,
-  minichart.labels = FALSE, map.orientation = "Pacific",
-  glottolog.source = "modified")
+  line.opacity = 0.8, line.label = NULL, minichart = NULL,
+  minichart.data = NULL, minichart.time = NULL, minichart.labels = FALSE,
+  map.orientation = "Pacific", glottolog.source = "modified")
 }
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case)}

@@ -193,6 +193,8 @@ map.feature <- function(languages,
                         line.lat = NULL,
                         line.type = "standard",
                         line.color = "black",
+                        line.opacity = 0.8,
+                        line.label = NULL,
                         minichart = NULL,
                         minichart.data = NULL,
                         minichart.time = NULL,
@@ -701,7 +703,17 @@ map.feature <- function(languages,
         lat = line.lat,
         lng = line.lng,
         color = line.color,
-        opacity = 1,
+        opacity = line.opacity,
+        label = line.label,
+        labelOptions = leaflet::labelOptions(
+          noHide = !(label.hide),
+          direction = label.position,
+          textOnly = TRUE,
+          style = list(
+            "font-size" = paste0(label.fsize, "px"),
+            "color" = label.emphasize[[2]]
+          )
+        ),
         weight = 3)
     }
   } else if(line.type == "logit"){
@@ -717,7 +729,17 @@ map.feature <- function(languages,
         lat = line.lat,
         lng = line.lng,
         color = line.color,
-        opacity = 1,
+        opacity = line.opacity,
+        label = line.label,
+        labelOptions = leaflet::labelOptions(
+          noHide = !(label.hide),
+          direction = label.position,
+          textOnly = TRUE,
+          style = list(
+            "font-size" = paste0(label.fsize, "px"),
+            "color" = label.emphasize[[2]]
+          )
+        ),
         weight = 3)
     } else{
       warning("If you want to plot the decision boundary of the logistic regression, the argument features should contain two levels.")

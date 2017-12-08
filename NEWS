@@ -1,5 +1,6 @@
 lingtypology 1.0.10 ( .12.2017)
  - add argument line.type, that could be used for creating the decision boundary of the logistic regression on the map.
+ - add arguments line.opacity and line.label.
 
 lingtypology 1.0.9 (30.11.2017)
  - correct queries of the length one for wals.feature() and afbo.feature() functions. #22
