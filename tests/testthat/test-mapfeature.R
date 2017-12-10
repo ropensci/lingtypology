@@ -277,17 +277,9 @@ line.logit <- map.feature(
   line.type = "logit"
 )
 
-map.feature(
-  circassian$language,
-  circassian$dialect,
-  longitude = circassian$longitude,
-  latitude = circassian$latitude,
-  line.type = "logit"
-)
-
 test_that("map.feature lines", {
-  expect_equal(line$x$calls[[7]]$args[[4]]$stroke, TRUE)
-  expect_equal(line.logit$x$calls[[7]]$args[[4]]$stroke, TRUE)
+  expect_equal(line$x$calls[[3]]$method, "addPolylines")
+  expect_equal(line.logit$x$calls[[3]]$method, "addPolylines")
   expect_warning(
     map.feature(
       circassian$language,
@@ -299,3 +291,10 @@ test_that("map.feature lines", {
     "If you want to plot the decision boundary of the logistic regression, the argument features should contain two levels."
   )
 })
+
+graticule <- map.feature(c("Russian", "Adyghe"), graticule = 20)
+
+test_that("map.feature graticule", {
+  expect_equal(graticule$x$calls[[3]]$method, "addGraticule")
+})
+
