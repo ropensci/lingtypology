@@ -1,13 +1,12 @@
 Package: leaflet.minicharts
 Type: Package
 Title: Mini Charts for Interactive Maps
-Version: 0.5.1
+Version: 0.5.2
 Authors@R: c(
-    person("Francois", "Guillem", , "francois.guillem@rte-france.com", role = c("aut", "cre")),
-    person("Jalal-Edine", "ZAWAM", , "jalal-edine.zawam@rte-france.com", role = "ctb"),
+    person("Jalal-Edine", "ZAWAM", email = "jalal-edine.zawam@rte-france.com", role = c("aut", "cre")),
+    person("Francois", "Guillem", email = "francois.guillem@rte-france.com", role = c("aut")),
     person("RTE", role = "cph")
     )
-Maintainer: Francois Guillem <francois.guillem@rte-france.com>
 Description: Add and modify small charts on an interactive map created with 
     package 'leaflet'. These charts can be used to represent at same time multiple 
     variables on a single map.
@@ -21,10 +20,11 @@ Suggests: knitr, rmarkdown, dplyr, shiny, manipulateWidget, testthat,
         covr
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2017-08-17 11:54:33 UTC; franguil
-Author: Francois Guillem [aut, cre],
-  Jalal-Edine ZAWAM [ctb],
+Packaged: 2017-12-06 15:35:09 UTC; jalazawa
+Author: Jalal-Edine ZAWAM [aut, cre],
+  Francois Guillem [aut],
   RTE [cph]
+Maintainer: Jalal-Edine ZAWAM <jalal-edine.zawam@rte-france.com>
 Repository: CRAN
-Date/Publication: 2017-08-17 15:16:16 UTC
-Built: R 3.4.2; ; 2017-10-04 15:55:06 UTC; unix
+Date/Publication: 2017-12-06 16:11:36 UTC
+Built: R 3.4.3; ; 2017-12-07 17:21:33 UTC; unix

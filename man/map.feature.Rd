@@ -25,8 +25,9 @@ map.feature(languages, features = "", label = "", popup = "",
   zoom.control = FALSE, zoom.level = NULL, rectangle.lng = NULL,
   rectangle.lat = NULL, rectangle.color = "black", line.lng = NULL,
   line.lat = NULL, line.type = "standard", line.color = "black",
-  line.opacity = 0.8, line.label = NULL, minichart = NULL,
-  minichart.data = NULL, minichart.time = NULL, minichart.labels = FALSE,
+  line.opacity = 0.8, line.label = NULL, line.width = 3,
+  graticule = NULL, minichart = NULL, minichart.data = NULL,
+  minichart.time = NULL, minichart.labels = FALSE,
   map.orientation = "Pacific", glottolog.source = "modified")
 }
 \arguments{
@@ -94,7 +95,7 @@ map.feature(languages, features = "", label = "", popup = "",
 
 \item{control}{logical. If TRUE, function show layer control buttons. By default is FALSE}
 
-\item{legend}{logical. If TRUE, function show legend. By default is FALSE.}
+\item{legend}{logical. If TRUE, function show legend. By default is TRUE.}
 
 \item{legend.opacity}{a numeric vector of legend opacity.}
 
@@ -151,6 +152,10 @@ map.feature(languages, features = "", label = "", popup = "",
 \item{line.opacity}{a numeric vector of line opacity.}
 
 \item{line.label}{character vector that will appear near the line.}
+
+\item{line.width}{a numeric vector of line width.}
+
+\item{graticule}{a numeric vector for graticule spacing in map units between horizontal and vertical lines.}
 
 \item{minichart}{citation from leaflet.minicharts package: "Possible values are "bar" for bar charts, "pie" for pie charts, "polar-area" and "polar-radius"."}
 

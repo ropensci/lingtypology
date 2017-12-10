@@ -34,7 +34,7 @@
 #' @param label.hide logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.
 #' @param label.position the position of labels: "left", "right", "top", "bottom"
 #' @param label.emphasize is the list. First argument is a vector of points in datframe that should be emphasized. Second argument is a string with a color for emphasis.
-#' @param legend logical. If TRUE, function show legend. By default is FALSE.
+#' @param legend logical. If TRUE, function show legend. By default is TRUE.
 #' @param legend.opacity a numeric vector of legend opacity.
 #' @param legend.position the position of the legend: "topright", "bottomright", "bottomleft","topleft"
 #' @param map.orientation a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".
@@ -67,6 +67,8 @@
 #' @param line.color vector of line color.
 #' @param line.label character vector that will appear near the line.
 #' @param line.opacity a numeric vector of line opacity.
+#' @param line.width a numeric vector of line width.
+#' @param graticule a numeric vector for graticule spacing in map units between horizontal and vertical lines.
 #' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
 #' @param zoom.level a numeric value of the zoom level.
 #' @author George Moroz <agricolamz@gmail.com>
@@ -113,6 +115,8 @@
 #' @importFrom leaflet addTiles
 #' @importFrom leaflet addProviderTiles
 #' @importFrom leaflet addPolygons
+#' @importFrom leaflet addGraticule
+#' @importFrom leaflet addPolylines
 #' @importFrom leaflet addCircleMarkers
 #' @importFrom leaflet addMarkers
 #' @importFrom leaflet addLayersControl
@@ -197,6 +201,8 @@ map.feature <- function(languages,
                         line.color = "black",
                         line.opacity = 0.8,
                         line.label = NULL,
+                        line.width = 3,
+                        graticule = NULL,
                         minichart = NULL,
                         minichart.data = NULL,
                         minichart.time = NULL,
@@ -424,6 +430,58 @@ map.feature <- function(languages,
     )
   }
 
+  # map: add line ----------------------------------------------------------------
+  if(line.type == "standard"){
+    if (!is.null(line.lng) & !is.null(line.lat)) {
+      m <- m %>% leaflet::addPolylines(
+        lat = line.lat,
+        lng = line.lng,
+        color = line.color,
+        opacity = line.opacity,
+        label = line.label,
+        labelOptions = leaflet::labelOptions(
+          noHide = !(label.hide),
+          direction = label.position,
+          textOnly = TRUE,
+          style = list(
+            "font-size" = paste0(label.fsize, "px"),
+            "color" = label.emphasize[[2]]
+          )
+        ),
+        weight = line.width)
+    }
+  } else if(line.type == "logit"){
+    if(length(table(mapfeat.df$features)) == 2){
+      logit <- stats::glm(mapfeat.df$features~mapfeat.df$long+mapfeat.df$lat,
+                          family=stats::binomial)
+      slope <- stats::coef(logit)[2]/(-stats::coef(logit)[3])
+      intercept <- stats::coef(logit)[1]/(-stats::coef(logit)[3])
+      line.lat <- range(mapfeat.df$lat)+
+        c(-stats::sd(mapfeat.df$lat), stats::sd(mapfeat.df$lat))
+      line.lng <-  (line.lat - intercept)/slope
+      m <- m %>% leaflet::addPolylines(
+        lat = line.lat,
+        lng = line.lng,
+        color = line.color,
+        opacity = line.opacity,
+        label = line.label,
+        labelOptions = leaflet::labelOptions(
+          noHide = !(label.hide),
+          direction = label.position,
+          textOnly = TRUE,
+          style = list(
+            "font-size" = paste0(label.fsize, "px"),
+            "color" = label.emphasize[[2]]
+          )
+        ),
+        weight = line.width)
+    } else{
+      warning("If you want to plot the decision boundary of the logistic regression, the argument features should contain two levels.")
+    }
+  }
+
+
+
   # if there is density estimation ------------------------------------------
   if (!is.null(density.estimation)) {
     lapply(seq_along(my_poly), function(x) {
@@ -435,6 +493,12 @@ map.feature <- function(languages,
         group = my_poly_names[x]
       )
     })
+  }
+
+  # map: add graticule ------------------------------------------------------
+  if (!is.null(graticule)) {
+    m <- m %>% leaflet::addGraticule(interval = graticule,
+                                     style = list(color = "black", weight = 1))
   }
 
   # map: if there are stroke features ---------------------------------------
@@ -697,56 +761,5 @@ map.feature <- function(languages,
       zoom = zoom.level
     )
   }
-
-  # add line ----------------------------------------------------------------
-  if(line.type == "standard"){
-    if (!is.null(line.lng) & !is.null(line.lat)) {
-      m <- m %>% leaflet::addPolylines(
-        lat = line.lat,
-        lng = line.lng,
-        color = line.color,
-        opacity = line.opacity,
-        label = line.label,
-        labelOptions = leaflet::labelOptions(
-          noHide = !(label.hide),
-          direction = label.position,
-          textOnly = TRUE,
-          style = list(
-            "font-size" = paste0(label.fsize, "px"),
-            "color" = label.emphasize[[2]]
-          )
-        ),
-        weight = 3)
-    }
-  } else if(line.type == "logit"){
-    if(length(table(mapfeat.df$features)) == 2){
-      logit <- stats::glm(mapfeat.df$features~mapfeat.df$long+mapfeat.df$lat,
-                          family=stats::binomial)
-      slope <- stats::coef(logit)[2]/(-stats::coef(logit)[3])
-      intercept <- stats::coef(logit)[1]/(-stats::coef(logit)[3])
-      line.lat <- range(mapfeat.df$lat)+
-        c(-stats::sd(mapfeat.df$lat), stats::sd(mapfeat.df$lat))
-      line.lng <-  (line.lat - intercept)/slope
-      m <- m %>% leaflet::addPolylines(
-        lat = line.lat,
-        lng = line.lng,
-        color = line.color,
-        opacity = line.opacity,
-        label = line.label,
-        labelOptions = leaflet::labelOptions(
-          noHide = !(label.hide),
-          direction = label.position,
-          textOnly = TRUE,
-          style = list(
-            "font-size" = paste0(label.fsize, "px"),
-            "color" = label.emphasize[[2]]
-          )
-        ),
-        weight = 3)
-    } else{
-      warning("If you want to plot the decision boundary of the logistic regression, the argument features should contain two levels.")
-      }
-    }
-
   m
 }
