@@ -52,6 +52,8 @@ map.feature(languages, features = "", label = "", popup = "",
 
 \item{label.emphasize}{is the list. First argument is a vector of points in datframe that should be emphasized. Second argument is a string with a color for emphasis.}
 
+\item{label.only}{creates labels without markers}
+
 \item{stroke.features}{additional independent stroke features}
 
 \item{density.estimation}{additional independent features, used for density estimation}

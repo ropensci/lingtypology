@@ -34,6 +34,7 @@
 #' @param label.hide logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.
 #' @param label.position the position of labels: "left", "right", "top", "bottom"
 #' @param label.emphasize is the list. First argument is a vector of points in datframe that should be emphasized. Second argument is a string with a color for emphasis.
+#' @param label.only creates labels without markers
 #' @param legend logical. If TRUE, function show legend. By default is TRUE.
 #' @param legend.opacity a numeric vector of legend opacity.
 #' @param legend.position the position of the legend: "topright", "bottomright", "bottomleft","topleft"
