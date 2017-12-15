@@ -292,9 +292,9 @@ test_that("map.feature lines", {
   )
 })
 
-graticule <- map.feature(c("Russian", "Adyghe"), graticule = 20)
+graticule <- map.feature(c("Russian", "Adyghe"), graticule = 5)
 
 test_that("map.feature graticule", {
-  expect_equal(graticule$x$calls[[3]]$method, "addGraticule")
+  expect_equal(graticule$x$calls[[3]]$method, "addSimpleGraticule")
 })
 

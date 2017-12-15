@@ -5,16 +5,16 @@ knitr::opts_chunk$set(eval = FALSE)
 ## ------------------------------------------------------------------------
 #  map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 
-## ------------------------------------------------------------------------
+## ---- eval = FALSE-------------------------------------------------------
 #  m <- map.feature(c("Adyghe", "Korean"))
 #  # install.packages("htmlwidgets")
 #  library(htmlwidgets)
 #  saveWidget(m, file="TYPE_FILE_PATH/m.html")
 
-## ---- eval=TRUE----------------------------------------------------------
-df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-                 features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
-df
+## ------------------------------------------------------------------------
+#  df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#                   features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
+#  df
 
 ## ------------------------------------------------------------------------
 #  map.feature(languages = df$language,
@@ -89,6 +89,11 @@ df
 #              label.emphasize = list(2:4, "red"))
 
 ## ------------------------------------------------------------------------
+#  map.feature(c("Russian", "Adyghe"),
+#              label = c("Russian", "Adyghe"),
+#              label.only = TRUE)
+
+## ------------------------------------------------------------------------
 #  map.feature(languages = circassian$language,
 #              features = circassian$dialect,
 #              popup = circassian$village,
@@ -100,12 +105,12 @@ df
 #                   features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
 #  map.feature(languages = df$language,
 #              features = df$features,
-#              color = c("yellowgreen", "navy"))
+#              color= c("yellowgreen", "navy"))
 
 ## ------------------------------------------------------------------------
 #  map.feature(ejective_and_n_consonants$language,
 #              ejective_and_n_consonants$consonants,
-#              color = "magma")
+#              color= "magma")
 
 ## ------------------------------------------------------------------------
 #  
@@ -168,7 +173,7 @@ df
 
 ## ------------------------------------------------------------------------
 #  map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
-#              scale.bar = TRUE,
+#              scale.bar= TRUE,
 #              scale.bar.position = "topright")
 
 ## ------------------------------------------------------------------------
@@ -231,7 +236,7 @@ df
 #  map.feature(languages = ejective_and_n_consonants$language,
 #              minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
 #              minichart = "bar",
-#              color = c("yellowgreen", "navy"),
+#              color= c("yellowgreen", "navy"),
 #              opacity = 0.7,
 #              label = ejective_and_n_consonants$language,
 #              legend.position = "topleft")
@@ -249,7 +254,7 @@ df
 #              latitude = circassian$latitude,
 #              rectangle.lng = c(42.7, 45),
 #              rectangle.lat = c(42.7, 44.4),
-#              rectangle.color = "green")
+#              rectangle.color= "green")
 
 ## ------------------------------------------------------------------------
 #  map.feature(circassian$language,
@@ -286,7 +291,7 @@ df
 #              density.estimation = "Circassian",
 #              density.longitude.width = 0.3,
 #              density.latitude.width = 0.3,
-#              color = c("darkgreen", "blue"))
+#              color= c("darkgreen", "blue"))
 
 ## ------------------------------------------------------------------------
 #  map.feature(circassian$language,
@@ -296,7 +301,7 @@ df
 #              density.estimation = "Circassian",
 #              density.longitude.width = 0.7,
 #              density.latitude.width = 0.7,
-#              color = c("darkgreen", "blue"))
+#              color= c("darkgreen", "blue"))
 
 ## ------------------------------------------------------------------------
 #  map.feature(circassian$language,
@@ -306,7 +311,7 @@ df
 #              density.estimation = "Circassian",
 #              density.longitude.width = 1.3,
 #              density.latitude.width = 0.9,
-#              color = c("darkgreen", "blue"))
+#              color= c("darkgreen", "blue"))
 
 ## ------------------------------------------------------------------------
 #  map.feature(circassian$language,
@@ -323,7 +328,7 @@ df
 #              latitude = circassian$latitude,
 #              line.lng = c(43, 39, 38.5),
 #              line.lat = c(43, 44.5, 45),
-#              line.color = "green")
+#              line.color= "green")
 
 ## ------------------------------------------------------------------------
 #  map.feature(circassian$language,
@@ -331,4 +336,8 @@ df
 #              longitude = circassian$longitude,
 #              latitude = circassian$latitude,
 #              line.type = "logit")
+
+## ------------------------------------------------------------------------
+#  map.feature(c("Russian", "Adyghe"),
+#              graticule = 5)
 
