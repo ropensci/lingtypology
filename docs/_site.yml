@@ -1,5 +1,6 @@
 name: lingtypology
 navbar:
+  title: '<div><img src="https://pp.userapi.com/c836630/v836630077/5842a/lKqBuIZQbwE.jpg"></img></div>'
   left:
   - text: installation
     href: index.html
