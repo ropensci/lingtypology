@@ -1,7 +1,7 @@
 name: lingtypology
 navbar:
-  title: '<div><img src="https://raw.githubusercontent.com/ropensci/lingtypology/master/docs/logo1.png"></img></div>'
-  left:
+  title: lingtypology
+  right:
   - text: installation
     href: index.html
   - text: Glottolog functions
@@ -17,4 +17,3 @@ output:
   html_document:
     lib_dir: site_libs
     self_contained: no
-

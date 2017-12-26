@@ -2,7 +2,6 @@ html_document:
     theme: lumen
     highlight: tango
     toc: yes
-    toc_position: right
     toc_float: yes
     toc_depth: 4
     smooth_scroll: false
