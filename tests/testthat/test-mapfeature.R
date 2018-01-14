@@ -309,8 +309,8 @@ shape3 <- map.feature(df$lang,
                       df$feature,
                       shape = c("p", "p", "f", "f", "f"))
 
-test_that("map.feature graticule", {
-  expect_equal(shape1$x$calls[[3]]$args[[11]], c("♦", "♦", "●", "●", "●"))
+test_that("map.feature shape", {
+  expect_equal(shape1$x$calls[[3]]$args[[11]], c("▴", "▴", "●", "●", "●"))
   expect_equal(shape2$x$calls[[3]]$args[[11]], c("p", "p", "f", "f", "f"))
   expect_equal(shape3$x$calls[[3]]$args[[11]], c("p", "p", "f", "f", "f"))
   expect_warning(map.feature(lang.aff("Slavic")[-3],
