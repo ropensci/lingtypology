@@ -630,8 +630,8 @@ map.feature <- function(languages,
   # map: add shapes ---------------------------------------------------------
   if (!is.null(shape)) {
     if(isTRUE(shape)){
-      icons <- c("●", "♦", "■", "▲", "▼")[as.factor(mapfeat.df$features)]
-      if(length(unique(mapfeat.df$features)) > 5){
+      icons <- c("\u25cf", "\u25b4", "\u25a0", "\u2b29", "\u25be", "\u25b0")[as.factor(mapfeat.df$features)]
+      if(length(unique(mapfeat.df$features)) > 6){
         warning(
           'Argument "shape = TRUE" works fine only with 5 or less levels in "features" variable. List your own shapes in "shape argument"',
           call. = FALSE)
