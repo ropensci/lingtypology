@@ -1,3 +1,7 @@
+lingtypology 1.0.11 (14.01.2018)
+ - add "shape" arguments.
+ - argument "label.only" is depricated.
+
 lingtypology 1.0.10 (15.12.2017)
  - add argument "line.type", that could be used for creating the decision boundary of the logistic regression on the map.
  - add arguments "line.opacity", "line.label", "line.width".

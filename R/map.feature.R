@@ -34,10 +34,12 @@
 #' @param label.hide logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.
 #' @param label.position the position of labels: "left", "right", "top", "bottom"
 #' @param label.emphasize is the list. First argument is a vector of points in datframe that should be emphasized. Second argument is a string with a color for emphasis.
-#' @param label.only creates labels without markers
 #' @param legend logical. If TRUE, function show legend. By default is TRUE.
 #' @param legend.opacity a numeric vector of legend opacity.
 #' @param legend.position the position of the legend: "topright", "bottomright", "bottomleft","topleft"
+#' @param shape \enumerate{ \item if TRUE, creates icons (up to five categories) for values in the \code{features} variable; \item it also could be a vector of any strings that represents the levels of the  \code{features} variable; \item it also could be a string vector that represents the number of observations in dataset.}
+#' @param shape.size size of the \code{shape} icons
+#' @param shape.color color of the \code{shape} icons
 #' @param map.orientation a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".
 #' @param minimap.height The height of the minimap in pixels.
 #' @param minimap.position the position of the minimap: "topright", "bottomright", "bottomleft","topleft"
@@ -121,6 +123,7 @@
 #' @importFrom leaflet addCircleMarkers
 #' @importFrom leaflet addMarkers
 #' @importFrom leaflet addLabelOnlyMarkers
+#' @importFrom leaflet addControl
 #' @importFrom leaflet addLayersControl
 #' @importFrom leaflet addScaleBar
 #' @importFrom leaflet addLegend
@@ -152,7 +155,9 @@ map.feature <- function(languages,
                         label.fsize = 14,
                         label.position = "right",
                         label.emphasize = list(NULL, "black"),
-                        label.only = FALSE,
+                        shape = NULL,
+                        shape.size = 20,
+                        shape.color = "black",
                         stroke.features = NULL,
                         density.estimation = NULL,
                         density.estimation.color = NULL,
@@ -434,7 +439,7 @@ map.feature <- function(languages,
   }
 
   # map: add line ----------------------------------------------------------------
-  if(line.type == "standard"){
+  if (line.type == "standard") {
     if (!is.null(line.lng) & !is.null(line.lat)) {
       m <- m %>% leaflet::addPolylines(
         lat = line.lat,
@@ -451,17 +456,19 @@ map.feature <- function(languages,
             "color" = label.emphasize[[2]]
           )
         ),
-        weight = line.width)
+        weight = line.width
+      )
     }
-  } else if(line.type == "logit"){
-    if(length(table(mapfeat.df$features)) == 2){
-      logit <- stats::glm(mapfeat.df$features~mapfeat.df$long+mapfeat.df$lat,
-                          family=stats::binomial)
-      slope <- stats::coef(logit)[2]/(-stats::coef(logit)[3])
-      intercept <- stats::coef(logit)[1]/(-stats::coef(logit)[3])
-      line.lat <- range(mapfeat.df$lat)+
+  } else if (line.type == "logit") {
+    if (length(table(mapfeat.df$features)) == 2) {
+      logit <-
+        stats::glm(mapfeat.df$features ~ mapfeat.df$long + mapfeat.df$lat,
+                   family = stats::binomial)
+      slope <- stats::coef(logit)[2] / (-stats::coef(logit)[3])
+      intercept <- stats::coef(logit)[1] / (-stats::coef(logit)[3])
+      line.lat <- range(mapfeat.df$lat) +
         c(-stats::sd(mapfeat.df$lat), stats::sd(mapfeat.df$lat))
-      line.lng <-  (line.lat - intercept)/slope
+      line.lng <-  (line.lat - intercept) / slope
       m <- m %>% leaflet::addPolylines(
         lat = line.lat,
         lng = line.lng,
@@ -477,9 +484,12 @@ map.feature <- function(languages,
             "color" = label.emphasize[[2]]
           )
         ),
-        weight = line.width)
+        weight = line.width
+      )
     } else{
-      warning("If you want to plot the decision boundary of the logistic regression, the argument features should contain two levels.")
+      warning(
+        "If you want to plot the decision boundary of the logistic regression, the argument features should contain two levels."
+      )
     }
   }
 
@@ -543,7 +553,9 @@ map.feature <- function(languages,
   }
 
   # map: add points ----------------------------------------
-  if (density.points != FALSE & is.null(minichart) & label.only == FALSE) {
+  if (density.points != FALSE &
+      is.null(minichart) &
+      is.null(shape)) {
     m <- m %>% leaflet::addCircleMarkers(
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
@@ -562,13 +574,20 @@ map.feature <- function(languages,
         radius = width,
         fillOpacity = opacity,
         color = pal(mapfeat.df$features),
-        group = mapfeat.df$features
+        group = mapfeat.df$features,
+        label = mapfeat.df$label,
+        labelOptions = leaflet::labelOptions(
+          noHide = !(label.hide),
+          direction = label.position,
+          textOnly = TRUE,
+          style = list("font-size" = paste0(label.fsize, "px"))
+        )
       )
   }
 
   # map: add minicharts -----------------------------------------------------
 
-  if (!is.null(minichart)) {
+  if (!is.null(minichart) & is.null(shape)) {
     if (is.null(color)) {
       color = my_colors
     }
@@ -608,197 +627,195 @@ map.feature <- function(languages,
     )
   }
 
-  # map: labels -------------------------------------------------------------
-
-    if (label.only == FALSE) {
-      if (density.points != FALSE & sum(label == "") != length(label)) {
-        m <- m %>% leaflet::addCircleMarkers(
-          lng = mapfeat.df$long,
-          lat = mapfeat.df$lat,
-          popup = mapfeat.df$link,
-          label = mapfeat.df$label,
-          labelOptions = leaflet::labelOptions(
-            noHide = !(label.hide),
-            direction = label.position,
-            textOnly = TRUE,
-            style = list("font-size" = paste0(label.fsize, "px"))
-          ),
-          stroke = FALSE,
-          radius = width * 3,
-          fillOpacity = 0,
-          color = pal(mapfeat.df$features),
-          group = mapfeat.df$features
-        )
-        if ("emph" %in% colnames(mapfeat.df)) {
-          m <-
-            m %>% leaflet::addCircleMarkers(
-              lng = mapfeat.df[mapfeat.df$emph == "emph", ]$long,
-              lat = mapfeat.df[mapfeat.df$emph == "emph", ]$lat,
-              popup = mapfeat.df[mapfeat.df$emph == "emph", ]$link,
-              label = mapfeat.df[mapfeat.df$emph == "emph", ]$label,
-              labelOptions = leaflet::labelOptions(
-                noHide = !(label.hide),
-                direction = label.position,
-                textOnly = TRUE,
-                style = list(
-                  "font-size" = paste0(label.fsize, "px"),
-                  "color" = label.emphasize[[2]]
-                )
-              ),
-              stroke = FALSE,
-              radius = 3 * width,
-              fillOpacity = 0,
-              color = "red",
-              group = mapfeat.df$features
-            )
+  # map: add shapes ---------------------------------------------------------
+  if (!is.null(shape)) {
+    if(isTRUE(shape)){
+      icons <- c("●", "♦", "■", "▲", "▼")[as.factor(mapfeat.df$features)]
+      if(length(unique(mapfeat.df$features)) > 5){
+        warning(
+          'Argument "shape = TRUE" works fine only with 5 or less levels in "features" variable. List your own shapes in "shape argument"',
+          call. = FALSE)
         }
-      }
+    } else if(length(shape) == length(as.factor(mapfeat.df$features))){
+      icons <- as.character(shape)
     } else{
-      if (density.points != FALSE & sum(label == "") != length(label)) {
-        m <- m %>% leaflet::addLabelOnlyMarkers(
-          lng = mapfeat.df$long,
-          lat = mapfeat.df$lat,
-          label = mapfeat.df$label,
-          labelOptions = leaflet::labelOptions(
-            noHide = TRUE,
-            direction = label.position,
-            textOnly = TRUE,
-            style = list("font-size" = paste0(label.fsize, "px"))
-          ),
-          group = mapfeat.df$features
+      icons <- as.character(shape[as.factor(mapfeat.df$features)])
+    }
+
+    m <- m %>% addLabelOnlyMarkers(
+      lng = mapfeat.df$long,
+      lat = mapfeat.df$lat,
+      label = icons,
+      labelOptions = labelOptions(
+        noHide = TRUE,
+        textOnly = TRUE,
+        textsize = paste0(shape.size, "px"),
+        offset = c(-7,-14),
+        style = list("color" = shape.color)
+      )
+    ) %>%
+      leaflet::addCircleMarkers(
+        lng = mapfeat.df$long,
+        lat = mapfeat.df$lat,
+        popup = mapfeat.df$link,
+        stroke = FALSE,
+        radius = width,
+        fillOpacity = 0,
+        label = mapfeat.df$label,
+        labelOptions = leaflet::labelOptions(
+          noHide = !(label.hide),
+          direction = label.position,
+          textOnly = TRUE,
+          style = list("font-size" = paste0(label.fsize, "px"))
         )
-        if ("emph" %in% colnames(mapfeat.df)) {
-          m <-
-            m %>% leaflet::addLabelOnlyMarkers(
-              lng = mapfeat.df[mapfeat.df$emph == "emph", ]$long,
-              lat = mapfeat.df[mapfeat.df$emph == "emph", ]$lat,
-              popup = mapfeat.df[mapfeat.df$emph == "emph", ]$link,
-              label = mapfeat.df[mapfeat.df$emph == "emph", ]$label,
-              labelOptions = leaflet::labelOptions(
-                noHide = TRUE,
-                direction = label.position,
-                textOnly = TRUE,
-                style = list(
-                  "font-size" = paste0(label.fsize, "px"),
-                  "color" = label.emphasize[[2]]
-                )
-              ),
-              group = mapfeat.df$features
-            )
-        }
+      )
+    if (legend == TRUE) {
+      m <- m %>%
+        leaflet::addControl(
+          html = paste(
+            '<b><font size="4">',
+            icons[seq_along(unique(mapfeat.df$features))],
+            '</font></b>',
+            levels(as.factor(mapfeat.df$features)),
+            "<br>",
+            collapse = ""
+          ),
+          position = legend.position
+        )
+    }}
+
+
+    # add label emphasize -----------------------------------------------------
+
+      if ("emph" %in% colnames(mapfeat.df)) {
+        m <- m %>% leaflet::addCircleMarkers(
+            lng = mapfeat.df[mapfeat.df$emph == "emph", ]$long,
+            lat = mapfeat.df[mapfeat.df$emph == "emph", ]$lat,
+            popup = mapfeat.df[mapfeat.df$emph == "emph", ]$link,
+            label = mapfeat.df[mapfeat.df$emph == "emph", ]$label,
+            stroke = FALSE,
+            radius = width,
+            fillOpacity = 0,
+            labelOptions = leaflet::labelOptions(
+              noHide = !(label.hide),
+              direction = label.position,
+              textOnly = TRUE,
+              style = list("font-size" = paste0(label.fsize, "px"),
+                           "color" = label.emphasize[[2]])),
+            group = mapfeat.df$features
+          )
+      }
+
+    # map: images -------------------------------------------------------------
+    if (!is.null(image.url)) {
+      m <- m %>% leaflet::addMarkers(
+        lng = mapfeat.image$long,
+        lat = mapfeat.image$lat,
+        popup = mapfeat.image$link,
+        icon = leaflet::icons(
+          iconUrl = as.character(mapfeat.image$image.url),
+          iconWidth = image.width,
+          iconHeight = image.height,
+          iconAnchorX = -image.X.shift,
+          iconAnchorY = image.Y.shift
+        )
+      )
+    }
+
+
+    # map: tile and control interaction --------------------------------------
+    if (length(tile) > 1) {
+      if (control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(
+          baseGroups = tile.name,
+          overlayGroups = mapfeat.df$features,
+          options = leaflet::layersControlOptions(collapsed = FALSE)
+        )
+      } else if (density.control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(
+          baseGroups = tile.name,
+          overlayGroups = my_poly_names,
+          options = leaflet::layersControlOptions(collapsed = FALSE)
+        )
+      } else {
+        m <- m %>% leaflet::addLayersControl(
+          baseGroups = tile.name,
+          options = leaflet::layersControlOptions(collapsed = FALSE)
+        )
+      }
+    } else {
+      if (control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(
+          overlayGroups = mapfeat.df$features,
+          options = leaflet::layersControlOptions(collapsed = FALSE)
+        )
+      } else if (density.control == TRUE) {
+        m <- m %>% leaflet::addLayersControl(
+          overlayGroups = my_poly_names,
+          options = leaflet::layersControlOptions(collapsed = FALSE)
+        )
       }
     }
 
-
-  # map: images -------------------------------------------------------------
-  if (!is.null(image.url)) {
-    m <- m %>% leaflet::addMarkers(
-      lng = mapfeat.image$long,
-      lat = mapfeat.image$lat,
-      popup = mapfeat.image$link,
-      icon = leaflet::icons(
-        iconUrl = as.character(mapfeat.image$image.url),
-        iconWidth = image.width,
-        iconHeight = image.height,
-        iconAnchorX = -image.X.shift,
-        iconAnchorY = image.Y.shift
-      )
-    )
-  }
+    # map: ScaleBar -----------------------------------------------------------
+    if (scale.bar == TRUE) {
+      m <- m %>% leaflet::addScaleBar(position = scale.bar.position)
+    }
 
 
-  # map: tile and control interaction --------------------------------------
-  if (length(tile) > 1) {
-    if (control == TRUE) {
-      m <- m %>% leaflet::addLayersControl(
-        baseGroups = tile.name,
-        overlayGroups = mapfeat.df$features,
-        options = leaflet::layersControlOptions(collapsed = FALSE)
-      )
-    } else if (density.control == TRUE) {
-      m <- m %>% leaflet::addLayersControl(
-        baseGroups = tile.name,
-        overlayGroups = my_poly_names,
-        options = leaflet::layersControlOptions(collapsed = FALSE)
-      )
-    } else {
-      m <- m %>% leaflet::addLayersControl(
-        baseGroups = tile.name,
-        options = leaflet::layersControlOptions(collapsed = FALSE)
+    # map: legend -------------------------------------------------------------
+    if (sum(mapfeat.df$features == "") < length(mapfeat.df$features) &
+        legend == TRUE &
+        is.null(minichart) &
+        is.null(shape)) {
+      m <- m %>% leaflet::addLegend(
+        title = title,
+        position = legend.position,
+        pal = pal,
+        values = mapfeat.df$features,
+        opacity = legend.opacity
       )
     }
-  } else {
-    if (control == TRUE) {
-      m <- m %>% leaflet::addLayersControl(
-        overlayGroups = mapfeat.df$features,
-        options = leaflet::layersControlOptions(collapsed = FALSE)
-      )
-    } else if (density.control == TRUE) {
-      m <- m %>% leaflet::addLayersControl(
-        overlayGroups = my_poly_names,
-        options = leaflet::layersControlOptions(collapsed = FALSE)
+
+    # map: stroke.legend ------------------------------------------------------
+    if (!is.null(stroke.features) & stroke.legend == TRUE) {
+      m <- m %>% leaflet::addLegend(
+        title = stroke.title,
+        position = stroke.legend.position,
+        pal = stroke.pal,
+        values = mapfeat.stroke$stroke.features,
+        opacity = stroke.legend.opacity
       )
     }
-  }
 
-  # map: ScaleBar -----------------------------------------------------------
-  if (scale.bar == TRUE) {
-    m <- m %>% leaflet::addScaleBar(position = scale.bar.position)
-  }
+    # map: density.legend ------------------------------------------------------
+    if (!is.null(density.estimation) & density.legend == TRUE) {
+      m <- m %>% leaflet::addLegend(
+        title = density.title,
+        position = density.legend.position,
+        pal = density.estimation.pal,
+        values = mapfeat.df$density.estimation,
+        opacity = density.legend.opacity
+      )
+    }
 
+    # map: MiniMap ------------------------------------------------------------
+    if (minimap == TRUE) {
+      m <- m %>% leaflet::addMiniMap(
+        position = minimap.position,
+        width = minimap.width,
+        height = minimap.height,
+        toggleDisplay = TRUE
+      )
+    }
 
-  # map: legend -------------------------------------------------------------
-  if (sum(mapfeat.df$features == "") < length(mapfeat.df$features) &
-      legend == TRUE &
-      is.null(minichart)) {
-    m <- m %>% leaflet::addLegend(
-      title = title,
-      position = legend.position,
-      pal = pal,
-      values = mapfeat.df$features,
-      opacity = legend.opacity
-    )
+    # zoom.level argument -----------------------------------------------------
+    if (!is.null(zoom.level)) {
+      m <- m %>% leaflet::setView(
+        lng = mean(mapfeat.df$long),
+        lat = mean(mapfeat.df$lat),
+        zoom = zoom.level
+      )
+    }
+    m
   }
-
-  # map: stroke.legend ------------------------------------------------------
-  if (!is.null(stroke.features) & stroke.legend == TRUE) {
-    m <- m %>% leaflet::addLegend(
-      title = stroke.title,
-      position = stroke.legend.position,
-      pal = stroke.pal,
-      values = mapfeat.stroke$stroke.features,
-      opacity = stroke.legend.opacity
-    )
-  }
-
-  # map: density.legend ------------------------------------------------------
-  if (!is.null(density.estimation) & density.legend == TRUE) {
-    m <- m %>% leaflet::addLegend(
-      title = density.title,
-      position = density.legend.position,
-      pal = density.estimation.pal,
-      values = mapfeat.df$density.estimation,
-      opacity = density.legend.opacity
-    )
-  }
-
-  # map: MiniMap ------------------------------------------------------------
-  if (minimap == TRUE) {
-    m <- m %>% leaflet::addMiniMap(
-      position = minimap.position,
-      width = minimap.width,
-      height = minimap.height,
-      toggleDisplay = TRUE
-    )
-  }
-
-  # zoom.level argument -----------------------------------------------------
-  if (!is.null(zoom.level)) {
-    m <- m %>% leaflet::setView(
-      lng = mean(mapfeat.df$long),
-      lat = mean(mapfeat.df$lat),
-      zoom = zoom.level
-    )
-  }
-  m
-}

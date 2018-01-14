@@ -7,16 +7,16 @@
 map.feature(languages, features = "", label = "", popup = "",
   latitude = NULL, longitude = NULL, label.hide = TRUE,
   label.fsize = 14, label.position = "right", label.emphasize = list(NULL,
-  "black"), label.only = FALSE, stroke.features = NULL,
-  density.estimation = NULL, density.estimation.color = NULL,
-  density.estimation.opacity = 0.6, density.points = TRUE,
-  density.longitude.width = NULL, density.latitude.width = NULL,
-  density.legend = TRUE, density.legend.opacity = 1,
-  density.legend.position = "bottomleft", density.title = "",
-  density.control = FALSE, color = NULL, stroke.color = NULL,
-  image.url = NULL, image.width = 100, image.height = 100,
-  image.X.shift = 0, image.Y.shift = 0, title = NULL,
-  stroke.title = NULL, control = FALSE, legend = TRUE,
+  "black"), shape = NULL, shape.size = 20, shape.color = "black",
+  stroke.features = NULL, density.estimation = NULL,
+  density.estimation.color = NULL, density.estimation.opacity = 0.6,
+  density.points = TRUE, density.longitude.width = NULL,
+  density.latitude.width = NULL, density.legend = TRUE,
+  density.legend.opacity = 1, density.legend.position = "bottomleft",
+  density.title = "", density.control = FALSE, color = NULL,
+  stroke.color = NULL, image.url = NULL, image.width = 100,
+  image.height = 100, image.X.shift = 0, image.Y.shift = 0,
+  title = NULL, stroke.title = NULL, control = FALSE, legend = TRUE,
   legend.opacity = 1, legend.position = "topright", stroke.legend = TRUE,
   stroke.legend.opacity = 1, stroke.legend.position = "bottomleft",
   width = 5, stroke.radius = 9.5, opacity = 1, stroke.opacity = 1,
@@ -52,7 +52,11 @@ map.feature(languages, features = "", label = "", popup = "",
 
 \item{label.emphasize}{is the list. First argument is a vector of points in datframe that should be emphasized. Second argument is a string with a color for emphasis.}
 
-\item{label.only}{creates labels without markers}
+\item{shape}{\enumerate{ \item if TRUE, creates icons (up to five categories) for values in the \code{features} variable; \item it also could be a vector of any strings that represents the levels of the  \code{features} variable; \item it also could be a string vector that represents the number of observations in dataset.}}
+
+\item{shape.size}{size of the \code{shape} icons}
+
+\item{shape.color}{color of the \code{shape} icons}
 
 \item{stroke.features}{additional independent stroke features}
 

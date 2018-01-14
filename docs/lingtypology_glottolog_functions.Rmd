@@ -29,7 +29,7 @@ Some of them help to define a vector of languages.
 
 Additionally there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:
 
-  * **gltc.iso()** — get glottocode by ISO 639-3 code
+* **gltc.iso()** — get glottocode by ISO 639-3 code
 * **iso.gltc()** — get ISO 639-3 code by glottocode
 
 The most important functionality of `lingtypology` is the ability to create interactive maps based on features and sets of languages (see the third section):

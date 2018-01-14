@@ -107,7 +107,7 @@ map_stroke2 <-
   )
 
 test_that("map.feature stroke feature", {
-  expect_equal(length(map_stroke$x$calls), 11)
+  expect_equal(length(map_stroke$x$calls), 10)
   expect_equal(
     map_stroke2$x$calls[[4]]$args[[6]]$fillColor,
     c("#0000FF", "#0000FF", "#00FF00",
@@ -214,7 +214,7 @@ test_that("map.feature scale bar", {
 map_label <-
   map.feature(c("Adyghe", "Russian"), label = c("a", "b"))
 test_that("map.feature labels", {
-  expect_equal(map_label$x$calls[[5]]$args[11], list(c("a", "b")))
+  expect_equal(map_label$x$calls[[4]]$args[11], list(c("a", "b")))
 })
 
 map_label_emph <-
@@ -224,8 +224,8 @@ map_label_emph <-
     label.emphasize = list(1, "red")
   )
 test_that("map.feature emphasized labels", {
-  expect_equal(map_label_emph$x$calls[[6]]$args[11], list(c("a")))
-  expect_equal(map_label_emph$x$calls[[6]]$args[12][[1]]$style$color, "red")
+  expect_equal(map_label_emph$x$calls[[5]]$args[11], list(c("a")))
+  expect_equal(map_label_emph$x$calls[[5]]$args[12][[1]]$style$color, "red")
 })
 
 map_zoom <-
@@ -298,3 +298,23 @@ test_that("map.feature graticule", {
   expect_equal(graticule$x$calls[[3]]$method, "addSimpleGraticule")
 })
 
+
+shape1 <- map.feature(df$lang,
+                      df$feature,
+                      shape = TRUE)
+shape2 <- map.feature(df$lang,
+                      df$feature,
+                      shape = c("f", "p"))
+shape3 <- map.feature(df$lang,
+                      df$feature,
+                      shape = c("p", "p", "f", "f", "f"))
+
+test_that("map.feature graticule", {
+  expect_equal(shape1$x$calls[[3]]$args[[11]], c("♦", "♦", "●", "●", "●"))
+  expect_equal(shape2$x$calls[[3]]$args[[11]], c("p", "p", "f", "f", "f"))
+  expect_equal(shape3$x$calls[[3]]$args[[11]], c("p", "p", "f", "f", "f"))
+  expect_warning(map.feature(lang.aff("Slavic")[-3],
+                           lang.aff("Slavic")[-3],
+                           shape = TRUE),
+               'Argument "shape = TRUE" works fine only with 5 or less levels in "features" variable. List your own shapes in "shape argument"')
+})
