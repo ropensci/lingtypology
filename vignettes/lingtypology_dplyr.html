@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2017-12-03" />
+<meta name="date" content="2018-01-15" />
 
 <title>lingtypology and dplyr</title>
 
@@ -70,32 +70,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and <code>dplyr</code></h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2017-12-03</em></h4>
+<h4 class="date"><em>2018-01-15</em></h4>
 
 
 
-<div id="dplyr-integration" class="section level2">
-<h2>5. <code>dplyr</code> integration</h2>
 <p>It is possible to use <code>dplyr</code> functions and pipes with <code>lingtypology</code>. It is widely used, so I will give some examples, how to use it with the<code>lingtypology</code> package. Using query “list of languages csv” I found Vincent Garnier’s <a href="https://github.com/forxer/languages-list">languages-list repository</a>. Let’s download and map all the languages from that set. First download the data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://goo.gl/GgscBE&quot;</span>)
 <span class="kw">tail</span>(new_data)</code></pre></div>
 <p>As we see, some values of the <code>Language.name</code> variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use <code>library(dplyr)</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-new_data %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Language.name =</span> <span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, Language.name)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.glottolog</span>(Language.name) ==<span class="st"> </span><span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">area.lang</span>(Language.name) ==<span class="st"> &quot;Africa&quot;</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Language.name) %&gt;%<span class="st"> </span>
+new_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Language.name =</span> <span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, Language.name)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.glottolog</span>(Language.name) <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">area.lang</span>(Language.name) <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Language.name) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">map.feature</span>()</code></pre></div>
 <p>We start with a dataframe, here a <code>new_data</code>. First we remove spaces at the end of each string. Then we check, whether the language names are in the glottolog database. Then we select only rows that contain languages of Africa. Then we select the <code>Language.name</code> variable. And the last line maps all selected languages.</p>
 <p>By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_data %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Language.name =</span> <span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, Language.name)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.glottolog</span>(Language.name) ==<span class="st"> </span><span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">area.lang</span>(Language.name) ==<span class="st"> &quot;Africa&quot;</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Language.name) %&gt;%<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Language.name =</span> <span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, Language.name)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">is.glottolog</span>(Language.name) <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">area.lang</span>(Language.name) <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Language.name) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">map.feature</span>(., <span class="dt">minimap =</span> <span class="ot">TRUE</span>)</code></pre></div>
-</div>
 
 
 

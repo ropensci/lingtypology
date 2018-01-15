@@ -10,9 +10,9 @@ vignette: >
 ---
 ```{r, include=FALSE}
 library(lingtypology)
+knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 ```
 
-## 4. Typological databases API
 `lingtypology` provides an ability to download data from these typological databases
 
 * [World Atlas of Language Structures](http://wals.info/)
@@ -24,9 +24,9 @@ library(lingtypology)
 
 All database function names have identical structure: **database_name.feature**. All functions have as first argument `feature`. All functions create dataframe with column `language` that can be used in `map.feature()` function. It should be noted that all functions cut out the data that can't be maped, so if you want to prevent functions from this behaviour set argument `na.rm` to `FALSE`.
 
-### 4.1 WALS
+### 1. WALS
 The names of the WALS features can be typed in a lower case. This function preserves coordinates from WALS, so you can map coordinates from the WALS or use coordinates from `lingtypology`.
-```{r, eval=FALSE}
+```{r}
 df <- wals.feature(c("1a", "20a"))
 head(df)
 map.feature(df$language,
@@ -37,9 +37,9 @@ map.feature(df$language,
             title = "Consonant Inventories")
 ```
 
-### 4.2 AUTOTYP
+### 2. AUTOTYP
 The AUTOTYP features are listed on [the GitHub page](https://github.com/autotyp/autotyp-data#the-autotyp-database). You can use more human way with spaces.
-```{r, eval=FALSE}
+```{r}
 df <- autotyp.feature(c('Gender', 'Numeral classifiers'))
 head(df)
 map.feature(df$language,
@@ -48,9 +48,9 @@ map.feature(df$language,
             title = "Presence of Numeral Classifiers")
 ```
 
-### 4.3 PHOIBLE
+### 3. PHOIBLE
 I used only four features from PHOIBLE: the number of phonemes, the number of consonants, the number of tones and the number of vowels. If you need only a set of them, just specify it in the `features` argument. Since there is a lot of doubling information in the PHOIBLE database, there is an argument `source`.
-```{r, eval=FALSE}
+```{r}
 df <- phoible.feature(source = "UPSID")
 head(df)
 map.feature(df$language,
@@ -59,10 +59,10 @@ map.feature(df$language,
             title = "Number of Phonemes")
 ```
 
-### 4.4 AfBo
+### 4. AfBo
 The AfBo database has a lot of features that distinguish affix functions, but again you can use a bare function without any arguments to download the whole database. There will be no difference in time, since this function downloads the whole database to your PC. The main destinction is that this database provides recipient and donor languages, so other column names should be used.
 
-```{r, eval=FALSE}
+```{r}
 df <- afbo.feature(c("adjectivizer", "adverbializer"))
 head(df)
 map.feature(df$Recipient.name,
@@ -71,9 +71,9 @@ map.feature(df$Recipient.name,
             title = "Borrowed adjectivizer affixes")
 ```
 
-### 4.5 SAILS
+### 5. SAILS
 The SAILS database provide a lot of [features](http://sails.clld.org/parameters), so the function work with their ids:
-```{r, eval=FALSE}
+```{r}
 df <- sails.feature(features = "ics10")
 head(df)
 map.feature(df$language,
@@ -84,9 +84,9 @@ map.feature(df$language,
             title = "Are there numeral classifiers?")
 ```
 
-### 4.6 ABVD
+### 6. ABVD
 The ABVD database is a lexical database, so it is different from clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring by word with the meaning 'hand'.
-```{r, eval=FALSE}
+```{r}
 df <- abvd.feature(50:55)
 head(df)
 new_df <- df[df$word == "hand",]

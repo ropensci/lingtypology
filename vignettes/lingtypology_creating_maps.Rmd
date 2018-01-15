@@ -13,8 +13,7 @@ library(lingtypology)
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-## 3. Map features with `map.feature`
-### 3.1 Base map
+### 1. Base map
 The most important part of the `lingtypology` package is the function `map.feature`. This function allows you to produce maps similarto known projects within [the Cross-Linguistic Linked Data philosophy](http://clld.org/), such as [WALS](http://wals.info/) and [Glottolog](http://glottolog.org/):
 ```{r}
 map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
@@ -33,7 +32,7 @@ saveWidget(m, file="TYPE_FILE_PATH/m.html")
 
 There is an export button in RStudio, but forsome reason it is not so easy to save a map as a .png or.jpg file using code. [Here](http://stackoverflow.com/a/34672309/6056442) is a possible solution.
 
-### 3.2 Set features
+### 2. Set features
 The goal of this package is to allow typologists (orany otherlinguists) to map language features. A list of languages and correspondent features can be stored in a `data.frame` as follows:
 ```{r}
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -80,7 +79,7 @@ map.feature(ejective_and_n_consonants$language,
 ```
 
 
-### 3.3 Set pop-up boxes
+### 3. Set pop-up boxes
 Sometimes it is a good idea to add some additional information (e.g. language affiliation,  references oreven examples) to pop-up boxes that appearwhen points are clicked. In orderto do so, first of all  we need to create an extra vectorof strings in ourdataframe:
 ```{r}
 df$popup <- aff.lang(df$language)
@@ -120,9 +119,7 @@ sign_df$popup <- paste("<video width='200' height='150' controls> <source src='"
 map.feature(languages = sign_df$languages, popup = sign_df$popup)
 ```
 
-
-
-### 3.4 Set labels
+### 4. Set labels
 An alternative way to add some short text to a map is to use the `label` option.
 ```{r}
 map.feature(df$language, df$features,
@@ -152,16 +149,7 @@ map.feature(df$language, df$features,
 
 In this example the first vectorof the list in the `label.emphasize` argument is vector`2:4` that produce elements `2`, `3` and `4`. You can create yourown selected rows. e. g. `c(1, 3, 4)`. The second vectorof the list is the string with a color.
 
-Using `label.only` argument It is possible to use labels without points markers.
-
-```{r}
-map.feature(c("Russian", "Adyghe"),
-            label = c("Russian", "Adyghe"),
-            label.only = TRUE)
-```
-
-
-### 3.5 Set coordinates
+### 5. Set coordinates
 You can set yourown coordinates using the arguments `latitude` and `longitude`. It is important to note, that `lingtypology` works only with decimal degrees (something like this: 0.1), not with  degrees, minutes and seconds (something like this: 0° 06′ 0″). I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
 ```{r}
 map.feature(languages = circassian$language,
@@ -171,7 +159,7 @@ map.feature(languages = circassian$language,
             longitude = circassian$longitude)
 ```
 
-### 3.6 Set colors
+### 6. Set colors
 By default the colorpalette is created by the `rainbow()` function, but you can set yourown colors using the argument `color`:
 ```{r}
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -189,7 +177,31 @@ map.feature(ejective_and_n_consonants$language,
             color= "magma")
 ```
 
-### 3.7 Set control box
+### 7. Set shapes
+For some scientific papers it is not possible to use colors for destinguishing features. In that cases it is posible touse `shape` argument:
+
+```{r}
+map.feature(languages = circassian$language,
+            features = circassian$language,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            shape = TRUE)
+```
+
+The argument `shape = TRUE` works fine only with 6 or less levels in `features` variable. If there are more levels in `fetures` argument, user need to provide a vector with corresponding shapes:
+
+```{r}
+map.feature(languages = circassian$language,
+            features = circassian$dialect,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            shape = 1:10,
+            shape.size = 14)
+```
+
+Arguments `shape.size` and `shape.color` help to change corresponding features of markers.
+
+### 8. Set control box
 The package can generate a control box that allows users to toggle the visibility of points and features. To enable it, there is an argument `control` in the `map.feature` function:
 
 ```{r}
@@ -199,7 +211,7 @@ map.feature(languages = df$language,
             control = TRUE)
 ```
 
-### 3.8 Set an additional set of features using strokes
+### 9. Set an additional set of features using strokes
 The `map.feature` function has an additional argument `stroke.features`. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so fortwo levels it will be black and white, forthree --- black, grey, white end so on), but you can set yourown colors using the argument `stroke.color`:
 ```{r}
 
@@ -226,8 +238,8 @@ map.feature(circassian$language,
             stroke.features = newfeature)
 ```
 
-### 3.9 Set radii and an opacity feature
-All markers have theirown radius and opacity, so you can set it. Just use the arguments `radius`, `stroke.radius`, `opacity` and `stroke.opacity`:
+### 10. Set width and an opacity feature
+All markers have theirown radius and opacity, so you can set it. Just use the arguments `width`, `stroke.radius`, `opacity` and `stroke.opacity`:
 ```{r}
 
 map.feature(circassian$language,
@@ -246,7 +258,7 @@ map.feature(circassian$language,
             opacity = 0.7, stroke.opacity = 0.6)
 ```
 
-### 3.10 Customizing legends
+### 11. Customizing legends
 By default the legend appears in the bottom left corner. If there are stroke features, two legends are generated. There are additional arguments that control the appearence and the title of the legends.
 ```{r}
 map.feature(circassian$language,
@@ -265,7 +277,7 @@ map.feature(circassian$language,
 ```
 The arguments `legend.position` and `stroke.legend.position` allow you to change a legend's position using "topright", "bottomright", "bottomleft" or"topleft" strings.
 
-### 3.11 Set scale bar
+### 12. Set scale bar
 A scale baris automatically added to a map, but you can control its appearance (set `scale.bar` argument to `TRUE` or`FALSE`) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or"topleft").
 ```{r}
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
@@ -273,7 +285,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             scale.bar.position = "topright")
 ```
 
-### 3.12 Set layouts
+### 13. Set layouts
 It is possible to use different tiles on the same map  using the `tile` argument. Formore tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 ```{r}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
@@ -316,7 +328,7 @@ map.feature(df$lang, df$feature, df$popup,
             control = TRUE)
 ```
 
-### 3.13 Add a minimap to a map
+### 14. Add a minimap to a map
 It is possible to add a minimap to a map.
 ```{r}
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
@@ -333,7 +345,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap.width = 100)
 ```
 
-### 3.14 Add minicharts instead of points
+### 15. Add minicharts instead of points
 This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piechart orbarplot instead of standard point markers. In this part I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). Here is an example of barplot:
 
 ```{r}
@@ -368,7 +380,7 @@ map.feature(languages = ejective_and_n_consonants$language,
             minichart.labels = TRUE)
 ```
 
-### 3.15 Add a rectangle to a map
+### 16. Add a rectangle to a map
 It is possible to highlight some part of yourmap with a rectangle. You need to provide a latitude and longitude of the diagonal (`rectangle.lat` and `rectangel.lng`) and colorof the rectangle (`rectangle.color`):
 
 ```{r}
@@ -381,7 +393,7 @@ map.feature(circassian$language,
             rectangle.color= "green")
 ```
 
-### 3.16 Add a density contourplot to a map
+### 17. Add a density contourplot to a map
 Sometimes it is easier to look at a density contourplot. It can be created using `density.estimation` argument:
 ```{r}
 map.feature(circassian$language,
@@ -454,7 +466,7 @@ map.feature(circassian$language,
 
 It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is betterto use a different coordinate projection. That allows not to treat Earth as a flat object.
 
-### 3.17 Add lines
+### 18. Add lines
 It is possible to show some lines on the map using coordinates (`line.lng` and `line.lat` arguments).
 ```{r}
 map.feature(circassian$language,
@@ -487,7 +499,6 @@ map.feature(circassian$language,
 ```
 
 It is possible to add a graticule to a map.
-
 ```{r}
 map.feature(c("Russian", "Adyghe"),
             graticule = 5)

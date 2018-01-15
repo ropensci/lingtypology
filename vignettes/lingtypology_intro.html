@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2017-12-03" />
+<meta name="date" content="2018-01-15" />
 
 <title>lingtypology: introduction and installation</title>
 
@@ -70,27 +70,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: introduction and installation</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2017-12-03</em></h4>
+<h4 class="date"><em>2018-01-15</em></h4>
 
 
 
-<div id="what-is-lingtypology" class="section level2">
-<h2>What is <code>lingtypology</code>?</h2>
+<div id="what-is-lingtypology" class="section level3">
+<h3>What is <code>lingtypology</code>?</h3>
 <p>The <code>lingtypology</code> package connects R with the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world’s languages. This package helps researchers to make linguistic maps, using the philosophy of <a href="http://clld.org/">the Cross-Linguistic Linked Data project</a>, which is creating a uniform access to linguistic data across publications. This package is based on the <a href="https://rstudio.github.io/leaflet/">leaflet package</a>, so <code>lingtypology</code> is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya Klyagina for reading and correcting some versions of this vignette.</p>
 </div>
-<div id="installation" class="section level2">
-<h2>1. Installation</h2>
+<div id="installation" class="section level3">
+<h3>1. Installation</h3>
 <p>Since <code>lingtypology</code> is an R package, you should install <a href="https://www.r-project.org/">R (version &gt;= 3.1.0)</a> on your PC if you haven’t already done so. To install the <code>lingtypology</code> package, run the following command at your R IDE, so you get the stable version from CRAN:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;lingtypology&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p>You can also get the development version from GitHub:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</code></pre></div>
-<p>Sometimes installation fails because of the absence of the package <code>crosstalk</code> or any other. Just install it using command <code>install.packages(&quot;crosstalk&quot;)</code>.</p>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</code></pre></div>
 <p>Load the package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lingtypology)</code></pre></div>
 </div>
-<div id="citing-lingtyplogy" class="section level2">
-<h2>2. Citing <code>lingtyplogy</code></h2>
+<div id="citing-lingtyplogy" class="section level3">
+<h3>2. Citing <code>lingtyplogy</code></h3>
 <p>It is important to cite R and R packages when you use them. For this purpose use the <code>citation</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">citation</span>(<span class="st">&quot;lingtypology&quot;</span>)</code></pre></div>
 <pre><code>## 

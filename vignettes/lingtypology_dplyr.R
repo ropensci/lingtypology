@@ -1,11 +1,12 @@
 ## ---- include=FALSE------------------------------------------------------
 library(lingtypology)
+knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ------------------------------------------------------------------------
 #  new_data <- read.csv("https://goo.gl/GgscBE")
 #  tail(new_data)
 
-## ---- eval=FALSE , message= FALSE----------------------------------------
+## ------------------------------------------------------------------------
 #  library(dplyr)
 #  new_data %>%
 #    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>%
@@ -14,7 +15,7 @@ library(lingtypology)
 #    select(Language.name) %>%
 #    map.feature()
 
-## ---- eval=FALSE , message= FALSE----------------------------------------
+## ------------------------------------------------------------------------
 #  new_data %>%
 #    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>%
 #    filter(is.glottolog(Language.name) == TRUE) %>%

@@ -633,7 +633,7 @@ map.feature <- function(languages,
       icons <- c("\u25cf", "\u25b4", "\u25a0", "\u2b29", "\u25be", "\u25b0")[as.factor(mapfeat.df$features)]
       if(length(unique(mapfeat.df$features)) > 6){
         warning(
-          'Argument "shape = TRUE" works fine only with 5 or less levels in "features" variable. List your own shapes in "shape argument"',
+          'The argument "shape = TRUE" works fine only with 6 or less levels in "features" variable. List your own shapes in "shape" argument',
           call. = FALSE)
         }
     } else if(length(shape) == length(as.factor(mapfeat.df$features))){
@@ -674,9 +674,9 @@ map.feature <- function(languages,
         leaflet::addControl(
           html = paste(
             '<b><font size="4">',
-            icons[seq_along(unique(mapfeat.df$features))],
+            unique(icons),
             '</font></b>',
-            levels(as.factor(mapfeat.df$features)),
+            unique(as.factor(mapfeat.df$features)),
             "<br>",
             collapse = ""
           ),

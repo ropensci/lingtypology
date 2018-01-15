@@ -89,11 +89,6 @@ knitr::opts_chunk$set(eval = FALSE)
 #              label.emphasize = list(2:4, "red"))
 
 ## ------------------------------------------------------------------------
-#  map.feature(c("Russian", "Adyghe"),
-#              label = c("Russian", "Adyghe"),
-#              label.only = TRUE)
-
-## ------------------------------------------------------------------------
 #  map.feature(languages = circassian$language,
 #              features = circassian$dialect,
 #              popup = circassian$village,
@@ -111,6 +106,21 @@ knitr::opts_chunk$set(eval = FALSE)
 #  map.feature(ejective_and_n_consonants$language,
 #              ejective_and_n_consonants$consonants,
 #              color= "magma")
+
+## ------------------------------------------------------------------------
+#  map.feature(languages = circassian$language,
+#              features = circassian$language,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude,
+#              shape = TRUE)
+
+## ------------------------------------------------------------------------
+#  map.feature(languages = circassian$language,
+#              features = circassian$dialect,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude,
+#              shape = 1:10,
+#              shape.size = 14)
 
 ## ------------------------------------------------------------------------
 #  

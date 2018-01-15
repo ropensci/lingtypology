@@ -9,10 +9,10 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-## What is `lingtypology`?
+### What is `lingtypology`?
 The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](http://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating a uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya  Klyagina for reading and correcting some versions of this vignette.
 
-## 1. Installation
+### 1. Installation
 Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
 ```{r, eval=FALSE}
 install.packages("lingtypology", dependencies = TRUE)
@@ -24,13 +24,12 @@ install.packages("devtools")
 devtools::install_github("ropensci/lingtypology")
 ```
 
-Sometimes installation fails because of the absence of the package `crosstalk` or any other. Just install it using command `install.packages("crosstalk")`.
-
 Load the package:
 ```{r}
 library(lingtypology)
 ```
-## 2. Citing `lingtyplogy`
+
+### 2. Citing `lingtyplogy`
 It is important to cite R and R packages when you use them. For this purpose use the `citation` function:
 ```{r}
 citation("lingtypology")

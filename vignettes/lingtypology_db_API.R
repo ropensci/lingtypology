@@ -1,7 +1,8 @@
 ## ---- include=FALSE------------------------------------------------------
 library(lingtypology)
+knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ------------------------------------------------------------------------
 #  df <- wals.feature(c("1a", "20a"))
 #  head(df)
 #  map.feature(df$language,
@@ -11,7 +12,7 @@ library(lingtypology)
 #              label = df$language,
 #              title = "Consonant Inventories")
 
-## ---- eval=FALSE---------------------------------------------------------
+## ------------------------------------------------------------------------
 #  df <- autotyp.feature(c('Gender', 'Numeral classifiers'))
 #  head(df)
 #  map.feature(df$language,
@@ -19,7 +20,7 @@ library(lingtypology)
 #              label = df$language,
 #              title = "Presence of Numeral Classifiers")
 
-## ---- eval=FALSE---------------------------------------------------------
+## ------------------------------------------------------------------------
 #  df <- phoible.feature(source = "UPSID")
 #  head(df)
 #  map.feature(df$language,
@@ -27,7 +28,7 @@ library(lingtypology)
 #              label = df$language,
 #              title = "Number of Phonemes")
 
-## ---- eval=FALSE---------------------------------------------------------
+## ------------------------------------------------------------------------
 #  df <- afbo.feature(c("adjectivizer", "adverbializer"))
 #  head(df)
 #  map.feature(df$Recipient.name,
@@ -35,7 +36,7 @@ library(lingtypology)
 #              label = df$Recipient.name,
 #              title = "Borrowed adjectivizer affixes")
 
-## ---- eval=FALSE---------------------------------------------------------
+## ------------------------------------------------------------------------
 #  df <- sails.feature(features = "ics10")
 #  head(df)
 #  map.feature(df$language,
@@ -45,7 +46,7 @@ library(lingtypology)
 #              label = df$language,
 #              title = "Are there numeral classifiers?")
 
-## ---- eval=FALSE---------------------------------------------------------
+## ------------------------------------------------------------------------
 #  df <- abvd.feature(50:55)
 #  head(df)
 #  new_df <- df[df$word == "hand",]

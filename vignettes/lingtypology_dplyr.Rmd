@@ -10,19 +10,19 @@ vignette: >
 ---
 ```{r, include=FALSE}
 library(lingtypology)
+knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 ```
 
-## 5. `dplyr` integration
 It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. First download the data:
  
-```{r, eval=FALSE}
+```{r}
 new_data <- read.csv("https://goo.gl/GgscBE")
 tail(new_data)
 ```
 
 As we see, some values of the `Language.name` variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use `library(dplyr)`.
 
-```{r, eval=FALSE , message= FALSE}
+```{r}
 library(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
@@ -36,7 +36,7 @@ We start with a dataframe, here a `new_data`. First we remove spaces at the end 
 
 By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.
 
-```{r, eval=FALSE , message= FALSE}
+```{r}
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 

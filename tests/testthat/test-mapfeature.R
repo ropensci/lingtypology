@@ -316,5 +316,5 @@ test_that("map.feature shape", {
   expect_warning(map.feature(lang.aff("Slavic")[-3],
                            lang.aff("Slavic")[-3],
                            shape = TRUE),
-               'Argument "shape = TRUE" works fine only with 5 or less levels in "features" variable. List your own shapes in "shape argument"')
+               'The argument "shape = TRUE" works fine only with 6 or less levels in "features" variable. List your own shapes in "shape" argument')
 })

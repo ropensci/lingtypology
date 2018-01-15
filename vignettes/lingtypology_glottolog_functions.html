@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2017-12-03" />
+<meta name="date" content="2018-01-15" />
 
 <title>lingtypology: Glottolog functions</title>
 
@@ -70,15 +70,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: Glottolog functions</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2017-12-03</em></h4>
+<h4 class="date"><em>2018-01-15</em></h4>
 
 
 
-<div id="glottolog-functions" class="section level2">
-<h2>2. Glottolog functions</h2>
 <p>This package is based on the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
 <div id="command-names-syntax" class="section level3">
-<h3>2.1 Command name’s syntax</h3>
+<h3>1. Command name’s syntax</h3>
 <p>Most of the functions in <code>lingtypology</code> have the same syntax: <strong>what you need.what you have</strong>. Most of them are based on <em>language name</em>.</p>
 <ul>
 <li><strong>aff.lang()</strong> — get affiliation by language</li>
@@ -115,7 +113,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Using R functions for data manipulation you can create your own database for your purpose.</p>
 </div>
 <div id="using-base-functions" class="section level3">
-<h3>2.2 Using base functions</h3>
+<h3>2. Using base functions</h3>
 <p>All functions introduced in the previous section are regular functions, so they can take the following objects as input:</p>
 <ul>
 <li>a regular string</li>
@@ -161,7 +159,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] &quot;Georgia&quot;</code></pre>
 </div>
 <div id="spell-checker-look-carefully-at-warnings" class="section level3">
-<h3>2.3 Spell Checker: look carefully at warnings!</h3>
+<h3>3. Spell Checker: look carefully at warnings!</h3>
 <p>There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example <em>Ivory Coast</em> or <em>Cote d’Ivoire</em>), all official country names and standard abbreviations are stored in the database:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lang.country</span>(<span class="st">&quot;Cape Verde&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;Kabuverdianu&quot; &quot;Portuguese&quot;</code></pre>
@@ -178,7 +176,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##    NA</code></pre>
 </div>
 <div id="changes-in-the-glottolog-database" class="section level3">
-<h3>2.4 Changes in the glottolog database</h3>
+<h3>4. Changes in the glottolog database</h3>
 <p>Unfortunately, the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> is not perfect for all my tasks, so I changed it a little bit:</p>
 <ul>
 <li>Added some Dargwa languages: Chirag, Cudaxar, Itsari, Kajtak, Kubachi, Tanti, Mehweb. Dargwa is still present in the database as an individual language, so one can use Dargwa or any Dargwa language listed above. (07.09.2016)</li>
@@ -204,7 +202,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] FALSE  TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">g =</span> <span class="st">&quot;m&quot;</span>)</code></pre></div>
 <pre><code>## [1]  TRUE FALSE</code></pre>
-</div>
 </div>
 
 

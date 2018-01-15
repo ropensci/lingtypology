@@ -13,10 +13,9 @@ vignette: >
 library(lingtypology)
 ```
 
-## 2. Glottolog functions
 This package is based on the [Glottolog database (v. 2.7)](http://glottolog.org/), so `lingtypology` has several functions for accessing data from that database.
 
-### 2.1 Command name's syntax
+### 1. Command name's syntax
 Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. Most of them are based on _language name_.
 
 * **aff.lang()** — get affiliation by language
@@ -35,7 +34,7 @@ Some of them help to define a vector of languages.
 
 Additionally there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:
 
-  * **gltc.iso()** — get glottocode by ISO 639-3 code
+* **gltc.iso()** — get glottocode by ISO 639-3 code
 * **iso.gltc()** — get ISO 639-3 code by glottocode
 
 The most important functionality of `lingtypology` is the ability to create interactive maps based on features and sets of languages (see the third section):
@@ -50,7 +49,7 @@ names(glottolog.original)
 
 Using R functions for data manipulation you can create your own database for your purpose.
 
-### 2.2 Using base functions
+### 2. Using base functions
 All functions introduced in the previous section are regular functions, so they can take the following objects as input:
 
 * a regular string
@@ -83,7 +82,7 @@ country.lang(c("Udi", "Laz"))
 country.lang(c("Udi", "Laz"), intersection = TRUE)
 ```
 
-### 2.3 Spell Checker: look carefully at warnings!
+### 3. Spell Checker: look carefully at warnings!
 There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example  _Ivory Coast_ or _Cote d'Ivoire_), all official country names and standard abbreviations are stored in the database:
 
 ```{r}
@@ -96,7 +95,7 @@ All functions which take a vector of languages are enriched with a kind of a spe
 aff.lang("Adyge")
 ```
 
-### 2.4 Changes in the glottolog database
+### 4. Changes in the glottolog database
 Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not perfect for all my tasks, so I changed it a little bit:
 
 * Added some Dargwa languages: Chirag, Cudaxar, Itsari, Kajtak, Kubachi, Tanti, Mehweb. Dargwa is still present in the database as an individual language, so one can use Dargwa or any Dargwa language listed above. (07.09.2016)
