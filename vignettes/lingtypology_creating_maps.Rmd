@@ -14,14 +14,14 @@ knitr::opts_chunk$set(eval = FALSE)
 ```
 
 ### 1. Base map
-The most important part of the `lingtypology` package is the function `map.feature`. This function allows you to produce maps similarto known projects within [the Cross-Linguistic Linked Data philosophy](http://clld.org/), such as [WALS](http://wals.info/) and [Glottolog](http://glottolog.org/):
+The most important part of the `lingtypology` package is the function `map.feature`. This function allows you to produce maps similar to known projects within [the Cross-Linguistic Linked Data philosophy](http://clld.org/), such as [WALS](http://wals.info/) and [Glottolog](http://glottolog.org/):
 ```{r}
 map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 ```
 
-As shown in the picture above, this function generates an interactive Leaflet map. All specific points on the map have a pop-up box that appears when markers are clicked (see section 3.3 formore information about editing pop-up boxes). By default, they contain language names linked to the glottolog site.
+As shown in the picture above, this function generates an interactive Leaflet map. All specific points on the map have a pop-up box that appears when markers are clicked (see section 3.3 for more information about editing pop-up boxes). By default, they contain language names linked to the glottolog site.
 
-If forsome reasons you are not using RStudio oryou want to automatically create and save a lot of maps, you can save a map to a variable and use the `htmlwidgets` package forsaving created maps to an .html file. I would like to thank Timo Roettgerformentioning this problem.
+If for some reasons you are not using RStudio or you want to automatically create and save a lot of maps, you can save a map to a variable and use the `htmlwidgets` package for saving created maps to an .html file. I would like to thank Timo Roettger for mentioning this problem.
 
 ```{r, eval = FALSE}
 m <- map.feature(c("Adyghe", "Korean"))
@@ -30,13 +30,13 @@ library(htmlwidgets)
 saveWidget(m, file="TYPE_FILE_PATH/m.html")
 ```
 
-There is an export button in RStudio, but forsome reason it is not so easy to save a map as a .png or.jpg file using code. [Here](http://stackoverflow.com/a/34672309/6056442) is a possible solution.
+There is an export button in RStudio, but for some reason it is not so easy to save a map as a .png or.jpg file using code. [Here](http://stackoverflow.com/a/34672309/6056442) is a possible solution.
 
 ### 2. Set features
-The goal of this package is to allow typologists (orany otherlinguists) to map language features. A list of languages and correspondent features can be stored in a `data.frame` as follows:
+The goal of this package is to allow typologists (or any other linguists) to map language features. A list of languages and correspondent features can be stored in a `data.frame` as follows:
 ```{r}
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-                 features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
+               features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
 df
 ```
 
@@ -46,21 +46,21 @@ map.feature(languages = df$language,
             features = df$features)
 ```
 
-If you have a lot of features and they appearin the legend in a senseless order(by default it is ordered alphabetically), you can reorderthem using factors (a vectorwith ordered levels, formore information see `?factor`). Forexample, I want the feature polysynthetic to be listed first, followed by fusional:
+If you have a lot of features and they appear in the legend in a senseless order(by default it is ordered alphabetically), you can reorderthem using factors (a vector with ordered levels, for more information see `?factor`). for example, I want the feature polysynthetic to be listed first, followed by fusional:
 
 ```{r}
 df$features <- factor(df$features, levels = c("polysynthetic", "fusional"))
 map.feature(languages = df$language, features = df$features)
 ```
 
-Like in most rfunctions, it is not necessary to name all arguments, so the same result can be obtained by:
+Like in most functions, it is not necessary to name all arguments, so the same result can be obtained by:
 ```{r}
 map.feature(df$language, df$features)
 ```
 
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
-There are several types of variables in rand `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have three variables: the categorical variable `ejectives` indicates whethersome language has any ejective sound, numeric variables `consonants` and `vowels` that contains information about the numberof consonants and vowels (based on UPSyD database). We can create two maps with categorical variable and with numeric variable:
+There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have three variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, numeric variables `consonants` and `vowels` that contains information about the number of consonants and vowels (based on UPSyD database). We can create two maps with categorical variable and with numeric variable:
 
 ```{r}
 map.feature(ejective_and_n_consonants$language,
@@ -69,35 +69,34 @@ map.feature(ejective_and_n_consonants$language,
             ejective_and_n_consonants$consonants) # numeric
 ```
 
-Default colors are not perfect forthis goal, but the main point is clear. Forcreating a correct map, you should correctly define the type of the variable.
+The main point is that for creating a correct map, you should correctly define the type of the variable.
 
-This dataset also can be used to show one otherparameterof the `map.feature` function. There are two possible ways to show the World map: with the Atlantic sea orwith the Pacific sea in the middle. If you don't need default Pacific view use the `map.orientation` parameter(thanks  @languageSpaceLabs and @tzakharko forthat idea):
+This dataset also can be used to show one other parameter of the `map.feature` function. There are two possible ways to show the World map: with the Atlantic sea or with the Pacific sea in the middle. If you don't need default Pacific view use the `map.orientation` parameter(thanks @languageSpaceLabs and @tzakharko for that idea):
 ```{r}
 map.feature(ejective_and_n_consonants$language,
             ejective_and_n_consonants$consonants,
             map.orientation = "Atlantic")
 ```
 
-
 ### 3. Set pop-up boxes
-Sometimes it is a good idea to add some additional information (e.g. language affiliation,  references oreven examples) to pop-up boxes that appearwhen points are clicked. In orderto do so, first of all  we need to create an extra vectorof strings in ourdataframe:
+Sometimes it is a good idea to add some additional information (e.g. language affiliation, references or even examples) to pop-up boxes that appear when points are clicked. In order to do so, first of all we need to create an extra vector of strings in our dataframe:
 ```{r}
 df$popup <- aff.lang(df$language)
 ```
 
-The function `aff.lang()`  creates a vectorof genealogical affiliations that can be easily mapped:
+The function `aff.lang()` creates a vector of genealogical affiliations that can be easily mapped:
 ```{r}
 map.feature(languages = df$language, features = df$features, popup = df$popup)
 ```
 
-Pop-up strings can contain HTML tags, so it is easy to insert a link, a couple of lines, a table oreven a video and sound. Here is how pop-up boxes can demonstrate language examples:
+Pop-up strings can contain HTML tags, so it is easy to insert a link, a couple of lines, a table or even a video and sound. Here is how pop-up boxes can demonstrate language examples:
 ```{r}
 # change a df$popup vector
-df$popup <- c ("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
-               "sɐ s-o-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
-               "id-ę<br> go-1sg.npst<br> 'I go'",
-               "ya id-u<br> 1sg go-1sg.npst <br> 'I go'",
-               "id-a<br> go-1sg.prs<br> 'I go'")
+df$popup <- c("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
+              "sɐ s-o-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
+              "id-ę<br> go-1sg.npst<br> 'I go'",
+              "ya id-u<br> 1sg go-1sg.npst <br> 'I go'",
+              "id-a<br> go-1sg.prs<br> 'I go'")
 # create a map
 
 map.feature(df$language,
@@ -109,12 +108,12 @@ How to say _moon_ in Sign Languages? Here is an example:
 ```{r}
 # Create a dataframe with links to video
 sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
-                 popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
+                      popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
 
 # Change popup to an HTML code
 sign_df$popup <- paste("<video width='200' height='150' controls> <source src='",
-                  as.character(sign_df$popup),
-                  "' type='video/mp4'></video>", sep = "")
+                       as.character(sign_df$popup),
+                       "' type='video/mp4'></video>", sep = "")
 # create a map
 map.feature(languages = sign_df$languages, popup = sign_df$popup)
 ```
@@ -126,7 +125,7 @@ map.feature(df$language, df$features,
             label = df$language)
 ```
 
-There are some additional arguments forcustomization: `label.fsize` forsetting font size, `label.position` forcontrolling the label position, and `label.hide` to control the appearance of the label: if `TRUE`, the labels are displayed on mouse over(as on the previous map), if `FALSE`, the labels are always displayed (as on the next map).
+There are some additional arguments for customization: `label.fsize` for setting font size, `label.position` for controlling the label position, and `label.hide` to control the appearance of the label: if `TRUE`, the labels are displayed on mouse over(as on the previous map), if `FALSE`, the labels are always displayed (as on the next map).
 
 ```{r}
 map.feature(df$language, df$features,
@@ -136,7 +135,7 @@ map.feature(df$language, df$features,
             label.hide = FALSE)
 ```
 
-There is an additional tool foremphasis of some points on the map. The argument `label.emphasize` allows to emphasize selected points with the colorspecified by a user.
+There is an additional tool for emphasis of some points on the map. The argument `label.emphasize` allows to emphasize selected points with the color specified by a user.
 
 ```{r}
 map.feature(df$language, df$features,
@@ -147,10 +146,15 @@ map.feature(df$language, df$features,
             label.emphasize = list(2:4, "red"))
 ```
 
-In this example the first vectorof the list in the `label.emphasize` argument is vector`2:4` that produce elements `2`, `3` and `4`. You can create yourown selected rows. e. g. `c(1, 3, 4)`. The second vectorof the list is the string with a color.
+In this example the first vector of the list in the `label.emphasize` argument is vector `2:4` that produce elements `2`, `3` and `4`. You can create youro wn selected rows. e. g. `c(1, 3, 4)`. The second vector of the list is the string with a color.
 
 ### 5. Set coordinates
-You can set yourown coordinates using the arguments `latitude` and `longitude`. It is important to note, that `lingtypology` works only with decimal degrees (something like this: 0.1), not with  degrees, minutes and seconds (something like this: 0° 06′ 0″). I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
+You can set your own coordinates using the arguments `latitude` and `longitude`. It is important to note, that `lingtypology` works only with decimal degrees (something like this: 0.1), not with degrees, minutes and seconds (something like this: 0° 06′ 0″). I will illustrate this with the dataset `circassian` built into the `lingtypology` package. This dataset comes from fieldwork collected during several expeditions in the period 2011-2016 and contains a list of Circassian villages:
+```{r}
+head(circassian)
+```
+
+In this dataframe you can find variables `latitude` and `longitude` that could be used:
 ```{r}
 map.feature(languages = circassian$language,
             features = circassian$dialect,
@@ -160,7 +164,7 @@ map.feature(languages = circassian$language,
 ```
 
 ### 6. Set colors
-By default the colorpalette is created by the `rainbow()` function, but you can set yourown colors using the argument `color`:
+You can set your own colors using the argument `color`:
 ```{r}
 df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
                  features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
@@ -169,7 +173,7 @@ map.feature(languages = df$language,
             color= c("yellowgreen", "navy"))
 ```
 
-Arguments from [RColorBrewer](https://CRAN.R-project.org/package=RColorBrewer) or[viridis](https://CRAN.R-project.org/package=viridis) also can be used as a colorargument:
+Arguments from [RColorBrewer](https://CRAN.R-project.org/package=RColorBrewer) or [viridis](https://CRAN.R-project.org/package=viridis) also can be used as a color argument:
 
 ```{r}
 map.feature(ejective_and_n_consonants$language,
@@ -178,7 +182,7 @@ map.feature(ejective_and_n_consonants$language,
 ```
 
 ### 7. Set shapes
-For some scientific papers it is not possible to use colors for destinguishing features. In that cases it is posible touse `shape` argument:
+For some scientific papers it is not possible to use colors for destinguishing features. In that cases it is posible to use `shape` argument:
 
 ```{r}
 map.feature(languages = circassian$language,
@@ -205,16 +209,14 @@ Arguments `shape.size` and `shape.color` help to change corresponding features o
 The package can generate a control box that allows users to toggle the visibility of points and features. To enable it, there is an argument `control` in the `map.feature` function:
 
 ```{r}
-
 map.feature(languages = df$language,
             features = df$features,
             control = TRUE)
 ```
 
 ### 9. Set an additional set of features using strokes
-The `map.feature` function has an additional argument `stroke.features`. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so fortwo levels it will be black and white, forthree --- black, grey, white end so on), but you can set yourown colors using the argument `stroke.color`:
+The `map.feature` function has an additional argument `stroke.features`. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so for two levels it will be black and white, for three --- black, grey, white and so on), but you can set your own colors using the argument `stroke.color`:
 ```{r}
-
 map.feature(circassian$language,
             features = circassian$dialect,
             stroke.features = circassian$language,
@@ -224,11 +226,11 @@ map.feature(circassian$language,
 
 It is important to note that `stroke.features` can work with `NA` values. The function won't plot anything if there is an `NA` value. Let's set a language value to `NA` in all Baksan villages from the `circassian` dataset.
 
-```{r, message= F }
+```{r, message= F}
 # create newfeature variable
 newfeature <- circassian[,c(5,6)]
 # set language feature of the Baksan villages to NA and reduce newfeature from dataframe to vector
-newfeature <-  replace(newfeature$language, newfeature$language == "Baksan", NA)
+newfeature <- replace(newfeature$language, newfeature$language == "Baksan", NA)
 # create a map
 
 map.feature(circassian$language,
@@ -239,16 +241,14 @@ map.feature(circassian$language,
 ```
 
 ### 10. Set width and an opacity feature
-All markers have theirown radius and opacity, so you can set it. Just use the arguments `width`, `stroke.radius`, `opacity` and `stroke.opacity`:
+All markers have their own width and opacity, so you can set it. Just use the arguments `width`, `stroke.radius`, `opacity` and `stroke.opacity`:
 ```{r}
-
 map.feature(circassian$language,
             features = circassian$dialect,
             stroke.features = circassian$language,
             latitude = circassian$latitude,
             longitude = circassian$longitude,
             width = 7, stroke.radius = 13)
-
 
 map.feature(circassian$language,
             features = circassian$dialect,
@@ -259,7 +259,7 @@ map.feature(circassian$language,
 ```
 
 ### 11. Customizing legends
-By default the legend appears in the bottom left corner. If there are stroke features, two legends are generated. There are additional arguments that control the appearence and the title of the legends.
+By default the legend appears in the top right corner. If there are stroke features, two legends are generated. There are additional arguments that control the appearence and the title of the legends.
 ```{r}
 map.feature(circassian$language,
             features = circassian$dialect,
@@ -278,7 +278,7 @@ map.feature(circassian$language,
 The arguments `legend.position` and `stroke.legend.position` allow you to change a legend's position using "topright", "bottomright", "bottomleft" or"topleft" strings.
 
 ### 12. Set scale bar
-A scale baris automatically added to a map, but you can control its appearance (set `scale.bar` argument to `TRUE` or`FALSE`) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or"topleft").
+A scale bar is automatically added to a map, but you can control its appearance (set `scale.bar` argument to `TRUE` or`FALSE`) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or"topleft").
 ```{r}
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             scale.bar= TRUE,
@@ -286,17 +286,17 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 ```
 
 ### 13. Set layouts
-It is possible to use different tiles on the same map  using the `tile` argument. Formore tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
+It is possible to use different tiles on the same map using the `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 ```{r}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
 map.feature(df$lang, df$feature, df$popup,
             tile = "Thunderforest.OpenCycleMap")
 ```
 
-It is possible to use different map tiles on the same map. Just add a vectorwith tiles.
+It is possible to use different map tiles on the same map. Just add a vector with tiles.
 ```{r}
 df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
                  feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
@@ -335,9 +335,8 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap = TRUE)
 ```
 
-You can control its appearance (by setting the `minimap` argument to TRUE orFALSE), its position (by using the values "topright", "bottomright", "bottomleft" or"topleft" of the `minimap.position` argument) and its height and width (with the arguments `minimap.height` and `minimap.width`).
+You can control its appearance (by setting the `minimap` argument to `TRUE` or `FALSE`), its position (by using the values "topright", "bottomright", "bottomleft" or"topleft" of the `minimap.position` argument) and its height and width (with the arguments `minimap.height` and `minimap.width`).
 ```{r}
-
 map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
             minimap = TRUE,
             minimap.position = "topright",
@@ -346,7 +345,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 ```
 
 ### 15. Add minicharts instead of points
-This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piechart orbarplot instead of standard point markers. In this part I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). Here is an example of barplot:
+This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). Here is an example of barplot:
 
 ```{r}
 map.feature(languages = ejective_and_n_consonants$language,
@@ -381,7 +380,7 @@ map.feature(languages = ejective_and_n_consonants$language,
 ```
 
 ### 16. Add a rectangle to a map
-It is possible to highlight some part of yourmap with a rectangle. You need to provide a latitude and longitude of the diagonal (`rectangle.lat` and `rectangel.lng`) and colorof the rectangle (`rectangle.color`):
+It is possible to highlight some part of your map with a rectangle. You need to provide a latitude and longitude of the diagonal (`rectangle.lat` and `rectangel.lng`) and color of the rectangle (`rectangle.color`):
 
 ```{r}
 map.feature(circassian$language,
@@ -402,7 +401,7 @@ map.feature(circassian$language,
             density.estimation = circassian$language)
 ```
 
-Density estimation plot can be colored by :
+Density estimation plot can be separated by `features` variable:
 ```{r}
 map.feature(circassian$language,
             features = circassian$dialect,
@@ -463,8 +462,7 @@ map.feature(circassian$language,
             color= c("darkgreen", "blue"))
 ```
 
-
-It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is betterto use a different coordinate projection. That allows not to treat Earth as a flat object.
+It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
 
 ### 18. Add lines
 It is possible to show some lines on the map using coordinates (`line.lng` and `line.lat` arguments).
@@ -477,7 +475,7 @@ map.feature(circassian$language,
             line.lat = c(44.5, 43))
 ```
 
-If there are more then two coordinates, multiple lines will appear. It is also possible to change the colorof the line using the `line.color` argument.
+If there are more then two coordinates, multiple lines will appear. It is also possible to change the color of the line using the `line.color` argument.
 
 ```{r}
 map.feature(circassian$language,
@@ -489,7 +487,7 @@ map.feature(circassian$language,
             line.color= "green")
 ```
 
-If there are two levels in the `features` variable, it is possible to draw a boundary line between point clusters (the logistic regression is used forcalculation).
+If there are two levels in the `features` variable, it is possible to draw a boundary line between point clusters (the logistic regression is used for calculation).
 ```{r}
 map.feature(circassian$language,
             features = circassian$language,
@@ -503,4 +501,3 @@ It is possible to add a graticule to a map.
 map.feature(c("Russian", "Adyghe"),
             graticule = 5)
 ```
-
