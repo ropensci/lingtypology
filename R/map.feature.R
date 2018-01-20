@@ -418,9 +418,9 @@ map.feature <- function(languages,
   if(!is.null(pipe.data)){
     m <- pipe.data
   } else {
-  m <- leaflet::leaflet(mapfeat.df,
+    m <- leaflet::leaflet(mapfeat.df,
                         option = leaflet::leafletOptions(zoomControl = zoom.control))}
-  m %>%
+  m <- m %>%
     leaflet::addTiles(tile[1]) %>%
     leaflet::addProviderTiles(tile[1], group = tile.name[1])
   if (length(tile) > 1) {
