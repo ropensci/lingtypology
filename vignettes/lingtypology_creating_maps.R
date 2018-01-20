@@ -13,7 +13,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 ## ------------------------------------------------------------------------
 #  df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-#                   features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
+#                 features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
 #  df
 
 ## ------------------------------------------------------------------------
@@ -46,11 +46,11 @@ knitr::opts_chunk$set(eval = FALSE)
 
 ## ------------------------------------------------------------------------
 #  # change a df$popup vector
-#  df$popup <- c ("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
-#                 "sɐ s-o-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
-#                 "id-ę<br> go-1sg.npst<br> 'I go'",
-#                 "ya id-u<br> 1sg go-1sg.npst <br> 'I go'",
-#                 "id-a<br> go-1sg.prs<br> 'I go'")
+#  df$popup <- c("sɐ s-ɐ-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
+#                "sɐ s-o-k'ʷɐ<br> 1sg 1sg.abs-dyn-go<br>'I go'",
+#                "id-ę<br> go-1sg.npst<br> 'I go'",
+#                "ya id-u<br> 1sg go-1sg.npst <br> 'I go'",
+#                "id-a<br> go-1sg.prs<br> 'I go'")
 #  # create a map
 #  
 #  map.feature(df$language,
@@ -60,12 +60,12 @@ knitr::opts_chunk$set(eval = FALSE)
 ## ------------------------------------------------------------------------
 #  # Create a dataframe with links to video
 #  sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
-#                   popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
+#                        popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
 #  
 #  # Change popup to an HTML code
 #  sign_df$popup <- paste("<video width='200' height='150' controls> <source src='",
-#                    as.character(sign_df$popup),
-#                    "' type='video/mp4'></video>", sep = "")
+#                         as.character(sign_df$popup),
+#                         "' type='video/mp4'></video>", sep = "")
 #  # create a map
 #  map.feature(languages = sign_df$languages, popup = sign_df$popup)
 
@@ -87,6 +87,9 @@ knitr::opts_chunk$set(eval = FALSE)
 #              label.position = "left",
 #              label.hide = FALSE,
 #              label.emphasize = list(2:4, "red"))
+
+## ------------------------------------------------------------------------
+#  head(circassian)
 
 ## ------------------------------------------------------------------------
 #  map.feature(languages = circassian$language,
@@ -123,13 +126,11 @@ knitr::opts_chunk$set(eval = FALSE)
 #              shape.size = 14)
 
 ## ------------------------------------------------------------------------
-#  
 #  map.feature(languages = df$language,
 #              features = df$features,
 #              control = TRUE)
 
 ## ------------------------------------------------------------------------
-#  
 #  map.feature(circassian$language,
 #              features = circassian$dialect,
 #              stroke.features = circassian$language,
@@ -140,7 +141,7 @@ knitr::opts_chunk$set(eval = FALSE)
 #  # create newfeature variable
 #  newfeature <- circassian[,c(5,6)]
 #  # set language feature of the Baksan villages to NA and reduce newfeature from dataframe to vector
-#  newfeature <-  replace(newfeature$language, newfeature$language == "Baksan", NA)
+#  newfeature <- replace(newfeature$language, newfeature$language == "Baksan", NA)
 #  # create a map
 #  
 #  map.feature(circassian$language,
@@ -150,14 +151,12 @@ knitr::opts_chunk$set(eval = FALSE)
 #              stroke.features = newfeature)
 
 ## ------------------------------------------------------------------------
-#  
 #  map.feature(circassian$language,
 #              features = circassian$dialect,
 #              stroke.features = circassian$language,
 #              latitude = circassian$latitude,
 #              longitude = circassian$longitude,
 #              width = 7, stroke.radius = 13)
-#  
 #  
 #  map.feature(circassian$language,
 #              features = circassian$dialect,
@@ -188,8 +187,8 @@ knitr::opts_chunk$set(eval = FALSE)
 
 ## ------------------------------------------------------------------------
 #  df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-#     feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-#     popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
+#                   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
+#                   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 #  
 #  map.feature(df$lang, df$feature, df$popup,
 #              tile = "Thunderforest.OpenCycleMap")
@@ -225,7 +224,6 @@ knitr::opts_chunk$set(eval = FALSE)
 #              minimap = TRUE)
 
 ## ------------------------------------------------------------------------
-#  
 #  map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 #              minimap = TRUE,
 #              minimap.position = "topright",

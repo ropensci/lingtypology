@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-01-15" />
+<meta name="date" content="2018-01-20" />
 
 <title>lingtypology and dplyr</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and <code>dplyr</code></h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-01-15</em></h4>
+<h4 class="date"><em>2018-01-20</em></h4>
 
 
 
@@ -93,6 +93,17 @@ new_data <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(<span class="kw">area.lang</span>(Language.name) <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">select</span>(Language.name) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">map.feature</span>(., <span class="dt">minimap =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>There is also a possibility to use <code>lingtypology</code> with other <code>leaflet</code> functions (thanks to <a href="https://github.com/nikopartanen">Niko Partanen</a> for the idea):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(leaflet)
+<span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">fitBounds</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">addPopups</span>(<span class="dv">2</span>, <span class="dv">48</span>, <span class="st">&quot;Great day!&quot;</span>)</code></pre></div>
+<p>If you add <code>leaflet</code> arguments befor <code>map.feature</code> function, you need to use argument <code>pipe.data = .</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">leaflet</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">addTiles</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">fitBounds</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">addPopups</span>(<span class="dv">2</span>, <span class="dv">48</span>, <span class="st">&quot;Great day!&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>), <span class="dt">pipe.data =</span> .)</code></pre></div>
 
 
 

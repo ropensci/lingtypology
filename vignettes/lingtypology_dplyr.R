@@ -23,3 +23,16 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #    select(Language.name) %>%
 #    map.feature(., minimap = TRUE)
 
+## ------------------------------------------------------------------------
+#  library(leaflet)
+#  map.feature(c("French", "Occitan")) %>%
+#    fitBounds(0, 40, 10, 50) %>%
+#    addPopups(2, 48, "Great day!")
+
+## ------------------------------------------------------------------------
+#  leaflet() %>%
+#    addTiles() %>%
+#    fitBounds(0, 40, 10, 50) %>%
+#    addPopups(2, 48, "Great day!") %>%
+#    map.feature(c("French", "Occitan"), pipe.data = .)
+

@@ -40,6 +40,7 @@
 #' @param shape \enumerate{ \item if TRUE, creates icons (up to five categories) for values in the \code{features} variable; \item it also could be a vector of any strings that represents the levels of the  \code{features} variable; \item it also could be a string vector that represents the number of observations in dataset.}
 #' @param shape.size size of the \code{shape} icons
 #' @param shape.color color of the \code{shape} icons
+#' @param pipe.data this variable is important, when you use map.feature with dplyr pipes. Expected usage: pipe.data = .
 #' @param map.orientation a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".
 #' @param minimap.height The height of the minimap in pixels.
 #' @param minimap.position the position of the minimap: "topright", "bottomright", "bottomleft","topleft"
@@ -157,6 +158,7 @@ map.feature <- function(languages,
                         label.emphasize = list(NULL, "black"),
                         shape = NULL,
                         shape.size = 20,
+                        pipe.data = NULL,
                         shape.color = "black",
                         stroke.features = NULL,
                         density.estimation = NULL,
@@ -413,8 +415,12 @@ map.feature <- function(languages,
   }
 
   ### create a map ------------------------------------------------------------
+  if(!is.null(pipe.data)){
+    m <- pipe.data
+  } else {
   m <- leaflet::leaflet(mapfeat.df,
-                        option = leaflet::leafletOptions(zoomControl = zoom.control)) %>%
+                        option = leaflet::leafletOptions(zoomControl = zoom.control))}
+  m %>%
     leaflet::addTiles(tile[1]) %>%
     leaflet::addProviderTiles(tile[1], group = tile.name[1])
   if (length(tile) > 1) {

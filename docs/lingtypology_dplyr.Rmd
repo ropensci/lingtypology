@@ -39,3 +39,24 @@ new_data %>%
   select(Language.name) %>% 
   map.feature(., minimap = TRUE)
 ```
+
+There is also a possibility to use `lingtypology` with other `leaflet` functions (thanks to [Niko Partanen](https://github.com/nikopartanen) for the idea):
+
+```{r}
+library(leaflet)
+map.feature(c("French", "Occitan")) %>% 
+  fitBounds(0, 40, 10, 50) %>% 
+  addPopups(2, 48, "Great day!")
+```
+
+If you add `leaflet` arguments befor `map.feature` function, you need to use argument `pipe.data = .`:
+
+```{r}
+leaflet() %>% 
+  addTiles() %>% 
+  fitBounds(0, 40, 10, 50) %>% 
+  addPopups(2, 48, "Great day!") %>% 
+  map.feature(c("French", "Occitan"), pipe.data = .)
+```
+
+
