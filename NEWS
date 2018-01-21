@@ -1,6 +1,6 @@
 lingtypology 1.0.12 (21.01.2018)
- - add pipe.data variable
- - repair "afbo.feature()" function
+ - add "pipe.data"  argument to "map.feature" function.
+ - repair "afbo.feature()" function.
 
 lingtypology 1.0.11 (15.01.2018)
  - add "shape" arguments.

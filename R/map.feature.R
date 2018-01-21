@@ -681,17 +681,22 @@ map.feature <- function(languages,
       )
     if (legend == TRUE) {
       m <- m %>%
-        leaflet::addControl(
-          html = paste(
+        leaflet::addControl(html = paste(
+          collapse = "",
+          ifelse(!is.null(title),
+                 paste('<b>', title, "</b> <br>", collapse = ""),
+                 ""
+                 ),
+          paste(
             '<b><font size="4">',
             unique(icons),
             '</font></b>',
             unique(as.factor(mapfeat.df$features)),
             "<br>",
             collapse = ""
-          ),
-          position = legend.position
-        )
+          )
+        ),
+        position = legend.position)
     }}
 
 
