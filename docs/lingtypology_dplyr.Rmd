@@ -1,5 +1,5 @@
 ---
-title: "`lingtypology` and `dplyr`"
+title: "`lingtypology` and other packages"
 author: "[George Moroz](mailto:agricolamz@gmail.com)"
 ---
 
@@ -7,6 +7,8 @@ author: "[George Moroz](mailto:agricolamz@gmail.com)"
 library(lingtypology)
 knitr::opts_chunk$set(fig.width=7.5, fig.height=3.4)
 ```
+
+### 1. `dplyr` and `magritr` %>%
 
 It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. First download the data:
  
@@ -39,6 +41,8 @@ new_data %>%
   select(Language.name) %>% 
   map.feature(., minimap = TRUE)
 ```
+
+### 2. `leaflet`
 
 There is also a possibility to use `lingtypology` with other `leaflet` functions (thanks to [Niko Partanen](https://github.com/nikopartanen) for the idea):
 
