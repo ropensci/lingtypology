@@ -22,7 +22,7 @@ tail(new_data)
 
 As we see, some values of the `Language.name` variable contain more than one language name. Some of the names probably have different names in our database. Imagine that we want to map all languages from Africa. So that the following examples work correctly, use `library(dplyr)`.
 
-```{r}
+```{r, message= FALSE}
 library(dplyr)
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
@@ -36,7 +36,7 @@ We start with a dataframe, here a `new_data`. First we remove spaces at the end 
 
 By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.
 
-```{r}
+```{r, message= FALSE}
 new_data %>%
   mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
   filter(is.glottolog(Language.name) == TRUE) %>% 
@@ -58,8 +58,28 @@ If you add `leaflet` arguments befor `map.feature` function, you need to use arg
 
 ```{r}
 leaflet() %>% 
-  addTiles() %>% 
   fitBounds(0, 40, 10, 50) %>% 
   addPopups(2, 48, "Great day!") %>% 
   map.feature(c("French", "Occitan"), pipe.data = .)
 ```
+
+The other usage of this `pipe.data` argument is to put there a variable with a `leaflet` object:
+
+```{r}
+m <- leaflet() %>% 
+  fitBounds(0, 40, 10, 50) %>% 
+  addPopups(2, 48, "Great day!")
+
+map.feature(c("French", "Occitan"), pipe.data = m)
+```
+
+If you want to define tiles in `leaflet` part, you need to change tile argument in `map.feature` function, because the default value for the `tile` argument is "OpenStreetMap.Mapnik".
+
+```{r}
+leaflet()  %>% 
+  addProviderTiles("OpenStreetMap.BlackAndWhite") %>% 
+  fitBounds(0, 40, 10, 50) %>% 
+  addPopups(2, 48, "Great day!") %>% 
+  map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
+```
+

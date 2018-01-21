@@ -415,19 +415,23 @@ map.feature <- function(languages,
   }
 
   ### create a map ------------------------------------------------------------
-  if(!is.null(pipe.data)){
+  if (!is.null(pipe.data)) {
     m <- pipe.data
   } else {
-    m <- leaflet::leaflet(mapfeat.df,
-                        option = leaflet::leafletOptions(zoomControl = zoom.control))}
-  m <- m %>%
-    leaflet::addTiles(tile[1]) %>%
-    leaflet::addProviderTiles(tile[1], group = tile.name[1])
-  if (length(tile) > 1) {
-    mapply(function(other.tiles, other.tile.names) {
-      m <<- m %>% leaflet::addProviderTiles(other.tiles,
-                                            group = other.tile.names)
-    }, tile[-1], tile.name[-1])
+    m <- leaflet::leaflet(
+      mapfeat.df,
+      option = leaflet::leafletOptions(zoomControl = zoom.control))
+  }
+  if (!("none" %in% tile)) {
+    m <- m %>%
+      leaflet::addTiles(tile[1]) %>%
+      leaflet::addProviderTiles(tile[1], group = tile.name[1])
+    if (length(tile) > 1) {
+      mapply(function(other.tiles, other.tile.names) {
+        m <<- m %>% leaflet::addProviderTiles(other.tiles,
+                                              group = other.tile.names)
+      }, tile[-1], tile.name[-1])
+    }
   }
 
   # map: add rectangle ------------------------------------------------------

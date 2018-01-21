@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-01-20" />
+<meta name="date" content="2018-01-21" />
 
 <title>lingtypology and dplyr</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and <code>dplyr</code></h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-01-20</em></h4>
+<h4 class="date"><em>2018-01-21</em></h4>
 
 
 
@@ -100,10 +100,21 @@ new_data <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">addPopups</span>(<span class="dv">2</span>, <span class="dv">48</span>, <span class="st">&quot;Great day!&quot;</span>)</code></pre></div>
 <p>If you add <code>leaflet</code> arguments befor <code>map.feature</code> function, you need to use argument <code>pipe.data = .</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">leaflet</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">addTiles</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">fitBounds</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">addPopups</span>(<span class="dv">2</span>, <span class="dv">48</span>, <span class="st">&quot;Great day!&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>), <span class="dt">pipe.data =</span> .)</code></pre></div>
+<p>The other usage of this <code>pipe.data</code> argument is to put there a variable with a <code>leaflet</code> object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m &lt;-<span class="st"> </span><span class="kw">leaflet</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">fitBounds</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">addPopups</span>(<span class="dv">2</span>, <span class="dv">48</span>, <span class="st">&quot;Great day!&quot;</span>)
+
+<span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>), <span class="dt">pipe.data =</span> m)</code></pre></div>
+<p>If you want to define tiles in <code>leaflet</code> part, you need to change tile argument in <code>map.feature</code> function, because the default value for the <code>tile</code> argument is “OpenStreetMap.Mapnik”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">leaflet</span>()  <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;OpenStreetMap.BlackAndWhite&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">fitBounds</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">addPopups</span>(<span class="dv">2</span>, <span class="dv">48</span>, <span class="st">&quot;Great day!&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>), <span class="dt">pipe.data =</span> ., <span class="dt">tile =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
 
 
 

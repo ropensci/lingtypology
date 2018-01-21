@@ -53,10 +53,28 @@ If you add `leaflet` arguments befor `map.feature` function, you need to use arg
 
 ```{r}
 leaflet() %>% 
-  addTiles() %>% 
   fitBounds(0, 40, 10, 50) %>% 
   addPopups(2, 48, "Great day!") %>% 
   map.feature(c("French", "Occitan"), pipe.data = .)
 ```
 
+The other usage of this `pipe.data` argument is to put there a variable with a `leaflet` object:
+
+```{r}
+m <- leaflet() %>% 
+  fitBounds(0, 40, 10, 50) %>% 
+  addPopups(2, 48, "Great day!")
+
+map.feature(c("French", "Occitan"), pipe.data = m)
+```
+
+If you want to define tiles in `leaflet` part, you need to change tile argument in `map.feature` function, because the default value for the `tile` argument is "OpenStreetMap.Mapnik".
+
+```{r}
+leaflet()  %>% 
+  addProviderTiles("OpenStreetMap.BlackAndWhite") %>% 
+  fitBounds(0, 40, 10, 50) %>% 
+  addPopups(2, 48, "Great day!") %>% 
+  map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
+```
 

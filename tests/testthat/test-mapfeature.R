@@ -318,3 +318,10 @@ test_that("map.feature shape", {
                            shape = TRUE),
                'The argument "shape = TRUE" works fine only with 6 or less levels in "features" variable. List your own shapes in "shape" argument')
 })
+
+
+map_none_tile <- map.feature("Adyghe", tile = "none")
+
+test_that("map without a tile", {
+  expect_equal(exists("map_none_tile"), TRUE)
+})
