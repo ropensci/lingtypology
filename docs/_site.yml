@@ -10,7 +10,7 @@ navbar:
     href: lingtypology_creating_maps.html
   - text: databases API
     href: lingtypology_db_API.html
-  - text: lingtypology and dplyr
+  - text: lingtypology and other packages
     href: lingtypology_dplyr.html
 output_dir: '.'
 output:

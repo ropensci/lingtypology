@@ -320,7 +320,7 @@ div.tocify {
   <a href="lingtypology_db_API.html">databases API</a>
 </li>
 <li>
-  <a href="lingtypology_dplyr.html">lingtypology and dplyr</a>
+  <a href="lingtypology_dplyr.html">lingtypology and other packages</a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -434,6 +434,7 @@ div.tocify {
 <p>All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</code></pre></div>
 <pre><code>## Warning: Unknown or uninitialised column: &#39;alternate_names&#39;.</code></pre>
+<pre><code>## Warning: Length of logical index must be 1 or 8533, not 0</code></pre>
 <pre><code>## Warning: Language Adyge is absent in our version of the Glottolog database.
 ## Did you mean Adyghe, Aduge?</code></pre>
 <pre><code>## Adyge 

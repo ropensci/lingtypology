@@ -23,7 +23,7 @@ afbo.feature <- function(features = "all", na.rm = TRUE, glottolog.source = "mod
   if(sum(!features %in% features_set) < 1){
     temp1 <- tempfile()
     temp2 <- tempfile()
-    utils::download.file("http://afbo.info/static/download/afbo-pair.csv.zip", destfile = temp1)
+    utils::download.file("https://cdstar.shh.mpg.de/bitstreams/EAEA0-59C8-38F2-28DC-0/afbo_pair.csv.zip", destfile = temp1)
     utils::unzip(temp1, exdir = temp2)
     df <- utils::read.csv(paste0(temp2, "/pair.csv"), stringsAsFactors = FALSE)
 
