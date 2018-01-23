@@ -1,3 +1,4 @@
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
 library(tidyverse); library(stringr); library(zoo)
 # lets download data from glottolog-data github ---------------------------
 # 1. glottocodes ----------------------------------------------------------
@@ -51,7 +52,7 @@ new_iso <- paste0("NOCODE_", gsub(" ", "-", glottocode_df[is.na(glottocode_df$is
 glottocode_df[is.na(glottocode_df$iso),3] <- sapply(new_iso, function(x){
   strsplit(x, "\\(")[[1]][1]})
 
-setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/database_creation")
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
 write_tsv(glottocode_df, "glottocode_df.tsv")
 rm(list = ls())
 
@@ -78,7 +79,7 @@ lginfo[lginfo$iso == "est", 1] <- "ekk"
 glottocode_df <- read_tsv("glottocode_df.tsv")
 glottocode_df <- full_join(lginfo, glottocode_df)
 glottocode_df <- glottocode_df[!(grepl("NOCODE", glottocode_df$iso) & is.na(glottocode_df$glottocode)),]
-setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/database_creation")
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
 write_tsv(glottocode_df, "glottocode_df.tsv")
 rm(list = ls())
 
@@ -132,7 +133,7 @@ names(database_new)[c(3, 4)] <- c("affiliation", "affiliation-HH")
 # new_df$dialects[grep("\\\\['~`^]", new_df$dialects)] <- gsub("\\\\['~`^]", "", new_df$dialects[grep("\\\\['~`^]", new_df$dialects)])
 # new_df$dialects[grep('\\\\["]', new_df$dialects)] <- gsub('\\\\["]', "", new_df$dialects[grep('\\\\["]', new_df$dialects)])
 
-setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/database_creation")
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
 write_tsv(database_new, "new_df.tsv")
 rm(list = ls())
 
@@ -146,12 +147,12 @@ names(glottocode_df)[c(2, 3)] <- c("longitude", "latitude")
 glottocode_df <- glottocode_df[,c(5, 1, 6, 2, 3, 8, 4, 7, 9, 10:17)]
 glottocode_df[is.na(glottocode_df$affiliation), 8] <- glottocode_df[is.na(glottocode_df$affiliation), 9]
 
-setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/database_creation")
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
 write_tsv(glottocode_df, "glottolog.original.tsv")
 rm(list = ls())
 
 # 5. changes in glottolog ----------------------------------------------------
-setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/database_creation")
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
 glottolog.original <- read_tsv("glottolog.original.tsv")
 glottolog.modified <- glottolog.original
 circassian <- read_csv("circassian.csv")
@@ -250,6 +251,9 @@ glottolog.modified[glottolog.modified$area %in% "Eurasia" &
 glottolog.modified[grepl("America", glottolog.modified$area) &
                      !is.na(glottolog.modified$longitude), 'longitude'] <- glottolog.modified[grepl("America", glottolog.modified$area) & !is.na(glottolog.modified$longitude), 4] + 360
 
+glottolog.modified$longitude[glottolog.modified$longitude > 400 & !is.na(glottolog.modified$longitude)] <- glottolog.modified$longitude[glottolog.modified$longitude > 400 & !is.na(glottolog.modified$longitude)] - 360
+
+
 NWC <- read_csv("NWC.csv")
 glottolog.modified <- rbind(glottolog.modified, NWC)
 
@@ -293,7 +297,7 @@ colnames(wals)[1] <- "wals.code"
 abvd <- read_tsv("abvd.tsv")
 
 # save files --------------------------------------------------------------
-setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/data")
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/data/")
 save(glottolog.modified, file="glottolog.modified.RData", compress= 'xz')
 save(glottolog.original, file="glottolog.original.RData", compress='xz')
 save(circassian, file="circassian.RData", compress='xz')
@@ -305,5 +309,5 @@ save(abvd, file="abvd.RData", compress='xz')
 rm(list = ls())
 
 # remove some files -------------------------------------------------------
-setwd("/home/agricolamz/_DATA/OneDrive1/_Work/github/lingtypology/lingtypology/database_creation/")
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
 file.remove(c("glottocode_df.tsv", "new_df.tsv"))
