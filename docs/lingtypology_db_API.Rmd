@@ -1,11 +1,13 @@
 ---
 title: "`lingtypology`: Typological databases API"
 author: "[George Moroz](mailto:agricolamz@gmail.com)"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include=FALSE}
 library(lingtypology)
-knitr::opts_chunk$set(fig.width=7.5, fig.height=3.4)
+knitr::opts_chunk$set(fig.width=7.5, fig.height=3.4, comment = "")
 ```
 
 `lingtypology` provides an ability to download data from these typological databases

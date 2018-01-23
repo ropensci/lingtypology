@@ -13,7 +13,9 @@
 #' @importFrom utils read.csv
 #'
 
-abvd.feature <- function(feature, glottolog.source = "modified") {
+abvd.feature <- function(feature, glottolog.source = "modified") {message("Don't forget to cite a source:
+
+Greenhill, S.J., Blust. R, & Gray, R.D. (2008). The Austronesian Basic Vocabulary Database: From Bioinformatics to Lexomics. Evolutionary Bioinformatics, 4:271-283.")
   if (is.numeric(feature)) {
     links <-
       paste0(

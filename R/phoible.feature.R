@@ -21,6 +21,19 @@ phoible.feature <-
            source = "all",
            na.rm = TRUE,
            glottolog.source = "modified") {
+    message("Don't forget to cite a source:
+
+Moran, Steven & McCloy, Daniel & Wright, Richard (eds.) 2014. PHOIBLE Online. Leipzig: Max Planck Institute for Evolutionary Anthropology. (Available online at http://phoible.org, Accessed on ...)
+
+A BibTeX entry for LaTeX users is
+@book{phoible,
+  address   = {Leipzig},
+  editor    = {Steven Moran and Daniel McCloy and Richard Wright},
+ publisher = {Max Planck Institute for Evolutionary Anthropology},
+ title     = {PHOIBLE Online},
+ url       = {http://phoible.org/},
+ year      = {2014}
+}")
     features <- tolower(features)
     features_set <-
       c("all", "phonemes", "consonants", "tones", "vowels")

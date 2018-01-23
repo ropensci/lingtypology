@@ -18,6 +18,19 @@
 #'
 
 afbo.feature <- function(features = "all", na.rm = TRUE, glottolog.source = "modified"){
+  message("Don't forget to cite a source:
+
+Seifart, Frank. 2013. AfBo: A world-wide survey of affix borrowing. Leipzig: Max Planck Institute for Evolutionary Anthropology. (Available online at http://afbo.info, Accessed on ...)
+
+A BibTeX entry for LaTeX users is
+@book{afbo,
+  address   = {Leipzig},
+  editor    = {Frank Seifart},
+  publisher = {Max Planck Institute for Evolutionary Anthropology},
+  title     = {AfBo: A world-wide survey of affix borrowing},
+  url       = {http://afbo.info/},
+  year      = {2013}
+}")
   features <- gsub(c(" |:|/|\\(|\\)"), ".", tolower(features))
   features_set <- c("all", "comparative", "superlative", "adjectivizer", "adverbializer", "clause.level.TAM", "clause.linking", "case..dative", "case..ergative", "case..non.locative.peripheral.case", "case..locative", "case..comparative","gender..human.", "noun.class..inanimate.","diminutive", "augmentative","definite.indefinite", "topic","focus", "nominalizer..miscellaneous","nominalizer..agent", "nominalizer..abstract","nominalizer..social.group", "nominalizer..place.name","number..plural", "number..dual","number..singular", "nominal.derivation..miscellaneous.","privative", "possessor.indexing","numeral.classifier", "numeral.derivation..ordinals","numeral.and.quantifier.derivation", "valency..passive","valency..causative", "valency..reflexive","valency..applicative", "valency..reciprocal","verbal.TAM", "verbal.derivation..miscellaneous.","subject.object.indexing", "verbalizer","relativizer.subordinator", "verbal.negation")
   if(sum(!features %in% features_set) < 1){
