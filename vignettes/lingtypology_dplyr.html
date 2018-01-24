@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-01-21" />
+<meta name="date" content="2018-01-24" />
 
 <title>lingtypology and other packages</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and other packages</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-01-21</em></h4>
+<h4 class="date"><em>2018-01-24</em></h4>
 
 
 
@@ -120,6 +120,36 @@ new_data <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fitBounds</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">addPopups</span>(<span class="dv">2</span>, <span class="dv">48</span>, <span class="st">&quot;Great day!&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>), <span class="dt">pipe.data =</span> ., <span class="dt">tile =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
+</div>
+<div id="create-your-atlas-with-rmarkdown" class="section level3">
+<h3>3. Create your atlas with <code>rmarkdown</code></h3>
+<p>This section is inspired by talks with <a href="https://github.com/nikopartanen">Niko Partanen</a>. It is possible to create an atlas website using <code>lingtypology</code> and <code>rmarkdown</code> packages. The function <code>atlas.database()</code> creates a folder in the working directory that contains an <code>rmarkdown</code> template for a web-site.</p>
+<p>First, lets create a <code>dataframe</code> with some data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">wals.feature</span>(<span class="kw">c</span>(<span class="st">&quot;1a&quot;</span>, <span class="st">&quot;20a&quot;</span>))</code></pre></div>
+<p>Second we can create a website using <code>atlas.database()</code> function:</p>
+<ul>
+<li><code>languages</code> argument is a language list</li>
+<li><code>features</code> argument is a data.frame with corresponding features</li>
+<li><code>latitude</code> and <code>longitude</code> arguments are optional</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">atlas.database</span>(<span class="dt">languages =</span> df<span class="op">$</span>language,
+               <span class="dt">features =</span> df[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">5</span>)],
+               <span class="dt">latitude =</span> df<span class="op">$</span>latitude,
+               <span class="dt">longitude =</span> df<span class="op">$</span>longitude,
+               <span class="dt">atlas_name =</span> <span class="st">&quot;Some WALS features&quot;</span>,
+               <span class="dt">author =</span> <span class="st">&quot;Author Name&quot;</span>)</code></pre></div>
+<p>We can see that this function creates a subfolder with following files:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list.files</span>(<span class="st">&quot;./atlas_Some_WALS_features/&quot;</span>)</code></pre></div>
+<p>The last step is to run a command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmarkdown<span class="op">::</span><span class="kw">render_site</span>(<span class="st">&quot;./atlas_Some_WALS_features/&quot;</span>)</code></pre></div>
+<p>Then the atlas website will be created (here is <a href="https://agricolamz.github.io/lingtypology_atlas_example/">a result</a>). If you want to change something in the website, just change some files:</p>
+<ul>
+<li>write information about atlas in index.Rmd file</li>
+<li>list citation information</li>
+<li>change any <code>.Rmd</code> file</li>
+<li>…</li>
+<li>and on the end rerun the <code>rmarkdown::render_site(&quot;./atlas_Some_WALS_features/&quot;)</code> command.</li>
+</ul>
 </div>
 
 

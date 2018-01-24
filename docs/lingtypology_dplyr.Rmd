@@ -82,3 +82,47 @@ leaflet()  %>%
   map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
 ```
 
+### 3. Create your atlas with `rmarkdown`
+This section is inspired by talks with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and `rmarkdown` packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.
+
+First, lets create a `dataframe` with some data.
+```{r}
+df <- wals.feature(c("1a", "20a"))
+```
+
+Second we can create a website using `atlas.database()` function:
+
+* `languages` argument is a language list
+* `features` argument is a data.frame with corresponding features
+* `latitude` and `longitude` arguments are optional
+
+```{r}
+atlas.database(languages = df$language,
+               features = df[,c(4:5)],
+               latitude = df$latitude,
+               longitude = df$longitude,
+               atlas_name = "Some WALS features",
+               author = "Author Name")
+```
+
+We can see that this function creates a subfolder with following files:
+```{r}
+list.files("./atlas_Some_WALS_features/")
+```
+
+The last step is to run a command:
+```{r, eval=FALSE}
+rmarkdown::render_site("./atlas_Some_WALS_features/")
+```
+
+Then the atlas website will be created (here is [a result](https://agricolamz.github.io/lingtypology_atlas_example/)). If you want to change something in the website, just change some files:
+
+* write information about atlas in index.Rmd file
+* list citation information
+* change any `.Rmd` file
+* ...
+* and on the end rerun the `rmarkdown::render_site("./atlas_Some_WALS_features/")` command.
+
+```{r, include=FALSE}
+unlink("./atlas_Some_WALS_features/", recursive = TRUE)
+```

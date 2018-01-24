@@ -1,16 +1,17 @@
 lingtypology 1.0.12 (23.01.2018)
- - add "pipe.data"  argument to "map.feature" function (Thanks  @nikopartanen for the idea).
- - repair "afbo.feature()" function.
- - add message with citation information to some "....feature" function (Thanks  @nikopartanen for the idea).
+ - add the "pipe.data" argument to the "map.feature" function (Thanks  @nikopartanen for the idea).
+ - repair the "afbo.feature()" function.
+ - add a message with citation information to some "....feature" function (Thanks  @nikopartanen for the idea).
+ - add the "atlas.database()" function for creating atlases with rmarkdown
 
 lingtypology 1.0.11 (15.01.2018)
  - add "shape" arguments.
  - argument "label.only" is deprecated.
 
 lingtypology 1.0.10 (15.12.2017)
- - add argument "line.type", that could be used for creating the decision boundary of the logistic regression on the map.
+ - add the argument "line.type", that could be used for creating the decision boundary of the logistic regression on the map.
  - add arguments "line.opacity", "line.label", "line.width".
- - add argument "graticule" to function map.feature().
+ - add the argument "graticule" to function map.feature().
  - add argument "label.only" to function map.feature().
 
 lingtypology 1.0.9 (30.11.2017)
