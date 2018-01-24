@@ -15,14 +15,15 @@ navbar:
 output_dir: '.'
 output:
   html_document:
-    lib_dir: site_libs
-    self_contained: no
     theme: lumen
     highlight: tango
     toc: yes
     toc_float: yes
     toc_depth: 4
-    smooth_scroll: false
+    smooth_scroll: no
     df_print: paged
     include:
       after_body: footer.html
+    lib_dir: site_libs
+    self_contained: no
+

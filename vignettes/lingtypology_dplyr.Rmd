@@ -120,7 +120,7 @@ The last step is to run a command:
 rmarkdown::render_site("./atlas_Some_WALS_features/")
 ```
 
-Then the atlas website will be created (here is [a result](https://agricolamz.github.io/lingtypology_atlas_example/)). If you want to change something in the website, just change some files:
+Then the atlas website will be created (here is [a result](https://agricolamz.github.io/lingtypology_atlas_example/index.html)). If you want to change something in the website, just change some files:
 
 * write information about atlas in index.Rmd file
 * list citation information
