@@ -25,6 +25,12 @@
 #' @param density.points logical. If FALSE, it doesn't show points in polygones.
 #' @param density.title title of a density-feature legend
 #' @param density.control logical. If TRUE, function show layer control buttons for density plot. By default is FALSE
+#' @param isogloss dataframe with corresponding features
+#' @param isogloss.color vector of isoglosses' colors
+#' @param isogloss.opacity a numeric vector of density polygons opacity.
+#' @param isogloss.line.width a numeric value for line width
+#' @param isogloss.longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd})
+#' @param isogloss.latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
 #' @param image.height numeric vector of image heights
 #' @param image.url character vector of URLs with an images
 #' @param image.width numeric vector of image widths
@@ -172,6 +178,12 @@ map.feature <- function(languages,
                         density.legend.position = "bottomleft",
                         density.title = "",
                         density.control = FALSE,
+                        isogloss = NULL,
+                        isogloss.color = "black",
+                        isogloss.opacity = 0.2,
+                        isogloss.line.width = 3,
+                        isogloss.longitude.width = NULL,
+                        isogloss.latitude.width = NULL,
                         color = NULL,
                         stroke.color = NULL,
                         image.url = NULL,
@@ -248,6 +260,10 @@ map.feature <- function(languages,
 
   if (!is.null(density.estimation)) {
     mapfeat.df$density.estimation <- density.estimation
+  }
+
+  if (!is.null(isogloss)) {
+    mapfeat.df <- cbind(mapfeat.df, isogloss)
   }
 
   # if there are no latitude and longitude
@@ -414,6 +430,42 @@ map.feature <- function(languages,
     })
   }
 
+
+# create isogloss -------------------------------------------------------
+
+  if (!is.null(isogloss)) {
+    if(length(isogloss) > 1){
+    isogloss.list <- apply(isogloss, 2, unique)
+    isogloss.df <- data.frame(value = NA, variable = NA)
+
+    sapply(seq_along(isogloss.list), function(i) {
+      sapply(seq_along(isogloss.list[[i]]), function(j) {
+        isogloss.df <<-
+          rbind(isogloss.df,
+                data.frame(
+                  value = isogloss.list[[i]][j],
+                  variable = names(isogloss.list[i]),
+                  stringsAsFactors = FALSE
+                ))
+      })
+    })
+    isogloss.df <- isogloss.df[-1, ]
+    } else {
+      isogloss.df <- data.frame(value = unlist(unique(isogloss[,1])),
+                                variable = names(isogloss),
+                                stringsAsFactors = FALSE)
+    }
+    my_isogloss <- lapply(1:nrow(isogloss.df), function(i) {
+      polygon.points(
+        mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'lat'],
+        mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'long'],
+        latitude_width = isogloss.latitude.width,
+        longitude_width = isogloss.longitude.width
+      )
+    })
+
+  }
+
   ### create a map ------------------------------------------------------------
   if (!is.null(pipe.data)) {
     m <- pipe.data
@@ -518,6 +570,19 @@ map.feature <- function(languages,
     })
   }
 
+  # map: add isogloss ------------------------------------------
+  if (!is.null(isogloss)) {
+    lapply(seq_along(my_isogloss), function(x) {
+      m <<- m %>% leaflet::addPolylines(
+        data = my_isogloss[[x]],
+        color = isogloss.color,
+        opacity = isogloss.opacity,
+        weight = isogloss.line.width,
+        label = paste0(isogloss.df$variable, ": ", isogloss.df$value),
+        labelOptions = leaflet::labelOptions(textOnly = TRUE)
+      )
+    })
+  }
   # map: add graticule ------------------------------------------------------
   if (!is.null(graticule)) {
     m <- m %>% leaflet::addSimpleGraticule(interval = graticule)
