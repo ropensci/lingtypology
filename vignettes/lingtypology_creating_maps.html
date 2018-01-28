@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-01-20" />
+<meta name="date" content="2018-01-28" />
 
 <title>lingtypology: creating maps</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: creating maps</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-01-20</em></h4>
+<h4 class="date"><em>2018-01-28</em></h4>
 
 
 
@@ -405,8 +405,21 @@ newfeature &lt;-<span class="st"> </span><span class="kw">replace</span>(newfeat
             <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre></div>
 <p>It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.</p>
 </div>
+<div id="add-isoglosses" class="section level3">
+<h3>18. Add isoglosses</h3>
+<p>It is possible to try to catch isoglosses, using the kernel density estimation algorithm. The <code>map.feature</code> argument <code>isogloss</code> recieves a dataframe with set of features:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(<span class="dt">languages =</span> circassian<span class="op">$</span>language,
+            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,
+            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,
+            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,
+            <span class="dt">label =</span> circassian<span class="op">$</span>dialect,
+            <span class="dt">legend =</span> <span class="ot">TRUE</span>,
+            <span class="dt">isogloss =</span> <span class="kw">as.data.frame</span>(circassian[,<span class="st">&quot;dialect&quot;</span>]),
+            <span class="dt">isogloss.longitude.width =</span> <span class="fl">1.5</span>,
+            <span class="dt">isogloss.latitude.width =</span> <span class="fl">1.5</span>)</code></pre></div>
+</div>
 <div id="add-lines" class="section level3">
-<h3>18. Add lines</h3>
+<h3>19. Add lines</h3>
 <p>It is possible to show some lines on the map using coordinates (<code>line.lng</code> and <code>line.lat</code> arguments).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,
             <span class="dt">features =</span> circassian<span class="op">$</span>language,

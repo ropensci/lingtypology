@@ -20,12 +20,16 @@ polygon.points <- function(latitude,
   ifelse(
     is.null(latitude_width),
     latitude_width <- MASS::bandwidth.nrd(latitude),
-    latitude_width
+    latitude_width <- latitude_width*(length(latitude)*0.002+
+                                        stats::sd(latitude)*0.16+
+                                        stats::sd(longitude)*0.15)
   )
   ifelse(
     is.null(longitude_width),
     longitude_width <- MASS::bandwidth.nrd(longitude),
-    longitude_width
+    longitude_width <- longitude_width*(length(longitude)*0.003+
+                                          stats::sd(latitude)*0.11+
+                                          stats::sd(longitude)*0.18)
   )
   kde <- MASS::kde2d(
     longitude,

@@ -434,28 +434,51 @@ map.feature <- function(languages,
 # create isogloss -------------------------------------------------------
 
   if (!is.null(isogloss)) {
-    if(length(isogloss) > 1){
-    isogloss.list <- apply(isogloss, 2, unique)
-    isogloss.df <- data.frame(value = NA, variable = NA)
+    if (length(isogloss) > 1) {
+      isogloss.list <- apply(isogloss, 2, unique)
+      isogloss.df <- data.frame(value = NA, variable = NA)
 
-    sapply(seq_along(isogloss.list), function(i) {
-      sapply(seq_along(isogloss.list[[i]]), function(j) {
-        isogloss.df <<-
-          rbind(isogloss.df,
+      sapply(seq_along(isogloss.list), function(i) {
+        sapply(seq_along(isogloss.list[[i]]), function(j) {
+          if (sum(isogloss[, names(isogloss.list[i])] %in%
+                  isogloss.list[[i]][j]) > 1) {
+            isogloss.df <<-
+              rbind(
+                isogloss.df,
                 data.frame(
                   value = isogloss.list[[i]][j],
                   variable = names(isogloss.list[i]),
                   stringsAsFactors = FALSE
-                ))
+                )
+              )
+          }
+        })
       })
-    })
-    isogloss.df <- isogloss.df[-1, ]
+      isogloss.df <- isogloss.df[-1,]
     } else {
-      isogloss.df <- data.frame(value = unlist(unique(isogloss[,1])),
-                                variable = names(isogloss),
-                                stringsAsFactors = FALSE)
+      if(!is.data.frame(isogloss)){
+        isogloss <- as.data.frame(isogloss,
+                                  stringsAsFactors = FALSE,
+                                  col.names = "feature")
+      }
+      isogloss.vector <- unlist(isogloss)
+      isogloss.list <- unique(isogloss.vector)
+      isogloss.df <- data.frame(value = NA, variable = NA)
+      sapply(seq_along(isogloss.list), function(i) {
+        if (sum(isogloss.vector %in% isogloss.list[i]) > 1) {
+          isogloss.df <<- rbind(
+            isogloss.df,
+            data.frame(
+              value = isogloss.list[i],
+              variable = names(isogloss),
+              stringsAsFactors = FALSE
+            )
+          )
+        }
+      })
+      isogloss.df <- isogloss.df[-1,]
     }
-    my_isogloss <- lapply(1:nrow(isogloss.df), function(i) {
+  my_isogloss <- lapply(1:nrow(isogloss.df), function(i) {
       polygon.points(
         mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'lat'],
         mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'long'],

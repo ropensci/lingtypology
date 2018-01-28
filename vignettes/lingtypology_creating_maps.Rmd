@@ -4,9 +4,11 @@ author: "George Moroz"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
+  %\VignetteEncoding{UTF-8}
   %\VignetteIndexEntry{`lingtypology`: creating maps}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+editor_options: 
+  chunk_output_type: console
 ---
 ```{r, include=FALSE}
 library(lingtypology)
@@ -464,7 +466,22 @@ map.feature(circassian$language,
 
 It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.
 
-### 18. Add lines
+### 18. Add isoglosses
+It is possible to try to catch isoglosses, using the kernel density estimation algorithm. The `map.feature` argument `isogloss` recieves a dataframe with set of features:
+
+```{r}
+map.feature(languages = circassian$language,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude,
+            features = circassian$dialect,
+            label = circassian$dialect,
+            legend = TRUE,
+            isogloss = as.data.frame(circassian[,"dialect"]),
+            isogloss.longitude.width = 1.5,
+            isogloss.latitude.width = 1.5)
+```
+
+### 19. Add lines
 It is possible to show some lines on the map using coordinates (`line.lng` and `line.lat` arguments).
 ```{r}
 map.feature(circassian$language,

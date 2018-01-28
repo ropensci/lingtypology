@@ -322,6 +322,17 @@ knitr::opts_chunk$set(eval = FALSE)
 #              color= c("darkgreen", "blue"))
 
 ## ------------------------------------------------------------------------
+#  map.feature(languages = circassian$language,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude,
+#              features = circassian$dialect,
+#              label = circassian$dialect,
+#              legend = TRUE,
+#              isogloss = as.data.frame(circassian[,"dialect"]),
+#              isogloss.longitude.width = 1.5,
+#              isogloss.latitude.width = 1.5)
+
+## ------------------------------------------------------------------------
 #  map.feature(circassian$language,
 #              features = circassian$language,
 #              longitude = circassian$longitude,
