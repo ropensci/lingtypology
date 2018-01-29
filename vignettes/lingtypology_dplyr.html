@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-01-24" />
+<meta name="date" content="2018-01-29" />
 
 <title>lingtypology and other packages</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and other packages</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-01-24</em></h4>
+<h4 class="date"><em>2018-01-29</em></h4>
 
 
 
@@ -120,6 +120,11 @@ new_data <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fitBounds</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">addPopups</span>(<span class="dv">2</span>, <span class="dv">48</span>, <span class="st">&quot;Great day!&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>), <span class="dt">pipe.data =</span> ., <span class="dt">tile =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
+<p>It is also possible to use some tools provided by <a href="https://github.com/RCura/leaflet.extras"><code>leaflet.extras</code> package</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(leaflet.extras)
+<span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">addDrawToolbar</span>()  <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">addStyleEditor</span>()  </code></pre></div>
 </div>
 <div id="create-your-atlas-with-rmarkdown" class="section level3">
 <h3>3. Create your atlas with <code>rmarkdown</code></h3>

@@ -50,6 +50,12 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #    map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
 
 ## ------------------------------------------------------------------------
+#  library(leaflet.extras)
+#  map.feature(c("French", "Occitan")) %>%
+#    addDrawToolbar()  %>%
+#    addStyleEditor()
+
+## ------------------------------------------------------------------------
 #  df <- wals.feature(c("1a", "20a"))
 
 ## ------------------------------------------------------------------------

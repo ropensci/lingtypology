@@ -87,6 +87,15 @@ leaflet()  %>%
   map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
 ```
 
+It is also possible to use some tools provided by [`leaflet.extras` package](https://github.com/RCura/leaflet.extras):
+
+```{r}
+library(leaflet.extras)
+map.feature(c("French", "Occitan")) %>% 
+  addDrawToolbar()  %>%
+  addStyleEditor()  
+```
+
 ### 3. Create your atlas with `rmarkdown`
 This section is inspired by talks with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and `rmarkdown` packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.
 
