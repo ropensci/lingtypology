@@ -54,6 +54,9 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #  map.feature(c("French", "Occitan")) %>%
 #    addDrawToolbar()  %>%
 #    addStyleEditor()
+#  
+#  map.feature(c("French", "Occitan")) %>%
+#    addFullscreenControl()
 
 ## ------------------------------------------------------------------------
 #  df <- wals.feature(c("1a", "20a"))

@@ -1,5 +1,5 @@
 bibentry(bibtype = "Manual",
          title = "lingtypology: easy mapping for Linguistic Typology",
          author = person("George", "Moroz"),
-         year = 2017,
+         year = 2018,
          url = "https://CRAN.R-project.org/package=lingtypology")

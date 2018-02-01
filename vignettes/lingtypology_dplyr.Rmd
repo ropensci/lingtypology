@@ -94,6 +94,9 @@ library(leaflet.extras)
 map.feature(c("French", "Occitan")) %>% 
   addDrawToolbar()  %>%
   addStyleEditor()  
+
+map.feature(c("French", "Occitan")) %>% 
+  addFullscreenControl()
 ```
 
 ### 3. Create your atlas with `rmarkdown`

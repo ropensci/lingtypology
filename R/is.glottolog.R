@@ -55,7 +55,7 @@ is.glottolog <-
 
         # alternative names -------------------------------------------------------
         alternates <-
-          grepl(tolower(z), tolower(glottolog$alternate_names))
+          grepl(tolower(z), tolower(glottolog$`alternate names`))
 
         # make a string with all candidates ---------------------------------------
         candidate <- unique(c(

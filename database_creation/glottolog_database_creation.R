@@ -202,6 +202,8 @@ glottolog.modified$language <- gsub("Northwest Sahaptin", "Yakima", glottolog.mo
 glottolog.modified$language <- gsub("Abkhazian", "Abkhaz", glottolog.modified$language)
 glottolog.modified$language <- gsub("Khwarshi-Inkhoqwari", "Inkhoqwari", glottolog.modified$language)
 
+glottolog.modified[glottolog.modified$language %in% "Even", 'longitude'] <- 145
+glottolog.modified[glottolog.modified$language %in% "Even", 'latitude'] <- 65
 glottolog.modified[glottolog.modified$language %in% "Georgian", 'longitude'] <- 44.318829
 glottolog.modified[glottolog.modified$language %in% "Georgian", 'latitude'] <- 41.815745
 glottolog.modified[glottolog.modified$language %in% "Abaza", 'longitude'] <- 41.7879221
