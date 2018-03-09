@@ -213,6 +213,21 @@ wals.feature <-
         "144X",
         "144Y"
       )
+    message(paste0("Don't forget to cite a source (modify in case of using individual chapters):
+
+Dryer, Matthew S. & Haspelmath, Martin (eds.) 2013. The World Atlas of Language Structures Online. Leipzig: Max Planck Institute for Evolutionary Anthropology.
+(Available online at http://wals.info, Accessed on ",
+            Sys.Date(),
+            ".)
+
+@book{wals,
+  address   = {Leipzig},
+  editor    = {Matthew S. Dryer and Martin Haspelmath},
+  publisher = {Max Planck Institute for Evolutionary Anthropology},
+  title     = {WALS Online},
+  url       = {http://wals.info/},
+  year      = {2013}
+}"))
     if (sum(!toupper(features) %in% features_set) < 1){
       links <-
         paste0("http://wals.info/feature/", toupper(features), ".tab")
