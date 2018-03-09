@@ -1,11 +1,11 @@
 lingtypology 1.0.12 (09.03.2018)
- - add the "pipe.data" argument to the "map.feature" function (Thanks  @nikopartanen for the idea).
+ - add the "pipe.data" argument to the "map.feature()" function (Thanks  @nikopartanen for the idea).
  - repair the "afbo.feature()" function.
  - add a message with citation information to all "....feature" function (Thanks  @nikopartanen for the idea).
  - add the "atlas.database()" function for creating atlases with rmarkdown.
- - add the "isogloss" argument to the "map.feture" function for creating multiple isoglosses.
- - correct Even coordinates
- - correct is.glottolog() function
+ - add the "isogloss" argument to the "map.feture()" function for creating multiple isoglosses.
+ - correct Even coordinates,
+ - correct 'is.glottolog()" function.
 
 lingtypology 1.0.11 (15.01.2018)
  - add "shape" arguments.
