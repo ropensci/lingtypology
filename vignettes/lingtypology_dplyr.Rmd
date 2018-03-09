@@ -106,7 +106,7 @@ map.feature(c("Adyghe", "Russian")) %>%
 map.feature(c("Adyghe", "Russian")) %>% 
   leaflet::addPolygons(data = my_polygone$finished)
 ```
-![](https://raw.githubusercontent.com/ropensci/lingtypology/tree/master/docs/use_mapedit.gif)
+![](https://raw.githubusercontent.com/ropensci/lingtypology/master/docs/use_mapedit.gif)
 
 ### 3. Create your atlas with `rmarkdown`
 This section is inspired by talks with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and [`rmarkdown`](https://github.com/rstudio/rmarkdown) packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.
