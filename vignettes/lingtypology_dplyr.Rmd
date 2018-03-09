@@ -15,7 +15,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 
 ### 1. `dplyr` and `magritr` %>%
 
-It is possible to use `dplyr` functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. First download the data:
+It is possible to use [`dplyr`](https://github.com/tidyverse/dplyr) functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. First download the data:
  
 ```{r}
 new_data <- read.csv("https://goo.gl/GgscBE")
@@ -49,7 +49,7 @@ new_data %>%
 
 ### 2. `leaflet`
 
-There is also a possibility to use `lingtypology` with other `leaflet` functions (thanks to [Niko Partanen](https://github.com/nikopartanen) for the idea):
+There is also a possibility to use `lingtypology` with other [`leaflet`](https://github.com/rstudio/leaflet) functions (thanks to [Niko Partanen](https://github.com/nikopartanen) for the idea):
 
 ```{r}
 library(leaflet)
@@ -90,17 +90,26 @@ leaflet()  %>%
 It is also possible to use some tools provided by [`leaflet.extras` package](https://github.com/RCura/leaflet.extras):
 
 ```{r}
-library(leaflet.extras)
 map.feature(c("French", "Occitan")) %>% 
-  addDrawToolbar()  %>%
-  addStyleEditor()  
-
+  leaflet.extras::addDrawToolbar()  %>%
+  leaflet.extras::addStyleEditor()
 map.feature(c("French", "Occitan")) %>% 
-  addFullscreenControl()
+  leaflet.extras::addFullscreenControl()
 ```
 
+Also there is a nice package `mapedit`:
+```{r, eval = FALSE}
+map.feature(c("Adyghe", "Russian")) %>% 
+  mapedit::editMap() ->
+  my_polygone
+
+map.feature(c("Adyghe", "Russian")) %>% 
+  leaflet::addPolygons(data = my_polygone$finished)
+```
+![](https://raw.githubusercontent.com/ropensci/lingtypology/tree/master/docs/use_mapedit.gif)
+
 ### 3. Create your atlas with `rmarkdown`
-This section is inspired by talks with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and `rmarkdown` packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.
+This section is inspired by talks with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and [`rmarkdown`](https://github.com/rstudio/rmarkdown) packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.
 
 First, lets create a `dataframe` with some data.
 ```{r}

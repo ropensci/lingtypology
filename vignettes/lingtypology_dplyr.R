@@ -50,13 +50,19 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #    map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
 
 ## ------------------------------------------------------------------------
-#  library(leaflet.extras)
 #  map.feature(c("French", "Occitan")) %>%
-#    addDrawToolbar()  %>%
-#    addStyleEditor()
+#    leaflet.extras::addDrawToolbar()  %>%
+#    leaflet.extras::addStyleEditor()
+#  map.feature(c("French", "Occitan")) %>%
+#    leaflet.extras::addFullscreenControl()
+
+## ---- eval = FALSE-------------------------------------------------------
+#  map.feature(c("Adyghe", "Russian")) %>%
+#    mapedit::editMap() ->
+#    my_polygone
 #  
-#  map.feature(c("French", "Occitan")) %>%
-#    addFullscreenControl()
+#  map.feature(c("Adyghe", "Russian")) %>%
+#    leaflet::addPolygons(data = my_polygone$finished)
 
 ## ------------------------------------------------------------------------
 #  df <- wals.feature(c("1a", "20a"))

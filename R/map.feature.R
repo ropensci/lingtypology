@@ -148,6 +148,7 @@
 #' @importFrom grDevices topo.colors
 #' @importFrom rowr cbind.fill
 #' @importFrom magrittr %>%
+#' @export %>%
 #' @importFrom leaflet.minicharts addMinicharts
 #' @importFrom leaflet.minicharts popupArgs
 #'
