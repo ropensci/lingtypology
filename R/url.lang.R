@@ -21,7 +21,6 @@ url.lang <- function(x,
     glottolog <- lingtypology::glottolog.original,
     glottolog <- lingtypology::glottolog.modified
   )
-
   df <-
     glottolog[tolower(glottolog$language) %in% tolower(x), 1:3]
   df <- df[match(tolower(x), tolower(df$language)),]

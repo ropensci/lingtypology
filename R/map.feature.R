@@ -157,8 +157,8 @@ map.feature <- function(languages,
                         features = "",
                         label = "",
                         popup = "",
-                        latitude = NULL,
-                        longitude = NULL,
+                        latitude = NA,
+                        longitude = NA,
                         label.hide = TRUE,
                         label.fsize = 14,
                         label.position = "right",
@@ -240,17 +240,20 @@ map.feature <- function(languages,
   if (typeof(languages) == "list") {
     languages <- unlist(languages)
   }
+  if(!("fake" %in% tolower(languages))){
   if (sum(is.glottolog(
     languages,
     response = TRUE,
     glottolog.source = glottolog.source
   )) == 0) {
     stop("There is no data to map")
-  }
+  }}
 
   # create dataframe ---------------------------------------------------------
   mapfeat.df <- data.frame(languages, features,
-                           popup = popup)
+                           popup = popup,
+                           long = longitude,
+                           lat = latitude)
   if (sum(label == "") != length(label)) {
     mapfeat.df$label <- as.character(label)
     if (!is.null(label.emphasize[[1]])) {
@@ -269,7 +272,8 @@ map.feature <- function(languages,
 
   # if there are no latitude and longitude
 
-  if (is.null(latitude) & is.null(longitude)) {
+  if (sum(is.na(latitude) &
+          is.na(longitude)) == length(latitude & longitude)) {
     mapfeat.df$long <- long.lang(languages,
                                  map.orientation = map.orientation,
                                  glottolog.source = glottolog.source)

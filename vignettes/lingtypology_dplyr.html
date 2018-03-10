@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-03-09" />
+<meta name="date" content="2018-03-10" />
 
 <title>lingtypology and other packages</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and other packages</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-03-09</em></h4>
+<h4 class="date"><em>2018-03-10</em></h4>
 
 
 
@@ -138,9 +138,30 @@ new_data <span class="op">%&gt;%</span>
 
 </div>
 </div>
-<div id="create-your-atlas-with-rmarkdown" class="section level3">
-<h3>3. Create your atlas with <code>rmarkdown</code></h3>
-<p>This section is inspired by talks with <a href="https://github.com/nikopartanen">Niko Partanen</a>. It is possible to create an atlas website using <code>lingtypology</code> and <a href="https://github.com/rstudio/rmarkdown"><code>rmarkdown</code></a> packages. The function <code>atlas.database()</code> creates a folder in the working directory that contains an <code>rmarkdown</code> template for a web-site.</p>
+<div id="get-data-from-openstreetmap-with-overpass" class="section level3">
+<h3>3. Get data from OpenStreetMap with <code>overpass</code></h3>
+<p>This section is inspired by talk with <a href="https://github.com/nikopartanen">Niko Partanen</a> and his <a href="https://gist.github.com/nikopartanen/f5b4a325808ea8993bfb14b9f81cdfc1">gist</a>. <a href="https://github.com/hrbrmstr/overpass">Overpass</a> is a packge with tools to work with the OpenStreetMap (OSM) <a href="http://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a>. Explore simple Overpass queries with <a href="http://overpass-turbo.eu/">overpass turbo</a>. Imagine that we need to get all settlements from Ingushetia, Daghestan and Chechnya. So, first, load a library:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(overpass)</code></pre></div>
+<p>Create a query:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">settlements &lt;-<span class="st"> '</span>
+<span class="st">area[name~&quot;Дагестан|Ингушетия|Чечня&quot;];</span>
+<span class="st">(node[&quot;place&quot;~&quot;city|village|town|hamlet&quot;](area););</span>
+<span class="st">out;'</span></code></pre></div>
+<p>Pass the query to <code>overpass_query()</code> function and change the input result to dataframe:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">query_result &lt;-<span class="st"> </span><span class="kw">overpass_query</span>(settlements)
+settlement_data &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(query_result[, <span class="kw">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;lon&quot;</span>, <span class="st">&quot;lat&quot;</span>, <span class="st">&quot;name&quot;</span>)])</code></pre></div>
+<p>Some values could be <code>NA</code>, so I profer clean it with <code>complete.cases()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">settlement_data &lt;-<span class="st"> </span>settlement_data[<span class="kw">complete.cases</span>(settlement_data),]</code></pre></div>
+<p>On the last step, I will use a “fake” language argument to avoid the creation of some Glottolog links:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(<span class="dt">language =</span> <span class="st">&quot;fake&quot;</span>,
+            <span class="dt">latitude =</span> settlement_data<span class="op">$</span>lat,
+            <span class="dt">longitude =</span> settlement_data<span class="op">$</span>lon,
+            <span class="dt">label =</span> settlement_data<span class="op">$</span>name)</code></pre></div>
+<p>Results are not ideal: there are some villages Дагестанская and Красный Дагестан in Adygeya and Krasnodarskiy district, but the most points are correct. It is also possible to get all data from some polygone created with <code>mapedit</code> (see previous section).</p>
+</div>
+<div id="create-your-own-atlas-with-rmarkdown" class="section level3">
+<h3>4. Create your own atlas with <code>rmarkdown</code></h3>
+<p>This section is inspired by talk with <a href="https://github.com/nikopartanen">Niko Partanen</a>. It is possible to create an atlas website using <code>lingtypology</code> and <a href="https://github.com/rstudio/rmarkdown"><code>rmarkdown</code></a> packages. The function <code>atlas.database()</code> creates a folder in the working directory that contains an <code>rmarkdown</code> template for a web-site.</p>
 <p>First, lets create a <code>dataframe</code> with some data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">wals.feature</span>(<span class="kw">c</span>(<span class="st">&quot;1a&quot;</span>, <span class="st">&quot;20a&quot;</span>))</code></pre></div>
 <p>Second we can create a website using <code>atlas.database()</code> function:</p>

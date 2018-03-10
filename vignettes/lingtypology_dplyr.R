@@ -65,6 +65,28 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #    leaflet::addPolygons(data = my_polygone$finished)
 
 ## ------------------------------------------------------------------------
+#  library(overpass)
+
+## ------------------------------------------------------------------------
+#  settlements <- '
+#  area[name~"Дагестан|Ингушетия|Чечня"];
+#  (node["place"~"city|village|town|hamlet"](area););
+#  out;'
+
+## ------------------------------------------------------------------------
+#  query_result <- overpass_query(settlements)
+#  settlement_data <- as.data.frame(query_result[, c("id", "lon", "lat", "name")])
+
+## ------------------------------------------------------------------------
+#  settlement_data <- settlement_data[complete.cases(settlement_data),]
+
+## ------------------------------------------------------------------------
+#  map.feature(language = "fake",
+#              latitude = settlement_data$lat,
+#              longitude = settlement_data$lon,
+#              label = settlement_data$name)
+
+## ------------------------------------------------------------------------
 #  df <- wals.feature(c("1a", "20a"))
 
 ## ------------------------------------------------------------------------

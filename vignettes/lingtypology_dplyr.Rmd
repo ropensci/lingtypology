@@ -108,8 +108,47 @@ map.feature(c("Adyghe", "Russian")) %>%
 ```
 ![](https://raw.githubusercontent.com/ropensci/lingtypology/master/docs/use_mapedit.gif)
 
-### 3. Create your atlas with `rmarkdown`
-This section is inspired by talks with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and [`rmarkdown`](https://github.com/rstudio/rmarkdown) packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.
+
+### 3. Get data from OpenStreetMap with `overpass`
+This section is inspired by talk with [Niko Partanen](https://github.com/nikopartanen) and his [gist](https://gist.github.com/nikopartanen/f5b4a325808ea8993bfb14b9f81cdfc1). [Overpass](https://github.com/hrbrmstr/overpass) is a packge with tools to work with the OpenStreetMap (OSM) [Overpass API](http://wiki.openstreetmap.org/wiki/Overpass_API). Explore simple Overpass queries with [overpass turbo](http://overpass-turbo.eu/). Imagine that we need to get all settlements from Ingushetia, Daghestan and Chechnya. So, first, load a library:
+
+```{r}
+library(overpass)
+```
+
+Create a query:
+
+```{r}
+settlements <- '
+area[name~"Дагестан|Ингушетия|Чечня"];
+(node["place"~"city|village|town|hamlet"](area););
+out;'
+```
+
+Pass the query to `overpass_query()` function and change the input result to dataframe:
+```{r}
+query_result <- overpass_query(settlements)
+settlement_data <- as.data.frame(query_result[, c("id", "lon", "lat", "name")])
+```
+
+Some values could be `NA`, so I profer clean it with `complete.cases()` function:
+```{r}
+settlement_data <- settlement_data[complete.cases(settlement_data),]
+```
+
+On the last step, I will use a "fake"  language argument to avoid the creation of some Glottolog links:
+
+```{r}
+map.feature(language = "fake",
+            latitude = settlement_data$lat,
+            longitude = settlement_data$lon,
+            label = settlement_data$name)
+```
+
+Results are not ideal: there are some villages Дагестанская and Красный Дагестан in Adygeya and Krasnodarskiy district, but the most points are correct. It is also possible to get all data from some polygone created with `mapedit` (see previous section).
+
+### 4. Create your own atlas with `rmarkdown`
+This section is inspired by talk with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and [`rmarkdown`](https://github.com/rstudio/rmarkdown) packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.
 
 First, lets create a `dataframe` with some data.
 ```{r}

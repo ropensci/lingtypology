@@ -5,9 +5,9 @@
 \title{Create a map}
 \usage{
 map.feature(languages, features = "", label = "", popup = "",
-  latitude = NULL, longitude = NULL, label.hide = TRUE,
-  label.fsize = 14, label.position = "right", label.emphasize = list(NULL,
-  "black"), shape = NULL, shape.size = 20, pipe.data = NULL,
+  latitude = NA, longitude = NA, label.hide = TRUE, label.fsize = 14,
+  label.position = "right", label.emphasize = list(NULL, "black"),
+  shape = NULL, shape.size = 20, pipe.data = NULL,
   shape.color = "black", stroke.features = NULL,
   density.estimation = NULL, density.estimation.color = NULL,
   density.estimation.opacity = 0.6, density.points = TRUE,
