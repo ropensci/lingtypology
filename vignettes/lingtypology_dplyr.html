@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-03-10" />
+<meta name="date" content="2018-03-17" />
 
 <title>lingtypology and other packages</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and other packages</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-03-10</em></h4>
+<h4 class="date"><em>2018-03-17</em></h4>
 
 
 
@@ -188,6 +188,16 @@ settlement_data &lt;-<span class="st"> </span><span class="kw">as.data.frame</sp
 <li>…</li>
 <li>and on the end rerun the <code>rmarkdown::render_site(&quot;./atlas_Some_WALS_features/&quot;)</code> command.</li>
 </ul>
+</div>
+<div id="create-.kml-file-using-sp-and-rgdal" class="section level3">
+<h3>5. Create .kml file using <code>sp</code> and <code>rgdal</code></h3>
+<p>.kml file is a common file type for geospatial data. This kind of files are used in <a href="https://en.wikipedia.org/wiki/Google_Earth">Google Earth</a>, <a href="http://www.gabmap.nl/">Gabmap</a> (a web application that visualizes dialect variations) and others. In order to produce a .kml file you need to have a dataset with coordinates such as <code>circassian</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sp<span class="op">::</span><span class="kw">coordinates</span>(circassian) &lt;-<span class="st"> </span><span class="er">~</span>longitude<span class="op">+</span>latitude
+sp<span class="op">::</span><span class="kw">proj4string</span>(circassian) &lt;-<span class="st"> </span>sp<span class="op">::</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)
+rgdal<span class="op">::</span><span class="kw">writeOGR</span>(circassian[<span class="st">&quot;village&quot;</span>],
+                <span class="st">&quot;circassian.kml&quot;</span>, 
+                <span class="dt">layer=</span><span class="st">&quot;village&quot;</span>,
+                <span class="dt">driver=</span><span class="st">&quot;KML&quot;</span>)</code></pre></div>
 </div>
 
 

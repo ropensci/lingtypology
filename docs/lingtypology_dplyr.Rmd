@@ -106,8 +106,6 @@ map.feature(c("Adyghe", "Russian")) %>%
 ![](https://raw.githubusercontent.com/ropensci/lingtypology/master/docs/use_mapedit.gif)
 
 
-
-
 ### 3. Get data from OpenStreetMap with `overpass`
 This section is inspired by talk with [Niko Partanen](https://github.com/nikopartanen) and his [gist](https://gist.github.com/nikopartanen/f5b4a325808ea8993bfb14b9f81cdfc1). [Overpass](https://github.com/hrbrmstr/overpass) is a packge with tools to work with the OpenStreetMap (OSM) [Overpass API](http://wiki.openstreetmap.org/wiki/Overpass_API). Explore simple Overpass queries with [overpass turbo](http://overpass-turbo.eu/). Imagine that we need to get all settlements from Ingushetia, Daghestan and Chechnya. So, first, load a library:
 
@@ -191,4 +189,15 @@ Then the atlas website will be created (here is [a result](https://agricolamz.gi
 
 ```{r, include=FALSE}
 unlink("./atlas_Some_WALS_features/", recursive = TRUE)
+```
+
+### 5. Create .kml file using `sp` and `rgdal`
+.kml file is a common file type for geospatial data. This kind of files are used in [Google Earth](https://en.wikipedia.org/wiki/Google_Earth), [Gabmap](http://www.gabmap.nl/) (a web application that visualizes dialect variations) and others. In order to produce a .kml file you need to have a dataset with coordinates such as `circassian`:
+```{r, eval= FALSE}
+sp::coordinates(circassian) <- ~longitude+latitude
+sp::proj4string(circassian) <- sp::CRS("+proj=longlat +datum=WGS84")
+rgdal::writeOGR(circassian["village"],
+                "circassian.kml", 
+                layer="village",
+                driver="KML")
 ```

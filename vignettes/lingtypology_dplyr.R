@@ -106,3 +106,11 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 ## ---- include=FALSE------------------------------------------------------
 #  unlink("./atlas_Some_WALS_features/", recursive = TRUE)
 
+## ---- eval= FALSE--------------------------------------------------------
+#  sp::coordinates(circassian) <- ~longitude+latitude
+#  sp::proj4string(circassian) <- sp::CRS("+proj=longlat +datum=WGS84")
+#  rgdal::writeOGR(circassian["village"],
+#                  "circassian.kml",
+#                  layer="village",
+#                  driver="KML")
+
