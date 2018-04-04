@@ -5,7 +5,7 @@
 \title{Create a map}
 \usage{
 map.feature(languages, features = "", label = "", popup = "",
-  latitude = NA, longitude = NA, label.hide = TRUE, label.fsize = 14,
+  latitude = NA, longitude = NA, label.hide = TRUE, label.fsize = 15,
   label.position = "right", label.emphasize = list(NULL, "black"),
   shape = NULL, shape.size = 20, pipe.data = NULL,
   shape.color = "black", stroke.features = NULL,

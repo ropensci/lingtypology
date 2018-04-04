@@ -160,7 +160,7 @@ map.feature <- function(languages,
                         latitude = NA,
                         longitude = NA,
                         label.hide = TRUE,
-                        label.fsize = 14,
+                        label.fsize = 15,
                         label.position = "right",
                         label.emphasize = list(NULL, "black"),
                         shape = NULL,
@@ -494,6 +494,14 @@ map.feature <- function(languages,
 
   }
 
+
+# create labels -----------------------------------------------------------
+
+  offset <- ifelse(label.position == "right",
+                   1,
+                   ifelse(label.position == "left",-1,
+                          0))
+
   ### create a map ------------------------------------------------------------
   if (!is.null(pipe.data)) {
     m <- pipe.data
@@ -540,6 +548,7 @@ map.feature <- function(languages,
         labelOptions = leaflet::labelOptions(
           noHide = !(label.hide),
           direction = label.position,
+          offset = c(label.fsize*offset/2, 0),
           textOnly = TRUE,
           style = list(
             "font-size" = paste0(label.fsize, "px"),
@@ -568,6 +577,7 @@ map.feature <- function(languages,
         labelOptions = leaflet::labelOptions(
           noHide = !(label.hide),
           direction = label.position,
+          offset = c(label.fsize*offset/2, 0),
           textOnly = TRUE,
           style = list(
             "font-size" = paste0(label.fsize, "px"),
@@ -644,6 +654,7 @@ map.feature <- function(languages,
         labelOptions = leaflet::labelOptions(
           noHide = !(label.hide),
           direction = label.position,
+          offset = c(label.fsize*offset/2, 0),
           textOnly = TRUE,
           style = list("font-size" = paste0(label.fsize, "px"))
         ),
@@ -682,6 +693,7 @@ map.feature <- function(languages,
         labelOptions = leaflet::labelOptions(
           noHide = !(label.hide),
           direction = label.position,
+          offset = c(label.fsize*offset/2, 0),
           textOnly = TRUE,
           style = list("font-size" = paste0(label.fsize, "px"))
         )
@@ -745,33 +757,20 @@ map.feature <- function(languages,
       icons <- as.character(shape[as.factor(mapfeat.df$features)])
     }
 
-    m <- m %>% addLabelOnlyMarkers(
+    m <- m %>% leaflet::addCircleMarkers(
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
       label = icons,
-      labelOptions = labelOptions(
+      opacity = 0,
+      fillOpacity = 0,
+      labelOptions = leaflet::labelOptions(
         noHide = TRUE,
         textOnly = TRUE,
         textsize = paste0(shape.size, "px"),
-        offset = c(-7,-14),
+        direction = "center",
         style = list("color" = shape.color)
       )
-    ) %>%
-      leaflet::addCircleMarkers(
-        lng = mapfeat.df$long,
-        lat = mapfeat.df$lat,
-        popup = mapfeat.df$link,
-        stroke = FALSE,
-        radius = width,
-        fillOpacity = 0,
-        label = mapfeat.df$label,
-        labelOptions = leaflet::labelOptions(
-          noHide = !(label.hide),
-          direction = label.position,
-          textOnly = TRUE,
-          style = list("font-size" = paste0(label.fsize, "px"))
-        )
-      )
+    )
     if (legend == TRUE) {
       m <- m %>%
         leaflet::addControl(html = paste(
@@ -807,6 +806,7 @@ map.feature <- function(languages,
             labelOptions = leaflet::labelOptions(
               noHide = !(label.hide),
               direction = label.position,
+              offset = c(label.fsize*offset/2, 0),
               textOnly = TRUE,
               style = list("font-size" = paste0(label.fsize, "px"),
                            "color" = label.emphasize[[2]])),

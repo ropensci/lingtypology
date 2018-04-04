@@ -1,5 +1,6 @@
-lingtypology 1.0.13 (10.03.2018)
+lingtypology 1.0.13 (04.04.2018)
  - add the possibility to use "fake" language in the "map.feature()" function.
+ - correct all arguments with labels after leaflet update.
 
 lingtypology 1.0.12 (09.03.2018)
  - add the "pipe.data" argument to the "map.feature()" function (Thanks  @nikopartanen for the idea).
