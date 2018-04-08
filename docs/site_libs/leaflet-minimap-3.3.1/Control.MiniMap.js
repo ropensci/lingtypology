@@ -20,9 +20,6 @@
 }(function (L) {
 
 	var MiniMap = L.Control.extend({
-
-		includes: L.Mixin.Events,
-
 		options: {
 			position: 'bottomright',
 			toggleDisplay: false,
@@ -130,19 +127,11 @@
 
 		_addToggleButton: function () {
 			this._toggleDisplayButton = this.options.toggleDisplay ? this._createButton(
-				'', this._toggleButtonInitialTitleText(), ('leaflet-control-minimap-toggle-display leaflet-control-minimap-toggle-display-' +
+				'', this.options.strings.hideText, ('leaflet-control-minimap-toggle-display leaflet-control-minimap-toggle-display-' +
 				this.options.position), this._container, this._toggleDisplayButtonClicked, this) : undefined;
 
 			this._toggleDisplayButton.style.width = this.options.collapsedWidth + 'px';
 			this._toggleDisplayButton.style.height = this.options.collapsedHeight + 'px';
-		},
-
-		_toggleButtonInitialTitleText: function () {
-			if (this.options.minimized) {
-				return this.options.strings.showText;
-			} else {
-				return this.options.strings.hideText;
-			}
 		},
 
 		_createButton: function (html, title, className, container, fn, context) {
@@ -193,7 +182,6 @@
 				this._container.style.display = 'none';
 			}
 			this._minimized = true;
-			this._onToggle();
 		},
 
 		_restore: function () {
@@ -207,7 +195,6 @@
 				this._container.style.display = 'block';
 			}
 			this._minimized = false;
-			this._onToggle();
 		},
 
 		_onMainMapMoved: function (e) {
@@ -318,22 +305,6 @@
 
 		_isDefined: function (value) {
 			return typeof value !== 'undefined';
-		},
-
-		_onToggle: function () {
-			L.Util.requestAnimFrame(function () {
-				L.DomEvent.on(this._container, 'transitionend', this._fireToggleEvents, this);
-				if (!L.Browser.any3d) {
-					L.Util.requestAnimFrame(this._fireToggleEvents, this);
-				}
-			}, this);
-		},
-
-		_fireToggleEvents: function () {
-			L.DomEvent.off(this._container, 'transitionend', this._fireToggleEvents, this);
-			var data = { minimized: this._minimized };
-			this.fire(this._minimized ? 'minimize' : 'restore', data);
-			this.fire('toggle', data);
 		}
 	});
 
