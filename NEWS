@@ -1,6 +1,7 @@
 lingtypology 1.0.13 (04.04.2018)
  - add the possibility to use "fake" language in the "map.feature()" function.
- - correct all arguments with labels after leaflet update.
+ - lingtypology take into account leaflet 2.0.0 updates
+ - add possibility to use combination of shape and label arguments
 
 lingtypology 1.0.12 (09.03.2018)
  - add the "pipe.data" argument to the "map.feature()" function (Thanks  @nikopartanen for the idea).
@@ -9,7 +10,7 @@ lingtypology 1.0.12 (09.03.2018)
  - add the "atlas.database()" function for creating atlases with rmarkdown.
  - add the "isogloss" argument to the "map.feture()" function for creating multiple isoglosses.
  - correct Even coordinates,
- - correct 'is.glottolog()" function.
+ - correct "is.glottolog()" function.
 
 lingtypology 1.0.11 (15.01.2018)
  - add "shape" arguments.

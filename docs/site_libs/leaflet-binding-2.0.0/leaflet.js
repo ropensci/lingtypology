@@ -1624,7 +1624,7 @@ methods.addPolylines = function (polygons, layerId, group, options, popup, popup
         return _htmlwidgets2.default.dataframeToD3(shape[0]);
       });
       if (shapes.length > 1) {
-        return _leaflet2.default.multiPolyline(shapes, df.get(i));
+        return _leaflet2.default.polyline(shapes, df.get(i));
       } else {
         return _leaflet2.default.polyline(shapes[0], df.get(i));
       }
@@ -1927,7 +1927,7 @@ methods.addLegend = function (options) {
         labels.push(options.na_label);
       }
       for (var i = 0; i < colors.length; i++) {
-        legendHTML += "<i style=\"background:" + colors[i] + ";opacity:" + options.opacity + "\"></i> " + labels[i];
+        legendHTML += "<i style=\"background:" + colors[i] + ";opacity:" + options.opacity + "\"></i> " + labels[i] + "<br>";
       }
       div.innerHTML = legendHTML;
     }

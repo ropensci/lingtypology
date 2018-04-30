@@ -770,7 +770,25 @@ map.feature <- function(languages,
         direction = "center",
         style = list("color" = shape.color)
       )
-    )
+    ) %>%
+      leaflet::addCircleMarkers(
+        lng = mapfeat.df$long,
+        lat = mapfeat.df$lat,
+        popup = mapfeat.df$link,
+        stroke = FALSE,
+        radius = width,
+        fillOpacity = 0,
+        color = pal(mapfeat.df$features),
+        group = mapfeat.df$features,
+        label = mapfeat.df$label,
+        labelOptions = leaflet::labelOptions(
+          noHide = !(label.hide),
+          direction = label.position,
+          offset = c(label.fsize*offset/2, 0),
+          textOnly = TRUE,
+          style = list("font-size" = paste0(label.fsize, "px"))
+        )
+      )
     if (legend == TRUE) {
       m <- m %>%
         leaflet::addControl(html = paste(
@@ -788,7 +806,25 @@ map.feature <- function(languages,
             collapse = ""
           )
         ),
-        position = legend.position)
+        position = legend.position)%>%
+        leaflet::addCircleMarkers(
+          lng = mapfeat.df$long,
+          lat = mapfeat.df$lat,
+          popup = mapfeat.df$link,
+          stroke = FALSE,
+          radius = width,
+          fillOpacity = 0,
+          color = pal(mapfeat.df$features),
+          group = mapfeat.df$features,
+          label = mapfeat.df$label,
+          labelOptions = leaflet::labelOptions(
+            noHide = !(label.hide),
+            direction = label.position,
+            offset = c(label.fsize*offset/2, 0),
+            textOnly = TRUE,
+            style = list("font-size" = paste0(label.fsize, "px"))
+          )
+        )
     }}
 
 
