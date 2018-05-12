@@ -946,6 +946,7 @@ map.feature <- function(languages,
     # map: MiniMap ------------------------------------------------------------
     if (minimap == TRUE) {
       m <- m %>% leaflet::addMiniMap(
+        tiles = tile[1],
         position = minimap.position,
         width = minimap.width,
         height = minimap.height,
