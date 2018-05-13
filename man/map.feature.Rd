@@ -6,9 +6,9 @@
 \usage{
 map.feature(languages, features = "", label = "", popup = "",
   latitude = NA, longitude = NA, label.hide = TRUE, label.fsize = 15,
-  label.position = "right", label.emphasize = list(NULL, "black"),
-  shape = NULL, shape.size = 20, pipe.data = NULL,
-  shape.color = "black", stroke.features = NULL,
+  label.font = "sans-serif", label.position = "right",
+  label.emphasize = list(NULL, "black"), shape = NULL, shape.size = 20,
+  pipe.data = NULL, shape.color = "black", stroke.features = NULL,
   density.estimation = NULL, density.estimation.color = NULL,
   density.estimation.opacity = 0.6, density.points = TRUE,
   density.longitude.width = NULL, density.latitude.width = NULL,
@@ -51,6 +51,8 @@ map.feature(languages, features = "", label = "", popup = "",
 \item{label.hide}{logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.}
 
 \item{label.fsize}{numeric value of the label font size. By default is 14.}
+
+\item{label.font}{string with values of generic family: "serif", "sans-serif", "monospace", or font name e. g. "Times New Roman"}
 
 \item{label.position}{the position of labels: "left", "right", "top", "bottom"}
 

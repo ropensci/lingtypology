@@ -38,6 +38,7 @@
 #' @param image.Y.shift numeric vector of image's Y axis shift relative to the latitude-longitude point
 #' @param label.fsize numeric value of the label font size. By default is 14.
 #' @param label.hide logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.
+#' @param label.font string with values of generic family: "serif", "sans-serif", "monospace", or font name e. g. "Times New Roman"
 #' @param label.position the position of labels: "left", "right", "top", "bottom"
 #' @param label.emphasize is the list. First argument is a vector of points in datframe that should be emphasized. Second argument is a string with a color for emphasis.
 #' @param legend logical. If TRUE, function show legend. By default is TRUE.
@@ -161,6 +162,7 @@ map.feature <- function(languages,
                         longitude = NA,
                         label.hide = TRUE,
                         label.fsize = 15,
+                        label.font = "sans-serif",
                         label.position = "right",
                         label.emphasize = list(NULL, "black"),
                         shape = NULL,
@@ -552,6 +554,7 @@ map.feature <- function(languages,
           textOnly = TRUE,
           style = list(
             "font-size" = paste0(label.fsize, "px"),
+            "font-family" = label.font,
             "color" = label.emphasize[[2]]
           )
         ),
@@ -581,6 +584,7 @@ map.feature <- function(languages,
           textOnly = TRUE,
           style = list(
             "font-size" = paste0(label.fsize, "px"),
+            "font-family" = label.font,
             "color" = label.emphasize[[2]]
           )
         ),
@@ -656,7 +660,8 @@ map.feature <- function(languages,
           direction = label.position,
           offset = c(label.fsize*offset/2, 0),
           textOnly = TRUE,
-          style = list("font-size" = paste0(label.fsize, "px"))
+          style = list("font-size" = paste0(label.fsize, "px"),
+                       "font-family" = label.font)
         ),
         stroke = FALSE,
         radius = 1.15 * width,
@@ -695,7 +700,8 @@ map.feature <- function(languages,
           direction = label.position,
           offset = c(label.fsize*offset/2, 0),
           textOnly = TRUE,
-          style = list("font-size" = paste0(label.fsize, "px"))
+          style = list("font-size" = paste0(label.fsize, "px"),
+                       "font-family" = label.font)
         )
       )
   }
@@ -768,7 +774,8 @@ map.feature <- function(languages,
         textOnly = TRUE,
         textsize = paste0(shape.size, "px"),
         direction = "center",
-        style = list("color" = shape.color)
+        style = list("color" = shape.color,
+                     "font-family" = label.font)
       )
     ) %>%
       leaflet::addCircleMarkers(
@@ -786,7 +793,8 @@ map.feature <- function(languages,
           direction = label.position,
           offset = c(label.fsize*offset/2, 0),
           textOnly = TRUE,
-          style = list("font-size" = paste0(label.fsize, "px"))
+          style = list("font-size" = paste0(label.fsize, "px"),
+                       "font-family" = label.font)
         )
       )
     if (legend == TRUE) {
@@ -822,7 +830,8 @@ map.feature <- function(languages,
             direction = label.position,
             offset = c(label.fsize*offset/2, 0),
             textOnly = TRUE,
-            style = list("font-size" = paste0(label.fsize, "px"))
+            style = list("font-size" = paste0(label.fsize, "px"),
+                         "font-family" = label.font)
           )
         )
     }}
@@ -845,6 +854,7 @@ map.feature <- function(languages,
               offset = c(label.fsize*offset/2, 0),
               textOnly = TRUE,
               style = list("font-size" = paste0(label.fsize, "px"),
+                           "font-family" = label.font,
                            "color" = label.emphasize[[2]])),
             group = mapfeat.df$features
           )

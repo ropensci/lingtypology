@@ -1,8 +1,9 @@
-lingtypology 1.0.13 (12.05.2018)
+lingtypology 1.0.13 (13.05.2018)
  - add the possibility to use "fake" language in the "map.feature()" function.
  - lingtypology take into account leaflet 2.0.0 updates
  - add possibility to use combination of shape and label arguments
  - the base layer of the mini-map is the same as the base layer of the main map
+ - add the "label.font" argument to the "map.feature()" function
 
 lingtypology 1.0.12 (09.03.2018)
  - add the "pipe.data" argument to the "map.feature()" function (Thanks  @nikopartanen for the idea).
