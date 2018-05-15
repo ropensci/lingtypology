@@ -2,9 +2,9 @@
 #'
 #' A dataset containes the list of the Circassian villages in Russia
 #' with genealogical affiliation, coordinates and district names. Most
-#' data collected during the fieldworks (2011--2016).
+#' data collected during the fieldworks (2011--2018).
 #'
-#' @format A data frame with 157 rows and 6 variables:
+#' @format A data frame with 158 rows and 6 variables:
 #' \describe{
 #'   \item{longitude}{longitude}
 #'   \item{latitude}{latitude}

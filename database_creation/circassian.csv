@@ -1,158 +1,159 @@
-longitude,latitude,village,district,dialect,language
-40.23,45.02,Khakurinokhabl,ra,Abadzex,Adyghe
-43.1114348,43.8229374,Dzhenal,kbr,Baksan,Kabardian
-44.3636557,43.4855758,Inarkoy,kbr,Baksan,Kabardian
-43.7156896,43.7574704,Psynshoko,kbr,Baksan,Kabardian
-43.93194,43.52444,Nizhny Cherek,kbr,Baksan,Kabardian
-43.9127396,43.3423158,Anzorey,kbr,Baksan,Kabardian
-44.2119773,43.4535606,Beloglinskoe,kbr,Baksan,Kabardian
-43.7706143,43.8034456,Karagach,kbr,Baksan,Kabardian
-43.1074819,43.8788349,Shordakovo,kbr,Baksan,Kabardian
-43.5220851,43.0925184,Psygansu,kbr,Baksan,Kabardian
-43.8943217,43.5405887,Kakhun,kbr,Baksan,Kabardian
-43.8366936,43.4662834,Stary Cherek,kbr,Baksan,Kabardian
-43.1932675,43.7403259,Sarmakovo,kbr,Baksan,Kabardian
-43.3469916,43.6101972,Zayukovo,kbr,Baksan,Kabardian
-43.2600149,43.7768461,Kamlyukovo,kbr,Baksan,Kabardian
-43.8850094,43.7225969,Altud,kbr,Baksan,Kabardian
-43.4982674,43.6708678,Dygulybgey,kbr,Baksan,Kabardian
-43.6079187,43.8366461,Psykhurey,kbr,Baksan,Kabardian
-43.2514048,43.8602847,Psynadakha,kbr,Baksan,Kabardian
-43.1531165,43.835631,Zalukodes,kbr,Baksan,Kabardian
-43.9045102,43.4118144,Argudan,kbr,Baksan,Kabardian
-43.6384818,43.6489847,Kishpek,kbr,Baksan,Kabardian
-43.4203399,43.6612534,Islamey,kbr,Baksan,Kabardian
-43.1460561,43.8022258,Sovkhoznoe,kbr,Baksan,Kabardian
-44.26917,43.63194,Maly Terek,kbr,Baksan,Kabardian
-43.0370284,43.7341489,Kamennomostskoe,kbr,Baksan,Kabardian
-44.2133042,43.6979041,Urozhaynoe,kbr,Baksan,Kabardian
-43.4030838,43.6464595,Atazhukino,kbr,Baksan,Kabardian
-43.3510112,43.7441546,Nizhny Kurkuzhin,kbr,Baksan,Kabardian
-43.4442485,43.7773855,Kuba-Taba,kbr,Baksan,Kabardian
-43.66667,43.68528,Baksanenok,kbr,Baksan,Kabardian
-43.2767476,43.6937577,Verkhniy Kurkuzhin,kbr,Baksan,Kabardian
-43.7279879,43.3480839,Zaragizh,kbr,Baksan,Kabardian
-43.437182,43.5577039,Lechinkay,kbr,Baksan,Kabardian
-43.7589165,43.5780738,Germenchik,kbr,Baksan,Kabardian
-43.2063942,43.8416125,Zolskoye,kbr,Baksan,Kabardian
-43.9103428,43.3506587,Vtoroy Lesken,kbr,Baksan,Kabardian
-43.7185553,43.5039956,Nartan,kbr,Baksan,Kabardian
-43.7422799,43.3933553,Aushiger,kbr,Baksan,Kabardian
-43.9317439,43.5385977,Psynabo,kbr,Baksan,Kabardian
-43.7606476,43.4781181,Urvan,kbr,Baksan,Kabardian
-44.0926551,43.6157546,Dzhulat,kbr,Baksan,Kabardian
-44.0255211,43.3434394,Khatuey,kbr,Baksan,Kabardian
-43.6106262,43.6055277,Chegem Vtoroy,kbr,Baksan,Kabardian
-44.025223,43.6655922,Oktyabrskoe,kbr,Baksan,Kabardian
-43.5216499,43.722931,Psychokh,kbr,Baksan,Kabardian
-43.5178739,43.6741209,g. Baksan,kbr,Baksan,Kabardian
-44.1436978,43.6295975,Opytnoe,kbr,Baksan,Kabardian
-43.876519,43.3178415,Erokko,kbr,Baksan,Kabardian
-44.2144826,43.5059194,Tambovskoe,kbr,Baksan,Kabardian
-43.6027046,43.5265677,Shalushka,kbr,Baksan,Kabardian
-43.6537882,43.2602459,Zhemtala,kbr,Baksan,Kabardian
-44.3515401,43.6147962,Novo-Khamidie,kbr,Baksan,Kabardian
-44.123883,43.4778111,Internatsionalnoe,kbr,Baksan,Kabardian
-43.6042641,43.5612695,g. Chegem,kbr,Baksan,Kabardian
-43.8415817,43.5678968,Morzokh,kbr,Baksan,Kabardian
-43.7974629,43.5528175,Shitkhala,kbr,Baksan,Kabardian
-44.09972,43.55417,Psynashkho,kbr,Baksan,Kabardian
-43.884179,43.5665554,g. Nartkala,kbr,Baksan,Kabardian
-43.83417,43.60694,Chernaya Rechka,kbr,Baksan,Kabardian
-44.12444,43.63722,Krasnoarmeyskoe,kbr,Baksan,Kabardian
-44.155556,43.649167,Shikuley,kbr,Baksan,Kabardian
-43.9948064,43.6033238,Psykod,kbr,Baksan,Kabardian
-43.1949731,43.5573675,Zhankhoteko,kbr,Baksan,Kabardian
-43.7380201,43.2177484,Verkhny Lesken,kbr,Baksan,Kabardian
-44.1305288,43.6197557,Kuyan,kbr,Baksan,Kabardian
-43.6393754,43.7987115,Kremenchug-Konstantinovskoe,kbr,Baksan,Kabardian
-42.9074849,43.380478,g. Tyrnyauz,kbr,Baksan,Kabardian
-43.81722,43.33389,Progress,stv,Baksan,Kabardian
-41.742693,44.300777,Vako-Zhile,kch,Besleney,Kabardian
-41.741389,44.246111,Besleney,kch,Besleney,Kabardian
-41.335,44.86152,Konokovo,kk,Besleney,Kabardian
-41.486111,44.839167,Kurgokovskiy,kk,Besleney,Kabardian
-39.946389,45.054167,Ulyap,ra,Besleney,Kabardian
-40.072682,44.631132,Zapadnyy,ra,Bzhedukh,Adyghe
-40.225833,44.644722,Oktyabrskiy,ra,Bzhedukh,Adyghe
-38.836944,44.933889,Novobzhegokay,ra,Bzhedukh,Adyghe
-39.0025,44.994444,Kozet,ra,Bzhedukh,Adyghe
-38.894722,45.034167,Starobzhegokay,ra,Bzhedukh,Adyghe
-38.936994,45.023972,Novaya Adygeya,ra,Bzhedukh,Adyghe
-38.992778,44.921111,Takhtamukay,ra,Bzhedukh,Adyghe
-39.066682,44.883942,Shendzhiy,ra,Bzhedukh,Adyghe
-39.114444,44.950833,Tugurgoy,ra,Bzhedukh,Adyghe
-39.467778,44.845,Assokolay,ra,Bzhedukh,Adyghe
-39.457778,44.874722,Krasnoye,ra,Bzhedukh,Adyghe
-39.283333,44.866667,Vochepshiy,ra,Bzhedukh,Adyghe
-39.275,44.905,Novovochepshiy,ra,Bzhedukh,Adyghe
-39.41,44.946389,Dzhidzhikhabl',ra,Bzhedukh,Adyghe
-39.476111,44.983056,Kunchukokhabl',ra,Bzhedukh,Adyghe
-39.4175,44.905,Neshukay,ra,Bzhedukh,Adyghe
-39.367778,44.965,Tauykhabl',ra,Bzhedukh,Adyghe
-39.383056,44.883056,Ponezhukay,ra,Bzhedukh,Adyghe
-39.39023,44.915421,Kolos,ra,Bzhedukh,Adyghe
-39.382778,44.9225,Nachereziy,ra,Bzhedukh,Adyghe
-39.369444,44.941667,Pshikuykhabl',ra,Bzhedukh,Adyghe
-39.266111,44.887778,Pchegatlukay,ra,Bzhedukh,Adyghe
-39.174722,44.9025,Kazazovo,ra,Bzhedukh,Adyghe
-39.153554,44.87391,Chetuk,ra,Bzhedukh,Adyghe
-39.566944,44.926111,Gabukay,ra,Bzhedukh,Adyghe
-40.174167,45.065556,Pshicho,ra,Bzhedukh,Adyghe
-39.233689,44.892527,Gatlukay,ra,Bzhedukh,Adyghe
-39.208056,44.835,Psekups,ra,Bzhedukh,Adyghe
-41.764098,44.042366,Khabez,kch,Kuban,Kabardian
-41.899453,44.221558,Novokhumarinskiy,kch,Kuban,Kabardian
-41.900047,44.253272,Abazakt,kch,Kuban,Kabardian
-41.87764,44.206622,Psauchye-Dakhe,kch,Kuban,Kabardian
-41.853875,44.139951,Kosh-Khabl',kch,Kuban,Kabardian
-41.935,44.400833,Malyy Zelenchuk,kch,Kuban,Kabardian
-41.6999648,44.1984238,Inzhichishkho,kch,Kuban,Kabardian
-41.828056,44.115278,Zeyuko,kch,Kuban,Kabardian
-41.743847,43.959349,Zhako,kch,Kuban,Kabardian
-41.738889,43.988333,Ali-Berdukovskiy,kch,Kuban,Kabardian
-41.763092,44.431293,Ersakon,kch,Kuban,Kabardian
-41.913472,43.863056,Khumara,kch,Kuban,Kabardian
-41.801334,44.350776,Baralki,kch,Kuban,Kabardian
-41.934722,44.331111,Adyge-Khabl,kch,Kuban,Kabardian
-40.501667,44.821667,Blechepsin,ra,Kuban,Kabardian
-40.710278,44.519722,Khodz',ra,Kuban,Kabardian
-40.483,44.9,Koshekhabl,ra,Kuban,Kabardian
-43.1721222,43.9468945,Etoko,kbr,Malkin,Kabardian
-43.2292012,43.8512293,Batekh,kbr,Malkin,Kabardian
-43.3276187,43.7999498,Malka,kbr,Malkin,Kabardian
-39.07,44.184722,Aguy-Shapsug,kk,Shapsug,Adyghe
-38.953618,44.28361,Psebe,kk,Shapsug,Adyghe
-39.447133,43.968217,Tkhagapsh,kk,Shapsug,Adyghe
-38.781944,44.999167,Afipsip,ra,Shapsug,Adyghe
-38.715489,44.987351,Panakhes,ra,Shapsug,Adyghe
-38.706389,45.051111,Pseytuk,ra,Shapsug,Adyghe
-38.756111,45.045278,Khashtuk,ra,Shapsug,Adyghe
-41.38389,44.835,Uspenskoye,kk,Temirgoy,Adyghe
-39.3425,44.075833,Bolshoye Pseushkho,kk,Temirgoy,Adyghe
-39.301667,44.116389,Maloye Pseushkho,kk,Temirgoy,Adyghe
-40.317685,44.954747,Khachemziy,ra,Temirgoy,Adyghe
-39.861389,45.083889,Dzhambichi,ra,Temirgoy,Adyghe
-39.4975,45.068889,Adamiy,ra,Temirgoy,Adyghe
-40.392222,44.9975,Egerukhay,ra,Temirgoy,Adyghe
-38.988056,44.865,Natukhay,ra,Temirgoy,Adyghe
-40.311389,44.993333,Dzherokay,ra,Temirgoy,Adyghe
-40.217222,45.011389,Mamkheg,ra,Temirgoy,Adyghe
-40.183056,45.046111,Kabekhabl',ra,Temirgoy,Adyghe
-40.110278,45.092222,Pshizov,ra,Temirgoy,Adyghe
-40.188611,45.072222,Khatazhukay,ra,Temirgoy,Adyghe
-43.7,44.2125,Urazhaynoe,kbr,Terek,Kabardian
-44.4137575,43.5434888,Nizhny Kurp,kbr,Terek,Kabardian
-44.1908915,43.3807323,Planovskoe,kbr,Terek,Kabardian
-44.2423294,43.47468,Verkhny Akbash,kbr,Terek,Kabardian
-44.3740591,43.6710761,Khamidie,kbr,Terek,Kabardian
-44.2973614,43.6727795,Terekskoe,kbr,Terek,Kabardian
-44.1403481,43.5701144,Arik,kbr,Terek,Kabardian
-44.209298,43.5254017,Nizhny Akbash,kbr,Terek,Kabardian
-44.3730212,43.4677348,Verkhny Kurp,kbr,Terek,Kabardian
-44.1512948,43.4991098,Deyskoe,kbr,Terek,Kabardian
-39.36232,44.00941,Lygotkh,kk,Xakuch,Adyghe
-39.335326,44.009397,Khadzhiko,kk,Xakuch,Adyghe
-39.356639,44.009389,Kalezh,kk,Xakuch,Adyghe
-39.500981,43.822786,Malyy Kichmay,kk,Xakuch,Adyghe
-39.508069,43.833917,Bolshoy Kichmay,kk,Xakuch,Adyghe
+latitude,longitude,village,district,dialect,language
+45.18333,39.66667,Khatukay,ra,Temirgoy,Adyghe
+43.0925184,43.5220851,Psygansu,kbr,Baksan,Kabardian
+43.2177484,43.7380201,Verkhny Lesken,kbr,Baksan,Kabardian
+43.2602459,43.6537882,Zhemtala,kbr,Baksan,Kabardian
+43.3178415,43.876519,Erokko,kbr,Baksan,Kabardian
+43.33389,43.81722,Progress,stv,Baksan,Kabardian
+43.3423158,43.9127396,Anzorey,kbr,Baksan,Kabardian
+43.3434394,44.0255211,Khatuey,kbr,Baksan,Kabardian
+43.3480839,43.7279879,Zaragizh,kbr,Baksan,Kabardian
+43.3506587,43.9103428,Vtoroy Lesken,kbr,Baksan,Kabardian
+43.380478,42.9074849,g. Tyrnyauz,kbr,Baksan,Kabardian
+43.3807323,44.1908915,Planovskoe,kbr,Terek,Kabardian
+43.3933553,43.7422799,Aushiger,kbr,Baksan,Kabardian
+43.4118144,43.9045102,Argudan,kbr,Baksan,Kabardian
+43.4535606,44.2119773,Beloglinskoe,kbr,Baksan,Kabardian
+43.4662834,43.8366936,Stary Cherek,kbr,Baksan,Kabardian
+43.4677348,44.3730212,Verkhny Kurp,kbr,Terek,Kabardian
+43.47468,44.2423294,Verkhny Akbash,kbr,Terek,Kabardian
+43.4778111,44.123883,Internatsionalnoe,kbr,Baksan,Kabardian
+43.4781181,43.7606476,Urvan,kbr,Baksan,Kabardian
+43.4855758,44.3636557,Inarkoy,kbr,Baksan,Kabardian
+43.4991098,44.1512948,Deyskoe,kbr,Terek,Kabardian
+43.5039956,43.7185553,Nartan,kbr,Baksan,Kabardian
+43.5059194,44.2144826,Tambovskoe,kbr,Baksan,Kabardian
+43.52444,43.93194,Nizhny Cherek,kbr,Baksan,Kabardian
+43.5254017,44.209298,Nizhny Akbash,kbr,Terek,Kabardian
+43.5265677,43.6027046,Shalushka,kbr,Baksan,Kabardian
+43.5385977,43.9317439,Psynabo,kbr,Baksan,Kabardian
+43.5405887,43.8943217,Kakhun,kbr,Baksan,Kabardian
+43.5434888,44.4137575,Nizhny Kurp,kbr,Terek,Kabardian
+43.5528175,43.7974629,Shitkhala,kbr,Baksan,Kabardian
+43.55417,44.09972,Psynashkho,kbr,Baksan,Kabardian
+43.5573675,43.1949731,Zhankhoteko,kbr,Baksan,Kabardian
+43.5577039,43.437182,Lechinkay,kbr,Baksan,Kabardian
+43.5612695,43.6042641,g. Chegem,kbr,Baksan,Kabardian
+43.5665554,43.884179,g. Nartkala,kbr,Baksan,Kabardian
+43.5678968,43.8415817,Morzokh,kbr,Baksan,Kabardian
+43.5701144,44.1403481,Arik,kbr,Terek,Kabardian
+43.5780738,43.7589165,Germenchik,kbr,Baksan,Kabardian
+43.6033238,43.9948064,Psykod,kbr,Baksan,Kabardian
+43.6055277,43.6106262,Chegem Vtoroy,kbr,Baksan,Kabardian
+43.60694,43.83417,Chernaya Rechka,kbr,Baksan,Kabardian
+43.6101972,43.3469916,Zayukovo,kbr,Baksan,Kabardian
+43.6147962,44.3515401,Novo-Khamidie,kbr,Baksan,Kabardian
+43.6157546,44.0926551,Dzhulat,kbr,Baksan,Kabardian
+43.6197557,44.1305288,Kuyan,kbr,Baksan,Kabardian
+43.6295975,44.1436978,Opytnoe,kbr,Baksan,Kabardian
+43.63194,44.26917,Maly Terek,kbr,Baksan,Kabardian
+43.63722,44.12444,Krasnoarmeyskoe,kbr,Baksan,Kabardian
+43.6464595,43.4030838,Atazhukino,kbr,Baksan,Kabardian
+43.6489847,43.6384818,Kishpek,kbr,Baksan,Kabardian
+43.649167,44.155556,Shikuley,kbr,Baksan,Kabardian
+43.6612534,43.4203399,Islamey,kbr,Baksan,Kabardian
+43.6655922,44.025223,Oktyabrskoe,kbr,Baksan,Kabardian
+43.6708678,43.4982674,Dygulybgey,kbr,Baksan,Kabardian
+43.6710761,44.3740591,Khamidie,kbr,Terek,Kabardian
+43.6727795,44.2973614,Terekskoe,kbr,Terek,Kabardian
+43.6741209,43.5178739,g. Baksan,kbr,Baksan,Kabardian
+43.68528,43.66667,Baksanenok,kbr,Baksan,Kabardian
+43.6937577,43.2767476,Verkhniy Kurkuzhin,kbr,Baksan,Kabardian
+43.6979041,44.2133042,Urozhaynoe,kbr,Baksan,Kabardian
+43.7225969,43.8850094,Altud,kbr,Baksan,Kabardian
+43.722931,43.5216499,Psychokh,kbr,Baksan,Kabardian
+43.7341489,43.0370284,Kamennomostskoe,kbr,Baksan,Kabardian
+43.7403259,43.1932675,Sarmakovo,kbr,Baksan,Kabardian
+43.7441546,43.3510112,Nizhny Kurkuzhin,kbr,Baksan,Kabardian
+43.7574704,43.7156896,Psynshoko,kbr,Baksan,Kabardian
+43.7768461,43.2600149,Kamlyukovo,kbr,Baksan,Kabardian
+43.7773855,43.4442485,Kuba-Taba,kbr,Baksan,Kabardian
+43.7987115,43.6393754,Kremenchug-Konstantinovskoe,kbr,Baksan,Kabardian
+43.7999498,43.3276187,Malka,kbr,Malkin,Kabardian
+43.8022258,43.1460561,Sovkhoznoe,kbr,Baksan,Kabardian
+43.8034456,43.7706143,Karagach,kbr,Baksan,Kabardian
+43.822786,39.500981,Malyy Kichmay,kk,Xakuch,Adyghe
+43.8229374,43.1114348,Dzhenal,kbr,Baksan,Kabardian
+43.833917,39.508069,Bolshoy Kichmay,kk,Xakuch,Adyghe
+43.835631,43.1531165,Zalukodes,kbr,Baksan,Kabardian
+43.8366461,43.6079187,Psykhurey,kbr,Baksan,Kabardian
+43.8416125,43.2063942,Zolskoye,kbr,Baksan,Kabardian
+43.8512293,43.2292012,Batekh,kbr,Malkin,Kabardian
+43.8602847,43.2514048,Psynadakha,kbr,Baksan,Kabardian
+43.863056,41.913472,Khumara,kch,Kuban,Kabardian
+43.8788349,43.1074819,Shordakovo,kbr,Baksan,Kabardian
+43.9468945,43.1721222,Etoko,kbr,Malkin,Kabardian
+43.959349,41.743847,Zhako,kch,Kuban,Kabardian
+43.968217,39.447133,Tkhagapsh,kk,Shapsug,Adyghe
+43.988333,41.738889,Ali-Berdukovskiy,kch,Kuban,Kabardian
+44.009389,39.356639,Kalezh,kk,Xakuch,Adyghe
+44.009397,39.335326,Khadzhiko,kk,Xakuch,Adyghe
+44.00941,39.36232,Lygotkh,kk,Xakuch,Adyghe
+44.042366,41.764098,Khabez,kch,Kuban,Kabardian
+44.075833,39.3425,Bolshoye Pseushkho,kk,Temirgoy,Adyghe
+44.115278,41.828056,Zeyuko,kch,Kuban,Kabardian
+44.116389,39.301667,Maloye Pseushkho,kk,Temirgoy,Adyghe
+44.139951,41.853875,Kosh-Khabl',kch,Kuban,Kabardian
+44.184722,39.07,Aguy-Shapsug,kk,Shapsug,Adyghe
+44.1984238,41.6999648,Inzhichishkho,kch,Kuban,Kabardian
+44.206622,41.87764,Psauchye-Dakhe,kch,Kuban,Kabardian
+44.2125,43.7,Urazhaynoe,kbr,Terek,Kabardian
+44.221558,41.899453,Novokhumarinskiy,kch,Kuban,Kabardian
+44.246111,41.741389,Besleney,kch,Besleney,Kabardian
+44.253272,41.900047,Abazakt,kch,Kuban,Kabardian
+44.28361,38.953618,Psebe,kk,Shapsug,Adyghe
+44.300777,41.742693,Vako-Zhile,kch,Besleney,Kabardian
+44.331111,41.934722,Adyge-Khabl,kch,Kuban,Kabardian
+44.350776,41.801334,Baralki,kch,Kuban,Kabardian
+44.400833,41.935,Malyy Zelenchuk,kch,Kuban,Kabardian
+44.431293,41.763092,Ersakon,kch,Kuban,Kabardian
+44.519722,40.710278,Khodz',ra,Kuban,Kabardian
+44.631132,40.072682,Zapadnyy,ra,Bzhedukh,Adyghe
+44.644722,40.225833,Oktyabrskiy,ra,Bzhedukh,Adyghe
+44.821667,40.501667,Blechepsin,ra,Kuban,Kabardian
+44.835,39.208056,Psekups,ra,Bzhedukh,Adyghe
+44.835,41.38389,Uspenskoye,kk,Temirgoy,Adyghe
+44.839167,41.486111,Kurgokovskiy,kk,Besleney,Kabardian
+44.845,39.467778,Assokolay,ra,Bzhedukh,Adyghe
+44.86152,41.335,Konokovo,kk,Besleney,Kabardian
+44.865,38.988056,Natukhay,ra,Shapsug,Adyghe
+44.866667,39.283333,Vochepshiy,ra,Bzhedukh,Adyghe
+44.87391,39.153554,Chetuk,ra,Bzhedukh,Adyghe
+44.874722,39.457778,Krasnoye,ra,Bzhedukh,Adyghe
+44.883056,39.383056,Ponezhukay,ra,Bzhedukh,Adyghe
+44.883942,39.066682,Shendzhiy,ra,Bzhedukh,Adyghe
+44.887778,39.266111,Pchegatlukay,ra,Bzhedukh,Adyghe
+44.892527,39.233689,Gatlukay,ra,Bzhedukh,Adyghe
+44.9,40.483,Koshekhabl,ra,Kuban,Kabardian
+44.9025,39.174722,Kazazovo,ra,Bzhedukh,Adyghe
+44.905,39.4175,Neshukay,ra,Bzhedukh,Adyghe
+44.905,39.275,Novovochepshiy,ra,Bzhedukh,Adyghe
+44.915421,39.39023,Kolos,ra,Bzhedukh,Adyghe
+44.921111,38.992778,Takhtamukay,ra,Bzhedukh,Adyghe
+44.9225,39.382778,Nachereziy,ra,Bzhedukh,Adyghe
+44.926111,39.566944,Gabukay,ra,Bzhedukh,Adyghe
+44.933889,38.836944,Novobzhegokay,ra,Bzhedukh,Adyghe
+44.941667,39.369444,Pshikuykhabl',ra,Bzhedukh,Adyghe
+44.946389,39.41,Dzhidzhikhabl',ra,Bzhedukh,Adyghe
+44.950833,39.114444,Tugurgoy,ra,Bzhedukh,Adyghe
+44.954747,40.317685,Khachemziy,ra,Temirgoy,Adyghe
+44.965,39.367778,Tauykhabl',ra,Bzhedukh,Adyghe
+44.983056,39.476111,Kunchukokhabl',ra,Bzhedukh,Adyghe
+44.987351,38.715489,Panakhes,ra,Shapsug,Adyghe
+44.993333,40.311389,Dzherokay,ra,Temirgoy,Adyghe
+44.994444,39.0025,Kozet,ra,Bzhedukh,Adyghe
+44.9975,40.392222,Egerukhay,ra,Temirgoy,Adyghe
+44.999167,38.781944,Afipsip,ra,Shapsug,Adyghe
+45.011389,40.217222,Mamkheg,ra,Temirgoy,Adyghe
+45.02,40.23,Khakurinokhabl,ra,Abadzex,Adyghe
+45.023972,38.936994,Novaya Adygeya,ra,Bzhedukh,Adyghe
+45.034167,38.894722,Starobzhegokay,ra,Bzhedukh,Adyghe
+45.045278,38.756111,Khashtuk,ra,Shapsug,Adyghe
+45.046111,40.183056,Kabekhabl',ra,Temirgoy,Adyghe
+45.051111,38.706389,Pseytuk,ra,Shapsug,Adyghe
+45.054167,39.946389,Ulyap,ra,Besleney,Kabardian
+45.065556,40.174167,Pshicho,ra,Bzhedukh,Adyghe
+45.068889,39.4975,Adamiy,ra,Temirgoy,Adyghe
+45.072222,40.188611,Khatazhukay,ra,Temirgoy,Adyghe
+45.083889,39.861389,Dzhambichi,ra,Temirgoy,Adyghe
+45.092222,40.110278,Pshizov,ra,Temirgoy,Adyghe
