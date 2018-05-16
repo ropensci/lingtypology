@@ -27,7 +27,12 @@ install.packages("devtools")
 devtools::install_github("ropensci/lingtypology")
 ```
 
-Sometimes installation failed because of the absence of the package `crosstalk`. Just install it using command `install.packages("crosstalk")`.
+Sometimes installation failed because of the absence of the package `crosstalk`. Just install it using command `install.packages("crosstalk")`. Misha Voronove also said that for correct instalation on Debian some additional packages should be installed:
+
+```
+apt-get install libcurl4-openssl-dev
+apt-get install libssl-dev
+```
 
 Load a library:
 ```R
