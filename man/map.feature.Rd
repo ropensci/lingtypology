@@ -33,7 +33,8 @@ map.feature(languages, features = "", label = "", popup = "",
   line.opacity = 0.8, line.label = NULL, line.width = 3,
   graticule = NULL, minichart = NULL, minichart.data = NULL,
   minichart.time = NULL, minichart.labels = FALSE,
-  map.orientation = "Pacific", glottolog.source = "modified")
+  map.orientation = "Pacific", glottolog.source = "modified",
+  radius = NULL)
 }
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case)}
@@ -195,6 +196,8 @@ map.feature(languages, features = "", label = "", popup = "",
 \item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}
 
 \item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
+
+\item{radius}{deprecated argument}
 }
 \description{
 Map a set of languages and color them by feature or two sets of features.

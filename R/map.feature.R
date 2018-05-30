@@ -82,6 +82,7 @@
 #' @param graticule a numeric vector for graticule spacing in map units between horizontal and vertical lines.
 #' @param zoom.control logical. If TRUE, function shows zoom controls. By default is FALSE.
 #' @param zoom.level a numeric value of the zoom level.
+#' @param radius deprecated argument
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' map.feature(c("Adyghe", "Russian"))
@@ -233,7 +234,11 @@ map.feature <- function(languages,
                         minichart.time = NULL,
                         minichart.labels = FALSE,
                         map.orientation = "Pacific",
-                        glottolog.source = "modified") {
+                        glottolog.source = "modified",
+                        radius = NULL) {
+  if(!is.null(radius)){
+    warning("The radius argument is deprecated. Use width argument instead.")
+  }
   ifelse(
     grepl(glottolog.source, "original"),
     glottolog <- lingtypology::glottolog.original,
