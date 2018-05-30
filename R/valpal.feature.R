@@ -52,11 +52,11 @@ A BibTeX entry for LaTeX users is
   final_df[final_df$language == "Jakarta Indonesian", 11] <- "Indonesian"
   final_df[final_df$language == "Japanese (standard)", 11] <- "Japanese"
   final_df[final_df$language == "Modern Standard Arabic", 11] <- "Standard Arabic"
-  final_df[final_df$language == "Nǀǀng", 11] <- "N/u"
+  final_df[final_df$language == "N\u01C0\u01C0ng", 11] <- "N/u"
   final_df[final_df$language == "Ojibwe", 11] <- "Ottawa"
   final_df[final_df$language == "Sliammon", 11] <- "Comox"
-  final_df[final_df$language == "Xârâcùù", 11] <- "Xaracuu"
-  final_df[final_df$language == "Yorùbá", 11] <- "Yoruba"
+  final_df[final_df$language == "X\u00E2r\u00E2c\u00F9\u00F9", 11] <- "Xaracuu"
+  final_df[final_df$language == "Yor\u00F9b\u00E1", 11] <- "Yoruba"
   if(na.rm == TRUE){
     return(final_df[is.glottolog(final_df$language),])
   } else{
