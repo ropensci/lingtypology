@@ -8,8 +8,6 @@ valpal.feature(na.rm = FALSE)
 }
 \arguments{
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is FALSE.}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 This function downloads data from ValPal (http://www.valpal.info/) and changes language names to the names from lingtypology database. You need the internet connection.

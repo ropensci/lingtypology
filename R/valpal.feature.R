@@ -3,7 +3,6 @@
 #' This function downloads data from ValPal (http://www.valpal.info/) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is FALSE.
-#' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{autotyp.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}
 #' @examples
@@ -48,7 +47,7 @@ A BibTeX entry for LaTeX users is
   final_df[final_df$language == "Central Alaskan Yupik", 11] <- "Central Yupik"
   final_df[final_df$language == "Eastern Armenian", 11] <- "Armenian"
   final_df[final_df$language == "Emai", 11] <- "Emai-Iuleha-Ora"
-  final_df[final_df$language == "Hoocąk", 11] <- "Ho-Chunk"
+  final_df[final_df$language == "Hooc\u0105k", 11] <- "Ho-Chunk"
   final_df[final_df$language == "Jakarta Indonesian", 11] <- "Indonesian"
   final_df[final_df$language == "Japanese (standard)", 11] <- "Japanese"
   final_df[final_df$language == "Modern Standard Arabic", 11] <- "Standard Arabic"
