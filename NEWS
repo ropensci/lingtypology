@@ -5,7 +5,8 @@ lingtypology 1.0.13 (30.05.2018)
  - the base layer of the mini-map is the same as the base layer of the main map
  - add the "label.font" argument to the "map.feature()" function
  - update a "circassian" database
- - add the "valpal.feature()" function
+ - add the "valpal.feature()" function API for Valency Patterns Database
+ - add the "oto_mangueanIC.feature()" function API for Oto-Manguean Inflectional Class Database
 
 lingtypology 1.0.12 (09.03.2018)
  - add the "pipe.data" argument to the "map.feature()" function (Thanks  @nikopartanen for the idea).
