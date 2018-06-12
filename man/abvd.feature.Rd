@@ -18,7 +18,7 @@ This function downloads data from ABVD (https://abvd.shh.mpg.de/austronesian/) a
 # abvd.feature(c(292, 7))
 }
 \seealso{
-\code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto-mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
+\code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>
