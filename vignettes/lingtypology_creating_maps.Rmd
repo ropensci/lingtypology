@@ -395,12 +395,18 @@ map.feature(circassian$language,
 ```
 
 ### 17. Add a density contourplot to a map
-Sometimes it is easier to look at a density contourplot. It can be created using `density.estimation` argument:
+Sometimes it is easier to look at a density contourplot. It can be created using `density.estimation` argument. There are two possibility for creation a density contourplot in `lingtypology`:
+
+* `density.method = "fixed distance"`. First algorithm creates circle polygons with fixed radius around each point and then merge all polygons that are overlapped. It has only one parameter that should be estimated: radius of the circle (`density.width`).
+* `density.method = "kernal density estimation"`. Second algorithm uses a kernal density estimation and has two parameters that should be estimated: latitude and longitude bandwidths (`density.width[1]` and (`density.width[2]`))
+
+
 ```{r}
 map.feature(circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = circassian$language)
+            density.estimation = circassian$language,
+            density.width = 0.15)
 ```
 
 Density estimation plot can be separated by `features` variable:
@@ -409,7 +415,8 @@ map.feature(circassian$language,
             features = circassian$dialect,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
-            density.estimation = circassian$language)
+            density.estimation = circassian$language,
+            density.width = 0.15)
 ```
 
 It is possible to remove points and display only the kernal density estimation plot, using the `density.points` argument:
@@ -419,6 +426,7 @@ map.feature(circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
             density.estimation = circassian$language,
+            density.width = 0.15,
             density.points = FALSE)
 ```
 
@@ -429,18 +437,20 @@ map.feature(circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
             density.estimation = circassian$language,
-            density.estimation.opacity = 0.9)
+            density.width = 0.15,
+            density.estimation.opacity = 0.2)
 ```
 
-Since this type of visualisation is based on the kernal density estimation, there are parameters `density.longitude.width` and `density.latitude.width` that increase/decrease area:
+If you want to use kernal density estimation, you need to change method type and provide a vector of parameters that increase/decrease area:
+
 ```{r}
 map.feature(circassian$language,
             features = circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
             density.estimation = "Circassian",
-            density.longitude.width = 0.3,
-            density.latitude.width = 0.3, 
+            density.method = "kernal density estimation",
+            density.width = c(0.3, 0.3), 
             color= c("darkgreen", "blue"))
 ```
 ```{r}
@@ -449,8 +459,8 @@ map.feature(circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
             density.estimation = "Circassian",
-            density.longitude.width = 0.7,
-            density.latitude.width = 0.7, 
+            density.method = "kernal density estimation",
+            density.width = c(0.7, 0.7), 
             color= c("darkgreen", "blue"))
 ```
 ```{r}
@@ -459,8 +469,8 @@ map.feature(circassian$language,
             longitude = circassian$longitude,
             latitude = circassian$latitude,
             density.estimation = "Circassian",
-            density.longitude.width = 1.3,
-            density.latitude.width = 0.9, 
+            density.method = "kernal density estimation",
+            density.width = c(1.3, 0.9), 
             color= c("darkgreen", "blue"))
 ```
 
@@ -477,8 +487,7 @@ map.feature(languages = circassian$language,
             label = circassian$dialect,
             legend = TRUE,
             isogloss = as.data.frame(circassian[,"dialect"]),
-            isogloss.longitude.width = 1.5,
-            isogloss.latitude.width = 1.5)
+            isogloss.width = 0.15)
 ```
 
 It is possible to create true isoglosses by hand, see tools for it [here](https://ropensci.github.io/lingtypology/lingtypology_dplyr.html#2_leaflet).

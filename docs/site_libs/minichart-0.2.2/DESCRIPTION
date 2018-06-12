@@ -1,7 +1,7 @@
 Package: leaflet.minicharts
 Type: Package
 Title: Mini Charts for Interactive Maps
-Version: 0.5.2
+Version: 0.5.3
 Authors@R: c(
     person("Jalal-Edine", "ZAWAM", email = "jalal-edine.zawam@rte-france.com", role = c("aut", "cre")),
     person("Francois", "Guillem", email = "francois.guillem@rte-france.com", role = c("aut")),
@@ -20,11 +20,11 @@ Suggests: knitr, rmarkdown, dplyr, shiny, manipulateWidget, testthat,
         covr
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2017-12-06 15:35:09 UTC; jalazawa
+Packaged: 2018-04-26 06:51:08 UTC; jalazawa
 Author: Jalal-Edine ZAWAM [aut, cre],
   Francois Guillem [aut],
   RTE [cph]
 Maintainer: Jalal-Edine ZAWAM <jalal-edine.zawam@rte-france.com>
 Repository: CRAN
-Date/Publication: 2017-12-06 16:11:36 UTC
-Built: R 3.4.3; ; 2017-12-07 17:21:33 UTC; unix
+Date/Publication: 2018-04-26 07:13:13 UTC
+Built: R 3.4.4; ; 2018-04-30 07:41:40 UTC; unix

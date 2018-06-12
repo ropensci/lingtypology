@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-01-29" />
+<meta name="date" content="2018-06-12" />
 
 <title>lingtypology: creating maps</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: creating maps</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-01-29</em></h4>
+<h4 class="date"><em>2018-06-12</em></h4>
 
 
 
@@ -355,53 +355,61 @@ newfeature &lt;-<span class="st"> </span><span class="kw">replace</span>(newfeat
 </div>
 <div id="add-a-density-contourplot-to-a-map" class="section level3">
 <h3>17. Add a density contourplot to a map</h3>
-<p>Sometimes it is easier to look at a density contourplot. It can be created using <code>density.estimation</code> argument:</p>
+<p>Sometimes it is easier to look at a density contourplot. It can be created using <code>density.estimation</code> argument. There are two possibility for creation a density contourplot in <code>lingtypology</code>:</p>
+<ul>
+<li><code>density.method = &quot;fixed distance&quot;</code>. First algorithm creates circle polygons with fixed radius around each point and then merge all polygons that are overlapped. It has only one parameter that should be estimated: radius of the circle (<code>density.width</code>).</li>
+<li><code>density.method = &quot;kernal density estimation&quot;</code>. Second algorithm uses a kernal density estimation and has two parameters that should be estimated: latitude and longitude bandwidths (<code>density.width[1]</code> and (<code>density.width[2]</code>))</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,
             <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,
             <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,
-            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language)</code></pre></div>
+            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,
+            <span class="dt">density.width =</span> <span class="fl">0.15</span>)</code></pre></div>
 <p>Density estimation plot can be separated by <code>features</code> variable:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,
             <span class="dt">features =</span> circassian<span class="op">$</span>dialect,
             <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,
             <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,
-            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language)</code></pre></div>
+            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,
+            <span class="dt">density.width =</span> <span class="fl">0.15</span>)</code></pre></div>
 <p>It is possible to remove points and display only the kernal density estimation plot, using the <code>density.points</code> argument:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,
             <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,
             <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,
             <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,
+            <span class="dt">density.width =</span> <span class="fl">0.15</span>,
             <span class="dt">density.points =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <p>It is possible to change kernal density estimation plot opacity using the<code>density.estimation.opacity</code> argument:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,
             <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,
             <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,
             <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,
-            <span class="dt">density.estimation.opacity =</span> <span class="fl">0.9</span>)</code></pre></div>
-<p>Since this type of visualisation is based on the kernal density estimation, there are parameters <code>density.longitude.width</code> and <code>density.latitude.width</code> that increase/decrease area:</p>
+            <span class="dt">density.width =</span> <span class="fl">0.15</span>,
+            <span class="dt">density.estimation.opacity =</span> <span class="fl">0.2</span>)</code></pre></div>
+<p>If you want to use kernal density estimation, you need to change method type and provide a vector of parameters that increase/decrease area:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,
             <span class="dt">features =</span> circassian<span class="op">$</span>language,
             <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,
             <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,
             <span class="dt">density.estimation =</span> <span class="st">&quot;Circassian&quot;</span>,
-            <span class="dt">density.longitude.width =</span> <span class="fl">0.3</span>,
-            <span class="dt">density.latitude.width =</span> <span class="fl">0.3</span>, 
+            <span class="dt">density.method =</span> <span class="st">&quot;kernal density estimation&quot;</span>,
+            <span class="dt">density.width =</span> <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.3</span>), 
             <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,
             <span class="dt">features =</span> circassian<span class="op">$</span>language,
             <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,
             <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,
             <span class="dt">density.estimation =</span> <span class="st">&quot;Circassian&quot;</span>,
-            <span class="dt">density.longitude.width =</span> <span class="fl">0.7</span>,
-            <span class="dt">density.latitude.width =</span> <span class="fl">0.7</span>, 
+            <span class="dt">density.method =</span> <span class="st">&quot;kernal density estimation&quot;</span>,
+            <span class="dt">density.width =</span> <span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.7</span>), 
             <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,
             <span class="dt">features =</span> circassian<span class="op">$</span>language,
             <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,
             <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,
             <span class="dt">density.estimation =</span> <span class="st">&quot;Circassian&quot;</span>,
-            <span class="dt">density.longitude.width =</span> <span class="fl">1.3</span>,
-            <span class="dt">density.latitude.width =</span> <span class="fl">0.9</span>, 
+            <span class="dt">density.method =</span> <span class="st">&quot;kernal density estimation&quot;</span>,
+            <span class="dt">density.width =</span> <span class="kw">c</span>(<span class="fl">1.3</span>, <span class="fl">0.9</span>), 
             <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre></div>
 <p>It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.</p>
 </div>
@@ -415,8 +423,7 @@ newfeature &lt;-<span class="st"> </span><span class="kw">replace</span>(newfeat
             <span class="dt">label =</span> circassian<span class="op">$</span>dialect,
             <span class="dt">legend =</span> <span class="ot">TRUE</span>,
             <span class="dt">isogloss =</span> <span class="kw">as.data.frame</span>(circassian[,<span class="st">&quot;dialect&quot;</span>]),
-            <span class="dt">isogloss.longitude.width =</span> <span class="fl">1.5</span>,
-            <span class="dt">isogloss.latitude.width =</span> <span class="fl">1.5</span>)</code></pre></div>
+            <span class="dt">isogloss.width =</span> <span class="fl">0.15</span>)</code></pre></div>
 <p>It is possible to create true isoglosses by hand, see tools for it <a href="https://ropensci.github.io/lingtypology/lingtypology_dplyr.html#2_leaflet">here</a>.</p>
 </div>
 <div id="add-lines" class="section level3">

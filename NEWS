@@ -7,6 +7,8 @@ lingtypology 1.0.13 (30.05.2018)
  - update a "circassian" database
  - add the "valpal.feature()" function API for Valency Patterns Database
  - add the "oto_mangueanIC.feature()" function API for Oto-Manguean Inflectional Class Database
+ - add new method for density counterplot. "density.method" argument with two options: "kernal density estimation" or "fixed distance".
+ - arguments "density.longitude.width", "density.latitude.width", "isogloss.longitude.width", "isogloss.latitude.width" are deprecated. There are "density.width" and "isogloss.width" instead.
 
 lingtypology 1.0.12 (09.03.2018)
  - add the "pipe.data" argument to the "map.feature()" function (Thanks  @nikopartanen for the idea).

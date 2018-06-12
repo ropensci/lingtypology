@@ -268,20 +268,23 @@ knitr::opts_chunk$set(eval = FALSE)
 #  map.feature(circassian$language,
 #              longitude = circassian$longitude,
 #              latitude = circassian$latitude,
-#              density.estimation = circassian$language)
+#              density.estimation = circassian$language,
+#              density.width = 0.15)
 
 ## ------------------------------------------------------------------------
 #  map.feature(circassian$language,
 #              features = circassian$dialect,
 #              longitude = circassian$longitude,
 #              latitude = circassian$latitude,
-#              density.estimation = circassian$language)
+#              density.estimation = circassian$language,
+#              density.width = 0.15)
 
 ## ------------------------------------------------------------------------
 #  map.feature(circassian$language,
 #              longitude = circassian$longitude,
 #              latitude = circassian$latitude,
 #              density.estimation = circassian$language,
+#              density.width = 0.15,
 #              density.points = FALSE)
 
 ## ------------------------------------------------------------------------
@@ -289,7 +292,8 @@ knitr::opts_chunk$set(eval = FALSE)
 #              longitude = circassian$longitude,
 #              latitude = circassian$latitude,
 #              density.estimation = circassian$language,
-#              density.estimation.opacity = 0.9)
+#              density.width = 0.15,
+#              density.estimation.opacity = 0.2)
 
 ## ------------------------------------------------------------------------
 #  map.feature(circassian$language,
@@ -297,8 +301,8 @@ knitr::opts_chunk$set(eval = FALSE)
 #              longitude = circassian$longitude,
 #              latitude = circassian$latitude,
 #              density.estimation = "Circassian",
-#              density.longitude.width = 0.3,
-#              density.latitude.width = 0.3,
+#              density.method = "kernal density estimation",
+#              density.width = c(0.3, 0.3),
 #              color= c("darkgreen", "blue"))
 
 ## ------------------------------------------------------------------------
@@ -307,8 +311,8 @@ knitr::opts_chunk$set(eval = FALSE)
 #              longitude = circassian$longitude,
 #              latitude = circassian$latitude,
 #              density.estimation = "Circassian",
-#              density.longitude.width = 0.7,
-#              density.latitude.width = 0.7,
+#              density.method = "kernal density estimation",
+#              density.width = c(0.7, 0.7),
 #              color= c("darkgreen", "blue"))
 
 ## ------------------------------------------------------------------------
@@ -317,8 +321,8 @@ knitr::opts_chunk$set(eval = FALSE)
 #              longitude = circassian$longitude,
 #              latitude = circassian$latitude,
 #              density.estimation = "Circassian",
-#              density.longitude.width = 1.3,
-#              density.latitude.width = 0.9,
+#              density.method = "kernal density estimation",
+#              density.width = c(1.3, 0.9),
 #              color= c("darkgreen", "blue"))
 
 ## ------------------------------------------------------------------------
@@ -329,8 +333,7 @@ knitr::opts_chunk$set(eval = FALSE)
 #              label = circassian$dialect,
 #              legend = TRUE,
 #              isogloss = as.data.frame(circassian[,"dialect"]),
-#              isogloss.longitude.width = 1.5,
-#              isogloss.latitude.width = 1.5)
+#              isogloss.width = 0.15)
 
 ## ------------------------------------------------------------------------
 #  map.feature(circassian$language,

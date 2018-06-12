@@ -13,10 +13,10 @@
 #' @importFrom sp Polygons
 #' @importFrom sp SpatialPolygons
 
-polygon.points <- function(latitude,
-                           longitude,
-                           latitude_width,
-                           longitude_width) {
+polygon.points_kde <- function(latitude,
+                               longitude,
+                               latitude_width,
+                               longitude_width) {
   ifelse(
     is.null(latitude_width),
     latitude_width <- MASS::bandwidth.nrd(latitude),

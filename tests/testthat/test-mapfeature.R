@@ -51,7 +51,8 @@ density1 <- map.feature(
   circassian$language,
   longitude = circassian$longitude,
   latitude = circassian$latitude,
-  density.estimation = circassian$language
+  density.estimation = circassian$language,
+  density.width = 0.15
 )
 
 density2 <- map.feature(
@@ -60,7 +61,8 @@ density2 <- map.feature(
   longitude = circassian$longitude,
   latitude = circassian$latitude,
   density.estimation = circassian$language,
-  density.points = FALSE
+  density.points = FALSE,
+  density.width = 0.15
 )
 
 density3 <- map.feature(
@@ -69,7 +71,19 @@ density3 <- map.feature(
   longitude = circassian$longitude,
   latitude = circassian$latitude,
   density.estimation = circassian$language,
-  density.control = TRUE
+  density.control = TRUE,
+  density.width = 0.15
+)
+
+density4 <- map.feature(
+  circassian$language,
+  circassian$language,
+  longitude = circassian$longitude,
+  latitude = circassian$latitude,
+  density.estimation = circassian$language,
+  density.method = "kernal",
+  density.control = TRUE,
+  density.width = c(1.9, 1.2)
 )
 
 test_that("map.feature density estimation", {

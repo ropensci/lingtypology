@@ -15,13 +15,13 @@
 #' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}
 #' @param control logical. If TRUE, function show layer control buttons. By default is FALSE
+#' @param density.method string with one of the two methods: "kernal density estimation" or "fixed distance" (default)
 #' @param density.estimation.color vector of density polygons' colors
 #' @param density.estimation.opacity a numeric vector of density polygons opacity.
-#' @param density.latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
 #' @param density.legend logical. If TRUE, function show legend for density features. By default is FALSE.
 #' @param density.legend.opacity a numeric vector of density-legend opacity.
 #' @param density.legend.position the position of the legend: "topright", "bottomright", "bottomleft","topleft"
-#' @param density.longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param density.width for density.method = "fixed distance" it is a numeric measure (1 is 1km). For density.method = "kernal density estimation" it is a vector with two meausures (first is latitude, secong is longitude). Defaults are normal reference bandwidth (see \link{bandwidth.nrd}).
 #' @param density.points logical. If FALSE, it doesn't show points in polygones.
 #' @param density.title title of a density-feature legend
 #' @param density.control logical. If TRUE, function show layer control buttons for density plot. By default is FALSE
@@ -29,8 +29,7 @@
 #' @param isogloss.color vector of isoglosses' colors
 #' @param isogloss.opacity a numeric vector of density polygons opacity.
 #' @param isogloss.line.width a numeric value for line width
-#' @param isogloss.longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd})
-#' @param isogloss.latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param isogloss.width for density.method = "fixed distance" it is a numeric measure (1 is 1km). For density.method = "kernal density estimation" it is a vector with two meausures (first is latitude, secong is longitude). Defaults are normal reference bandwidth (see \link{bandwidth.nrd}).
 #' @param image.height numeric vector of image heights
 #' @param image.url character vector of URLs with an images
 #' @param image.width numeric vector of image widths
@@ -172,11 +171,11 @@ map.feature <- function(languages,
                         shape.color = "black",
                         stroke.features = NULL,
                         density.estimation = NULL,
+                        density.method = "fixed distance",
                         density.estimation.color = NULL,
                         density.estimation.opacity = 0.6,
                         density.points = TRUE,
-                        density.longitude.width = NULL,
-                        density.latitude.width = NULL,
+                        density.width = NULL,
                         density.legend = TRUE,
                         density.legend.opacity = 1,
                         density.legend.position = "bottomleft",
@@ -186,8 +185,7 @@ map.feature <- function(languages,
                         isogloss.color = "black",
                         isogloss.opacity = 0.2,
                         isogloss.line.width = 3,
-                        isogloss.longitude.width = NULL,
-                        isogloss.latitude.width = NULL,
+                        isogloss.width = NULL,
                         color = NULL,
                         stroke.color = NULL,
                         image.url = NULL,
@@ -432,15 +430,24 @@ map.feature <- function(languages,
   if (!is.null(density.estimation)) {
     my_poly_names <-
       names(which(table(mapfeat.df$density.estimation) > 1))
+    if(density.method != "fixed distance"){
     my_poly <- lapply(my_poly_names, function(feature) {
-      polygon.points(
+      polygon.points_kde(
         mapfeat.df[mapfeat.df$density.estimation == feature, 'lat'],
         mapfeat.df[mapfeat.df$density.estimation == feature, 'long'],
-        latitude_width = density.latitude.width,
-        longitude_width = density.longitude.width
+        latitude_width = density.width[1],
+        longitude_width = density.width[2]
       )
     })
-  }
+    } else{
+      my_poly <- lapply(my_poly_names, function(feature) {
+        polygon.points_fd(
+          mapfeat.df[mapfeat.df$density.estimation == feature, 'lat'],
+          mapfeat.df[mapfeat.df$density.estimation == feature, 'long'],
+          width = density.width)
+      })
+    }
+    }
 
 
 # create isogloss -------------------------------------------------------
@@ -491,12 +498,18 @@ map.feature <- function(languages,
       isogloss.df <- isogloss.df[-1,]
     }
   my_isogloss <- lapply(1:nrow(isogloss.df), function(i) {
-      polygon.points(
-        mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'lat'],
-        mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'long'],
-        latitude_width = isogloss.latitude.width,
-        longitude_width = isogloss.longitude.width
-      )
+    if(density.method != "fixed distance"){
+        polygon.points_kde(
+          mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'lat'],
+          mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'long'],
+          latitude_width = isogloss.width[1],
+          longitude_width = isogloss.width[2])
+    } else{
+        polygon.points_fd(
+          mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'lat'],
+          mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'long'],
+          width = isogloss.width)
+    }
     })
 
   }
