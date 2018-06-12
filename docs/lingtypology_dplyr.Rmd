@@ -42,9 +42,7 @@ new_data %>%
   map.feature(., minimap = TRUE)
 ```
 
-
-
-### 2. `leaflet`
+### 2. `leaflet`, `leaflet.extras`, `mapview`, `mapedit`
 
 There is also a possibility to use `lingtypology` with other [`leaflet`](https://github.com/rstudio/leaflet) functions (thanks to [Niko Partanen](https://github.com/nikopartanen) for the idea):
 
@@ -94,7 +92,16 @@ map.feature(c("French", "Occitan")) %>%
   leaflet.extras::addFullscreenControl()
 ```
 
-Also there is a nice package `mapedit`:
+The [`mapview` package](https://github.com/r-spatial/mapview) provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: `latticeview()` and `sync()`.
+```{r}
+m1 <- map.feature(lang.aff("Tsezic"), label = lang.aff("Tsezic"))
+m2 <- map.feature(lang.aff("Avar-Andi"), label = lang.aff("Avar-Andi"))
+library(mapview)
+sync(m1, m2)
+```
+
+
+Also there is a nice package `mapedit` that provide a possibility of creating and editing of leaflet objects by hand:
 ```{r, eval = FALSE}
 map.feature(c("Adyghe", "Russian")) %>% 
   mapedit::editMap() ->
@@ -109,33 +116,32 @@ map.feature(c("Adyghe", "Russian")) %>%
 ### 3. Get data from OpenStreetMap with `overpass`
 This section is inspired by talk with [Niko Partanen](https://github.com/nikopartanen) and his [gist](https://gist.github.com/nikopartanen/f5b4a325808ea8993bfb14b9f81cdfc1). [Overpass](https://github.com/hrbrmstr/overpass) is a packge with tools to work with the OpenStreetMap (OSM) [Overpass API](http://wiki.openstreetmap.org/wiki/Overpass_API). Explore simple Overpass queries with [overpass turbo](http://overpass-turbo.eu/). Imagine that we need to get all settlements from Ingushetia, Daghestan and Chechnya. So, first, load a library:
 
-```{r}
+```{r, eval=FALSE}
 library(overpass)
 ```
 
 Create a query:
 
-```{r}
-settlements <- '
-area[name~"Дагестан|Ингушетия|Чечня"];
+```{r, eval=FALSE}
+settlements <- 'area[name~"Дагестан|Ингушетия|Чечня"];
 (node["place"~"city|village|town|hamlet"](area););
 out;'
 ```
 
 Pass the query to `overpass_query()` function and change the input result to dataframe:
-```{r}
+```{r, eval=FALSE}
 query_result <- overpass_query(settlements)
 settlement_data <- as.data.frame(query_result[, c("id", "lon", "lat", "name")])
 ```
 
 Some values could be `NA`, so I profer clean it with `complete.cases()` function:
-```{r}
+```{r, eval=FALSE}
 settlement_data <- settlement_data[complete.cases(settlement_data),]
 ```
 
 On the last step, I will use a "fake"  language argument to avoid the creation of some Glottolog links:
 
-```{r}
+```{r, eval=FALSE}
 map.feature(language = "fake",
             latitude = settlement_data$lat,
             longitude = settlement_data$lon,
@@ -143,8 +149,6 @@ map.feature(language = "fake",
 ```
 
 Results are not ideal: there are some villages Дагестанская and Красный Дагестан in Adygeya and Krasnodarskiy district, but the most points are correct. It is also possible to get all data from some polygone created with `mapedit` (see previous section).
-
-
 
 ### 4. Create your own atlas with `rmarkdown`
 This section is inspired by talk with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and [`rmarkdown`](https://github.com/rstudio/rmarkdown) packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.

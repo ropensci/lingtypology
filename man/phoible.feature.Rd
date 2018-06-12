@@ -24,7 +24,7 @@ This function downloads data from PHOIBLE (http://phoible.org/) and changes lang
 # phoible.feature(c('consonants', 'vowels'), source = "UPSID")
 }
 \seealso{
-\code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{sails.feature}}, \code{\link{wals.feature}}
+\code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto-mangueanIC.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

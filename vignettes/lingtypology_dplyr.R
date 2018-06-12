@@ -56,6 +56,12 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #  map.feature(c("French", "Occitan")) %>%
 #    leaflet.extras::addFullscreenControl()
 
+## ------------------------------------------------------------------------
+#  m1 <- map.feature(lang.aff("Tsezic"), label = lang.aff("Tsezic"))
+#  m2 <- map.feature(lang.aff("Avar-Andi"), label = lang.aff("Avar-Andi"))
+#  library(mapview)
+#  sync(m1, m2)
+
 ## ---- eval = FALSE-------------------------------------------------------
 #  map.feature(c("Adyghe", "Russian")) %>%
 #    mapedit::editMap() ->
@@ -64,23 +70,22 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #  map.feature(c("Adyghe", "Russian")) %>%
 #    leaflet::addPolygons(data = my_polygone$finished)
 
-## ------------------------------------------------------------------------
+## ---- eval=FALSE---------------------------------------------------------
 #  library(overpass)
 
-## ------------------------------------------------------------------------
-#  settlements <- '
-#  area[name~"Дагестан|Ингушетия|Чечня"];
+## ---- eval=FALSE---------------------------------------------------------
+#  settlements <- 'area[name~"Дагестан|Ингушетия|Чечня"];
 #  (node["place"~"city|village|town|hamlet"](area););
 #  out;'
 
-## ------------------------------------------------------------------------
+## ---- eval=FALSE---------------------------------------------------------
 #  query_result <- overpass_query(settlements)
 #  settlement_data <- as.data.frame(query_result[, c("id", "lon", "lat", "name")])
 
-## ------------------------------------------------------------------------
+## ---- eval=FALSE---------------------------------------------------------
 #  settlement_data <- settlement_data[complete.cases(settlement_data),]
 
-## ------------------------------------------------------------------------
+## ---- eval=FALSE---------------------------------------------------------
 #  map.feature(language = "fake",
 #              latitude = settlement_data$lat,
 #              longitude = settlement_data$lon,

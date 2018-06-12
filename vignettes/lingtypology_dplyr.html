@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-03-17" />
+<meta name="date" content="2018-06-12" />
 
 <title>lingtypology and other packages</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and other packages</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-03-17</em></h4>
+<h4 class="date"><em>2018-06-12</em></h4>
 
 
 
@@ -96,8 +96,8 @@ new_data <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">select</span>(Language.name) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">map.feature</span>(., <span class="dt">minimap =</span> <span class="ot">TRUE</span>)</code></pre></div>
 </div>
-<div id="leaflet" class="section level3">
-<h3>2. <code>leaflet</code></h3>
+<div id="leaflet-leaflet.extras-mapview-mapedit" class="section level3">
+<h3>2. <code>leaflet</code>, <code>leaflet.extras</code>, <code>mapview</code>, <code>mapedit</code></h3>
 <p>There is also a possibility to use <code>lingtypology</code> with other <a href="https://github.com/rstudio/leaflet"><code>leaflet</code></a> functions (thanks to <a href="https://github.com/nikopartanen">Niko Partanen</a> for the idea):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(leaflet)
 <span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
@@ -126,7 +126,12 @@ new_data <span class="op">%&gt;%</span>
 <span class="st">  </span>leaflet.extras<span class="op">::</span><span class="kw">addStyleEditor</span>()
 <span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>leaflet.extras<span class="op">::</span><span class="kw">addFullscreenControl</span>()</code></pre></div>
-<p>Also there is a nice package <code>mapedit</code>:</p>
+<p>The <a href="https://github.com/r-spatial/mapview"><code>mapview</code> package</a> provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: <code>latticeview()</code> and <code>sync()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 &lt;-<span class="st"> </span><span class="kw">map.feature</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Tsezic&quot;</span>), <span class="dt">label =</span> <span class="kw">lang.aff</span>(<span class="st">&quot;Tsezic&quot;</span>))
+m2 &lt;-<span class="st"> </span><span class="kw">map.feature</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Avar-Andi&quot;</span>), <span class="dt">label =</span> <span class="kw">lang.aff</span>(<span class="st">&quot;Avar-Andi&quot;</span>))
+<span class="kw">library</span>(mapview)
+<span class="kw">sync</span>(m1, m2)</code></pre></div>
+<p>Also there is a nice package <code>mapedit</code> that provide a possibility of creating and editing of leaflet objects by hand:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>mapedit<span class="op">::</span><span class="kw">editMap</span>() -&gt;
 <span class="st">  </span>my_polygone
@@ -143,8 +148,7 @@ new_data <span class="op">%&gt;%</span>
 <p>This section is inspired by talk with <a href="https://github.com/nikopartanen">Niko Partanen</a> and his <a href="https://gist.github.com/nikopartanen/f5b4a325808ea8993bfb14b9f81cdfc1">gist</a>. <a href="https://github.com/hrbrmstr/overpass">Overpass</a> is a packge with tools to work with the OpenStreetMap (OSM) <a href="http://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a>. Explore simple Overpass queries with <a href="http://overpass-turbo.eu/">overpass turbo</a>. Imagine that we need to get all settlements from Ingushetia, Daghestan and Chechnya. So, first, load a library:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(overpass)</code></pre></div>
 <p>Create a query:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">settlements &lt;-<span class="st"> '</span>
-<span class="st">area[name~&quot;Дагестан|Ингушетия|Чечня&quot;];</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">settlements &lt;-<span class="st"> 'area[name~&quot;Дагестан|Ингушетия|Чечня&quot;];</span>
 <span class="st">(node[&quot;place&quot;~&quot;city|village|town|hamlet&quot;](area););</span>
 <span class="st">out;'</span></code></pre></div>
 <p>Pass the query to <code>overpass_query()</code> function and change the input result to dataframe:</p>
