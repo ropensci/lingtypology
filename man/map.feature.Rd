@@ -24,13 +24,13 @@ map.feature(languages, features = "", label = "", popup = "",
   width = 5, stroke.radius = 9.5, opacity = 1, stroke.opacity = 1,
   scale.bar = TRUE, scale.bar.position = "bottomleft", minimap = FALSE,
   minimap.position = "bottomright", minimap.width = 150,
-  minimap.height = 150, tile = "OpenStreetMap.Mapnik", tile.name = NULL,
-  zoom.control = FALSE, zoom.level = NULL, rectangle.lng = NULL,
-  rectangle.lat = NULL, rectangle.color = "black", line.lng = NULL,
-  line.lat = NULL, line.type = "standard", line.color = "black",
-  line.opacity = 0.8, line.label = NULL, line.width = 3,
-  graticule = NULL, minichart = NULL, minichart.data = NULL,
-  minichart.time = NULL, minichart.labels = FALSE,
+  minimap.height = 150, facet = NULL, tile = "OpenStreetMap.Mapnik",
+  tile.name = NULL, zoom.control = FALSE, zoom.level = NULL,
+  rectangle.lng = NULL, rectangle.lat = NULL, rectangle.color = "black",
+  line.lng = NULL, line.lat = NULL, line.type = "standard",
+  line.color = "black", line.opacity = 0.8, line.label = NULL,
+  line.width = 3, graticule = NULL, minichart = NULL,
+  minichart.data = NULL, minichart.time = NULL, minichart.labels = FALSE,
   map.orientation = "Pacific", glottolog.source = "modified",
   radius = NULL)
 }
@@ -150,6 +150,8 @@ map.feature(languages, features = "", label = "", popup = "",
 \item{minimap.width}{The width of the minimap in pixels.}
 
 \item{minimap.height}{The height of the minimap in pixels.}
+
+\item{facet}{character vector that provide a grouping variable. If it is no \code{NULL}, then as a result a list of leaflets for \link{sync} or \link{latticeView} functions from \code{mapview} package is returned.}
 
 \item{tile}{a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
 

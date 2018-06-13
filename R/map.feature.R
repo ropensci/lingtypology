@@ -46,6 +46,7 @@
 #' @param shape \enumerate{ \item if TRUE, creates icons (up to five categories) for values in the \code{features} variable; \item it also could be a vector of any strings that represents the levels of the  \code{features} variable; \item it also could be a string vector that represents the number of observations in dataset.}
 #' @param shape.size size of the \code{shape} icons
 #' @param shape.color color of the \code{shape} icons
+#' @param facet character vector that provide a grouping variable. If it is no \code{NULL}, then as a result a list of leaflets for \link{sync} or \link{latticeView} functions from \code{mapview} package is returned.
 #' @param pipe.data this variable is important, when you use map.feature with dplyr pipes. Expected usage: pipe.data = .
 #' @param map.orientation a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".
 #' @param minimap.height The height of the minimap in pixels.
@@ -212,6 +213,7 @@ map.feature <- function(languages,
                         minimap.position = "bottomright",
                         minimap.width = 150,
                         minimap.height = 150,
+                        facet = NULL,
                         tile = "OpenStreetMap.Mapnik",
                         tile.name = NULL,
                         zoom.control = FALSE,
@@ -288,6 +290,10 @@ map.feature <- function(languages,
     # if there are latitude and longitude
     mapfeat.df$long <- longitude
     mapfeat.df$lat <- latitude
+  }
+
+  if (!is.null(facet)) {
+    mapfeat.df <- cbind(mapfeat.df, facet)
   }
 
   # if there are no coordinates... ------------------------------------------
@@ -990,5 +996,96 @@ map.feature <- function(languages,
         zoom = zoom.level
       )
     }
-    m
+
+# facetisation ------------------------------------------------------------
+  if(!is.null(facet)){
+    facet_levels <- unique(mapfeat.df$facet)
+    list <- lapply(facet_levels, function(i){
+      df <- mapfeat.df[mapfeat.df$facet == i,]
+      map.feature <- map.feature(df$languages,
+                              features = df$features,
+                              label = df$label,
+                              popup = df$popup,
+                              latitude = df$lat,
+                              longitude = df$long,
+                              label.hide,
+                              label.fsize,
+                              label.font,
+                              label.position,
+                              label.emphasize,
+                              shape = NULL,
+                              shape.size,
+                              pipe.data,
+                              shape.color,
+                              stroke.features = NULL,
+                              density.estimation = NULL,
+                              density.method,
+                              density.estimation.color,
+                              density.estimation.opacity,
+                              density.points,
+                              density.width,
+                              density.legend,
+                              density.legend.opacity,
+                              density.legend.position,
+                              density.title,
+                              density.control,
+                              isogloss = NULL,
+                              isogloss.color,
+                              isogloss.opacity,
+                              isogloss.line.width,
+                              isogloss.width,
+                              color,
+                              stroke.color,
+                              image.url,
+                              image.width,
+                              image.height,
+                              image.X.shift,
+                              image.Y.shift,
+                              title,
+                              stroke.title,
+                              control,
+                              legend,
+                              legend.opacity,
+                              legend.position,
+                              stroke.legend,
+                              stroke.legend.opacity,
+                              stroke.legend.position,
+                              width,
+                              stroke.radius,
+                              opacity,
+                              stroke.opacity,
+                              scale.bar,
+                              scale.bar.position,
+                              minimap,
+                              minimap.position,
+                              minimap.width,
+                              minimap.height,
+                              facet = NULL,
+                              tile,
+                              tile.name,
+                              zoom.control,
+                              zoom.level,
+                              rectangle.lng = NULL,
+                              rectangle.lat = NULL,
+                              rectangle.color,
+                              line.lng = NULL,
+                              line.lat = NULL,
+                              line.type,
+                              line.color,
+                              line.opacity,
+                              line.label = NULL,
+                              line.width,
+                              graticule,
+                              minichart = NULL,
+                              minichart.data = NULL,
+                              minichart.time = NULL,
+                              minichart.labels = FALSE,
+                              map.orientation,
+                              glottolog.source,
+                              radius)
+    })
+    return(list)
+  } else{
+    return(m)
+  }
   }
