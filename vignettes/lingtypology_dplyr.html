@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2018-06-12" />
+<meta name="date" content="2018-06-14" />
 
 <title>lingtypology and other packages</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and other packages</h1>
 <h4 class="author"><em>George Moroz</em></h4>
-<h4 class="date"><em>2018-06-12</em></h4>
+<h4 class="date"><em>2018-06-14</em></h4>
 
 
 
@@ -126,11 +126,6 @@ new_data <span class="op">%&gt;%</span>
 <span class="st">  </span>leaflet.extras<span class="op">::</span><span class="kw">addStyleEditor</span>()
 <span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>leaflet.extras<span class="op">::</span><span class="kw">addFullscreenControl</span>()</code></pre></div>
-<p>The <a href="https://github.com/r-spatial/mapview"><code>mapview</code> package</a> provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: <code>latticeview()</code> and <code>sync()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 &lt;-<span class="st"> </span><span class="kw">map.feature</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Tsezic&quot;</span>), <span class="dt">label =</span> <span class="kw">lang.aff</span>(<span class="st">&quot;Tsezic&quot;</span>))
-m2 &lt;-<span class="st"> </span><span class="kw">map.feature</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Avar-Andi&quot;</span>), <span class="dt">label =</span> <span class="kw">lang.aff</span>(<span class="st">&quot;Avar-Andi&quot;</span>))
-<span class="kw">library</span>(mapview)
-<span class="kw">sync</span>(m1, m2)</code></pre></div>
 <p>Also there is a nice package <code>mapedit</code> that provide a possibility of creating and editing of leaflet objects by hand:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>mapedit<span class="op">::</span><span class="kw">editMap</span>() -&gt;
@@ -143,8 +138,24 @@ m2 &lt;-<span class="st"> </span><span class="kw">map.feature</span>(<span class
 
 </div>
 </div>
+<div id="combining-maps-in-a-grid-and-facetisation-with-mapview" class="section level3">
+<h3>3. Combining maps in a grid and facetisation with <code>mapview</code></h3>
+<p>The <a href="https://github.com/r-spatial/mapview"><code>mapview</code> package</a> provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: <code>latticeview()</code> and <code>sync()</code>. Facetisation is a really powerfull tool (look for <code>facet_grid()</code> and <code>facet_wrap()</code> functions from <code>ggplot2</code>). <code>lingtypology</code> doesn’t provide a facetisation itself, but the <code>facet</code> argument of the <code>map.feature()</code> function create a list of maps based on this variable. The result of the work of this function then is changed: instead of creating a map in Viewer pane it will return a list that could be used in <code>latticeview()</code> and <code>sync()</code> functions from the <code>mapview</code> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">faceted &lt;-<span class="st"> </span><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,
+                       <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,
+                       <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,
+                       <span class="dt">features =</span> circassian<span class="op">$</span>dialect,
+                       <span class="dt">facet =</span> circassian<span class="op">$</span>language)
+<span class="kw">library</span>(mapview)
+<span class="kw">sync</span>(faceted, <span class="dt">no.initial.sync =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>As you can see we provided a <code>circassian$language</code> to the <code>facet</code> argument, so it returned a list of two maps that stored in <code>faceted</code> variable.</p>
+<p>It is also possible to combine any maps that were created, just store them in a variable, and combine them in <code>latticeview()</code> and <code>sync()</code> functions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 &lt;-<span class="st"> </span><span class="kw">map.feature</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Tsezic&quot;</span>), <span class="dt">label =</span> <span class="kw">lang.aff</span>(<span class="st">&quot;Tsezic&quot;</span>))
+m2 &lt;-<span class="st"> </span><span class="kw">map.feature</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Avar-Andi&quot;</span>), <span class="dt">label =</span> <span class="kw">lang.aff</span>(<span class="st">&quot;Avar-Andi&quot;</span>))
+<span class="kw">sync</span>(m1, m2)</code></pre></div>
+</div>
 <div id="get-data-from-openstreetmap-with-overpass" class="section level3">
-<h3>3. Get data from OpenStreetMap with <code>overpass</code></h3>
+<h3>4. Get data from OpenStreetMap with <code>overpass</code></h3>
 <p>This section is inspired by talk with <a href="https://github.com/nikopartanen">Niko Partanen</a> and his <a href="https://gist.github.com/nikopartanen/f5b4a325808ea8993bfb14b9f81cdfc1">gist</a>. <a href="https://github.com/hrbrmstr/overpass">Overpass</a> is a packge with tools to work with the OpenStreetMap (OSM) <a href="http://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a>. Explore simple Overpass queries with <a href="http://overpass-turbo.eu/">overpass turbo</a>. Imagine that we need to get all settlements from Ingushetia, Daghestan and Chechnya. So, first, load a library:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(overpass)</code></pre></div>
 <p>Create a query:</p>
@@ -164,7 +175,7 @@ settlement_data &lt;-<span class="st"> </span><span class="kw">as.data.frame</sp
 <p>Results are not ideal: there are some villages Дагестанская and Красный Дагестан in Adygeya and Krasnodarskiy district, but the most points are correct. It is also possible to get all data from some polygone created with <code>mapedit</code> (see previous section).</p>
 </div>
 <div id="create-your-own-atlas-with-rmarkdown" class="section level3">
-<h3>4. Create your own atlas with <code>rmarkdown</code></h3>
+<h3>5. Create your own atlas with <code>rmarkdown</code></h3>
 <p>This section is inspired by talk with <a href="https://github.com/nikopartanen">Niko Partanen</a>. It is possible to create an atlas website using <code>lingtypology</code> and <a href="https://github.com/rstudio/rmarkdown"><code>rmarkdown</code></a> packages. The function <code>atlas.database()</code> creates a folder in the working directory that contains an <code>rmarkdown</code> template for a web-site.</p>
 <p>First, lets create a <code>dataframe</code> with some data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">wals.feature</span>(<span class="kw">c</span>(<span class="st">&quot;1a&quot;</span>, <span class="st">&quot;20a&quot;</span>))</code></pre></div>
@@ -194,7 +205,7 @@ settlement_data &lt;-<span class="st"> </span><span class="kw">as.data.frame</sp
 </ul>
 </div>
 <div id="create-.kml-file-using-sp-and-rgdal" class="section level3">
-<h3>5. Create .kml file using <code>sp</code> and <code>rgdal</code></h3>
+<h3>6. Create .kml file using <code>sp</code> and <code>rgdal</code></h3>
 <p>.kml file is a common file type for geospatial data. This kind of files are used in <a href="https://en.wikipedia.org/wiki/Google_Earth">Google Earth</a>, <a href="http://www.gabmap.nl/">Gabmap</a> (a web application that visualizes dialect variations) and others. In order to produce a .kml file you need to have a dataset with coordinates such as <code>circassian</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sp<span class="op">::</span><span class="kw">coordinates</span>(circassian) &lt;-<span class="st"> </span><span class="er">~</span>longitude<span class="op">+</span>latitude
 sp<span class="op">::</span><span class="kw">proj4string</span>(circassian) &lt;-<span class="st"> </span>sp<span class="op">::</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)

@@ -2,7 +2,6 @@
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/ropensci/lingtypology.svg?branch=master)](https://travis-ci.org/ropensci/lingtypology)
-[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/84ntv1rlqkuhepfj?svg=true)](https://ci.appveyor.com/project/agricolamz/lingtypology-67x52)
 [![Coverage Status](https://img.shields.io/codecov/c/github/ropensci/lingtypology/master.svg)](https://codecov.io/github/ropensci/lingtypology?branch=master)
 
 [![CRAN
@@ -27,7 +26,7 @@ install.packages("devtools")
 devtools::install_github("ropensci/lingtypology")
 ```
 
-Sometimes installation failed because of the absence of the package `crosstalk`. Just install it using command `install.packages("crosstalk")`. Misha Voronove also said that for correct instalation on Debian some additional packages should be installed:
+Sometimes installation failed because of the absence of the package `crosstalk`. Just install it using command `install.packages("crosstalk")`. Misha Voronov claim that for correct instalation on Debian some additional packages should be installed:
 
 ```
 apt-get install libcurl4-openssl-dev

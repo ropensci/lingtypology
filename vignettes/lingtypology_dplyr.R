@@ -56,12 +56,6 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #  map.feature(c("French", "Occitan")) %>%
 #    leaflet.extras::addFullscreenControl()
 
-## ------------------------------------------------------------------------
-#  m1 <- map.feature(lang.aff("Tsezic"), label = lang.aff("Tsezic"))
-#  m2 <- map.feature(lang.aff("Avar-Andi"), label = lang.aff("Avar-Andi"))
-#  library(mapview)
-#  sync(m1, m2)
-
 ## ---- eval = FALSE-------------------------------------------------------
 #  map.feature(c("Adyghe", "Russian")) %>%
 #    mapedit::editMap() ->
@@ -69,6 +63,20 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #  
 #  map.feature(c("Adyghe", "Russian")) %>%
 #    leaflet::addPolygons(data = my_polygone$finished)
+
+## ------------------------------------------------------------------------
+#  faceted <- map.feature(circassian$language,
+#                         latitude = circassian$latitude,
+#                         longitude = circassian$longitude,
+#                         features = circassian$dialect,
+#                         facet = circassian$language)
+#  library(mapview)
+#  sync(faceted, no.initial.sync = FALSE)
+
+## ---- eval=FALSE---------------------------------------------------------
+#  m1 <- map.feature(lang.aff("Tsezic"), label = lang.aff("Tsezic"))
+#  m2 <- map.feature(lang.aff("Avar-Andi"), label = lang.aff("Avar-Andi"))
+#  sync(m1, m2)
 
 ## ---- eval=FALSE---------------------------------------------------------
 #  library(overpass)

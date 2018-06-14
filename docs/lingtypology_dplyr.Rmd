@@ -1,6 +1,8 @@
 ---
 title: "`lingtypology` and other packages"
 author: "[George Moroz](mailto:agricolamz@gmail.com)"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include=FALSE}
@@ -92,15 +94,6 @@ map.feature(c("French", "Occitan")) %>%
   leaflet.extras::addFullscreenControl()
 ```
 
-The [`mapview` package](https://github.com/r-spatial/mapview) provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: `latticeview()` and `sync()`.
-```{r}
-m1 <- map.feature(lang.aff("Tsezic"), label = lang.aff("Tsezic"))
-m2 <- map.feature(lang.aff("Avar-Andi"), label = lang.aff("Avar-Andi"))
-library(mapview)
-sync(m1, m2)
-```
-
-
 Also there is a nice package `mapedit` that provide a possibility of creating and editing of leaflet objects by hand:
 ```{r, eval = FALSE}
 map.feature(c("Adyghe", "Russian")) %>% 
@@ -112,8 +105,31 @@ map.feature(c("Adyghe", "Russian")) %>%
 ```
 ![](https://raw.githubusercontent.com/ropensci/lingtypology/master/docs/use_mapedit.gif)
 
+### 3. Combining maps in a grid and facetisation with `mapview`
 
-### 3. Get data from OpenStreetMap with `overpass`
+The [`mapview` package](https://github.com/r-spatial/mapview) provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: `latticeview()` and `sync()`. Facetisation is a really powerfull tool (look for `facet_grid()` and `facet_wrap()` functions from `ggplot2`). `lingtypology` doesn't provide a facetisation itself, but the `facet` argument of the `map.feature()` function create a list of maps based on this variable. The result of the work of this function then is changed: instead of creating a map in Viewer pane it will return a list that could be used in `latticeview()` and `sync()` functions from the `mapview` package.
+
+```{r}
+faceted <- map.feature(circassian$language,
+                       latitude = circassian$latitude,
+                       longitude = circassian$longitude,
+                       features = circassian$dialect,
+                       facet = circassian$language)
+library(mapview)
+sync(faceted, no.initial.sync = FALSE)
+```
+
+As you can see we provided a `circassian$language` to the `facet` argument, so it returned a list of two maps that stored in `faceted` variable.
+
+It is also possible to combine any maps that were created, just store them in a variable, and combine them in `latticeview()` and `sync()` functions
+
+```{r, eval=FALSE}
+m1 <- map.feature(lang.aff("Tsezic"), label = lang.aff("Tsezic"))
+m2 <- map.feature(lang.aff("Avar-Andi"), label = lang.aff("Avar-Andi"))
+sync(m1, m2)
+```
+
+### 4. Get data from OpenStreetMap with `overpass`
 This section is inspired by talk with [Niko Partanen](https://github.com/nikopartanen) and his [gist](https://gist.github.com/nikopartanen/f5b4a325808ea8993bfb14b9f81cdfc1). [Overpass](https://github.com/hrbrmstr/overpass) is a packge with tools to work with the OpenStreetMap (OSM) [Overpass API](http://wiki.openstreetmap.org/wiki/Overpass_API). Explore simple Overpass queries with [overpass turbo](http://overpass-turbo.eu/). Imagine that we need to get all settlements from Ingushetia, Daghestan and Chechnya. So, first, load a library:
 
 ```{r, eval=FALSE}
@@ -150,7 +166,7 @@ map.feature(language = "fake",
 
 Results are not ideal: there are some villages Дагестанская and Красный Дагестан in Adygeya and Krasnodarskiy district, but the most points are correct. It is also possible to get all data from some polygone created with `mapedit` (see previous section).
 
-### 4. Create your own atlas with `rmarkdown`
+### 5. Create your own atlas with `rmarkdown`
 This section is inspired by talk with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and [`rmarkdown`](https://github.com/rstudio/rmarkdown) packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.
 
 First, lets create a `dataframe` with some data.
@@ -195,7 +211,7 @@ Then the atlas website will be created (here is [a result](https://agricolamz.gi
 unlink("./atlas_Some_WALS_features/", recursive = TRUE)
 ```
 
-### 5. Create .kml file using `sp` and `rgdal`
+### 6. Create .kml file using `sp` and `rgdal`
 .kml file is a common file type for geospatial data. This kind of files are used in [Google Earth](https://en.wikipedia.org/wiki/Google_Earth), [Gabmap](http://www.gabmap.nl/) (a web application that visualizes dialect variations) and others. In order to produce a .kml file you need to have a dataset with coordinates such as `circassian`:
 ```{r, eval= FALSE}
 sp::coordinates(circassian) <- ~longitude+latitude
