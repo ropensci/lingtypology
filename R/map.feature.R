@@ -825,11 +825,11 @@ map.feature <- function(languages,
         leaflet::addControl(html = paste(
           collapse = "",
           ifelse(!is.null(title),
-                 paste('<b>', title, "</b> <br>", collapse = ""),
+                 paste('<b><font size="4" face = "', label.font, '">', title, "</font></b> <br>", collapse = ""),
                  ""
                  ),
           paste(
-            '<b><font size="4">',
+            '<b><font size="4" face = "', label.font, '">',
             unique(icons),
             '</font></b>',
             unique(as.factor(mapfeat.df$features)),
@@ -955,7 +955,12 @@ map.feature <- function(languages,
     } else if(sum(mapfeat.df$features == "") == length(mapfeat.df$features) &
               !is.null(title)){
       m <- m %>% leaflet::addControl(
-        html = paste('<b>', title, "</b>"),
+        html = paste('<b><font size="4" face = "',
+                     label.font,
+                     '">',
+                     title,
+                     "</font></b> <br>",
+                     collapse = ""),
         position = legend.position)
     }
 

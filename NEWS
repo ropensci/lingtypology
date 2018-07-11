@@ -1,4 +1,7 @@
-lingtypology 1.0.13 (30.05.2018)
+lingtypology 1.0.14 (24.06.2018)
+- font in a legend changed to the same as the label font
+
+lingtypology 1.0.13 (14.06.2018)
  - add the possibility to use "fake" language in the "map.feature()" function.
  - lingtypology take into account leaflet 2.0.0 updates
  - add possibility to use combination of shape and label arguments
