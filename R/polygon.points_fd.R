@@ -5,12 +5,11 @@
 #' @param longitude numeric vector of longitudes
 #' @param width radius for creating poligons around points
 #'
-#' @importFrom sp SpatialPointsDataFrame
-#' @importFrom rgeos gBuffer
-#' @importFrom rgeos gIntersects
-#' @importFrom rgeos gUnaryUnion
 
 polygon.points_fd <- function(latitude, longitude, width) {
+  if(requireNamespace("rgeos", quietly = TRUE)&
+     requireNamespace("sp", quietly = TRUE)) {
+
   if(is.null(width)){stop("Please specify a density.width argument.")}
   sp_fw <- sp::SpatialPointsDataFrame(
     coords = cbind(longitude, latitude),
@@ -35,4 +34,8 @@ polygon.points_fd <- function(latitude, longitude, width) {
   })
   buff <- rgeos::gUnaryUnion(buff, buff$nth)
   return(buff)
+  } else {
+    message("your density.estimation argument call needs packages 'rgeos' and 'sp' to be installed")
+  }
+
 }

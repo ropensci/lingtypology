@@ -6,17 +6,17 @@
 #' @param latitude_width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
 #' @param longitude_width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
 #'
-#' @importFrom MASS kde2d
-#' @importFrom MASS bandwidth.nrd
 #' @importFrom stats density
 #' @importFrom stats sd
-#' @importFrom sp Polygons
-#' @importFrom sp SpatialPolygons
 
 polygon.points_kde <- function(latitude,
                                longitude,
                                latitude_width,
                                longitude_width) {
+
+  if(requireNamespace("MASS", quietly = TRUE)&
+     requireNamespace("sp", quietly = TRUE)) {
+
   ifelse(
     is.null(latitude_width),
     latitude_width <- MASS::bandwidth.nrd(latitude),
@@ -52,4 +52,7 @@ polygon.points_kde <- function(latitude,
     sp::Polygons(list(sp::Polygon(cbind(CL[[i]]$x, CL[[i]]$y))), ID = i)
   })
   sp::SpatialPolygons(pgons)
+  } else {
+    message("your density.estimation argument call needs packages 'MASS' and 'sp' to be installed")
+  }
 }

@@ -302,6 +302,33 @@ abvd <- read_tsv("abvd.tsv")
 oto_mangueanIC <- read_csv("oto_mangueanIC.csv")
 
 
+# 10 CLICS data -----------------------------------------------------------
+
+library(rvest)
+
+clics <- data_frame(id = 1:3180)
+
+sapply(1:3180, function(id) {
+  tryCatch({source <- read_html(paste0("https://clics.clld.org/parameters/", id))}, error = function(e){})
+  if ("source" %in% ls()) {
+    source %>%
+      html_nodes("h2") %>%
+      html_text() ->
+      result
+    rm(source)
+    result
+  } else {NA}}) ->
+  clics$concepts
+
+clics %>%
+  na.omit() %>%
+  mutate(concepts = str_replace(concepts, "Concept ", "")) ->
+  clics
+
+write_csv(clics, "clics.csv")
+
+clics <- read_csv("clics.csv")
+
 # save files --------------------------------------------------------------
 setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/data/")
 save(glottolog.modified, file="glottolog.modified.RData", compress= 'xz')
@@ -315,6 +342,7 @@ save(autotyp, file="autotyp.RData", compress='xz')
 save(wals, file="wals.RData", compress='xz')
 save(abvd, file="abvd.RData", compress='xz')
 save(oto_mangueanIC, file="oto_mangueanIC.RData", compress='xz')
+# save(clics, file="clics.RData", compress='xz')
 rm(list = ls())
 
 # remove some files -------------------------------------------------------
