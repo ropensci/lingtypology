@@ -20,7 +20,7 @@ This function downloads data from SAILS (http://sails.clld.org/) and changes lan
 # sails.feature(c("and1", "and11"))
 }
 \seealso{
-\code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
+\code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

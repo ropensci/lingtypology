@@ -37,6 +37,9 @@ is.glottolog <-
     result <- y %in% tolower(glottolog$language)
     if (response == TRUE) {
       vapply(x[!result], function(z) {
+        if(is.na(z)){
+          NA_character_
+        } else{
         # computes pairwise string Levenshtein distance ---------------------------
         cand <- stringdist::stringdist(tolower(as.character(z)),
                                        tolower(glottolog$language),
@@ -80,7 +83,7 @@ is.glottolog <-
           ),
           call. = FALSE
         )
-      }, character(1))
+      }}, character(1))
     }
     return(result)
   }

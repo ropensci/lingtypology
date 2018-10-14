@@ -9,7 +9,6 @@ Imports:
     stats,
     utils,
     stringdist,
-    magrittr,
     grDevices,
     rowr
 Author: George Moroz

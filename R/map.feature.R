@@ -149,7 +149,7 @@
 #' @importFrom grDevices gray
 #' @importFrom grDevices topo.colors
 #' @importFrom rowr cbind.fill
-#' @importFrom magrittr %>%
+#' @importFrom leaflet %>%
 #' @importFrom leaflet.minicharts addMinicharts
 #' @importFrom leaflet.minicharts popupArgs
 #' @export %>%
@@ -238,10 +238,10 @@ map.feature <- function(languages,
   if(!is.null(radius)){
     warning("The radius argument is deprecated. Use width argument instead.")
   }
-  ifelse(
+  glottolog <- ifelse(
     grepl(glottolog.source, "original"),
-    glottolog <- lingtypology::glottolog.original,
-    glottolog <- lingtypology::glottolog.modified
+    lingtypology::glottolog.original,
+    lingtypology::glottolog.modified
   )
   if (typeof(languages) == "list") {
     languages <- unlist(languages)
@@ -256,7 +256,7 @@ map.feature <- function(languages,
   }}
 
   # create dataframe ---------------------------------------------------------
-  mapfeat.df <- data.frame(languages, features,
+  mapfeat.df <- data.frame(languages = unname(languages), features,
                            popup = popup,
                            long = longitude,
                            lat = latitude)

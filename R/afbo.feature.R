@@ -6,7 +6,7 @@
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
-#' @seealso \code{\link{abvd.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
+#' @seealso \code{\link{abvd.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 #' @examples
 #' # afbo.feature()
 #' # afbo.feature(c("adjectivizer", "adverbializer"))

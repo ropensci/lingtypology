@@ -21,8 +21,11 @@ iso.gltc <- function(x, glottolog.source = "modified") {
   )
   x <- gsub("\\W", "", x)
   vapply(x, function(y) {
+    if(is.na(y)){
+      NA_character_
+    } else{
     ifelse(y %in% glottolog$glottocode,
            glottolog[tolower(glottolog$glottocode) %in% tolower(y), ]$iso,
            NA_character_)
-  }, character(1))
+  }}, character(1))
 }

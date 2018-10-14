@@ -5,7 +5,7 @@
 #' @param features A character vector that define with a feature ids from WALS (e. g. "1a", "21b").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
 #' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
-#' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}
+#' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' # wals.feature(c("1a", "20a"))

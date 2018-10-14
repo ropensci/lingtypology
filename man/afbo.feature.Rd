@@ -22,7 +22,7 @@ This function downloads data from AfBo (http://afbo.info) and changes language n
 # afbo.feature(c("adjectivizer", "adverbializer"))
 }
 \seealso{
-\code{\link{abvd.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
+\code{\link{abvd.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

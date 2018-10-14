@@ -54,3 +54,11 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #              features = new_df$item,
 #              label = new_df$language)
 
+## ------------------------------------------------------------------------
+#  df <- uralex.feature()
+#  df <- df[df$uralex_mng == "crush",]
+#  
+#  map.feature(df$language2,
+#              label = df$item,
+#              title = "crush")
+

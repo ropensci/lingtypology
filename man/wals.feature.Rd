@@ -20,7 +20,7 @@ This function downloads data from WALS (http://wals.info) and changes language n
 # wals.feature(c("1a", "20a"))
 }
 \seealso{
-\code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}
+\code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

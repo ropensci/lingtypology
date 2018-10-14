@@ -1,6 +1,7 @@
-lingtypology 1.0.14 (13.10.2018)
+lingtypology 1.0.14 (14.10.2018)
 - font in a legend changed to the same as the label font
 - change rgeos, MASS and sp packages to suggetions
+- add "uralex.feature()" function
 
 lingtypology 1.0.13 (14.06.2018)
  - add the possibility to use "fake" language in the "map.feature()" function.

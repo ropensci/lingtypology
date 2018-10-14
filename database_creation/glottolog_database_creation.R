@@ -329,6 +329,16 @@ write_csv(clics, "clics.csv")
 
 clics <- read_csv("clics.csv")
 
+
+# 11. UraLex --------------------------------------------------------------
+read_csv("https://github.com/lexibank/uralex/raw/master/cldf/languages.csv") %>%
+  mutate(language = Name,
+         language2 = lang.gltc(Glottocode)) %>%
+  select(language, Glottocode, language2) ->
+  uralex
+
+write_csv(uralex, "uralex.csv")
+
 # save files --------------------------------------------------------------
 setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/data/")
 save(glottolog.modified, file="glottolog.modified.RData", compress= 'xz')
@@ -341,6 +351,7 @@ save(ejective_and_n_consonants, file="ejective_and_n_consonants.RData", compress
 save(autotyp, file="autotyp.RData", compress='xz')
 save(wals, file="wals.RData", compress='xz')
 save(abvd, file="abvd.RData", compress='xz')
+save(uralex, file="uralex.RData", compress='xz')
 save(oto_mangueanIC, file="oto_mangueanIC.RData", compress='xz')
 # save(clics, file="clics.RData", compress='xz')
 rm(list = ls())

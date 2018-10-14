@@ -13,7 +13,7 @@ This function downloads data from Oto-Manguean Inflectional Class Database (http
 # oto_mangueanIC.feature()
 }
 \seealso{
-\code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
+\code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>
