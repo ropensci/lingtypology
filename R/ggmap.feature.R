@@ -31,7 +31,12 @@ ggmap.feature <- function(languages,
                           opacity = 1,
                           map.orientation = "Atlantic",
                           glottolog.source = "modified"){
-  if(require(ggplot2) & require(rgdal)){
+  if(!(requireNamespace("ggplot2", quietly = TRUE) &
+       (requireNamespace("rgdal", , quietly = TRUE)))){
+    warning('Install packages ggplot2 and rgdal:
+  install.packages(c("ggplot2", "rgdal"))')
+  }
+
     glottolog <- ifelse(
       grepl(glottolog.source, "original"),
       lingtypology::glottolog.original,
@@ -110,26 +115,23 @@ ggmap.feature <- function(languages,
   mapfeat.df$lat <- places_wintri[,2]
 
   if(!is.numeric(mapfeat.df$features)){
-  amap+
-    geom_point(data = mapfeat.df, aes(long, lat, group=NULL, fill=NULL, color = features), size = width, alpha = opacity)+
-    scale_color_manual(values = my_colors[1:length(unique(mapfeat.df$features))])  ->
-    result.map
+    lingtypology::amap+
+      ggplot2::geom_point(data = mapfeat.df, ggplot2::aes(mapfeat.df$long, mapfeat.df$lat, group=NULL, fill=NULL, color = features), size = width, alpha = opacity)+
+      ggplot2::scale_color_manual(values = my_colors[1:length(unique(mapfeat.df$features))])  ->
+      result.map
   } else {
-    amap+
-      geom_point(data = mapfeat.df, aes(long, lat, group=NULL, fill=NULL, color = features), size = width, alpha = opacity) ->
+    lingtypology::amap+
+      ggplot2::geom_point(data = mapfeat.df, ggplot2::aes(mapfeat.df$long, mapfeat.df$lat, group=NULL, fill=NULL, color = features), size = width, alpha = opacity) ->
       result.map
   }
 
   if(length(unique(mapfeat.df$features)) < 2 | isFALSE(legend)){
     result.map +
-      theme(legend.position = "none") ->
+      ggplot2::theme(legend.position = "none") ->
       result.map
     }
 
   result.map +
-    labs(color = title)
+    ggplot2::labs(color = title)
 
-    } else {
-    warning("Install packages ggplot2 and rgdal")
-  }
 }

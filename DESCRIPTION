@@ -2,7 +2,7 @@ Package: lingtypology
 Type: Package
 Title: Linguistic Typology and Mapping
 Version: 1.0.14
-Depends: R (>= 3.1.0)
+Depends: R (>= 3.5.0)
 Imports:
     leaflet,
     leaflet.minicharts,
@@ -26,5 +26,7 @@ Suggests:
     covr,
     MASS,
     sp,
-    rgeos
+    rgeos,
+    rgdal,
+    ggplot2
 VignetteBuilder: knitr
