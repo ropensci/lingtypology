@@ -339,6 +339,47 @@ read_csv("https://github.com/lexibank/uralex/raw/master/cldf/languages.csv") %>%
 
 write_csv(uralex, "uralex.csv")
 
+
+# amap --------------------------------------------------------------------
+library(rgdal)
+library(ggplot2)
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation/for amap")
+wmap <- readOGR(dsn="ne_110m_land/", layer="ne_110m_land")
+bbox <- readOGR(dsn = "ne_110m_wgs84_bounding_box/", layer = "ne_110m_wgs84_bounding_box")
+grat <- readOGR("ne_110m_graticules_20/", layer="ne_110m_graticules_20")
+
+theme_opts <- list(theme(panel.grid.minor = element_blank(),
+                         panel.grid.major = element_blank(),
+                         panel.background = element_blank(),
+                         plot.background = element_blank(),
+                         panel.border = element_blank(),
+                         axis.line = element_blank(),
+                         axis.text.x = element_blank(),
+                         axis.text.y = element_blank(),
+                         axis.ticks = element_blank(),
+                         axis.title.x = element_blank(),
+                         axis.title.y = element_blank(),
+                         plot.title = element_text(size=22)))
+
+bbox_wintri <- spTransform(bbox, CRS("+proj=wintri"))
+bbox_wintri <- fortify(bbox_wintri)
+wmap_wintri <- spTransform(wmap, CRS("+proj=wintri"))
+wmap_wintri <- fortify(wmap_wintri)
+grat_wintri <- spTransform(grat, CRS("+proj=wintri"))
+grat_wintri <- fortify(grat_wintri)
+points <- rgdal::project(cbind(long.lang(lang.aff("Bantu")),
+                               lat.lang(lang.aff("Bantu"))),
+                       proj="+proj=wintri")
+
+ggplot(bbox_wintri, aes(long,lat, group=group)) +
+  geom_polygon(fill="lightcyan") +
+  geom_polygon(data=wmap_wintri, aes(long,lat, group=group, fill=hole)) +
+  geom_path(data=grat_wintri, aes(long, lat, group=group, fill=NULL), linetype="dashed", color="grey50") +
+  coord_equal() +
+  theme_opts +
+  scale_fill_manual(values=c("gray75", "lightcyan"), guide="none") ->
+  amap
+
 # save files --------------------------------------------------------------
 setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/data/")
 save(glottolog.modified, file="glottolog.modified.RData", compress= 'xz')
@@ -353,6 +394,7 @@ save(wals, file="wals.RData", compress='xz')
 save(abvd, file="abvd.RData", compress='xz')
 save(uralex, file="uralex.RData", compress='xz')
 save(oto_mangueanIC, file="oto_mangueanIC.RData", compress='xz')
+save(amap, file="amap.RData", compress='xz')
 # save(clics, file="clics.RData", compress='xz')
 rm(list = ls())
 
