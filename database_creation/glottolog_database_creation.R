@@ -339,8 +339,8 @@ read_csv("https://github.com/lexibank/uralex/raw/master/cldf/languages.csv") %>%
 
 write_csv(uralex, "uralex.csv")
 
+# 12 amap -----------------------------------------------------------------
 
-# amap --------------------------------------------------------------------
 library(rgdal)
 library(ggplot2)
 setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation/for amap")
@@ -367,9 +367,6 @@ wmap_wintri <- spTransform(wmap, CRS("+proj=wintri"))
 wmap_wintri <- fortify(wmap_wintri)
 grat_wintri <- spTransform(grat, CRS("+proj=wintri"))
 grat_wintri <- fortify(grat_wintri)
-points <- rgdal::project(cbind(long.lang(lang.aff("Bantu")),
-                               lat.lang(lang.aff("Bantu"))),
-                       proj="+proj=wintri")
 
 ggplot(bbox_wintri, aes(long,lat, group=group)) +
   geom_polygon(fill="lightcyan") +
@@ -380,6 +377,38 @@ ggplot(bbox_wintri, aes(long,lat, group=group)) +
   scale_fill_manual(values=c("gray75", "lightcyan"), guide="none") ->
   amap
 
+# ogr2ogr ne_110m_graticules_20v2.shp ne_110m_graticules_20.shp -dialect sqlite -sql "SELECT ShiftCoords(geometry,180,0) FROM ne_110m_graticules_20"
+# ogr2ogr ne_110m_landv2.shp ne_110m_land.shp -dialect sqlite -sql "SELECT ShiftCoords(geometry,180,0) FROM ne_110m_land"
+# ogr2ogr ne_110m_wgs84_bounding_boxv2.shp ne_110m_wgs84_bounding_box.shp -dialect sqlite -sql "SELECT ShiftCoords(geometry,180,0) FROM ne_110m_wgs84_bounding_box"
+
+setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation/for pmap")
+wmap <- readOGR(dsn="ne_110m_land/", layer="ne_110m_landv2")
+bbox <- readOGR(dsn = "ne_110m_wgs84_bounding_box/", layer = "ne_110m_wgs84_bounding_boxv2")
+grat <- readOGR("ne_110m_graticules_20/", layer="ne_110m_graticules_20v2")
+
+bbox_wintri <- spTransform(bbox, CRS("+proj=wintri"))
+bbox_wintri <- fortify(bbox_wintri)
+wmap_wintri <- spTransform(wmap, CRS("+proj=wintri"))
+wmap_wintri <- fortify(wmap_wintri)
+grat_wintri <- spTransform(grat, CRS("+proj=wintri"))
+grat_wintri <- fortify(grat_wintri)
+
+ggplot(bbox_wintri, aes(long,lat, group=group)) +
+  geom_polygon(fill="lightcyan") +
+  geom_polygon(data=wmap_wintri, aes(long,lat, group=group, fill=hole)) +
+  geom_path(data=grat_wintri, aes(long, lat, group=group, fill=NULL), linetype="dashed", color="grey50") +
+  coord_equal() +
+  theme_opts +
+  scale_fill_manual(values=c("gray75", "lightcyan"), guide="none")
+
+
+# 13 phoible --------------------------------------------------------------
+phoible <- read_csv("https://raw.githubusercontent.com/phoible/dev/master/data/phoible.csv")
+phoible %>%
+  distinct(Glottocode) %>%
+  mutate(language = lingtypology::lang.gltc(Glottocode)) ->
+  phoible
+
 # save files --------------------------------------------------------------
 setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/data/")
 save(glottolog.modified, file="glottolog.modified.RData", compress= 'xz')
@@ -387,6 +416,7 @@ save(glottolog.original, file="glottolog.original.RData", compress='xz')
 circassian <- as.data.frame(circassian)
 save(circassian, file="circassian.RData", compress='xz')
 save(countries, file="countries.RData", compress='xz')
+save(phoible, file="phoible.RData", compress='xz')
 ejective_and_n_consonants <- as.data.frame(ejective_and_n_consonants)
 save(ejective_and_n_consonants, file="ejective_and_n_consonants.RData", compress='xz')
 save(autotyp, file="autotyp.RData", compress='xz')
