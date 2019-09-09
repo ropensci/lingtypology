@@ -310,11 +310,14 @@ map.feature <- function(languages,
   mapfeat.df <- mapfeat.df[stats::complete.cases(mapfeat.df), ]
 
   # create link --------------------------------------------------------------
+  if(!("fake" %in% tolower(languages))){
   mapfeat.df$link <- url.lang(
     as.character(mapfeat.df$languages),
     popup = mapfeat.df$popup,
     glottolog.source = glottolog.source
-  )
+  )} else {
+    mapfeat.df$link <- mapfeat.df$popup
+  }
 
   # add images --------------------------------------------------------------
   if (!is.null(image.url)) {

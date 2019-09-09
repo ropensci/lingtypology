@@ -62,7 +62,7 @@ map.feature(df$language, df$features)
 
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
-There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have three variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, numeric variables `consonants` and `vowels` that contains information about the number of consonants and vowels (based on UPSyD database). We can create two maps with categorical variable and with numeric variable:
+There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.cnrs.fr/). This dataset have three variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, numeric variables `consonants` and `vowels` that contains information about the number of consonants and vowels (based on UPSyD database). We can create two maps with categorical variable and with numeric variable:
 
 ```{r}
 map.feature(ejective_and_n_consonants$language,
@@ -347,7 +347,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 ```
 
 ### 15. Add minicharts instead of points
-This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). Here is an example of barplot:
+This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.cnrs.fr/). Here is an example of barplot:
 
 ```{r}
 map.feature(languages = ejective_and_n_consonants$language,

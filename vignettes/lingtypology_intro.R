@@ -1,7 +1,7 @@
 ## ---- eval=FALSE---------------------------------------------------------
 #  install.packages("lingtypology", dependencies = TRUE)
 
-## ---- eval= F------------------------------------------------------------
+## ---- eval= FALSE--------------------------------------------------------
 #  install.packages("devtools")
 #  devtools::install_github("ropensci/lingtypology")
 
