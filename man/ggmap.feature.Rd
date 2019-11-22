@@ -4,10 +4,19 @@
 \alias{ggmap.feature}
 \title{Create a map with ggplot2}
 \usage{
-ggmap.feature(languages, features = "", latitude = NA,
-  longitude = NA, color = NULL, title = NULL, legend = TRUE,
-  width = 2, opacity = 1, map.orientation = "Atlantic",
-  glottolog.source = "modified")
+ggmap.feature(
+  languages,
+  features = "",
+  latitude = NA,
+  longitude = NA,
+  color = NULL,
+  title = NULL,
+  legend = TRUE,
+  width = 2,
+  opacity = 1,
+  map.orientation = "Atlantic",
+  glottolog.source = "modified"
+)
 }
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case).}

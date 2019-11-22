@@ -4,8 +4,7 @@
 \alias{afbo.feature}
 \title{Download AfBo data}
 \usage{
-afbo.feature(features = "all", na.rm = TRUE,
-  glottolog.source = "modified")
+afbo.feature(features = "all", na.rm = TRUE, glottolog.source = "modified")
 }
 \arguments{
 \item{features}{A character vector that define with an affix functions from AfBo (e. g. "all", "adjectivizer", "focus").}

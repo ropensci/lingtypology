@@ -4,8 +4,14 @@
 \alias{atlas.database}
 \title{Create an atlas}
 \usage{
-atlas.database(languages, latitude, longitude, features, atlas_name = "",
-  author = "")
+atlas.database(
+  languages,
+  latitude,
+  longitude,
+  features,
+  atlas_name = "",
+  author = ""
+)
 }
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case)}

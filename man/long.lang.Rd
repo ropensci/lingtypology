@@ -4,8 +4,7 @@
 \alias{long.lang}
 \title{Get longitude by language}
 \usage{
-long.lang(x, map.orientation = "Pacific",
-  glottolog.source = "modified")
+long.lang(x, map.orientation = "Pacific", glottolog.source = "modified")
 }
 \arguments{
 \item{x}{A character vector of the languages (can be written in lower case)}

@@ -1,5 +1,6 @@
-lingtypology 1.0.15 (...09.2019)
+lingtypology 1.0.15 (22.11.2019)
 - remove NA apearence from popup window when "fake" language argument is used.
+- fast fix of colors tests
 
 lingtypology 1.0.14 (25.08.2019)
 - font in a legend changed to the same as the label font

@@ -4,8 +4,7 @@
 \alias{lang.country}
 \title{Get languages by country}
 \usage{
-lang.country(x, list = FALSE, official = FALSE,
-  glottolog.source = "modified")
+lang.country(x, list = FALSE, official = FALSE, glottolog.source = "modified")
 }
 \arguments{
 \item{x}{character vector of the countries (can be written in lower case)}

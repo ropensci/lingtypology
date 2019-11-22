@@ -4,8 +4,7 @@
 \alias{phoible.feature}
 \title{Download PHOIBLE data}
 \usage{
-phoible.feature(source = "all", na.rm = TRUE,
-  glottolog.source = "modified")
+phoible.feature(source = "all", na.rm = TRUE, glottolog.source = "modified")
 }
 \arguments{
 \item{source}{A character vector that define with a source names from PHOIBLE (possible values: "all", "AA", "GM", "PH", "RA", "SAPHON", "SPA", "UPSID").}
