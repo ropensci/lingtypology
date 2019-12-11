@@ -1,3 +1,6 @@
+lingtypology 1.0.16 (11.12.2019)
+- make minicharts and label work together!
+
 lingtypology 1.0.15 (22.11.2019)
 - remove NA apearence from popup window when "fake" language argument is used.
 - fast fix of colors tests

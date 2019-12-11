@@ -757,21 +757,38 @@ map.feature <- function(languages,
 
     mapfeat.df$link <- paste0(mapfeat.df$link, tables)
 
-    m <- m %>% leaflet.minicharts::addMinicharts(
+    m <- m %>% leaflet::addCircleMarkers(
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
-      chartdata = minichart.data,
-      type = minichart,
-      legend = legend,
-      width = 7 * width,
-      showLabels = minichart.labels,
-      popup = leaflet.minicharts::popupArgs(html = mapfeat.df$link),
-      time = minichart.time,
-      legendPosition = legend.position,
-      opacity = opacity,
-      colorPalette = color,
-      fillColor = color[1]
-    )
+      popup = mapfeat.df$link,
+      stroke = FALSE,
+      radius = width,
+      fillOpacity = opacity,
+      color = pal(mapfeat.df$features),
+      group = mapfeat.df$features,
+      label = mapfeat.df$label,
+      labelOptions = leaflet::labelOptions(
+        noHide = !(label.hide),
+        direction = label.position,
+        offset = c(label.fsize*offset/2, 0),
+        textOnly = TRUE,
+        style = list("font-size" = paste0(label.fsize, "px"),
+                     "font-family" = label.font)
+      )) %>% leaflet.minicharts::addMinicharts(
+        lng = mapfeat.df$long,
+        lat = mapfeat.df$lat,
+        chartdata = minichart.data,
+        type = minichart,
+        legend = legend,
+        width = 7 * width,
+        showLabels = minichart.labels,
+        popup = leaflet.minicharts::popupArgs(html = mapfeat.df$link),
+        time = minichart.time,
+        legendPosition = legend.position,
+        opacity = opacity,
+        colorPalette = color,
+        fillColor = color[1]
+      )
   }
 
   # map: add shapes ---------------------------------------------------------
