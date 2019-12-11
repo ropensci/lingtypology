@@ -490,7 +490,7 @@ map.feature(languages = circassian$language,
             isogloss.width = 0.15)
 ```
 
-It is possible to create true isoglosses by hand, see tools for it [here](https://ropensci.github.io/lingtypology/lingtypology_dplyr.html#2_leaflet).
+It is possible to create true isoglosses by hand, see tools for it [here](https://docs.ropensci.org/lingtypology/articles/lingtypology_dplyr.html#2_leaflet).
 
 ### 19. Add lines
 It is possible to show some lines on the map using coordinates (`line.lng` and `line.lat` arguments).
