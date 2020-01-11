@@ -328,7 +328,7 @@ map.feature <- function(languages,
 
   # create a stroke dataframe -----------------------------------------------
   if (!is.null(stroke.features)) {
-    mapfeat.stroke <- rowr::cbind.fill(mapfeat.df[, -2],
+    mapfeat.stroke <- cbind(mapfeat.df[, -2],
                                        data.frame(stroke.features))
     mapfeat.stroke <-
       mapfeat.stroke[stats::complete.cases(mapfeat.stroke), ]
