@@ -148,7 +148,6 @@
 #' @importFrom stats coef
 #' @importFrom grDevices gray
 #' @importFrom grDevices topo.colors
-#' @importFrom rowr cbind.fill
 #' @importFrom leaflet %>%
 #' @importFrom leaflet.minicharts addMinicharts
 #' @importFrom leaflet.minicharts popupArgs
@@ -322,7 +321,7 @@ map.feature <- function(languages,
   # add images --------------------------------------------------------------
   if (!is.null(image.url)) {
     mapfeat.image <-
-      rowr::cbind.fill(mapfeat.df[, -2], data.frame(image.url))
+      cbind(mapfeat.df[, -2], data.frame(image.url))
     mapfeat.image <-
       mapfeat.image[stats::complete.cases(mapfeat.image), ]
   }

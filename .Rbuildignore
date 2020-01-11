@@ -11,3 +11,6 @@
 ^CONTRIBUTING.md
 ^ISSUE_TEMPLATE.md
 ^LICENSE
+^vignettes/.*\.orig$
+^vignettes/figure.*$
+^vignettes/compile_vignettes.R$

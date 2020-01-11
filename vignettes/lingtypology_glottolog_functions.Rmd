@@ -1,7 +1,7 @@
 ---
 title: "`lingtypology`: Glottolog functions"
 author: "George Moroz"
-date: "`r Sys.Date()`"
+date: "2020-01-11"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{`lingtypology`: Glottolog functions}
@@ -9,9 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include=FALSE}
-library(lingtypology)
-```
+
 
 This package is based on the [Glottolog database (v. 2.7)](http://glottolog.org/), so `lingtypology` has several functions for accessing data from that database.
 
@@ -43,8 +41,18 @@ The most important functionality of `lingtypology` is the ability to create inte
 
 [Glottolog database (v. 2.7)](http://glottolog.org/) provides `lingtypology` with language names, ISO codes, genealogical affiliation, macro area, countries, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
 
-```{r}
+
+```r
 names(glottolog.original)
+```
+
+```
+##  [1] "language"           "iso"                "glottocode"        
+##  [4] "longitude"          "latitude"           "affiliation"       
+##  [7] "area"               "alternate names"    "affiliation-HH"    
+## [10] "country"            "dialects"           "language status"   
+## [13] "language use"       "location"           "population numeric"
+## [16] "typology"           "writing"
 ```
 
 Using R functions for data manipulation you can create your own database for your purpose.
@@ -53,46 +61,143 @@ Using R functions for data manipulation you can create your own database for you
 All functions introduced in the previous section are regular functions, so they can take the following objects as input:
 
 * a regular string
-```{r}
+
+```r
 iso.lang("Adyghe")
+```
+
+```
+## Adyghe 
+##  "ady"
+```
+
+```r
 lang.iso("ady")
+```
+
+```
+##      ady 
+## "Adyghe"
+```
+
+```r
 country.lang("Adyghe")
+```
+
+```
+##                                                                                                                  Adyghe 
+## "Turkey, United States, Israel, Australia, Egypt, Macedonia, France, Russia, Netherlands, Germany, Syria, Jordan, Iraq"
+```
+
+```r
 lang.aff("West Caucasian")
+```
+
+```
+## [1] "Adyghe"    "Abkhaz"    "Abaza"     "Ubykh"     "Kabardian"
 ```
 
 I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is an incorrect string in R.
 
 * a vector of strings
-```{r}
+
+```r
 area.lang(c("Adyghe", "Aduge"))
+```
+
+```
+##    Adyghe     Aduge 
+## "Eurasia"  "Africa"
+```
+
+```r
 lang <- c("Adyghe", "Russian")
 aff.lang(lang)
 ```
 
+```
+##                                        Adyghe 
+## "North Caucasian, West Caucasian, Circassian" 
+##                                       Russian 
+##                 "Indo-European, Slavic, East"
+```
+
 *  other functions. For example, let's try to get a vector of ISO codes for the Circassian languages
-```{r}
+
+```r
 iso.lang(lang.aff("Circassian"))
+```
+
+```
+##    Adyghe Kabardian 
+##     "ady"     "kbd"
 ```
 
 If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.
 
 The behavior of most functions is rather predictable, but the function `country.lang`  has an additional feature. By default this function takes a vector of languages and returns a vector of countries.  But if you set the argument `intersection = TRUE`,  then the function returns a vector of countries where all languages from the query are spoken.
-```{r}
+
+```r
 country.lang(c("Udi", "Laz"))
+```
+
+```
+##                                                        Udi 
+##                "Russia, Georgia, Azerbaijan, Turkmenistan" 
+##                                                        Laz 
+## "Turkey, Georgia, France, United States, Germany, Belgium"
+```
+
+```r
 country.lang(c("Udi", "Laz"), intersection = TRUE)
+```
+
+```
+## [1] "Georgia"
 ```
 
 ### 3. Spell Checker: look carefully at warnings!
 There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example  _Ivory Coast_ or _Cote d'Ivoire_), all official country names and standard abbreviations are stored in the database:
 
-```{r}
+
+```r
 lang.country("Cape Verde")
+```
+
+```
+## [1] "Kabuverdianu" "Portuguese"
+```
+
+```r
 lang.country("Cabo Verde")
+```
+
+```
+## [1] "Kabuverdianu" "Portuguese"
+```
+
+```r
 head(lang.country("USA"))
 ```
+
+```
+## [1] "Holikachuk"       "Hopi"             "Palewyami Yokuts"
+## [4] "Finnish"          "Mbum"             "Lower Sorbian"
+```
 All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.
-```{r}
+
+```r
 aff.lang("Adyge")
+```
+
+```
+## Warning: Language Adyge is absent in our version of the Glottolog database.
+## Did you mean Adyghe, Aduge?
+```
+
+```
+## Adyge 
+##    NA
 ```
 
 ### 4. Changes in the glottolog database
@@ -114,17 +219,37 @@ Unfortunately, the [Glottolog database (v. 2.7)](http://glottolog.org/) is not p
 More detailed information about how our database was created can be seen from [GitHub folder](https://github.com/ropensci/lingtypology/tree/master/database_creation).
 
 After [Robert Forkel's issue](https://github.com/ropensci/lingtypology/issues/1) I decided to add an argument `glottolog.source`, so that everybody has access to "original" and "modified" (by default) glottolog versions:
-```{r}
+
+```r
 is.glottolog(c("Abkhaz", "Abkhazian"), glottolog.source = "original")
 ```
-```{r}
+
+```
+## [1] FALSE  TRUE
+```
+
+```r
 is.glottolog(c("Abkhaz", "Abkhazian"), glottolog.source = "modified")
 ```
 
+```
+## [1]  TRUE FALSE
+```
+
 It is common practice in R to reduce both function arguments and its values, so this can also be done with the following `lingtypology` functions.
-```{r}
+
+```r
 is.glottolog(c("Abkhaz", "Abkhazian"), g = "o")
 ```
-```{r}
+
+```
+## [1] FALSE  TRUE
+```
+
+```r
 is.glottolog(c("Abkhaz", "Abkhazian"), g = "m")
+```
+
+```
+## [1]  TRUE FALSE
 ```
