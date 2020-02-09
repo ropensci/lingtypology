@@ -1,7 +1,7 @@
 ---
 title: "`lingtypology`: introduction and installation"
 author: "George Moroz"
-date: "2020-01-11"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{`lingtypology`: introduction and installation}
@@ -14,42 +14,23 @@ The `lingtypology` package connects R with the [Glottolog database (v. 2.7)](htt
 
 ### 1. Installation
 Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
-
-```r
+```{r, eval=FALSE}
 install.packages("lingtypology", dependencies = TRUE)
 ```
 
 You can also get the development version from GitHub:
-
-```r
+```{r, eval= FALSE}
 install.packages("devtools")
 devtools::install_github("ropensci/lingtypology")
 ```
 
 Load the package:
-
-```r
+```{r}
 library(lingtypology)
 ```
 
 ### 2. Citing `lingtyplogy`
 It is important to cite R and R packages when you use them. For this purpose use the `citation` function:
-
-```r
+```{r}
 citation("lingtypology")
-```
-
-```
-## 
-## Moroz G (2017). _lingtypology: easy mapping for Linguistic
-## Typology_. <URL: https://CRAN.R-project.org/package=lingtypology>.
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {lingtypology: easy mapping for Linguistic Typology},
-##     author = {George Moroz},
-##     year = {2017},
-##     url = {https://CRAN.R-project.org/package=lingtypology},
-##   }
 ```

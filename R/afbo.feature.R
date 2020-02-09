@@ -4,7 +4,6 @@
 #'
 #' @param features A character vector that define with an affix functions from AfBo (e. g. "all", "adjectivizer", "focus").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
-#' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{abvd.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 #' @examples
@@ -17,7 +16,7 @@
 #' @importFrom utils read.csv
 #'
 
-afbo.feature <- function(features = "all", na.rm = TRUE, glottolog.source = "modified"){
+afbo.feature <- function(features = "all", na.rm = TRUE){
   message("Don't forget to cite a source:
 
 Seifart, Frank. 2013. AfBo: A world-wide survey of affix borrowing. Leipzig: Max Planck Institute for Evolutionary Anthropology. (Available online at http://afbo.info, Accessed on ...)

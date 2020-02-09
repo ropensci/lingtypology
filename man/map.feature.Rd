@@ -84,7 +84,6 @@ map.feature(
   minichart.time = NULL,
   minichart.labels = FALSE,
   map.orientation = "Pacific",
-  glottolog.source = "modified",
   radius = NULL
 )
 }
@@ -246,8 +245,6 @@ map.feature(
 \item{minichart.labels}{citation from leaflet.minicharts package: "Should values be displayed above chart elements."}
 
 \item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
 
 \item{radius}{deprecated argument}
 }

@@ -14,8 +14,7 @@ ggmap.feature(
   legend = TRUE,
   width = 2,
   opacity = 1,
-  map.orientation = "Atlantic",
-  glottolog.source = "modified"
+  map.orientation = "Atlantic"
 )
 }
 \arguments{
@@ -38,8 +37,6 @@ ggmap.feature(
 \item{opacity}{a numeric vector of marker opacity.}
 
 \item{map.orientation}{a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Atlantic".}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: "original" or "modified" (by default)}
 }
 \description{
 Map a set of languages and color them by feature.

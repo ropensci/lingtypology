@@ -2,23 +2,18 @@
 #'
 #' Takes any vector of ISO 639--3 codes and returns Glottocodes.
 #' @param x A character vector of the Glottocodes.
-#' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
-#' @seealso \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
+#' @seealso \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 #' @examples
 #' gltc.iso('ady')
 #' gltc.iso(c('ady', 'rus'))
 #' @export
 
-gltc.iso <- function(x, glottolog.source = "modified") {
+gltc.iso <- function(x) {
   if (typeof(x) == "list") {
     x <- unlist(x)
   }
-  ifelse(
-    grepl(glottolog.source, "original"),
-    glottolog <- lingtypology::glottolog.original,
-    glottolog <- lingtypology::glottolog.modified
-  )
+  glottolog <- lingtypology::glottolog
   x <- gsub("\\W", "", x)
   vapply(x, function(y) {
     if(is.na(y)){

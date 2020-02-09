@@ -4,12 +4,10 @@
 \alias{abvd.feature}
 \title{Download ABVD data}
 \usage{
-abvd.feature(feature, glottolog.source = "modified")
+abvd.feature(feature)
 }
 \arguments{
 \item{feature}{A character vector that define a language id from ABVD (e. g. "1", "292").}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 This function downloads data from ABVD (https://abvd.shh.mpg.de/austronesian/) and changes language names to the names from lingtypology database. You need the internet connection.

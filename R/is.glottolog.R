@@ -3,7 +3,6 @@
 #' Takes any vector of languages or ISO codes and return a logical vector.
 #' @param x A character vector of languages (can be written in lower case)or ISO codes
 #' @param response logical. If TRUE, when language is absent, return warnings with a possible candidates.
-#' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #' is.glottolog(c('Adyghe', 'Russian'))
@@ -22,16 +21,11 @@
 
 is.glottolog <-
   function(x,
-           response = FALSE,
-           glottolog.source = "modified") {
+           response = FALSE) {
     if (typeof(x) == "list") {
       x <- unlist(x)
     }
-    ifelse(
-      grepl(glottolog.source, "original"),
-      glottolog <- lingtypology::glottolog.original,
-      glottolog <- lingtypology::glottolog.modified
-    )
+    glottolog <- lingtypology::glottolog
     y <- tolower(x)
     # check whether there are languages in database ---------------------------
     result <- y %in% tolower(glottolog$language)
@@ -56,15 +50,10 @@ is.glottolog <-
                tolower(glottolog$language))
         )
 
-        # alternative names -------------------------------------------------------
-        alternates <-
-          grepl(tolower(z), tolower(glottolog$`alternate names`))
-
         # make a string with all candidates ---------------------------------------
         candidate <- unique(c(
           glottolog[cand == cand[which.min(cand)],]$language,
-          glottolog[cand_subst,]$language,
-          glottolog[alternates,]$language
+          glottolog[cand_subst,]$language
         ))
 
         candidate <-

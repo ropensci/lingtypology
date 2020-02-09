@@ -4,12 +4,10 @@
 \alias{area.lang}
 \title{Get macro area by language}
 \usage{
-area.lang(x, glottolog.source = "modified")
+area.lang(x)
 }
 \arguments{
 \item{x}{character vector of the languages (can be written in lower case)}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of languages and return macro area.
@@ -19,7 +17,7 @@ area.lang('Adyghe')
 area.lang(c('Adyghe', 'Aduge'))
 }
 \seealso{
-\code{\link{aff.lang}}, \code{\link{country.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
+\code{\link{aff.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

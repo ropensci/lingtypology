@@ -4,12 +4,10 @@
 \alias{lat.lang}
 \title{Get latitude by language}
 \usage{
-lat.lang(x, glottolog.source = "modified")
+lat.lang(x)
 }
 \arguments{
 \item{x}{A character vector of the languages (can be written in lower case)}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of languages and return latitude.
@@ -21,7 +19,7 @@ lat.lang(c('Adyghe', 'Russian'))
 long.lang(c('Adyghe', 'Russian'))
 }
 \seealso{
-\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{iso.lang}}, \code{\link{long.lang}}
+\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{iso.lang}}, \code{\link{long.lang}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

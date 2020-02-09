@@ -12,7 +12,6 @@
 #' @param label character vector of strings that will appear near points
 #' @param minimap logical. If TRUE, function shows mini map. By default is FALSE.
 #' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
-#' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}
 #' @param control logical. If TRUE, function show layer control buttons. By default is FALSE
 #' @param density.method string with one of the two methods: "kernal density estimation" or "fixed distance" (default)
@@ -232,24 +231,18 @@ map.feature <- function(languages,
                         minichart.time = NULL,
                         minichart.labels = FALSE,
                         map.orientation = "Pacific",
-                        glottolog.source = "modified",
                         radius = NULL) {
   if(!is.null(radius)){
     warning("The radius argument is deprecated. Use width argument instead.")
   }
-  glottolog <- ifelse(
-    grepl(glottolog.source, "original"),
-    lingtypology::glottolog.original,
-    lingtypology::glottolog.modified
-  )
+  glottolog <- lingtypology::glottolog
   if (typeof(languages) == "list") {
     languages <- unlist(languages)
   }
   if(!("fake" %in% tolower(languages))){
   if (sum(is.glottolog(
     languages,
-    response = TRUE,
-    glottolog.source = glottolog.source
+    response = TRUE
   )) == 0) {
     stop("There is no data to map")
   }}
@@ -280,10 +273,9 @@ map.feature <- function(languages,
   if (sum(is.na(latitude) &
           is.na(longitude)) == length(latitude & longitude)) {
     mapfeat.df$long <- long.lang(languages,
-                                 map.orientation = map.orientation,
-                                 glottolog.source = glottolog.source)
+                                 map.orientation = map.orientation)
     mapfeat.df$lat <-
-      lat.lang(languages, glottolog.source = glottolog.source)
+      lat.lang(languages)
   } else {
     # if there are latitude and longitude
     mapfeat.df$long <- longitude
@@ -312,8 +304,7 @@ map.feature <- function(languages,
   if(!("fake" %in% tolower(languages))){
   mapfeat.df$link <- url.lang(
     as.character(mapfeat.df$languages),
-    popup = mapfeat.df$popup,
-    glottolog.source = glottolog.source
+    popup = mapfeat.df$popup
   )} else {
     mapfeat.df$link <- mapfeat.df$popup
   }
@@ -1109,7 +1100,6 @@ map.feature <- function(languages,
                                  graticule = graticule,
                                  minichart = minichart,
                                  map.orientation = map.orientation,
-                                 glottolog.source = glottolog.source,
                                  radius = radius)
     })
     return(list)

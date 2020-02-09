@@ -4,12 +4,10 @@
 \alias{gltc.lang}
 \title{Get Glottocode by language}
 \usage{
-gltc.lang(x, glottolog.source = "modified")
+gltc.lang(x)
 }
 \arguments{
 \item{x}{A character vector of the languages (can be written in lower case)}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of languages and returns Glottocode.
@@ -19,7 +17,7 @@ gltc.lang('Adyghe')
 gltc.lang(c('Adyghe', 'Udi'))
 }
 \seealso{
-\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
+\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

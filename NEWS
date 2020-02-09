@@ -1,5 +1,9 @@
-lingtypology 1.0.16 (11.12.2019)
+lingtypology 1.0.16 (09.02.2019)
 - make minicharts and label work together!
+- fix rowr dependency (#43)
+- change glottolog v. 2.7 to v, 4.1. Now glottolog.original and glottolog.modified replaced with glottolog. There are much more data and dialects are included. (#12, #36, #42)
+- remove all arguments "glottolog.source"
+- remove all functions for working with countries :(
 
 lingtypology 1.0.15 (22.11.2019)
 - remove NA apearence from popup window when "fake" language argument is used.

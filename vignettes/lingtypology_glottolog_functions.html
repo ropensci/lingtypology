@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-01-11" />
+<meta name="date" content="2020-02-09" />
 
 <title>lingtypology: Glottolog functions</title>
 
@@ -305,18 +305,17 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: Glottolog functions</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-01-11</h4>
+<h4 class="date">2020-02-09</h4>
 
 
 
-<p>This package is based on the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
+<p>This package is based on the <a href="http://glottolog.org/">Glottolog database (v. 4.1)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
 <div id="command-names-syntax" class="section level3">
 <h3>1. Command name’s syntax</h3>
 <p>Most of the functions in <code>lingtypology</code> have the same syntax: <strong>what you need.what you have</strong>. Most of them are based on <em>language name</em>.</p>
 <ul>
 <li><strong>aff.lang()</strong> — get affiliation by language</li>
 <li><strong>area.lang()</strong> — get macro area by language</li>
-<li><strong>country.lang()</strong> — get country by language</li>
 <li><strong>iso.lang()</strong> — get ISO 639-3 code by language</li>
 <li><strong>gltc.lang()</strong> — get glottocode (identifier for a language in the Glottolog database) code by language</li>
 <li><strong>lat.lang()</strong> — get latitude by language</li>
@@ -337,14 +336,10 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <ul>
 <li><strong>map.feature()</strong></li>
 </ul>
-<p><a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> provides <code>lingtypology</code> with language names, ISO codes, genealogical affiliation, macro area, countries, coordinates, and much information. This set of functions doesn’t have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in <code>lingtypology</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">names</span>(glottolog.original)</span></code></pre></div>
-<pre><code>##  [1] &quot;language&quot;           &quot;iso&quot;                &quot;glottocode&quot;        
-##  [4] &quot;longitude&quot;          &quot;latitude&quot;           &quot;affiliation&quot;       
-##  [7] &quot;area&quot;               &quot;alternate names&quot;    &quot;affiliation-HH&quot;    
-## [10] &quot;country&quot;            &quot;dialects&quot;           &quot;language status&quot;   
-## [13] &quot;language use&quot;       &quot;location&quot;           &quot;population numeric&quot;
-## [16] &quot;typology&quot;           &quot;writing&quot;</code></pre>
+<p><a href="http://glottolog.org/">Glottolog database (v. 4.1)</a> provides <code>lingtypology</code> with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn’t have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in <code>lingtypology</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">names</span>(glottolog)</span></code></pre></div>
+<pre><code>## [1] &quot;affiliation&quot; &quot;glottocode&quot;  &quot;language&quot;    &quot;iso&quot;         &quot;level&quot;      
+## [6] &quot;area&quot;        &quot;latitude&quot;    &quot;longitude&quot;</code></pre>
 <p>Using R functions for data manipulation you can create your own database for your purpose.</p>
 </div>
 <div id="using-base-functions" class="section level3">
@@ -359,85 +354,39 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">lang.iso</span>(<span class="st">&quot;ady&quot;</span>)</span></code></pre></div>
 <pre><code>##      ady 
 ## &quot;Adyghe&quot;</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">country.lang</span>(<span class="st">&quot;Adyghe&quot;</span>)</span></code></pre></div>
-<pre><code>##                                                                                                                  Adyghe 
-## &quot;Turkey, United States, Israel, Australia, Egypt, Macedonia, France, Russia, Netherlands, Germany, Syria, Jordan, Iraq&quot;</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Adyghe&quot;    &quot;Abkhaz&quot;    &quot;Abaza&quot;     &quot;Ubykh&quot;     &quot;Kabardian&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</span></code></pre></div>
+<pre><code>## character(0)</code></pre>
 <p>I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that <code>&#39;Ma&#39;ya&#39;</code> is an incorrect string in R.</p>
 <ul>
 <li>a vector of strings</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">area.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Aduge&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">area.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Aduge&quot;</span>))</span></code></pre></div>
 <pre><code>##    Adyghe     Aduge 
 ## &quot;Eurasia&quot;  &quot;Africa&quot;</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>lang &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">aff.lang</span>(lang)</span></code></pre></div>
-<pre><code>##                                        Adyghe 
-## &quot;North Caucasian, West Caucasian, Circassian&quot; 
-##                                       Russian 
-##                 &quot;Indo-European, Slavic, East&quot;</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>lang &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">aff.lang</span>(lang)</span></code></pre></div>
+<pre><code>##                                                  Adyghe 
+##                        &quot;Abkhaz-Adyge,Circassian,Adyghe&quot; 
+##                                                 Russian 
+## &quot;Indo-European,Balto-Slavic,Slavic,East Slavic,Russian&quot;</code></pre>
 <ul>
 <li>other functions. For example, let’s try to get a vector of ISO codes for the Circassian languages</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">iso.lang</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Circassian&quot;</span>))</span></code></pre></div>
-<pre><code>##    Adyghe Kabardian 
-##     &quot;ady&quot;     &quot;kbd&quot;</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">iso.lang</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Circassian&quot;</span>))</span></code></pre></div>
+<pre><code>##            Adyghe           Abadzex         Bezhedukh           Natuzaj 
+##             &quot;ady&quot;                NA                NA                NA 
+##           Shapsug           Xakuchi         Kabardian Greater Kabardian 
+##                NA                NA             &quot;kbd&quot;                NA</code></pre>
 <p>If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.</p>
-<p>The behavior of most functions is rather predictable, but the function <code>country.lang</code> has an additional feature. By default this function takes a vector of languages and returns a vector of countries. But if you set the argument <code>intersection = TRUE</code>, then the function returns a vector of countries where all languages from the query are spoken.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">country.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Udi&quot;</span>, <span class="st">&quot;Laz&quot;</span>))</span></code></pre></div>
-<pre><code>##                                                        Udi 
-##                &quot;Russia, Georgia, Azerbaijan, Turkmenistan&quot; 
-##                                                        Laz 
-## &quot;Turkey, Georgia, France, United States, Germany, Belgium&quot;</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">country.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Udi&quot;</span>, <span class="st">&quot;Laz&quot;</span>), <span class="dt">intersection =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Georgia&quot;</code></pre>
 </div>
 <div id="spell-checker-look-carefully-at-warnings" class="section level3">
 <h3>3. Spell Checker: look carefully at warnings!</h3>
-<p>There are some functions that take country names as input. Unfortunately, some countries have alternative names. In order to save users the trouble of having to figure out the exact name stored in the database (for example <em>Ivory Coast</em> or <em>Cote d’Ivoire</em>), all official country names and standard abbreviations are stored in the database:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">lang.country</span>(<span class="st">&quot;Cape Verde&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Kabuverdianu&quot; &quot;Portuguese&quot;</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">lang.country</span>(<span class="st">&quot;Cabo Verde&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Kabuverdianu&quot; &quot;Portuguese&quot;</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">head</span>(<span class="kw">lang.country</span>(<span class="st">&quot;USA&quot;</span>))</span></code></pre></div>
-<pre><code>## [1] &quot;Holikachuk&quot;       &quot;Hopi&quot;             &quot;Palewyami Yokuts&quot;
-## [4] &quot;Finnish&quot;          &quot;Mbum&quot;             &quot;Lower Sorbian&quot;</code></pre>
 <p>All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Language Adyge is absent in our version of the Glottolog database.
-## Did you mean Adyghe, Aduge?</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Language Adyge is absent in our version of the Glottolog database. Did
+## you mean Adyghe, Aduge?</code></pre>
 <pre><code>## Adyge 
 ##    NA</code></pre>
-</div>
-<div id="changes-in-the-glottolog-database" class="section level3">
-<h3>4. Changes in the glottolog database</h3>
-<p>Unfortunately, the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> is not perfect for all my tasks, so I changed it a little bit:</p>
-<ul>
-<li>Added some Dargwa languages: Chirag, Cudaxar, Itsari, Kajtak, Kubachi, Tanti, Mehweb. Dargwa is still present in the database as an individual language, so one can use Dargwa or any Dargwa language listed above. (07.09.2016)</li>
-<li>Added coordinates to Silesian and Slavomolisano (11.09.2016)</li>
-<li>Abkhazian is changed to Abkhaz. Abkhaz, Abaza, Georgian, Ossetian, Archi, Avar and Ingush coordinates are changed. (22.01.2017)</li>
-<li>Northeast Sahaptin is changed to Walla Walla. Northwest Sahaptin is changed to Yakima. Central Guerrero Nahuatl is renamed Guerrero Nahuatl (thanks to Timo Roettger for mentioning that problems). (02.02.2017)</li>
-<li>Some sign language changed. Thanks to <a href="https://borstell.github.io/#name">Calle Börstell</a> for data. (02.02.2017)</li>
-<li>Bininj Gun-Wok changed to Gunwinggu (thanks to Timo Roettger) (06.02.2017)</li>
-<li>Country name Viet Nam changed to Vietnam. Madagascar and Togo added to countries set. (11.02.2017)</li>
-<li>country names are unified. Area affiliation changed: for International Sign to Eurasia; for Hawai’i Pidgin Sign Language to Papua; for Hawai’i Creole English to Papua; for Kalaallisut to North America.</li>
-<li>Estonian, Nuu-chah-nulth, Loup A and Obdorsk Khanty coordinates are added. (28.04.2017)</li>
-<li>Language duplicates renamed: Voro (Niger-Congo), Voro (Uralic), Ache (Tupian), Ache (Sino-Tibetan), Karipuna (Panoan), Karipuna (Tupian), Calo (Spurious), Calo (Mixed language), Wara (Niger-Congo), Wara (South-Central Papuan), Saliba (Austronesian), Saliba (Salivan), Bari (Nilo-Saharan), Bari (Chibchan) (30.04.2017)</li>
-<li>Lezghian changed to Lezgian (31.05.2017)</li>
-<li>Even coordinates changed (01.02.2018)</li>
-</ul>
-<p>More detailed information about how our database was created can be seen from <a href="https://github.com/ropensci/lingtypology/tree/master/database_creation">GitHub folder</a>.</p>
-<p>After <a href="https://github.com/ropensci/lingtypology/issues/1">Robert Forkel’s issue</a> I decided to add an argument <code>glottolog.source</code>, so that everybody has access to “original” and “modified” (by default) glottolog versions:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">glottolog.source =</span> <span class="st">&quot;original&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">glottolog.source =</span> <span class="st">&quot;modified&quot;</span>)</span></code></pre></div>
-<pre><code>## [1]  TRUE FALSE</code></pre>
-<p>It is common practice in R to reduce both function arguments and its values, so this can also be done with the following <code>lingtypology</code> functions.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">g =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">is.glottolog</span>(<span class="kw">c</span>(<span class="st">&quot;Abkhaz&quot;</span>, <span class="st">&quot;Abkhazian&quot;</span>), <span class="dt">g =</span> <span class="st">&quot;m&quot;</span>)</span></code></pre></div>
-<pre><code>## [1]  TRUE FALSE</code></pre>
 </div>
 
 

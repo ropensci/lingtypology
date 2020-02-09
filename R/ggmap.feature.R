@@ -13,7 +13,6 @@
 #' @param width a numeric vector of radius for circles or width for barcharts in minicharts.
 #' @param opacity a numeric vector of marker opacity.
 #' @param map.orientation a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Atlantic".
-#' @param glottolog.source A character vector that define which glottolog database is used: "original" or "modified" (by default)
 #' @examples
 #' ggmap.feature(c("Adyghe", "Russian"))
 #'
@@ -29,27 +28,21 @@ ggmap.feature <- function(languages,
                           legend = TRUE,
                           width = 2,
                           opacity = 1,
-                          map.orientation = "Atlantic",
-                          glottolog.source = "modified"){
+                          map.orientation = "Atlantic"){
   if(!(requireNamespace("ggplot2", quietly = TRUE) &
        (requireNamespace("rgdal", , quietly = TRUE)))){
     warning('Install packages ggplot2 and rgdal:
   install.packages(c("ggplot2", "rgdal"))')
   }
 
-    glottolog <- ifelse(
-      grepl(glottolog.source, "original"),
-      lingtypology::glottolog.original,
-      lingtypology::glottolog.modified
-    )
+    lingtypology::glottolog.modified
     if (typeof(languages) == "list") {
       languages <- unlist(languages)
     }
     if(!("fake" %in% tolower(languages))){
       if (sum(is.glottolog(
         languages,
-        response = TRUE,
-        glottolog.source = glottolog.source
+        response = TRUE
       )) == 0) {
         stop("There is no data to map")
       }}
@@ -64,10 +57,9 @@ ggmap.feature <- function(languages,
     if (sum(is.na(latitude) &
             is.na(longitude)) == length(latitude & longitude)) {
       mapfeat.df$long <- long.lang(languages,
-                                   map.orientation = map.orientation,
-                                   glottolog.source = glottolog.source)
+                                   map.orientation = map.orientation)
       mapfeat.df$lat <-
-        lat.lang(languages, glottolog.source = glottolog.source)
+        lat.lang(languages)
     } else {
       # if there are latitude and longitude
       mapfeat.df$long <- longitude

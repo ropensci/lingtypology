@@ -4,12 +4,10 @@
 \alias{lang.iso}
 \title{Get language by ISO 639--3 code}
 \usage{
-lang.iso(x, glottolog.source = "modified")
+lang.iso(x)
 }
 \arguments{
 \item{x}{A character vector of the ISO codes.}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of ISO codes and return languages.
@@ -19,7 +17,7 @@ lang.iso('ady')
 lang.iso(c('ady', 'rus'))
 }
 \seealso{
-\code{\link{lang.aff}}, \code{\link{lang.country}}
+\code{\link{lang.aff}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

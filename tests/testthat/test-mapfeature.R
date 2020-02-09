@@ -1,24 +1,14 @@
 library(lingtypology)
 context("Tests for map.feature function")
 
-df <-  data.frame("Abkhaz")
-map <- map.feature("Abkhaz")
-map2 <- map.feature("Abkhazian", glottolog.source = "o")
-map3 <- map.feature(data.frame("Abkhaz"))
+df <-  data.frame("Abkhazian")
+map <- map.feature("Abkhazian")
+map3 <- map.feature(data.frame("Abkhazian"))
 
 test_that("map.feature source", {
   expect_equal(exists("map"), TRUE)
   expect_equal(exists("map"), TRUE)
   expect_equal(exists("map3"), TRUE)
-  expect_equal(exists("map2"), TRUE)
-  expect_warning(
-    map.feature(c("Abkhazian", "Adyghe")),
-    "Language Abkhazian is absent in our version of the Glottolog database. Did you mean Akkadian, Abkhaz?"
-  )
-  expect_warning(
-    map.feature(c("Abkhaz", "Adyghe"), glottolog.source = "o"),
-    "Language Abkhaz is absent in our version of the Glottolog database. Did you mean Akha?"
-  )
 })
 
 test_that("map.feature no coordinates", {
@@ -37,11 +27,11 @@ test_that("map.feature no data to map", {
   )
 })
 
-map_coord <- map.feature("Abkhaz", latitude = 43, longitude = 57)
+map_coord <- map.feature("Abkhazian", latitude = 43, longitude = 57)
 
 test_that("map.feature coordinates", {
-  expect_equal(map$x$limits[[1]][1], unname(lat.lang("Abkhaz")))
-  expect_equal(map$x$limits[[2]][1], unname(long.lang("Abkhaz")))
+  expect_equal(map$x$limits[[1]][1], unname(lat.lang("Abkhazian")))
+  expect_equal(map$x$limits[[2]][1], unname(long.lang("Abkhazian")))
   expect_equal(map_coord$x$limits[[1]][1], 43)
   expect_equal(map_coord$x$limits[[2]][1], 57)
 })
@@ -339,3 +329,4 @@ map_none_tile <- map.feature("Adyghe", tile = "none")
 test_that("map without a tile", {
   expect_equal(exists("map_none_tile"), TRUE)
 })
+

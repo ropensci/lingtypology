@@ -3,7 +3,6 @@
 #' This function downloads data from ABVD (https://abvd.shh.mpg.de/austronesian/) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param feature A character vector that define a language id from ABVD (e. g. "1", "292").
-#' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 #' @examples
@@ -13,7 +12,7 @@
 #' @importFrom utils read.csv
 #'
 
-abvd.feature <- function(feature, glottolog.source = "modified") {message("Don't forget to cite a source:
+abvd.feature <- function(feature) {message("Don't forget to cite a source:
 
 Greenhill, S.J., Blust. R, & Gray, R.D. (2008). The Austronesian Basic Vocabulary Database: From Bioinformatics to Lexomics. Evolutionary Bioinformatics, 4:271-283.")
   if (is.numeric(feature)) {
@@ -34,7 +33,7 @@ Greenhill, S.J., Blust. R, & Gray, R.D. (2008). The Austronesian Basic Vocabular
                     stringsAsFactors = FALSE)[, c(2:4)]
   })
   langs <-
-    lang.gltc(lingtypology::abvd[feature, 2], glottolog.source = glottolog.source)
+    lang.gltc(lingtypology::abvd[feature, 2])
   lapply(seq_along(feature), function(i) {
     datalist[[i]]$language <<- langs[i]
   })

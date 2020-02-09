@@ -4,12 +4,10 @@
 \alias{iso.gltc}
 \title{Get ISO 639--3 code by Glottocode}
 \usage{
-iso.gltc(x, glottolog.source = "modified")
+iso.gltc(x)
 }
 \arguments{
 \item{x}{A character vector of Glottocodes.}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of Glotocodes and returns ISO code.
@@ -19,7 +17,7 @@ iso.gltc('adyg1241')
 iso.gltc(c('adyg1241', 'udii1243'))
 }
 \seealso{
-\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
+\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

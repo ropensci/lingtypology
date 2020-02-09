@@ -4,7 +4,6 @@
 #'
 #' @param features A character vector that define with a feature names from AUTOTYP.
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
-#' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 #' @examples
@@ -16,8 +15,7 @@
 
 autotyp.feature <-
   function(features,
-           na.rm = TRUE,
-           glottolog.source = "modified") {
+           na.rm = TRUE) {
     message(paste0("Don't forget to cite a source:
 
 Bickel, Balthasar, Johanna Nichols, Taras Zakharko, Alena Witzlack-Makarevich, Kristine Hildebrandt, Michael Rie\u00DFler, Lennart Bierkandt, Fernando Z\u00FA\u00F1iga & John B. Lowe. 2017. The AUTOTYP typological databases. Version ",
@@ -94,8 +92,7 @@ Bickel, Balthasar, Johanna Nichols, Taras Zakharko, Alena Witzlack-Makarevich, K
       final_df <- merge(final_df, lingtypology::autotyp)
 
       final_df$language <-
-        lingtypology::lang.gltc(final_df$Glottocode,
-                                glottolog.source = glottolog.source)
+        lingtypology::lang.gltc(final_df$Glottocode)
 
       ifelse(na.rm == TRUE,
              final_df <- final_df[!is.na(final_df$language), ],
