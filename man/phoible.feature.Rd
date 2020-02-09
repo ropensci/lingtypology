@@ -4,14 +4,12 @@
 \alias{phoible.feature}
 \title{Download PHOIBLE data}
 \usage{
-phoible.feature(source = "all", na.rm = TRUE, glottolog.source = "modified")
+phoible.feature(source = "all", na.rm = TRUE)
 }
 \arguments{
 \item{source}{A character vector that define with a source names from PHOIBLE (possible values: "all", "AA", "GM", "PH", "RA", "SAPHON", "SPA", "UPSID").}
 
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 This function downloads data from PHOIBLE (http://phoible.org/) and changes language names to the names from lingtypology database. You need the internet connection.

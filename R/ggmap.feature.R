@@ -35,7 +35,7 @@ ggmap.feature <- function(languages,
   install.packages(c("ggplot2", "rgdal"))')
   }
 
-    lingtypology::glottolog.modified
+    lingtypology::glottolog
     if (typeof(languages) == "list") {
       languages <- unlist(languages)
     }

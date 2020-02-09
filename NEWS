@@ -1,4 +1,4 @@
-lingtypology 1.0.16 (09.02.2019)
+lingtypology 1.0.16 (09.02.2019) MAJOR CHANGES!!!
 - make minicharts and label work together!
 - fix rowr dependency (#43)
 - change glottolog v. 2.7 to v, 4.1. Now glottolog.original and glottolog.modified replaced with glottolog. There are much more data and dialects are included. (#12, #36, #42)

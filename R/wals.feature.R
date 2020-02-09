@@ -4,7 +4,6 @@
 #'
 #' @param features A character vector that define with a feature ids from WALS (e. g. "1a", "21b").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
-#' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -16,8 +15,7 @@
 
 wals.feature <-
   function(features,
-           na.rm = TRUE,
-           glottolog.source = "modified") {
+           na.rm = TRUE) {
     features_set <-
       c(
         "1A",
@@ -262,8 +260,7 @@ Dryer, Matthew S. & Haspelmath, Martin (eds.) 2013. The World Atlas of Language 
         merge(final_df, lingtypology::wals, by = "wals.code")
 
       final_df$language <-
-        lingtypology::lang.gltc(final_df$glottocode,
-                                glottolog.source = glottolog.source)
+        lingtypology::lang.gltc(final_df$glottocode)
       na_rm <- is.na(final_df$language)
       ifelse(na.rm == TRUE,
              final_df <- final_df[!na_rm, ],

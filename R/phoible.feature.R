@@ -4,7 +4,6 @@
 #'
 #' @param source A character vector that define with a source names from PHOIBLE (possible values: "all", "AA", "GM", "PH", "RA", "SAPHON", "SPA", "UPSID").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
-#' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 #' @examples
@@ -17,8 +16,7 @@
 
 phoible.feature <-
   function(source = "all",
-           na.rm = TRUE,
-           glottolog.source = "modified") {
+           na.rm = TRUE) {
     message("Don't forget to cite a source:
 
 Moran, Steven & McCloy, Daniel & Wright, Richard (eds.) 2014. PHOIBLE Online. Leipzig: Max Planck Institute for Evolutionary Anthropology. (Available online at http://phoible.org, Accessed on ...)

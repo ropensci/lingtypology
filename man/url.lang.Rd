@@ -4,14 +4,12 @@
 \alias{url.lang}
 \title{Make a url-link to glottolog page for a language}
 \usage{
-url.lang(x, popup = "", glottolog.source = "modified")
+url.lang(x, popup = "")
 }
 \arguments{
 \item{x}{A character vector of languages (can be written in lower case)}
 
 \item{popup}{character vector of strings that will appear in pop-up window of the function map.feature}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 Takes any vector of languages and return links to glottolog pages.
