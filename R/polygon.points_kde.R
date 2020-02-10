@@ -3,31 +3,31 @@
 #' This function is based on this answer: https://gis.stackexchange.com/a/203623
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
-#' @param latitude_width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
-#' @param longitude_width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
 #'
 #' @importFrom stats density
 #' @importFrom stats sd
 
 polygon.points_kde <- function(latitude,
                                longitude,
-                               latitude_width,
-                               longitude_width) {
+                               latitude.width,
+                               longitude.width) {
 
   if(requireNamespace("MASS", quietly = TRUE)&
      requireNamespace("sp", quietly = TRUE)) {
 
   ifelse(
-    is.null(latitude_width),
-    latitude_width <- MASS::bandwidth.nrd(latitude),
-    latitude_width <- latitude_width*(length(latitude)*0.002+
+    is.null(latitude.width),
+    latitude.width <- MASS::bandwidth.nrd(latitude),
+    latitude.width <- latitude.width*(length(latitude)*0.002+
                                         stats::sd(latitude)*0.16+
                                         stats::sd(longitude)*0.15)
   )
   ifelse(
-    is.null(longitude_width),
-    longitude_width <- MASS::bandwidth.nrd(longitude),
-    longitude_width <- longitude_width*(length(longitude)*0.003+
+    is.null(longitude.width),
+    longitude.width <- MASS::bandwidth.nrd(longitude),
+    longitude.width <- longitude.width*(length(longitude)*0.003+
                                           stats::sd(latitude)*0.11+
                                           stats::sd(longitude)*0.18)
   )
@@ -35,7 +35,7 @@ polygon.points_kde <- function(latitude,
     longitude,
     latitude,
     n = 100,
-    h = c(longitude_width, latitude_width),
+    h = c(longitude.width, latitude.width),
     lims = c(
       min(stats::density(longitude)$x) - stats::sd(longitude),
       max(stats::density(longitude)$x) + stats::sd(longitude),
