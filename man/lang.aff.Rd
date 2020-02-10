@@ -4,12 +4,14 @@
 \alias{lang.aff}
 \title{Get languages by affiliation}
 \usage{
-lang.aff(x, list = FALSE)
+lang.aff(x, include.dialects = FALSE, list = FALSE)
 }
 \arguments{
 \item{x}{A character vector of the affiliations (can be written in lower case)}
 
-\item{list}{logical. If TRUE, returns a list of languages, if FALSE return a named vector.}
+\item{include.dialects}{logical. If TRUE, it returns all langauges and dialects, if FALSE it returns only languages.}
+
+\item{list}{logical. If TRUE, it returns a list of languages, if FALSE it returns a named vector.}
 }
 \description{
 Takes any vector of affiliations and return languages.

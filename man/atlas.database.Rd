@@ -9,7 +9,7 @@ atlas.database(
   latitude,
   longitude,
   features,
-  atlas_name = "",
+  atlas.name = "",
   author = ""
 )
 }
@@ -22,7 +22,7 @@ atlas.database(
 
 \item{features}{dataframe where each column is a feature set}
 
-\item{atlas_name}{string with an atlas name}
+\item{atlas.name}{string with an atlas name}
 
 \item{author}{string with the authors list}
 }

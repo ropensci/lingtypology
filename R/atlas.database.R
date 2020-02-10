@@ -6,7 +6,7 @@
 #' @param features dataframe where each column is a feature set
 #' @param latitude numeric vector of latitudes (optional)
 #' @param longitude numeric vector of longitudes (optional)
-#' @param atlas_name string with an atlas name
+#' @param atlas.name string with an atlas name
 #' @param author string with the authors list
 #'
 #' @export
@@ -17,10 +17,10 @@ atlas.database <- function(languages,
                            latitude,
                            longitude,
                            features,
-                           atlas_name = "",
+                           atlas.name = "",
                            author = "") {
   # create a folder and change working directory ----------------------------
-  subfolder <- paste("atlas", gsub(" ", "_", atlas_name), sep = "_")
+  subfolder <- paste("atlas", gsub(" ", "_", atlas.name), sep = "_")
   dir.create(file.path(getwd(), subfolder))
 
   # save a database file ----------------------------------------------------
@@ -35,7 +35,7 @@ atlas.database <- function(languages,
   rmd_names <- paste0(seq_along(names), "._", gsub(" ", "_", names))
 
   site.yml <- c(
-    paste0("name: '", atlas_name, "'"),
+    paste0("name: '", atlas.name, "'"),
     "navbar:",
     "  left:",
     "  - text: 'Home'",
@@ -102,7 +102,7 @@ atlas.database <- function(languages,
 
   # create an index file ----------------------------------------------------
   index <- c(
-    paste0("##", atlas_name),
+    paste0("##", atlas.name),
     "Here will be a nice text about the atlas...",
     "Don't forget to put some information about, how to cite your work."
   )

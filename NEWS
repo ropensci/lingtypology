@@ -1,10 +1,12 @@
 lingtypology 1.1.2 (10.02.2019)
 - replace "ejective_and_n_consonants" with "phonological_profiles" dataset adding there new columns: tone, stress, long_vowels
+- add an argument "include.dialects" to the "lang.aff()" function
+- the argument "atlas_name" of the "atlas.database()" function replaced with "atlas.name"
 
 lingtypology 1.1.1 (09.02.2019)
-- make minicharts and label work together!
-- fix rowr dependency (#43)
-- change glottolog v. 2.7 to v, 4.1. Now "glottolog.original" and "glottolog.modified" replaced with glottolog. There are much more data and dialects are included. (#12, #36, #42)
+- make "minicharts" and "label" work together!
+- fix "rowr" dependency (#43)
+- change glottolog v. 2.7 to v, 4.1. Now "glottolog.original" and "glottolog.modified" replaced with "glottolog". There are much more data and dialects included. (#12, #36, #42)
 - remove all arguments "glottolog.source"
 - remove all functions that worked with countries :(
 
