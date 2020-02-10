@@ -108,7 +108,7 @@ map.feature(c("Adyghe", "Russian")) %>%
 map.feature(c("Adyghe", "Russian")) %>% 
   leaflet::addPolygons(data = my_polygone$finished)
 ```
-![](https://raw.githubusercontent.com/ropensci/lingtypology/master/docs/use_mapedit.gif)
+![](use_mapedit.gif)
 
 ### 3. Combining maps in a grid and facetisation with `mapview`
 

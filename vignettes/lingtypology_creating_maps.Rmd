@@ -62,21 +62,21 @@ map.feature(df$language, df$features)
 
 As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.
 
-There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.cnrs.fr/). This dataset have three variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, numeric variables `consonants` and `vowels` that contains information about the number of consonants and vowels (based on UPSyD database). We can create two maps with categorical variable and with numeric variable:
+There are several types of variables in R and `map.feature` works differently depending on the variable type. I will use a build in data set `phonological_profiles` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). This dataset have three variables: the categorical variable `ejectives` indicates whether some language has any ejective sound, numeric variables `consonants` and `vowels` that contains information about the number of consonants and vowels (based on UPSyD database). We can create two maps with categorical variable and with numeric variable:
 
 ```{r}
-map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$ejectives) # categorical
-map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$consonants) # numeric
+map.feature(phonological_profiles$language,
+            phonological_profiles$ejectives) # categorical
+map.feature(phonological_profiles$language,
+            phonological_profiles$consonants) # numeric
 ```
 
 The main point is that for creating a correct map, you should correctly define the type of the variable.
 
 This dataset also can be used to show one other parameter of the `map.feature` function. There are two possible ways to show the World map: with the Atlantic sea or with the Pacific sea in the middle. If you don't need default Pacific view use the `map.orientation` parameter(thanks @languageSpaceLabs and @tzakharko for that idea):
 ```{r}
-map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$consonants,
+map.feature(phonological_profiles$language,
+            phonological_profiles$consonants,
             map.orientation = "Atlantic")
 ```
 
@@ -109,7 +109,7 @@ map.feature(df$language,
 How to say _moon_ in Sign Languages? Here is an example:
 ```{r}
 # Create a dataframe with links to video
-sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
+sign_df <- data.frame(languages = c("American Sign Language", "Russian-Tajik Sign Language", "French Sign Language"),
                       popup = c("https://media.spreadthesign.com/video/mp4/13/48600.mp4", "https://media.spreadthesign.com/video/mp4/12/17639.mp4", "https://media.spreadthesign.com/video/mp4/10/17638.mp4"))
 
 # Change popup to an HTML code
@@ -178,8 +178,8 @@ map.feature(languages = df$language,
 Arguments from [RColorBrewer](https://CRAN.R-project.org/package=RColorBrewer) or [viridis](https://CRAN.R-project.org/package=viridis) also can be used as a color argument:
 
 ```{r}
-map.feature(ejective_and_n_consonants$language,
-            ejective_and_n_consonants$consonants,
+map.feature(phonological_profiles$language,
+            phonological_profiles$consonants,
             color= "magma")
 ```
 
@@ -295,38 +295,26 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
                  popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
 map.feature(df$lang, df$feature, df$popup,
-            tile = "Thunderforest.OpenCycleMap")
+            tile = "Stamen.TonerLite")
 ```
 
 It is possible to use different map tiles on the same map. Just add a vector with tiles.
 ```{r}
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
-
 map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
+            tile = c("OpenStreetMap", "Stamen.TonerLite"))
 ```
 
 It is possible to name tiles using the `tile.name` argument.
 ```{r}
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
-
 map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
-            tile.name = c("b & w", "colored"))
+            tile = c("OpenStreetMap", "Stamen.TonerLite"),
+            tile.name = c("colored", "b & w"))
 ```
 
 It is possible to combine the tiles' control box with the features' control box.
 ```{r}
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
-                 feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
-                 popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
-
 map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
+            tile = c("OpenStreetMap", "Stamen.TonerLite"),
             control = TRUE)
 ```
 
@@ -347,39 +335,50 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 ```
 
 ### 15. Add minicharts instead of points
-This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set `ejective_and_n_consonants` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.cnrs.fr/). Here is an example of barplot:
+This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set `phonological_profiles` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). Here is an example of barplot:
 
 ```{r}
-map.feature(languages = ejective_and_n_consonants$language,
-            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+map.feature(languages = phonological_profiles$language,
+            minichart.data = phonological_profiles[, c("vowels", "consonants")],
             minichart = "bar")
 ```
 
 Here is an example of piechart:
 ```{r}
-map.feature(languages = ejective_and_n_consonants$language,
-            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+map.feature(languages = phonological_profiles$language,
+            minichart.data = phonological_profiles[, c("vowels", "consonants")],
             minichart = "pie")
 ```
 
 Colors and opacity could be changed, legend moved:
 ```{r}
-map.feature(languages = ejective_and_n_consonants$language,
-            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+map.feature(languages = phonological_profiles$language,
+            minichart.data = phonological_profiles[, c("vowels", "consonants")],
             minichart = "bar",
             color= c("yellowgreen", "navy"),
             opacity = 0.7,
-            label = ejective_and_n_consonants$language,
+            label = phonological_profiles$language,
             legend.position = "topleft")
 ```
 
 It is possible to add values using argument `minichart.labels`:
 ```{r}
-map.feature(languages = ejective_and_n_consonants$language,
-            minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+map.feature(languages = phonological_profiles$language,
+            minichart.data = phonological_profiles[, c("vowels", "consonants")],
             minichart = "pie",
             minichart.labels = TRUE)
 ```
+
+It is also possible to use pie chart in non-convenient way: just indicating with `TRUE` or `FALSE` of pressence of some feature (thanks to Diana Forker for the task!):
+
+```{r}
+map.feature(languages = phonological_profiles$language,
+            minichart.data = phonological_profiles[, c("tone", "long_vowels", "stress", "ejectives")],
+            minichart = "pie", 
+            width = 3)
+```
+
+Unfortunately this kind of visualisation doesn't work, when you have some lines in your dataset that contain only `FALSE` values. This is **non-convenient** way of category visualisation, so visualisation experts could have a negative opinion about it. This kind of visualisation is also bad for huge number of variables.
 
 ### 16. Add a rectangle to a map
 It is possible to highlight some part of your map with a rectangle. You need to provide a latitude and longitude of the diagonal (`rectangle.lat` and `rectangel.lng`) and color of the rectangle (`rectangle.color`):
@@ -490,7 +489,7 @@ map.feature(languages = circassian$language,
             isogloss.width = 0.15)
 ```
 
-It is possible to create true isoglosses by hand, see tools for it [here](https://docs.ropensci.org/lingtypology/articles/lingtypology_dplyr.html#2_leaflet).
+It is possible to create true isoglosses by hand, see tools for it [here](https://ropensci.github.io/lingtypology/lingtypology_dplyr.html#2_leaflet).
 
 ### 19. Add lines
 It is possible to show some lines on the map using coordinates (`line.lng` and `line.lat` arguments).

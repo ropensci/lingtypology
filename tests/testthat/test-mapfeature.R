@@ -255,8 +255,8 @@ test_that("map.feature rectangular", {
 
 map_minicharts <-
   map.feature(
-    languages = ejective_and_n_consonants$language,
-    minichart.data = ejective_and_n_consonants[, c("vowels", "consonants")],
+    languages = phonological_profiles$language,
+    minichart.data = phonological_profiles[, c("vowels", "consonants")],
     minichart = "pie"
   )
 

@@ -1,20 +1,20 @@
-"language","ejectives","consonants","vowels"
-"Turkish","no",25,8
-"Korean","no",21,11
-"Tiwi","no",22,4
-"Liberia Kpelle","no",22,12
-"Tulu","no",24,13
-"Mapudungun","no",20,6
-"Kiowa","no",22,20
-"Paraguayan Guaraní","no",24,12
-"Japanese","no",15,5
-"Yoruba","no",18,11
-"Finnish","no",17,8
-"Hawaiian","no",8,5
-"Hungarian","no",26,14
-"Georgian","yes",28,6
-"Amharic","yes",30,7
-"Sandawe","yes",47,7
-"Tlingit","yes",43,5
-"Lakota","yes",28,8
-"Yucatec Maya","yes",20,10
+language,tone,long_vowels,stress,ejectives,consonants,vowels
+Turkish,FALSE,TRUE,TRUE,FALSE,25,8
+Korean,FALSE,FALSE,TRUE,FALSE,21,11
+Tiwi,FALSE,FALSE,TRUE,FALSE,22,4
+Liberia Kpelle,TRUE,FALSE,FALSE,FALSE,22,12
+Tulu,FALSE,TRUE,FALSE,FALSE,24,13
+Mapudungun,FALSE,FALSE,TRUE,FALSE,20,6
+Kiowa,TRUE,TRUE,FALSE,FALSE,22,20
+Paraguayan Guaraní,FALSE,FALSE,TRUE,FALSE,24,12
+Japanese,TRUE,TRUE,TRUE,FALSE,15,5
+Yoruba,TRUE,FALSE,FALSE,FALSE,18,11
+Finnish,FALSE,TRUE,TRUE,FALSE,17,8
+Hawaiian,FALSE,TRUE,TRUE,FALSE,8,5
+Hungarian,FALSE,TRUE,TRUE,FALSE,26,14
+Georgian,FALSE,FALSE,TRUE,TRUE,28,6
+Amharic,FALSE,FALSE,TRUE,TRUE,30,7
+Sandawe,TRUE,TRUE,FALSE,TRUE,47,7
+Tlingit,TRUE,TRUE,FALSE,TRUE,43,5
+Lakota,FALSE,FALSE,TRUE,TRUE,28,8
+Yucatec Maya,TRUE,TRUE,FALSE,TRUE,20,10

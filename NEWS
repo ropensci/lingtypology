@@ -1,3 +1,6 @@
+lingtypology 1.1.2 (10.02.2019)
+- replace "ejective_and_n_consonants" with "phonological_profiles" dataset adding there new columns: tone, stress, long_vowels
+
 lingtypology 1.1.1 (09.02.2019)
 - make minicharts and label work together!
 - fix rowr dependency (#43)

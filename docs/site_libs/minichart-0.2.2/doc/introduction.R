@@ -1,9 +1,9 @@
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 library(leaflet.minicharts)
 data("eco2mix")
 head(eco2mix)
 
-## ----message=FALSE-------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 library(dplyr)
 
 prod2016 <- eco2mix %>%
@@ -19,7 +19,7 @@ prod2016 <- eco2mix %>%
 
 head(prod2016)
 
-## ----message=FALSE, results='hide'---------------------------------------
+## ----message=FALSE, results='hide'--------------------------------------------
 library(leaflet)
 
 tilesURL <- "http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
@@ -27,7 +27,7 @@ tilesURL <- "http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Li
 basemap <- leaflet(width = "100%", height = "400px") %>%
   addTiles(tilesURL)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 colors <- c("#4fc13c", "#cccccc")
 
 basemap %>%
@@ -39,7 +39,7 @@ basemap %>%
     width = 60 * sqrt(prod2016$total) / sqrt(max(prod2016$total)), transitionTime = 0
   )
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 renewable2016 <- prod2016 %>% select(hydraulic, solar, wind)
 colors <- c("#3093e5", "#fcba50", "#a0d9e8")
 basemap %>%
@@ -50,7 +50,7 @@ basemap %>%
     width = 45, height = 45
   )
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 basemap %>%
   addMinicharts(
     prod2016$lng, prod2016$lat,
@@ -59,10 +59,10 @@ basemap %>%
     width = 45
   )
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 prodRegions <- eco2mix %>% filter(area != "France")
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 basemap %>% 
   addMinicharts(
     prodRegions$lng, prodRegions$lat, 
@@ -72,7 +72,7 @@ basemap %>%
     width = 45, height = 45
   )
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 data("eco2mixBalance")
 bal <- eco2mixBalance
 basemap %>%
@@ -82,7 +82,7 @@ basemap %>%
     time = bal$month
   )
 
-## ----eval = FALSE--------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  server <- function(input, output, session) {
 #    # Initialize map
 #    output$mymap <- renderLeaflet(
@@ -91,7 +91,7 @@ basemap %>%
 #    )
 #  }
 
-## ----eval = FALSE--------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  server <- function(input, output, session) {
 #    # Initialize map
 #    ...
