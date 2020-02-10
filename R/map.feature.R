@@ -400,8 +400,8 @@ map.feature <- function(languages,
       polygon.points_kde(
         mapfeat.df[mapfeat.df$density.estimation == feature, 'lat'],
         mapfeat.df[mapfeat.df$density.estimation == feature, 'long'],
-        latitude_width = density.width[1],
-        longitude_width = density.width[2]
+        latitude.width = density.width[1],
+        longitude.width = density.width[2]
       )
     })
     } else{
@@ -467,8 +467,8 @@ map.feature <- function(languages,
         polygon.points_kde(
           mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'lat'],
           mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'long'],
-          latitude_width = isogloss.width[1],
-          longitude_width = isogloss.width[2])
+          latitude.width = isogloss.width[1],
+          longitude.width = isogloss.width[2])
     } else{
         polygon.points_fd(
           mapfeat.df[mapfeat.df[, isogloss.df[i,2]] == isogloss.df[i,1], 'lat'],
