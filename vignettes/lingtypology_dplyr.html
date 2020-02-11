@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-02-10" />
+<meta name="date" content="2020-02-12" />
 
 <title>lingtypology and other packages</title>
 
@@ -305,7 +305,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore"><code>lingtypology</code> and other packages</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-02-10</h4>
+<h4 class="date">2020-02-12</h4>
 
 
 
@@ -351,7 +351,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <span id="cb6-5"><a href="#cb6-5"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>), <span class="dt">pipe.data =</span> m)</span></code></pre></div>
 <p>If you want to define tiles in <code>leaflet</code> part, you need to change tile argument in <code>map.feature</code> function, because the default value for the <code>tile</code> argument is “OpenStreetMap.Mapnik”.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">leaflet</span>()  <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="st">  </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;OpenStreetMap.BlackAndWhite&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="st">  </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;Stamen.TonerLite&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="st">  </span><span class="kw">fitBounds</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb7-4"><a href="#cb7-4"></a><span class="st">  </span><span class="kw">addPopups</span>(<span class="dv">2</span>, <span class="dv">48</span>, <span class="st">&quot;Great day!&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb7-5"><a href="#cb7-5"></a><span class="st">  </span><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;French&quot;</span>, <span class="st">&quot;Occitan&quot;</span>), <span class="dt">pipe.data =</span> ., <span class="dt">tile =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
@@ -372,13 +372,13 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 </div>
 <div id="combining-maps-in-a-grid-and-facetisation-with-mapview" class="section level3">
 <h3>3. Combining maps in a grid and facetisation with <code>mapview</code></h3>
-<p>The <a href="https://github.com/r-spatial/mapview"><code>mapview</code> package</a> provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: <code>latticeview()</code> and <code>sync()</code>. Facetisation is a really powerfull tool (look for <code>facet_grid()</code> and <code>facet_wrap()</code> functions from <code>ggplot2</code>). <code>lingtypology</code> doesn’t provide a facetisation itself, but the <code>facet</code> argument of the <code>map.feature()</code> function create a list of maps based on this variable. The result of the work of this function then is changed: instead of creating a map in Viewer pane it will return a list that could be used in <code>latticeview()</code> and <code>sync()</code> functions from the <code>mapview</code> package.</p>
+<p>The <a href="https://github.com/r-spatial/leafsync"><code>leafsync</code> package</a> provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: <code>latticeview()</code> and <code>sync()</code>. Facetisation is a really powerfull tool (look for <code>facet_grid()</code> and <code>facet_wrap()</code> functions from <code>ggplot2</code>). <code>lingtypology</code> doesn’t provide a facetisation itself, but the <code>facet</code> argument of the <code>map.feature()</code> function create a list of maps based on this variable. The result of the work of this function then is changed: instead of creating a map in Viewer pane it will return a list that could be used in <code>latticeview()</code> and <code>sync()</code> functions from the <code>leafsync</code> package.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>faceted &lt;-<span class="st"> </span><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
 <span id="cb10-2"><a href="#cb10-2"></a>                       <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
 <span id="cb10-3"><a href="#cb10-3"></a>                       <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
 <span id="cb10-4"><a href="#cb10-4"></a>                       <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
 <span id="cb10-5"><a href="#cb10-5"></a>                       <span class="dt">facet =</span> circassian<span class="op">$</span>language)</span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="kw">library</span>(mapview)</span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="kw">library</span>(leafsync)</span>
 <span id="cb10-7"><a href="#cb10-7"></a><span class="kw">sync</span>(faceted, <span class="dt">no.initial.sync =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p>As you can see we provided a <code>circassian$language</code> to the <code>facet</code> argument, so it returned a list of two maps that stored in <code>faceted</code> variable.</p>
 <p>It is also possible to combine any maps that were created, just store them in a variable, and combine them in <code>latticeview()</code> and <code>sync()</code> functions</p>
@@ -421,7 +421,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <span id="cb18-2"><a href="#cb18-2"></a>               <span class="dt">features =</span> df[,<span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">5</span>)],</span>
 <span id="cb18-3"><a href="#cb18-3"></a>               <span class="dt">latitude =</span> df<span class="op">$</span>latitude,</span>
 <span id="cb18-4"><a href="#cb18-4"></a>               <span class="dt">longitude =</span> df<span class="op">$</span>longitude,</span>
-<span id="cb18-5"><a href="#cb18-5"></a>               <span class="dt">atlas_name =</span> <span class="st">&quot;Some WALS features&quot;</span>,</span>
+<span id="cb18-5"><a href="#cb18-5"></a>               <span class="dt">atlas.name =</span> <span class="st">&quot;Some WALS features&quot;</span>,</span>
 <span id="cb18-6"><a href="#cb18-6"></a>               <span class="dt">author =</span> <span class="st">&quot;Author Name&quot;</span>)</span></code></pre></div>
 <p>We can see that this function creates a subfolder with following files:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">list.files</span>(<span class="st">&quot;./atlas_Some_WALS_features/&quot;</span>)</span></code></pre></div>

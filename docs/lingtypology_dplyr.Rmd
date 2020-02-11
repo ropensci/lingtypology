@@ -78,7 +78,7 @@ If you want to define tiles in `leaflet` part, you need to change tile argument 
 
 ```{r}
 leaflet()  %>% 
-  addProviderTiles("OpenStreetMap.BlackAndWhite") %>% 
+  addProviderTiles("Stamen.TonerLite") %>% 
   fitBounds(0, 40, 10, 50) %>% 
   addPopups(2, 48, "Great day!") %>% 
   map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
@@ -107,7 +107,7 @@ map.feature(c("Adyghe", "Russian")) %>%
 
 ### 3. Combining maps in a grid and facetisation with `mapview`
 
-The [`mapview` package](https://github.com/r-spatial/mapview) provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: `latticeview()` and `sync()`. Facetisation is a really powerfull tool (look for `facet_grid()` and `facet_wrap()` functions from `ggplot2`). `lingtypology` doesn't provide a facetisation itself, but the `facet` argument of the `map.feature()` function create a list of maps based on this variable. The result of the work of this function then is changed: instead of creating a map in Viewer pane it will return a list that could be used in `latticeview()` and `sync()` functions from the `mapview` package.
+The [`leafsync` package](https://github.com/r-spatial/leafsync) provides a possibility to create a multiple maps in a grid and even synchronise them. There are two functions for that: `latticeview()` and `sync()`. Facetisation is a really powerfull tool (look for `facet_grid()` and `facet_wrap()` functions from `ggplot2`). `lingtypology` doesn't provide a facetisation itself, but the `facet` argument of the `map.feature()` function create a list of maps based on this variable. The result of the work of this function then is changed: instead of creating a map in Viewer pane it will return a list that could be used in `latticeview()` and `sync()` functions from the `leafsync` package.
 
 ```{r}
 faceted <- map.feature(circassian$language,
@@ -115,7 +115,7 @@ faceted <- map.feature(circassian$language,
                        longitude = circassian$longitude,
                        features = circassian$dialect,
                        facet = circassian$language)
-library(mapview)
+library(leafsync)
 sync(faceted, no.initial.sync = FALSE)
 ```
 
@@ -185,7 +185,7 @@ atlas.database(languages = df$language,
                features = df[,c(4:5)],
                latitude = df$latitude,
                longitude = df$longitude,
-               atlas_name = "Some WALS features",
+               atlas.name = "Some WALS features",
                author = "Author Name")
 ```
 

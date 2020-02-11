@@ -44,7 +44,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 
 ## -----------------------------------------------------------------------------
 #  leaflet()  %>%
-#    addProviderTiles("OpenStreetMap.BlackAndWhite") %>%
+#    addProviderTiles("Stamen.TonerLite") %>%
 #    fitBounds(0, 40, 10, 50) %>%
 #    addPopups(2, 48, "Great day!") %>%
 #    map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
@@ -70,7 +70,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #                         longitude = circassian$longitude,
 #                         features = circassian$dialect,
 #                         facet = circassian$language)
-#  library(mapview)
+#  library(leafsync)
 #  sync(faceted, no.initial.sync = FALSE)
 
 ## ---- eval=FALSE--------------------------------------------------------------
@@ -107,7 +107,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #                 features = df[,c(4:5)],
 #                 latitude = df$latitude,
 #                 longitude = df$longitude,
-#                 atlas_name = "Some WALS features",
+#                 atlas.name = "Some WALS features",
 #                 author = "Author Name")
 
 ## -----------------------------------------------------------------------------
