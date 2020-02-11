@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-02-10" />
+<meta name="date" content="2020-02-11" />
 
 <title>lingtypology: creating maps</title>
 
@@ -305,7 +305,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: creating maps</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-02-10</h4>
+<h4 class="date">2020-02-11</h4>
 
 
 
@@ -545,8 +545,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <h3>15. Add minicharts instead of points</h3>
 <p>This part is created using the beutifull <a href="https://CRAN.R-project.org/package=leaflet.minicharts"><code>leaflet.minicharts</code> library</a>. The argument <code>minichart</code> allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set <code>phonological_profiles</code> that contains 19 languages from <a href="http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/">UPSyD database</a>. Here is an example of barplot:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
-<span id="cb34-2"><a href="#cb34-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)],</span>
-<span id="cb34-3"><a href="#cb34-3"></a>            <span class="dt">minichart =</span> <span class="st">&quot;bar&quot;</span>)</span></code></pre></div>
+<span id="cb34-2"><a href="#cb34-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)])</span></code></pre></div>
 <p>Here is an example of piechart:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
 <span id="cb35-2"><a href="#cb35-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)],</span>
@@ -554,11 +553,10 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>Colors and opacity could be changed, legend moved:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
 <span id="cb36-2"><a href="#cb36-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)],</span>
-<span id="cb36-3"><a href="#cb36-3"></a>            <span class="dt">minichart =</span> <span class="st">&quot;bar&quot;</span>,</span>
-<span id="cb36-4"><a href="#cb36-4"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;yellowgreen&quot;</span>, <span class="st">&quot;navy&quot;</span>),</span>
-<span id="cb36-5"><a href="#cb36-5"></a>            <span class="dt">opacity =</span> <span class="fl">0.7</span>,</span>
-<span id="cb36-6"><a href="#cb36-6"></a>            <span class="dt">label =</span> phonological_profiles<span class="op">$</span>language,</span>
-<span id="cb36-7"><a href="#cb36-7"></a>            <span class="dt">legend.position =</span> <span class="st">&quot;topleft&quot;</span>)</span></code></pre></div>
+<span id="cb36-3"><a href="#cb36-3"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;yellowgreen&quot;</span>, <span class="st">&quot;navy&quot;</span>),</span>
+<span id="cb36-4"><a href="#cb36-4"></a>            <span class="dt">opacity =</span> <span class="fl">0.7</span>,</span>
+<span id="cb36-5"><a href="#cb36-5"></a>            <span class="dt">label =</span> phonological_profiles<span class="op">$</span>language,</span>
+<span id="cb36-6"><a href="#cb36-6"></a>            <span class="dt">legend.position =</span> <span class="st">&quot;topleft&quot;</span>)</span></code></pre></div>
 <p>It is possible to add values using argument <code>minichart.labels</code>:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
 <span id="cb37-2"><a href="#cb37-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)],</span>

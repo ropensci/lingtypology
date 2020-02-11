@@ -193,7 +193,7 @@ map.feature <- function(languages,
                         line.label = NULL,
                         line.width = 3,
                         graticule = NULL,
-                        minichart = NULL,
+                        minichart = "bar",
                         minichart.data = NULL,
                         minichart.time = NULL,
                         minichart.labels = FALSE,
@@ -656,7 +656,7 @@ map.feature <- function(languages,
 
   # map: add points ----------------------------------------
   if (density.points != FALSE &
-      is.null(minichart) &
+      is.null(minichart.data) &
       is.null(shape)) {
     m <- m %>% leaflet::addCircleMarkers(
       lng = mapfeat.df$long,
@@ -691,7 +691,7 @@ map.feature <- function(languages,
 
   # map: add minicharts -----------------------------------------------------
 
-  if (!is.null(minichart) & is.null(shape)) {
+  if (!is.null(minichart.data) & is.null(shape)) {
     if (is.null(color)) {
       color = my_colors
     }
@@ -720,7 +720,7 @@ map.feature <- function(languages,
       popup = mapfeat.df$link,
       stroke = FALSE,
       radius = width,
-      fillOpacity = opacity,
+      fillOpacity = 0,
       color = pal(mapfeat.df$features),
       group = mapfeat.df$features,
       label = mapfeat.df$label,
@@ -920,7 +920,7 @@ map.feature <- function(languages,
     # map: legend -------------------------------------------------------------
     if (sum(mapfeat.df$features == "") < length(mapfeat.df$features) &
         legend == TRUE &
-        is.null(minichart) &
+        is.null(minichart.data) &
         is.null(shape)) {
       m <- m %>% leaflet::addLegend(
         title = title,

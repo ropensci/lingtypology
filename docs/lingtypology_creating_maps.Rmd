@@ -336,8 +336,7 @@ This part is created using the beutifull [`leaflet.minicharts` library](https://
 
 ```{r}
 map.feature(languages = phonological_profiles$language,
-            minichart.data = phonological_profiles[, c("vowels", "consonants")],
-            minichart = "bar")
+            minichart.data = phonological_profiles[, c("vowels", "consonants")])
 ```
 
 Here is an example of piechart:
@@ -351,7 +350,6 @@ Colors and opacity could be changed, legend moved:
 ```{r}
 map.feature(languages = phonological_profiles$language,
             minichart.data = phonological_profiles[, c("vowels", "consonants")],
-            minichart = "bar",
             color= c("yellowgreen", "navy"),
             opacity = 0.7,
             label = phonological_profiles$language,

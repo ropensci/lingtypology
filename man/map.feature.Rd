@@ -79,7 +79,7 @@ map.feature(
   line.label = NULL,
   line.width = 3,
   graticule = NULL,
-  minichart = NULL,
+  minichart = "bar",
   minichart.data = NULL,
   minichart.time = NULL,
   minichart.labels = FALSE,

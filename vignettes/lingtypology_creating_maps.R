@@ -220,8 +220,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 ## -----------------------------------------------------------------------------
 #  map.feature(languages = phonological_profiles$language,
-#              minichart.data = phonological_profiles[, c("vowels", "consonants")],
-#              minichart = "bar")
+#              minichart.data = phonological_profiles[, c("vowels", "consonants")])
 
 ## -----------------------------------------------------------------------------
 #  map.feature(languages = phonological_profiles$language,
@@ -231,7 +230,6 @@ knitr::opts_chunk$set(eval = FALSE)
 ## -----------------------------------------------------------------------------
 #  map.feature(languages = phonological_profiles$language,
 #              minichart.data = phonological_profiles[, c("vowels", "consonants")],
-#              minichart = "bar",
 #              color= c("yellowgreen", "navy"),
 #              opacity = 0.7,
 #              label = phonological_profiles$language,
