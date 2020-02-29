@@ -218,7 +218,8 @@ map.feature <- function(languages,
   mapfeat.df <- data.frame(languages = unname(languages), features,
                            popup = popup,
                            long = longitude,
-                           lat = latitude)
+                           lat = latitude,
+                           stringsAsFactors = FALSE)
   if (sum(label == "") != length(label)) {
     mapfeat.df$label <- as.character(label)
     if (!is.null(label.emphasize[[1]])) {
@@ -279,7 +280,7 @@ map.feature <- function(languages,
   # add images --------------------------------------------------------------
   if (!is.null(image.url)) {
     mapfeat.image <-
-      cbind(mapfeat.df[, -2], data.frame(image.url))
+      cbind(mapfeat.df[, -2], data.frame(image.url, stringsAsFactors = FALSE))
     mapfeat.image <-
       mapfeat.image[stats::complete.cases(mapfeat.image), ]
   }
@@ -287,7 +288,7 @@ map.feature <- function(languages,
   # create a stroke dataframe -----------------------------------------------
   if (!is.null(stroke.features)) {
     mapfeat.stroke <- cbind(mapfeat.df[, -2],
-                                       data.frame(stroke.features))
+                            data.frame(stroke.features, stringsAsFactors = FALSE))
     mapfeat.stroke <-
       mapfeat.stroke[stats::complete.cases(mapfeat.stroke), ]
   }
@@ -323,7 +324,7 @@ map.feature <- function(languages,
         leaflet::colorNumeric(palette = color, domain = mapfeat.df$features)
     } else {
       if (length(mapfeat.df$features) == length(color)) {
-        df <- unique(data.frame(feature = mapfeat.df$features, color))
+        df <- unique(data.frame(feature = mapfeat.df$features, color, stringsAsFactors = FALSE))
         color <- as.character(df[order(df$feature), ]$color)
       }
       pal <-
@@ -348,7 +349,8 @@ map.feature <- function(languages,
         unique(
           data.frame(
             feature = mapfeat.df$density.estimation,
-            color = density.estimation.color
+            color = density.estimation.color,
+            stringsAsFactors = FALSE
           )
         )
       density.estimation.color <-
@@ -547,7 +549,7 @@ map.feature <- function(languages,
   } else if (line.type == "logit") {
     if (length(table(mapfeat.df$features)) == 2) {
       logit <-
-        stats::glm(mapfeat.df$features ~ mapfeat.df$long + mapfeat.df$lat,
+        stats::glm(factor(mapfeat.df$features) ~ mapfeat.df$long + mapfeat.df$lat,
                    family = stats::binomial)
       slope <- stats::coef(logit)[2] / (-stats::coef(logit)[3])
       intercept <- stats::coef(logit)[1] / (-stats::coef(logit)[3])

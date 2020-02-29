@@ -8,11 +8,11 @@
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-02-11" />
+<meta name="date" content="2020-02-29" />
 
 <title>lingtypology: creating maps</title>
 
@@ -119,9 +119,6 @@ padding-right: 2em;
 font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
 line-height: 1.35;
-}
-#header {
-text-align: center;
 }
 #TOC {
 clear: both;
@@ -290,7 +287,8 @@ code > span.st { color: #d14; }
 code > span.co { color: #888888; font-style: italic; } 
 code > span.ot { color: #007020; } 
 code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
@@ -305,7 +303,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: creating maps</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-02-11</h4>
+<h4 class="date">2020-02-29</h4>
 
 
 
@@ -336,7 +334,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>Like in most functions, it is not necessary to name all arguments, so the same result can be obtained by:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">map.feature</span>(df<span class="op">$</span>language, df<span class="op">$</span>features)</span></code></pre></div>
 <p>As shown in the picture above, all points are grouped by feature, colored and counted. As before, a pop-up box appears when markers are clicked. A control feature allows users to toggle the visibility of points grouped by feature.</p>
-<p>There are several types of variables in R and <code>map.feature</code> works differently depending on the variable type. I will use a build in data set <code>phonological_profiles</code> that contains 19 languages from <a href="http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/">UPSyD database</a>. This dataset have three variables: the categorical variable <code>ejectives</code> indicates whether some language has any ejective sound, numeric variables <code>consonants</code> and <code>vowels</code> that contains information about the number of consonants and vowels (based on UPSyD database). We can create two maps with categorical variable and with numeric variable:</p>
+<p>There are several types of variables in R and <code>map.feature</code> works differently depending on the variable type. I will use a build in data set <code>phonological_profiles</code> that contains 19 languages from <a href="http://www.lapsyd.ddl.cnrs.fr/lapsyd/">UPSyD database</a>. This dataset have three variables: the categorical variable <code>ejectives</code> indicates whether some language has any ejective sound, numeric variables <code>consonants</code> and <code>vowels</code> that contains information about the number of consonants and vowels (based on UPSyD database). We can create two maps with categorical variable and with numeric variable:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">map.feature</span>(phonological_profiles<span class="op">$</span>language,</span>
 <span id="cb7-2"><a href="#cb7-2"></a>            phonological_profiles<span class="op">$</span>ejectives) <span class="co"># categorical</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="kw">map.feature</span>(phonological_profiles<span class="op">$</span>language,</span>
