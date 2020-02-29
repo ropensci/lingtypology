@@ -1,3 +1,7 @@
+lingtypology 1.1.3 (29.02.2019)
+- correct the sails.feature() function
+- correct the abvd.feature() function
+
 lingtypology 1.1.2 (29.02.2019)
 - replace "ejective_and_n_consonants" with "phonological_profiles" dataset adding there new columns: tone, stress, long_vowels
 - add an argument "include.dialects" to the "lang.aff()" function

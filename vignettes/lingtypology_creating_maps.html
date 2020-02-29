@@ -678,6 +678,13 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Adyghe&quot;</span>),</span>
 <span id="cb51-2"><a href="#cb51-2"></a>            <span class="dt">graticule =</span> <span class="dv">5</span>)</span></code></pre></div>
 </div>
+<div id="ggplot" class="section level3">
+<h3>20. <code>ggplot</code></h3>
+<p>Some journals and book publishers are not happy with the resolution of <code>lingtypology</code> maps. In order to obtain maps with high resolution in <code>lingtypology</code> I need to implement multiple things, and I only started this work. For now only this type of maps are available:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="kw">ggmap.feature</span>(phonological_profiles<span class="op">$</span>language, phonological_profiles<span class="op">$</span>ejectives)</span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="kw">ggmap.feature</span>(phonological_profiles<span class="op">$</span>language, phonological_profiles<span class="op">$</span>consonants)</span></code></pre></div>
+<p>There will be more functionality in the future.</p>
+</div>
 
 
 

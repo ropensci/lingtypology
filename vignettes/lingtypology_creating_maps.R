@@ -355,3 +355,7 @@ knitr::opts_chunk$set(eval = FALSE)
 #  map.feature(c("Russian", "Adyghe"),
 #              graticule = 5)
 
+## -----------------------------------------------------------------------------
+#  ggmap.feature(phonological_profiles$language, phonological_profiles$ejectives)
+#  ggmap.feature(phonological_profiles$language, phonological_profiles$consonants)
+

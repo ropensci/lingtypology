@@ -523,3 +523,14 @@ It is possible to add a graticule to a map.
 map.feature(c("Russian", "Adyghe"),
             graticule = 5)
 ```
+
+
+### 20. `ggplot`
+Some journals and book publishers are not happy with the resolution of `lingtypology` maps. In order to obtain maps with high resolution in `lingtypology` I need to implement multiple things, and I only started this work. For now only this type of maps are available:
+
+```{r}
+ggmap.feature(phonological_profiles$language, phonological_profiles$ejectives)
+ggmap.feature(phonological_profiles$language, phonological_profiles$consonants)
+```
+
+There will be more functionality in the future.

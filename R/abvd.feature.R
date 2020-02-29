@@ -26,7 +26,8 @@ Greenhill, S.J., Blust. R, & Gray, R.D. (2008). The Austronesian Basic Vocabular
   }
   datalist  <-  lapply(links, function(x) {
     lines <- readLines(x, n = 26)
-    skip <- grep(pattern = "^id", lines)[2]
+    skip <- grep(pattern = "^id", lines)
+    skip <- skip[length(skip)]
     utils::read.csv(x,
                     sep = "\t",
                     skip = skip - 1,
@@ -38,7 +39,7 @@ Greenhill, S.J., Blust. R, & Gray, R.D. (2008). The Austronesian Basic Vocabular
     datalist[[i]]$language <<- langs[i]
   })
   final_df <- Reduce(function(x, y) {
-    rbind.data.frame(x, y)
+    rbind.data.frame(x, y, stringsAsFactors = FALSE)
   }, datalist)
   return(final_df)
 }

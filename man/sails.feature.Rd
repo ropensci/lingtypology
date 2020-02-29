@@ -4,14 +4,12 @@
 \alias{sails.feature}
 \title{Download SAILS data}
 \usage{
-sails.feature(features, na.rm = TRUE, glottolog.source = "modified")
+sails.feature(features, na.rm = TRUE)
 }
 \arguments{
 \item{features}{A character vector that define with a feature ids from SAILS (e. g. "and1", "argex4-1-3").}
 
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
-
-\item{glottolog.source}{A character vector that define which glottolog database is used: 'original' or 'modified' (by default)}
 }
 \description{
 This function downloads data from SAILS (http://sails.clld.org/) and changes language names to the names from lingtypology database. You need the internet connection.

@@ -504,7 +504,7 @@ div.tocify {
 <pre><code>##      ady 
 ## &quot;Adyghe&quot;</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Adyghe&quot;    &quot;Abkhaz&quot;    &quot;Abaza&quot;     &quot;Ubykh&quot;     &quot;Kabardian&quot;</code></pre>
+<pre><code>## character(0)</code></pre>
 <p>I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that <code>'Ma'ya'</code> is an incorrect string in R.</p>
 <ul>
 <li>a vector of strings</li>
@@ -514,10 +514,10 @@ div.tocify {
 ## &quot;Eurasia&quot;  &quot;Africa&quot;</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>lang &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="kw">aff.lang</span>(lang)</span></code></pre></div>
-<pre><code>##                                                  Adyghe 
-##                        &quot;Abkhaz-Adyge,Circassian,Adyghe&quot; 
-##                                                 Russian 
-## &quot;Indo-European,Balto-Slavic,Slavic,East Slavic,Russian&quot;</code></pre>
+<pre><code>##                                          Adyghe 
+##                       &quot;Abkhaz-Adyge,Circassian&quot; 
+##                                         Russian 
+## &quot;Indo-European,Balto-Slavic,Slavic,East Slavic&quot;</code></pre>
 <ul>
 <li>other functions. For example, let’s try to get a vector of ISO codes for the Circassian languages</li>
 </ul>
@@ -541,7 +541,7 @@ div.tocify {
 <br>
 <br>
 <p> <center> &copy; G. Moroz code on
-<a href="https://github.com/ropensci/lingtypology"> GitHub<img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png"  style="width:30px;height:30px;border:0"> </center></p>
+<a href="https://github.com/ropensci/lingtypology"> GitHub </center></p>
 
 
 </div>

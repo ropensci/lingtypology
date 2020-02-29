@@ -53,10 +53,6 @@ I used only four features from PHOIBLE: the number of phonemes, the number of co
 ```{r}
 df <- phoible.feature(source = "UPSID")
 head(df)
-map.feature(df$language,
-            features = df$phonemes,
-            label = df$language,
-            title = "Number of Phonemes")
 ```
 
 ### 4. AfBo
@@ -87,7 +83,7 @@ map.feature(df$language,
 ### 6. ABVD
 The ABVD database is a lexical database, so it is different from clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring by word with the meaning 'hand'.
 ```{r}
-df <- abvd.feature(50:55)
+df <- abvd.feature(c(292, 7))
 head(df)
 new_df <- df[df$word == "hand",]
 map.feature(new_df$language,

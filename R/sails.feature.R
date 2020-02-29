@@ -4,7 +4,6 @@
 #'
 #' @param features A character vector that define with a feature ids from SAILS (e. g. "and1", "argex4-1-3").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
-#' @param glottolog.source A character vector that define which glottolog database is used: 'original' or 'modified' (by default)
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 #' @examples
@@ -16,8 +15,7 @@
 
 sails.feature <-
   function(features,
-           na.rm = TRUE,
-           glottolog.source = "modified") {
+           na.rm = TRUE) {
     features_set <-
       c(
         "AND1",
@@ -668,8 +666,7 @@ Muysken, Pieter, Harald Hammarstr\u00D6m, Olga Krasnoukhova, Neele M\u00DCller, 
       paste(features, "description", sep = "_")
     colnames(final_df)[grep("value", colnames(final_df))] <-
       paste(features, "value", sep = "_")
-    final_df$language <- lingtypology::lang.iso(final_df$iso.639.3,
-                                                glottolog.source = glottolog.source)
+    final_df$language <- lingtypology::lang.iso(final_df$iso.639.3)
     final_df <-
       final_df[,-which(colnames(final_df) %in% c("iso.639.3", "family", "name"))]
     final_df <- final_df[, c(ncol(final_df), 1:(ncol(final_df) - 1))]
