@@ -1,10 +1,11 @@
-lingtypology 1.1.2 (11.02.2019)
+lingtypology 1.1.2 (29.02.2019)
 - replace "ejective_and_n_consonants" with "phonological_profiles" dataset adding there new columns: tone, stress, long_vowels
 - add an argument "include.dialects" to the "lang.aff()" function
 - the argument "atlas_name" of the "atlas.database()" function replaced with "atlas.name"
 - change arguments "longitude_width" and "latitude_width" into "longitude.width" and "latitude_width"
 - remove point with bar minicharts
 - add "bar" minichart as default type
+- fix a stringsAsFactors = FALSE default, which is planned to become the new default for the upcoming R 4.0.0. (#44)
 
 lingtypology 1.1.1 (09.02.2019)
 - make "minicharts" and "label" work together!

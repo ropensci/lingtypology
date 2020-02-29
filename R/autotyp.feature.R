@@ -83,7 +83,7 @@ Bickel, Balthasar, Johanna Nichols, Taras Zakharko, Alena Witzlack-Makarevich, K
           ".csv"
         )
       datalist  <-  lapply(links, function(x) {
-        utils::read.csv(x)
+        utils::read.csv(x, stringsAsFactors = FALSE)
       })
       final_df <-
         Reduce(function(x, y) {

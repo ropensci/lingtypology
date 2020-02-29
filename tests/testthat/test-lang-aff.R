@@ -1,15 +1,15 @@
 library(lingtypology)
 context("Tests for lang.aff function")
 
-df <- data.frame(my_langs = c("Baltic"))
+df <- data.frame(my_langs = c("Baltic"), stringsAsFactors = FALSE)
 
 test_that("lang.aff", {
     expect_equal(lang.aff("Baltic"), c("Latvian",
                                        "Lithuanian",
                                        "Baltic Romani"))
-    expect_equal(lang.aff(df), c("Latvian",
-                                 "Lithuanian",
-                                 "Baltic Romani"))
+    expect_equal(lang.aff(df), c(my_langs1 = "Latvian",
+                                 my_langs2 = "Lithuanian",
+                                 my_langs3 = "Baltic Romani"))
     expect_equal(lang.aff(c("Brythonic", "Goidelic")), c("Old-Middle Welsh",
                                                          "Welsh",
                                                          "Breton",

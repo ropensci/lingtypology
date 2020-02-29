@@ -1,9 +1,9 @@
 library(lingtypology)
 context("Tests for map.feature function")
 
-df <-  data.frame("Abkhazian")
+df <-  data.frame("Abkhazian", stringsAsFactors = FALSE)
 map <- map.feature("Abkhazian")
-map3 <- map.feature(data.frame("Abkhazian"))
+map3 <- map.feature(data.frame("Abkhazian", stringsAsFactors = FALSE))
 
 test_that("map.feature source", {
   expect_equal(exists("map"), TRUE)
@@ -96,7 +96,8 @@ df <-
     feature = c("polysynthetic",
                 "polysynthetic", "fusion", "fusion", "fusion"),
     popup = c("Circassian", "Circassian", "Slavic",
-              "Slavic", "Slavic")
+              "Slavic", "Slavic"),
+    stringsAsFactors = FALSE
   )
 map_stroke <-
   map.feature(df$lang, df$feature, df$popup, stroke.features = df$popup)
