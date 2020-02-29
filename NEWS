@@ -6,6 +6,7 @@ lingtypology 1.1.2 (29.02.2019)
 - remove point with bar minicharts
 - add "bar" minichart as default type
 - fix a stringsAsFactors = FALSE default, which is planned to become the new default for the upcoming R 4.0.0. (#44)
+- fix wrong affiliations https://github.com/glottolog/glottolog/issues/465
 
 lingtypology 1.1.1 (09.02.2019)
 - make "minicharts" and "label" work together!
