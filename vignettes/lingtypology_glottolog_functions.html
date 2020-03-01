@@ -8,11 +8,11 @@
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-02-09" />
+<meta name="date" content="2020-03-01" />
 
 <title>lingtypology: Glottolog functions</title>
 
@@ -119,9 +119,6 @@ padding-right: 2em;
 font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
 line-height: 1.35;
-}
-#header {
-text-align: center;
 }
 #TOC {
 clear: both;
@@ -290,7 +287,8 @@ code > span.st { color: #d14; }
 code > span.co { color: #888888; font-style: italic; } 
 code > span.ot { color: #007020; } 
 code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
@@ -305,7 +303,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: Glottolog functions</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-02-09</h4>
+<h4 class="date">2020-03-01</h4>
 
 
 
@@ -365,18 +363,16 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## &quot;Eurasia&quot;  &quot;Africa&quot;</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>lang &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="kw">aff.lang</span>(lang)</span></code></pre></div>
-<pre><code>##                                                  Adyghe 
-##                        &quot;Abkhaz-Adyge,Circassian,Adyghe&quot; 
-##                                                 Russian 
-## &quot;Indo-European,Balto-Slavic,Slavic,East Slavic,Russian&quot;</code></pre>
+<pre><code>##                                          Adyghe 
+##                       &quot;Abkhaz-Adyge,Circassian&quot; 
+##                                         Russian 
+## &quot;Indo-European,Balto-Slavic,Slavic,East Slavic&quot;</code></pre>
 <ul>
 <li>other functions. For example, let’s try to get a vector of ISO codes for the Circassian languages</li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">iso.lang</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Circassian&quot;</span>))</span></code></pre></div>
-<pre><code>##            Adyghe           Abadzex         Bezhedukh           Natuzaj 
-##             &quot;ady&quot;                NA                NA                NA 
-##           Shapsug           Xakuchi         Kabardian Greater Kabardian 
-##                NA                NA             &quot;kbd&quot;                NA</code></pre>
+<pre><code>##    Adyghe Kabardian 
+##     &quot;ady&quot;     &quot;kbd&quot;</code></pre>
 <p>If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.</p>
 </div>
 <div id="spell-checker-look-carefully-at-warnings" class="section level3">
