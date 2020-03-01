@@ -335,7 +335,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 ```
 
 ### 15. Add minicharts instead of points
-This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set `phonological_profiles` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). Here is an example of barplot:
+This part is created using the beutifull [`leaflet.minicharts` library](https://CRAN.R-project.org/package=leaflet.minicharts). The argument `minichart` allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set `phonological_profiles` that contains 19 languages from [UPSyD database](http://www.lapsyd.ddl.cnrs.fr/lapsyd/). Here is an example of barplot:
 
 ```{r}
 map.feature(languages = phonological_profiles$language,

@@ -541,7 +541,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="add-minicharts-instead-of-points" class="section level3">
 <h3>15. Add minicharts instead of points</h3>
-<p>This part is created using the beutifull <a href="https://CRAN.R-project.org/package=leaflet.minicharts"><code>leaflet.minicharts</code> library</a>. The argument <code>minichart</code> allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set <code>phonological_profiles</code> that contains 19 languages from <a href="http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/">UPSyD database</a>. Here is an example of barplot:</p>
+<p>This part is created using the beutifull <a href="https://CRAN.R-project.org/package=leaflet.minicharts"><code>leaflet.minicharts</code> library</a>. The argument <code>minichart</code> allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set <code>phonological_profiles</code> that contains 19 languages from <a href="http://www.lapsyd.ddl.cnrs.fr/lapsyd/">UPSyD database</a>. Here is an example of barplot:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
 <span id="cb34-2"><a href="#cb34-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)])</span></code></pre></div>
 <p>Here is an example of piechart:</p>
