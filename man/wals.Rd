@@ -4,7 +4,9 @@
 \name{wals}
 \alias{wals}
 \title{WALS's Language identifiers}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 2679 rows and 2 columns.}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 2679 rows and 2 columns.
+}
 \usage{
 wals
 }

@@ -1,4 +1,5 @@
-lingtypology 1.1.3 (.2020)
+lingtypology 1.1.3 (18.04.2020)
+- add "point.cluster"" argument into "map.feature()" function
 
 lingtypology 1.1.2 (29.02.2020)
 - correct the sails.feature() function

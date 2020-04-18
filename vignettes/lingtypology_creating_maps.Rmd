@@ -165,6 +165,17 @@ map.feature(languages = circassian$language,
             longitude = circassian$longitude)
 ```
 
+It is possible to collapse multiple dots into clusters:
+
+```{r}
+map.feature(languages = circassian$language,
+            features = circassian$dialect,
+            popup = circassian$village,
+            latitude = circassian$latitude,
+            longitude = circassian$longitude, 
+            point.cluster = TRUE)
+```
+
 ### 6. Set colors
 You can set your own colors using the argument `color`:
 ```{r}

@@ -4,7 +4,8 @@
 \name{glottolog}
 \alias{glottolog}
 \title{Catalogue of languages of the world}
-\format{A data frame with 20290 rows and 8 variables:
+\format{
+A data frame with 20290 rows and 8 variables:
 \describe{
   \item{affiliation}{genealogical affiliation}
   \item{glottocode}{languoid code from Glottolog 4.1}
@@ -14,7 +15,8 @@
   \item{longitude}{longitude}
   \item{latitude}{latitude}
   \item{area}{have six values Africa, Australia, Eurasia, North America, Papunesia, South America}
-}}
+}
+}
 \source{
 \url{http://glottolog.org/}
 }

@@ -4,7 +4,8 @@
 \name{circassian}
 \alias{circassian}
 \title{Circassian villages in Russia}
-\format{A data frame with 158 rows and 6 variables:
+\format{
+A data frame with 158 rows and 6 variables:
 \describe{
   \item{longitude}{longitude}
   \item{latitude}{latitude}
@@ -12,7 +13,8 @@
   \item{district}{names of the subjects of the Russian Federation: kbr --- Kabardino--Balkar Republic, kch --- Karachay--Cherkess Republic, kk --- Krasnodar Krai, ra --- Republic of Adygea, stv --- Stavropol Krai}
   \item{dialect}{names of the Circassian dialects}
   \item{language}{according standard Circassian devision there are Adyghe and Kabardian languages}
-}}
+}
+}
 \usage{
 circassian
 }

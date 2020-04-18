@@ -4,7 +4,9 @@
 \name{providers}
 \alias{providers}
 \title{Providers}
-\format{A list of characters}
+\format{
+A list of characters
+}
 \source{
 \url{https://github.com/leaflet-extras/leaflet-providers/blob/master/leaflet-providers.js}
 }

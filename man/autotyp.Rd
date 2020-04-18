@@ -4,7 +4,9 @@
 \name{autotyp}
 \alias{autotyp}
 \title{AUTOTYP's Language identifiers}
-\format{An object of class \code{data.frame} with 2950 rows and 2 columns.}
+\format{
+An object of class \code{data.frame} with 2950 rows and 2 columns.
+}
 \usage{
 autotyp
 }

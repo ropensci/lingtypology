@@ -4,11 +4,13 @@
 \name{abvd}
 \alias{abvd}
 \title{ABVD's Language identifiers}
-\format{A data frame with 1468 rows and 2 variables:
+\format{
+A data frame with 1468 rows and 2 variables:
 \describe{
   \item{id}{language identifier}
   \item{glottocode}{Glottocode}
-}}
+}
+}
 \usage{
 abvd
 }

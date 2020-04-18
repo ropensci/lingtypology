@@ -4,11 +4,13 @@
 \name{phoible}
 \alias{phoible}
 \title{Phoible glottolog - language correspondencies}
-\format{A data frame with 2185 rows and 2 variables:
+\format{
+A data frame with 2185 rows and 2 variables:
 \describe{
   \item{language}{language}
   \item{Glottocode}{Glottocode}
-}}
+}
+}
 \usage{
 phoible
 }

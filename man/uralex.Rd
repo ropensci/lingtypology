@@ -4,12 +4,14 @@
 \name{uralex}
 \alias{uralex}
 \title{UraLex's Language identifiers}
-\format{A data frame with 27 rows and 3 variables:
+\format{
+A data frame with 27 rows and 3 variables:
 \describe{
   \item{language}{language name from database}
   \item{Glottocode}{Glottocodes}
   \item{language2}{language from lingtypology}
-}}
+}
+}
 \usage{
 uralex
 }

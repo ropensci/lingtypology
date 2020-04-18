@@ -45,6 +45,7 @@
 #' @param shape \enumerate{ \item if TRUE, creates icons (up to five categories) for values in the \code{features} variable; \item it also could be a vector of any strings that represents the levels of the  \code{features} variable; \item it also could be a string vector that represents the number of observations in dataset.}
 #' @param shape.size size of the \code{shape} icons
 #' @param shape.color color of the \code{shape} icons
+#' @param point.cluster logical. If TRUE, points will be united into clusters.
 #' @param facet character vector that provide a grouping variable. If it is no \code{NULL}, then as a result a list of leaflets for \code{sync} or \code{latticeView} functions from \code{mapview} package is returned.
 #' @param pipe.data this variable is important, when you use map.feature with dplyr pipes. Expected usage: pipe.data = .
 #' @param map.orientation a character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".
@@ -107,6 +108,7 @@
 #' @importFrom leaflet labelOptions
 #' @importFrom leaflet layersControlOptions
 #' @importFrom leaflet icons
+#' @importFrom leaflet markerClusterOptions
 #' @importFrom stats complete.cases
 #' @importFrom stats sd
 #' @importFrom stats glm
@@ -135,6 +137,7 @@ map.feature <- function(languages,
                         pipe.data = NULL,
                         shape.color = "black",
                         stroke.features = NULL,
+                        point.cluster = FALSE,
                         density.estimation = NULL,
                         density.method = "fixed distance",
                         density.estimation.color = NULL,
@@ -489,7 +492,12 @@ map.feature <- function(languages,
                    ifelse(label.position == "left",-1,
                           0))
 
-  ### create a map ------------------------------------------------------------
+
+# add point clustering ----------------------------------------------------
+
+  point.cluster  <- if(isFALSE(point.cluster)){NULL} else {markerClusterOptions()}
+
+### create a map ------------------------------------------------------------
   if (!is.null(pipe.data)) {
     m <- pipe.data
   } else {
@@ -621,6 +629,7 @@ map.feature <- function(languages,
       lng = mapfeat.stroke$long,
       lat = mapfeat.stroke$lat,
       popup = mapfeat.stroke$link,
+      clusterOptions = point.cluster,
       stroke = FALSE,
       radius = stroke.radius * 1.15,
       fillOpacity = stroke.opacity,
@@ -630,6 +639,7 @@ map.feature <- function(languages,
         lng = mapfeat.stroke$long,
         lat = mapfeat.stroke$lat,
         popup = mapfeat.stroke$link,
+        clusterOptions = point.cluster,
         stroke = FALSE,
         radius = stroke.radius,
         fillOpacity = stroke.opacity,
@@ -640,6 +650,7 @@ map.feature <- function(languages,
         lng = mapfeat.stroke$long,
         lat = mapfeat.stroke$lat,
         popup = mapfeat.df$link,
+        clusterOptions = point.cluster,
         labelOptions = leaflet::labelOptions(
           noHide = !(label.hide),
           direction = label.position,
@@ -664,6 +675,7 @@ map.feature <- function(languages,
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
       popup = mapfeat.df$link,
+      clusterOptions = point.cluster,
       stroke = FALSE,
       radius = width * 1.1,
       fillOpacity = opacity,
@@ -674,6 +686,7 @@ map.feature <- function(languages,
         lng = mapfeat.df$long,
         lat = mapfeat.df$lat,
         popup = mapfeat.df$link,
+        clusterOptions = point.cluster,
         stroke = FALSE,
         radius = width,
         fillOpacity = opacity,
@@ -719,6 +732,7 @@ map.feature <- function(languages,
     m <- m %>% leaflet::addCircleMarkers(
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
+      clusterOptions = point.cluster,
       popup = mapfeat.df$link,
       stroke = FALSE,
       radius = width,
@@ -770,6 +784,7 @@ map.feature <- function(languages,
       lat = mapfeat.df$lat,
       label = icons,
       opacity = 0,
+      clusterOptions = point.cluster,
       fillOpacity = 0,
       labelOptions = leaflet::labelOptions(
         noHide = TRUE,
@@ -784,6 +799,7 @@ map.feature <- function(languages,
         lng = mapfeat.df$long,
         lat = mapfeat.df$lat,
         popup = mapfeat.df$link,
+        clusterOptions = point.cluster,
         stroke = FALSE,
         radius = width,
         fillOpacity = 0,
@@ -824,6 +840,7 @@ map.feature <- function(languages,
           stroke = FALSE,
           radius = width,
           fillOpacity = 0,
+          clusterOptions = point.cluster,
           color = pal(mapfeat.df$features),
           group = mapfeat.df$features,
           label = mapfeat.df$label,
@@ -845,6 +862,7 @@ map.feature <- function(languages,
         m <- m %>% leaflet::addCircleMarkers(
             lng = mapfeat.df[mapfeat.df$emph == "emph", ]$long,
             lat = mapfeat.df[mapfeat.df$emph == "emph", ]$lat,
+            clusterOptions = point.cluster,
             popup = mapfeat.df[mapfeat.df$emph == "emph", ]$link,
             label = mapfeat.df[mapfeat.df$emph == "emph", ]$label,
             stroke = FALSE,
@@ -868,6 +886,7 @@ map.feature <- function(languages,
         lng = mapfeat.image$long,
         lat = mapfeat.image$lat,
         popup = mapfeat.image$link,
+        clusterOptions = point.cluster,
         icon = leaflet::icons(
           iconUrl = as.character(mapfeat.image$image.url),
           iconWidth = image.width,

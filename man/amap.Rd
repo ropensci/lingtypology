@@ -4,7 +4,9 @@
 \name{amap}
 \alias{amap}
 \title{Atlantic center template for ggmap.feature() function}
-\format{A list with 9 variables.}
+\format{
+A list with 9 variables.
+}
 \usage{
 amap
 }

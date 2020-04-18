@@ -4,7 +4,8 @@
 \name{phonological_profiles}
 \alias{phonological_profiles}
 \title{Number of consonants and presence of ejectives}
-\format{A data frame with 19 rows and 4 variables:
+\format{
+A data frame with 19 rows and 4 variables:
 \describe{
   \item{language}{language name}
   \item{consonants}{number of consonants. Based on UPSID database.}
@@ -13,7 +14,8 @@
   \item{tone}{presence of tone.}
   \item{stress}{presence of stress.}
   \item{long_vowels}{presence of long vowels.}
-}}
+}
+}
 \usage{
 phonological_profiles
 }

@@ -21,6 +21,7 @@ map.feature(
   pipe.data = NULL,
   shape.color = "black",
   stroke.features = NULL,
+  point.cluster = FALSE,
   density.estimation = NULL,
   density.method = "fixed distance",
   density.estimation.color = NULL,
@@ -119,6 +120,8 @@ map.feature(
 \item{shape.color}{color of the \code{shape} icons}
 
 \item{stroke.features}{additional independent stroke features}
+
+\item{point.cluster}{logical. If TRUE, points will be united into clusters.}
 
 \item{density.estimation}{additional independent features, used for density estimation}
 
