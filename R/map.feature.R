@@ -495,7 +495,9 @@ map.feature <- function(languages,
 
 # add point clustering ----------------------------------------------------
 
-  point.cluster  <- if(isFALSE(point.cluster)){NULL} else {markerClusterOptions()}
+  point.cluster  <- if(isFALSE(point.cluster)){
+    NULL
+  } else {markerClusterOptions(showCoverageOnHover = FALSE)}
 
 ### create a map ------------------------------------------------------------
   if (!is.null(pipe.data)) {
