@@ -4,8 +4,8 @@ setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creatio
 
 library(tidyverse)
 library(data.tree)
-tr <- ape::read.tree("https://cdstar.shh.mpg.de/bitstreams/EAEA0-3DAE-E27B-4692-0/tree_glottolog_newick.txt")
-df <- read_csv("https://cdstar.shh.mpg.de/bitstreams/EAEA0-3DAE-E27B-4692-0/languages_and_dialects_geo.csv")
+tr <- ape::read.tree("https://cdstar.shh.mpg.de/bitstreams/EAEA0-18EC-5079-0173-0/tree_glottolog_newick.txt")
+df <- read_csv("https://cdstar.shh.mpg.de/bitstreams/EAEA0-18EC-5079-0173-0/languages_and_dialects_geo.csv")
 
 affiliation <- map_dfr(seq_along(tr), function(i){
   tibble(affiliation = ToDataFrameTable(as.Node(tr[[i]]), "pathString"))

@@ -1,9 +1,9 @@
 library(lingtypology)
 context("Tests for map.feature function")
 
-df <-  data.frame("Abkhazian", stringsAsFactors = FALSE)
-map <- map.feature("Abkhazian")
-map3 <- map.feature(data.frame("Abkhazian", stringsAsFactors = FALSE))
+df <-  data.frame("Abkhaz", stringsAsFactors = FALSE)
+map <- map.feature("Abkhaz")
+map3 <- map.feature(data.frame("Abkhaz", stringsAsFactors = FALSE))
 
 test_that("map.feature source", {
   expect_equal(exists("map"), TRUE)
@@ -27,11 +27,11 @@ test_that("map.feature no data to map", {
   )
 })
 
-map_coord <- map.feature("Abkhazian", latitude = 43, longitude = 57)
+map_coord <- map.feature("Abkhaz", latitude = 43, longitude = 57)
 
 test_that("map.feature coordinates", {
-  expect_equal(map$x$limits[[1]][1], unname(lat.lang("Abkhazian")))
-  expect_equal(map$x$limits[[2]][1], unname(long.lang("Abkhazian")))
+  expect_equal(map$x$limits[[1]][1], unname(lat.lang("Abkhaz")))
+  expect_equal(map$x$limits[[2]][1], unname(long.lang("Abkhaz")))
   expect_equal(map_coord$x$limits[[1]][1], 43)
   expect_equal(map_coord$x$limits[[2]][1], 57)
 })
