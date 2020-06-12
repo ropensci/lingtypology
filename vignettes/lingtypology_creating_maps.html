@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-03-01" />
+<meta name="date" content="2020-04-26" />
 
 <title>lingtypology: creating maps</title>
 
@@ -303,7 +303,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: creating maps</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-03-01</h4>
+<h4 class="date">2020-04-26</h4>
 
 
 
@@ -405,178 +405,185 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb17-3"><a href="#cb17-3"></a>            <span class="dt">popup =</span> circassian<span class="op">$</span>village,</span>
 <span id="cb17-4"><a href="#cb17-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
 <span id="cb17-5"><a href="#cb17-5"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude)</span></code></pre></div>
+<p>It is possible to collapse multiple dots into clusters:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb18-2"><a href="#cb18-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb18-3"><a href="#cb18-3"></a>            <span class="dt">popup =</span> circassian<span class="op">$</span>village,</span>
+<span id="cb18-4"><a href="#cb18-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb18-5"><a href="#cb18-5"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude, </span>
+<span id="cb18-6"><a href="#cb18-6"></a>            <span class="dt">point.cluster =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="set-colors" class="section level3">
 <h3>6. Set colors</h3>
 <p>You can set your own colors using the argument <code>color</code>:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">language =</span> <span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
-<span id="cb18-2"><a href="#cb18-2"></a>                 <span class="dt">features =</span> <span class="kw">c</span>(<span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;fusional&quot;</span>, <span class="st">&quot;fusional&quot;</span>, <span class="st">&quot;fusional&quot;</span>))</span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> df<span class="op">$</span>language,</span>
-<span id="cb18-4"><a href="#cb18-4"></a>            <span class="dt">features =</span> df<span class="op">$</span>features,</span>
-<span id="cb18-5"><a href="#cb18-5"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;yellowgreen&quot;</span>, <span class="st">&quot;navy&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">language =</span> <span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
+<span id="cb19-2"><a href="#cb19-2"></a>                 <span class="dt">features =</span> <span class="kw">c</span>(<span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;fusional&quot;</span>, <span class="st">&quot;fusional&quot;</span>, <span class="st">&quot;fusional&quot;</span>))</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> df<span class="op">$</span>language,</span>
+<span id="cb19-4"><a href="#cb19-4"></a>            <span class="dt">features =</span> df<span class="op">$</span>features,</span>
+<span id="cb19-5"><a href="#cb19-5"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;yellowgreen&quot;</span>, <span class="st">&quot;navy&quot;</span>))</span></code></pre></div>
 <p>Arguments from <a href="https://CRAN.R-project.org/package=RColorBrewer">RColorBrewer</a> or <a href="https://CRAN.R-project.org/package=viridis">viridis</a> also can be used as a color argument:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">map.feature</span>(phonological_profiles<span class="op">$</span>language,</span>
-<span id="cb19-2"><a href="#cb19-2"></a>            phonological_profiles<span class="op">$</span>consonants,</span>
-<span id="cb19-3"><a href="#cb19-3"></a>            <span class="dt">color=</span> <span class="st">&quot;magma&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">map.feature</span>(phonological_profiles<span class="op">$</span>language,</span>
+<span id="cb20-2"><a href="#cb20-2"></a>            phonological_profiles<span class="op">$</span>consonants,</span>
+<span id="cb20-3"><a href="#cb20-3"></a>            <span class="dt">color=</span> <span class="st">&quot;magma&quot;</span>)</span></code></pre></div>
 </div>
 <div id="set-shapes" class="section level3">
 <h3>7. Set shapes</h3>
 <p>For some scientific papers it is not possible to use colors for destinguishing features. In that cases it is posible to use <code>shape</code> argument:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb20-2"><a href="#cb20-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb20-3"><a href="#cb20-3"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb20-4"><a href="#cb20-4"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb20-5"><a href="#cb20-5"></a>            <span class="dt">shape =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p>The argument <code>shape = TRUE</code> works fine only with 6 or less levels in <code>features</code> variable. If there are more levels in <code>fetures</code> argument, user need to provide a vector with corresponding shapes:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb21-2"><a href="#cb21-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb21-2"><a href="#cb21-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
 <span id="cb21-3"><a href="#cb21-3"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
 <span id="cb21-4"><a href="#cb21-4"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb21-5"><a href="#cb21-5"></a>            <span class="dt">shape =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</span>
-<span id="cb21-6"><a href="#cb21-6"></a>            <span class="dt">shape.size =</span> <span class="dv">14</span>)</span></code></pre></div>
+<span id="cb21-5"><a href="#cb21-5"></a>            <span class="dt">shape =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>The argument <code>shape = TRUE</code> works fine only with 6 or less levels in <code>features</code> variable. If there are more levels in <code>fetures</code> argument, user need to provide a vector with corresponding shapes:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb22-2"><a href="#cb22-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb22-3"><a href="#cb22-3"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb22-4"><a href="#cb22-4"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb22-5"><a href="#cb22-5"></a>            <span class="dt">shape =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</span>
+<span id="cb22-6"><a href="#cb22-6"></a>            <span class="dt">shape.size =</span> <span class="dv">14</span>)</span></code></pre></div>
 <p>Arguments <code>shape.size</code> and <code>shape.color</code> help to change corresponding features of markers.</p>
 </div>
 <div id="set-control-box" class="section level3">
 <h3>8. Set control box</h3>
 <p>The package can generate a control box that allows users to toggle the visibility of points and features. To enable it, there is an argument <code>control</code> in the <code>map.feature</code> function:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> df<span class="op">$</span>language,</span>
-<span id="cb22-2"><a href="#cb22-2"></a>            <span class="dt">features =</span> df<span class="op">$</span>features,</span>
-<span id="cb22-3"><a href="#cb22-3"></a>            <span class="dt">control =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> df<span class="op">$</span>language,</span>
+<span id="cb23-2"><a href="#cb23-2"></a>            <span class="dt">features =</span> df<span class="op">$</span>features,</span>
+<span id="cb23-3"><a href="#cb23-3"></a>            <span class="dt">control =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="set-an-additional-set-of-features-using-strokes" class="section level3">
 <h3>9. Set an additional set of features using strokes</h3>
 <p>The <code>map.feature</code> function has an additional argument <code>stroke.features</code>. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so for two levels it will be black and white, for three — black, grey, white and so on), but you can set your own colors using the argument <code>stroke.color</code>:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb23-2"><a href="#cb23-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
-<span id="cb23-3"><a href="#cb23-3"></a>            <span class="dt">stroke.features =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb23-4"><a href="#cb23-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb23-5"><a href="#cb23-5"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
+<span id="cb24-2"><a href="#cb24-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb24-3"><a href="#cb24-3"></a>            <span class="dt">stroke.features =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb24-4"><a href="#cb24-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb24-5"><a href="#cb24-5"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude)</span></code></pre></div>
 <p>It is important to note that <code>stroke.features</code> can work with <code>NA</code> values. The function won’t plot anything if there is an <code>NA</code> value. Let’s set a language value to <code>NA</code> in all Baksan villages from the <code>circassian</code> dataset.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># create newfeature variable</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>newfeature &lt;-<span class="st"> </span>circassian[,<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>)]</span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="co"># set language feature of the Baksan villages to NA and reduce newfeature from dataframe to vector</span></span>
-<span id="cb24-4"><a href="#cb24-4"></a>newfeature &lt;-<span class="st"> </span><span class="kw">replace</span>(newfeature<span class="op">$</span>language, newfeature<span class="op">$</span>language <span class="op">==</span><span class="st"> &quot;Baksan&quot;</span>, <span class="ot">NA</span>)</span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="co"># create a map</span></span>
-<span id="cb24-6"><a href="#cb24-6"></a></span>
-<span id="cb24-7"><a href="#cb24-7"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb24-8"><a href="#cb24-8"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
-<span id="cb24-9"><a href="#cb24-9"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb24-10"><a href="#cb24-10"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb24-11"><a href="#cb24-11"></a>            <span class="dt">stroke.features =</span> newfeature)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># create newfeature variable</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>newfeature &lt;-<span class="st"> </span>circassian[,<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>)]</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="co"># set language feature of the Baksan villages to NA and reduce newfeature from dataframe to vector</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>newfeature &lt;-<span class="st"> </span><span class="kw">replace</span>(newfeature<span class="op">$</span>language, newfeature<span class="op">$</span>language <span class="op">==</span><span class="st"> &quot;Baksan&quot;</span>, <span class="ot">NA</span>)</span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="co"># create a map</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
+<span id="cb25-8"><a href="#cb25-8"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb25-9"><a href="#cb25-9"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb25-10"><a href="#cb25-10"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb25-11"><a href="#cb25-11"></a>            <span class="dt">stroke.features =</span> newfeature)</span></code></pre></div>
 </div>
 <div id="set-width-and-an-opacity-feature" class="section level3">
 <h3>10. Set width and an opacity feature</h3>
 <p>All markers have their own width and opacity, so you can set it. Just use the arguments <code>width</code>, <code>stroke.radius</code>, <code>opacity</code> and <code>stroke.opacity</code>:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb25-2"><a href="#cb25-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
-<span id="cb25-3"><a href="#cb25-3"></a>            <span class="dt">stroke.features =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb25-4"><a href="#cb25-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb25-5"><a href="#cb25-5"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb25-6"><a href="#cb25-6"></a>            <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">stroke.radius =</span> <span class="dv">13</span>)</span>
-<span id="cb25-7"><a href="#cb25-7"></a></span>
-<span id="cb25-8"><a href="#cb25-8"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb25-9"><a href="#cb25-9"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
-<span id="cb25-10"><a href="#cb25-10"></a>            <span class="dt">stroke.features =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb25-11"><a href="#cb25-11"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb25-12"><a href="#cb25-12"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb25-13"><a href="#cb25-13"></a>            <span class="dt">opacity =</span> <span class="fl">0.7</span>, <span class="dt">stroke.opacity =</span> <span class="fl">0.6</span>)</span></code></pre></div>
-</div>
-<div id="customizing-legends" class="section level3">
-<h3>11. Customizing legends</h3>
-<p>By default the legend appears in the top right corner. If there are stroke features, two legends are generated. There are additional arguments that control the appearence and the title of the legends.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
 <span id="cb26-2"><a href="#cb26-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
 <span id="cb26-3"><a href="#cb26-3"></a>            <span class="dt">stroke.features =</span> circassian<span class="op">$</span>language,</span>
 <span id="cb26-4"><a href="#cb26-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
 <span id="cb26-5"><a href="#cb26-5"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb26-6"><a href="#cb26-6"></a>            <span class="dt">legend =</span> <span class="ot">FALSE</span>, <span class="dt">stroke.legend =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb26-6"><a href="#cb26-6"></a>            <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">stroke.radius =</span> <span class="dv">13</span>)</span>
 <span id="cb26-7"><a href="#cb26-7"></a></span>
 <span id="cb26-8"><a href="#cb26-8"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
 <span id="cb26-9"><a href="#cb26-9"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
 <span id="cb26-10"><a href="#cb26-10"></a>            <span class="dt">stroke.features =</span> circassian<span class="op">$</span>language,</span>
 <span id="cb26-11"><a href="#cb26-11"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
 <span id="cb26-12"><a href="#cb26-12"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb26-13"><a href="#cb26-13"></a>            <span class="dt">title =</span> <span class="st">&quot;Circassian dialects&quot;</span>, <span class="dt">stroke.title =</span> <span class="st">&quot;Languages&quot;</span>)</span></code></pre></div>
+<span id="cb26-13"><a href="#cb26-13"></a>            <span class="dt">opacity =</span> <span class="fl">0.7</span>, <span class="dt">stroke.opacity =</span> <span class="fl">0.6</span>)</span></code></pre></div>
+</div>
+<div id="customizing-legends" class="section level3">
+<h3>11. Customizing legends</h3>
+<p>By default the legend appears in the top right corner. If there are stroke features, two legends are generated. There are additional arguments that control the appearence and the title of the legends.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
+<span id="cb27-2"><a href="#cb27-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb27-3"><a href="#cb27-3"></a>            <span class="dt">stroke.features =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb27-4"><a href="#cb27-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb27-5"><a href="#cb27-5"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb27-6"><a href="#cb27-6"></a>            <span class="dt">legend =</span> <span class="ot">FALSE</span>, <span class="dt">stroke.legend =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb27-7"><a href="#cb27-7"></a></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
+<span id="cb27-9"><a href="#cb27-9"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb27-10"><a href="#cb27-10"></a>            <span class="dt">stroke.features =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb27-11"><a href="#cb27-11"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb27-12"><a href="#cb27-12"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb27-13"><a href="#cb27-13"></a>            <span class="dt">title =</span> <span class="st">&quot;Circassian dialects&quot;</span>, <span class="dt">stroke.title =</span> <span class="st">&quot;Languages&quot;</span>)</span></code></pre></div>
 <p>The arguments <code>legend.position</code> and <code>stroke.legend.position</code> allow you to change a legend’s position using “topright”, “bottomright”, “bottomleft” or“topleft” strings.</p>
 </div>
 <div id="set-scale-bar" class="section level3">
 <h3>12. Set scale bar</h3>
 <p>A scale bar is automatically added to a map, but you can control its appearance (set <code>scale.bar</code> argument to <code>TRUE</code> or<code>FALSE</code>) and its position (use <code>scale.bar.position</code> argument values “topright”, “bottomright”, “bottomleft” or“topleft”).</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
-<span id="cb27-2"><a href="#cb27-2"></a>            <span class="dt">scale.bar=</span> <span class="ot">TRUE</span>,</span>
-<span id="cb27-3"><a href="#cb27-3"></a>            <span class="dt">scale.bar.position =</span> <span class="st">&quot;topright&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
+<span id="cb28-2"><a href="#cb28-2"></a>            <span class="dt">scale.bar=</span> <span class="ot">TRUE</span>,</span>
+<span id="cb28-3"><a href="#cb28-3"></a>            <span class="dt">scale.bar.position =</span> <span class="st">&quot;topright&quot;</span>)</span></code></pre></div>
 </div>
 <div id="set-layouts" class="section level3">
 <h3>13. Set layouts</h3>
 <p>It is possible to use different tiles on the same map using the <code>tile</code> argument. For more tiles see <a href="https://leaflet-extras.github.io/leaflet-providers/preview/index.html">here</a>.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">lang =</span> <span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
-<span id="cb28-2"><a href="#cb28-2"></a>                 <span class="dt">feature =</span> <span class="kw">c</span>(<span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;fusion&quot;</span>, <span class="st">&quot;fusion&quot;</span>, <span class="st">&quot;fusion&quot;</span>),</span>
-<span id="cb28-3"><a href="#cb28-3"></a>                 <span class="dt">popup =</span> <span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Slavic&quot;</span>, <span class="st">&quot;Slavic&quot;</span>, <span class="st">&quot;Slavic&quot;</span>))</span>
-<span id="cb28-4"><a href="#cb28-4"></a></span>
-<span id="cb28-5"><a href="#cb28-5"></a><span class="kw">map.feature</span>(df<span class="op">$</span>lang, df<span class="op">$</span>feature, df<span class="op">$</span>popup,</span>
-<span id="cb28-6"><a href="#cb28-6"></a>            <span class="dt">tile =</span> <span class="st">&quot;Stamen.TonerLite&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">lang =</span> <span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
+<span id="cb29-2"><a href="#cb29-2"></a>                 <span class="dt">feature =</span> <span class="kw">c</span>(<span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;fusion&quot;</span>, <span class="st">&quot;fusion&quot;</span>, <span class="st">&quot;fusion&quot;</span>),</span>
+<span id="cb29-3"><a href="#cb29-3"></a>                 <span class="dt">popup =</span> <span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Slavic&quot;</span>, <span class="st">&quot;Slavic&quot;</span>, <span class="st">&quot;Slavic&quot;</span>))</span>
+<span id="cb29-4"><a href="#cb29-4"></a></span>
+<span id="cb29-5"><a href="#cb29-5"></a><span class="kw">map.feature</span>(df<span class="op">$</span>lang, df<span class="op">$</span>feature, df<span class="op">$</span>popup,</span>
+<span id="cb29-6"><a href="#cb29-6"></a>            <span class="dt">tile =</span> <span class="st">&quot;Stamen.TonerLite&quot;</span>)</span></code></pre></div>
 <p>It is possible to use different map tiles on the same map. Just add a vector with tiles.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">map.feature</span>(df<span class="op">$</span>lang, df<span class="op">$</span>feature, df<span class="op">$</span>popup,</span>
-<span id="cb29-2"><a href="#cb29-2"></a>            <span class="dt">tile =</span> <span class="kw">c</span>(<span class="st">&quot;OpenStreetMap&quot;</span>, <span class="st">&quot;Stamen.TonerLite&quot;</span>))</span></code></pre></div>
-<p>It is possible to name tiles using the <code>tile.name</code> argument.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">map.feature</span>(df<span class="op">$</span>lang, df<span class="op">$</span>feature, df<span class="op">$</span>popup,</span>
-<span id="cb30-2"><a href="#cb30-2"></a>            <span class="dt">tile =</span> <span class="kw">c</span>(<span class="st">&quot;OpenStreetMap&quot;</span>, <span class="st">&quot;Stamen.TonerLite&quot;</span>),</span>
-<span id="cb30-3"><a href="#cb30-3"></a>            <span class="dt">tile.name =</span> <span class="kw">c</span>(<span class="st">&quot;colored&quot;</span>, <span class="st">&quot;b &amp; w&quot;</span>))</span></code></pre></div>
-<p>It is possible to combine the tiles’ control box with the features’ control box.</p>
+<span id="cb30-2"><a href="#cb30-2"></a>            <span class="dt">tile =</span> <span class="kw">c</span>(<span class="st">&quot;OpenStreetMap&quot;</span>, <span class="st">&quot;Stamen.TonerLite&quot;</span>))</span></code></pre></div>
+<p>It is possible to name tiles using the <code>tile.name</code> argument.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">map.feature</span>(df<span class="op">$</span>lang, df<span class="op">$</span>feature, df<span class="op">$</span>popup,</span>
 <span id="cb31-2"><a href="#cb31-2"></a>            <span class="dt">tile =</span> <span class="kw">c</span>(<span class="st">&quot;OpenStreetMap&quot;</span>, <span class="st">&quot;Stamen.TonerLite&quot;</span>),</span>
-<span id="cb31-3"><a href="#cb31-3"></a>            <span class="dt">control =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<span id="cb31-3"><a href="#cb31-3"></a>            <span class="dt">tile.name =</span> <span class="kw">c</span>(<span class="st">&quot;colored&quot;</span>, <span class="st">&quot;b &amp; w&quot;</span>))</span></code></pre></div>
+<p>It is possible to combine the tiles’ control box with the features’ control box.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">map.feature</span>(df<span class="op">$</span>lang, df<span class="op">$</span>feature, df<span class="op">$</span>popup,</span>
+<span id="cb32-2"><a href="#cb32-2"></a>            <span class="dt">tile =</span> <span class="kw">c</span>(<span class="st">&quot;OpenStreetMap&quot;</span>, <span class="st">&quot;Stamen.TonerLite&quot;</span>),</span>
+<span id="cb32-3"><a href="#cb32-3"></a>            <span class="dt">control =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="add-a-minimap-to-a-map" class="section level3">
 <h3>14. Add a minimap to a map</h3>
 <p>It is possible to add a minimap to a map.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
-<span id="cb32-2"><a href="#cb32-2"></a>            <span class="dt">minimap =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p>You can control its appearance (by setting the <code>minimap</code> argument to <code>TRUE</code> or <code>FALSE</code>), its position (by using the values “topright”, “bottomright”, “bottomleft” or“topleft” of the <code>minimap.position</code> argument) and its height and width (with the arguments <code>minimap.height</code> and <code>minimap.width</code>).</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
-<span id="cb33-2"><a href="#cb33-2"></a>            <span class="dt">minimap =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb33-3"><a href="#cb33-3"></a>            <span class="dt">minimap.position =</span> <span class="st">&quot;topright&quot;</span>,</span>
-<span id="cb33-4"><a href="#cb33-4"></a>            <span class="dt">minimap.height =</span> <span class="dv">100</span>,</span>
-<span id="cb33-5"><a href="#cb33-5"></a>            <span class="dt">minimap.width =</span> <span class="dv">100</span>)</span></code></pre></div>
+<span id="cb33-2"><a href="#cb33-2"></a>            <span class="dt">minimap =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>You can control its appearance (by setting the <code>minimap</code> argument to <code>TRUE</code> or <code>FALSE</code>), its position (by using the values “topright”, “bottomright”, “bottomleft” or“topleft” of the <code>minimap.position</code> argument) and its height and width (with the arguments <code>minimap.height</code> and <code>minimap.width</code>).</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
+<span id="cb34-2"><a href="#cb34-2"></a>            <span class="dt">minimap =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb34-3"><a href="#cb34-3"></a>            <span class="dt">minimap.position =</span> <span class="st">&quot;topright&quot;</span>,</span>
+<span id="cb34-4"><a href="#cb34-4"></a>            <span class="dt">minimap.height =</span> <span class="dv">100</span>,</span>
+<span id="cb34-5"><a href="#cb34-5"></a>            <span class="dt">minimap.width =</span> <span class="dv">100</span>)</span></code></pre></div>
 </div>
 <div id="add-minicharts-instead-of-points" class="section level3">
 <h3>15. Add minicharts instead of points</h3>
 <p>This part is created using the beutifull <a href="https://CRAN.R-project.org/package=leaflet.minicharts"><code>leaflet.minicharts</code> library</a>. The argument <code>minichart</code> allows you to add piecharts or barplots instead of standard point markers. In this part I will use a build in data set <code>phonological_profiles</code> that contains 19 languages from <a href="http://www.lapsyd.ddl.cnrs.fr/lapsyd/">UPSyD database</a>. Here is an example of barplot:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
-<span id="cb34-2"><a href="#cb34-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)])</span></code></pre></div>
-<p>Here is an example of piechart:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
-<span id="cb35-2"><a href="#cb35-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)],</span>
-<span id="cb35-3"><a href="#cb35-3"></a>            <span class="dt">minichart =</span> <span class="st">&quot;pie&quot;</span>)</span></code></pre></div>
-<p>Colors and opacity could be changed, legend moved:</p>
+<span id="cb35-2"><a href="#cb35-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)])</span></code></pre></div>
+<p>Here is an example of piechart:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
 <span id="cb36-2"><a href="#cb36-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)],</span>
-<span id="cb36-3"><a href="#cb36-3"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;yellowgreen&quot;</span>, <span class="st">&quot;navy&quot;</span>),</span>
-<span id="cb36-4"><a href="#cb36-4"></a>            <span class="dt">opacity =</span> <span class="fl">0.7</span>,</span>
-<span id="cb36-5"><a href="#cb36-5"></a>            <span class="dt">label =</span> phonological_profiles<span class="op">$</span>language,</span>
-<span id="cb36-6"><a href="#cb36-6"></a>            <span class="dt">legend.position =</span> <span class="st">&quot;topleft&quot;</span>)</span></code></pre></div>
-<p>It is possible to add values using argument <code>minichart.labels</code>:</p>
+<span id="cb36-3"><a href="#cb36-3"></a>            <span class="dt">minichart =</span> <span class="st">&quot;pie&quot;</span>)</span></code></pre></div>
+<p>Colors and opacity could be changed, legend moved:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
 <span id="cb37-2"><a href="#cb37-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)],</span>
-<span id="cb37-3"><a href="#cb37-3"></a>            <span class="dt">minichart =</span> <span class="st">&quot;pie&quot;</span>,</span>
-<span id="cb37-4"><a href="#cb37-4"></a>            <span class="dt">minichart.labels =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p>It is also possible to use pie chart in non-convenient way: just indicating with <code>TRUE</code> or <code>FALSE</code> of pressence of some feature (thanks to Diana Forker for the task!):</p>
+<span id="cb37-3"><a href="#cb37-3"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;yellowgreen&quot;</span>, <span class="st">&quot;navy&quot;</span>),</span>
+<span id="cb37-4"><a href="#cb37-4"></a>            <span class="dt">opacity =</span> <span class="fl">0.7</span>,</span>
+<span id="cb37-5"><a href="#cb37-5"></a>            <span class="dt">label =</span> phonological_profiles<span class="op">$</span>language,</span>
+<span id="cb37-6"><a href="#cb37-6"></a>            <span class="dt">legend.position =</span> <span class="st">&quot;topleft&quot;</span>)</span></code></pre></div>
+<p>It is possible to add values using argument <code>minichart.labels</code>:</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
-<span id="cb38-2"><a href="#cb38-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;tone&quot;</span>, <span class="st">&quot;long_vowels&quot;</span>, <span class="st">&quot;stress&quot;</span>, <span class="st">&quot;ejectives&quot;</span>)],</span>
-<span id="cb38-3"><a href="#cb38-3"></a>            <span class="dt">minichart =</span> <span class="st">&quot;pie&quot;</span>, </span>
-<span id="cb38-4"><a href="#cb38-4"></a>            <span class="dt">width =</span> <span class="dv">3</span>)</span></code></pre></div>
+<span id="cb38-2"><a href="#cb38-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;vowels&quot;</span>, <span class="st">&quot;consonants&quot;</span>)],</span>
+<span id="cb38-3"><a href="#cb38-3"></a>            <span class="dt">minichart =</span> <span class="st">&quot;pie&quot;</span>,</span>
+<span id="cb38-4"><a href="#cb38-4"></a>            <span class="dt">minichart.labels =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>It is also possible to use pie chart in non-convenient way: just indicating with <code>TRUE</code> or <code>FALSE</code> of pressence of some feature (thanks to Diana Forker for the task!):</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> phonological_profiles<span class="op">$</span>language,</span>
+<span id="cb39-2"><a href="#cb39-2"></a>            <span class="dt">minichart.data =</span> phonological_profiles[, <span class="kw">c</span>(<span class="st">&quot;tone&quot;</span>, <span class="st">&quot;long_vowels&quot;</span>, <span class="st">&quot;stress&quot;</span>, <span class="st">&quot;ejectives&quot;</span>)],</span>
+<span id="cb39-3"><a href="#cb39-3"></a>            <span class="dt">minichart =</span> <span class="st">&quot;pie&quot;</span>, </span>
+<span id="cb39-4"><a href="#cb39-4"></a>            <span class="dt">width =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p>Unfortunately this kind of visualisation doesn’t work, when you have some lines in your dataset that contain only <code>FALSE</code> values. This is <strong>non-convenient</strong> way of category visualisation, so visualisation experts could have a negative opinion about it. This kind of visualisation is also bad for huge number of variables.</p>
 </div>
 <div id="add-a-rectangle-to-a-map" class="section level3">
 <h3>16. Add a rectangle to a map</h3>
 <p>It is possible to highlight some part of your map with a rectangle. You need to provide a latitude and longitude of the diagonal (<code>rectangle.lat</code> and <code>rectangel.lng</code>) and color of the rectangle (<code>rectangle.color</code>):</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb39-2"><a href="#cb39-2"></a>            circassian<span class="op">$</span>language,</span>
-<span id="cb39-3"><a href="#cb39-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb39-4"><a href="#cb39-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb39-5"><a href="#cb39-5"></a>            <span class="dt">rectangle.lng =</span> <span class="kw">c</span>(<span class="fl">42.7</span>, <span class="dv">45</span>),</span>
-<span id="cb39-6"><a href="#cb39-6"></a>            <span class="dt">rectangle.lat =</span> <span class="kw">c</span>(<span class="fl">42.7</span>, <span class="fl">44.4</span>),</span>
-<span id="cb39-7"><a href="#cb39-7"></a>            <span class="dt">rectangle.color=</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
+<span id="cb40-2"><a href="#cb40-2"></a>            circassian<span class="op">$</span>language,</span>
+<span id="cb40-3"><a href="#cb40-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb40-4"><a href="#cb40-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb40-5"><a href="#cb40-5"></a>            <span class="dt">rectangle.lng =</span> <span class="kw">c</span>(<span class="fl">42.7</span>, <span class="dv">45</span>),</span>
+<span id="cb40-6"><a href="#cb40-6"></a>            <span class="dt">rectangle.lat =</span> <span class="kw">c</span>(<span class="fl">42.7</span>, <span class="fl">44.4</span>),</span>
+<span id="cb40-7"><a href="#cb40-7"></a>            <span class="dt">rectangle.color=</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
 </div>
 <div id="add-a-density-contourplot-to-a-map" class="section level3">
 <h3>17. Add a density contourplot to a map</h3>
@@ -585,48 +592,40 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <li><code>density.method = &quot;fixed distance&quot;</code>. First algorithm creates circle polygons with fixed radius around each point and then merge all polygons that are overlapped. It has only one parameter that should be estimated: radius of the circle (<code>density.width</code>).</li>
 <li><code>density.method = &quot;kernal density estimation&quot;</code>. Second algorithm uses a kernal density estimation and has two parameters that should be estimated: latitude and longitude bandwidths (<code>density.width[1]</code> and (<code>density.width[2]</code>))</li>
 </ul>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb40-2"><a href="#cb40-2"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb40-3"><a href="#cb40-3"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb40-4"><a href="#cb40-4"></a>            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb40-5"><a href="#cb40-5"></a>            <span class="dt">density.width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
-<p>Density estimation plot can be separated by <code>features</code> variable:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb41-2"><a href="#cb41-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
-<span id="cb41-3"><a href="#cb41-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb41-4"><a href="#cb41-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb41-5"><a href="#cb41-5"></a>            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb41-6"><a href="#cb41-6"></a>            <span class="dt">density.width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
-<p>It is possible to remove points and display only the kernal density estimation plot, using the <code>density.points</code> argument:</p>
+<span id="cb41-2"><a href="#cb41-2"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb41-3"><a href="#cb41-3"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb41-4"><a href="#cb41-4"></a>            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb41-5"><a href="#cb41-5"></a>            <span class="dt">density.width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
+<p>Density estimation plot can be separated by <code>features</code> variable:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb42-2"><a href="#cb42-2"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb42-3"><a href="#cb42-3"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb42-4"><a href="#cb42-4"></a>            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb42-5"><a href="#cb42-5"></a>            <span class="dt">density.width =</span> <span class="fl">0.15</span>,</span>
-<span id="cb42-6"><a href="#cb42-6"></a>            <span class="dt">density.points =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
-<p>It is possible to change kernal density estimation plot opacity using the<code>density.estimation.opacity</code> argument:</p>
+<span id="cb42-2"><a href="#cb42-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb42-3"><a href="#cb42-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb42-4"><a href="#cb42-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb42-5"><a href="#cb42-5"></a>            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb42-6"><a href="#cb42-6"></a>            <span class="dt">density.width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
+<p>It is possible to remove points and display only the kernal density estimation plot, using the <code>density.points</code> argument:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
 <span id="cb43-2"><a href="#cb43-2"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
 <span id="cb43-3"><a href="#cb43-3"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
 <span id="cb43-4"><a href="#cb43-4"></a>            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,</span>
 <span id="cb43-5"><a href="#cb43-5"></a>            <span class="dt">density.width =</span> <span class="fl">0.15</span>,</span>
-<span id="cb43-6"><a href="#cb43-6"></a>            <span class="dt">density.estimation.opacity =</span> <span class="fl">0.2</span>)</span></code></pre></div>
-<p>If you want to use kernal density estimation, you need to change method type and provide a vector of parameters that increase/decrease area:</p>
+<span id="cb43-6"><a href="#cb43-6"></a>            <span class="dt">density.points =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<p>It is possible to change kernal density estimation plot opacity using the<code>density.estimation.opacity</code> argument:</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb44-2"><a href="#cb44-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb44-3"><a href="#cb44-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb44-4"><a href="#cb44-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb44-5"><a href="#cb44-5"></a>            <span class="dt">density.estimation =</span> <span class="st">&quot;Circassian&quot;</span>,</span>
-<span id="cb44-6"><a href="#cb44-6"></a>            <span class="dt">density.method =</span> <span class="st">&quot;kernal density estimation&quot;</span>,</span>
-<span id="cb44-7"><a href="#cb44-7"></a>            <span class="dt">density.width =</span> <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.3</span>), </span>
-<span id="cb44-8"><a href="#cb44-8"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<span id="cb44-2"><a href="#cb44-2"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb44-3"><a href="#cb44-3"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb44-4"><a href="#cb44-4"></a>            <span class="dt">density.estimation =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb44-5"><a href="#cb44-5"></a>            <span class="dt">density.width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb44-6"><a href="#cb44-6"></a>            <span class="dt">density.estimation.opacity =</span> <span class="fl">0.2</span>)</span></code></pre></div>
+<p>If you want to use kernal density estimation, you need to change method type and provide a vector of parameters that increase/decrease area:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
 <span id="cb45-2"><a href="#cb45-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
 <span id="cb45-3"><a href="#cb45-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
 <span id="cb45-4"><a href="#cb45-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
 <span id="cb45-5"><a href="#cb45-5"></a>            <span class="dt">density.estimation =</span> <span class="st">&quot;Circassian&quot;</span>,</span>
 <span id="cb45-6"><a href="#cb45-6"></a>            <span class="dt">density.method =</span> <span class="st">&quot;kernal density estimation&quot;</span>,</span>
-<span id="cb45-7"><a href="#cb45-7"></a>            <span class="dt">density.width =</span> <span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.7</span>), </span>
+<span id="cb45-7"><a href="#cb45-7"></a>            <span class="dt">density.width =</span> <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.3</span>), </span>
 <span id="cb45-8"><a href="#cb45-8"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
 <span id="cb46-2"><a href="#cb46-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
@@ -634,55 +633,63 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb46-4"><a href="#cb46-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
 <span id="cb46-5"><a href="#cb46-5"></a>            <span class="dt">density.estimation =</span> <span class="st">&quot;Circassian&quot;</span>,</span>
 <span id="cb46-6"><a href="#cb46-6"></a>            <span class="dt">density.method =</span> <span class="st">&quot;kernal density estimation&quot;</span>,</span>
-<span id="cb46-7"><a href="#cb46-7"></a>            <span class="dt">density.width =</span> <span class="kw">c</span>(<span class="fl">1.3</span>, <span class="fl">0.9</span>), </span>
+<span id="cb46-7"><a href="#cb46-7"></a>            <span class="dt">density.width =</span> <span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.7</span>), </span>
 <span id="cb46-8"><a href="#cb46-8"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
+<span id="cb47-2"><a href="#cb47-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb47-3"><a href="#cb47-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb47-4"><a href="#cb47-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb47-5"><a href="#cb47-5"></a>            <span class="dt">density.estimation =</span> <span class="st">&quot;Circassian&quot;</span>,</span>
+<span id="cb47-6"><a href="#cb47-6"></a>            <span class="dt">density.method =</span> <span class="st">&quot;kernal density estimation&quot;</span>,</span>
+<span id="cb47-7"><a href="#cb47-7"></a>            <span class="dt">density.width =</span> <span class="kw">c</span>(<span class="fl">1.3</span>, <span class="fl">0.9</span>), </span>
+<span id="cb47-8"><a href="#cb47-8"></a>            <span class="dt">color=</span> <span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
 <p>It is important to note, that this type of visualization have some shortcomings. The kernel density estimation is calculated without any adjustment, so longitude and latitude values used as a values in Cartesian coordinate system. To reduce consequences of that solution it is better to use a different coordinate projection. That allows not to treat Earth as a flat object.</p>
 </div>
 <div id="add-isoglosses" class="section level3">
 <h3>18. Add isoglosses</h3>
 <p>It is possible to try to catch isoglosses, using the kernel density estimation algorithm. The <code>map.feature</code> argument <code>isogloss</code> recieves a dataframe with set of features:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb47-2"><a href="#cb47-2"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb47-3"><a href="#cb47-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb47-4"><a href="#cb47-4"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
-<span id="cb47-5"><a href="#cb47-5"></a>            <span class="dt">label =</span> circassian<span class="op">$</span>dialect,</span>
-<span id="cb47-6"><a href="#cb47-6"></a>            <span class="dt">legend =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb47-7"><a href="#cb47-7"></a>            <span class="dt">isogloss =</span> <span class="kw">as.data.frame</span>(circassian[,<span class="st">&quot;dialect&quot;</span>]),</span>
-<span id="cb47-8"><a href="#cb47-8"></a>            <span class="dt">isogloss.width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">map.feature</span>(<span class="dt">languages =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb48-2"><a href="#cb48-2"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb48-3"><a href="#cb48-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb48-4"><a href="#cb48-4"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb48-5"><a href="#cb48-5"></a>            <span class="dt">label =</span> circassian<span class="op">$</span>dialect,</span>
+<span id="cb48-6"><a href="#cb48-6"></a>            <span class="dt">legend =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb48-7"><a href="#cb48-7"></a>            <span class="dt">isogloss =</span> <span class="kw">as.data.frame</span>(circassian[,<span class="st">&quot;dialect&quot;</span>]),</span>
+<span id="cb48-8"><a href="#cb48-8"></a>            <span class="dt">isogloss.width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
 <p>It is possible to create true isoglosses by hand, see tools for it <a href="https://ropensci.github.io/lingtypology/lingtypology_dplyr.html#2_leaflet">here</a>.</p>
 </div>
 <div id="add-lines" class="section level3">
 <h3>19. Add lines</h3>
 <p>It is possible to show some lines on the map using coordinates (<code>line.lng</code> and <code>line.lat</code> arguments).</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
-<span id="cb48-2"><a href="#cb48-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
-<span id="cb48-3"><a href="#cb48-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
-<span id="cb48-4"><a href="#cb48-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb48-5"><a href="#cb48-5"></a>            <span class="dt">line.lng =</span> <span class="kw">c</span>(<span class="dv">39</span>, <span class="dv">43</span>),</span>
-<span id="cb48-6"><a href="#cb48-6"></a>            <span class="dt">line.lat =</span> <span class="kw">c</span>(<span class="fl">44.5</span>, <span class="dv">43</span>))</span></code></pre></div>
-<p>If there are more then two coordinates, multiple lines will appear. It is also possible to change the color of the line using the <code>line.color</code> argument.</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
 <span id="cb49-2"><a href="#cb49-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
 <span id="cb49-3"><a href="#cb49-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
 <span id="cb49-4"><a href="#cb49-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb49-5"><a href="#cb49-5"></a>            <span class="dt">line.lng =</span> <span class="kw">c</span>(<span class="dv">43</span>, <span class="dv">39</span>, <span class="fl">38.5</span>),</span>
-<span id="cb49-6"><a href="#cb49-6"></a>            <span class="dt">line.lat =</span> <span class="kw">c</span>(<span class="dv">43</span>, <span class="fl">44.5</span>, <span class="dv">45</span>),</span>
-<span id="cb49-7"><a href="#cb49-7"></a>            <span class="dt">line.color=</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
-<p>If there are two levels in the <code>features</code> variable, it is possible to draw a boundary line between point clusters (the logistic regression is used for calculation).</p>
+<span id="cb49-5"><a href="#cb49-5"></a>            <span class="dt">line.lng =</span> <span class="kw">c</span>(<span class="dv">39</span>, <span class="dv">43</span>),</span>
+<span id="cb49-6"><a href="#cb49-6"></a>            <span class="dt">line.lat =</span> <span class="kw">c</span>(<span class="fl">44.5</span>, <span class="dv">43</span>))</span></code></pre></div>
+<p>If there are more then two coordinates, multiple lines will appear. It is also possible to change the color of the line using the <code>line.color</code> argument.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
 <span id="cb50-2"><a href="#cb50-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
 <span id="cb50-3"><a href="#cb50-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
 <span id="cb50-4"><a href="#cb50-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
-<span id="cb50-5"><a href="#cb50-5"></a>            <span class="dt">line.type =</span> <span class="st">&quot;logit&quot;</span>)</span></code></pre></div>
+<span id="cb50-5"><a href="#cb50-5"></a>            <span class="dt">line.lng =</span> <span class="kw">c</span>(<span class="dv">43</span>, <span class="dv">39</span>, <span class="fl">38.5</span>),</span>
+<span id="cb50-6"><a href="#cb50-6"></a>            <span class="dt">line.lat =</span> <span class="kw">c</span>(<span class="dv">43</span>, <span class="fl">44.5</span>, <span class="dv">45</span>),</span>
+<span id="cb50-7"><a href="#cb50-7"></a>            <span class="dt">line.color=</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<p>If there are two levels in the <code>features</code> variable, it is possible to draw a boundary line between point clusters (the logistic regression is used for calculation).</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="kw">map.feature</span>(circassian<span class="op">$</span>language,</span>
+<span id="cb51-2"><a href="#cb51-2"></a>            <span class="dt">features =</span> circassian<span class="op">$</span>language,</span>
+<span id="cb51-3"><a href="#cb51-3"></a>            <span class="dt">longitude =</span> circassian<span class="op">$</span>longitude,</span>
+<span id="cb51-4"><a href="#cb51-4"></a>            <span class="dt">latitude =</span> circassian<span class="op">$</span>latitude,</span>
+<span id="cb51-5"><a href="#cb51-5"></a>            <span class="dt">line.type =</span> <span class="st">&quot;logit&quot;</span>)</span></code></pre></div>
 <p>It is possible to add a graticule to a map.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Adyghe&quot;</span>),</span>
-<span id="cb51-2"><a href="#cb51-2"></a>            <span class="dt">graticule =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Adyghe&quot;</span>),</span>
+<span id="cb52-2"><a href="#cb52-2"></a>            <span class="dt">graticule =</span> <span class="dv">5</span>)</span></code></pre></div>
 </div>
 <div id="ggplot" class="section level3">
 <h3>20. <code>ggplot</code></h3>
 <p>Some journals and book publishers are not happy with the resolution of <code>lingtypology</code> maps. In order to obtain maps with high resolution in <code>lingtypology</code> I need to implement multiple things, and I only started this work. For now only this type of maps are available:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="kw">ggmap.feature</span>(phonological_profiles<span class="op">$</span>language, phonological_profiles<span class="op">$</span>ejectives)</span>
-<span id="cb52-2"><a href="#cb52-2"></a><span class="kw">ggmap.feature</span>(phonological_profiles<span class="op">$</span>language, phonological_profiles<span class="op">$</span>consonants)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="kw">ggmap.feature</span>(phonological_profiles<span class="op">$</span>language, phonological_profiles<span class="op">$</span>ejectives)</span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="kw">ggmap.feature</span>(phonological_profiles<span class="op">$</span>language, phonological_profiles<span class="op">$</span>consonants)</span></code></pre></div>
 <p>There will be more functionality in the future.</p>
 </div>
 

@@ -99,6 +99,14 @@ knitr::opts_chunk$set(eval = FALSE)
 #              longitude = circassian$longitude)
 
 ## -----------------------------------------------------------------------------
+#  map.feature(languages = circassian$language,
+#              features = circassian$dialect,
+#              popup = circassian$village,
+#              latitude = circassian$latitude,
+#              longitude = circassian$longitude,
+#              point.cluster = TRUE)
+
+## -----------------------------------------------------------------------------
 #  df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #                   features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
 #  map.feature(languages = df$language,

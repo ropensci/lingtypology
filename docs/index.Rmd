@@ -1,6 +1,6 @@
 ---
 title: "`lingtypology`: introduction and installation"
-author: "[George Moroz](mailto:agricolamz@gmail.com)"
+author: "[George Moroz](mailto:agricolamz@gmail.com), [NRU HSE Linguistic Convergence Laboratory](https://ilcl.hse.ru/en/)"
 ---
 
 ### What is `lingtypology`?
