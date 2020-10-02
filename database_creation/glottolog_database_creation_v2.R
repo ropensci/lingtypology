@@ -4,8 +4,8 @@ setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creatio
 
 library(tidyverse)
 library(data.tree)
-tr <- ape::read.tree("https://cdstar.shh.mpg.de/bitstreams/EAEA0-18EC-5079-0173-0/tree_glottolog_newick.txt")
-df <- read_csv("https://cdstar.shh.mpg.de/bitstreams/EAEA0-18EC-5079-0173-0/languages_and_dialects_geo.csv")
+tr <- ape::read.tree("https://cdstar.shh.mpg.de/bitstreams/EAEA0-D501-DBB8-65C4-0/tree_glottolog_newick.txt")
+df <- read_csv("https://cdstar.shh.mpg.de/bitstreams/EAEA0-D501-DBB8-65C4-0/languages_and_dialects_geo.csv")
 
 affiliation <- map_dfr(seq_along(tr), function(i){
   tibble(affiliation = ToDataFrameTable(as.Node(tr[[i]]), "pathString"))
@@ -125,5 +125,7 @@ glottolog %>%
   filter(!is.na(glottocode))->
   glottolog
 
+write_csv(glottolog, "glottolog.csv")
+glottolog <- read_csv("glottolog.csv")
 setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/data/")
 save(glottolog, file="glottolog.RData", compress='xz')
