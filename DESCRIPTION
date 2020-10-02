@@ -19,7 +19,7 @@ License: GPL (>= 2)
 URL: https://CRAN.R-project.org/package=lingtypology, https://github.com/ropensci/lingtypology/, https://ropensci.github.io/lingtypology/
 BugReports: https://github.com/ropensci/lingtypology/issues
 LazyData: TRUE
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Encoding: UTF-8
 Suggests:
     knitr,
