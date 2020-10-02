@@ -47,7 +47,7 @@ map.feature(
   image.Y.shift = 0,
   title = NULL,
   stroke.title = NULL,
-  control = FALSE,
+  control = "",
   legend = TRUE,
   legend.opacity = 1,
   legend.position = "topright",
@@ -173,7 +173,7 @@ map.feature(
 
 \item{stroke.title}{title of a stroke-feature legend.}
 
-\item{control}{logical. If TRUE, function show layer control buttons. By default is FALSE}
+\item{control}{vector of grouping values that make it possible to create control panel that can turn off/on some points on the map.}
 
 \item{legend}{logical. If TRUE, function show legend. By default is TRUE.}
 

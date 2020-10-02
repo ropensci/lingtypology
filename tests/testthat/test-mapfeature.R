@@ -200,7 +200,8 @@ test_that("map.feature tiles", {
   )
 })
 
-map_control <- map.feature(c("Adyghe", "Russian"), control = TRUE)
+map_control <- map.feature(c("Adyghe", "Russian", "Polish"),
+                           control = c("a", "b", "b"))
 
 test_that("control", {
   expect_equal(map_control$x$calls[[5]]$method, "addLayersControl")

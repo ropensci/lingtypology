@@ -219,13 +219,15 @@ map.feature(languages = circassian$language,
 Arguments `shape.size` and `shape.color` help to change corresponding features of markers.
 
 ### 8. Set control box
-The package can generate a control box that allows users to toggle the visibility of points and features. To enable it, there is an argument `control` in the `map.feature` function:
+The package can generate a control box that allows users to toggle the visibility of some points. To enable it, there is an argument `control` in the `map.feature` function:
 
 ```{r}
 map.feature(languages = df$language,
             features = df$features,
-            control = TRUE)
+            control = c("a", "b", "b", "b", "a"))
 ```
+
+As you can see the `control` and `features` arguments are independent of each other.
 
 ### 9. Set an additional set of features using strokes
 The `map.feature` function has an additional argument `stroke.features`. Using this argument it becomes possible to show two independent sets of features on one map. By default strokes are colored in grey (so for two levels it will be black and white, for three --- black, grey, white and so on), but you can set your own colors using the argument `stroke.color`:

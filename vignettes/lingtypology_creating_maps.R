@@ -136,7 +136,7 @@ knitr::opts_chunk$set(eval = FALSE)
 ## -----------------------------------------------------------------------------
 #  map.feature(languages = df$language,
 #              features = df$features,
-#              control = TRUE)
+#              control = c("a", "b", "b", "b", "a"))
 
 ## -----------------------------------------------------------------------------
 #  map.feature(circassian$language,
