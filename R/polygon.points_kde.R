@@ -1,6 +1,6 @@
 #' Get kernel density estimation poligon from coordinates
 #'
-#' This function is based on this answer: https://gis.stackexchange.com/a/203623
+#' This function is based on this answer: https://gis.stackexchange.com/a/203623/
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
 #' @param latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).

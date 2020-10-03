@@ -33,7 +33,7 @@ url.lang <- function(x,
   )
   df$link[is.na(df$glottocode) & !is.na(df$glottocode)] <- paste0(
     "<a href='",
-    "http://glottolog.org/resource/languoid/id/",
+    "https://glottolog.org/resource/languoid/id/",
     df$glottocode[is.na(df$glottocode) & !is.na(df$glottocode)],
     "' target='_blank'>",
     as.character(df$language[is.na(df$glottocode) &

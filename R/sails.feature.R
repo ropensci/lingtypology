@@ -1,6 +1,6 @@
 #' Download SAILS data
 #'
-#' This function downloads data from SAILS (http://sails.clld.org/) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from SAILS (\url{https://sails.clld.org/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param features A character vector that define with a feature ids from SAILS (e. g. "and1", "argex4-1-3").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
@@ -625,10 +625,10 @@ sails.feature <-
       )
     message("Don't forget to cite a source (modify in case of using individual chapters):
 
-Muysken, Pieter, Harald Hammarstr\u00D6m, Olga Krasnoukhova, Neele M\u00DCller, Joshua Birchall, Simon van de Kerke, Loretta O'Connor, Swintha Danielsen, Rik van Gijn & George Saad. 2016. South American Indigenous Language Structures (SAILS) Online. Leipzig: Online Publication of the Max Planck Institute for Evolutionary Anthropology. (Available at http://sails.clld.org)")
+Muysken, Pieter, Harald Hammarstr\u00D6m, Olga Krasnoukhova, Neele M\u00DCller, Joshua Birchall, Simon van de Kerke, Loretta O'Connor, Swintha Danielsen, Rik van Gijn & George Saad. 2016. South American Indigenous Language Structures (SAILS) Online. Leipzig: Online Publication of the Max Planck Institute for Evolutionary Anthropology. (Available at https://sails.clld.org/)")
     if (sum(!toupper(features) %in% features_set) < 1) {
       links <-
-        paste0("http://sails.clld.org/parameters/",
+        paste0("https://sails.clld.org/parameters/",
                toupper(features),
                ".tab")
     } else {

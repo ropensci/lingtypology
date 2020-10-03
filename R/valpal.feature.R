@@ -1,6 +1,6 @@
 #' Download ValPaL data
 #'
-#' This function downloads data from ValPal (http://www.valpal.info/) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from ValPal (\url{https://www.valpal.info/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is FALSE.
 #' @author George Moroz <agricolamz@gmail.com>
@@ -18,20 +18,20 @@ valpal.feature <- function(na.rm = FALSE){
   message("Don't forget to cite a source:
 
 Hartmann, Iren & Haspelmath, Martin & Taylor, Bradley (eds.) 2013.
-Valency Patterns Leipzig. Leipzig: Max Planck Institute for Evolutionary Anthropology.(Available online at http://valpal.info, Accessed on ...)
+Valency Patterns Leipzig. Leipzig: Max Planck Institute for Evolutionary Anthropology.(Available online at https://valpal.info/, Accessed on ...)
 
 A BibTeX entry for LaTeX users is
 @book{valpal,
   publisher = {Max Planck Institute for Evolutionary Anthropology},
   title = {Valency Patterns Leipzig},
-  url = {http://valpal.info/},
+  url = {https://valpal.info/},
   address = {Leipzig},
   editor = {Hartmann, Iren & Haspelmath, Martin & Taylor, Bradley (eds.)},
   year = {2013}
 }")
   temp1 <- tempfile()
   temp2 <- tempfile()
-  utils::download.file("http://www.valpal.info/public/all_lgs_valency_data.zip", destfile = temp1)
+  utils::download.file("https://www.valpal.info/public/all_lgs_valency_data.zip", destfile = temp1)
   utils::unzip(temp1, exdir = temp2)
   files <- paste0(temp2, "/",
                   grep("verb-coding_frame-microroles.txt", list.files(path = temp2), value = TRUE))

@@ -19,8 +19,7 @@ autotyp.feature <-
     message(paste0("Don't forget to cite a source:
 
 Bickel, Balthasar, Johanna Nichols, Taras Zakharko, Alena Witzlack-Makarevich, Kristine Hildebrandt, Michael Rie\u00DFler, Lennart Bierkandt, Fernando Z\u00FA\u00F1iga & John B. Lowe. 2017. The AUTOTYP typological databases. Version ",
-                   readLines("https://raw.githubusercontent.com/autotyp/autotyp-data/master/VERSION"),
-                   " https://github.com/autotyp/autotyp-data/tree/0.1.0"))
+                   readLines("https://raw.githubusercontent.com/autotyp/autotyp-data/master/VERSION")))
     features <- gsub(" ", "_", features)
     features_set <-
       c(

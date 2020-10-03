@@ -16,5 +16,5 @@ polygon.points_kde(latitude, longitude, latitude.width, longitude.width)
 \item{longitude.width}{bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).}
 }
 \description{
-This function is based on this answer: https://gis.stackexchange.com/a/203623
+This function is based on this answer: https://gis.stackexchange.com/a/203623/
 }

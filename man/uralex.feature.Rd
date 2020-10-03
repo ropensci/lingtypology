@@ -10,7 +10,7 @@ uralex.feature(na.rm = TRUE)
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }
 \description{
-This function downloads data from UraLex (https://github.com/lexibank/uralex) and changes language names to the names from lingtypology database. You need the internet connection.
+This function downloads data from UraLex (https://github.com/lexibank/uralex/) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # uralex.feature()

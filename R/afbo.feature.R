@@ -1,6 +1,6 @@
 #' Download AfBo data
 #'
-#' This function downloads data from AfBo (http://afbo.info) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from AfBo (\url{https://afbo.info/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param features A character vector that define with an affix functions from AfBo (e. g. "all", "adjectivizer", "focus").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
@@ -19,7 +19,7 @@
 afbo.feature <- function(features = "all", na.rm = TRUE){
   message("Don't forget to cite a source:
 
-Seifart, Frank. 2013. AfBo: A world-wide survey of affix borrowing. Leipzig: Max Planck Institute for Evolutionary Anthropology. (Available online at http://afbo.info, Accessed on ...)
+Seifart, Frank. 2013. AfBo: A world-wide survey of affix borrowing. Leipzig: Max Planck Institute for Evolutionary Anthropology. (Available online at https://afbo.info/, Accessed on ...)
 
 A BibTeX entry for LaTeX users is
 @book{afbo,
@@ -27,7 +27,7 @@ A BibTeX entry for LaTeX users is
   editor    = {Frank Seifart},
   publisher = {Max Planck Institute for Evolutionary Anthropology},
   title     = {AfBo: A world-wide survey of affix borrowing},
-  url       = {http://afbo.info/},
+  url       = {https://afbo.info/},
   year      = {2013}
 }")
   features <- gsub(c(" |:|/|\\(|\\)"), ".", tolower(features))

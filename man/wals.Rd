@@ -11,7 +11,7 @@ An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) w
 wals
 }
 \description{
-Language identifiers from WALS (\url{http://wals.info/}). This dataset is created for \code{\link{wals.feature}} function.
+Language identifiers from WALS (\url{https://wals.info/}). This dataset is created for \code{\link{wals.feature}} function.
 }
 \details{
 #' @format A data frame with 2950 rows and 2 variables:

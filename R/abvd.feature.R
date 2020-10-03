@@ -1,6 +1,6 @@
 #' Download ABVD data
 #'
-#' This function downloads data from ABVD (https://abvd.shh.mpg.de/austronesian/) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from ABVD (\url{https://abvd.shh.mpg.de/austronesian/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param feature A character vector that define a language id from ABVD (e. g. "1", "292").
 #' @author George Moroz <agricolamz@gmail.com>

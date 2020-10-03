@@ -12,7 +12,7 @@ wals.feature(features, na.rm = TRUE)
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }
 \description{
-This function downloads data from WALS (http://wals.info) and changes language names to the names from lingtypology database. You need the internet connection.
+This function downloads data from WALS (\url{https://wals.info/}) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # wals.feature(c("1a", "20a"))

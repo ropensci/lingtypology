@@ -1,6 +1,6 @@
 #' Download PHOIBLE data
 #'
-#' This function downloads data from PHOIBLE (http://phoible.org/) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from PHOIBLE (\url{https://phoible.org/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param source A character vector that define with a source names from PHOIBLE (possible values: "all", "AA", "GM", "PH", "RA", "SAPHON", "SPA", "UPSID").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
@@ -19,7 +19,7 @@ phoible.feature <-
            na.rm = TRUE) {
     message("Don't forget to cite a source:
 
-Moran, Steven & McCloy, Daniel & Wright, Richard (eds.) 2014. PHOIBLE Online. Leipzig: Max Planck Institute for Evolutionary Anthropology. (Available online at http://phoible.org, Accessed on ...)
+Moran, Steven & McCloy, Daniel & Wright, Richard (eds.) 2014. PHOIBLE Online. Leipzig: Max Planck Institute for Evolutionary Anthropology. (Available online at https://phoible.org/, Accessed on ...)
 
 A BibTeX entry for LaTeX users is
 @book{phoible,
@@ -27,7 +27,7 @@ A BibTeX entry for LaTeX users is
   editor    = {Steven Moran and Daniel McCloy and Richard Wright},
  publisher = {Max Planck Institute for Evolutionary Anthropology},
  title     = {PHOIBLE Online},
- url       = {http://phoible.org/},
+ url       = {https://phoible.org/},
  year      = {2014}
 }")
       final_df <-

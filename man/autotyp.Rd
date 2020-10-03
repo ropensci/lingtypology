@@ -11,7 +11,7 @@ An object of class \code{data.frame} with 2950 rows and 2 columns.
 autotyp
 }
 \description{
-Language identifiers from AUTOTYP v. 0.1.0 (\url{https://github.com/autotyp/autotyp-data}). This dataset is created for \code{\link{autotyp.feature}} function.
+Language identifiers from AUTOTYP v. 0.1.1 (\url{https://github.com/autotyp/autotyp-data/}). This dataset is created for \code{\link{autotyp.feature}} function.
 }
 \details{
 #' @format A data frame with 2950 rows and 2 variables:

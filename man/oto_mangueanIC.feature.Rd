@@ -7,7 +7,7 @@
 oto_mangueanIC.feature()
 }
 \description{
-This function downloads data from Oto-Manguean Inflectional Class Database (http://www.oto-manguean.surrey.ac.uk/) and creates a language column with the names from lingtypology database. You need the internet connection.
+This function downloads data from Oto-Manguean Inflectional Class Database (\url{https://www.oto-manguean.surrey.ac.uk/}) and creates a language column with the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # oto_mangueanIC.feature()

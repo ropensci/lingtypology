@@ -68,7 +68,7 @@ atlas.database <- function(languages,
   footer.html <- paste0(
     "<br><br><p><center> &copy; ",
     author,
-    ", created with <a href='https://github.com/ropensci/lingtypology'>lingtypology</a> </center> </p>"
+    ", created with <a href='https://github.com/ropensci/lingtypology/'>lingtypology</a> </center> </p>"
   )
   writeLines(footer.html, paste0("./", subfolder, "/footer.html"))
 

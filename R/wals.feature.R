@@ -1,6 +1,6 @@
 #' Download WALS data
 #'
-#' This function downloads data from WALS (http://wals.info) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from WALS (\url{https://wals.info/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param features A character vector that define with a feature ids from WALS (e. g. "1a", "21b").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
@@ -214,7 +214,7 @@ wals.feature <-
     message(paste0("Don't forget to cite a source (modify in case of using individual chapters):
 
 Dryer, Matthew S. & Haspelmath, Martin (eds.) 2013. The World Atlas of Language Structures Online. Leipzig: Max Planck Institute for Evolutionary Anthropology.
-(Available online at http://wals.info, Accessed on ",
+(Available online at https://wals.info/, Accessed on ",
             Sys.Date(),
             ".)
 
@@ -223,12 +223,12 @@ Dryer, Matthew S. & Haspelmath, Martin (eds.) 2013. The World Atlas of Language 
   editor    = {Matthew S. Dryer and Martin Haspelmath},
   publisher = {Max Planck Institute for Evolutionary Anthropology},
   title     = {WALS Online},
-  url       = {http://wals.info/},
+  url       = {https://wals.info/},
   year      = {2013}
 }"))
     if (sum(!toupper(features) %in% features_set) < 1){
       links <-
-        paste0("http://wals.info/feature/", toupper(features), ".tab")
+        paste0("https://wals.info/feature/", toupper(features), ".tab")
       datalist  <-  lapply(links, function(x) {
         utils::read.csv(x,
                         sep = "\t",

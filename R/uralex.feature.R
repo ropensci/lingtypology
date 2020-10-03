@@ -1,6 +1,6 @@
 #' Download UraLex data
 #'
-#' This function downloads data from UraLex (https://github.com/lexibank/uralex) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from UraLex (https://github.com/lexibank/uralex/) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
 #' @author George Moroz <agricolamz@gmail.com>

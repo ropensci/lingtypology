@@ -12,7 +12,7 @@ sails.feature(features, na.rm = TRUE)
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }
 \description{
-This function downloads data from SAILS (http://sails.clld.org/) and changes language names to the names from lingtypology database. You need the internet connection.
+This function downloads data from SAILS (\url{https://sails.clld.org/}) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # sails.feature(c("and1", "and11"))
