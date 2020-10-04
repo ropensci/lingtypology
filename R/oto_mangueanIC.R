@@ -1,6 +1,6 @@
 #' Oto-Manguean Inflectional Class Database Language identifiers
 #'
-#' Language identifiers from Oto-Manguean Inflectional Class Database (\url{https://www.oto-manguean.surrey.ac.uk/}). This dataset is created for \code{\link{oto_mangueanIC.feature}} function.
+#' Language identifiers from Oto-Manguean Inflectional Class Database (\url{https://oto-manguean.surrey.ac.uk/}). This dataset is created for \code{\link{oto_mangueanIC.feature}} function.
 #'
 #' #' @format A data frame with 20 rows and 2 variables:
 #' \describe{

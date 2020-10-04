@@ -18,7 +18,7 @@ oto_mangueanIC.feature <- function(){
 
 Feist, Timothy & Enrique L. Palancar. 2015. Oto-Manguean Inflectional Class Database. University of Surrey. https://dx.doi.org/10.15126/SMG.28/1/")
   temp1 <- tempfile()
-  utils::download.file("https://www.oto-manguean.surrey.ac.uk/Database/Export/", destfile = temp1)
+  utils::download.file("https://oto-manguean.surrey.ac.uk/Database/Export/", destfile = temp1)
   final_df <- utils::read.csv(temp1, stringsAsFactors = FALSE)
   final_df <- merge(final_df, lingtypology::oto_mangueanIC)
   return(final_df)

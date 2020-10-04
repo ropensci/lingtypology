@@ -11,7 +11,7 @@ An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) w
 oto_mangueanIC
 }
 \description{
-Language identifiers from Oto-Manguean Inflectional Class Database (\url{https://www.oto-manguean.surrey.ac.uk/}). This dataset is created for \code{\link{oto_mangueanIC.feature}} function.
+Language identifiers from Oto-Manguean Inflectional Class Database (\url{https://oto-manguean.surrey.ac.uk/}). This dataset is created for \code{\link{oto_mangueanIC.feature}} function.
 }
 \details{
 #' @format A data frame with 20 rows and 2 variables:

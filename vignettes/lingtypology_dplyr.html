@@ -452,7 +452,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="create-.kml-file-using-sp-and-rgdal" class="section level3">
 <h3>6. Create .kml file using <code>sp</code> and <code>rgdal</code></h3>
-<p>.kml file is a common file type for geospatial data. This kind of files are used in <a href="https://en.wikipedia.org/wiki/Google_Earth">Google Earth</a>, <a href="https://www.gabmap.nl/">Gabmap</a> (a web application that visualizes dialect variations) and others. In order to produce a .kml file you need to have a dataset with coordinates such as <code>circassian</code>:</p>
+<p>.kml file is a common file type for geospatial data. This kind of files are used in <a href="https://en.wikipedia.org/wiki/Google_Earth">Google Earth</a>, <a href="https://gabmap.nl/">Gabmap</a> (a web application that visualizes dialect variations) and others. In order to produce a .kml file you need to have a dataset with coordinates such as <code>circassian</code>:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>sp<span class="op">::</span><span class="kw">coordinates</span>(circassian) &lt;-<span class="st"> </span><span class="er">~</span>longitude<span class="op">+</span>latitude</span>
 <span id="cb21-2"><a href="#cb21-2"></a>sp<span class="op">::</span><span class="kw">proj4string</span>(circassian) &lt;-<span class="st"> </span>sp<span class="op">::</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)</span>
 <span id="cb21-3"><a href="#cb21-3"></a>rgdal<span class="op">::</span><span class="kw">writeOGR</span>(circassian[<span class="st">&quot;village&quot;</span>],</span>
