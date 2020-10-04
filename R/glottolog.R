@@ -14,7 +14,7 @@
 #'   \item{affiliation}{genealogical affiliation}
 #'   \item{glottocode}{languoid code from Glottolog 4.1}
 #'   \item{language}{name of the language}
-#'   \item{iso}{code based on ISO 639--3 \url{https://www-01.sil.org/iso639-3/}}
+#'   \item{iso}{code based on ISO 639--3 \url{https://iso639-3.sil.org/}}
 #'   \item{level}{languoid type: dialect or language}
 #'   \item{longitude}{longitude}
 #'   \item{latitude}{latitude}

@@ -12,10 +12,26 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-03-01" />
+<meta name="date" content="2020-10-04" />
 
 <title>lingtypology: Typological databases API</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -303,17 +319,17 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: Typological databases API</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-03-01</h4>
+<h4 class="date">2020-10-04</h4>
 
 
 
 <p><code>lingtypology</code> provides an ability to download data from these typological databases</p>
 <ul>
-<li><a href="http://wals.info/">World Atlas of Language Structures</a></li>
+<li><a href="https://wals.info/">World Atlas of Language Structures</a></li>
 <li><a href="https://github.com/autotyp/autotyp-data#the-autotyp-database">AUTOTYP</a></li>
-<li><a href="http://phoible.org/">PHOIBLE</a></li>
-<li><a href="http://afbo.info">Affix Borrowing database</a></li>
-<li><a href="http://sails.clld.org/">South American Indigenous Language Structures</a></li>
+<li><a href="https://phoible.org/">PHOIBLE</a></li>
+<li><a href="https://afbo.info">Affix Borrowing database</a></li>
+<li><a href="https://sails.clld.org/">South American Indigenous Language Structures</a></li>
 <li><a href="https://abvd.shh.mpg.de/austronesian/">Austronesian Basic Vocabulary Database</a></li>
 </ul>
 <p>All database function names have identical structure: <strong>database_name.feature</strong>. All functions have as first argument <code>feature</code>. All functions create dataframe with column <code>language</code> that can be used in <code>map.feature()</code> function. It should be noted that all functions cut out the data that can’t be maped, so if you want to prevent functions from this behaviour set argument <code>na.rm</code> to <code>FALSE</code>.</p>
@@ -357,7 +373,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="sails" class="section level3">
 <h3>5. SAILS</h3>
-<p>The SAILS database provide a lot of <a href="http://sails.clld.org/parameters">features</a>, so the function work with their ids:</p>
+<p>The SAILS database provide a lot of <a href="https://sails.clld.org/parameters">features</a>, so the function work with their ids:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>df &lt;-<span class="st"> </span><span class="kw">sails.feature</span>(<span class="dt">features =</span> <span class="st">&quot;ics10&quot;</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="kw">head</span>(df)</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="kw">map.feature</span>(df<span class="op">$</span>language,</span>

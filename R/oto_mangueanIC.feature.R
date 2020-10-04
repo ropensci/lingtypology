@@ -1,6 +1,6 @@
 #' Download Oto-Manguean Inflectional Class Database data
 #'
-#' This function downloads data from Oto-Manguean Inflectional Class Database (\url{https://www.oto-manguean.surrey.ac.uk/}) and creates a language column with the names from lingtypology database. You need the internet connection.
+#' This function downloads data from Oto-Manguean Inflectional Class Database (\url{https://oto-manguean.surrey.ac.uk/}) and creates a language column with the names from lingtypology database. You need the internet connection.
 #'
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}

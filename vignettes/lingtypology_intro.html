@@ -12,10 +12,26 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-03-01" />
+<meta name="date" content="2020-10-04" />
 
 <title>lingtypology: introduction and installation</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -303,13 +319,13 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: introduction and installation</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-03-01</h4>
+<h4 class="date">2020-10-04</h4>
 
 
 
 <div id="what-is-lingtypology" class="section level3">
 <h3>What is <code>lingtypology</code>?</h3>
-<p>The <code>lingtypology</code> package connects R with the <a href="http://glottolog.org/">Glottolog database (v. 2.7)</a> and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world’s languages. This package helps researchers to make linguistic maps, using the philosophy of <a href="http://clld.org/">the Cross-Linguistic Linked Data project</a>, which is creating a uniform access to linguistic data across publications. This package is based on the <a href="https://rstudio.github.io/leaflet/">leaflet package</a>, so <code>lingtypology</code> is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya Klyagina for reading and correcting some versions of this vignette.</p>
+<p>The <code>lingtypology</code> package connects R with the <a href="https://glottolog.org/">Glottolog database (v. 2.7)</a> and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world’s languages. This package helps researchers to make linguistic maps, using the philosophy of <a href="https://clld.org/">the Cross-Linguistic Linked Data project</a>, which is creating a uniform access to linguistic data across publications. This package is based on the <a href="https://rstudio.github.io/leaflet/">leaflet package</a>, so <code>lingtypology</code> is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya Klyagina for reading and correcting some versions of this vignette.</p>
 </div>
 <div id="installation" class="section level3">
 <h3>1. Installation</h3>

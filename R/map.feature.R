@@ -117,9 +117,9 @@
 #' @importFrom grDevices gray
 #' @importFrom grDevices topo.colors
 #' @importFrom leaflet %>%
+#' @export %>%
 #' @importFrom leaflet.minicharts addMinicharts
 #' @importFrom leaflet.minicharts popupArgs
-#' @export %>%
 
 map.feature <- function(languages,
                         features = "",

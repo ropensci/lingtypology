@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-10-03" />
+<meta name="date" content="2020-10-04" />
 
 <title>lingtypology: creating maps</title>
 
@@ -319,13 +319,13 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: creating maps</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-10-03</h4>
+<h4 class="date">2020-10-04</h4>
 
 
 
 <div id="base-map" class="section level3">
 <h3>1. Base map</h3>
-<p>The most important part of the <code>lingtypology</code> package is the function <code>map.feature</code>. This function allows you to produce maps similar to known projects within <a href="http://clld.org/">the Cross-Linguistic Linked Data philosophy</a>, such as <a href="http://wals.info/">WALS</a> and <a href="http://glottolog.org/">Glottolog</a>:</p>
+<p>The most important part of the <code>lingtypology</code> package is the function <code>map.feature</code>. This function allows you to produce maps similar to known projects within <a href="https://clld.org/">the Cross-Linguistic Linked Data philosophy</a>, such as <a href="https://wals.info/">WALS</a> and <a href="https://glottolog.org/">Glottolog</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">map.feature</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>))</span></code></pre></div>
 <p>As shown in the picture above, this function generates an interactive Leaflet map. All specific points on the map have a pop-up box that appears when markers are clicked (see section 3.3 for more information about editing pop-up boxes). By default, they contain language names linked to the glottolog site.</p>
 <p>If for some reasons you are not using RStudio or you want to automatically create and save a lot of maps, you can save a map to a variable and use the <code>htmlwidgets</code> package for saving created maps to an .html file. I would like to thank Timo Roettger for mentioning this problem.</p>
@@ -333,7 +333,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co"># install.packages(&quot;htmlwidgets&quot;)</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(htmlwidgets)</span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="kw">saveWidget</span>(m, <span class="dt">file=</span><span class="st">&quot;TYPE_FILE_PATH/m.html&quot;</span>)</span></code></pre></div>
-<p>There is an export button in RStudio, but for some reason it is not so easy to save a map as a .png or.jpg file using code. <a href="http://stackoverflow.com/a/34672309/6056442">Here</a> is a possible solution.</p>
+<p>There is an export button in RStudio, but for some reason it is not so easy to save a map as a .png or.jpg file using code. <a href="https://stackoverflow.com/a/34672309/6056442/">Here</a> is a possible solution.</p>
 </div>
 <div id="set-features" class="section level3">
 <h3>2. Set features</h3>

@@ -12,10 +12,26 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-03-01" />
+<meta name="date" content="2020-10-04" />
 
 <title>lingtypology: Glottolog functions</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -303,11 +319,11 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore"><code>lingtypology</code>: Glottolog functions</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-03-01</h4>
+<h4 class="date">2020-10-04</h4>
 
 
 
-<p>This package is based on the <a href="http://glottolog.org/">Glottolog database (v. 4.1)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
+<p>This package is based on the <a href="https://glottolog.org/">Glottolog database (v. 4.1)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
 <div id="command-names-syntax" class="section level3">
 <h3>1. Command name’s syntax</h3>
 <p>Most of the functions in <code>lingtypology</code> have the same syntax: <strong>what you need.what you have</strong>. Most of them are based on <em>language name</em>.</p>
@@ -334,7 +350,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <ul>
 <li><strong>map.feature()</strong></li>
 </ul>
-<p><a href="http://glottolog.org/">Glottolog database (v. 4.1)</a> provides <code>lingtypology</code> with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn’t have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in <code>lingtypology</code>:</p>
+<p><a href="https://glottolog.org/">Glottolog database (v. 4.1)</a> provides <code>lingtypology</code> with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn’t have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in <code>lingtypology</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">names</span>(glottolog)</span></code></pre></div>
 <pre><code>## [1] &quot;affiliation&quot; &quot;glottocode&quot;  &quot;language&quot;    &quot;iso&quot;         &quot;level&quot;      
 ## [6] &quot;area&quot;        &quot;latitude&quot;    &quot;longitude&quot;</code></pre>
@@ -363,10 +379,10 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 ## &quot;Eurasia&quot;  &quot;Africa&quot;</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>lang &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="kw">aff.lang</span>(lang)</span></code></pre></div>
-<pre><code>##                                          Adyghe 
-##                       &quot;Abkhaz-Adyge,Circassian&quot; 
-##                                         Russian 
-## &quot;Indo-European,Balto-Slavic,Slavic,East Slavic&quot;</code></pre>
+<pre><code>##                                                                  Adyghe 
+##                                               &quot;Abkhaz-Adyge,Circassian&quot; 
+##                                                                 Russian 
+## &quot;Indo-European,Classical Indo-European,Balto-Slavic,Slavic,East Slavic&quot;</code></pre>
 <ul>
 <li>other functions. For example, let’s try to get a vector of ISO codes for the Circassian languages</li>
 </ul>

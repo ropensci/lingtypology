@@ -15,7 +15,7 @@ editor_options:
 library(lingtypology)
 ```
 
-This package is based on the [Glottolog database (v. 4.1)](http://glottolog.org/), so `lingtypology` has several functions for accessing data from that database.
+This package is based on the [Glottolog database (v. 4.1)](https://glottolog.org/), so `lingtypology` has several functions for accessing data from that database.
 
 ### 1. Command name's syntax
 Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. Most of them are based on _language name_.
@@ -42,7 +42,7 @@ The most important functionality of `lingtypology` is the ability to create inte
 
 * **map.feature()**
 
-[Glottolog database (v. 4.1)](http://glottolog.org/) provides `lingtypology` with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
+[Glottolog database (v. 4.1)](https://glottolog.org/) provides `lingtypology` with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
 
 ```{r}
 names(glottolog)

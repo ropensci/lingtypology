@@ -15,11 +15,11 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 
 `lingtypology` provides an ability to download data from these typological databases
 
-* [World Atlas of Language Structures](http://wals.info/)
+* [World Atlas of Language Structures](https://wals.info/)
 * [AUTOTYP](https://github.com/autotyp/autotyp-data#the-autotyp-database)
-* [PHOIBLE](http://phoible.org/)
-* [Affix Borrowing database](http://afbo.info)
-* [South American Indigenous Language Structures](http://sails.clld.org/)
+* [PHOIBLE](https://phoible.org/)
+* [Affix Borrowing database](https://afbo.info)
+* [South American Indigenous Language Structures](https://sails.clld.org/)
 * [Austronesian Basic Vocabulary Database](https://abvd.shh.mpg.de/austronesian/)
 
 All database function names have identical structure: **database_name.feature**. All functions have as first argument `feature`. All functions create dataframe with column `language` that can be used in `map.feature()` function. It should be noted that all functions cut out the data that can't be maped, so if you want to prevent functions from this behaviour set argument `na.rm` to `FALSE`.
@@ -68,7 +68,7 @@ map.feature(df$Recipient.name,
 ```
 
 ### 5. SAILS
-The SAILS database provide a lot of [features](http://sails.clld.org/parameters), so the function work with their ids:
+The SAILS database provide a lot of [features](https://sails.clld.org/parameters), so the function work with their ids:
 ```{r}
 df <- sails.feature(features = "ics10")
 head(df)

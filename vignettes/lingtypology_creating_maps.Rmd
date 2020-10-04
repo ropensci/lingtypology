@@ -16,7 +16,7 @@ knitr::opts_chunk$set(eval = FALSE)
 ```
 
 ### 1. Base map
-The most important part of the `lingtypology` package is the function `map.feature`. This function allows you to produce maps similar to known projects within [the Cross-Linguistic Linked Data philosophy](http://clld.org/), such as [WALS](http://wals.info/) and [Glottolog](http://glottolog.org/):
+The most important part of the `lingtypology` package is the function `map.feature`. This function allows you to produce maps similar to known projects within [the Cross-Linguistic Linked Data philosophy](https://clld.org/), such as [WALS](https://wals.info/) and [Glottolog](https://glottolog.org/):
 ```{r}
 map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
 ```
@@ -32,7 +32,7 @@ library(htmlwidgets)
 saveWidget(m, file="TYPE_FILE_PATH/m.html")
 ```
 
-There is an export button in RStudio, but for some reason it is not so easy to save a map as a .png or.jpg file using code. [Here](http://stackoverflow.com/a/34672309/6056442) is a possible solution.
+There is an export button in RStudio, but for some reason it is not so easy to save a map as a .png or.jpg file using code. [Here](https://stackoverflow.com/a/34672309/6056442/) is a possible solution.
 
 ### 2. Set features
 The goal of this package is to allow typologists (or any other linguists) to map language features. A list of languages and correspondent features can be stored in a `data.frame` as follows:
