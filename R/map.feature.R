@@ -262,8 +262,8 @@ map.feature <- function(languages,
   if (sum(is.na(mapfeat.df$long & mapfeat.df$lat)) > 0) {
     warning(paste(
       "There is no coordinates for languages",
-      paste(mapfeat.df$languages[is.na(mapfeat.df$long &
-                                         mapfeat.df$lat)],
+      paste(unique(mapfeat.df$languages[is.na(mapfeat.df$long &
+                                         mapfeat.df$lat)]),
             collapse = ", ")
     ),
     call. = FALSE)
