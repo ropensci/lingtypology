@@ -1,3 +1,6 @@
+lingtypology 1.1.5 (24.11.2020)
+- add "bivaltyp.feature()" function API for a typological database of bivalent verbs BivalTyp
+
 lingtypology 1.1.4 (02.10.2020)
 - change glottolog v. 4.2 to v. 4.3
 - change `control` argument behaviour of the "map.feature()" function; now it is possible to specify independent variable to appear/disappear.
