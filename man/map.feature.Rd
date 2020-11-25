@@ -67,6 +67,7 @@ map.feature(
   facet = NULL,
   tile = "OpenStreetMap.Mapnik",
   tile.name = NULL,
+  tile.opacity = 1,
   zoom.control = FALSE,
   zoom.level = NULL,
   rectangle.lng = NULL,
@@ -212,6 +213,8 @@ map.feature(
 \item{tile}{a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
 
 \item{tile.name}{a character verctor with a user's map tiles' names.}
+
+\item{tile.opacity}{numeric value from 0 to 1 denoting opacity of the tile.}
 
 \item{zoom.control}{logical. If TRUE, function shows zoom controls. By default is FALSE.}
 
