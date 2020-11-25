@@ -12,6 +12,7 @@
 #' @param label character vector of strings that will appear near points
 #' @param minimap logical. If TRUE, function shows mini map. By default is FALSE.
 #' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
+#' @param tile.opacity numeric value from 0 to 1 denoting opacity of the tile.
 #' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}
 #' @param control vector of grouping values that make it possible to create control panel that can turn off/on some points on the map.
 #' @param density.method string with one of the two methods: "kernal density estimation" or "fixed distance" (default)
@@ -183,6 +184,7 @@ map.feature <- function(languages,
                         facet = NULL,
                         tile = "OpenStreetMap.Mapnik",
                         tile.name = NULL,
+                        tile.opacity = 1,
                         zoom.control = FALSE,
                         zoom.level = NULL,
                         rectangle.lng = NULL,
@@ -511,11 +513,18 @@ map.feature <- function(languages,
   if (!("none" %in% tile)) {
     m <- m %>%
       leaflet::addTiles(tile[1]) %>%
-      leaflet::addProviderTiles(tile[1], group = tile.name[1])
+      leaflet::addProviderTiles(tile[1],
+                                group = tile.name[1],
+                                options =
+                                  leaflet::providerTileOptions(
+                                    opacity = tile.opacity))
     if (length(tile) > 1) {
       mapply(function(other.tiles, other.tile.names) {
         m <<- m %>% leaflet::addProviderTiles(other.tiles,
-                                              group = other.tile.names)
+                                              group = other.tile.names,
+                                              options =
+                                                leaflet::providerTileOptions(
+                                                  opacity = tile.opacity))
       }, tile[-1], tile.name[-1])
     }
   }

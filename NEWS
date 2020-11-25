@@ -1,5 +1,6 @@
-lingtypology 1.1.5 (24.11.2020)
+lingtypology 1.1.5 (25.11.2020)
 - add "bivaltyp.feature()" function API for a typological database of bivalent verbs BivalTyp
+- add tile.opacity argument to the "map.feature()" function
 
 lingtypology 1.1.4 (02.10.2020)
 - change glottolog v. 4.2 to v. 4.3
