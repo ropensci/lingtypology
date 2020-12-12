@@ -1,7 +1,7 @@
 # lingtypology
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![Build Status](https://travis-ci.org/ropensci/lingtypology.svg?branch=master)](https://travis-ci.org/ropensci/lingtypology)
+[![R build status](https://github.com/ropensci/lingtypology/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/lingtypology/actions)
 [![Coverage Status](https://img.shields.io/codecov/c/github/ropensci/lingtypology/master.svg)](https://codecov.io/github/ropensci/lingtypology?branch=master)
 
 [![CRAN

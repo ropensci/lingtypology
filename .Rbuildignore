@@ -14,3 +14,4 @@
 ^vignettes/.*\.orig$
 ^vignettes/figure.*$
 ^vignettes/compile_vignettes.R$
+^\.github$
