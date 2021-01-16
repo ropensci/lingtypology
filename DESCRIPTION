@@ -9,7 +9,8 @@ Imports:
     stats,
     utils,
     stringdist,
-    grDevices
+    grDevices,
+	jsonlite
 Authors@R: c(person("George", "Moroz",
              role = c("aut", "cre"),
              email = "agricolamz@gmail.com",
