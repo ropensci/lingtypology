@@ -2,7 +2,7 @@
 #'
 #' This function downloads data from PHOIBLE (\url{https://phoible.org/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
-#' @param source A character vector that define with a source names from PHOIBLE (possible values: "all", "AA", "GM", "PH", "RA", "SAPHON", "SPA", "UPSID").
+#' @param source A character vector that define with a source names from PHOIBLE (possible values: "all", "aa", "gm", "ph", "ra", "saphon", "spa", "upsid").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
@@ -30,21 +30,23 @@ A BibTeX entry for LaTeX users is
  url       = {https://phoible.org/},
  year      = {2014}
 }")
-      final_df <-
-        utils::read.csv(
-          "https://raw.githubusercontent.com/phoible/dev/master/data/phoible.csv",
-          stringsAsFactors = FALSE)
-      ifelse(source == "all",
-             final_df <- final_df,
-             final_df <- final_df[final_df$Source %in% source, ])
+    source <- match.arg(tolower(source),
+                        c("all", "aa", "gm", "ph", "ra", "saphon", "spa", "upsid"),
+                        several.ok = TRUE)
+    final_df <-
+      utils::read.csv(
+        "https://raw.githubusercontent.com/phoible/dev/master/data/phoible.csv",
+        stringsAsFactors = FALSE)
+    ifelse(source == "all",
+           final_df <- final_df,
+           final_df <- final_df[final_df$Source %in% source, ])
 
-      final_df <- merge(final_df, lingtypology::phoible, by = "Glottocode")
-      na_rm <- is.na(final_df$language)
-      ifelse(na.rm == TRUE,
-             final_df <- final_df[!na_rm, ],
-             final_df[is.na(final_df$language), "language"] <-
-               final_df[is.na(final_df$language), "LanguageName"])
-
-      colnames(final_df) <- tolower(colnames(final_df))
+    final_df <- merge(final_df, lingtypology::phoible, by = "Glottocode")
+    na_rm <- is.na(final_df$language)
+    ifelse(na.rm == TRUE,
+           final_df <- final_df[!na_rm, ],
+           final_df[is.na(final_df$language), "language"] <-
+             final_df[is.na(final_df$language), "LanguageName"])
+    colnames(final_df) <- tolower(colnames(final_df))
     return(final_df[,-which(colnames(final_df)=="languagename")])
   }
