@@ -10,11 +10,17 @@
 #' @importFrom  utils read.csv
 #' @importFrom jsonlite fromJSON
 vanuatu.feature <-function(features,na.rm = TRUE) {
-  feature_list <-utils::read.csv(
-    'https://vanuatuvoices.clld.org/parameters.csv?sEcho=1&iSortingCols=1&iSortCol_0=0&sSortDir_0=asc')$id
+  id_list<-utils::read.csv('https://vanuatuvoices.clld.org/parameters.csv?sEcho=1&iSortingCols=1&iSortCol_0=0&sSortDir_0=asc')$id
+  feature_list<-lapply(as.character(id_list),function(x) unlist(strsplit(x, '_'))[2])
   e_features<-as.character(match.arg(features, feature_list,several.ok = TRUE))
+  e_ids<-id_list[match(e_features,feature_list)]
+  message(paste0("Don't forget to cite a source (modify in case of using individual chapters):
+
+Aviva Shimelman, Mary Walworth, Lana Takau, Tom Ennever, Iveth Rodriguez, Tom Fitzpatrick, Marie-France Duhamel, Giovanni Abete, Daria Dërmaku, Laura Wägerle, Heidi Colleran, Paul Heggarty, Kaitip W. Kami, Hans-Jörg Bibiko and Russell Gray. (2020). Vanuatu Voices (Version v1.0)
+[Data set]. Zenodo. http://doi.org/10.5281/zenodo.4309141 , Accessed on ",Sys.Date(),".)"))
+
   final_df = data.frame()
-  for (p in e_features){
+  for (p in e_ids){
     parameter_json <- jsonlite::fromJSON(paste0('https://vanuatuvoices.clld.org/parameters/', p, '.geojson'),flatten = TRUE)
     parameters<-parameter_json$features
     words<-vector()
