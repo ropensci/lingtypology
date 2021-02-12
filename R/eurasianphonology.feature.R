@@ -12,7 +12,7 @@ eurasianphonolgy.feature <- function(){
   message("Don't forget to cite a source:
 
 Dmitry Nikolaev (ed.), Andrey Nikulin, Anton Kukhto. 2020. The database of Eurasian phonological inventories (beta version) (Available online at http://eurasianphonology.info, Accessed on ...)")
-  data <- utils::read.csv("database_creation/eurasianphonology.csv")
+  data <- lingtypology::eurasianphonology
   data$latitude <- data$coords1
   data$longitude <- data$coords2
   data$iso <- data$code
