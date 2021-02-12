@@ -88,5 +88,30 @@ for (i in 1:length(result$contr)){
   new_str <- paste(new_str, new_mail, sep = ' ')
   result$contr[i] <- new_str
 }
+result$latitude <- result$coords1
+result$longitude <- result$coords2
+result$iso <- result$code
+result$type <- gsub("Язык", "language", result$type)
+result$type <- gsub("Диалект", "dialect", result$type)
+result$language <- lingtypology::lang.gltc(result$glottocode)
+eurasianphonology <- result[c("id",
+                     "name",
+                     "language",
+                     "iso",
+                     "glottocode",
+                     "type",
+                     "latitude",
+                     "longitude",
+                     "gen1",
+                     "gen2",
+                     "tones",
+                     "syllab",
+                     "cluster",
+                     "finals",
+                     "segments",
+                     "segment_type",
+                     "source",
+                     "comment",
+                     "contr")]
 
-save(result, file = 'data/eurasianphonology.Rdata')
+save(eurasianphonology, file="eurasianphonology.RData", compress= 'xz')
