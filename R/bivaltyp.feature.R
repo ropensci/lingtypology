@@ -85,3 +85,5 @@ Say, Sergey (ed.). 2020. BivalTyp: Typological database of bivalent verbs and th
 
   return(result)
 }
+
+

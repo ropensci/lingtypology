@@ -10,12 +10,13 @@
 #'
 #' @export
 #'
+#'
 eurasianphonology.feature <- function(){
   message("Don't forget to cite a source:
 
 Dmitry Nikolaev (ed.), Andrey Nikulin, Anton Kukhto. 2020. The database of Eurasian phonological inventories (beta version) (Available online at http://eurasianphonology.info, Accessed on ...)")
-  data <- lingtypology::eurasianphonology
-  return(data)
+  result <- lingtypology::eurasianphonology
+  return(result)
 }
 
 
