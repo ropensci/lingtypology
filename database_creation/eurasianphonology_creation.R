@@ -60,12 +60,12 @@ result$glottocode[result$id == 'Khufi#429'] <- 'khuf1238'
 
 result$code <- lingtypology::iso.gltc(result$glottocode)
 
-for (i in 1:length(result$id)){
-  result$id[i] <- unlist(strsplit(result$id[i],split="#"))[2]
-}
+lapply(result$id, function(i){
+  i <- unlist(strsplit(i,split="#"))[2]
+}) -> result$id
 
-for (i in 1:length(result$contr)){
-  contr <- result$contr[i]
+lapply(result$contr, function(i){
+  contr <- i
   last_name <- word(contr, 2)
   last_name_last_chr <- str_sub(last_name, -1)
   if (last_name_last_chr != ','){
@@ -86,8 +86,9 @@ for (i in 1:length(result$contr)){
   }
   new_str <- paste(word(contr,1), new_last_name, sep = ' ')
   new_str <- paste(new_str, new_mail, sep = ' ')
-  result$contr[i] <- new_str
-}
+  i <- new_str
+}) -> result$contr
+
 result$latitude <- result$coords1
 result$longitude <- result$coords2
 result$iso <- result$code
