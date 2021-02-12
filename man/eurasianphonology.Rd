@@ -5,16 +5,7 @@
 \alias{eurasianphonology}
 \title{Eurasianphonology data}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 19825 rows and 19 columns.
-}
-\usage{
-eurasianphonology
-}
-\description{
-Data from The database of Eurasian phonological inventories (\url{http://eurasianphonology.info}). This dataset is created for \code{\link{eurasianphonology.feature}} function.
-}
-\details{
-#' @format A data frame with 19825 rows and 19 variables:
+A data frame with 19825 rows and 19 variables:
 \describe{
   \item{id}{Language id}
   \item{code}{ISO code}
@@ -35,5 +26,11 @@ Data from The database of Eurasian phonological inventories (\url{http://eurasia
   \item{segments}{Segments}
   \item{glottocode}{Glottocode}
 }
+}
+\usage{
+eurasianphonology
+}
+\description{
+Data from The database of Eurasian phonological inventories (\url{http://eurasianphonology.info}). This dataset is created for \code{\link{eurasianphonology.feature}} function.
 }
 \keyword{datasets}
