@@ -5,19 +5,16 @@
 \alias{wals}
 \title{WALS's Language identifiers}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 2679 rows and 2 columns.
+A data frame with 2950 rows and 2 variables:
+\describe{
+  \item{wals code}{WALS language identifier}
+  \item{glottocode}{Glottocode}
+}
 }
 \usage{
 wals
 }
 \description{
 Language identifiers from WALS (\url{https://wals.info/}). This dataset is created for \code{\link{wals.feature}} function.
-}
-\details{
-#' @format A data frame with 2950 rows and 2 variables:
-\describe{
-  \item{wals code}{WALS language identifier}
-  \item{glottocode}{Glottocode}
-}
 }
 \keyword{datasets}
