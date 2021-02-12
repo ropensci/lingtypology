@@ -2,7 +2,7 @@
 #'
 #' Data from The database of Eurasian phonological inventories (\url{http://eurasianphonology.info}). This dataset is created for \code{\link{eurasianphonology.feature}} function.
 #'
-#' #' @format A data frame with 19825 rows and 19 variables:
+#' @format A data frame with 19825 rows and 19 variables:
 #' \describe{
 #'   \item{id}{Language id}
 #'   \item{code}{ISO code}
@@ -23,7 +23,7 @@
 #'   \item{segments}{Segments}
 #'   \item{glottocode}{Glottocode}
 #' }
-#'
+#
 
 "eurasianphonology"
 
