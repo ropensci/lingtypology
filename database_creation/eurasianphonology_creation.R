@@ -115,4 +115,4 @@ eurasianphonology <- result[c("id",
                      "comment",
                      "contr")]
 
-save(eurasianphonology, file="eurasianphonology.RData", compress= 'xz')
+save(eurasianphonology, file="data/eurasianphonology.RData", compress= 'xz')
