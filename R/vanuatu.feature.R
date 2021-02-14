@@ -41,8 +41,11 @@ Aviva Shimelman, Mary Walworth, Lana Takau, Tom Ennever, Iveth Rodriguez, Tom Fi
 [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4309141 , Accessed on ",Sys.Date(),".)"))
   id_list<-utils::read.csv('https://vanuatuvoices.clld.org/parameters.csv?sEcho=1&iSortingCols=1&iSortCol_0=0&sSortDir_0=asc')$id
   feature_list<-lapply(as.character(id_list),function(x) {unlist(strsplit(x, '_'))[2]})
-  e_features<-as.character(match.arg(features, feature_list,several.ok = TRUE))
+
   not_features <- features[which(!features %in% feature_list)]
+  if (length(not_features)==length(features)){
+    stop('None of the parameters are in the vanuatu database.')
+  }
   if (length(not_features)!=0){
     warning(paste(
       "There is no features",
@@ -50,6 +53,8 @@ Aviva Shimelman, Mary Walworth, Lana Takau, Tom Ennever, Iveth Rodriguez, Tom Fi
       "in vanuatu database."
     ))
   }
+  attempt(e_features<-as.character(match.arg(features, feature_list,several.ok = TRUE)),msg = '')
+  e_features<-as.character(match.arg(features, feature_list,several.ok = TRUE))
   e_ids<-id_list[match(e_features,feature_list)]
   final_df_list<-lapply(e_ids,add_param)
   final_df<-do.call(rbind, final_df_list)
