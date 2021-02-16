@@ -77,6 +77,36 @@ map.feature(phonological_profiles$language,
             map.orientation = "Atlantic")
 ```
 
+Sometimes the result image legend are too small. It is possible to increase size of legend using some trick described here. In order to do this assign your map to a variable:
+
+```{r}
+m <- map.feature(languages = df$language,
+                 features = df$features)
+```
+
+Map will not appear, but now you can get it calling the variable `m`. After this in order to increase the legend font one can use code like this:
+
+```{r}
+library(htmltools)
+browsable(
+  tagList(
+    list(
+      tags$head(
+        tags$style(
+          ".leaflet .legend {
+                 line-height: 20px;
+                 font-size: 20px;
+                 }",
+          ".leaflet .legend i{
+                width: 20px;
+                height: 20px;
+                 }"
+        )
+      ),
+      m)))
+```
+
+
 ### 3. Set pop-up boxes
 Sometimes it is a good idea to add some additional information (e.g. language affiliation, references or even examples) to pop-up boxes that appear when points are clicked. In order to do so, first of all we need to create an extra vector of strings in our dataframe:
 ```{r}
