@@ -1,6 +1,6 @@
-#' Download data from the database of Eurasian phonological inventories
+#' Opens data from the database of Eurasian phonological inventories
 #'
-#' This function open downloaded data from the database of Eurasian phonological inventories (\url{http://eurasianphonology.info}) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function opens downloaded data from the database of Eurasian phonological inventories (\url{http://eurasianphonology.info}).
 #'
 #' @author Kirill Koncha <majortomblog@gmail.com>
 #' @seealso \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
