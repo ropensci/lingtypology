@@ -36,28 +36,35 @@ Aviva Shimelman, Mary Walworth, Lana Takau, Tom Ennever, Iveth Rodriguez, Tom Fi
   add_param<-function(x){
     parameter_json <- jsonlite::fromJSON(paste0('https://vanuatuvoices.clld.org/parameters/', x, '.geojson'),flatten = TRUE)
     parameters<-parameter_json$features
-    words<-vector()
-    audios<-vector()
-    for (feature in parameters$properties.values){
-      if (nrow(feature)>1){
-        word_forms<-paste(feature$name[!is.na(feature$name)],collapse = ', ')
-        aud_var<-paste(feature$jsondata.audio[!is.na(feature$jsondata.audio)],collapse = ', ')
-        words<-c(words,word_forms)
-        audios<-c(audios,aud_var)
+
+    words<-lapply(parameters$properties.values,function(x){
+      if (nrow(x)>1){
+        word_forms<-paste(x$name[!is.na(x$name)],collapse = ', ')
+        return(word_forms)
       }
       else{
-        words<-c(words,feature$name)
-        audios<-c(audios,feature$jsondata.audio)
+        return(x$name)
       }
-    }
-    parameters['word']<-words
-    parameters['audio']<-audios
+    })
+
+    audios<-lapply(parameters$properties.values,function(x){
+      if (nrow(x)>1){
+        aud_var<-paste(x$jsondata.audio[!is.na(x$jsondata.audio)],collapse = ', ')
+        return(aud_var)
+      }
+      else{
+        return(x$jsondata.audio)
+      }
+    })
+
+    parameters['word']<-unlist(words)
+    parameters['audio']<-unlist(audios)
     parameters['feature']<-c(rep(x,length(words)))
     parameters<-parameters[,c('feature','word','audio','properties.language.name','properties.language.description','properties.language.island','properties.language.latitude','properties.language.longitude','properties.language.glottocode')]
     names(parameters)<-c('feature','word','audio','language_name','language_description','island','latitude','longitude','glottocode')
     return(parameters)
   }
-  final_df_list<-lapply(e_ids,add_param)
+  final_df_list<-lapply(as.vector(e_ids),add_param)
   final_df<-do.call(rbind, final_df_list)
   if (na.rm){
     final_df<-final_df[!is.na(final_df['glottocode']),]
