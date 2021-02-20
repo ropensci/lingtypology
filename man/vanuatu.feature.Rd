@@ -7,9 +7,9 @@
 vanuatu.feature(features, na.rm = TRUE)
 }
 \arguments{
-\item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
+\item{features}{A vector with parameters from Conepts (\url{https://vanuatuvoices.clld.org/parameters}))}
 
-\item{feature}{A string with a parameter from Conepts (\url{https://vanuatuvoices.clld.org/parameters}))}
+\item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }
 \description{
 This function downloads data from Vanuatu Voices (\url{https://vanuatuvoices.clld.org/}). You need the internet connection.
