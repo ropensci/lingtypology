@@ -2,12 +2,12 @@
 % Please edit documentation in R/eurasianphonology.feature.R
 \name{eurasianphonology.feature}
 \alias{eurasianphonology.feature}
-\title{Download data from the database of Eurasian phonological inventories}
+\title{Opens data from the database of Eurasian phonological inventories}
 \usage{
 eurasianphonology.feature()
 }
 \description{
-This function open downloaded data from the database of Eurasian phonological inventories (\url{http://eurasianphonology.info}) and changes language names to the names from lingtypology database. You need the internet connection.
+This function opens downloaded data from the database of Eurasian phonological inventories (\url{http://eurasianphonology.info}).
 }
 \examples{
 

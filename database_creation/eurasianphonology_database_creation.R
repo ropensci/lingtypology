@@ -30,6 +30,7 @@ df %>%
   result
 
 result$glottocode <- lingtypology::gltc.iso(result$code)
+
 result$glottocode[result$id == 'Darkhat#16'] <- 'dark1243'
 result$glottocode[result$id == 'Northwestern Pashto#52'] <- 'nort2646'
 result$glottocode[result$id == 'Japhug#72'] <- 'japh1234'
@@ -58,61 +59,49 @@ result$glottocode[result$id == 'Barwar Neo-Aramaic#423'] <- 'assy1241'
 result$glottocode[result$id == 'Rushani#428'] <- 'rush1239'
 result$glottocode[result$id == 'Khufi#429'] <- 'khuf1238'
 
-result$code <- lingtypology::iso.gltc(result$glottocode)
+result$code <- unname(lingtypology::iso.gltc(result$glottocode))
 
-lapply(result$id, function(i){
-  i <- unlist(strsplit(i,split="#"))[2]
-}) -> result$id
+result %>%
+  separate(id, into = c("lang", "id"), "#") %>%
+  mutate(-lang) ->
+  result
 
-lapply(result$contr, function(i){
-  contr <- i
-  last_name <- word(contr, 2)
-  last_name_last_chr <- str_sub(last_name, -1)
-  if (last_name_last_chr != ','){
-    new_last_name <- paste(last_name, ',', sep = '')
-  }else{
-    if (last_name == 'Nikolayev,'){
-      new_last_name <- 'Nikolaev,'
-    }else{
-      new_last_name <- last_name
-    }
-  }
-  mail <- word(contr, 3)
-  mail_first_chr <- str_sub(mail, -1)
-  if (mail_first_chr == ')'){
-    new_mail <- substr(mail, start = 2, stop = nchar(mail) -1)
-  }else{
-    new_mail <- mail
-  }
-  new_str <- paste(word(contr,1), new_last_name, sep = ' ')
-  new_str <- paste(new_str, new_mail, sep = ' ')
-  i <- new_str
-}) -> result$contr
+result %>%
+  mutate(contr = str_replace_all(contr,
+                                 "André Nikulin (ojovemlouco@gmail.com)",
+                                 "André Nikulin, ojovemlouco@gmail.com"),
+         contr = str_replace_all(contr,
+                                 "Dmitry Nikolayev, dsnikolaev@gmail.com",
+                                 "Dmitry Nikolaev, dsnikolaev@gmail.com"),
+         type = ifelse(type == "Язык", "language", "dialect")) %>%
+  rename(contributor = contr,
+         latitude = coords1,
+         longitude = coords2,
+         iso = code) ->
+  result
 
-result$latitude <- result$coords1
-result$longitude <- result$coords2
-result$iso <- result$code
-result$type <- gsub("Язык", "language", result$type)
-result$type <- gsub("Диалект", "dialect", result$type)
+result %>%
+  count(type)
+
 result$language <- lingtypology::lang.gltc(result$glottocode)
 eurasianphonology <- result[c("id",
-                     "name",
-                     "language",
-                     "iso",
-                     "glottocode",
-                     "type",
-                     "latitude",
-                     "longitude",
-                     "gen1",
-                     "gen2",
-                     "tones",
-                     "syllab",
-                     "cluster",
-                     "finals",
-                     "segments",
-                     "segment_type",
-                     "source",
-                     "comment",
-                     "contr")]
+                              "name",
+                              "language",
+                              "iso",
+                              "glottocode",
+                              "type",
+                              "latitude",
+                              "longitude",
+                              "gen1",
+                              "gen2",
+                              "tones",
+                              "syllab",
+                              "cluster",
+                              "finals",
+                              "segments",
+                              "segment_type",
+                              "source",
+                              "comment",
+                              "contributor")]
 
 save(eurasianphonology, file="data/eurasianphonology.RData", compress= 'xz')
