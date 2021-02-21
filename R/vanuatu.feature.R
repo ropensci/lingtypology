@@ -2,7 +2,7 @@
 #'
 #' This function downloads data from Vanuatu Voices (\url{https://vanuatuvoices.clld.org/}). You need the internet connection.
 #'
-#' @param features A vector with parameters from Conepts (\url{https://vanuatuvoices.clld.org/parameters}))
+#' @param features A vector with parameters from Concepts (\url{https://vanuatuvoices.clld.org/parameters}))
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
 #' @author Mikhail Leonov
 #' @export

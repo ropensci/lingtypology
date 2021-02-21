@@ -7,7 +7,7 @@
 vanuatu.feature(features, na.rm = TRUE)
 }
 \arguments{
-\item{features}{A vector with parameters from Conepts (\url{https://vanuatuvoices.clld.org/parameters}))}
+\item{features}{A vector with parameters from Concepts (\url{https://vanuatuvoices.clld.org/parameters}))}
 
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }
