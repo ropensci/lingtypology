@@ -20,7 +20,6 @@ autotyp.feature <-
 
 Bickel, Balthasar, Johanna Nichols, Taras Zakharko, Alena Witzlack-Makarevich, Kristine Hildebrandt, Michael Rie\u00DFler, Lennart Bierkandt, Fernando Z\u00FA\u00F1iga & John B. Lowe. 2017. The AUTOTYP typological databases. Version ",
                    readLines("https://raw.githubusercontent.com/autotyp/autotyp-data/master/VERSION")))
-    features <- gsub(" ", "_", features)
     features_set <-
       c(
         "Agreement",
@@ -74,6 +73,10 @@ Bickel, Balthasar, Johanna Nichols, Taras Zakharko, Alena Witzlack-Makarevich, K
         "VInfl_macrocat_preposed",
         "Word_domains"
       )
+    features <- match.arg(arg = gsub(" ", "_", features),
+                          choices =  features_set,
+                          several.ok = TRUE)
+
     if (sum(!features %in% features_set) < 1) {
       links <-
         paste0(
