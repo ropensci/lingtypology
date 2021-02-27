@@ -20,7 +20,7 @@ Authors@R: c(person("George", "Moroz",
                     email = "majortomblog@gmail.com",
                     comment = c(ORCID = "0000-0003-0676-2658")),
              person("Mikhail","Leonov",
-                    role = "ctb")),
+                    role = "ctb"),
              person("Anna","Smirnova",
                     email = "annedadaa@gmail.com",
                     role = "ctb"))
