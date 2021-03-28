@@ -6,8 +6,7 @@
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}
 #' @author Anna Smirnova <annedadaa@gmail.com>
 #' @examples
-#' ## Not run:
-#' soundcomparisons.feature(c("sun", "house"))
+#' # soundcomparisons.feature(c("sun", "house"))
 #' ## End(Not run)
 #' @export
 #'
@@ -80,7 +79,6 @@ Heggarty, Paul and Shimelman, Aviva and Abete, Giovanni and Anderson, Cormac and
           links_set <- append(links_set, links)}) ##получили ссылки, по которым скачали данные
         data <-lapply(my_links, function(l) {
           datalist <- read.csv(l, encoding = "UTF-8")
-          #datalist$LanguageId <- datalist$X.U.FEFF.LanguageId
           datalist <- datalist[,c("LanguageId", "LanguageName", "Latitude",
                                   "Longitude", "WordId", "WordModernName1",
                                   "WordProtoName1", "Phonetic")]
@@ -110,7 +108,6 @@ Heggarty, Paul and Shimelman, Aviva and Abete, Giovanni and Anderson, Cormac and
           ))}})
     my_df <- do.call("rbind", my_data)
     my_df <- merge(my_df, lingtypology::soundcomparisons, by = "LanguageId")
-    print(my_df)
     my_df <- subset(my_df, select = -c(LanguageName.y))
     colnames(my_df) <- c("lang_id", "language", "latitude", "longitude",
                          "word_id", "word", "proto_word", "phonetic",
