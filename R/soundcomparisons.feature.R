@@ -7,7 +7,6 @@
 #' @author Anna Smirnova <annedadaa@gmail.com>
 #' @examples
 #' # soundcomparisons.feature(c("sun", "house"))
-#' ## End(Not run)
 #' @export
 #'
 #' @importFrom utils read.csv
