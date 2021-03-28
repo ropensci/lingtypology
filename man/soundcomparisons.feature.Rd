@@ -8,8 +8,6 @@ soundcomparisons.feature(word)
 }
 \arguments{
 \item{word}{A character vector that define with a feature ids from SOUNDCOMPARISONS (e. g. "one", "sharp_fem", "near_neut", "on_the_left", "    I_will_give", "write_ipv_sg", "your_pl_pl").}
-
-\item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }
 \description{
 This function downloads data from SOUNDCOMPARISONS (\url{https://soundcomparisons.com/}) and changes language names to the names from lingtypology database. You need the internet connection.
