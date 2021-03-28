@@ -79,7 +79,7 @@ Heggarty, Paul and Shimelman, Aviva and Abete, Giovanni and Anderson, Cormac and
           links_set <- append(links_set, links)}) ##получили ссылки, по которым скачали данные
         data <-lapply(my_links, function(l) {
           datalist <- read.csv(l, encoding = "UTF-8")
-          datalist <- datalist[,c("LanguageId", "LanguageName", "Latitude",
+          datalist <- datalist[c("LanguageId", "LanguageName", "Latitude",
                                   "Longitude", "WordId", "WordModernName1",
                                   "WordProtoName1", "Phonetic")]
           })
