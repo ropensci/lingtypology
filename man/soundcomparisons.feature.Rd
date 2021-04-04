@@ -13,9 +13,7 @@ soundcomparisons.feature(word)
 This function downloads data from SOUNDCOMPARISONS (\url{https://soundcomparisons.com/}) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
-## Not run:
-soundcomparisons.feature(c("sun", "house"))
-## End(Not run)
+# soundcomparisons.feature(c("sun", "house"))
 }
 \seealso{
 \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}

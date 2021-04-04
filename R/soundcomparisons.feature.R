@@ -107,7 +107,8 @@ Heggarty, Paul and Shimelman, Aviva and Abete, Giovanni and Anderson, Cormac and
           ))}})
     my_df <- do.call("rbind", my_data)
     my_df <- merge(my_df, lingtypology::soundcomparisons, by = "LanguageId")
-    my_df <- subset(my_df, select = -c(LanguageName.y))
+    my_df$LanguageName.y <- NULL
+    #my_df <- subset(my_df, select = -c(LanguageName.y))
     colnames(my_df) <- c("lang_id", "language", "latitude", "longitude",
                          "word_id", "word", "proto_word", "phonetic",
                          "glottocode")
