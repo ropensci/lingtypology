@@ -15,7 +15,7 @@ eurasianphonology.feature()
 
 }
 \seealso{
-\code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
+\code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{vanuatu.feature}},  \code{\link{soundcomparisons.feature}}, \code{\link{eurasianphonology.feature}}, \code{\link{soundcomparisons.feature}}
 }
 \author{
 Kirill Koncha <majortomblog@gmail.com>

@@ -3,13 +3,14 @@
 #' This function downloads data from SOUNDCOMPARISONS (\url{https://soundcomparisons.com/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param word A character vector that define with a feature ids from SOUNDCOMPARISONS (e. g. "one", "sharp_fem", "near_neut", "on_the_left", "	I_will_give", "write_ipv_sg", "your_pl_pl").
-#' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}
+#' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{vanuatu.feature}},  \code{\link{eurasianphonology.feature}}, \code{\link{eurasianphonology.feature}}
 #' @author Anna Smirnova <annedadaa@gmail.com>
 #' @examples
 #' # soundcomparisons.feature(c("sun", "house"))
 #' @export
 #'
 #' @importFrom utils read.csv
+#' @importFrom utils head
 #'
 
 
@@ -66,7 +67,7 @@ Heggarty, Paul and Shimelman, Aviva and Abete, Giovanni and Anderson, Cormac and
         y <- (words[words$WordModernName2 == x,])
         new <- rbind(z,y)
         new <- new[rowSums(is.na(new)) != ncol(new),]
-        word_id <- head(new["WordId"],1)
+        word_id <- utils::head(new["WordId"],1)
         families <- c("Romance", "Germanic", "Englishes", "Slavic", "Celtic",
                     "Andes", "Mapudungun", "Brazil", "WestPapua", "MixeZoque")
         links_set <- c()
@@ -114,6 +115,3 @@ Heggarty, Paul and Shimelman, Aviva and Abete, Giovanni and Anderson, Cormac and
                          "glottocode")
   return(my_df)
 }
-
-
-

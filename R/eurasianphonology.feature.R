@@ -3,7 +3,9 @@
 #' This function opens downloaded data from the database of Eurasian phonological inventories (\url{http://eurasianphonology.info}).
 #'
 #' @author Kirill Koncha <majortomblog@gmail.com>
-#' @seealso \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
+#'
+#' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{vanuatu.feature}},  \code{\link{soundcomparisons.feature}}, \code{\link{eurasianphonology.feature}}, \code{\link{soundcomparisons.feature}}
+#'
 #' @examples
 #'
 #' eurasianphonology.feature()
@@ -11,6 +13,7 @@
 #' @export
 #'
 #'
+
 eurasianphonology.feature <- function(){
   message("Don't forget to cite a source:
 
