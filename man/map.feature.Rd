@@ -98,8 +98,6 @@ map.feature(
 
 \item{popup}{character vector of strings that will appear in pop-up window}
 
-\item{latitude}{numeric vector of latitudes}
-
 \item{longitude}{numeric vector of longitudes}
 
 \item{label.hide}{logical. If FALSE, labels are displayed allways. If TRUE, labels are displayed on mouse over. By default is TRUE.}
@@ -260,6 +258,9 @@ Map a set of languages and color them by feature or two sets of features.
 \examples{
 map.feature(c("Adyghe", "Russian"))
 
+}
+\seealso{
+\code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{bivaltyp.feature}}, \code{\link{eurasianphonology.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{soundcomparisons.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{vanuatu.feature}}, \code{\link{wals.feature}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

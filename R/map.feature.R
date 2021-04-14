@@ -4,7 +4,7 @@
 #'
 #' @param languages character vector of languages (can be written in lower case)
 #' @param features character vector of features
-#' @param latitude numeric vector of latitudes
+#' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{bivaltyp.feature}}, \code{\link{eurasianphonology.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{soundcomparisons.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{vanuatu.feature}}, \code{\link{wals.feature}}
 #' @param longitude numeric vector of longitudes
 #' @param stroke.features additional independent stroke features
 #' @param density.estimation additional independent features, used for density estimation

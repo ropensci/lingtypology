@@ -20,8 +20,6 @@ ggmap.feature(
 \arguments{
 \item{languages}{character vector of languages (can be written in lower case).}
 
-\item{features}{character vector of features.}
-
 \item{latitude}{numeric vector of latitudes.}
 
 \item{longitude}{numeric vector of longitudes.}
