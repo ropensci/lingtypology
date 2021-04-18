@@ -4,6 +4,7 @@
 #'
 #' @author George Moroz <agricolamz@gmail.com>
 #' @param languages character vector of languages (can be written in lower case).
+#' @param features character vector of features.
 #' @param latitude numeric vector of latitudes.
 #' @param longitude numeric vector of longitudes.
 #' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}.
