@@ -33,7 +33,7 @@ Evolutionary Bioinformatics, 4:271-283.
   my_data <- lapply(word, function(x) {
     if (x %in% lingtypology::bantu$word){
       link <- paste0("https://abvd.shh.mpg.de/utils/save/?type=csv&section=bantu&word=",
-                 bantu[bantu$word==x,]['id'])
+                     lingtypology::bantu[lingtypology::bantu$word==x,]['id'])
       datalist <- lapply(link, function(l) {
         bantu_df <- utils::read.csv(l,header = FALSE, encoding = "UTF-8")
         bantu_df <- bantu_df[-c(1, 2, 3), ]})
@@ -42,7 +42,7 @@ Evolutionary Bioinformatics, 4:271-283.
         stop(paste(
           "There is no features",
           paste0("'", x, "'", collapse = ", "),
-          "in soundcomparisons database."))}
+          "in bantu database."))}
     })
   my_df <- do.call("rbind", my_data)
   colnames(my_df) <- c("id",
