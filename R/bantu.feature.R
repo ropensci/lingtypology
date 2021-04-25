@@ -2,7 +2,7 @@
 #'
 #' This function downloads data from BANTU (\url{https://abvd.shh.mpg.de/bantu/index.php}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
-#' @param features A character vector that define with a feature ids from BANTU ('house', 'cat').
+#' @param word A character vector that define with a feature ids from BANTU ('house', 'cat').
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}
 #' @author Anna Smirnova <annedadaa@gmail.com>
 #' @examples
@@ -35,7 +35,7 @@ Evolutionary Bioinformatics, 4:271-283.
       link <- paste0("https://abvd.shh.mpg.de/utils/save/?type=csv&section=bantu&word=",
                  bantu[bantu$word==x,]['id'])
       datalist <- lapply(link, function(l) {
-        bantu_df <- utils::read.csv(l, header = FALSE ,encoding = "UTF-8")
+        bantu_df <- utils::read.csv(l,header = FALSE, encoding = "UTF-8")
         bantu_df <- bantu_df[-c(1, 2, 3), ]})
       datalist <- datalist[[1]]
       }else{
