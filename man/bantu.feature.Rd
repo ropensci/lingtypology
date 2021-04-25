@@ -7,7 +7,7 @@
 bantu.feature(word)
 }
 \arguments{
-\item{features}{A character vector that define with a feature ids from BANTU ('house', 'cat').}
+\item{word}{A character vector that define with a feature ids from BANTU ('house', 'cat').}
 }
 \description{
 This function downloads data from BANTU (\url{https://abvd.shh.mpg.de/bantu/index.php}) and changes language names to the names from lingtypology database. You need the internet connection.
