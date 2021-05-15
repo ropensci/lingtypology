@@ -4,15 +4,16 @@
 #' involving genealogical affiliation, macro-area, country, iso code,
 #' and coordinates.
 #'
-#' Hammarström, Harald & Forkel, Robert & Haspelmath, Martin. 2020.
-#' Glottolog 4.3.
-#' Jena: Max Planck Institute for the Science of Human History.
-#' (Available online at \url{https://glottolog.org/}, Accessed on 2020-10-03.)
+#' Hammarström, Harald & Forkel, Robert & Haspelmath, Martin & Bank, Sebastian.
+#' 2021.Glottolog 4.4.
+#' Leipzig: Max Planck Institute for Evolutionary Anthropology.
+#' https://doi.org/10.5281/zenodo.4761960
+#' (Available online at http://glottolog.org, Accessed on 2021-05-15.)
 #'
 #' @format A data frame with 20290 rows and 8 variables:
 #' \describe{
 #'   \item{affiliation}{genealogical affiliation}
-#'   \item{glottocode}{languoid code from Glottolog 4.1}
+#'   \item{glottocode}{languoid code from Glottolog 4.4}
 #'   \item{language}{name of the language}
 #'   \item{iso}{code based on ISO 639--3 \url{https://iso639-3.sil.org/}}
 #'   \item{level}{languoid type: dialect or language}

@@ -1,11 +1,11 @@
 # this script is written on 09.02.2020 in Jena by G. Moroz
 # this script create a new version of glottolog database in lingtypology
-setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
+setwd("/home/agricolamz/work/packages/lingtypology/database_creation")
 
 library(tidyverse)
 library(data.tree)
-tr <- ape::read.tree("https://cdstar.shh.mpg.de/bitstreams/EAEA0-D501-DBB8-65C4-0/tree_glottolog_newick.txt")
-df <- read_csv("https://cdstar.shh.mpg.de/bitstreams/EAEA0-D501-DBB8-65C4-0/languages_and_dialects_geo.csv")
+tr <- ape::read.tree("https://cdstar.shh.mpg.de/bitstreams/EAEA0-E62D-ED67-FD05-0/tree_glottolog_newick.txt")
+df <- read_csv("https://cdstar.shh.mpg.de/bitstreams/EAEA0-E62D-ED67-FD05-0/languages_and_dialects_geo.csv")
 
 affiliation <- map_dfr(seq_along(tr), function(i){
   tibble(affiliation = ToDataFrameTable(as.Node(tr[[i]]), "pathString"))
@@ -127,5 +127,5 @@ glottolog %>%
 
 write_csv(glottolog, "glottolog.csv")
 glottolog <- read_csv("glottolog.csv")
-setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/data/")
+setwd("/home/agricolamz/work/packages/lingtypology/data/")
 save(glottolog, file="glottolog.RData", compress='xz')
