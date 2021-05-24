@@ -14,12 +14,22 @@
 
 <title>lingtypology: Glottolog functions</title>
 
+<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -27,22 +37,38 @@
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
-<style type="text/css">code{white-space: pre;}</style>
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -62,7 +88,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {  background-color: #f8f8f8; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -115,39 +141,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   }
 })();
 </script>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 
 
@@ -157,10 +153,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -177,40 +169,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 54px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 59px;
-  margin-top: -59px;
-}
-.section h2 {
-  padding-top: 59px;
-  margin-top: -59px;
-}
-.section h3 {
-  padding-top: 59px;
-  margin-top: -59px;
-}
-.section h4 {
-  padding-top: 59px;
-  margin-top: -59px;
-}
-.section h5 {
-  padding-top: 59px;
-  margin-top: -59px;
-}
-.section h6 {
-  padding-top: 59px;
-  margin-top: -59px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -238,7 +203,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -250,7 +215,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -261,10 +226,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -276,7 +254,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -402,7 +379,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -448,7 +425,7 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -458,7 +435,7 @@ div.tocify {
 </div>
 
 
-<p>This package is based on the <a href="http://glottolog.org/">Glottolog database (v. 4.1)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
+<p>This package is based on the <a href="http://glottolog.org/">Glottolog database (v. 4.4)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
 <div id="command-names-syntax" class="section level3">
 <h3>1. Command name’s syntax</h3>
 <p>Most of the functions in <code>lingtypology</code> have the same syntax: <strong>what you need.what you have</strong>. Most of them are based on <em>language name</em>.</p>
@@ -486,7 +463,7 @@ div.tocify {
 <li><strong>map.feature()</strong></li>
 </ul>
 <p><a href="http://glottolog.org/">Glottolog database (v. 4.1)</a> provides <code>lingtypology</code> with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn’t have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in <code>lingtypology</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">names</span>(glottolog)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(glottolog)</span></code></pre></div>
 <pre><code>## [1] &quot;affiliation&quot; &quot;glottocode&quot;  &quot;language&quot;    &quot;iso&quot;         &quot;level&quot;      
 ## [6] &quot;area&quot;        &quot;latitude&quot;    &quot;longitude&quot;</code></pre>
 <p>Using R functions for data manipulation you can create your own database for your purpose.</p>
@@ -497,31 +474,31 @@ div.tocify {
 <ul>
 <li>a regular string</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">iso.lang</span>(<span class="st">&quot;Adyghe&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">iso.lang</span>(<span class="st">&quot;Adyghe&quot;</span>)</span></code></pre></div>
 <pre><code>## Adyghe 
 ##  &quot;ady&quot;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">lang.iso</span>(<span class="st">&quot;ady&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lang.iso</span>(<span class="st">&quot;ady&quot;</span>)</span></code></pre></div>
 <pre><code>##      ady 
 ## &quot;Adyghe&quot;</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</span></code></pre></div>
 <pre><code>## character(0)</code></pre>
 <p>I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that <code>'Ma'ya'</code> is an incorrect string in R.</p>
 <ul>
 <li>a vector of strings</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">area.lang</span>(<span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Aduge&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">area.lang</span>(<span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Aduge&quot;</span>))</span></code></pre></div>
 <pre><code>##    Adyghe     Aduge 
 ## &quot;Eurasia&quot;  &quot;Africa&quot;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>lang &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">aff.lang</span>(lang)</span></code></pre></div>
-<pre><code>##                                          Adyghe 
-##                       &quot;Abkhaz-Adyge,Circassian&quot; 
-##                                         Russian 
-## &quot;Indo-European,Balto-Slavic,Slavic,East Slavic&quot;</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lang <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Russian&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aff.lang</span>(lang)</span></code></pre></div>
+<pre><code>##                                                                  Adyghe 
+##                                               &quot;Abkhaz-Adyge,Circassian&quot; 
+##                                                                 Russian 
+## &quot;Indo-European,Classical Indo-European,Balto-Slavic,Slavic,East Slavic&quot;</code></pre>
 <ul>
 <li>other functions. For example, let’s try to get a vector of ISO codes for the Circassian languages</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">iso.lang</span>(<span class="kw">lang.aff</span>(<span class="st">&quot;Circassian&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">iso.lang</span>(<span class="fu">lang.aff</span>(<span class="st">&quot;Circassian&quot;</span>))</span></code></pre></div>
 <pre><code>##    Adyghe Kabardian 
 ##     &quot;ady&quot;     &quot;kbd&quot;</code></pre>
 <p>If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.</p>
@@ -529,7 +506,7 @@ div.tocify {
 <div id="spell-checker-look-carefully-at-warnings" class="section level3">
 <h3>3. Spell Checker: look carefully at warnings!</h3>
 <p>All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Language Adyge is absent in our version of the Glottolog database. Did
 ## you mean Adyghe, Aduge?</code></pre>
 <pre><code>## Adyge 
@@ -553,7 +530,7 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -571,7 +548,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -592,7 +569,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

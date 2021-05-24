@@ -1,5 +1,4 @@
 library(lingtypology)
-context("Tests for map.feature function")
 
 df <-  data.frame("Abkhaz", stringsAsFactors = FALSE)
 map <- map.feature("Abkhaz")
