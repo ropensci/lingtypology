@@ -10,7 +10,6 @@
 #' @export
 #'
 #' @importFrom utils read.csv
-#' @importFrom utils head
 #'
 
 
@@ -67,7 +66,7 @@ Heggarty, Paul and Shimelman, Aviva and Abete, Giovanni and Anderson, Cormac and
         y <- (words[words$WordModernName2 == x,])
         new <- rbind(z,y)
         new <- new[rowSums(is.na(new)) != ncol(new),]
-        word_id <- utils::head(new["WordId"],1)
+        word_id <- new$WordId[1]
         families <- c("Romance", "Germanic", "Englishes", "Slavic", "Celtic",
                     "Andes", "Mapudungun", "Brazil", "WestPapua", "MixeZoque")
         links_set <- c()
