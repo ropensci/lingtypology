@@ -1,6 +1,6 @@
 #' Download BANTU data
 #'
-#' This function downloads data from BANTU (\url{https://abvd.shh.mpg.de/bantu/index.php}) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from Bantu Basic Vocabulary Database (\url{https://abvd.shh.mpg.de/bantu/index.php}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param features A character vector that define with a feature ids from BANTU ('house', 'cat').
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}
