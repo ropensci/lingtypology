@@ -42,7 +42,7 @@ Evolutionary Bioinformatics, 4:271-283.
         stop(paste(
           "There is no features",
           paste0("'", x, "'", collapse = ", "),
-          "in soundcomparisons database."))}
+          "in bantu database."))}
     })
   my_df <- do.call("rbind", my_data)
   colnames(my_df) <- c("id",
