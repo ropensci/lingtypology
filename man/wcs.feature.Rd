@@ -14,7 +14,7 @@ This function opens downloaded data from the database of WCS Data Archives (\url
 }
 \examples{
 
-wcs.feature()
+wcs.feature("WCS")
 
 }
 \seealso{

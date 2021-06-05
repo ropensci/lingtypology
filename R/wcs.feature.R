@@ -7,7 +7,7 @@
 #' @seealso \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
 #' @examples
 #'
-#' wcs.feature()
+#' wcs.feature("WCS")
 #'
 #' @export
 #'
