@@ -14,7 +14,6 @@
 
 bantu.feature <- function(features){
   message(paste0("Don't forget to cite a source (modify in case of using individual chapters):
-
 Greenhill, S.J., Blust. R, & Gray, R.D. (2008). The Austronesian Basic Vocabulary Database: From Bioinformatics to Lexomics.
 Evolutionary Bioinformatics, 4:271-283.
 (Available online at https://abvd.shh.mpg.de/bantu/index.php, Accessed on ",
