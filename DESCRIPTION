@@ -40,5 +40,6 @@ Suggests:
     sp,
     rgeos,
     rgdal,
-    ggplot2
+    ggplot2,
+    ape
 VignetteBuilder: knitr
