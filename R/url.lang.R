@@ -4,7 +4,7 @@
 #' @param x A character vector of languages (can be written in lower case)
 #' @param popup character vector of strings that will appear in pop-up window of the function map.feature
 #' @author George Moroz <agricolamz@gmail.com>
-#' @seealso \code{\link{aff.lang.R}}, \code{\link{area.lang.R}}, \code{\link{country.lang.R}}, \code{\link{gltc.lang.R}}, \code{\link{iso.lang.R}}, \code{\link{lat.lang.R}}, \code{\link{long.lang.R}}, \code{\link{subc.lang.R}}
+#' @seealso \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{gltc.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}
 #' @examples
 #' url.lang('Korean')
 #' url.lang(c('Gangou', 'Hachijo', 'Adyghe', 'Ganai'))

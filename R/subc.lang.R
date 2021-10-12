@@ -3,7 +3,7 @@
 #' Takes any vector of languoids and returns subclassification in the Newick tree format.
 #' @param x A character vector of the languoids (can be written in lower case)
 #' @author George Moroz <agricolamz@gmail.com>
-#' @seealso \code{\link{aff.lang.R}}, \code{\link{area.lang.R}}, \code{\link{country.lang.R}}, \code{\link{gltc.lang.R}}, \code{\link{iso.lang.R}}, \code{\link{lat.lang.R}}, \code{\link{long.lang.R}}, \code{\link{url.lang.R}}
+#' @seealso \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{gltc.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
 #' @examples
 #' subc.lang('Korean')
 #' subc.lang(c('Korean', 'Lechitic'))

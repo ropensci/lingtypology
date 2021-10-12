@@ -17,7 +17,7 @@ aff.lang('Korean')
 aff.lang(c('Korean', 'Polish'))
 }
 \seealso{
-\code{\link{area.lang.R}}, \code{\link{country.lang.R}}, \code{\link{gltc.lang.R}}, \code{\link{iso.lang.R}}, \code{\link{lat.lang.R}}, \code{\link{long.lang.R}}, \code{\link{subc.lang.R}}, \code{\link{url.lang.R}}
+\code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{gltc.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}, \code{\link{url.lang}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

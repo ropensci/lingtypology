@@ -2,7 +2,7 @@
 % Please edit documentation in R/country.lang.R
 \name{country.lang}
 \alias{country.lang}
-\title{Get subclassification by language}
+\title{Get country by language}
 \usage{
 country.lang(x)
 }
@@ -14,10 +14,10 @@ Takes any vector of languages and returns countries where those languages are us
 }
 \examples{
 country.lang('Korean')
-subc.lang(c('Korean', 'Lechitic'))
+country.lang(c('Korean', 'Polish'))
 }
 \seealso{
-\code{\link{aff.lang.R}}, \code{\link{area.lang.R}}, \code{\link{gltc.lang.R}}, \code{\link{iso.lang.R}}, \code{\link{lat.lang.R}}, \code{\link{long.lang.R}}, \code{\link{subc.lang.R}}, \code{\link{url.lang.R}}
+\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{gltc.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}, \code{\link{url.lang}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>
