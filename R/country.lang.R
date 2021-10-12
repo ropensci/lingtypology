@@ -17,7 +17,7 @@ country.lang <- function(x) {
   vapply(x, function(y) {
     ifelse(
       is.glottolog(y, response = TRUE) == TRUE,
-      glottolog[tolower(glottolog$language) %in% tolower(y), ]$subclassification,
+      glottolog[tolower(glottolog$language) %in% tolower(y), ]$countries,
       NA_character_
     )
   }, character(1))
