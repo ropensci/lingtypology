@@ -5,16 +5,18 @@
 \alias{glottolog}
 \title{Catalogue of languages of the world}
 \format{
-A data frame with 20290 rows and 8 variables:
+A data frame with 25900 rows and 10 variables:
 \describe{
-  \item{affiliation}{genealogical affiliation}
   \item{glottocode}{languoid code from Glottolog 4.4}
   \item{language}{name of the language}
   \item{iso}{code based on ISO 639--3 \url{https://iso639-3.sil.org/}}
-  \item{level}{languoid type: dialect or language}
-  \item{longitude}{longitude}
-  \item{latitude}{latitude}
+  \item{level}{languoid type: dialect or language (possible values are dialect, language, family, bookkeeping, pseudo family, sign language, unclassifiable, pidgin, unattested, artificial language, speech register, mixed language)}
   \item{area}{have six values Africa, Australia, Eurasia, North America, Papunesia, South America}
+  \item{latitude}{latitude}
+  \item{longitude}{longitude}
+  \item{countries}{list of countries, where the language is spoken}
+  \item{affiliation}{genealogical affiliation}
+  \item{subclassification}{subclassification in a Newick format}
 }
 }
 \source{

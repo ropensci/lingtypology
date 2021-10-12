@@ -1,5 +1,6 @@
-lingtypology 1.1.6 (05.06.2021)
+lingtypology 1.1.6 (12.10.2021)
 - add "bantu.features()" function API for Bantu Basic Vocabulary Database
+- replace `glottolog` db with one from glottolog-cldf source
 
 lingtypology 1.1.5 (15.05.2021)
 - add "bivaltyp.feature()" function API for a typological database of bivalent verbs BivalTyp

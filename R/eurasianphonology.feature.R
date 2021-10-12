@@ -1,6 +1,6 @@
 #' Opens data from the database of Eurasian phonological inventories
 #'
-#' This function opens downloaded data from the database of Eurasian phonological inventories (\url{http://eurasianphonology.info}).
+#' This function opens downloaded data from the database of Eurasian phonological inventories (\url{https://eurphon.info}).
 #'
 #' @author Kirill Koncha <majortomblog@gmail.com>
 #'

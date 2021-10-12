@@ -1,6 +1,6 @@
 #' Eurasianphonology data
 #'
-#' Data from The database of Eurasian phonological inventories (\url{http://eurasianphonology.info}). This dataset is created for \code{\link{eurasianphonology.feature}} function.
+#' Data from The database of Eurasian phonological inventories (\url{https://eurphon.info}). This dataset is created for \code{\link{eurasianphonology.feature}} function.
 #'
 #' @format A data frame with 19825 rows and 19 variables:
 #' \describe{
