@@ -14,10 +14,12 @@ Most of the functions in `lingtypology` have the same syntax: **what you need.wh
 
 * **aff.lang()** — get affiliation by language
 * **area.lang()** — get macro area by language
+* **country.lang()** — get country by language
 * **iso.lang()** — get ISO 639-3 code by language
 * **gltc.lang()** — get glottocode (identifier for a language in the Glottolog database) code by language
 * **lat.lang()** — get latitude by language
 * **long.lang()** — get longitude by language
+* **subc.lang()** — get subclassification in the Newick tree format by language
 
 Some of them help to define a vector of languages.
 
@@ -75,3 +77,19 @@ All functions which take a vector of languages are enriched with a kind of a spe
 ```{r}
 aff.lang("Adyge")
 ```
+
+### 4. `subc.lang()` function
+
+The `subc.lang()` function returns language subclassification in the Newick tree format.
+
+```{r}
+subc.lang("Lechitic")
+```
+
+This format is hard to interpret by itself, but there are some tools in R that make it possible to visualise those subclassifications:
+
+```{r}
+library(ape)
+plot(read.tree(text = subc.lang("Lechitic")))
+```
+

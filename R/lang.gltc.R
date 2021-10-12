@@ -1,6 +1,6 @@
 #' Get language by Glottocode
 #'
-#' Takes any vector of Glottocodes and return languages.
+#' Takes any vector of Glottocodes and returns languages.
 #' @param x A character vector of the Glottocodes.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{lang.aff}}

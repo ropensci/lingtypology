@@ -12,7 +12,7 @@ is.glottolog(x, response = FALSE)
 \item{response}{logical. If TRUE, when language is absent, return warnings with a possible candidates.}
 }
 \description{
-Takes any vector of languages or ISO codes and return a logical vector.
+Takes any vector of languages or ISO codes and returns a logical vector.
 }
 \examples{
 is.glottolog(c('Adyghe', 'Russian'))

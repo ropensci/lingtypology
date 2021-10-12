@@ -10,14 +10,14 @@ aff.lang(x)
 \item{x}{A character vector of the languages (can be written in lower case)}
 }
 \description{
-Takes any vector of languages and return affiliation.
+Takes any vector of languages and returns affiliation.
 }
 \examples{
 aff.lang('Korean')
 aff.lang(c('Korean', 'Polish'))
 }
 \seealso{
-\code{\link{area.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
+\code{\link{area.lang.R}}, \code{\link{country.lang.R}}, \code{\link{gltc.lang.R}}, \code{\link{iso.lang.R}}, \code{\link{lat.lang.R}}, \code{\link{long.lang.R}}, \code{\link{subc.lang.R}}, \code{\link{url.lang.R}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

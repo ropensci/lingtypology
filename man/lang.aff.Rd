@@ -14,7 +14,7 @@ lang.aff(x, include.dialects = FALSE, list = FALSE)
 \item{list}{logical. If TRUE, it returns a list of languages, if FALSE it returns a named vector.}
 }
 \description{
-Takes any vector of affiliations and return languages.
+Takes any vector of affiliations and returns languages.
 }
 \examples{
 lang.aff('Slavic')

@@ -12,7 +12,7 @@ long.lang(x, map.orientation = "Pacific")
 \item{map.orientation}{A character verctor with values "Pacific" and "Atlantic". It distinguishes Pacific-centered and Atlantic-centered maps. By default is "Pacific".}
 }
 \description{
-Takes any vector of languages and return longitude.
+Takes any vector of languages and returns longitude.
 }
 \examples{
 lat.lang('Adyghe')
@@ -22,7 +22,7 @@ long.lang(c('Adyghe', 'Russian'))
 long.lang(c('Adyghe', 'Aleut'), map.orientation = "Pacific")
 }
 \seealso{
-\code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}
+\code{\link{aff.lang.R}}, \code{\link{area.lang.R}}, \code{\link{country.lang.R}}, \code{\link{gltc.lang.R}}, \code{\link{iso.lang.R}}, \code{\link{lat.lang.R}},  \code{\link{subc.lang.R}}, \code{\link{url.lang.R}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

@@ -10,7 +10,7 @@ lang.gltc(x)
 \item{x}{A character vector of the Glottocodes.}
 }
 \description{
-Takes any vector of Glottocodes and return languages.
+Takes any vector of Glottocodes and returns languages.
 }
 \examples{
 lang.gltc('adyg1241')

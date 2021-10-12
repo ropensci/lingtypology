@@ -10,7 +10,7 @@ lang.iso(x)
 \item{x}{A character vector of the ISO codes.}
 }
 \description{
-Takes any vector of ISO codes and return languages.
+Takes any vector of ISO codes and returns languages.
 }
 \examples{
 lang.iso('ady')

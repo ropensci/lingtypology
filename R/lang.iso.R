@@ -1,6 +1,6 @@
 #' Get language by ISO 639--3 code
 #'
-#' Takes any vector of ISO codes and return languages.
+#' Takes any vector of ISO codes and returns languages.
 #' @param x A character vector of the ISO codes.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{lang.aff}}

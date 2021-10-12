@@ -4,7 +4,7 @@ author: "George Moroz"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{`lingtypology` Glottolog functions}
+  %\VignetteIndexEntry{`lingtypology`: Glottolog functions}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -15,17 +15,19 @@ editor_options:
 library(lingtypology)
 ```
 
-This package is based on the [Glottolog database (v. 4.4)](https://glottolog.org/), so `lingtypology` has several functions for accessing data from that database.
+This package is based on the [Glottolog database (v. 4.4)](http://glottolog.org/), so `lingtypology` has several functions for accessing data from that database.
 
 ### 1. Command name's syntax
 Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. Most of them are based on _language name_.
 
 * **aff.lang()** — get affiliation by language
 * **area.lang()** — get macro area by language
+* **country.lang()** — get country by language
 * **iso.lang()** — get ISO 639-3 code by language
 * **gltc.lang()** — get glottocode (identifier for a language in the Glottolog database) code by language
 * **lat.lang()** — get latitude by language
 * **long.lang()** — get longitude by language
+* **subc.lang()** — get subclassification in the Newick tree format by language
 
 Some of them help to define a vector of languages.
 
@@ -42,7 +44,7 @@ The most important functionality of `lingtypology` is the ability to create inte
 
 * **map.feature()**
 
-[Glottolog database (v. 4.1)](https://glottolog.org/) provides `lingtypology` with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
+[Glottolog database (v. 4.1)](http://glottolog.org/) provides `lingtypology` with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
 
 ```{r}
 names(glottolog)
@@ -82,4 +84,19 @@ All functions which take a vector of languages are enriched with a kind of a spe
 
 ```{r}
 aff.lang("Adyge")
+```
+
+### 4. `subc.lang()` function
+
+The `subc.lang()` function returns language subclassification in the Newick tree format.
+
+```{r}
+subc.lang("Lechitic")
+```
+
+This format is hard to interpret by itself, but there are some tools in R that make it possible to visualise those subclassifications:
+
+```{r, eval=FALSE}
+library(ape)
+plot(read.tree(text = subc.lang("Lechitic")))
 ```

@@ -1,6 +1,6 @@
 #' Get languages by affiliation
 #'
-#' Takes any vector of affiliations and return languages.
+#' Takes any vector of affiliations and returns languages.
 #' @param x A character vector of the affiliations (can be written in lower case)
 #' @param include.dialects logical. If TRUE, it returns all langauges and dialects, if FALSE it returns only languages.
 #' @param list logical. If TRUE, it returns a list of languages, if FALSE it returns a named vector.

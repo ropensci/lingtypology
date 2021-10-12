@@ -12,11 +12,14 @@ url.lang(x, popup = "")
 \item{popup}{character vector of strings that will appear in pop-up window of the function map.feature}
 }
 \description{
-Takes any vector of languages and return links to glottolog pages.
+Takes any vector of languages and returns links to glottolog pages.
 }
 \examples{
 url.lang('Korean')
 url.lang(c('Gangou', 'Hachijo', 'Adyghe', 'Ganai'))
+}
+\seealso{
+\code{\link{aff.lang.R}}, \code{\link{area.lang.R}}, \code{\link{country.lang.R}}, \code{\link{gltc.lang.R}}, \code{\link{iso.lang.R}}, \code{\link{lat.lang.R}}, \code{\link{long.lang.R}}, \code{\link{subc.lang.R}}
 }
 \author{
 George Moroz <agricolamz@gmail.com>

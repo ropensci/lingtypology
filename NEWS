@@ -1,13 +1,14 @@
 lingtypology 1.1.6 (12.10.2021)
-- add "bantu.features()" function API for Bantu Basic Vocabulary Database
-- replace `glottolog` db with one from glottolog-cldf source
+- add `bantu.features()` function API for Bantu Basic Vocabulary Database (by Anna Smirnova, https://github.com/ropensci/lingtypology/pull/67)
+- replace `glottolog` with one from Glottolog database 4.4 as CLDF (https://github.com/glottolog/glottolog-cldf)
+- add `country.lang()` and `subc.lang()` functions for geting countries and subclassification in the Newick tree format
 
 lingtypology 1.1.5 (15.05.2021)
-- add "bivaltyp.feature()" function API for a typological database of bivalent verbs BivalTyp
-- add tile.opacity argument to the "map.feature()" function
-- add "vanuatu.feature()" function API for a typological database of Vanuatu Voices (by Mikhail Leonov, https://github.com/ropensci/lingtypology/pull/56)
-- add "eurasianphonology.feature()" function API for a typological database  (by Kirill Koncha, https://github.com/ropensci/lingtypology/pull/58)
-- add "soundcomparisons.feature()" function API for a typological database  (by Anna Smirnova, https://github.com/ropensci/lingtypology/pull/62)
+- add `bivaltyp.feature()` function API for a typological database of bivalent verbs BivalTyp
+- add `tile.opacity` argument to the `map.feature()` function
+- add `vanuatu.feature()` function API for a typological database of Vanuatu Voices (by Mikhail Leonov, https://github.com/ropensci/lingtypology/pull/56)
+- add `eurasianphonology.feature()` function API for a typological database  (by Kirill Koncha, https://github.com/ropensci/lingtypology/pull/58)
+- add `soundcomparisons.feature()` function API for a typological database  (by Anna Smirnova, https://github.com/ropensci/lingtypology/pull/62)
 - change glottolog v. 4.3 to v. 4.4
 
 lingtypology 1.1.4 (02.10.2020)

@@ -1,6 +1,6 @@
 #' Are these languages in glottolog?
 #'
-#' Takes any vector of languages or ISO codes and return a logical vector.
+#' Takes any vector of languages or ISO codes and returns a logical vector.
 #' @param x A character vector of languages (can be written in lower case)or ISO codes
 #' @param response logical. If TRUE, when language is absent, return warnings with a possible candidates.
 #' @author George Moroz <agricolamz@gmail.com>
