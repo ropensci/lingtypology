@@ -23,7 +23,11 @@ aff.lang("Adyge")
 ## -----------------------------------------------------------------------------
 subc.lang("Lechitic")
 
-## ---- eval=FALSE--------------------------------------------------------------
-#  library(ape)
-#  plot(read.tree(text = subc.lang("Lechitic")))
+## -----------------------------------------------------------------------------
+library(ape)
+plot(read.tree(text = subc.lang("Lechitic")))
+
+## -----------------------------------------------------------------------------
+plot(read.tree(text = subc.lang("Lechitic")),
+     tip.color = c("red", "black", "black", "black"))
 

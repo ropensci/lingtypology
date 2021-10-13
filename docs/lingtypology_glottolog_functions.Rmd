@@ -93,3 +93,13 @@ library(ape)
 plot(read.tree(text = subc.lang("Lechitic")))
 ```
 
+It is possible to specify colors of tips in case you want to emphasize some nodes:
+
+```{r}
+plot(read.tree(text = subc.lang("Lechitic")),
+     tip.color = c("red", "black", "black", "black"))
+```
+
+As you can see nodes are counted from bottom to top.
+
+For more sophisticated tree visualization you can look into [`ggtree` package](https://bioconductor.org/packages/release/bioc/html/ggtree.html).

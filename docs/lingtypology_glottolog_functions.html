@@ -526,6 +526,12 @@ div.tocify {
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">read.tree</span>(<span class="at">text =</span> <span class="fu">subc.lang</span>(<span class="st">&quot;Lechitic&quot;</span>)))</span></code></pre></div>
 <p><img src="lingtypology_glottolog_functions_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>It is possible to specify colors of tips in case you want to emphasize some nodes:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">read.tree</span>(<span class="at">text =</span> <span class="fu">subc.lang</span>(<span class="st">&quot;Lechitic&quot;</span>)),</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">tip.color =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>))</span></code></pre></div>
+<p><img src="lingtypology_glottolog_functions_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>As you can see nodes are counted from bottom to top.</p>
+<p>For more sophisticated tree visualization you can look into <a href="https://bioconductor.org/packages/release/bioc/html/ggtree.html"><code>ggtree</code> package</a>.</p>
 </div>
 
 <br>
