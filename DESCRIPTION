@@ -10,7 +10,7 @@ Imports:
     utils,
     stringdist,
     grDevices,
-	jsonlite
+    jsonlite
 Authors@R: c(person("George", "Moroz",
                     role = c("aut", "cre"),
                     email = "agricolamz@gmail.com",
