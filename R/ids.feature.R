@@ -2,23 +2,23 @@
 #'
 #' This function downloads data from The Intercontinental Dictionary Series (\url{https://ids.clld.org/}). You need the internet connection.
 #'
-#' @param features A vector with parameters from Conepts (\url{https://vanuatuvoices.clld.org/parameters}))
+#' @param features A vector with parameters from conepts (\url{https://ids.clld.org/parameters}))
 #' @param languages A vector with language names from the database.If features not selected, downloads full dictionaries for chosen languages.
 #' @param choose_var Logical. If TRUE looks for all of the variants of each language. By default is TRUE.
-#' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
+#' @param na.rm Logical. If TRUE function removes all languages not available in the glottolog database available in lingtypology. By default is TRUE.
 #' @author Mikhail Leonov
 #' @export
 #' @importFrom  utils read.csv
-ids.feature <-function(features = c(),languages = c(),choose_var = TRUE,na.rm = TRUE) {
+ids.feature <-function(features ,languages ,choose_var = TRUE,na.rm = TRUE) {
   message(paste0("Don't forget to cite a source (modify in case of using individual chapters):
 
 Key, Mary Ritchie & Comrie, Bernard (eds.) 2015.
 The Intercontinental Dictionary Series.
 Leipzig: Max Planck Institute for Evolutionary Anthropology.
 (Available online at http://ids.clld.org, Accessed on ",Sys.Date(),".)"))
-  lang_csv<-read.csv('https://raw.githubusercontent.com/intercontinental-dictionary-series/ids/v4.0/cldf/languages.csv',encoding = 'UTF-8')[,c('ID','Name','Glottocode')]
+  lang_csv<-utils::read.csv('https://raw.githubusercontent.com/intercontinental-dictionary-series/ids/v4.0/cldf/languages.csv',encoding = 'UTF-8')[,c('ID','Name','Glottocode')]
   id_list<-utils::read.csv('https://ids.clld.org/parameters.csv?sEcho=1&iSortingCols=1&iSortCol_0=0&sSortDir_0=asc')
-  conc_csv<-read.csv('https://ids.clld.org/chapters.csv?sEcho=1&iSortingCols=1&iSortCol_0=0&sSortDir_0=asc')[,c('id','name')]
+  conc_csv<-utils::read.csv('https://ids.clld.org/chapters.csv?sEcho=1&iSortingCols=1&iSortCol_0=0&sSortDir_0=asc')[,c('id','name')]
   conc_csv<-merge(id_list,conc_csv,by.x = 'chapter_pk',by.y = 'id')[,c('concepticon_gloss','name.y')]
   names(conc_csv)<-c('concepticon_gloss','conc_chapter')
   id_list<-id_list[,c('concepticon_gloss','id')]
@@ -39,9 +39,9 @@ Leipzig: Max Planck Institute for Evolutionary Anthropology.
       cand <- c(cand,lang_csv[unique(add_cand),]$Name)
     }
     if (length(cand)==0)
-      not_languages<<-c(not_languages,lang_name)
-#assign(not_languages,c(not_languages,lang_name),envir = .GlobalEnv)
-    return(cand)
+#     not_languages<<-c(not_languages,lang_name)
+      assign(not_languages,c(not_languages,lang_name),envir = .GlobalEnv)
+    cand
   }
 
   languages_found<-unlist(sapply(languages, lang_check))
@@ -96,7 +96,7 @@ Leipzig: Max Planck Institute for Evolutionary Anthropology.
     if (feat_sourse && length(e_languages)!=0){
       parameters<-parameters[parameters$language_name %in% e_languages,]
     }
-    return(parameters)
+    parameters
   }
   if(feat_sourse){
     final_df_list<-lapply(as.vector(e_features),add_param)
