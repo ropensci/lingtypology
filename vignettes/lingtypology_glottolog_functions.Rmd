@@ -110,4 +110,7 @@ plot(read.tree(text = subc.lang("Lechitic")),
 
 As you can see nodes are counted from bottom to top.
 
-For more sophisticated tree visualization you can look into [`ggtree` package](https://bioconductor.org/packages/release/bioc/html/ggtree.html).
+For more sophisticated tree visualization you can look into [`ggtree` package](https://bioconductor.org/packages/release/bioc/html/ggtree.html). There are several linguistic packages that provide some functionality for creating glottolog trees:
+
+* [`glottoTrees`](https://github.com/erichround/glottoTrees) package by Erich Round
+* [`lingtypr`](https://gitlab.com/laurabecker/lingtypr) package by Laura Becker

@@ -14,8 +14,8 @@
 
 <title>lingtypology: introduction and installation</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -437,7 +437,7 @@ div.tocify {
 
 <div id="what-is-lingtypology" class="section level3">
 <h3>What is <code>lingtypology</code>?</h3>
-<p>The <code>lingtypology</code> package connects R with the <a href="http://glottolog.org/">Glottolog database (v. 4.4)</a> and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world’s languages. This package helps researchers to make linguistic maps, using the philosophy of <a href="http://clld.org/">the Cross-Linguistic Linked Data project</a>, which is creating a uniform access to linguistic data across publications. This package is based on the <a href="https://rstudio.github.io/leaflet/">leaflet package</a>, so <code>lingtypology</code> is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4).I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya Klyagina for reading and correcting some versions of this vignette.</p>
+<p>The <code>lingtypology</code> package connects R with the <a href="http://glottolog.org/">Glottolog database (v. 4.4)</a> and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world’s languages. This package helps researchers to make linguistic maps, using the philosophy of <a href="http://clld.org/">the Cross-Linguistic Linked Data project</a>, which is creating a uniform access to linguistic data across publications. This package is based on the <a href="https://rstudio.github.io/leaflet/">leaflet package</a>, so <code>lingtypology</code> is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4). The functionality of this package intersects with the package <a href="https://gitlab.com/laurabecker/lingtypr"><code>lingtypr</code></a> by Laura Becker. I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya Klyagina for reading and correcting some versions of this vignette.</p>
 </div>
 <div id="installation" class="section level3">
 <h3>1. Installation</h3>
@@ -511,6 +511,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
