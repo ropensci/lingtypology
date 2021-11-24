@@ -5,12 +5,14 @@
 #' @param feature times of repetitions
 #' @author suppukerr
 #' @examples
-#' cow(3)
+#' # cow()
+#' @export
 
 cow <- function(num){
-  zvuk = 'му'
+  zvuk = 'mu'
   for (i in 2:num) {
-    zvuk = paste(zvuk, 'му', sep='-', collapse=NULL)
+    zvuk = paste(zvuk, 'mu', sep='-', collapse=NULL)
   }
   print(zvuk)
 }
+cow(2)
