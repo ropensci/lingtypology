@@ -3,16 +3,12 @@
 #' This function produces a specified number of Sounds mu
 
 #' @param feature times of repetitions
-#' @author suppukerr
+#' @author Sasha Shakhnova
 #' @examples
-#' # cow()
+#' # cow(3)
 #' @export
 
 cow <- function(num){
-  zvuk = 'mu'
-  for (i in 2:num) {
-    zvuk = paste(zvuk, 'mu', sep='-', collapse=NULL)
-  }
-  print(zvuk)
+  print(paste(replicate(num, 'му'), collapse = '-'))
 }
-cow(2)
+cow(5)
