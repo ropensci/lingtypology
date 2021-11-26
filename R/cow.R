@@ -9,6 +9,6 @@
 #' @export
 
 cow <- function(num){
-  print(paste(replicate(num, 'му'), collapse = '-'))
+  print(paste(replicate(num, 'moo'), collapse = '-'))
 }
 cow(5)
