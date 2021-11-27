@@ -5,9 +5,9 @@
 #' @param num times of repetitions
 #' @author Sasha Shakhnova
 #' @examples
-#' cow(3)
+#' # cow()
 #' @export
 
 cow <- function(num){
-  print(paste(replicate(num, 'moo'), collapse = '-'))
+  paste(replicate(num, 'moo'), collapse = '-')
 }
