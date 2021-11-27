@@ -2,7 +2,7 @@
 
 #' This function produces a specified number of Sounds mu
 
-#' @param feature times of repetitions
+#' @param num times of repetitions
 #' @author Sasha Shakhnova
 #' @examples
 #' cow(3)
