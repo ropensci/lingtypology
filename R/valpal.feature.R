@@ -3,7 +3,6 @@
 #' This function downloads data from ValPal (www.valpal.info/) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is FALSE.
-#' @param fake_argument I don't know what to do.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{bivaltyp.feature}}, \code{\link{eurasianphonology.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{soundcomparisons.feature}}, \code{\link{uralex.feature}}, \code{\link{vanuatu.feature}}, \code{\link{wals.feature}}
 #' @examples
@@ -15,7 +14,7 @@
 #' @importFrom utils read.csv
 #'
 
-valpal.feature <- function(na.rm = FALSE, fake_argument){
+valpal.feature <- function(na.rm = FALSE){
   message("Don't forget to cite a source:
 
 Hartmann, Iren & Haspelmath, Martin & Taylor, Bradley (eds.) 2013.
