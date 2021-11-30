@@ -5,7 +5,7 @@
 #' @param num times of repetitions
 #' @author Sasha Shakhnova
 #' @examples
-cow(3)
+#' cow(3)
 #' @export
 
 cow <- function(num){
