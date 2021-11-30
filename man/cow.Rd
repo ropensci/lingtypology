@@ -15,7 +15,7 @@ Sounds of a cow
 This function produces a specified number of Sounds mu
 }
 \examples{
-# cow()
+# cow(3)
 }
 \author{
 Sasha Shakhnova
