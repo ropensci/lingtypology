@@ -4,10 +4,12 @@
 \alias{valpal.feature}
 \title{Download ValPaL data}
 \usage{
-valpal.feature(na.rm = FALSE)
+valpal.feature(na.rm = FALSE, fake_argument)
 }
 \arguments{
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is FALSE.}
+
+\item{fake_argument}{I don't know what to do.}
 }
 \description{
 This function downloads data from ValPal (www.valpal.info/) and changes language names to the names from lingtypology database. You need the internet connection.
