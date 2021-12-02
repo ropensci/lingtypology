@@ -4,10 +4,12 @@
 \alias{lang.country}
 \title{Get language by country}
 \usage{
-lang.country(x)
+lang.country(x, list = FALSE)
 }
 \arguments{
 \item{x}{character vector of the countries (in alpha-2 ISO codes)}
+
+\item{list}{logical. If TRUE, it returns a list of languages, if FALSE it returns a named vector.}
 }
 \description{
 Takes any vector of countries and returns languages.

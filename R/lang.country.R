@@ -2,6 +2,7 @@
 #'
 #' Takes any vector of countries and returns languages.
 #' @param x character vector of the countries (in alpha-2 ISO codes)
+#' @param list logical. If TRUE, it returns a list of languages, if FALSE it returns a named vector.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{aff.lang}}, \code{\link{country.lang}}, \code{\link{gltc.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}, \code{\link{url.lang}}
 #' @examples
@@ -9,7 +10,7 @@
 #' lang.country(c('AD', 'AE'))
 #' @export
 
-lang.country <- function(x) {
+lang.country <- function(x, list = FALSE) {
   if (typeof(x) == "list") {
     x <- unlist(x)
   }
@@ -39,11 +40,15 @@ lang.country <- function(x) {
                  'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF',
                  'WS', 'YE', 'YT', 'ZA', 'ZM', 'ZW')
   glottolog <- lingtypology::glottolog
-  vapply(x, function(y) {
-    ifelse(
-      toupper(y) %in% countries == TRUE,
-      glottolog[grepl(toupper(y), glottolog$countries),]$language,
+  result <- lapply(x, function(y) {
+    if(toupper(y) %in% countries == TRUE){
+      glottolog[grepl(toupper(y), glottolog$countries),]$language
+    } else{
       NA_character_
-    )
-  }, character(1))
+    }})
+  if (list == FALSE) {
+    unlist(result)
+  } else {
+    result
+  }
 }
