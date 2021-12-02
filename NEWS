@@ -1,4 +1,4 @@
-lingtypology 1.1.7 (12.10.2021)
+lingtypology 1.1.8 (12.10.2021)
 - fix `country.lang()` functions, close #70
 
 lingtypology 1.1.6 (12.10.2021)
