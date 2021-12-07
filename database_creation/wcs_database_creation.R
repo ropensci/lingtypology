@@ -15,8 +15,8 @@ names(foci)[names(foci) == "V5"] <- "grid_coordinates"
 foci <- foci[c("id", "speaker_id", "focus_response", "WCSC", "grid_coordinates")]
 names(terms)[names(terms) == "X.LNUM"] <- "id"
 names(lang)[names(lang) == "V1"] <- "id"
-
-codes <- read.csv("/Users/kirillkonca/lingtypology/database_creation/wcs_codes.csv", sep = ";")
+#Вы сказали не хранить этот файл в пакете. Его уже нет, он удален, ну ладно пусть путь такой будет
+codes <- read.csv("database_creation/wcs_codes.csv", sep = ";")
 names(codes)[names(codes) == "Index"] <- "id"
 codes$ISO.639.3.Code[codes$id == 93] <- "tac"
 
@@ -89,6 +89,8 @@ lang$term_abbr[is.na(lang$term_abbr)] <- "NA"
 colors <- utils::read.csv("/Users/kirillkonca/lingtypology/database_creation/colors.csv",
                                 encoding="UTF-8", header = TRUE)
 lang <- merge(lang, colors, by=c("grid_coordinates"))
+lang %>%
+  mutate(language = str_replace(language, "Huastec, San Luís Potosí", "Huastec")) -> lang
 
 id <- c(1:20)
 language_original <- c("Arabic", "Bahasa Indonesia", "Bulgarian", "Cantonese", "Catalan",
@@ -138,12 +140,12 @@ bk_foci <- utils::read.delim("http://www1.icsi.berkeley.edu/wcs/data/berlin-kay/
 names(bk_foci)[names(bk_foci) == "X1"] <- "id"
 names(bk_foci)[names(bk_foci) == "X1.1"] <- "speaker_id"
 names(bk_foci)[names(bk_foci) == "X1.2"] <- "focus_response"
-names(bk_foci)[names(bk_foci) == "J0"] <- "grid_coordinates"
+names(bk_foci)[names(bk_foci) == "J0"] <- "grid_coordinatesd <"
 
 bk_langs <- merge(bk_langs, bk_foci, by=c("id", "speaker_id"))
 names(bk_langs)[names(bk_langs) == "id"] <- "language_id"
 wcs <- lang
 wcs_bk <- bk_langs
 
-save(wcs, file="/Users/kirillkonca/lingtypology/data/wcs.RData", compress= 'xz')
-save(wcs_bk, file="/Users/kirillkonca/lingtypology/data/wcs_bk.RData", compress= 'xz')
+save(wcs, file="data/wcs.RData", compress= 'xz')
+save(wcs_bk, file="data/wcs_bk.RData", compress= 'xz')

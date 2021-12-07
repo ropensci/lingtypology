@@ -9,7 +9,7 @@
 #'   \item{speaker_id}{Speaker id}
 #'   \item{term_abbr}{Color term abbriviation}
 #'   \item{language_original}{Language name in the original dataset}
-#'   \item{language}{Language name lingtypology}
+#'   \item{language}{Language name in lingtypology}
 #'   \item{family}{Language family}
 #'   \item{iso}{ISO code}
 #'   \item{glottocode}{Glottocode}
