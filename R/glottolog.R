@@ -10,7 +10,7 @@
 #' https://doi.org/10.5281/zenodo.5772642
 #' (Available online at http://glottolog.org, Accessed on 2021-12-10.)
 #'
-#' @format A data frame with 25900 rows and 10 variables:
+#' @format A data frame with 26101 rows and 10 variables:
 #' \describe{
 #'   \item{glottocode}{languoid code from Glottolog 4.5}
 #'   \item{language}{name of the language}

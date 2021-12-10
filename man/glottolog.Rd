@@ -5,7 +5,7 @@
 \alias{glottolog}
 \title{Catalogue of languages of the world}
 \format{
-A data frame with 25900 rows and 10 variables:
+A data frame with 26101 rows and 10 variables:
 \describe{
   \item{glottocode}{languoid code from Glottolog 4.5}
   \item{language}{name of the language}
