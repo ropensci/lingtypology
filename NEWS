@@ -1,5 +1,6 @@
 lingtypology 1.1.8 (12.10.2021)
 - fix `country.lang()` functions, close #70
+- update glottolog to v. 4.5
 
 lingtypology 1.1.6 (12.10.2021)
 - add `bantu.features()` function API for Bantu Basic Vocabulary Database (by Anna Smirnova, https://github.com/ropensci/lingtypology/pull/67)
