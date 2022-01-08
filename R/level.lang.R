@@ -5,7 +5,7 @@
 #' @author Sasha Shakhnova
 #' @seealso \code{\link{aff.lang}}, \code{\link{country.lang}}, \code{\link{gltc.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}, \code{\link{url.lang}}
 #' @examples
-#' level.lang('Even')
+#' level.lang('Russian Sign Language')
 #' level.lang(c('Archi', 'Chechen'))
 #' @export
 
