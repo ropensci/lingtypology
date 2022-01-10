@@ -27,6 +27,7 @@ Most of the functions in `lingtypology` have the same syntax: **what you need.wh
 * **gltc.lang()** — get glottocode (identifier for a language in the Glottolog database) code by language
 * **lat.lang()** — get latitude by language
 * **long.lang()** — get longitude by language
+* **level.lang()** — get level by language
 * **subc.lang()** — get subclassification in the Newick tree format by language
 
 Some of them help to define a vector of languages.

@@ -13,7 +13,7 @@ level.lang(x)
 Takes any vector of languages and returns a level of language.
 }
 \examples{
-level.lang('Even')
+level.lang('Russian Sign Language')
 level.lang(c('Archi', 'Chechen'))
 }
 \seealso{
