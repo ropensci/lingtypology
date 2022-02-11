@@ -13,11 +13,11 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #              title = "Consonant Inventories")
 
 ## -----------------------------------------------------------------------------
-#  df <- autotyp.feature(c('Gender', 'Numeral classifiers'))
+#  df <- autotyp.feature(c('Has Gender', 'Has Numeral Classifiers'))
 #  head(df)
 #  map.feature(df$language,
-#              features = df$NumClass.Presence,
-#              label = df$language,
+#              features = df$HasNumeralClassifiers,
+#              label = df$language_for_lingtypology,
 #              title = "Presence of Numeral Classifiers")
 
 ## -----------------------------------------------------------------------------

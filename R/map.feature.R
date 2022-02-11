@@ -300,7 +300,7 @@ map.feature <- function(languages,
   }
 
   # create a palette ---------------------------------------------------------
-  set.seed(45)
+  set.seed(42)
   my_colors <-
     c(
       "#1f77b4",

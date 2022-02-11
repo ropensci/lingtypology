@@ -86,3 +86,57 @@ result %>%
 glottolog <- read.csv("glottolog.csv")
 setwd("/home/agricolamz/work/packages/lingtypology/data/")
 save(glottolog, file="glottolog.RData", compress='xz')
+
+# autotyp ------------------------------------------------------------------
+remove <- c("MarkerID", "MarkerID", "MarkerLabel", "MarkerExemplar","Language",
+            "LID", "Glottocode", "ConstructionLabel", "IntuitiveClassification",
+            "OriginalName", "Examples", "NPStructureID", "NPStructureMarkerID",
+            "SelectorID", "MarkerID", "SelectorLabel", "PredicateClassID",
+            "PredicateClassLabel", "PredicateClassDescription")
+
+read_csv("https://raw.githubusercontent.com/autotyp/autotyp-data/v1.0.0/variables_overview.csv") %>%
+  filter(!is.na(modules),
+         !(variable %in% remove)) %>%
+  mutate(path = str_c(modules, "/", dataset, ".csv")) %>%
+  select(path, variable) ->
+  autotyp
+
+change_path <- str_remove(c('AlignmentForDefaultPredicatesPerLanguage.csv',
+                            'GrammaticalMarkersPerLanguage.csv',
+                            'LocusOfMarkingPerLanguage.csv',
+                            'MorphologyPerLanguage.csv',
+                            'NPStructurePerLanguage.csv',
+                            'NPStructurePresence.csv',
+                            'PredicateClassesSemanticsPerLanguage.csv',
+                            'VerbAgreementAggregatedByMarkerHasMultipleExponents.csv',
+                            'VerbAgreementAggregatedByMarkerHasPostposedExponent.csv',
+                            'VerbAgreementAggregatedByMarkerHasPreposedExponent.csv',
+                            'VerbAgreementAggregatedByMarkerPosition.csv',
+                            'VerbAgreementAggregatedByMarkerPositionBinned4.csv',
+                            'VerbAgreementAggregatedByMarkerPositionBinned5.csv',
+                            'VerbInflectionAndAgreementCountsByPosition.csv',
+                            'VerbInflectionCategoriesAggregatedByMarkerHasMultipleExponents.csv',
+                            'VerbInflectionCategoriesAggregatedByMarkerHasPostposedExponent.csv',
+                            'VerbInflectionCategoriesAggregatedByMarkerHasPreposedExponent.csv',
+                            'VerbInflectionCategoriesAggregatedByMarkerPosition.csv',
+                            'VerbInflectionCategoriesAggregatedByMarkerPositionBinned4.csv',
+                            'VerbInflectionCategoriesAggregatedByMarkerPositionBinned5.csv',
+                            'VerbInflectionCategoriesAggregatedPresence.csv',
+                            'VerbInflectionMacrocategoriesAggregatedByMarkerHasMultipleExponents.csv',
+                            'VerbInflectionMacrocategoriesAggregatedByMarkerHasPostposedExponent.csv',
+                            'VerbInflectionMacrocategoriesAggregatedByMarkerHasPreposedExponent.csv',
+                            'VerbInflectionMacrocategoriesAggregatedByMarkerPosition.csv',
+                            'VerbInflectionMacrocategoriesAggregatedByMarkerPositionBinned4.csv',
+                            'VerbInflectionMacrocategoriesAggregatedByMarkerPositionBinned5.csv'),
+                          ".csv")
+
+autotyp %>%
+  mutate(file = str_remove(path, "^.*?/"),
+         file = str_remove(file, ".csv$")) %>%
+  mutate(path = ifelse(file %in% change_path,
+                       str_c("PerLanguageSummaries/", str_remove(path, "^.*?/")),
+                       path)) ->
+  autotyp
+
+setwd("/home/agricolamz/work/packages/lingtypology/data/")
+save(autotyp, file="autotyp.RData", compress='xz')
