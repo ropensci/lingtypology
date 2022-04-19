@@ -10,7 +10,7 @@ bantu.feature(features)
 \item{features}{A character vector that define with a feature ids from BANTU ('house', 'cat').}
 }
 \description{
-This function downloads data from Bantu Basic Vocabulary Database (\url{https://abvd.shh.mpg.de/bantu/index.php}) and changes language names to the names from lingtypology database. You need the internet connection.
+This function downloads data from Bantu Basic Vocabulary Database (\url{https://abvd.eva.mpg.de/bantu/index.php}) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # bantu.feature(c('house', 'cat'))

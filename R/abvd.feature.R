@@ -1,6 +1,6 @@
 #' Download ABVD data
 #'
-#' This function downloads data from ABVD (\url{https://abvd.shh.mpg.de/austronesian/}) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from ABVD (\url{https://abvd.eva.mpg.de/austronesian/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param feature A character vector that define a language id from ABVD (e. g. "1", "292").
 #' @author George Moroz <agricolamz@gmail.com>
@@ -21,7 +21,7 @@ Greenhill, S.J., Blust. R, & Gray, R.D. (2008). The Austronesian Basic Vocabular
   if (is.numeric(feature)) {
     links <-
       paste0(
-        "https://abvd.shh.mpg.de/utils/save/?type=tdf&section=austronesian&language=",
+        "https://abvd.eva.mpg.de/utils/save/?type=tdf&section=austronesian&language=",
         feature
       )
   } else{
