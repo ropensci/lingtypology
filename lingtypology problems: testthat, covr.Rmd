@@ -1,0 +1,88 @@
+---
+title: "lingtypology problems: testthat, devtools, covr"
+author: "G. Moroz"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Session info:
+```{r}
+sessionInfo()$R.version$version.string
+sessionInfo()$platform
+sessionInfo()$running
+```
+
+Where am I?
+```{bash}
+ls -a
+```
+I am in `lingtypology` package directory.
+
+```{r}
+packageVersion("devtools")
+packageVersion("testthat")
+packageVersion("covr")
+```
+### testthat
+All tests in the testthat directory work fine:
+```{r}
+library(testthat)
+testthat::test_dir("tests/testthat/")
+```
+Does `testthat` know that test are associated with package `lingtypology`?
+```{r, error=TRUE}
+testthat::test_check("lingtypology")
+```
+No. Since I haven't built package with tests yet... Whether tests work fine during package building?
+```{r, error=TRUE}
+library(devtools)
+devtools::test()
+```
+I tryed to find out what has happening. I get that error any time I press "Build and reload" button. For now I think that it is the problem with `devtools` that use some functions from new `testthat` version. Because there is no `source_test_helpers` object in `testthat` version 0.9.1:
+```{r, message= F}
+library(dplyr)
+grepl("source_test_helpers", lsf.str("package:testthat")) %>% 
+  sum()
+```
+May be I should to install the last version?
+```{r, error= TRUE}
+install.packages("testthat", repos = "http://cran.us.r-project.org")
+```
+
+RMarkdown doesn't show this big fragment:
+
+> ** libs
+
+> clang -I/usr/share/R/include -DNDEBUG -I../inst/include  -DCOMPILING_TESTTHAT     -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c label.c -o label.o
+
+> clang -I/usr/share/R/include -DNDEBUG -I../inst/include -DCOMPILING_TESTTHAT     -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c reassign.c -o reassign.o
+
+> clang++ -arch x86_64 -ftemplate-depth-256 -I/usr/share/R/include -DNDEBUG -I../inst/include -DCOMPILING_TESTTHAT     -fpic  -O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function -flto -ffat-lto-objects  -Wno-unused-local-typedefs -Wno-ignored-attributes -Wno-deprecated-declarations -c test-catch.cpp -o test-catch.o
+
+> clang: error: unknown argument: '-ffat-lto-objects'
+
+> make: *** [test-catch.o] Ошибка 1
+
+> ERROR: compilation failed for package ‘testthat’
+
+What version of clang do I use?
+```{bash}
+clang --version
+```
+
+I tried to install clang-3.8, but all go from bad to worse...
+### covr package
+Can I get the coverage for a some function?
+```{r}
+library(covr)
+library(lingtypology)
+covr::function_coverage(aff.lang)
+```
+
+No... But
+```{r}
+covr::file_coverage(source_files = "R/aff.lang.R",
+                    test_files = "tests/testthat/test-aff-lang.R")
+```
+
