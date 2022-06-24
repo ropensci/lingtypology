@@ -4,7 +4,7 @@
 \alias{lang.country}
 \title{Get language by country}
 \usage{
-lang.country(x, list = FALSE)
+lang.country(x, list = TRUE)
 }
 \arguments{
 \item{x}{character vector of the countries (in alpha-2 ISO codes)}

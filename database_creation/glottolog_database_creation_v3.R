@@ -140,3 +140,9 @@ autotyp %>%
 
 setwd("/home/agricolamz/work/packages/lingtypology/data/")
 save(autotyp, file="autotyp.RData", compress='xz')
+
+# countries ---------------------------------------------------------------
+setwd("/home/agricolamz/work/packages/lingtypology/database_creation")
+countries <- read_csv("country.data.csv")
+setwd("/home/agricolamz/work/packages/lingtypology/data/")
+save(countries, file="countries.RData", compress='xz')

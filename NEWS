@@ -3,6 +3,7 @@ lingtypology 1.1.9
 - update the `autotyp.feature()` function after the new release 1.0.0
 - make it possible to have just one group in the `control`
 - update glottolog to v. 4.6
+- make `country.lang()` and `lang.country()` functions work with real country names (Ekaterina Zalivina)
 
 lingtypology 1.1.8 (12.10.2021)
 - fix `country.lang()` functions, close #70
