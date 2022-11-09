@@ -204,6 +204,7 @@ map.feature <- function(languages,
                         minichart.labels = FALSE,
                         map.orientation = "Pacific",
                         radius = NULL) {
+  message("based on Glottolog v. Glottolog 4.6")
   if(!is.null(radius)){
     warning("The radius argument is deprecated. Use width argument instead.")
   }
@@ -645,8 +646,8 @@ map.feature <- function(languages,
       stroke = FALSE,
       radius = stroke.radius * 1.15,
       fillOpacity = stroke.opacity,
-      color = "black"
-    ) %>%
+      color = "black",
+      group = mapfeat.stroke$control) %>%
       leaflet::addCircleMarkers(
         lng = mapfeat.stroke$long,
         lat = mapfeat.stroke$lat,
@@ -656,8 +657,7 @@ map.feature <- function(languages,
         radius = stroke.radius,
         fillOpacity = stroke.opacity,
         color = stroke.pal(mapfeat.stroke$stroke.features),
-        group = mapfeat.stroke$stroke.features
-      ) %>%
+        group = mapfeat.stroke$control) %>%
       leaflet::addCircleMarkers(
         lng = mapfeat.stroke$long,
         lat = mapfeat.stroke$lat,
@@ -669,14 +669,12 @@ map.feature <- function(languages,
           offset = c(label.fsize*offset/2, 0),
           textOnly = TRUE,
           style = list("font-size" = paste0(label.fsize, "px"),
-                       "font-family" = label.font)
-        ),
+                       "font-family" = label.font)),
         stroke = FALSE,
         radius = 1.15 * width,
         fillOpacity = opacity,
         color = rev.stroke.pal(mapfeat.stroke$stroke.features),
-        group = mapfeat.stroke$stroke.features
-      )
+        group = mapfeat.stroke$control)
   }
 
   # map: add points ----------------------------------------
@@ -788,6 +786,7 @@ map.feature <- function(languages,
       opacity = 0,
       clusterOptions = point.cluster,
       fillOpacity = 0,
+      group = mapfeat.df$control,
       labelOptions = leaflet::labelOptions(
         noHide = TRUE,
         textOnly = TRUE,
@@ -938,7 +937,6 @@ map.feature <- function(languages,
   if (scale.bar == TRUE) {
     m <- m %>% leaflet::addScaleBar(position = scale.bar.position)
   }
-
 
   # map: legend -------------------------------------------------------------
   if (sum(mapfeat.df$features == "") < length(mapfeat.df$features) &
