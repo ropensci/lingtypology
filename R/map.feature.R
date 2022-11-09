@@ -204,7 +204,6 @@ map.feature <- function(languages,
                         minichart.labels = FALSE,
                         map.orientation = "Pacific",
                         radius = NULL) {
-  message("based on Glottolog v. Glottolog 4.6")
   if(!is.null(radius)){
     warning("The radius argument is deprecated. Use width argument instead.")
   }

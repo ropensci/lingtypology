@@ -41,6 +41,5 @@ Suggests:
     MASS,
     sp,
     rgeos,
-    rgdal,
     ape
 VignetteBuilder: knitr
