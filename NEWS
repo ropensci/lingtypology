@@ -1,6 +1,7 @@
 lingtypology 1.1.10
 - remove `ggplot2` dependencies
 - add startup message with the Glottolog version
+- fix `autotyp.feature()`
 
 lingtypology 1.1.9
 - fix colors in `map.features()`

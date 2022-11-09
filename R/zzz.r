@@ -5,5 +5,5 @@
 
 .onLoad <- function(libname = find.package("lingtypology"),
                     pkgname = "lingtypology") {
-  message("Based on the Glottolog v. 4.6")
+  packageStartupMessage("Based on the Glottolog v. 4.6")
 }
