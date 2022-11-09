@@ -85,7 +85,7 @@ map_image <-
   map.feature("Tabasaran", image.url = "https://goo.gl/Ycn6tJ")
 
 test_that("map.feature images", {
-  expect_equal(map_image$x$calls[[5]]$args[[3]]$iconUrl$data,
+  expect_equal(map_image$x$calls[[4]]$args[[3]]$iconUrl$data,
                "https://goo.gl/Ycn6tJ")
 })
 
@@ -111,7 +111,7 @@ map_stroke2 <-
   )
 
 test_that("map.feature stroke feature", {
-  expect_equal(length(map_stroke$x$calls), 10)
+  expect_equal(length(map_stroke$x$calls), 9)
   expect_equal(
     map_stroke2$x$calls[[4]]$args[[6]]$fillColor,
     c("#0000FF", "#0000FF", "#00FF00",
@@ -136,16 +136,16 @@ map_colorless2 <- map.feature(c("Tabasaran", "Adyghe"),
                               features = c(1, 2))
 
 test_that("map.feature colors", {
-  expect_equal(map_colors$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
-  expect_equal(map_colors2$x$calls[[4]]$args[6][[1]]$color, c("#000080", "#9ACD32"))
-  expect_equal(map_colorless$x$calls[[4]]$args[6][[1]]$color,
+  expect_equal(map_colors$x$calls[[3]]$args[6][[1]]$fillColor, c("#000080", "#9ACD32"))
+  expect_equal(map_colors2$x$calls[[3]]$args[6][[1]]$fillColor, c("#000080", "#9ACD32"))
+  expect_equal(map_colorless$x$calls[[3]]$args[6][[1]]$fillColor,
                c("#1f77b4", "#1f77b4"))
-  expect_equal(map_colorless2$x$calls[[4]]$args[6][[1]]$color,
+  expect_equal(map_colorless2$x$calls[[3]]$args[6][[1]]$fillColor,
                c("#F7FCFD", "#4D004B"))
-  expect_equal(map_lang_colors$x$calls[[4]]$args[6][[1]]$color,
+  expect_equal(map_lang_colors$x$calls[[3]]$args[6][[1]]$fillColor,
                c("navy", "navy"))
   expect_equal(
-    map_stroke$x$calls[[4]]$args[6][[1]]$color,
+    map_stroke[["x"]][["calls"]][[4]][["args"]][[6]][["color"]],
     c("#FFFFFF", "#FFFFFF", "#000000", "#000000", "#000000")
   )
 })
@@ -203,23 +203,23 @@ map_control <- map.feature(c("Adyghe", "Russian", "Polish"),
                            control = c("a", "b", "b"))
 
 test_that("control", {
-  expect_equal(map_control$x$calls[[5]]$method, "addLayersControl")
+  expect_equal(map_control$x$calls[[4]]$method, "addLayersControl")
 })
 
 map_minimap <- map.feature(c("Adyghe", "Russian"), minimap = TRUE)
 
 test_that("map.feature minimap", {
-  expect_equal(map_minimap$x$calls[[6]]$method, "addMiniMap")
+  expect_equal(map_minimap$x$calls[[5]]$method, "addMiniMap")
 })
 
 test_that("map.feature scale bar", {
-  expect_equal(map_minimap$x$calls[[5]]$method, "addScaleBar")
+  expect_equal(map_minimap$x$calls[[4]]$method, "addScaleBar")
 })
 
 map_label <-
   map.feature(c("Adyghe", "Russian"), label = c("a", "b"))
 test_that("map.feature labels", {
-  expect_equal(map_label$x$calls[[4]]$args[11], list(c("a", "b")))
+  expect_equal(map_label$x$calls[[3]]$args[11], list(c("a", "b")))
 })
 
 map_label_emph <-
@@ -229,8 +229,8 @@ map_label_emph <-
     label.emphasize = list(1, "red")
   )
 test_that("map.feature emphasized labels", {
-  expect_equal(map_label_emph$x$calls[[5]]$args[11], list(c("a")))
-  expect_equal(map_label_emph$x$calls[[5]]$args[12][[1]]$style$color, "red")
+  expect_equal(map_label_emph$x$calls[[4]]$args[11], list(c("a")))
+  expect_equal(map_label_emph$x$calls[[4]]$args[12][[1]]$style$color, "red")
 })
 
 map_zoom <-

@@ -18,7 +18,7 @@ autotyp.feature <-
            na.rm = TRUE) {
     message("Don't forget to cite a source:
 
-Bickel, Balthasar, Nichols, Johanna, Zakharko, Taras, Witzlack-Makarevich, Alena, Hildebrandt, Kristine, Rie\u00DFler, Michael, Bierkandt, Lennart, Z\u00FA\u00F1iga, Fernando & Lowe, John B. 2022. The AUTOTYP database (v1.0.0). https://doi.org/10.5281/zenodo.5931509
+Bickel, Balthasar, Nichols, Johanna, Zakharko, Taras, Witzlack-Makarevich, Alena, Hildebrandt, Kristine, Rie\u00DFler, Michael, Bierkandt, Lennart, Z\u00FA\u00F1iga, Fernando & Lowe, John B. 2022. The AUTOTYP database (v1.1.0). https://doi.org/10.5281/zenodo.5931509
 
 @misc{AUTOTYP,
   author = {
@@ -32,9 +32,9 @@ Bickel, Balthasar, Nichols, Johanna, Zakharko, Taras, Witzlack-Makarevich, Alena
     Z{\\'u}{\\~n}iga, Fernando and
     Lowe, John B
   },
-  doi = {10.5281/zenodo.5931509},
-  title = {The AUTOTYP database (v1.0.0)},
-  url = {https://doi.org/10.5281/zenodo.5931509},
+  doi = {10.5281/zenodo.6793367},
+  title = {The AUTOTYP database (v1.1.0)},
+  url = {https://doi.org/10.5281/zenodo.6793367},
   year = {2022}
 }")
 
@@ -48,7 +48,7 @@ Bickel, Balthasar, Nichols, Johanna, Zakharko, Taras, Witzlack-Makarevich, Alena
                  lingtypology::autotyp[lingtypology::autotyp$file %in% features,]$path)
 
       links <- paste0(
-          "https://raw.githubusercontent.com/autotyp/autotyp-data/v1.0.0/data/csv/",
+          "https://raw.githubusercontent.com/autotyp/autotyp-data/master/data/csv/",
           unique(paths))
       datalist  <-  lapply(links, function(x) {
         utils::read.csv(x, stringsAsFactors = FALSE)

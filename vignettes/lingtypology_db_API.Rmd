@@ -20,7 +20,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 * [PHOIBLE](https://phoible.org/)
 * [Affix Borrowing database](https://afbo.info)
 * [South American Indigenous Language Structures](https://sails.clld.org/)
-* [Austronesian Basic Vocabulary Database](https://abvd.shh.mpg.de/austronesian/)
+* [Austronesian Basic Vocabulary Database](https://abvd.eva.mpg.de/austronesian/)
 
 All database function names have identical structure: **database_name.feature**. All functions have as first argument `feature`. All functions create dataframe with column `language` that can be used in `map.feature()` function. It should be noted that all functions cut out the data that can't be maped, so if you want to prevent functions from this behavior set argument `na.rm` to `FALSE`.
 
