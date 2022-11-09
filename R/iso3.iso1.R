@@ -19,8 +19,8 @@ iso3.iso1 <- function(x) {
     if(is.na(y)){
       NA_character_
     } else{
-      ifelse(y %in% iso_639$ISO_639_1,
-             iso_639[tolower(iso_639$ISO_639_1) %in% tolower(y), ]$ISO_639_3,
+      ifelse(y %in% iso$ISO_639_1,
+             iso[tolower(iso$ISO_639_1) %in% tolower(y), ]$ISO_639_3,
              NA_character_)
     }}, character(1))
 }
