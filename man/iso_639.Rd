@@ -30,6 +30,6 @@ a wide range of applications, including linguistics, lexicography and internatio
 of information systems. It attempts to represent all known full languages.
 }
 \details{
-(Available online at www.iso639-3.sil.org, Accessed on 2022-05-23.)
+(Available online at https://iso639-3.sil.org/, Accessed on 2022-05-23.)
 }
 \keyword{datasets}

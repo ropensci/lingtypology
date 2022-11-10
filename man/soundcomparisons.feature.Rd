@@ -10,7 +10,7 @@ soundcomparisons.feature(word)
 \item{word}{A character vector that define with a feature ids from SOUNDCOMPARISONS (e. g. "one", "sharp_fem", "near_neut", "on_the_left", "    I_will_give", "write_ipv_sg", "your_pl_pl").}
 }
 \description{
-This function downloads data from SOUNDCOMPARISONS (\url{https://soundcomparisons.com/}) and changes language names to the names from lingtypology database. You need the internet connection.
+This function downloads data from SOUNDCOMPARISONS and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # soundcomparisons.feature(c("sun", "house"))
