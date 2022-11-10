@@ -18,7 +18,7 @@
 #'   \item{ISO_639_1}{Equivalent 639-1 identifier}
 #'   \item{Ref_Name}{Reference language name}
 #' }
-#' @source \url{www.iso639-3.sil.org}
+#' @source \url{https://iso639-3.sil.org/}
 #'
 
 "iso_639"

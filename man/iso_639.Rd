@@ -15,7 +15,7 @@ A data frame with 188 rows and 5 variables:
 }
 }
 \source{
-\url{www.iso639-3.sil.org}
+\url{https://iso639-3.sil.org/}
 }
 \usage{
 iso_639
