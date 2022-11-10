@@ -11,7 +11,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.815028.svg)](https://doi.org/10.5281/zenodo.815028)
 
 
-`lingtypology` package connects R with the [Glottolog database (v. 4.5)](https://glottolog.org/) and provides additional functionality for linguistic mapping. The Glottolog database contains the catalogue of the world's languages. This package helps researchers to make linguistic maps, using philosophy of [the Cross-Linguistic Linked Data project](https://clld.org/), which uniform access to the data across publications. This package is based on [`leaflet` package](https://rstudio.github.io/leaflet/), so `lingtypology` package is a package for linguistic interactive mapping. You also might be interested in looking into some alternatives to lingtypology:
+`lingtypology` package connects R with the [Glottolog database (v. 4.6)](https://glottolog.org/) and provides additional functionality for linguistic mapping. The Glottolog database contains the catalogue of the world's languages. This package helps researchers to make linguistic maps, using philosophy of [the Cross-Linguistic Linked Data project](https://clld.org/), which uniform access to the data across publications. This package is based on [`leaflet` package](https://rstudio.github.io/leaflet/), so `lingtypology` package is a package for linguistic interactive mapping. You also might be interested in looking into some alternatives to lingtypology:
 
 * [lingtypology](https://pypi.org/project/lingtypology/) in Python by Michael Voronov;
 * [glottospace](https://github.com/SietzeN/glottospace) -- R package for the geospatial analysis based on Glottolog by Sietze Norder et al;
