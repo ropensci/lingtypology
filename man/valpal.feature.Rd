@@ -10,7 +10,7 @@ valpal.feature(na.rm = FALSE)
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is FALSE.}
 }
 \description{
-This function downloads data from ValPal (www.valpal.info/) and changes language names to the names from lingtypology database. You need the internet connection.
+This function downloads data from ValPal (https://valpal.info) and changes language names to the names from lingtypology database. You need the internet connection.
 }
 \examples{
 # valpal.feature()

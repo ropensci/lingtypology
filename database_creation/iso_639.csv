@@ -1,0 +1,184 @@
+ISO_639_3,ISO_639_2_B,ISO_639_2_T,ISO_639_1,Ref_Name
+aar,aar,aar,aa,Afar
+abk,abk,abk,ab,Abkhazian
+afr,afr,afr,af,Afrikaans
+aka,aka,aka,ak,Akan
+amh,amh,amh,am,Amharic
+ara,ara,ara,ar,Arabic
+arg,arg,arg,an,Aragonese
+asm,asm,asm,as,Assamese
+ava,ava,ava,av,Avaric
+ave,ave,ave,ae,Avestan
+aym,aym,aym,ay,Aymara
+aze,aze,aze,az,Azerbaijani
+bak,bak,bak,ba,Bashkir
+bam,bam,bam,bm,Bambara
+bel,bel,bel,be,Belarusian
+ben,ben,ben,bn,Bengali
+bis,bis,bis,bi,Bislama
+bod,tib,bod,bo,Tibetan
+bos,bos,bos,bs,Bosnian
+bre,bre,bre,br,Breton
+bul,bul,bul,bg,Bulgarian
+cat,cat,cat,ca,Catalan
+ces,cze,ces,cs,Czech
+cha,cha,cha,ch,Chamorro
+che,che,che,ce,Chechen
+chu,chu,chu,cu,Church Slavic
+chv,chv,chv,cv,Chuvash
+cor,cor,cor,kw,Cornish
+cos,cos,cos,co,Corsican
+cre,cre,cre,cr,Cree
+cym,wel,cym,cy,Welsh
+dan,dan,dan,da,Danish
+deu,ger,deu,de,German
+div,div,div,dv,Dhivehi
+dzo,dzo,dzo,dz,Dzongkha
+ell,gre,ell,el,Modern Greek (1453-)
+eng,eng,eng,en,English
+epo,epo,epo,eo,Esperanto
+est,est,est,et,Estonian
+eus,baq,eus,eu,Basque
+ewe,ewe,ewe,ee,Ewe
+fao,fao,fao,fo,Faroese
+fas,per,fas,fa,Persian
+fij,fij,fij,fj,Fijian
+fin,fin,fin,fi,Finnish
+fra,fre,fra,fr,French
+fry,fry,fry,fy,Western Frisian
+ful,ful,ful,ff,Fulah
+gla,gla,gla,gd,Scottish Gaelic
+gle,gle,gle,ga,Irish
+glg,glg,glg,gl,Galician
+glv,glv,glv,gv,Manx
+grn,grn,grn,gn,Guarani
+guj,guj,guj,gu,Gujarati
+hat,hat,hat,ht,Haitian
+hau,hau,hau,ha,Hausa
+heb,heb,heb,he,Hebrew
+her,her,her,hz,Herero
+hin,hin,hin,hi,Hindi
+hmo,hmo,hmo,ho,Hiri Motu
+hrv,hrv,hrv,hr,Croatian
+hun,hun,hun,hu,Hungarian
+hye,arm,hye,hy,Armenian
+ibo,ibo,ibo,ig,Igbo
+ido,ido,ido,io,Ido
+iii,iii,iii,ii,Sichuan Yi
+iku,iku,iku,iu,Inuktitut
+ile,ile,ile,ie,Interlingue
+ina,ina,ina,ia,Interlingua (International Auxiliary Language Association)
+ind,ind,ind,id,Indonesian
+ipk,ipk,ipk,ik,Inupiaq
+isl,ice,isl,is,Icelandic
+ita,ita,ita,it,Italian
+jav,jav,jav,jv,Javanese
+jpn,jpn,jpn,ja,Japanese
+kal,kal,kal,kl,Kalaallisut
+kan,kan,kan,kn,Kannada
+kas,kas,kas,ks,Kashmiri
+kat,geo,kat,ka,Georgian
+kau,kau,kau,kr,Kanuri
+kaz,kaz,kaz,kk,Kazakh
+khm,khm,khm,km,Khmer
+kik,kik,kik,ki,Kikuyu
+kin,kin,kin,rw,Kinyarwanda
+kir,kir,kir,ky,Kirghiz
+kom,kom,kom,kv,Komi
+kon,kon,kon,kg,Kongo
+kor,kor,kor,ko,Korean
+kua,kua,kua,kj,Kuanyama
+kur,kur,kur,ku,Kurdish
+lao,lao,lao,lo,Lao
+lat,lat,lat,la,Latin
+lav,lav,lav,lv,Latvian
+lim,lim,lim,li,Limburgan
+lin,lin,lin,ln,Lingala
+lit,lit,lit,lt,Lithuanian
+ltz,ltz,ltz,lb,Luxembourgish
+lub,lub,lub,lu,Luba-Katanga
+lug,lug,lug,lg,Ganda
+mah,mah,mah,mh,Marshallese
+mal,mal,mal,ml,Malayalam
+mar,mar,mar,mr,Marathi
+mkd,mac,mkd,mk,Macedonian
+mlg,mlg,mlg,mg,Malagasy
+mlt,mlt,mlt,mt,Maltese
+mon,mon,mon,mn,Mongolian
+mri,mao,mri,mi,Maori
+msa,may,msa,ms,Malay (macrolanguage)
+mya,bur,mya,my,Burmese
+nau,nau,nau,na,Nauru
+nav,nav,nav,nv,Navajo
+nbl,nbl,nbl,nr,South Ndebele
+nde,nde,nde,nd,North Ndebele
+ndo,ndo,ndo,ng,Ndonga
+nep,nep,nep,ne,Nepali (macrolanguage)
+nld,dut,nld,nl,Dutch
+nno,nno,nno,nn,Norwegian Nynorsk
+nob,nob,nob,nb,Norwegian Bokmål
+nor,nor,nor,no,Norwegian
+nya,nya,nya,ny,Nyanja
+oci,oci,oci,oc,Occitan (post 1500)
+oji,oji,oji,oj,Ojibwa
+ori,ori,ori,or,Oriya (macrolanguage)
+orm,orm,orm,om,Oromo
+oss,oss,oss,os,Ossetian
+pan,pan,pan,pa,Panjabi
+pli,pli,pli,pi,Pali
+pol,pol,pol,pl,Polish
+por,por,por,pt,Portuguese
+pus,pus,pus,ps,Pushto
+que,que,que,qu,Quechua
+roh,roh,roh,rm,Romansh
+ron,rum,ron,ro,Romanian
+run,run,run,rn,Rundi
+rus,rus,rus,ru,Russian
+sag,sag,sag,sg,Sango
+san,san,san,sa,Sanskrit
+sin,sin,sin,si,Sinhala
+slk,slo,slk,sk,Slovak
+slv,slv,slv,sl,Slovenian
+sme,sme,sme,se,Northern Sami
+smo,smo,smo,sm,Samoan
+sna,sna,sna,sn,Shona
+snd,snd,snd,sd,Sindhi
+som,som,som,so,Somali
+sot,sot,sot,st,Southern Sotho
+spa,spa,spa,es,Spanish
+sqi,alb,sqi,sq,Albanian
+srd,srd,srd,sc,Sardinian
+srp,srp,srp,sr,Serbian
+ssw,ssw,ssw,ss,Swati
+sun,sun,sun,su,Sundanese
+swa,swa,swa,sw,Swahili (macrolanguage)
+swe,swe,swe,sv,Swedish
+tah,tah,tah,ty,Tahitian
+tam,tam,tam,ta,Tamil
+tat,tat,tat,tt,Tatar
+tel,tel,tel,te,Telugu
+tgk,tgk,tgk,tg,Tajik
+tgl,tgl,tgl,tl,Tagalog
+tha,tha,tha,th,Thai
+tir,tir,tir,ti,Tigrinya
+ton,ton,ton,to,Tonga (Tonga Islands)
+tsn,tsn,tsn,tn,Tswana
+tso,tso,tso,ts,Tsonga
+tuk,tuk,tuk,tk,Turkmen
+tur,tur,tur,tr,Turkish
+twi,twi,twi,tw,Twi
+uig,uig,uig,ug,Uighur
+ukr,ukr,ukr,uk,Ukrainian
+urd,urd,urd,ur,Urdu
+uzb,uzb,uzb,uz,Uzbek
+ven,ven,ven,ve,Venda
+vie,vie,vie,vi,Vietnamese
+vol,vol,vol,vo,Volapük
+wln,wln,wln,wa,Walloon
+wol,wol,wol,wo,Wolof
+xho,xho,xho,xh,Xhosa
+yid,yid,yid,yi,Yiddish
+yor,yor,yor,yo,Yoruba
+zha,zha,zha,za,Zhuang
+zho,chi,zho,zh,Chinese
+zul,zul,zul,zu,Zulu

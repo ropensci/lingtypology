@@ -1,6 +1,6 @@
 #' Download BANTU data
 #'
-#' This function downloads data from Bantu Basic Vocabulary Database (\url{https://abvd.shh.mpg.de/bantu/index.php}) and changes language names to the names from lingtypology database. You need the internet connection.
+#' This function downloads data from Bantu Basic Vocabulary Database (\url{https://abvd.eva.mpg.de/bantu/index.php}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param features A character vector that define with a feature ids from BANTU ('house', 'cat').
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}
@@ -16,7 +16,7 @@ bantu.feature <- function(features){
   message(paste0("Don't forget to cite a source (modify in case of using individual chapters):
 Greenhill, S.J., Blust. R, & Gray, R.D. (2008). The Austronesian Basic Vocabulary Database: From Bioinformatics to Lexomics.
 Evolutionary Bioinformatics, 4:271-283.
-(Available online at https://abvd.shh.mpg.de/bantu/index.php, Accessed on ",
+(Available online at https://abvd.eva.mpg.de/bantu/index.php, Accessed on ",
                  Sys.Date(),
                  ".)
 
@@ -31,7 +31,7 @@ Evolutionary Bioinformatics, 4:271-283.
 }"))
   my_data <- lapply(features, function(x) {
     if (x %in% lingtypology::bantu$word){
-      link <- paste0("https://abvd.shh.mpg.de/utils/save/?type=csv&section=bantu&word=",
+      link <- paste0("https://abvd.eva.mpg.de/utils/save/?type=tdf&section=bantu&word=",
                  lingtypology::bantu[lingtypology::bantu$word==x,]['id'])
       datalist <- lapply(link, function(l) {
         bantu_df <- utils::read.csv(l, header = FALSE ,encoding = "UTF-8")

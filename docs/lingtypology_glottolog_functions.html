@@ -447,6 +447,7 @@ div.tocify {
 <li><strong>gltc.lang()</strong> — get glottocode (identifier for a language in the Glottolog database) code by language</li>
 <li><strong>lat.lang()</strong> — get latitude by language</li>
 <li><strong>long.lang()</strong> — get longitude by language</li>
+<li><strong>level.lang()</strong> — get level by language</li>
 <li><strong>subc.lang()</strong> — get subclassification in the Newick tree format by language</li>
 </ul>
 <p>Some of them help to define a vector of languages.</p>
@@ -531,7 +532,11 @@ div.tocify {
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">tip.color =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>))</span></code></pre></div>
 <p><img src="lingtypology_glottolog_functions_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>As you can see nodes are counted from bottom to top.</p>
-<p>For more sophisticated tree visualization you can look into <a href="https://bioconductor.org/packages/release/bioc/html/ggtree.html"><code>ggtree</code> package</a>.</p>
+<p>For more sophisticated tree visualization you can look into <a href="https://bioconductor.org/packages/release/bioc/html/ggtree.html"><code>ggtree</code> package</a>. There are several linguistic packages that provide some functionality for creating glottolog trees:</p>
+<ul>
+<li><a href="https://github.com/erichround/glottoTrees"><code>glottoTrees</code></a> package by Erich Round</li>
+<li><a href="https://gitlab.com/laurabecker/lingtypr"><code>lingtypr</code></a> package by Laura Becker</li>
+</ul>
 </div>
 
 <br>

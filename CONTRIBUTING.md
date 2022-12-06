@@ -15,8 +15,6 @@ There are some additional information that I put in the issue template.
 
 To contribute a change to `lingtypology`, you follow these steps:
 
-1. Sign the [Contributor License Agreement](https://www.clahub.com/agreements/ropensci/lingtypology). 
-2. Create a branch in git and make your changes.
-3. Push branch to github and issue pull request.
-4. Discuss the pull request.
-
+1. Create a branch in git and make your changes. If you add a new function, do not forget to put some tests and provide your data as contrubuter in the `DESCRIPTION` file.
+2. Push branch to github and issue pull request.
+3. Discuss the pull request.

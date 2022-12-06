@@ -1,10 +1,10 @@
 ---
-title: "`lingtypology`: Typological databases API"
+title: "`lingtypology`: Download typological databases' data"
 author: "George Moroz"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{`lingtypology`: Typological databases API}
+  %\VignetteIndexEntry{`lingtypology`: Download typological databases' data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,9 +20,9 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 * [PHOIBLE](https://phoible.org/)
 * [Affix Borrowing database](https://afbo.info)
 * [South American Indigenous Language Structures](https://sails.clld.org/)
-* [Austronesian Basic Vocabulary Database](https://abvd.shh.mpg.de/austronesian/)
+* [Austronesian Basic Vocabulary Database](https://abvd.eva.mpg.de/austronesian/)
 
-All database function names have identical structure: **database_name.feature**. All functions have as first argument `feature`. All functions create dataframe with column `language` that can be used in `map.feature()` function. It should be noted that all functions cut out the data that can't be maped, so if you want to prevent functions from this behaviour set argument `na.rm` to `FALSE`.
+All database function names have identical structure: **database_name.feature**. All functions have as first argument `feature`. All functions create dataframe with column `language` that can be used in `map.feature()` function. It should be noted that all functions cut out the data that can't be maped, so if you want to prevent functions from this behavior set argument `na.rm` to `FALSE`.
 
 ### 1. WALS
 The names of the WALS features can be typed in a lower case. This function preserves coordinates from WALS, so you can map coordinates from the WALS or use coordinates from `lingtypology`.
@@ -38,13 +38,14 @@ map.feature(df$language,
 ```
 
 ### 2. AUTOTYP
-The AUTOTYP features are listed on [the GitHub page](https://github.com/autotyp/autotyp-data#the-autotyp-database). You can use more human way with spaces.
+The AUTOTYP features are listed on [the GitHub page](https://github.com/autotyp/autotyp-data/blob/master/datasets.md). You can use more human way with spaces. You can also use a module names in order to download all variables in a module (e. g. `Gender`):
+
 ```{r}
-df <- autotyp.feature(c('Gender', 'Numeral classifiers'))
+df <- autotyp.feature(c('Has Gender', 'Has Numeral Classifiers'))
 head(df)
 map.feature(df$language,
-            features = df$NumClass.Presence,
-            label = df$language,
+            features = df$HasNumeralClassifiers,
+            label = df$language_for_lingtypology,
             title = "Presence of Numeral Classifiers")
 ```
 

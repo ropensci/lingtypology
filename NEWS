@@ -1,3 +1,22 @@
+lingtypology 1.1.10
+- remove `ggplot2` dependencies
+- add startup message with the Glottolog version
+- fix `autotyp.feature()`
+- add the `iso3.iso1()` function
+- add the `frequency_list.feature()` function
+
+lingtypology 1.1.9
+- fix colors in `map.features()`
+- update the `autotyp.feature()` function after the new release 1.0.0
+- make it possible to have just one group in the `control`
+- update glottolog to v. 4.6
+- make `country.lang()` and `lang.country()` functions work with real country names (Ekaterina Zalivina)
+
+lingtypology 1.1.8 (12.10.2021)
+- fix `country.lang()` functions, close #70
+- update glottolog to v. 4.5
+- add the `level.lang()` function
+
 lingtypology 1.1.6 (12.10.2021)
 - add `bantu.features()` function API for Bantu Basic Vocabulary Database (by Anna Smirnova, https://github.com/ropensci/lingtypology/pull/67)
 - replace `glottolog` with one from Glottolog database 4.4 as CLDF (https://github.com/glottolog/glottolog-cldf)

@@ -217,7 +217,7 @@ unlink("./atlas_Some_WALS_features/", recursive = TRUE)
 ```
 
 ### 6. Create .kml file using `sp` and `rgdal`
-.kml file is a common file type for geospatial data. This kind of files are used in [Google Earth](https://en.wikipedia.org/wiki/Google_Earth), [Gabmap](https://gabmap.nl/) (a web application that visualizes dialect variations) and others. In order to produce a .kml file you need to have a dataset with coordinates such as `circassian`:
+.kml file is a common file type for geospatial data. This kind of files are used in [Google Earth](https://en.wikipedia.org/wiki/Google_Earth), [Gabmap](https://gabmap.let.rug.nl/) (a web application that visualizes dialect variations) and others. In order to produce a .kml file you need to have a dataset with coordinates such as `circassian`:
 ```{r, eval= FALSE}
 sp::coordinates(circassian) <- ~longitude+latitude
 sp::proj4string(circassian) <- sp::CRS("+proj=longlat +datum=WGS84")

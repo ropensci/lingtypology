@@ -4,10 +4,12 @@
 \alias{country.lang}
 \title{Get country by language}
 \usage{
-country.lang(x)
+country.lang(x, full_name = TRUE)
 }
 \arguments{
 \item{x}{A character vector of the languages (can be written in lower case)}
+
+\item{full_name}{A logical value, whether return ISO 3166-2 codes or full names.}
 }
 \description{
 Takes any vector of languages and returns countries where those languages are used as ISO 3166-1 alpha-2 codes.

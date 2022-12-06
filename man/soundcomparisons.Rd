@@ -11,7 +11,7 @@ An object of class \code{data.frame} with 556 rows and 3 columns.
 soundcomparisons
 }
 \description{
-Language identifiers from SOUNDCOMPARISONS (\url{https://soundcomparisons.com/}). This dataset is created for \code{\link{soundcomparisons.feature}} function.
+Language identifiers from SOUNDCOMPARISONS. This dataset is created for \code{\link{soundcomparisons.feature}} function.
 }
 \details{
 #' @format A data frame with 556 rows and 2 variables:
