@@ -17,7 +17,8 @@ lang_check <- function(lang_name,
     cand <- c(cand, lang_csv[unique(add_cand), ]$Name)
   }
   if (length(cand) == 0)
-    assign(not_languages, c(not_languages, lang_name), envir = .GlobalEnv)
+    not_languages<<-c(not_languages,lang_name)
+    # assign(not_languages, c(not_languages, lang_name), envir = .GlobalEnv)
   cand
 }
 
