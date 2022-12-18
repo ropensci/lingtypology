@@ -14,7 +14,7 @@
 
 <title>lingtypology: Glottolog functions</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
@@ -45,6 +45,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -127,13 +128,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -168,6 +176,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -225,11 +236,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -258,8 +273,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -267,16 +282,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -393,7 +401,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -429,26 +437,35 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><code>lingtypology</code>: Glottolog functions</h1>
-<h4 class="author"><a href="mailto:agricolamz@gmail.com">George Moroz</a></h4>
+<h1 class="title toc-ignore"><code>lingtypology</code>: Glottolog
+functions</h1>
+<h4 class="author"><a href="mailto:agricolamz@gmail.com">George
+Moroz</a></h4>
 
 </div>
 
 
-<p>This package is based on the <a href="https://glottolog.org/">Glottolog database (v. 4.4)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
+<p>This package is based on the <a
+href="https://glottolog.org/">Glottolog database</a>, so
+<code>lingtypology</code> has several functions for accessing data from
+that database.</p>
 <div id="command-names-syntax" class="section level3">
 <h3>1. Command name’s syntax</h3>
-<p>Most of the functions in <code>lingtypology</code> have the same syntax: <strong>what you need.what you have</strong>. Most of them are based on <em>language name</em>.</p>
+<p>Most of the functions in <code>lingtypology</code> have the same
+syntax: <strong>what you need.what you have</strong>. Most of them are
+based on <em>language name</em>.</p>
 <ul>
 <li><strong>aff.lang()</strong> — get affiliation by language</li>
 <li><strong>area.lang()</strong> — get macro area by language</li>
 <li><strong>country.lang()</strong> — get country by language</li>
 <li><strong>iso.lang()</strong> — get ISO 639-3 code by language</li>
-<li><strong>gltc.lang()</strong> — get glottocode (identifier for a language in the Glottolog database) code by language</li>
+<li><strong>gltc.lang()</strong> — get glottocode (identifier for a
+language in the Glottolog database) code by language</li>
 <li><strong>lat.lang()</strong> — get latitude by language</li>
 <li><strong>long.lang()</strong> — get longitude by language</li>
 <li><strong>level.lang()</strong> — get level by language</li>
-<li><strong>subc.lang()</strong> — get subclassification in the Newick tree format by language</li>
+<li><strong>subc.lang()</strong> — get subclassification in the Newick
+tree format by language</li>
 </ul>
 <p>Some of them help to define a vector of languages.</p>
 <ul>
@@ -456,26 +473,37 @@ div.tocify {
 <li><strong>lang.iso()</strong> — get language by ISO 639-3 code</li>
 <li><strong>lang.gltc()</strong> — get language by glottocode</li>
 </ul>
-<p>Additionally there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:</p>
+<p>Additionally there are some functions to convert glottocodes to ISO
+639-3 codes and vice versa:</p>
 <ul>
 <li><strong>gltc.iso()</strong> — get glottocode by ISO 639-3 code</li>
 <li><strong>iso.gltc()</strong> — get ISO 639-3 code by glottocode</li>
 </ul>
-<p>The most important functionality of <code>lingtypology</code> is the ability to create interactive maps based on features and sets of languages (see the third section):</p>
+<p>The most important functionality of <code>lingtypology</code> is the
+ability to create interactive maps based on features and sets of
+languages (see the third section):</p>
 <ul>
 <li><strong>map.feature()</strong></li>
 </ul>
-<p><a href="https://glottolog.org/">Glottolog database (v. 4.1)</a> provides <code>lingtypology</code> with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn’t have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in <code>lingtypology</code>:</p>
+<p><a href="https://glottolog.org/">Glottolog database (v. 4.1)</a>
+provides <code>lingtypology</code> with language names, ISO codes,
+glottocodes, affiliation, macro area, coordinates, and much information.
+This set of functions doesn’t have a goal to cover all possible
+combinations of functions. Check out additional information that is
+preserved in the version of the Glottolog database used in
+<code>lingtypology</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(glottolog)</span></code></pre></div>
 <pre><code>##  [1] &quot;glottocode&quot;        &quot;language&quot;          &quot;iso&quot;              
 ##  [4] &quot;level&quot;             &quot;area&quot;              &quot;latitude&quot;         
 ##  [7] &quot;longitude&quot;         &quot;countries&quot;         &quot;affiliation&quot;      
 ## [10] &quot;subclassification&quot;</code></pre>
-<p>Using R functions for data manipulation you can create your own database for your purpose.</p>
+<p>Using R functions for data manipulation you can create your own
+database for your purpose.</p>
 </div>
 <div id="using-base-functions" class="section level3">
 <h3>2. Using base functions</h3>
-<p>All functions introduced in the previous section are regular functions, so they can take the following objects as input:</p>
+<p>All functions introduced in the previous section are regular
+functions, so they can take the following objects as input:</p>
 <ul>
 <li>a regular string</li>
 </ul>
@@ -487,7 +515,11 @@ div.tocify {
 ## &quot;Adyghe&quot;</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</span></code></pre></div>
 <pre><code>## character(0)</code></pre>
-<p>I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that <code>'Ma'ya'</code> is an incorrect string in R.</p>
+<p>I would like to point out that you can create strings in R using
+single or double quotes. Since inserting single quotes in a string
+created with single quotes causes an error in R, I use double quotes in
+my tutorial. You can use single quotes, but be careful and remember that
+<code>'Ma'ya'</code> is an incorrect string in R.</p>
 <ul>
 <li>a vector of strings</li>
 </ul>
@@ -501,41 +533,60 @@ div.tocify {
 ##                                                                     Russian 
 ## &quot;Indo-European, Classical Indo-European, Balto-Slavic, Slavic, East Slavic&quot;</code></pre>
 <ul>
-<li>other functions. For example, let’s try to get a vector of ISO codes for the Circassian languages</li>
+<li>other functions. For example, let’s try to get a vector of ISO codes
+for the Circassian languages</li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">iso.lang</span>(<span class="fu">lang.aff</span>(<span class="st">&quot;Circassian&quot;</span>))</span></code></pre></div>
 <pre><code>##    Adyghe Kabardian 
 ##     &quot;ady&quot;     &quot;kbd&quot;</code></pre>
-<p>If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.</p>
+<p>If you are new to R, it is important to mention that you can create a
+table with languages, features and other parametres with any spreadsheet
+software you used to work. Then you can import the created file to R
+using standard tools.</p>
 </div>
-<div id="spell-checker-look-carefully-at-warnings" class="section level3">
+<div id="spell-checker-look-carefully-at-warnings"
+class="section level3">
 <h3>3. Spell Checker: look carefully at warnings!</h3>
-<p>All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.</p>
+<p>All functions which take a vector of languages are enriched with a
+kind of a spell checker. If a language from a query is absent in the
+database, functions return a warning message containing a set of
+candidates with the minimal Levenshtein distance to the language from
+the query.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Language Adyge is absent in our version of the Glottolog database. Did
-## you mean Adyghe, Aduge, Abkhaz-Adyge?</code></pre>
+## you mean Aduge, Adyghe, Abkhaz-Adyge?</code></pre>
 <pre><code>## Adyge 
 ##    NA</code></pre>
 </div>
 <div id="subc.lang-function" class="section level3">
 <h3>4. <code>subc.lang()</code> function</h3>
-<p>The <code>subc.lang()</code> function returns language subclassification in the Newick tree format.</p>
+<p>The <code>subc.lang()</code> function returns language
+subclassification in the Newick tree format.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subc.lang</span>(<span class="st">&quot;Lechitic&quot;</span>)</span></code></pre></div>
 <pre><code>##                                                                                       Lechitic 
 ## &quot;((Kashubian_Proper:1,Slovincian:1)kash1274:1,Polabian:1,(Old_Polish:1)poli1260:1)lech1241:1;&quot;</code></pre>
-<p>This format is hard to interpret by itself, but there are some tools in R that make it possible to visualise those subclassifications:</p>
+<p>This format is hard to interpret by itself, but there are some tools
+in R that make it possible to visualise those subclassifications:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">read.tree</span>(<span class="at">text =</span> <span class="fu">subc.lang</span>(<span class="st">&quot;Lechitic&quot;</span>)))</span></code></pre></div>
 <p><img src="lingtypology_glottolog_functions_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<p>It is possible to specify colors of tips in case you want to emphasize some nodes:</p>
+<p>It is possible to specify colors of tips in case you want to
+emphasize some nodes:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">read.tree</span>(<span class="at">text =</span> <span class="fu">subc.lang</span>(<span class="st">&quot;Lechitic&quot;</span>)),</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">tip.color =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>))</span></code></pre></div>
 <p><img src="lingtypology_glottolog_functions_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>As you can see nodes are counted from bottom to top.</p>
-<p>For more sophisticated tree visualization you can look into <a href="https://bioconductor.org/packages/release/bioc/html/ggtree.html"><code>ggtree</code> package</a>. There are several linguistic packages that provide some functionality for creating glottolog trees:</p>
+<p>For more sophisticated tree visualization you can look into <a
+href="https://bioconductor.org/packages/release/bioc/html/ggtree.html"><code>ggtree</code>
+package</a>. There are several linguistic packages that provide some
+functionality for creating glottolog trees:</p>
 <ul>
-<li><a href="https://github.com/erichround/glottoTrees"><code>glottoTrees</code></a> package by Erich Round</li>
-<li><a href="https://gitlab.com/laurabecker/lingtypr"><code>lingtypr</code></a> package by Laura Becker</li>
+<li><a
+href="https://github.com/erichround/glottoTrees"><code>glottoTrees</code></a>
+package by Erich Round</li>
+<li><a
+href="https://gitlab.com/laurabecker/lingtypr"><code>lingtypr</code></a>
+package by Laura Becker</li>
 </ul>
 </div>
 
