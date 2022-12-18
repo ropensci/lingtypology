@@ -24,7 +24,7 @@ xti	-97.59043	17.22185	North America	Sinicahua Mixtec	sini1243
 xth				NA	NA
 wji	9.56925	11.17175	Africa	Warji	warj1253
 wja	11.72062	9.91175	Africa	Waja	waja1259
-tmv	20.36849	2.0246	Africa	Motembo-Kunda-Buja	temb1272
+tmv	20.36849	2.0246	Africa	Motembo-Kunda	temb1272
 NOCODE_Kaishana	-67.419434	-1.656507	South America	Kaishana	kais1242
 NOCODE_Old-Telugu			Eurasia	Old Telugu	oldt1249
 NOCODE_Calchaqui			South America	Calchaqui	calc1235
@@ -102,7 +102,7 @@ NOCODE_Palewyami-Yokuts			North America	Palewyami Yokuts	pale1254
 fir	8.69095	9.65245	Africa	Firan	fira1238
 fip	31.34415	-7.88963	Africa	Fipa	fipa1238
 fiw	143.64603	-6.66342	Papua	Fiwaga	fiwa1240
-fit	23.06596	67.252745	Eurasia	Tornedalen Finnish	torn1244
+fit	23.06596	67.252745	Eurasia	Meankieli	torn1244
 fia	31.837595	22.81422	Africa	Nobiin	nobi1240
 fie	9.29503	9.49936	Africa	Fyer	fyer1241
 uok	5.97783	7.00611	Africa	Uokha	uokh1238
@@ -137,12 +137,12 @@ mdp	18.04096	-5.11888	Africa	Mbala	mbal1257
 mdq	24.0443	-0.57181	Africa	Mbole	mbol1247
 mdv	-97.62767	16.99694	North America	Santa Lucia Monteverde Mixtec	sant1439
 mdw	15.53223	-1.23019	Africa	Mbosi	mbos1242
-mdt	14.287675	-0.477445	Africa	Mbere	mber1257
+mdt	14.287675	-0.477445	Africa	Mbere-Mbamba	mber1257
 mdu	14.79347	0.43541	Africa	Mboko	mbok1243
 NOCODE_Macuni	-39.809418	-17.904785	South America	Macuni	macu1258
 smz	155.42269	-6.23022	Papua	Simeku	sime1242
 smy	53.2868	35.5295	Eurasia	Semnani-Biyabuneki	semn1249
-smx	17.16583	-6.21344	Africa	Ntsambaan	samb1309
+smx	17.16583	-6.21344	Africa	Samba	samb1309
 smw	117.47199	-8.71919	Papua	Sumbawa	sumb1241
 smv	74.9104	18.30684	Eurasia	Samvedi	samv1238
 smu	103.1387	12.24296	Eurasia	Somray of Battambang-Somre of Siem Reap	somr1240
@@ -167,7 +167,7 @@ dsb	13.9407	51.66213	Eurasia	Lower Sorbian	lowe1385
 smb	145.60346	-7.02259	Papua	Simbari	simb1255
 sma	13.70062	62.880125	Eurasia	South Saami	sout2674
 syo	104.13608	11.93601	Eurasia	Suoy	suoy1242
-syn	51.43631	35.77764	Eurasia	Senaya	sena1268
+syn	51.43631	35.77764	Eurasia	NA	NA
 ian	143.31566	-4.30064	Papua	Iatmul	iatm1242
 atg	6.21209	7.15307	Africa	Ivbie North-Okpela-Arhe	ivbi1241
 atd	125.4992	7.7789	Papua	Ata Manobo	atam1240
@@ -214,7 +214,7 @@ kfa	75.91608	12.24429	Eurasia	Kodava	koda1255
 kfn	10.18407	6.43762	Africa	Kuk	kukk1239
 kfo	-5.73572	8.11966	Africa	Koro (Cote d'Ivoire)	koro1306
 kfl	10.20727	6.53881	Africa	Kung	kung1260
-kfm	49.37419	36.69633	Eurasia	Khunsari	khun1255
+kfm	49.37419	36.69633	Eurasia	Khunsaric	khun1255
 kfj	101.14386	22.06028		Kemiehua	kemi1240
 kfk	78.31478	31.36883	Eurasia	Kinnauri	kinn1249
 kfh	75.52034	11.82263	Eurasia	Kurichiya	kuri1256
@@ -229,7 +229,7 @@ xir	-62.54131	2.69932	South America	Xiriana	xiri1243
 xiy	-49.948	-4.133	South America	Xipaya	xipa1240
 NOCODE_Rocorona	-63.9917	-12.683215	South America	Rocorona	roco1235
 nzs	175.77257	-39.29225	Papua	New Zealand Sign Language	newz1236
-nzu	15.2047	-2.65261	Africa	Teke-Nzikou	teke1279
+nzu	15.2047	-2.65261	Africa	NA	NA
 nzz	-3.02	14.49	Africa	Nanga	nang1261
 nzy	15.6675	7.667445	Africa	Nzakambay	nzak1246
 nzb	12.706345	-2.18115	Africa	Njebi	njeb1242
@@ -342,7 +342,7 @@ dhn	73.74179	20.77195	Eurasia	Dhanki	dhan1264
 dhm	13.44244	-17.295835	Africa	Zemba	zemb1238
 dhl	114.93718	-22.19598	Australia	Dhalandji	dhal1245
 dhi	88.379815	26.62827	Eurasia	Dhimal	dhim1246
-drh	99.44493	50.62298	Eurasia	Darkhat	dark1243
+drh	99.44493	50.62298	Eurasia	NA	NA
 dhg	135.75214	-11.94927	Australia	Dhangu	dhan1270
 anx	147.08493	-2.05894	Papua	Andra-Hus	andr1248
 dhd	76.198	26.473	Eurasia	Dhundari	dhun1238
@@ -417,7 +417,7 @@ umn			Eurasia	Makyan Naga	maky1235
 umi	114.57932	1.56623	Papua	Ukit	ukit1237
 foi	143.49539	-6.47258	Papua	Foi	foii1241
 mbl	-40.78912	-16.94017	South America	Maxakali	maxa1247
-mbm	13.61701	-2.75341	Africa	Ombamba	omba1241
+mbm	13.61701	-2.75341	Africa	NA	NA
 mbn	-71.2671	6.34582	South America	Macaguan	maca1259
 mbo	9.92766	5.13981	Africa	Mbo (Cameroon)	mboc1235
 mbh	150.67987	-5.89752	Papua	Mangseng	mang1403
@@ -427,7 +427,7 @@ mbk	142.24388	-3.11695	Papua	Malol	malo1245
 mbd	126.01817	7.85664	Papua	Dibabawon Manobo	diba1242
 mbe	-122.857	44.556	North America	Molale	mola1238
 mbf	103.07599	1.754135	Eurasia	Baba Malay	baba1267
-soj	54.59641	31.85423	Eurasia	Soi	soii1239
+soj	54.59641	31.85423	Eurasia	Soic	soii1239
 som	45.152856	4.778704	Africa	Somali	soma1255
 mba	125.07083	8.61202	Papua	Higaonon	higa1237
 mbb	124.82468	7.6682	Papua	Western Bukidnon Manobo	west2555
@@ -552,11 +552,10 @@ lrg	130.92221	-12.4111	Australia	Laragia	lara1258
 lri			Africa	Marachi	mara1393
 lrk	68.715	26.095	Eurasia	Loarki	loar1234
 lrm			Africa	Marama	mara1392
-lrl	54.63449	27.6436	Eurasia	Lari	lari1253
+lrl	54.63449	27.6436	Eurasia	Larestani	lari1253
 lro	30.38236	11.39154	Africa	Laru (North Sudan)	laro1243
 lrn	134.40953	-6.30338	Papua	Lorang	lora1237
 lrr	87.39592	26.93197	Eurasia	Southern Yamphu	sout2734
-NOCODE_Aruba			South America	Aruba	arub1238
 lrt	122.7619	-8.4746	Papua	Larantuka Malay	lara1260
 lrv	167.38662	-16.19708	Papua	Larevat	lare1249
 lrz	167.435503	-13.74272	Papua	Lemerig	leme1238
@@ -583,9 +582,8 @@ NOCODE_Butler-English			Eurasia	Butler English	butl1235
 dzl	91.37399	27.78546	Eurasia	Dzalakha	dzal1238
 ygi				NA	NA
 dzo	89.581604	27.410786	Eurasia	Dzongkha	dzon1239
-NOCODE_Lower-Nosop	20.588827	-25.54522	Africa	Lower-Nosop	lowe1407
 gzn	127.97604	-0.42618	Papua	Gane	gane1237
-gzi	49.45528	34.03574	Eurasia	Gazi	gazi1243
+gzi	49.45528	34.03574	Eurasia	Gazic	gazi1243
 gza	35.13733	10.29907	Africa	Ganza	ganz1246
 ssx	143.95093	-6.7028	Papua	Samberigi	samb1321
 fpe	8.68929	3.53638	Africa	Pichi	fern1234
@@ -596,7 +594,6 @@ ssn	37.85681	0.55656	Africa	Waata	waat1238
 ssh	56.171125	25.93902	Eurasia	Shihhi Arabic	shih1239
 ttz	85.08175	28.47193	Eurasia	Tsum	tsum1240
 tty	138.2874	-2.80285	Papua	Sikaritai	sika1263
-NOCODE_Medefidrin			Africa	Medefidrin	mede1238
 tts	102.98638	14.32526	Eurasia	Northeastern Thai	nort2741
 ttr	11.80953	11.0376	Africa	Tera	tera1251
 ttq	4.47692	13.98783	Africa	Tawallammat Tamajaq	tawa1286
@@ -635,7 +632,7 @@ jii	44.12938	1.84353	Africa	Jiiddu	jiid1238
 jiv	-78.18923	-3.45136	South America	Shuar	shua1257
 djc	18.79962	12.11866	Africa	Dar Daju Daju	dard1243
 djb	134.96743	-12.93004	Australia	Djinba	djin1252
-dje	2.41172666667	12.8553766667	Africa	Zarma-Kaado	zarm1239
+dje	2.41172666667	12.8553766667	Africa	Zarma	zarm1239
 djd	130.0598	-15.05583	Australia	Jaminjung-Ngaliwurru	djam1255
 djf	144.93245	-16.91051	Australia	Djangun	djan1238
 dji	134.82031	-12.46201	Australia	Djinang	djin1253
@@ -658,7 +655,7 @@ blq	147.28194	-2.5604	Papua	Paluai	balu1257
 blp	159.41863	-8.15058	Papua	Blablanga	blab1237
 bls	119.68862	-0.05644	Papua	Balaesang	bala1314
 blr	99.7404733333	22.0092033333	Eurasia	Blang	blan1242
-blm	29.79543	6.40428	Africa	Beli (Sudan)	beli1257
+blm	29.79543	6.40428	Africa	Beli (South Sudan)	beli1257
 bll	-89.19508	31.31999	North America	Biloxi	bilo1248
 blo	1.601685	9.11127	Africa	Anii	anii1245
 bln	124.28969	13.69895	Papua	Coastal-Virac Bikol	sout2912
@@ -678,7 +675,7 @@ onk	141.87974	-3.32403	Papua	Kabore One	kabo1248
 oni	132.06232	-2.75976	Papua	Onin	onin1245
 onn	142.77582	-6.30876	Papua	Onobasulu	onob1238
 ono	-78.04973	42.98638	North America	Onondaga	onon1246
-onb	109.97126	19.86337	Eurasia	Lingao	ling1262
+onb	109.97126	19.86337	Eurasia	Western Ong-Be	ling1262
 ona	-68.5	-54	South America	Selk'nam	onaa1245
 ong	142.1308	-3.2929	Papua	Olo	oloo1241
 one	-84.057715	43.77286	North America	Oneida	onei1249
@@ -714,7 +711,7 @@ saj	127.49252	1.00742	Papua	Sahu	sahu1245
 sah	133.98031	61.69744	Eurasia	Sakha	yaku1245
 sao	139.62656	-3.16632	Papua	Sause	saus1247
 san	77.0	20.0	Eurasia	Sanskrit	sans1269
-sam	35.25798	32.31075	Eurasia	Samaritan Aramaic	sama1314
+sam	35.25798	32.31075	Eurasia	NA	NA
 sac	-94.0	40.0	North America	Meskwaki	mesk1242
 sab	-81.25648	8.57695	North America	Buglere	bugl1243
 saa	18.49058	11.30721	Africa	Saba	saba1276
@@ -743,7 +740,7 @@ zoo	-96.8704	16.8762	North America	Asuncion Mixtepec Zapotec	asun1236
 zoq	-93.09679	18.17129	North America	Tabasco Zoque	taba1264
 zor	-93.10061	17.29533	North America	Rayon Zoque	rayo1235
 zos	-93.36326	17.36536	North America	Francisco Leon Zoque	fran1266
-lnb	16.617	-19.593	Africa	Mbalanhu	mbal1255
+lnb	16.617	-19.593	Africa	Central Wambo	mbal1255
 NOCODE_Milang	94.5	28.5	Eurasia	Milang	mila1245
 NOCODE_Caijia	115.434262	29.156486	Eurasia	Caijia	caij1234
 axx	166.37571	-21.8223	Papua	Xaragure	xara1243
@@ -766,7 +763,7 @@ xmg	10.33765	5.71399	Africa	Mengaka	meng1264
 xma	42.66256	0.00689	Africa	NA	NA
 xmb	13.64707	5.7517	Africa	Mbonga	mbon1252
 xmc	39.12026	-16.93945	Africa	Makhuwa-Marrevone	makh1262
-xmx	130.83335	-1.05325	Papua	Maden	made1253
+xmx	130.83335	-1.05325	Papua	Salawati	made1253
 xmy	140.33745	-18.11468	Australia	Mayaguduna	maya1280
 xmz	121.36984	-2.56016	Papua	Mori Bawah	mori1268
 xmt	130.07501	-1.8801	Papua	Matbat	matb1237
@@ -797,7 +794,7 @@ kjf	49.576025	36.531725	Eurasia	Khalaj	khal1270
 kjg	101.67116	20.246292	Eurasia	Khmu	khmu1256
 kjd	143.24381	-8.64889	Papua	Southern Kiwai	sout2949
 kje	127.18035	-8.05122	Papua	Kisar	kisa1266
-kjj	48.05714	41.18014	Eurasia	Khinalugh	khin1240
+kjj	48.05714	41.18014	Eurasia	Khinalug	khin1240
 kjk	119.9278	-5.26559	Papua	Highland Konjo	high1275
 kjh	107.169385	50.73933	Eurasia	Khakas	khak1248
 kji	158.75344	-7.74311	Papua	Zabana	zaba1237
@@ -901,7 +898,7 @@ jgo	10.23704	5.63067	Africa	Ngomba	ngom1272
 dds	-3.51468	14.34019	Africa	Donno So Dogon	donn1239
 jgb	27.65292	3.60447	Africa	Ngbee	ngbe1238
 ddw	130.05955	-7.76324	Papua	Dawera-Daweloor	dawe1237
-jge	34.75	31.5	Eurasia	Judeo-Georgian	jude1258
+jge	34.75	31.5	Eurasia	NA	NA
 ddj	128.26205	-18.32879	Australia	Jaru	jaru1254
 ddi	150.16758	-9.38654	Papua	Diodio	diod1237
 ddo	45.80959	42.26458	Eurasia	Tsez	dido1241
@@ -929,11 +926,10 @@ acw	38.92371	22.8346	Eurasia	Hijazi Arabic	hija1235
 acv	-121.1908	41.09785	North America	Achumawi	achu1247
 acu	-77.26405	-2.826455	South America	Achuar-Shiwiar	achu1248
 act	6.47521	52.02104	Eurasia	NA	NA
-NOCODE_Ngadjuri			Australia	Ngadjuri	ngad1257
 acz	30.3187	10.88266	Africa	Acheron	ache1245
 acy	33.0943	35.16744	Eurasia	Cypriot Arabic	cypr1248
 acx	58.5	23.25	Eurasia	Omani Arabic	oman1239
-bjg	-16.14972	11.10971	Africa	Kangaki-Kagbaaga-Kajoko Bidyogo	bidy1244
+bjg	-16.14972	11.10971	Africa	Kanyaki-Kagbaaga-Kajoko Bidyogo	bidy1244
 bjf	35.15357	31.76957	Eurasia	Barzani Jewish Neo-Aramaic	barz1241
 bje	111.3442	25.53089	Eurasia	Biao-Jiao Mien	biao1254
 bjd	143.28244	-30.07713	Australia	Bandjigali	band1337
@@ -988,7 +984,7 @@ mny	36.84587	-16.49625	Africa	Manyawa	many1259
 mnz	136.88584	-3.72962	Papua	Moni	moni1261
 scn	14.04144	37.57354	Eurasia	Sicilian	sici1248
 sci	79.86404	6.91603	Eurasia	Sri Lanka Malay	sril1245
-sch	93.949	25.994	Eurasia	Sakachep	saka1283
+sch	93.949	25.994	Eurasia	Sakachep-Chorei	saka1283
 sck	84.81136	23.65853	Eurasia	Sadri	sadr1248
 bvr	134.36499	-12.30605	Australia	Burarra	bura1267
 mnp	118.32	27.05	Eurasia	Min Bei Chinese	minb1244
@@ -1041,10 +1037,10 @@ zmv	143.78882	-14.52902	Australia	Rimanggudhinma	mbar1253
 zmw	28.01805	1.11602	Africa	Mbo (Democratic Republic of Congo)	mbod1238
 zmt	130.25018	-14.38188	Australia	Maringarr	mari1419
 zmu	146.54642	-28.96178	Australia	Muruwari	muru1266
-dsi	19.21559	10.32184	Africa	Disa	disa1239
+dsi	19.21559	10.32184	Africa	Dissa-Canton Mufa	disa1239
 pbu	71.33	34.0	Eurasia	Northern Pashto	nort2646
 pbt	68.25	37.17	Eurasia	Southern Pashto	sout2649
-smd	13.87134	-9.86931	Africa	Sama	sama1300
+smd	13.87134	-9.86931	Africa	NA	NA
 pbp	-13.47589	12.6425466667	Africa	Jaad-Badyara	bady1239
 pbs	-99.28979	21.37622	North America	Central Pame	cent2145
 pbr	34.80386	-9.96782	Africa	Pangwa	pang1287
@@ -1072,7 +1068,7 @@ xop	144.46567	-3.98259	Papua	Kopar	kopa1248
 bvo	18.8076	10.90248	Africa	Bolgo	bolg1251
 xog	33.3942	0.40456	Africa	Soga	soga1242
 xod	132.44949	-2.12872	Papua	Kokoda	koko1265
-xoc			Africa	O'chi'chi'	ochi1235
+xoc			Africa	NA	NA
 xon	0.2783	9.822245	Africa	Konkomba	konk1269
 xoo	-36.58332	-8.06666	South America	Xukuru	xuku1239
 bvl	-67.57823	-16.38949	South America	Bolivian Sign Language	boli1236
@@ -1112,7 +1108,7 @@ klw	120.06304	-1.35748	Papua	Tado-Lindu	lind1248
 klp	146.20897	-6.96411	Papua	Kamasa	kama1360
 klq	144.17851	-7.17149	Papua	Rumu	rumu1243
 klr	87.505335	27.39118	Eurasia	Khaling	khal1275
-kls	71.66575	35.64151	Eurasia	Kalasha	kala1372
+kls	71.66575	35.64151	Eurasia	Chitral Kalasha	kala1372
 klx	150.46185	-9.42742	Papua	Koluwawa	kolu1245
 kly	120.99456	-7.31213	Papua	Kalao	kala1394
 klz	124.53869	-8.17316	Papua	Kabola	kabo1247
@@ -1147,7 +1143,7 @@ wrg	144.37004	-18.24957	Australia	Warrongo	waru1264
 wrd	71.14749	36.60835	Eurasia	Warduji	ward1243
 wre			Africa	Ware	ware1252
 wrb	138.73801	-22.29092	Australia	Warluwara	warl1256
-wra	142.01231	-3.07263	Papua	Bauni	wara1302
+wra	142.01231	-3.07263	Papua	NA	NA
 wrn	31.15736	10.59398	Africa	Warnang	warn1244
 wro			Australia	Worrorra	worr1237
 wrl	133.86247	-18.94897	Australia	Warlmanpa	warl1255
@@ -1185,7 +1181,7 @@ jek	-5.66717	9.3957	Africa	Jeli	jeri1242
 jeh	107.7531	15.23509	Eurasia	Jeh	jehh1245
 jei	140.86307	-7.87489	Papua	Yei	yeii1239
 jen	11.38838	9.26671	Africa	Dza	dzaa1238
-jel	139.09633	-7.4453	Papua	Yelmek	yelm1242
+jel	139.09633	-7.4453	Papua	Southern Yelmek	yelm1242
 odu	6.41493	4.83273	Africa	Odual	odua1238
 NOCODE_Urucucus			South America	Urucucus	uruc1243
 aae	16.71645	38.91104	Eurasia	Arbaresha Albanian	arbe1236
@@ -1194,7 +1190,7 @@ aag	142.46152	-3.51156	Papua	Ambrak	ambr1239
 aaf	75.79538	11.35252	Eurasia	Aranadan	aran1261
 aaa	5.95663	7.11551	Africa	Ghotuo	ghot1243
 aac	142.40045	-7.95526	Papua	Ari	arii1243
-aab	8.55956	9.01513	Africa	Alumu-Tesu	alum1246
+aab	8.55956	9.01513	Africa	Arum	alum1246
 aam	37.3491	-2.90656	Africa	Aramanik	aram1252
 aal	14.63426	12.055125	Africa	Afade	afad1236
 aao	4.80626	20.8884	Africa	Algerian Saharan Arabic	alge1240
@@ -1221,7 +1217,7 @@ bhm	53.119	17.4485	Eurasia	Bathari	bath1244
 bhl	142.04036	-5.38732	Papua	Bimin	bimi1240
 bho	84.817115	26.458455	Eurasia	Bhojpuri	bhoj1244
 bhn	44.482	43.6405	Eurasia	Gardabani Bohtan Neo-Aramaic	boht1238
-bha	83.10707	22.34293	Eurasia	Bharia	bhar1241
+bha	83.10707	22.34293	Eurasia	Bhariati	bhar1241
 bhc	130.27208	-1.99574	Papua	Biga	biga1238
 bhb	73.95923	20.84998	Eurasia	Bhili	bhil1251
 bhe	69.31	25.482	Eurasia	Bhaya	bhay1238
@@ -1242,7 +1238,7 @@ bhw	135.87917	-0.9523	Papua	Biak	biak1248
 bhv	115.33208	0.30801	Papua	Bahau	baha1257
 NOCODE_Tangam	94.98	28.95	Eurasia	Tangam	tang1377
 hgw	150.25556	-10.27409	Papua	Haigwai	haig1237
-hgm	17.02985	-19.76371	Africa	Hai//om	haio1238
+hgm	17.02985	-19.76371	Africa	Hai//om-Akhoe	haio1238
 tpg	125.00419	-8.2384	Papua	Kula (Indonesia)	kula1280
 tpf	139.97465	-2.38121	Papua	Tarpia	tarp1240
 tpe	92.07473	23.58637	Eurasia	Tippera	tipp1239
@@ -1260,7 +1256,7 @@ tpv	145.75662	15.23702	Papua	Tanapag	tana1281
 ext	-6.10179	39.19261	Eurasia	Extremaduran	extr1243
 tpt	-98.19468	20.70402	North America	Tlachichilco Tepehua	tlac1235
 tpr	-62.2544	-11.88837	South America	Tupari	tupa1250
-tpq	78.16268	31.4925	Eurasia	Tukpa	tukp1239
+tpq	78.16268	31.4925	Eurasia	NA	NA
 tpp	-98.03053	20.70392	North America	Pisaflores Tepehua	pisa1237
 NOCODE_Kathlamet			North America	Kathlamet	kath1253
 tpz	154.97241	-5.58358	Papua	Tinputz	tinp1237
@@ -1287,8 +1283,8 @@ crv	93.03307	8.45745	Eurasia	Chaura	chau1258
 crw	107.29291	10.80208	Eurasia	Chrau	chra1242
 crt	-63.23831	-22.1896	South America	Iyojwa'ja Chorote	iyoj1235
 crz	-119.864044	34.046515	North America	Cruzeno	cruz1243
-crx	-124.32759	54.37681	North America	Carrier	carr1249
-cry	7.95163	9.37832	Africa	Cori	cori1240
+crx	-124.32759	54.37681	North America	Central Carrier	carr1249
+cry	7.95163	9.37832	Africa	Kyoli	cori1240
 crb	-61.239505	14.290585	North America	Island Carib	isla1278
 crc	168.0156	-16.2286	Papua	Lonwolwol	lonw1238
 cra	36.41918	6.63946	Africa	Chara	char1269
@@ -1309,16 +1305,16 @@ seu	136.25218	-1.87766	Papua	Serui-Laut	seru1244
 set	140.51249	-2.6013	Papua	Sentani	nucl1632
 ses	-0.55187	16.96338	Africa	Koyraboro Senni Songhai	koyr1242
 ser	-116.77196	33.94787	North America	Serrano	serr1255
-seq	-5.28216	10.49874	Africa	Senara Senoufo	sena1262
+seq	-5.28216	10.49874	Africa	Senar de Kankalaba	sena1262
 sep	-5.28932	11.178905	Africa	Sicite Senoufo	sici1249
 sez	93.80869	21.89355	Eurasia	Senthang Chin	sent1260
 sey	-75.554725	-0.459785	South America	Secoya	seco1241
 seg	39.12249	-5.00659	Africa	Segeju	sege1246
-sef	-6.15264	9.50768	Africa	Cebaara Senoufo	ceba1235
+sef	-6.15264	9.50768	Africa	Senari	ceba1235
 see	-79.340345	42.6128	North America	Seneca	sene1264
 sed	108.02703	14.77933	Eurasia	Sedang	seda1262
 sec	-123.76474	49.47575	North America	Sechelt	sech1246
-seb	-6.37129	10.48673	Africa	Shempire Senoufo	shem1239
+seb	-6.37129	10.48673	Africa	NA	NA
 sea	101.47651	4.13257	Eurasia	Semai	sema1266
 seo	141.97768	-4.95072	Papua	Asabano	suar1238
 sen	-4.92148	11.75478	Africa	Nanerige Senoufo	nane1238
@@ -1356,7 +1352,7 @@ xau	138.15745	-2.22799	Papua	Kauwera	kauw1242
 xav	-52.43669	-14.30173	South America	Xavante	xava1240
 xaw	-118.67889	36.05383	North America	Kawaiisu	kawa1283
 xai	-41.99999	-12.99999	South America	Kaimbe	kaim1235
-xal	45.42443	46.75922	Eurasia	Oirad-Kalmyk	kalm1243
+xal	45.42443	46.75922	Eurasia	Oirad-Kalmyk-Darkhat	kalm1243
 xam	20.17325	-31.76115	Africa	/Xam	xamm1241
 xan	38.83518	12.44788	Africa	Xamtanga	xamt1239
 xao	103.46701	21.45432	Eurasia	Khao	khao1244
@@ -1378,7 +1374,7 @@ nrz	146.749	-8.93195	Papua	Lala	lala1268
 nrx	132.50752	-12.6483	Australia	Ngurmbur	ngur1260
 nrr	98.45022	27.5088	Eurasia	Norra	norr1243
 nrp			Eurasia	North Picene	nort1401
-nru	100.9	27.8	Eurasia	Yongning Na	yong1270
+nru	100.9	27.8	Eurasia	Narua	yong1270
 nrt			North America	Tualatin-Yamhill	tual1242
 mlb	10.99244	4.50635	Africa	Mbule	mbul1262
 mlc	105.52112	23.254105	Eurasia	Cao Lan	caol1238
@@ -1392,7 +1388,7 @@ mlh	147.6816	-6.59318	Papua	Mape	mape1249
 mli	119.75974	-3.6996	Papua	Malimpung	mali1283
 mln	160.11784	-9.61383	Papua	Malango	mala1484
 mlo	-16.53832	12.83179	Africa	Mlomp	mlom1238
-mll	167.20834	-15.98133	Papua	Malua Bay	malu1245
+mll	167.20834	-15.98133	Papua	Malua-Teparav	malu1245
 mlm	108.92802	24.81515	Eurasia	Mulam	mula1253
 mlr	14.21306	10.94813	Africa	Vame	vame1236
 mls	22.17522	13.273295	Africa	Masalit	nucl1440
@@ -1402,7 +1398,7 @@ mlv	167.67252	-13.65347	Papua	Mwotlap	motl1237
 mlw	14.25209	10.79332	Africa	Moloko	molo1266
 mlt	14.45082	35.8884	Eurasia	Maltese	malt1254
 mlu	160.61905	-8.39233	Papua	To'abaita	toab1237
-mlz	121.91924	11.85639	Papua	Malaynon	mala1491
+mlz	121.91924	11.85639	Papua	NA	NA
 mlx	167.50896	-16.54985	Papua	Na'ahai	malf1237
 NOCODE_Xinca-Guazacapan	-90.416651	14.069981	North America	Xinca-Guazacapan	xinc1246
 psh	69.87341	34.84777	Eurasia	Southwest Pashayi	sout2671
@@ -1414,13 +1410,12 @@ pso	20.76105	52.00414	Eurasia	Polish Sign Language	poli1259
 psl	-66.09192	18.45917	North America	Puerto Rican Sign Language	puer1237
 NOCODE_Korapun-Bromley			Papua	Korapun-Bromley	kora1298
 psm	-63.19031	-12.85527	South America	Warazu	paus1244
-NOCODE_Goo			Africa	Goo	gooa1234
 lxu	99.112244	25.344026	Eurasia	NA	NA
 psa	139.12334	-5.98341	Papua	Asue Awyu	asue1235
 rdb	49.88008	37.08782	Eurasia	Rudbari	rudb1238
 psd	-99.24989	38.39406	North America	Plains Indian Sign Language	plai1235
-pse	103.13721	-3.79673	Papua	Central Malay	cent2053
-knn	73.91659	19.24143	Eurasia	Maharashtrian Konkani	konk1267
+pse	103.13721	-3.79673	Papua	South Barisan Malay	cent2053
+knn	73.91659	19.24143	Eurasia	Konkan Marathi	konk1267
 kno	-10.92143	8.67039	Africa	Kono (Sierra Leone)	kono1268
 knl	111.8075	-0.63184	Papua	Keninjal	keni1248
 knm	-68.7678	-6.45399	South America	Katukina-Kanamari	kana1291
@@ -1428,7 +1423,7 @@ knj	-91.842115	15.593205	North America	Akateko	west2635
 knk	-10.61219	9.493255	Africa	Kuranko	kura1250
 kni	8.27644	9.525	Africa	Kanufi	kanu1277
 knf	-15.74389	12.2615066667	Africa	Mankanya	mank1251
-kng	14.4770566667	-5.57722	Africa	South-Central Kikongo	koon1244
+kng	14.4770566667	-5.57722	Africa	South-Central Koongo	koon1244
 knd	132.05952	-1.82635	Papua	Yaben (Konda)	kond1303
 kne	120.68924	16.8548	Papua	Kankanaey	kank1243
 knb	121.0365	17.3879	Papua	Lubuagan Kalinga	lubu1243
@@ -1436,7 +1431,7 @@ knc	16.391838	11.886274	Africa	Central Kanuri	cent2050
 kna	12.02564	10.07198	Africa	Dera (Nigeria)	dera1248
 psy	-76.803	39.073	North America	Piscataway	pisc1239
 knz	-3.10033	13.61057	Africa	Kalamse	kala1383
-knx	109.467415	1.479565	Papua	Kendayan	kend1254
+knx	109.467415	1.479565	Papua	Kendayan-Belangin	kend1254
 kny	23.61298	-7.31878	Africa	Kanyok	kany1247
 knv	143.30513	-8.09387	Papua	Tabo	tabo1241
 knw	18.0	-21.92	Africa	North-Central Ju	kung1261
@@ -1474,7 +1469,7 @@ cia	122.79103	-5.68289	Papua	Cia-Cia	ciac1237
 zim	15.7018	9.28888	Africa	Mesme	mesm1239
 cie	13.81868	11.13194	Africa	Cineni	cine1238
 cid	-123.0	41.0	North America	Chimariko	chim1301
-cik	78.52868	31.2965	Eurasia	Chitkuli Kinnauri	chit1279
+cik	78.52868	31.2965	Eurasia	Chhitkul-Rakchham	chit1279
 cih	76.961	32.555	Eurasia	Chinali	chin1475
 cin	-60.83115	-10.58788	South America	Cinta Larga	cint1239
 cim	11.42855	46.87768	Eurasia	Cimbrian	cimb1238
@@ -1559,7 +1554,7 @@ trj	19.52541	11.20271	Africa	Toram	tora1267
 trm	70.96173	34.75482	Eurasia	Tregami	treg1243
 trl	-4.38593	55.98292	Eurasia	Traveller Scottish	trav1235
 evn	108.625523333	53.85003	Eurasia	Evenki	even1259
-trn	-65.40956	-15.33313	South America	Trinitario	trin1274
+trn	-65.40956	-15.33313	South America	Trinitario-Javeriano-Loretano	trin1274
 tra	69.59007	34.17924	Eurasia	Tirahi	tira1253
 trc	-97.98262	17.15414	North America	Copala Triqui	copa1237
 trb	143.83467	-3.68721	Papua	Terebu	tere1276
@@ -1594,7 +1589,7 @@ lec	-67.88181	-15.00921	South America	Leco	leco1242
 led	30.67945	2.189795	Africa	Lendu	lend1245
 lee	-2.59229	12.4305	Africa	Lyele	lyel1241
 lef	0.50746	7.34549	Africa	Lelemi	lele1264
-leg	-58.90528	-22.65586	South America	Lengua	leng1262
+leg	-58.90528	-22.65586	South America	NA	NA
 leh	28.25808	-14.71918	Africa	Lenje	lenj1248
 lei	146.44079	-5.61407	Papua	Lemio	lemi1243
 lej	25.33434	-1.95874	Africa	Lengola	leng1258
@@ -1652,11 +1647,11 @@ sge	116.95439	1.97695	Papua	Segai	sega1243
 nml	10.21966	4.58061	Africa	Ndemli	ndem1249
 sgg	9.07557	47.10693	Eurasia	Swiss-German Sign Language	swis1240
 ziw	38.41138	-5.61864	Africa	Zigula-Mushungulu	zigu1244
-zir	8.72792	10.52184	Africa	Ziriya	ziri1239
+zir	8.72792	10.52184	Africa	NA	NA
 ziz	13.523335	10.468925	Africa	Zizilivakan	zizi1238
 tdv	8.58194	9.09143	Africa	Toro	toro1249
 zib	31.02158	-17.91276	Africa	Zimbabwe Sign Language	zimb1247
-tdu	116.54476	6.36389	Papua	Tempasuk Dusun	temp1235
+tdu	116.54476	6.36389	Papua	NA	NA
 zia	147.57935	-7.95814	Papua	Zia	ziaa1250
 zin	32.17547	-2.64132	Africa	Zinza	zinz1238
 zil	-9.51	8.43	Africa	Zialo	zial1235
@@ -1701,7 +1696,7 @@ nps	139.75323	-4.14421	Papua	Nipsan	nips1240
 gcd	139.42637	-17.54458	Australia	Ganggalida	gang1267
 mjd	-121.36786	39.67211	North America	Northwest Maidu	nort2951
 mje	15.41126	11.5697	Africa	Muskum	musk1256
-mjg	102.11749	36.8177	Eurasia	Tu	tuuu1240
+mjg	102.11749	36.8177	Eurasia	Mongghul	huzh1238
 mja	100.0166	21.65584	Eurasia	Mahei	mahe1238
 mjc	-97.92788	16.39642	North America	San Juan Colorado Mixtec	sanj1281
 mjl	77.04187	31.5425	Eurasia	Mandeali	mand1409
@@ -1713,7 +1708,7 @@ mji	105.024396667	22.9856066667	Eurasia	Kim Mun	kimm1245
 mjj	145.28314	-4.61817	Papua	Mawak	mawa1266
 mjk	145.77862	-4.9078	Papua	Matukar	matu1261
 mjt	87.64317	24.81236	Eurasia	Sauria Paharia	saur1249
-mju	83.1908	18.2775	Eurasia	Manna-Dora	mann1245
+mju	83.1908	18.2775	Eurasia	NA	NA
 mjv	76.97	9.85	Eurasia	Mannan	mann1246
 mjw	93.04624	25.7317	Eurasia	Hills Karbi	karb1241
 mjp	77.27197	8.59225	Eurasia	Malapandaram	mala1468
@@ -1721,7 +1716,7 @@ mjq	76.55856	10.44682	Eurasia	Malaryan	mala1466
 mjr	77.20382	8.85517	Eurasia	Malavedan	mala1463
 mjs	9.33752	9.20477	Africa	Miship	mish1244
 mjx	86.74451	22.1698	Eurasia	Mahali	maha1291
-mjy	-74.266	43.903	North America	Mahican	mahi1248
+mjy	-74.266	43.903	North America	Mohican	mahi1248
 mjz	80.37881	29.45587	Eurasia	Majhi	majh1253
 vml	114.245	-26.211	Australia	Malgana	malg1242
 vmm	-97.17573	17.16002	North America	Mitlatongo Mixtec	mitl1235
@@ -1751,11 +1746,11 @@ NOCODE_Duit	-73.021374	5.786798	South America	Duit	duit1239
 lzh			Eurasia	Literary Chinese	lite1248
 lzl	167.41511	-16.13309	Papua	Naman	litz1237
 lzn			Eurasia	Leinong Naga	lein1237
-kpp	97.12034	18.81375	Eurasia	Paku Karen	paku1238
+kpp	97.12034	18.81375	Eurasia	NA	NA
 kpq	139.67832	-4.53497	Papua	Korupun-Sela	koru1245
 kpr	149.26655	-9.07	Papua	Korafe-Yegha	kora1294
 kps	131.98485	-1.51049	Papua	Tehit	tehi1237
-kpt	46.31511	42.65005	Eurasia	Karata	kara1474
+kpt	46.31511	42.65005	Eurasia	Karata-Tukita	kara1474
 kpu	124.44624	-8.36572	Papua	Kafoa	kafo1240
 kpv	54.94599	64.05268	Eurasia	Komi-Zyrian	komi1268
 kpw	144.45995	-5.16446	Papua	Kobon	kobo1249
@@ -1831,10 +1826,10 @@ dbu	-3.32636	14.90665	Africa	Najamba-Kindige	bond1248
 szw	128.08564	0.51111	Papua	Sawai	sawa1247
 dbw			Africa	Bankan Tey Dogon	bank1259
 dbv	8.19543	10.50427	Africa	Dungu	dung1254
-xvi	70.0	30.0	Eurasia	Kamviri	kamv1242
+xvi	70.0	30.0	Eurasia	NA	NA
 jaz	164.67594	-20.66477	Papua	Jawe	jawe1237
 jax	103.12993	-2.6469	Papua	Jambi Malay	jamb1236
-jay	134.87665	-12.08531	Australia	Yan-nhangu	yann1237
+jay	134.87665	-12.08531	Australia	Nhangu	yann1237
 jav	110.884843333	-0.572306666667	Papua	Javanese	java1254
 NOCODE_Gangou			Eurasia	Gangou	gang1272
 jat	68.611035	36.001755	Eurasia	Inku	jaka1245
@@ -1881,7 +1876,7 @@ gbs	2.0269	6.55911	Africa	Gbesi Gbe	gbes1238
 gbp	17.64498	6.61896	Africa	Gbaya-Bossangoa	gbay1287
 gbq	16.46427	5.9879	Africa	Gbaya-Bozoum	gbay1286
 aek	164.86922	-21.0735	Papua	Haeke	haek1239
-gbz	54.44689	31.8161	Eurasia	Zoroastrian Dari	zoro1242
+gbz	54.44689	31.8161	Eurasia	Zoroastrian Yazdi	zoro1242
 ael	9.62028	5.94043	Africa	Ambele	ambe1247
 gbx	2.54987	6.37803	Africa	Eastern Xwla Gbe	east2390
 gby	7.10757	8.46411	Africa	Gbari	gbar1246
@@ -1932,7 +1927,6 @@ tld	126.79467	4.11846	Papua	Talaud	tala1285
 tlk	122.87168	-4.6478	Papua	Taloki	talo1252
 tlj	29.949415	0.676185	Africa	Talinga-Bwisi	tali1258
 eth	38.85339	8.9761	Africa	Ethiopian Sign Language	ethi1238
-NOCODE_Lawi			Eurasia	Lawi	lawi1235
 etn	168.54926	-17.73995	Papua	Eton (Vanuatu)	eton1255
 eto	11.39348	4.21045	Africa	Eton-Mengisa	eton1253
 tlm	166.7723	-15.15686	Papua	Tolomako	tolo1255
@@ -1942,7 +1936,7 @@ NOCODE_Ben-Lomond-Cape-Portland	147.787122	-41.326418	Australia	Ben-Lomond-Cape-
 lgk	167.4985	-16.19856	Papua	Neverver	ling1265
 lgh	103.92852	22.26738	Eurasia	Laghuu	lagh1245
 lgi	115.90976	3.69641	Papua	Lengilu	leng1260
-lgn	33.852955	8.475265	Africa	T'apo	opuu1239
+lgn	33.852955	8.475265	Africa	Opo	opuu1239
 lgl	160.74125	-8.81936	Papua	Wala	wala1266
 lgm	28.26206	-3.39007	Africa	Lega-Mwenga	lega1250
 lgb	158.96112	-8.00509	Papua	Laghu	lagh1246
@@ -1952,16 +1946,15 @@ NOCODE_Tarairiu	-37.509155	-5.5471	South America	Tarairiu	tara1303
 lgz	22.49359	2.86168	Africa	Ligenza	lige1238
 NOCODE_Demushbo	-70.873718	-4.837565	South America	Demushbo	demu1235
 lgr	160.42011	-9.56425	Papua	Lengo	leng1259
-lgq	0.43068	6.92838	Africa	Logba	logb1245
+lgq	0.43068	6.92838	Africa	Ikpana	logb1245
 lgt	142.29906	-3.79935	Papua	Pahi	pahi1246
 lgu	160.66328	-9.75258	Papua	Longgu	long1395
 NOCODE_Tembey			South America	Tembey	temb1278
 cvn	-96.31873	17.79638	North America	Valle Nacional Chinantec	vall1253
 tsp	-4.88274	11.13303	Africa	Northern Toussian	nort2787
-cvg	92.18383	27.7686	Eurasia	Chug	chug1252
+cvg	92.18383	27.7686	Eurasia	Duhumbi	chug1252
 rbb	97.317245	23.640405	Eurasia	Rumai Palaung	ruma1248
 NOCODE_Quepos			North America	Quepos	quep1238
-NOCODE_Guaru	-71.65	-0.25	South America	Guaru	guar1294
 NOCODE_Zhongu	103.44179	32.43582	Eurasia	Zhongu	zhon1235
 zgr	149.26034	-10.23207	Papua	Magori	mago1248
 NOCODE_Dorasque	-82.375717	8.567442	North America	Dorasque	dora1242
@@ -1974,7 +1967,7 @@ phh	106.147725	25.52774	Eurasia	Phukha	phuk1235
 pho	100.95699	20.799585	Eurasia	Phunoi	phun1245
 phn			Africa	Phoenician	phoe1239
 phm	33.35136	-15.8364	Africa	Phimbi	phim1238
-phl	71.84211	35.50956	Eurasia	Phalura	phal1254
+phl	71.84211	35.50956	Eurasia	Palula	phal1254
 pha	105.165125	22.80489	Eurasia	Pa-Hng	pahn1237
 phg	107.4674	16.21184	Eurasia	Phuong	phuo1238
 phd	73.36836	18.71534	Eurasia	Phudagi	phud1238
@@ -2046,13 +2039,13 @@ vsl	-66.76784	10.32937	South America	Venezuelan Sign Language	vene1237
 krz	140.96896	-8.40452	Papua	Sota Kanum	sota1242
 krx	-16.738165	12.99184	Africa	Karon	karo1294
 kry	48.18457	41.18107	Eurasia	Kryz	kryt1240
-krr	106.76134	13.56989	Eurasia	Krung	krun1240
-krs	25.51728	8.43391	Africa	Gbaya (Sudan)	gbay1288
+krr	106.76134	13.56989	Eurasia	NA	NA
+krs	25.51728	8.43391	Africa	Kresh-Woro	gbay1288
 krp	8.808595	5.16206	Africa	Korop	koro1304
-krv	106.58579	14.17964	Eurasia	Kavet	kave1238
+krv	106.58579	14.17964	Eurasia	NA	NA
 krw	-8.40954	6.144145	Africa	Western Krahn	west2488
 krt	13.15705	14.25844	Africa	Tumari Kanuri	tuma1248
-kru	86.465675	24.46442	Eurasia	Kurukh	kuru1302
+kru	86.465675	24.46442	Eurasia	Kurukh	kuru1301
 krj	122.2969	10.81307	Papua	Kinaray-a	kina1250
 krk	175.06969	62.17769	Eurasia	Kerek	kere1280
 krh	7.93507	10.47663	Africa	Kurama	kura1249
@@ -2078,7 +2071,7 @@ yrs	139.47243	-2.21222	Papua	Yarsun	yars1234
 yrw	145.45448	-4.93943	Papua	Yarawata	yara1250
 inz	-120.079937	34.616907	North America	Ineseno	ines1240
 int	96.93882	20.39204	Eurasia	Intha-Danu	inth1238
-inp	-69.30827	-12.46525	South America	Inapari	inap1243
+inp	-69.30827	-12.46525	South America	Inapari	inap1242
 ins	79.6786866667	27.5185633333	Eurasia	Indian Sign Language	indi1237
 inl	112.378	-7.908	Papua	Jakartan Sign Language	indo1291
 inm			Eurasia	Minaean	mina1279
@@ -2086,14 +2079,14 @@ inn	121.12014	16.32993	Papua	Isinai	isin1239
 ino	145.53907	-6.32311	Papua	Inoke-Yate	inok1238
 inh	44.15799	42.95255	Eurasia	Ingush	ingu1240
 NOCODE_Papuan-Pidgin-English			Papua	Papuan Pidgin English	papu1254
-inj	-76.65931	0.88872	South America	Jungle Inga	jung1240
-ind	109.71572	-7.33458	Papua	Indonesian	indo1316
+inj	-76.65931	0.88872	South America	NA	NA
+ind	109.71572	-7.33458	Papua	Standard Indonesian	indo1316
 ing	-160.04427	62.0697	North America	Degexit'an	dege1248
 ina	2.615	48.203	Eurasia	Interlingua (International Auxiliary Language Association)	inte1239
-inb	-76.86062	1.00313	South America	Inga	inga1252
+inb	-76.86062	1.00313	South America	Colombian Inga	inga1252
 wxw				NA	NA
 hps	-158.00179	21.63107	North America	Hawai'i Pidgin Sign Language	hawa1235
-mch	-64.387725	4.707045	South America	Maquiritari	maqu1238
+mch	-64.387725	4.707045	South America	Ye'kwana	maqu1238
 hpo	97.11423	24.46064	Eurasia	Hpon	hpon1238
 wxa	110.3618	28.64404	Eurasia	Waxianghua	waxi1236
 tmb	167.48414	-16.27015	Papua	Avava	katb1237
@@ -2121,7 +2114,7 @@ quq	-3.68704	40.2638	Eurasia	Quinqui	quin1236
 pty			Eurasia	Pathiya	path1235
 qup	-76.52697	-3.32733	South America	Southern Pastaza Quechua	sout2990
 qus	-63.24657	-27.82096	South America	Santiago del Estero Quichua	sant1432
-qur	-76.53144	-10.49293	South America	Yanahuanca Pasco Quechua	yana1272
+qur	-76.53144	-10.49293	South America	Chaupihuaranga Quechua	yana1272
 alw	38.17316	7.39014	Africa	Alaba-K'abeena	alab1254
 quu			North America	K'iche', Eastern	kich1265
 alt	86.87051	50.13472	Eurasia	Southern Altai	sout2694
@@ -2130,7 +2123,7 @@ alu	161.15822	-9.20699	Papua	'Are'are	area1240
 quv	-91.10904	15.27401	North America	Sacapulteco	saca1238
 als	20.0	41.0	Eurasia	Northern Tosk Albanian	tosk1239
 quy	-74.32246	-13.84714	South America	Ayacucho Quechua	ayac1239
-qux	-75.76589	-13.11443	South America	Huangascar-Topara-Yauyos Quechua	yauy1235
+qux	-75.76589	-13.11443	South America	Yauyos Quechua	yauy1235
 ptp	146.63945	-6.91988	Papua	Patep	pate1247
 NOCODE_Bindal-Cunningham			Australia	Bindal-Cunningham	bind1234
 NOCODE_Cypriot-Greek			Eurasia	Cypriot Greek	cypr1249
@@ -2139,7 +2132,7 @@ glh	69.99362	35.16781	Eurasia	Northwest Pashayi	nort2665
 akz	-94.62848	30.76738	North America	Alabama	alab1237
 aky	92.78661	12.73253	Eurasia	Akakol	akak1253
 glk	49.83588	37.13437	Eurasia	Gilaki	gila1241
-gll				NA	NA
+gll				Bulloo River	kala1380
 tmk	85.16479	27.9087	Eurasia	Northwestern Tamang	nort3144
 glo	10.25422	10.12581	Africa	Galambu	gala1264
 aks	1.37035	8.8858	Africa	Akaselem	akas1242
@@ -2156,13 +2149,13 @@ aki	144.76523	-5.13467	Papua	Aiome	aiom1240
 akh	143.47808	-6.13347	Papua	Angal Heneng	anga1292
 ako	-55.6294	3.19607	South America	Akurio	akur1238
 akm	92.80108	12.36294	Eurasia	Akabo	akab1248
-akl	122.35413	11.55432	Papua	Aklanon	akla1241
+akl	122.35413	11.55432	Papua	Aklanon	akla1240
 akc	133.16598	-0.7489	Papua	Mpur	mpur1239
 akb	99.60248	1.66127	Papua	Batak Angkola	bata1290
 aka	-1.33254	6.34756	Africa	Akan	akan1250
 akg	119.60465	-9.63425	Papua	Anakalangu	anak1240
 akf	8.01629	7.32586	Africa	Akpa	akpa1238
-ake	-60.86199	6.162765	South America	Akawaio	akaw1239
+ake	-60.86199	6.162765	South America	Akawaio-Ingariko	akaw1239
 akd	8.10047	5.58316	Africa	Ukpet-Ehom	ukpe1249
 tml	139.23298	-5.57962	Papua	Tamnim Citak	tamn1235
 brz	145.76404	-5.26505	Papua	Bilibil	bilb1241
@@ -2247,7 +2240,7 @@ ero	101.72	31.10258	Eurasia	Stau-Dgebshes	horp1239
 erh	6.04818	5.18026	Africa	Eruwa	eruw1238
 eri	145.71017	-5.37766	Papua	Ogea	ogea1238
 tnk	169.44199	-19.59545	Papua	Kwamera	kwam1252
-erk	168.37659	-17.70063	Papua	South Efate	sout2856
+erk	168.37659	-17.70063	Papua	Nafsan	sout2856
 uar	145.73197	-7.94866	Papua	Tairuma	tair1256
 uam	-38.74999	-8.49999	South America	Uamue	uamu1236
 uan	105.31038	18.07692	Eurasia	Kuan	kuan1246
@@ -2258,7 +2251,7 @@ lan	4.43514	10.57564	Africa	Laru (Nigeria)	laru1238
 lao	104.56848	16.07262	Eurasia	Lao	laoo1244
 lai	33.15852	-9.49372	Africa	Lambya	lamb1272
 laj	33.05527	2.13867	Africa	Lango (Uganda)	lang1324
-lak	11.22801	9.14965	Africa	Laka (Nigeria)	laka1252
+lak	11.22801	9.14965	Africa	NA	NA
 lad	28.66325	41.20503	Eurasia	Ladino	ladi1251
 lae	76.59663	32.69631	Eurasia	Pattani	patt1248
 laf	30.73307	10.33565	Africa	Lafofa	lafo1243
@@ -2301,14 +2294,14 @@ wgi	144.66454	-6.11629	Papua	Wahgi	nucl1620
 wgu			Australia	Wirangu	wira1265
 wgy	146.17863	-18.54681	Australia	Warrgamay	warr1255
 nty	105.40476	23.18287	Eurasia	Mantsi	mant1265
-ntz	51.95383	33.45931	Eurasia	Natanzi	nata1252
+ntz	51.95383	33.45931	Eurasia	Natanzic	nata1252
 ntp	-107.37932	26.43476	North America	Northern Tepehuan	nort2959
 nts	-75.03332	4.16665	South America	Natagaimas	nata1238
 ntr	0.59728	7.909965	Africa	Delo	delo1240
 ntu	165.83507	-10.67714	Papua	Natugu	natu1246
 ntw	-77.115	36.72	North America	Nottoway	nott1246
 nti	-5.19517	10.7176	Africa	Natioro	nati1243
-ntk	34.53614	-1.94989	Africa	Ikoma-Nata-Isenye	ikom1245
+ntk	34.53614	-1.94989	Africa	Ikoma-Nata	ikom1245
 ntj	127.60204	-25.75137	Australia	Ngaanyatjarra	ngaa1240
 ntm	1.21879	10.51908	Africa	Nateni	nate1242
 nto	18.26501	-1.99062	Africa	Ntomba	ntom1248
@@ -2326,7 +2319,7 @@ mvx	134.37813	-2.07828	Papua	Meoswar	meos1237
 mvy	73.0154	35.33886	Eurasia	Indus Kohistani	indu1241
 mvz	38.33863	8.10617	Africa	Mesqan	mesq1240
 mva	145.03346	-4.07921	Papua	Manam	mana1295
-mvb	-122.86327	40.43208	North America	Mattole	matt1238
+mvb	-122.86327	40.43208	North America	Mattole-Bear River	matt1238
 mvc			North America	Mam, Central	mamc1234
 mvd	119.54972	-9.42302	Papua	Mamboru	mamb1305
 mve	71.56714	28.32418	Eurasia	Marwari (Pakistan)	marw1256
@@ -2337,10 +2330,10 @@ mvi	125.36309	24.75642	Eurasia	Miyako	miya1259
 mvj			North America	Mam, Todos Santos Cuchumatan	mamt1235
 mvk	143.75002	-4.47017	Papua	Mekmek	mekm1240
 mvl	136.641	-24.46	Australia	Mbara-Yanga	mbar1254
-mvm	102.20549	29.82257	Eurasia	Muya	muya1239
+mvm	102.20549	29.82257	Eurasia	NA	NA
 mvn	150.50133	-9.59922	Papua	Minaveha	mina1269
 mvo	157.74689	-8.37943	Papua	Marovo	maro1244
-tek	15.38931	-4.20697	Africa	Ibali Teke	ibal1241
+tek	15.38931	-4.20697	Africa	Kwa South	ibal1241
 NOCODE_Dume			Africa	Dume	dume1236
 tea	101.43761	4.974	Eurasia	Temiar	temi1246
 teb	-76.5761	-0.02668	South America	Tetete	tete1252
@@ -2349,7 +2342,7 @@ nbw	19.59387	2.5414	Africa	Southern Ngbandi	sout2784
 NOCODE_Jitotolteco			North America	Jitotolteco	jito1235
 tee	-97.93472	20.61888	North America	Huehuetla Tepehua	hueh1236
 tef	93.12972	8.23716	Eurasia	Teressa	tere1272
-teg	14.86636	-1.61688	Africa	Teke-Tege	teke1275
+teg	14.86636	-1.61688	Africa	Latege	teke1275
 tex	32.63072	4.91107	Africa	Tennet	tenn1246
 ktx	-66.33286	-9.47288	South America	Kaxarari	kaxa1239
 kty	24.82023	3.47633	Africa	Kango (Bas-Uele District)	kang1286
@@ -2361,7 +2354,7 @@ ktv	107.64367	15.85534	Eurasia	Eastern Katu	east1236
 ktw	-123.43244	39.70019	North America	Kato	kato1244
 ktp	101.74047	22.29959	Eurasia	Kaduo	kadu1253
 ktq	121.54387	17.95094	Papua	Katabaga	kata1268
-ktr	116.94601	6.377	Papua	Kota Marudu Tinagas	kota1278
+ktr	116.94601	6.377	Papua	NA	NA
 kts	140.8149	-6.01385	Papua	South Muyu	sout2940
 ktl	53.008	29.441	Eurasia	Koroshi	koro1296
 ktm	147.03608	-2.01187	Papua	Kurti	kurt1250
@@ -2443,7 +2436,7 @@ cov	109.54741	26.22358	Eurasia	Cao Miao	caom1238
 coy	-72.99999	11.33332	South America	Coyaima	coya1241
 cox	-72.35066	-12.10185	South America	Nanti	nant1250
 ill	118.2235	4.3362	Papua	Iranun	iran1262
-coz	-97.23884	17.66601	North America	Chocholtec	choc1279
+coz	-97.23884	17.66601	North America	Chochotec	choc1279
 ilk	121.54727	16.37846	Papua	Ilongot	ilon1239
 ili	80.49571	44.008885	Eurasia	Ili Turki	ilit1241
 ilv	8.25236	4.78618	Africa	Ilue	ilue1241
@@ -2468,7 +2461,7 @@ NOCODE_Haraza	30.417	15.083	Africa	Haraza	hara1258
 bnu	119.80592	-4.76004	Papua	Bentong	bent1237
 bnk	168.15444	-16.66632	Papua	Bierebo	bier1244
 hay	31.4846	-1.70878	Africa	Haya	haya1250
-bni	17.22697	-0.87437	Africa	Bangi	bang1354
+bni	17.22697	-0.87437	Africa	Bobangi	bang1354
 bnc	121.02662	17.09386		NA	NA
 bnb	116.47389	5.32519	Papua	Bookan	book1241
 bna	121.79239	-7.37657	Papua	Bonerate	bone1254
@@ -2522,7 +2515,7 @@ niy	30.22421	1.30455	Africa	Ngiti	ngit1239
 nir	140.1793	-2.5803	Papua	Nimboran	nucl1633
 nis	146.67873	-6.34065	Papua	Nimi	nimi1240
 niq	35.408478	0.793737	Africa	Nandi	nand1266
-niv	140.68089	52.59001	Eurasia	Nivkh	gily1242
+niv	140.68089	52.59001	Eurasia	Amur Nivkh	gily1242
 niw	141.57799	-4.3582	Papua	Nimo	nimo1247
 nit	78.59361	19.69085	Eurasia	Southeastern Kolami	sout1549
 niu	-170.12	-19.05	Papua	Niuean	niue1239
@@ -2623,20 +2616,20 @@ pln	-75.29491	10.38807	South America	Palenquero	pale1260
 NOCODE_Northern-Sunraysia	139.669871	-34.697425	Australia	Northern Sunraysia	nort2756
 pll	97.797185	23.67293	Eurasia	Shwe Palaung	shwe1236
 plk	73.32069	35.17408	Eurasia	Kohistani Shina	kohi1248
-plj	9.53362	10.02581	Africa	Polci	polc1243
+plj	9.53362	10.02581	Africa	Pesse	polc1243
 pli	82.250975	24.527135	Eurasia	Pali	pali1273
 plh	128.77917	-3.25404	Papua	Paulohi	paul1238
 obo	125.09018	7.29141	Papua	Obo Manobo	obom1235
 obl	14.28999	8.18943	Africa	Oblo	oblo1238
-obm			Eurasia	Moabite	moab1234
+obm			Eurasia	NA	NA
 obi	-120.669251	35.28733	North America	Obispeno	obis1242
-obu	7.11671	4.72908	Africa	Obulom	obul1238
+obu	7.11671	4.72908	Africa	Obulom-Ochichi	obul1239
 obr			Eurasia	Old Burmese	oldb1235
 NOCODE_Guale			North America	Guale	gual1239
 xyt				NA	NA
 xyy	145.01	-35.9	Australia	Yorta Yorta	yort1237
 xya			Australia	Yaygir	yayg1236
-xyb				NA	NA
+xyb				Yandjibara	yand1261
 xyj				NA	NA
 xyk				NA	NA
 xyl	-59.99245	-13.23958	South America	Yalakalore	yala1242
@@ -2693,7 +2686,7 @@ mtg	140.09981	-4.69676	Papua	Una	unaa1239
 mtd	111.07699	0.31083	Papua	Mualang	mual1241
 mte	155.75964	-7.05102	Papua	Mono-Alu	mono1273
 glj	19.5359	10.26705	Africa	Gula Iro	gula1265
-vwa	99.4833	22.75	Eurasia	Ximeng-Menglian Awa	awac1238
+vwa	99.4833	22.75	Eurasia	Lavia-Awalai-Damangnuo Awa	awac1238
 NOCODE_Gutian			Eurasia	Gutian	guti1235
 kvf	16.2821	9.38373	Africa	Kabalai	kaba1292
 kvg	141.36524	-6.97504	Papua	Kuni-Boazi	kuni1265
@@ -2724,8 +2717,8 @@ kvy	97.33683	18.93779	Eurasia	Yintale Karen	yint1235
 ums	119.86161	-0.11396	Papua	Pendau	pend1242
 umr	131.82455	-12.93247	Australia	Umbugarla	umbu1235
 NOCODE_Kokenop-Mandobo			Papua	Kokenop Mandobo	koke1241
-szn	125.9656	-2.30765	Papua	Sula	sula1245
-yvt	-68.084219	2.800281	South America	Yavitero	yavi1244
+szn	125.9656	-2.30765	Papua	Sula	sula1248
+yvt	-68.084219	2.800281	South America	Yavitero-Pareni	yavi1244
 szl			Eurasia	Silesian	sile1253
 NOCODE_Old-Wanji			Eurasia	Old Wanji	oldw1238
 szb	141.03032	-4.67682	Papua	Ngalum	ngal1298
@@ -2788,7 +2781,7 @@ NOCODE_Pidgin-Hawaiian			North America	Pidgin Hawaiian	pidg1249
 NOCODE_Mimi-Nachtigal	20.724106	14.302046	Africa	Mimi-Nachtigal	mimi1241
 caz	-63.42	-18.83	South America	Canichana	cani1243
 cay	-79.44236	42.814285	North America	Cayuga	cayu1261
-cax	-59.91716	-17.63537	South America	Chiquitano	chiq1248
+cax	-59.91716	-17.63537	South America	Lomeriano-Ignaciano Chiquitano	chiq1248
 ibl	120.69508	16.42625	Papua	Ibaloi	ibal1244
 ibm	8.21629	5.87953	Africa	Agoi	agoi1246
 ibn	8.15254	4.59603	Africa	Ibino	ibin1241
@@ -2817,7 +2810,7 @@ cad	-98.26335	35.1826	North America	Caddo	cadd1256
 NOCODE_Zamba	18.3	1.25	Africa	Zamba	zamb1245
 spy	34.66642	1.01297	Africa	Sabaot	saba1262
 spp	-5.87709	11.63201	Africa	Supyire Senoufo	supy1237
-spq	-73.65068	-4.74563	South America	Loreto-Ucayali Spanish	lore1243
+spq	-73.65068	-4.74563	South America	Peruvian Amazonian Spanish	lore1243
 spr	128.63857	-3.58314	Papua	Saparua	sapa1251
 sps	154.73162	-5.64103	Papua	Saposa	sapo1253
 spt	77.833	32.526	Eurasia	Spiti Bhoti	spit1240
@@ -2955,7 +2948,7 @@ zaf	-96.85754	16.66328	North America	Ayoquesco Zapotec	ayoq1235
 zag	23.4625566667	17.48424	Africa	Beria	zagh1240
 zad	-96.33521	17.14274	North America	Cajonos Zapotec	cajo1238
 zae	-96.7052	17.34064	North America	Yareni Zapotec	yare1249
-zab	-96.59675	17.03317	North America	San Juan Guelavia Zapotec	sanj1284
+zab	-96.59675	17.03317	North America	Western Tlacolula Valley Zapotec	sanj1284
 zac	-96.72633	16.82585	North America	Ocotlan Zapotec	ocot1244
 zaa	-96.61912	17.4219	North America	Sierra de Juarez Zapotec	sier1250
 zaz	9.40332	9.71269	Africa	Zari	zari1242
@@ -3011,9 +3004,7 @@ pnc	119.19136	-3.21973	Papua	Pannei	pann1239
 pnb	75.347425	30.09484	Eurasia	Western Panjabi	west2386
 pne	114.522565	3.466695	Papua	Western Penan	west2563
 png	6.3745	10.0823	Africa	Pongu	pong1250
-NOCODE_Hungu			Africa	Hungu	hung1280
-wca	-62.85224	2.48999	South America	Yanomami	yano1262
-NOCODE_Ghardaia-Sign-Language			Africa	Ghardaia Sign Language	ghar1240
+wca	-62.85224	2.48999	South America	Yanomam	yano1262
 wci	1.69303	6.455705	Africa	Waci Gbe	waci1239
 mrx	139.67311	-2.31915	Papua	Maremgi	mare1261
 mry	126.40932	7.50481	Papua	Mandaya	kara1489
@@ -3041,14 +3032,13 @@ mrg	94.69	27.418	Eurasia	Mising-Padam-Miri-Minyong	misi1242
 mra	101.162995	18.553345	Eurasia	Mlabri	mlab1235
 mrb	168.11982	-14.9738	Papua	Sunwadia	mari1426
 mrc	-111.74857	33.51232	North America	Maricopa	mari1440
-NOCODE_Ngumbarl			Australia	Ngumbarl	ngum1253
 NOCODE_Xoco			South America	Xoco	xoco1235
 NOCODE_WW2-Pidgin-German			Eurasia	WW2 Pidgin German	ww2p1234
 kxh	36.17093	5.2101	Africa	Karo (Ethiopia)	karo1297
 kxi	116.19843	5.42272	Papua	Keningau Murut	keni1249
 kxj	18.90547	9.96327	Africa	Kulfa	kulf1238
 kxk	96.90799	20.15999	Eurasia	Lahta-Zayein Karen	zaye1235
-kxl	86.00255	26.72057	Eurasia	Nepali Kurux	nepa1253
+kxl	86.00255	26.72057	Eurasia	NA	NA
 kxm	103.86313	14.46743	Eurasia	Northern Khmer	nort2684
 kxn	112.38262	2.03781	Papua	Kanowit-Tanjong Melanau	kano1244
 kxo	-64.58121	-12.17894	South America	Kanoe	kano1245
@@ -3063,7 +3053,7 @@ kxy	108.44694	14.92273	Eurasia	Kayong	kayo1245
 kxz	144.3085	-7.551	Papua	Kerewo	kere1286
 kxp	72.13125	26.07132	Eurasia	Wadiyara Koli	wadi1248
 kxq	140.89703	-8.91812	Papua	Smarky Kanum	smar1235
-kxr	147.14267	-2.03429	Papua	Lopohan	koro1309
+kxr	147.14267	-2.03429	Papua	Manus Koro	bowa1234
 kxs	101.254	35.043	Eurasia	Kangjia	kang1281
 kxt	143.61954	-4.03417	Papua	Koiwat	koiw1243
 kxu	83.58592	19.20427	Eurasia	Kui (India)	kuii1252
@@ -3081,7 +3071,7 @@ gwd	37.2737	5.37869	Africa	Ale-Gawwada	gaww1239
 gwg	11.20399	9.44081	Africa	Moo	mooo1239
 gwf	73.12333	35.12434	Eurasia	Gowro	gowr1239
 gwa	-3.70421	5.34421	Africa	Mbato	mbat1247
-gwc	72.57384	35.53033	Eurasia	Kalami	kala1373
+gwc	72.57384	35.53033	Eurasia	Gawri	kala1373
 gwb	9.11434	10.30688	Africa	Gwa	gwaa1239
 vun	37.58474	-3.42531	Africa	Vunjo	vunj1238
 gwn	7.49931	9.20464	Africa	Gwandara	gwan1268
@@ -3157,7 +3147,7 @@ gju	73.1460733333	34.3767633333	Eurasia	Gujari	guja1253
 gjn	-0.72757	8.48801	Africa	Gonja	gonj1241
 gjm				Warrnambool	warr1257
 gjk	69.19014	24.296645	Eurasia	Kachi Koli	kach1272
-gji	9.64965	10.34776	Africa	Geji	geji1246
+gji	9.64965	10.34776	Africa	NA	NA
 NOCODE_Changuena	-82.568207	9.359643	North America	Changuena	chan1324
 nmv	138.70084	-27.17971	Australia	Ngamini-Yarluyandi-Karangura	ngam1265
 nmw	153.1584	-11.22974	Papua	Nimoa	nimo1246
@@ -3246,7 +3236,7 @@ NOCODE_Gwara			Africa	Gwara	gwar1240
 hnj	101.950052	22.563832	Eurasia	Hmong Njua	hmon1264
 yon	141.21262	-6.42956	Papua	Yonggom	yong1280
 yom	12.63624	-4.86226666667	Africa	Yombe	yomb1244
-yol			Eurasia	NA	NA
+yol			Eurasia	Irish Anglo-Norman	east2834
 yok	-119.7214	36.31674	North America	Northern Yokuts	yoku1256
 yoi	122.99075	24.44997	Eurasia	Yonaguni	yona1241
 NOCODE_Pauxi	-55.558777	-1.690001	South America	Pauxi	paux1235
@@ -3312,7 +3302,7 @@ kzp	123.2168	0.85641	Papua	Kaidipang	kaid1239
 kzq	83.13837	28.853	Eurasia	Kaike	kaik1246
 kzv	140.21251	-5.25453	Papua	Komyandaret	komy1238
 kzw	-36.33332	-9.84999	South America	Kariri-Xoco	kari1255
-kzt	116.3726	5.68284	Papua	Tambunan Dusun	tamb1254
+kzt	116.3726	5.68284	Papua	NA	NA
 kzu	140.62585	-2.54415	Papua	Kayupulau	kayu1243
 kzz	131.61701	-1.43074	Papua	Kalabra	kala1256
 kzx	128.52599	-3.40779	Papua	Kamarian	kama1362
@@ -3324,7 +3314,7 @@ kzf	119.52744	-1.21051	Papua	Da'a Kaili	daak1235
 kzg	129.98213	28.31	Eurasia	Kikai	kika1239
 kzd	125.14217	-1.74547	Papua	Kadai	kada1286
 kze	145.66048	-6.46414	Papua	Kosena	kose1239
-kzj	116.0634	5.77065	Papua	Coastal Kadazan	coas1294
+kzj	116.0634	5.77065	Papua	NA	NA
 kzk	157.6873	-8.23886	Papua	Kazukuru	kazu1245
 kzh	31.89921	21.283665	Africa	Kenuzi-Dongola	kenu1236
 kzi	115.42828	3.31783	Papua	Kelabit	kela1258
@@ -3340,7 +3330,7 @@ jra	107.813025	13.616065	Eurasia	Jarai	jara1266
 NOCODE_Kilen			Eurasia	Kilen	kile1243
 put	116.44253	3.42467	Papua	Putoh	puto1237
 jru	-72.71012	10.55231	South America	Japreria	japr1238
-jrt	9.42486	8.93055	Africa	Jorto	jort1240
+jrt	9.42486	8.93055	Africa	Jakattoe	jort1240
 jrr	10.58721	8.64125	Africa	Jiru	jiru1238
 asj	10.59934	6.63008	Africa	Nsari	nsar1238
 puw	149.31033	6.69748	Papua	Puluwatese	pulu1242
@@ -3424,10 +3414,10 @@ pur	-62.43584	-11.42258	South America	Purubora	puru1264
 asl	127.9523	-3.67302	Papua	Asilulu	asil1242
 ncx	-98.12635	18.75453	North America	Central Puebla Nahuatl	cent2133
 tfo	136.75309	-2.35042	Papua	Tefaro	tefa1238
-tfn	-150.75926	60.47124	North America	Tanaina	tana1289
+tfn	-150.75926	60.47124	North America	Dena'ina	tana1289
 tfi	2.43226	6.51774	Africa	Tofin Gbe	tofi1235
 ncp	10.99428	6.63304	Africa	NA	NA
-ncr	10.53117	6.50696	Africa	Ncane	ncan1245
+ncr	10.53117	6.50696	Africa	Ncane-Mungong	ncan1245
 ncs	-86.33987	12.2509	North America	Nicaraguan Sign Language	nica1238
 nct	94.24075	24.37218	Eurasia	Chothe	chot1239
 ncu	-0.2755	8.15211	Africa	Chumburung	chum1261
@@ -3438,7 +3428,7 @@ nck	134.32729	-12.07653	Australia	Nakara	naka1260
 ncl	-103.36118	18.34119	North America	Michoacan Nahuatl	mich1245
 ncm	141.93052	-8.74501	Papua	Nambo	namb1293
 ncn	148.20067	-2.21213	Papua	Nauna	naun1237
-nco	155.41168	-6.43149	Papua	Sibe	sibe1248
+nco	155.41168	-6.43149	Papua	Sibe (Nasioi)	sibe1248
 nca	146.09235	-5.84161	Papua	Iyo	iyoo1238
 ncb	93.39208	7.94812	Eurasia	Central Nicobarese	cent1990
 ncc	146.88714	-1.91705	Papua	Ponam	pona1250
@@ -3471,7 +3461,7 @@ str	-123.03716	48.722045	North America	Northern Straits Salish	stra1244
 sts	70.56956	34.47557	Eurasia	Shumashti	shum1235
 dts	-3.10006	14.40749	Africa	Toro So Dogon	toro1252
 dtr	116.23239	6.13732	Papua	Lotud	lotu1250
-dtp	116.68089	6.02998	Papua	Central Dusun	cent2100
+dtp	116.68089	6.02998	Papua	Kadazan Dusun	cent2100
 dtu	-3.1	14.66	Africa	Tebul Ure Dogon	tebu1239
 dtt	-2.22427	15.06437	Africa	Toro Tegu Dogon	toro1253
 ncz	-91.33	31.75	North America	Natchez	natc1249
@@ -3484,7 +3474,7 @@ lib	146.69477	-2.16157	Papua	Likum	liku1243
 lic	109.4587	18.80621	Eurasia	Hlai	hlai1239
 lil	-122.04027	50.72722	North America	Lillooet	lill1248
 lim	5.87705333333	51.0150433333	Eurasia	Limburgan	limb1263
-lin	19.782905	1.403245	Africa	Lingala	ling1263
+lin	19.782905	1.403245	Africa	Kinshasa Lingala	ling1263
 lio	138.7308	-1.60652	Papua	Liki	liki1241
 lih	152.60632	-3.18895	Papua	Lihir	lihi1237
 lii	87.99919	26.99202	Eurasia	Lingkhim	ling1268
@@ -3544,7 +3534,7 @@ bzd	-83.05395	9.39794	North America	Bribri	brib1243
 bzc			Africa	Southern Betsimisaraka Malagasy	sout2920
 bzb	123.17408	-0.88368	Papua	Andio	andi1257
 bza	-10.1684	7.73729	Africa	Bandi	band1352
-bzo	18.67837	2.07295	Africa	Bozaba	boza1238
+bzo	18.67837	2.07295	Africa	NA	NA
 bzn	127.95318	-2.95535	Papua	Boano (Maluku)	boan1242
 bzm	19.61807	2.46327	Africa	Bolondo	bolo1263
 bzl	120.99196	0.51152	Papua	Boano (Sulawesi)	boan1243
@@ -3606,7 +3596,7 @@ adp	90.33693	27.14102	Eurasia	Adap	adap1234
 gml			Eurasia	Middle Low German	midd1318
 NOCODE_Bangru	93.15	27.95	Eurasia	Bangru	bang1369
 ady	39.33	44.0	Eurasia	Adyghe	adyg1241
-gmy			Eurasia	Mycenaean Greek	myce1241
+gmy			Eurasia	Achaean Greek	myce1241
 ade	0.619185	8.169755	Africa	Adele	adel1244
 boz	-5.08609	14.1223	Africa	Tieyaxo Bozo	tiey1235
 iya	5.84326	7.300761	Africa	Iyayu	iyay1238
@@ -3614,7 +3604,7 @@ iyo	9.8723	6.32679	Africa	Mesaka	mesa1245
 adh	34.03408	0.73235	Africa	Adhola	adho1243
 iyx	13.36366	-3.73301	Africa	Yaka (Congo)	yaka1274
 jpn	135.0	35.0	Eurasia	Japanese	nucl1643
-jpa			Eurasia	Palestinian Jewish Aramaic	pale1261
+jpa			Eurasia	NA	NA
 hba	24.22995	-2.49047	Africa	Hamba de Lomela	hamb1245
 NOCODE_Tanpachoa			North America	Tanpachoa	tanp1235
 jpr	43.57147	31.45071	Eurasia	Judeo-Persian	jude1257
@@ -3797,7 +3787,7 @@ kcs	9.46622	9.01129	Africa	Koenoem	koen1239
 kcr	29.28254	11.80325	Africa	Katla	katl1237
 kcy	-2.48113	29.49571	Africa	Korandje	kora1291
 kcx	37.92915	6.3971	Africa	Kachama-Ganjule-Haro	kach1284
-kcz	32.18028	-6.51503	Africa	Konongo	kono1265
+kcz	32.18028	-6.51503	Africa	Konongo-Ruwila	kono1265
 bxx	26.08135	1.79156	Africa	Borna (Democratic Republic of Congo)	born1252
 bxz	148.83482	-10.08739	Papua	Binahari-Neme	bina1275
 bxq	10.42038	10.16088	Africa	Beele	beel1236
@@ -3829,7 +3819,6 @@ NOCODE_Karipuna	-65.5	-10.0	South America	Karipuna	kari1312
 ych	101.98	24.05	Eurasia	Chesu	ches1238
 ycn	-71.00327	-0.76075	South America	Yucuna	yucu1253
 ycl	101.30185	25.50051	Eurasia	Lolopo	lolo1259
-NOCODE_Turku			Africa	Turku	turk1244
 ozm	13.54152	3.25933	Africa	Koonzime	koon1245
 NOCODE_Panzaleo			South America	Panzaleo	panz1235
 ulb	6.59202	6.4974	Africa	Ulukwumi	uluk1257
@@ -3878,7 +3867,7 @@ hlu			Eurasia	Hieroglyphic Luwian	hier1240
 hlt	92.83	23.312	Eurasia	Nga La	ngal1291
 mas	36.45734	-3.141895	Africa	Masai	masa1300
 sne	109.98532	1.54467	Papua	Bau-Jagoi Bidayuh	baub1235
-snb	110.48038	1.42104	Papua	Sebuyau	sebu1243
+snb	110.48038	1.42104	Papua	NA	NA
 hle	101.4	24.4	Eurasia	Hlersu	hler1235
 hld	107.860385	14.97039	Eurasia	Halang Doan	hala1253
 hlb	81.37417	20.30812	Eurasia	Halbi	halb1244
@@ -3900,7 +3889,7 @@ snz	145.59921	-5.64336	Papua	Kou	sins1241
 mal	76.7651361	9.592084	Eurasia	Malayalam	mala1464
 rsl	44.0	56.0	Eurasia	Russian-Tajik Sign Language	russ1255
 rsi	160.219	-11.615	Papua	Rennellese Sign Language	renn1236
-rsb	20.37623	45.25524	Eurasia	Romano-Serbian	roma1241
+rsb	20.37623	45.25524	Eurasia	NA	NA
 cyb	-65.48219	-13.24822	South America	Cayubaba	cayu1262
 cya	-97.13392	16.09536	North America	Nopala Chatino	nopa1235
 cyo	119.30028	10.32008	Papua	Cuyonon	cuyo1237
@@ -3988,8 +3977,8 @@ ngc	20.14148	1.45357	Africa	Ngombe (Democratic Republic of Congo)	ngom1268
 ngl	37.24366	-16.03812	Africa	Mozambique Lomwe	lomw1241
 ngm	157.16092	5.77982	Papua	Ngatik Men's Creole	ngat1248
 ngn	9.84369	6.17739	Africa	Ngwo	ngwo1241
-ngo	37.41175	-11.779415	Africa	Ngoni	ngon1269
-ngh	19.08408	-29.70543	Africa	N||ng	nuuu1241
+ngo	37.41175	-11.779415	Africa	NA	NA
+ngh	19.08408	-29.70543	Africa	N||ng	nngg1234
 ngi	11.0178	12.10505	Africa	Ngizim	ngiz1242
 ngj	9.79389	5.93852	Africa	Ngie	ngie1242
 ngk	133.93641	-13.97832	Australia	Ngalkbun	ngal1292
@@ -3998,7 +3987,7 @@ ngu	-99.00233	17.85828	North America	Central Guerrero Nahuatl	guer1241
 ngv	13.42637	8.7162	Africa	Nagumi	nagu1244
 ngw	12.79419	10.0921	Africa	Ngwaba	ngwa1251
 ngp	37.68227	-5.79734	Africa	Ngulu	ngul1246
-ngq	34.61726	-1.8485	Africa	Ngurimi	ngur1263
+ngq	34.61726	-1.8485	Africa	Ngoreme	ngur1263
 ngr	165.88665	-10.7441	Papua	Nanggu	nang1262
 ngs	13.753745	10.991815	Africa	Gvoko	gvok1239
 ngx	12.92341	10.6058	Africa	Nggwahyi	nggw1242
@@ -4045,7 +4034,7 @@ shv	53.99526	17.29154	Eurasia	Jibbali	sheh1240
 dpp	115.58015	5.57378	Papua	Papar	papa1268
 shx	114.81419	23.03995	Eurasia	She	shee1238
 shy	6.88901	35.18674	Africa	Chaouia of the Aures	tach1249
-shz	-5.8581	10.59538	Africa	Syenara Senoufo	syen1235
+shz	-5.8581	10.59538	Africa	NA	NA
 sha	9.64988	9.87556	Africa	Shall-Zwall	shal1242
 shb	-62.780115	4.038935	South America	Ninam	nina1238
 shc	18.35547	-6.32223	Africa	Sonde	sond1250
@@ -4057,7 +4046,7 @@ shi	-7.778785	29.785385	Africa	Tachelhit	tach1250
 shj	29.76866	10.8525	Africa	Shatt	shat1244
 shk	31.79263	9.85472	Africa	Shilluk	shil1265
 shl	92.59103	22.190095	Eurasia	Shendu	shen1247
-shm	50.20736	36.75813	Eurasia	Shahrudi	shah1254
+shm	50.20736	36.75813	Eurasia	Shahrudi-Southern Talysh	shah1254
 shn	98.0342233333	21.5994966667	Eurasia	Shan	shan1277
 sho	4.41464	11.27523	Africa	Shanga	shan1282
 lup	11.124035	-3.379175	Africa	Lumbu	lumb1249
@@ -4077,7 +4066,7 @@ lud	33.73461	61.85302	Eurasia	Ludian	ludi1246
 lue	22.292385	-13.538245	Africa	Luvale	luva1239
 luf	149.25747	-10.16145	Papua	Laua	laua1245
 lug	32.15153	0.66884	Africa	Ganda	gand1255
-lui	-116.93868	33.31837	North America	Luiseno	luis1253
+lui	-116.93868	33.31837	North America	Luiseno-Juaneno	luis1253
 luj	23.54258	-5.08693	Africa	Luna	luna1244
 luk	90.1257	28.12876	Eurasia	Lunanakha	luna1243
 lul	31.91031	4.6242	Africa	Olu'bo	olub1238
@@ -4211,7 +4200,7 @@ xsb	120.0948	15.5797	Papua	Tina Sambal	tina1248
 xsa			Eurasia	Sabaic	saba1279
 xsd			Eurasia	Sidetic	side1240
 xse	137.58814	-5.17582	Papua	Sempan	semp1241
-xsj	31.35945	-2.93387	Africa	Subi	subi1247
+xsj	31.35945	-2.93387	Africa	NA	NA
 tgf	91.26196	27.32312	Eurasia	Chalikha	chal1267
 xsh	7.95163	9.37832	Africa	Shamang	sham1277
 xsi	147.35333	-5.96037	Papua	Sio	sioo1240
@@ -4245,7 +4234,7 @@ swp	150.20977	-10.66062	Papua	Suau	suau1242
 sws	131.25029	-7.59918	Papua	Seluwasan	selu1242
 dma	13.00456	-0.91927	Africa	Duma	duma1253
 dmb	-3.664799	14.376155	Africa	Mombo Dogon	momb1254
-dmc	145.67561	-4.8296	Papua	Dimir	dimi1244
+dmc	145.67561	-4.8296	Papua	Gavak	dimi1244
 dmd				NA	NA
 dme	14.21344	10.75203	Africa	Dugwor	dugw1239
 dmg	116.90097	5.31911	Papua	Upper Kinabatangan	uppe1427
@@ -4272,7 +4261,7 @@ bck	125.63098	-17.82967	Australia	Bunaba	buna1275
 hni	102.851673333	22.67753	Eurasia	Hani	hani1248
 hnh	22.90878	-19.09658	Africa	//Ani	anii1246
 bcf	143.54524	-7.93818	Papua	Bamu	bamu1257
-bcg	-14.61106	10.52708	Africa	Baga Mboteni-Binari	baga1275
+bcg	-14.61106	10.52708	Africa	Pukur	baga1275
 bca	99.70522	26.1666	Eurasia	Central Bai	cent2004
 bcb	-15.99689	12.5053	Africa	Bainouk-Samik	bain1260
 bcc	59.7353375	25.1081025	Eurasia	Southern Balochi	sout2642
@@ -4286,12 +4275,12 @@ bcv	10.96424	8.92577	Africa	Shoo-Minda-Nye	shoo1247
 bcw	13.61308	10.35353	Africa	Bana	bana1305
 bcp	26.59406	1.1807	Africa	Bali (Democratic Republic of Congo)	bali1274
 bcq	35.7673	7.04682	Africa	Bench	benc1235
-bcr	-126.41041	55.09968	North America	Babine	babi1235
+bcr	-126.41041	55.09968	North America	Witsuwit'en-Babine	babi1235
 bcs	7.96202	5.92596	Africa	Kohumono	kohu1244
 aua	166.49868	-11.29693	Papua	Asumboa	asum1237
 auc	-76.68295	-1.12312	South America	Waorani	waor1240
 aub	103.0	23.0	Eurasia	Alugu	alug1235
-aue	21.179305	-21.055355	Africa	=/Kx'au//'ein	kxau1241
+aue	21.179305	-21.055355	Africa	NA	NA
 aud	169.75	-11.75	Papua	Anuta	anut1237
 aug	1.74452	7.49256	Africa	Aguna	agun1238
 aui	149.82236	-9.6692	Papua	Anuki	anuk1239
@@ -4319,13 +4308,13 @@ neo	106.43476	22.41886	Eurasia	Na-Meo	name1237
 nem	164.79733	-20.67915	Papua	Nemi	nemi1240
 nej	146.30617	-5.60034	Papua	Neko	neko1240
 nek	165.57757	-21.6524	Papua	Neku	neku1237
-neh	90.39465	27.37317	Eurasia	Nyenkha	nyen1254
+neh	90.39465	27.37317	Eurasia	Upper Mangdep	nyen1254
 nef	96.349	27.688	Eurasia	Nefamese	nefa1235
 neg	139.20575	52.96584	Eurasia	Negidal	negi1245
 ned	10.47	7.065	Africa	Nde-Gbite	ndeg1238
 nee	164.19283	-20.4035	Papua	Nelemwa-Nixumwak	kuma1276
 neb	-7.33105	7.76747	Africa	Toura (Cote d'Ivoire)	tour1242
-nec	124.19184	-8.28776	Papua	Klamu	nede1245
+nec	124.19184	-8.28776	Papua	Nedebang	nede1245
 nea	121.12061	-8.82745	Papua	NA	NA
 nez	-116.40787	46.30731	North America	Nez Perce	nezp1238
 nex	141.84917	-8.44877	Papua	Neme	neme1244
@@ -4347,7 +4336,7 @@ mec	134.865	-14.79269	Australia	Marra	mara1385
 meb	143.61799	-7.30342	Papua	Ikobi	ikob1240
 mem	123.7694	-18.65975	Australia	Mangala	mang1383
 mel	113.188255	3.689805	Papua	Central Melanau	cent2101
-meo	100.492	5.933	Eurasia	Kedah Malay	keda1251
+meo	100.492	5.933	Eurasia	Kedah-Perak Malay	keda1251
 men	-10.992585	7.90935	Africa	Mende (Sierra Leone)	mend1266
 mei	27.22359	14.78898	Africa	Midob	mido1240
 meh	-97.79744	16.98874	North America	Southwestern Tlaxiaco Mixtec	sout3000
@@ -4372,7 +4361,7 @@ drs	38.2395	6.18469	Africa	Gedeo	gede1246
 drr	157.76722	-8.30556	Papua	Dororo	doro1267
 dru	120.84424	22.77381	Papua	Rukai	ruka1240
 drt	6.51539	52.9024	Eurasia	NA	NA
-drw	70.76427	38.31608	Eurasia	Darwazi	darw1234
+drw	70.76427	38.31608	Eurasia	NA	NA
 sju	18.64604	64.63829	Eurasia	Ume Saami	umes1235
 dri	5.26544	11.46534	Africa	C'lela	clel1238
 sjk	27.537	67.093	Eurasia	Kemi Saami	kemi1239
@@ -4527,10 +4516,10 @@ tya	145.3657	-5.74255	Papua	Tauya	tauy1241
 tyx	13.86684	-3.50685	Africa	Teke-Tyee	teke1276
 tyz	106.16715	21.64483	Eurasia	Tay	tayy1238
 tyt	104.00762	21.38306	Eurasia	Tay Tac	tayt1241
-tyu	26.01579	-22.02366	Africa	Kua	kuaa1238
+tyu	26.01579	-22.02366	Africa	Southern Tshwa	kuaa1238
 tyv	92.6692633333	48.43595	Eurasia	Tuvinian	tuvi1240
 typ	143.32412	-14.82924	Australia	Thaypan	thay1248
-tyr	104.62459	20.455905	Eurasia	Tai Daeng	taid1249
+tyr	104.62459	20.455905	Eurasia	Tai Daeng-Meuay	taid1249
 tys	103.80538	22.29499	Eurasia	Tay Sa Pa	tays1238
 dok	120.70738	0.80348	Papua	Dondo	dond1249
 doh	11.99245	8.64119	Africa	Dong	dong1293
@@ -4582,7 +4571,7 @@ omb	167.89039	-15.35234	Papua	East Ambae	east2443
 oma	-96.52947	42.09436	North America	Omaha-Ponca	omah1247
 omg	-69.166735	-3.526	South America	Omagua	omag1248
 ome	-69.99999	0.99999	South America	Omejes	omej1234
-omk			Eurasia	Yukaghir Omok	yuka1240
+omk			Eurasia	Malyj Anjuj Omok	yuka1240
 omi	30.5385	3.2542	Africa	Omi	omii1238
 omo	144.92425	-4.82756	Papua	Utarmbung	utar1238
 omn			Eurasia	Minoan	mino1236
@@ -4628,7 +4617,7 @@ mcx	15.524605	3.457755	Africa	Mpiemo	mpie1238
 mcw	18.2999	11.74608	Africa	Mawa (Chad)	mawa1270
 mcv	144.01087	-7.61717	Papua	Minanibai-Foia Foia	mina1274
 mcu	11.41953	6.43829	Africa	Donga Mambila	came1252
-mct	11.39465	4.5932	Africa	Mengisa	meng1263
+mct	11.39465	4.5932	Africa	NA	NA
 mcs	14.00129	9.6121	Africa	Mambai	mamb1294
 mcr	146.07051	-7.17425	Papua	Menya	meny1245
 mcq	148.37594	-9.09451	Papua	Ese	esee1247
@@ -4777,8 +4766,8 @@ jhs			Eurasia	Jhankot Sign Language	jhan1234
 dix	167.51592	-16.32665	Papua	Dixon Reef	dixo1238
 diy	139.45512	-5.12627	Papua	Diuwe	diuw1238
 diz	19.38809	-4.44304	Africa	Ding	ding1239
-dit	138.07782	-28.79923	Australia	Dirari	dira1238
-diu	20.66778	-18.16808	Africa	Diriku	diri1252
+dit	138.07782	-28.79923	Australia	NA	NA
+diu	20.66778	-18.16808	Africa	Diriku-Shambyu	diri1252
 div	73.07456	3.82586	Eurasia	Dhivehi	dhiv1236
 diw	29.29981	9.81484	Africa	Northwestern Dinka	nort2816
 dip	31.83923	9.27995	Africa	Northeastern Dinka	nort2815
@@ -4800,7 +4789,7 @@ bot	27.99183	7.4145	Africa	Bongo	bong1285
 bou	38.50791	-5.10749	Africa	Bondei	bond1247
 bov	0.38008	7.31095	Africa	Tuwuli	tuwu1238
 bow	141.03371	-8.41526	Papua	Rema	rema1238
-boh	22.97302	3.5857	Africa	Boma	boma1246
+boh	22.97302	3.5857	Africa	Boma Yumu	boma1246
 boi	-119.699249	34.461957	North America	Barbareno	barb1263
 boj	145.71663	-5.45899	Papua	Anjam	anja1238
 bok	17.62984	2.39823	Africa	Impfondo	bonj1234
@@ -4812,7 +4801,7 @@ hbu	125.96468	-8.76565	Papua	Habu	habu1241
 boa	-68.90929	-2.91467	South America	Bora	bora1263
 bob	41.23402	-1.40124	Africa	Aweer	awee1242
 bod	90.1872433333	28.36807	Eurasia	Tibetan	tibe1272
-boe	10.27042	6.59969	Africa	Mundabli	mund1328
+boe	10.27042	6.59969	Africa	Mundabli-Mufu	mund1328
 bof	-4.75524	11.82422	Africa	Bolon	bolo1266
 bog	-8.00136	12.651	Africa	Langue de Signes Malienne	bama1249
 ayl	15.00136	22.00324	Africa	Libyan Arabic	liby1240
@@ -4860,7 +4849,7 @@ ulf	140.50189	-3.63853	Papua	Usku	usku1243
 bgj	10.66697	6.0125	Africa	Bangolan	bang1356
 bgk	101.915765	21.347375	Eurasia	Bit	bitt1240
 NOCODE_Capoxo	-42.033333	-16.766667	South America	Capoxo	capo1236
-bgm	-12.07358	12.27246	Africa	Baga Mboteni	baga1276
+bgm	-12.07358	12.27246	Africa	NA	NA
 NOCODE_Culli	-78.116456	-7.878618	South America	Culli	cull1235
 NOCODE_Bagua			South America	Bagua	bagu1249
 nyx	151.313	-29.581	Australia	Nganyaywana	ngan1296
@@ -4868,7 +4857,7 @@ nyy	33.77634	-9.71018	Africa	Nyakyusa-Ngonde	nyak1260
 nyr			Africa	Nyiha (Malawi)	nyih1239
 nys	118.15081	-33.11995	Australia	Nyunga	nyun1247
 nyp	33.73651	3.4997	Africa	Nyang'i	nyan1313
-nyq	53.52105	34.22125	Eurasia	Nayini	nayi1242
+nyq	53.52105	34.22125	Eurasia	Nayinic	nayi1242
 nyv	122.85075	-16.91292	Australia	Nyulnyul	nyul1247
 nyw	104.15092	17.12133	Eurasia	NA	NA
 nyt	146.2156	-18.87429	Australia	Nyawaygi	nyaw1247
@@ -4932,9 +4921,9 @@ lso	104.518	18.387	Eurasia	Laos Sign Language	laos1235
 lsl	24.4931	56.93354	Eurasia	Latvian Sign Language	latv1245
 lsm	34.0335	0.3652	Africa	Saamia	saam1283
 NOCODE_Ambermo			Papua	Ambermo	ambe1246
-lsh	92.18383	27.7686	Eurasia	Lish	lish1235
+lsh	92.18383	27.7686	Eurasia	Khispi	lish1235
 lsi	98.548095	26.099195	Eurasia	Lashi	lash1243
-lst			North America	Trinidad and Tobago Sign Language	trin1277
+lst			North America	Modern Trinidad and Tobago Sign Language	trin1277
 lsr	142.47775	-3.45782	Papua	Srenge	aruo1240
 lss	66.9137	25.32934	Eurasia	Lasi	lasi1242
 lsp			North America	Panamanian Sign Language	pana1308
@@ -4976,7 +4965,7 @@ xlu			Eurasia	Cuneiform Luwian	cune1239
 xls			Eurasia	Lusitanian	lusi1235
 xlp			Eurasia	Lepontic	lepo1240
 NOCODE_Khuai			Africa	Khuai	khua1244
-ixj			North America	Ixil, Chajul	ixil1252
+ixj			North America	NA	NA
 orz	140.6015	-2.51361	Papua	Ormu	ormu1248
 orx	8.11394	4.86134	Africa	Oro	oroo1241
 ory			Eurasia	Odia	oriy1255
@@ -4997,7 +4986,7 @@ ora	161.51281	-9.7386	Papua	Oroha	oroh1237
 ixl	-90.89351	15.45693	North America	Ixil	ixil1251
 NOCODE_Allentiac	-68.096924	-33.480938	South America	Allentiac	alle1238
 zsu	146.29442	-6.39394	Papua	Sukurum	suku1264
-zsr	-96.3775	17.30309	North America	Southern Rincon Zapotec	sout3004
+zsr	-96.3775	17.30309	North America	NA	NA
 zsa	146.29442	-6.39394	Papua	Sarasira	sara1323
 zsl	28.98984	-15.51343	Africa	Zambian Sign Language	zamb1239
 zsm	101.698608	3.088957	Eurasia	Standard Malay	stan1306
@@ -5016,7 +5005,7 @@ geq	20.66112	8.48359	Africa	Geme	geme1244
 gew	10.11999	10.4331	Africa	Gera	gera1246
 gev			Africa	Viya	eviy1235
 gez	40.682105	10.134165	Africa	Geez	geez1241
-gey	26.74965	-4.67337	Africa	Enya	enya1247
+gey	26.74965	-4.67337	Africa	Enya-Kisangani	enya1247
 gex	44.68618	2.29633	Africa	Garre	garr1259
 gec	-7.66699	4.75405	Africa	Gboloo Grebo	gbol1235
 geb	144.71096	-4.25927	Papua	Kire	kire1240
@@ -5073,13 +5062,13 @@ bmf	-11.59696	9.27518	Africa	Bom-Kim	bomk1234
 bmg	19.16445	2.16773	Africa	Bamwe	bamw1238
 bmd	-14.60521	10.76747	Africa	Baga Manduri	baga1270
 bme	16.187439	2.268084	Africa	Limassa	lima1246
-bmj	84.34801	27.70739	Eurasia	Bote-Majhi	bote1238
+bmj	84.34801	27.70739	Eurasia	Bote	bote1238
 bmk	149.84038	-10.011	Papua	Ghayavi	ghay1237
 bmh	145.48294	-5.3373	Papua	Kein	kein1239
 bmi	14.769495	11.52392	Africa	Bagirmi	bagi1246
 bmn	149.66147	-10.2667	Papua	Bina (Papua New Guinea)	bina1271
 bmo	10.54395	5.861	Africa	Bambalang	bamb1265
-bml	18.5131	1.99315	Africa	Bomboli	bomb1261
+bml	18.5131	1.99315	Africa	Bomboli-Bozaba	bomb1261
 bmm	48.81197	-19.91844	Africa	Northern Betsimisaraka Malagasy	nort2890
 bmr	-72.42495	-0.8652	South America	Muinane	muin1242
 bms	13.06649	19.10003	Africa	Bilma Kanuri	bilm1238
@@ -5102,7 +5091,7 @@ pap	-69.93988	12.48485	North America	Papiamento	papi1253
 paq	69.25997	36.49218	Eurasia	Parya	pary1242
 par	-117.90139	36.00073	North America	Panamint	pana1305
 pas	138.60529	-2.87535	Papua	Papasena	papa1269
-pat	147.41695	-2.06222	Papua	Papitalai	papi1254
+pat	147.41695	-2.06222	Papua	NA	NA
 pau	134.5	7.17	Papua	Palauan	pala1344
 pav	-64.56152	-10.69948	South America	Wari'	wari1268
 paw	-96.89367	36.28618	North America	Pawnee	pawn1254
@@ -5116,7 +5105,7 @@ pae	22.12122	3.15636	Africa	Pagibete	pagi1243
 paf	-59.05303	-9.34239	South America	Paranawat	para1313
 pag	120.36519	15.93774	Papua	Pangasinan	pang1290
 pah	-61.93599	-7.92626	South America	Tenharim-Parintintin-Diahoi	tenh1241
-pai	9.56437	9.27191	Africa	Pe	peee1238
+pai	9.56437	9.27191	Africa	Pye	peee1238
 pak	-50.06211	-4.64681	South America	Parakana	para1312
 pal			Eurasia	Pahlavi	pahl1241
 pam	120.50183	14.96027	Papua	Pampanga	pamp1243
@@ -5126,7 +5115,7 @@ oin	141.89171	-3.38015	Papua	Inebu One	ineb1235
 kju	-123.080292	38.542365	North America	Kashaya	kash1280
 oia	127.20105	-8.09044	Papua	Oirata	oira1263
 NOCODE_Pidgin-Kaurna			Australia	Pidgin Kaurna	pidg1255
-uji	6.87432	9.40121	Africa	Tanjijili	tanj1247
+uji	6.87432	9.40121	Africa	Rjili	tanj1247
 NOCODE_Mbiywom	142.2710997	-12.89620501	Australia	Mbiywom	mbiy1238
 moz	18.18217	11.86437	Africa	Mukulu	muku1242
 moy	35.39224	7.27424	Africa	Shekkacho	shek1244
@@ -5151,7 +5140,7 @@ mog	124.11368	0.64616	Papua	Mongondow	mong1342
 mof	-72.17005	41.85806	North America	Mohegan-Montauk-Narragansett	mohe1244
 moe	-68.73765	49.05333	North America	Montagnais	mont1268
 mod	-91.75	30.47	North America	Mobilian	mobi1236
-zlm	103.000487	1.858561	Eurasia	Colloquial Malay	mala1479
+zlm	103.000487	1.858561	Eurasia	Central Malay	mala1479
 zln	107.18368	23.68182	Eurasia	Lianshan Zhuang	lian1252
 zlj	107.18368	23.68182	Eurasia	Liujiang Zhuang	liuj1238
 zlq	107.18368	23.68182	Eurasia	Liuqian Zhuang	liuq1235
@@ -5172,14 +5161,14 @@ kmj	87.26985	24.1217	Eurasia	Kumarbhag Paharia	kuma1274
 kmi	6.66088	8.57444	Africa	Kami (Nigeria)	kami1258
 kmh	144.58514	-5.25216	Papua	Kalam	kala1397
 kmw	26.71444	-0.76333	Africa	Komo (Democratic Republic of Congo)	komo1260
-kmv	-51.68875	3.42825	South America	Karipuna Creole French	kari1301
+kmv	-51.68875	3.42825	South America	Uaca Creole French	kari1301
 kmu	145.55598	-6.38841	Papua	Kanite	kani1286
 kmt	140.37182	-2.64894	Papua	Kemtuik	kemt1242
 kms	143.84222	-3.8503	Papua	Kamasau	kama1367
 kmr	43.0	37.0	Eurasia	Northern Kurdish	nort2641
-kmq	34.24567	9.50836	Africa	Kwama	kwam1249
+kmq	34.24567	9.50836	Africa	Gwama	kwam1249
 kmp	12.66584	8.58084	Africa	Gimme	gimm1241
-kmz	60.02772	36.4438	Eurasia	Khorasani Turkish	khor1269
+kmz	60.02772	36.4438	Eurasia	Khorasan Turkic	khor1269
 kmy	12.728195	8.70976	Africa	Koma Ndera	koma1266
 kmx	143.50149	-8.41651	Papua	Waboda	wabo1241
 NOCODE_Khorasan-Arabic			Eurasia	Khorasan Arabic	khor1274
@@ -5212,7 +5201,7 @@ NOCODE_Hachijo			Eurasia	Hachijo	hach1239
 goa	-6.31154	7.34954	Africa	Guro	guro1248
 gob	-71.00362	6.90948	South America	Playero	play1240
 ium	101.17	20.83	Eurasia	Iu Mien	iumi1238
-aja	25.61221	8.58003	Africa	Aja (Sudan)	ajas1235
+aja	25.61221	8.58003	Africa	Aja (South Sudan)	ajas1235
 NOCODE_Cariay	-65.108643	-0.257079	South America	Cariay	cari1280
 NOCODE_Sadu	102.0	24.3	Eurasia	Sadu	sadu1234
 wsa	137.5662	-1.65941	Papua	Warembori	ware1253
@@ -5236,7 +5225,7 @@ abg	145.66459	-6.12028	Papua	Abaga	abag1245
 abh	67.32671	37.217615	Eurasia	Tajiki Arabic	taji1248
 abi	-4.58421	5.65656	Africa	Abidji	abid1235
 abj	92.78178	12.37822	Eurasia	Akabea	akab1249
-abk	41.159115	43.056218	Eurasia	Abkhazian	abkh1244
+abk	41.159115	43.056218	Eurasia	Abkhaz	abkh1244
 abl	105.39652	-4.43957	Papua	Lampung Nyo	lamp1242
 abm	8.63055	6.30619	Africa	Abanyom	aban1242
 abn	6.61492	4.83057	Africa	Abua	abua1244
@@ -5265,7 +5254,7 @@ gga	159.78866	-8.35163	Papua	Gao	gaoo1237
 ggb	-8.9346	5.87021	Africa	Gbii	gbii1242
 ggm			Australia	Gugu Mini	gugu1257
 ggl	146.1305	-5.57945	Papua	Ganglau	gang1270
-ggo	80.27811	20.10446	Eurasia	Southern Gondi	sout2711
+ggo	80.27811	20.10446	Eurasia	NA	NA
 ggn	84.58145	28.4368	Eurasia	NA	NA
 ggk	130.881	-12.7	Australia	Kungarakany	kung1259
 fwe	24.43151	-17.72372	Africa	Fwe	fwee1238
@@ -5313,7 +5302,6 @@ ded	147.62657	-6.38206	Papua	Dedua	dedu1240
 dee	-10.90765	6.56113	Africa	Dewoin	dewo1238
 def	48.907	32.374	Eurasia	Dezfuli-Shushtari	dezf1238
 deg	6.80991	4.73373	Africa	Degema	dege1246
-NOCODE_Jesuit-Maynas	-76.577683	-4.444587	South America	Jesuit-Maynas	jesu1239
 NOCODE_Bularnu	138.1566659	-21.02656922	Australia	Bularnu	bula1255
 csm	-120.25684	38.0812	North America	Central Sierra Miwok	cent2140
 csl	121.56875	30.90631	Eurasia	Chinese Sign Language	chin1283
@@ -5331,18 +5319,18 @@ csc	-1.97	41.635	Eurasia	Catalan Sign Language	cata1241
 csb	18.61634	54.29956	Eurasia	Kashubian	kash1274
 csy	93.68843	23.81919	Eurasia	Sizang Chin	siyi1240
 csz	-124.15962	43.44131	North America	Hanis	coos1249
-cst	-121.177	36.364	North America	Northern Ohlone	nort2969
+cst	-121.177	36.364	North America	San Francisco Bay Ohlone	nort2969
 csw	-95.0	56.0	North America	Swampy Cree	swam1239
 ryu	127.7816	26.14854	Eurasia	Central Okinawan	cent2126
-csq	16.796	45.502	Eurasia	Croatia Sign Language	croa1242
+csq	16.796	45.502	Eurasia	Croatian Sign Language	croa1242
 rys	123.80106	24.34006	Eurasia	Yaeyama	yaey1239
-css	-121.177	36.364	North America	Southern Ohlone	sout2986
+css	-121.177	36.364	North America	Mutsun	muts1243
 csr	-84.11803	9.8943	North America	Costa Rican Sign Language	cost1249
 bkd	124.89245	8.15933	Papua	Talaandig-Binukid	binu1244
 bkf	29.98416	3.18438	Africa	Beeke	beek1238
 bkg	20.71609	4.42283	Africa	Buraka	bura1269
 bka	11.27845	9.51524	Africa	Kyak	kyak1243
-bkb	121.11048	17.03193	Papua	Finallig	fina1242
+bkb	121.11048	17.03193	Papua	Eastern-Southern Bontok	fina1242
 bkc	13.78039	2.160125	Africa	Baka (Cameroon)	baka1272
 bkl	138.8659	-2.26904	Papua	Berik	beri1254
 bkm	10.3348	6.2596	Africa	Kom (Cameroon)	komc1235
@@ -5363,7 +5351,6 @@ bks	124.0016	12.84378	Papua	Masbate Sorsogon	masb1237
 bkx	124.25622	-9.32991	Papua	Baikeno	baik1238
 bky	9.058755	6.104755	Africa	Bokyi	boky1238
 bkz	122.21197	-3.22197	Papua	Bungku	bung1269
-NOCODE_Castelmezzano			Eurasia	Castelmezzano	cast1245
 NOCODE_Francais-Tirailleur			Africa	Francais Tirailleur	fran1267
 NOCODE_Queensland-Kanaka-English			Australia	Queensland Kanaka English	quee1234
 pcr	86.83169	30.72725	Eurasia	Panang	pana1292
@@ -5395,7 +5382,7 @@ oke	5.94885	7.22407	Africa	Okpe (Southwestern Edo)	okpe1250
 okd	6.44113	5.29237	Africa	Okodia	okod1238
 okg				Koko Babangk	koko1273
 oki	36.59766	-2.780485	Africa	Okiek	okie1245
-okh	44.895	37.794	Eurasia	Khoresh-e Rostam	kore1279
+okh	44.895	37.794	Eurasia	Karanic	kore1279
 okk	141.88865	-3.44911	Papua	Kwamtim One	kwam1254
 okj	92.87525	13.0472	Eurasia	Okojuwoi	okoj1239
 okl	0.98365	51.11978	Eurasia	Old Kentish Sign Language	oldk1238
@@ -5420,14 +5407,14 @@ mmm	168.2106	-16.73876	Papua	Maii	maii1238
 mml	100.84153	22.07427	Eurasia	Man Met	manm1238
 mmo	146.68468	-6.99891	Papua	Mangga Buang	mang1404
 mmn	125.54843	9.44744	Papua	Mamanwa	mama1275
-mmi	145.4131	-4.70258	Papua	Musar	musa1265
+mmi	145.4131	-4.70258	Papua	Hember Avu	musa1265
 mmh	-53.52095	-12.53639	South America	Mehinaku	mehi1240
 mmk	81.56633	17.44672	Eurasia	Mukha-Dora	mukh1238
 mmj	83.61376	22.87916	Eurasia	Majhwar	majh1236
 mme	167.28753	-15.99143	Papua	Tirax	maee1241
 mmd	108.0244	25.01686	Eurasia	Maonan	maon1241
 sbh	146.64176	-1.98384	Papua	Sori-Harengan	sori1242
-mmf	8.76875	9.15151	Africa	Mundat	mund1334
+mmf	8.76875	9.15151	Africa	Mindat	mund1334
 sbn	69.00076	24.54084	Eurasia	Sindhi Bhil	sind1270
 sbo	101.06484	5.34694	Eurasia	Sabum	sabu1253
 mmc	-100.29339	19.72387	North America	Michoacan Mazahua	mich1246
@@ -5442,7 +5429,7 @@ koo	29.86962	0.32395	Africa	Konzo	konz1239
 koa	152.87049	-4.16184	Papua	Konomala	kono1269
 koc	10.1129	7.70605	Africa	Kpati	kpat1246
 koe	34.94355	6.16512	Africa	Kacipo-Balesi	kaci1244
-kod	119.11429	-9.6373	Papua	Kodi-Gaura	kodi1247
+kod	119.11429	-9.6373	Papua	Kodi	kodi1247
 kog	-73.80426	10.94849	South America	Cogui	cogu1240
 kof	10.27461	10.62742	Africa	Kubi	kubi1239
 koy	-154.22852	65.60927	North America	Koyukon	koyu1237
@@ -5548,13 +5535,13 @@ tqm	142.5676	-7.93238	Papua	Turumsa	turu1250
 tqn	-121.43977	44.79848	North America	Tenino	teni1238
 tqo	146.20608	-8.07231	Papua	Toaripi	toar1246
 ewe	0.814975	6.46061	Africa	Ewe	ewee1241
-tqt	-97.94857	20.45744	North America	Western Totonac	west1511
+tqt	-97.94857	20.45744	North America	Ozumatlan Totonac	west1511
 tqu	157.29578	-8.58405	Papua	Touo	touo1238
 tqw	-96.75	30.25	North America	Tonkawa	tonk1249
 tqp	151.82777	-5.30721	Papua	Tomoip	tomo1244
 tqq	43.68471	1.06167	Africa	Tunni	tunn1238
 tqr	30.34102	11.12536	Africa	Torona	toro1251
-ray	-144.33752	-27.63043	Papua	Old Rapa	rapa1245
+ray	-144.33752	-27.63043	Papua	Mangaia-Old Rapa	rapa1245
 NOCODE_Mpra	-1.25	8.867	Africa	Mpra	mpra1235
 dgb	-3.49	14.43	Africa	Bunoge Dogon	buno1241
 syb	123.01765	8.12701	Papua	Central Subanen	cent2089
@@ -5590,8 +5577,8 @@ NOCODE_Older-Runic			Eurasia	Older Runic	olde1239
 jbn	9.83329	33.43983	Africa	Nafusi	nafu1238
 jbk	143.99279	-7.09739	Papua	Barikewa	bari1298
 jbj	132.98337	-2.08016	Papua	Dombano	aran1237
-jbi				NA	NA
-ldb	7.77525	9.12585	Africa	Idun	idun1241
+jbi				Badjirri	badj1244
+ldb	7.77525	9.12585	Africa	Dũya	idun1241
 ldg	8.28951	6.00131	Africa	Lenyima	leny1238
 ldd	9.59745	10.05896	Africa	Luri	luri1256
 ldk	11.1636	9.29145	Africa	Leelau	leel1242
@@ -5611,7 +5598,7 @@ cur	87.21331	26.91065	Eurasia	Chhulung	chhu1238
 cuq	108.74318	19.21816	Eurasia	Cun	cunn1236
 cup	-116.51471	33.31483	North America	Cupeno	cupe1243
 cux	-96.78797	17.75598	North America	Tepeuxila Cuicatec	tepe1280
-cug	10.41045	6.59687	Africa	Chung	cung1238
+cug	10.41045	6.59687	Africa	NA	NA
 rga	166.84305	-15.40476	Papua	Mores	rori1237
 cuc	-96.40743	17.9184	North America	Usila Chinantec	usil1237
 cub	-70.193935	1.32382	South America	Cubeo	cube1242
@@ -5628,7 +5615,7 @@ bin	5.70426	6.40701	Africa	Bini	bini1246
 bio	141.27254	-3.73034	Papua	Nai	naii1241
 bil	11.19066	8.90052	Africa	Bile	bile1244
 bim	0.06121	10.45746	Africa	Bimoba	bimo1239
-bij	9.56547	9.64648	Africa	Vaghat-Ya-Bijim-Legeri	vagh1247
+bij	9.56547	9.64648	Africa	NA	NA
 qwh	-77.77681	-9.38709	South America	Huaylas Ancash Quechua	huay1240
 bif	-15.13467	11.46701	Africa	Biafada	biaf1240
 big	146.76483	-7.33882	Papua	Biangai	bian1252
@@ -5711,7 +5698,7 @@ mko	11.29504	9.25942	Africa	Mingang Doso	ming1254
 mkn	123.62974	-10.25257	Papua	Kupang Malay	kupa1239
 mkm	98.31762	8.16761	Eurasia	Moklen	mokl1243
 mkl	3.05998	11.04385	Africa	Mokole	moko1243
-mkk	13.46245	4.57276	Africa	Byep	byep1241
+mkk	13.46245	4.57276	Africa	Byep-Besep	byep1241
 mkj	159.7759	6.65651	Papua	Mokilese	moki1238
 mki	70.782565	26.41563	Eurasia	Dhatki	dhat1238
 mkw	14.56481	-4.15654	Africa	Kituba (Congo)	kitu1245
@@ -5719,7 +5706,7 @@ mkv	167.24091	-15.4316	Papua	Mafea	mafe1237
 mku	-8.899725	8.047875	Africa	Konyanka Maninka	kony1250
 mkt	165.04003	-20.77083	Papua	Vamale	vama1243
 mks	-98.11629	17.55407	North America	Silacayoapan Mixtec	sila1250
-mkr	145.621	-4.76685	Papua	Malas	mala1495
+mkr	145.621	-4.76685	Papua	Manep	mala1495
 mkq	-122.419	37.784	North America	Bay Miwok	baym1241
 mkp	148.31167	-9.60232	Papua	Moikodi	moik1239
 mkz	126.50732	-8.65843	Papua	Makasae-Makalero	maka1316
@@ -5727,7 +5714,7 @@ mky	127.42329	0.07337	Papua	East Makian	east2440
 mkx	124.72128	9.1793	Papua	Cinamiguin Manobo	cina1236
 sdt	5.06601	44.16916	Eurasia	Shuadit	shua1252
 sdu	119.34941	-1.7094	Papua	Sarudu	saru1242
-sdp	92.57987	27.00345	Eurasia	Mey	sher1257
+sdp	92.57987	27.00345	Eurasia	Sherdukpen	sher1257
 sdr	88.91575	24.74581	Eurasia	Oraon Sadri	orao1237
 sds	9.43778	34.46781	Africa	Sened	sene1271
 NOCODE_Bonari			South America	Bonari	bona1255
@@ -5735,7 +5722,7 @@ sdx	111.76305	2.26758	Papua	Sibu Melanau	sibu1258
 sdz	6.29104	52.44816	Eurasia	NA	NA
 sde	8.27136	10.22536	Africa	Vori	suru1258
 sdf	43.644	36.021	Eurasia	NA	NA
-sdg	71.55567	35.30291	Eurasia	Savi	savi1242
+sdg	71.55567	35.30291	Eurasia	Sauji	savi1242
 sda	119.8292	-2.97144	Papua	Toraja-Sa'dan	tora1261
 sdb	43.144	36.375	Eurasia	Shabaki	shab1251
 sdc	8.39332	40.74795	Eurasia	Sassarese Sardinian	sass1235
@@ -5761,7 +5748,7 @@ kqq	-41.22993	-18.99884	South America	Krenak	kren1239
 kqp	16.94232	9.42071	Africa	Kimre	kimr1241
 kqw	152.7808	-4.3652	Papua	Kandas	kand1301
 kqv	115.752765	4.539885	Papua	Okolod	okol1241
-kqu	22.00209	-33.03859	Africa	Seroa	sero1239
+kqu	22.00209	-33.03859	Africa	Vaal-Orange	vaal1235
 kqt	115.58186	5.39453	Papua	Klias River Kadazan	klia1235
 kqz	19.77108	-30.42065	Africa	Korana	kora1292
 kqy	37.86789	5.80545	Africa	Koorete	koor1239
@@ -5835,12 +5822,12 @@ iii	102.12119	28.19474	Eurasia	Sichuan Yi	sich1238
 tdg	85.05628	28.02386	Eurasia	Western Tamang	west2415
 tde	-3.7	14.76	Africa	Tiranige Diga Dogon	tira1258
 gcc	152.21433	-4.71826	Papua	Mali	mali1284
-afo	7.97061	8.24696	Africa	Eloyi	eloy1241
+afo	7.97061	8.24696	Africa	Ajiri	eloy1241
 gce	-120.7501	45.39142	North America	Galice	gali1261
 afi	144.82082	-4.88687	Papua	Chini	akru1241
-afk	143.93712	-4.71731	Papua	Nanubae	nanu1240
+afk	143.93712	-4.71731	Papua	Nanubae-Imangae	nanu1240
 afd	143.63712	-4.96449	Papua	Andai	anda1283
-afe	8.96041	6.65923	Africa	Putukwam	putu1241
+afe	8.96041	6.65923	Africa	Utugwang-Irungene-Afrike	putu1241
 afg			Eurasia	Afghan Sign Language	afgh1239
 gcl	-61.69894	12.0067	North America	Grenadian Creole English	gren1247
 afb	47.5	30.17	Eurasia	Gulf Arabic	gulf1241
@@ -5950,7 +5937,7 @@ quc	-91.16965	14.52777	North America	K'iche'	kich1262
 qub	-75.59401	-9.57135	South America	Huallaga Huanuco Quechua	hual1241
 bwd	150.29725	-9.51158	Papua	Bwaidoka	bwai1242
 qud	-78.25868	-0.36205	South America	Calderon Highland Quichua	cald1236
-qug	-78.85209	-1.36727	South America	Chimborazo Highland Quichua	chim1302
+qug	-78.85209	-1.36727	South America	Bolivar-North Chimborazo Highland Quichua	chim1302
 quf	-79.46799	-6.1715	South America	Lambayeque Quechua	lamb1276
 qui	-124.60311	47.91056	North America	Quileute	quil1240
 bwi	-67.77038	2.178585	South America	Baniwa do Icana	bani1255
@@ -5961,7 +5948,7 @@ bwm	143.87294	-4.39429	Papua	Biwat	biwa1243
 bwn	110.47275	27.96488	Eurasia	Wunai Bunu	wuna1248
 bwo	35.34498	10.65962	Africa	Boro (Ethiopia)	boro1277
 pgg	76.55688	32.97526	Eurasia	Pangwali	pang1282
-pga	28.774	5.654	Africa	Sudanese Creole Arabic	suda1237
+pga	28.774	5.654	Africa	South Sudanese Creole Arabic	suda1237
 pgk	167.65074	-16.29344	Papua	Rerep	rere1240
 pgi	141.24636	-3.04649	Papua	Pagi	pagi1244
 pgu	127.78005	1.2134	Papua	Pagu	pagu1249
@@ -6001,7 +5988,7 @@ mia	-90.0	40.0	North America	Miami	miam1252
 mic	-65.576585	45.99412	North America	Mi'kmaq	mikm1235
 mib	-97.67753	17.07133	North America	Atatlahuca Mixtec	atat1238
 mie	-97.751	17.18234	North America	Ocotepec Mixtec	ocot1243
-mid	48.81284	31.34431	Eurasia	Mandaic	nucl1706
+mid	48.81284	31.34431	Eurasia	Neo-Mandaic	nucl1706
 mig	-97.54318	17.07765	North America	San Miguel El Grande Mixtec	sanm1295
 mif	14.03144	10.56704	Africa	Mofu-Gudur	mofu1248
 miy	-98.9916	16.88332	North America	Ayutla Mixtec	ayut1236
@@ -6047,7 +6034,7 @@ ksh	6.927	50.947	Eurasia	Kolsch	kols1241
 ksk	-96.85712	36.80439	North America	Kansa	kans1243
 ksj	147.68747	-9.69571	Papua	Uare	uare1241
 xdc			Eurasia	Dacian	daci1234
-xdm			Eurasia	Edomite	edom1234
+xdm			Eurasia	NA	NA
 xdk				Sydney	sydn1236
 xdy	111.13647	-2.78384	Papua	Malayic Dayak	mala1480
 NOCODE_Bai-Maclay			Papua	Bai-Maclay	baim1246
@@ -6062,7 +6049,7 @@ NOCODE_Gulf-Coast-French			North America	Gulf Coast French	gulf1242
 byt	25.83	14.67	Africa	Berti	bert1249
 NOCODE_Upper-Riverland			Australia	Upper Riverland	uppe1415
 ilg	132.18174	-11.41198	Australia	Garig-Ilgar	gari1253
-qgg			Eurasia	Ammonite	ammo1234
+qgg			Eurasia	NA	NA
 ilb	26.45548	-15.60807	Africa	Ila	ilaa1246
 yso	104.85	23.418	Eurasia	Nisi (China)	nisi1238
 ysn	103.759	24.278	Eurasia	Sani	sani1269
@@ -6092,10 +6079,10 @@ cjv	145.13949	-6.17824	Papua	Chuave	chua1250
 ils			North America	International Sign	inte1259
 iow	-95.52135	40.05114	North America	Iowa-Oto	iowa1245
 iou	146.60922	-6.29221	Papua	Tuma-Irumu	tuma1250
-ior	37.79684	7.94883	Africa	Inor	inor1238
+ior	37.79684	7.94883	Africa	Inoric	inor1238
 NOCODE_Neutral-Atiouandaronk			North America	Neutral-Atiouandaronk	neut1237
 wyr	-61.30635	-12.69447	South America	Wayoro	wayo1238
-wyy	177.6574	-17.83546	Papua	Western Fijian	west2519
+wyy	177.6574	-17.83546	Papua	Western Viti Levu-Yasawas Fijian	west2519
 wyb	146.17959	-30.64808	Australia	Ngiyambaa	wang1291
 wya	-77.5	44.33	North America	Huron-Wyandot	wyan1247
 wym			Eurasia	Wymysorys	wymy1235
@@ -6158,7 +6145,7 @@ ese	-67.51496	-11.72683	South America	Ese Ejja	esee1248
 tmc	17.42159	9.43747	Africa	Tumak	tuma1260
 tmd	144.3375	-5.09522	Papua	Haruai	haru1245
 tme	-40.20404	-3.09359	South America	Tremembe	trem1235
-tmf	-58.01584	-21.54741	South America	Toba-Maskoy	toba1268
+tmf	-58.01584	-21.54741	South America	Toba-Enenlhet	toba1268
 tmg	127.56682	0.93149	Papua	Ternateno	tern1248
 eso	24.566	58.947	Eurasia	Estonian Sign Language	esto1238
 tmi	167.21849	-15.49131	Papua	Tutuba	tutu1241
@@ -6168,9 +6155,8 @@ esk	-161.80666	64.77955	North America	Seward Alaska Inupiatun	nort2945
 tmm	104.93267	19.66003	Eurasia	Tai Thanh	tait1248
 tmn	112.97535	1.00003	Papua	Taman (Indonesia)	tama1335
 esh	50.36768	35.72672	Eurasia	Eshtehardi	esht1238
-dcc	75.71697	18.59186	Eurasia	Deccan	decc1239
+dcc	75.71697	18.59186	Eurasia	NA	NA
 dcr	-64.89215	18.34155	North America	Negerhollands	nege1244
-NOCODE_Girirra			Africa	Girirra	giri1245
 NOCODE_Khamnigan-Mongol			Eurasia	Khamnigan Mongol	kham1281
 rcf	55.53206	-21.11306	Africa	Reunion Creole French	reun1238
 buz	10.20059	6.9415	Africa	Bukwen	bukw1238
@@ -6178,7 +6164,7 @@ bux	10.11454	9.49679	Africa	Boghom	bogh1241
 buy	-13.16	9.0	Africa	Bullom So	bull1247
 bus	3.80058	9.52724	Africa	Bokobaru	boko1267
 bup	122.62224	-5.60524	Papua	Busoa	buso1238
-buq	145.56213	-4.67372	Papua	Brem	brem1238
+buq	145.56213	-4.67372	Papua	Barem	brem1238
 buv	143.89179	-4.51885	Papua	Bun	bunn1240
 buw	12.32251	-1.16762	Africa	Bubi	bubi1250
 but	143.79638	-3.69674	Papua	Bungain	bung1270
@@ -6198,7 +6184,7 @@ bug	119.251315	-4.1	Papua	Buginese	bugi1244
 bud	0.599275	9.239705	Africa	Ntcham	ntch1242
 bue	-57.0	48.0	North America	Beothuk	beot1247
 pih	-130.08	-25.07	Papua	Pitcairn-Norfolk	pitc1234
-pii	121.99466	-26.80165	Australia	Pini	pini1245
+pii	121.99466	-26.80165	Australia	NA	NA
 pij	-75.33332	0.49999	South America	Pijao	pija1235
 pil	1.81099	9.87186	Africa	Yom	yomm1242
 pim	-77.20752	36.99422	North America	Powhatan	powh1243
@@ -6224,7 +6210,7 @@ piw	31.42886	-6.81358	Africa	Pimbwe	pimb1238
 oac	137.85131	50.32354	Eurasia	Oroch	oroc1248
 oaa	143.12819	49.36393	Eurasia	Orok	orok1265
 NOCODE_Aracaju			South America	Aracaju	arac1235
-oar			Eurasia	Old Aramaic (up to 700 BCE)	olda1245
+oar			Eurasia	Old Aramaic-Sam'alian	olda1245
 ubu	143.96989	-5.9513	Papua	Umbu-Ungu	umbu1258
 ubr	149.39621	-9.59044	Papua	Ubir	ubir1237
 uby	39.67	43.67	Eurasia	Ubykh	ubyk1235
@@ -6257,7 +6243,7 @@ mwa	151.06551	-10.0271	Papua	Mwatebu	mwat1237
 mwg	149.57082	-6.23575	Papua	Aiklep	aikl1237
 mwf	129.70152	-14.74852	Australia	Murriny Patha	murr1258
 mwe	38.87622	-9.75639	Africa	Mwera (Chimwera)	mwer1248
-mwd	132.32947	-16.76941	Australia	Mudburra	mudb1240
+mwd	132.32947	-16.76941	Australia	NA	NA
 mwk	-9.49151	13.1798	Africa	Kita Maninkakan	kita1249
 mwj	15.74211	-7.93095	Africa	Maligo	mali1287
 mwi	167.4417	-16.42914	Papua	Ninde	labo1244
@@ -6266,17 +6252,17 @@ mwo	168.13475	-15.07844	Papua	Central Maewo	cent2058
 mwn	32.31634	-9.112615	Africa	Nyamwanga	nyam1275
 mwm	17.87848	8.50634	Africa	Sar	sarr1246
 mwl	-6.38371	41.5375	Eurasia	Mirandese	mira1251
-scf	-81.25639	8.32601	North America	San Miguel Creole French	sanm1305
+scf	-81.25639	8.32601	North America	NA	NA
 NOCODE_Taensa			North America	Taensa	taen1234
 sca	100.09861	21.64019	Eurasia	Sansu	sans1276
 scb	105.77322	17.68191	Eurasia	Chut	chut1247
 aix	150.27247	-5.99488	Papua	Aighon	aigh1235
-gcf	-61.02281	14.49894	North America	Guadeloupean Creole French	guad1242
+gcf	-61.02281	14.49894	North America	Guadeloupe-Martinique Creole French	guad1242
 zdj	43.35998	-11.6129	Africa	Ngazidja Comorian	ngaz1238
 NOCODE_Yulparija			Australia	Yulparija	yulp1239
 scy			Eurasia	NA	NA
 NOCODE_Yimas-Arafundi-Pidgin			Papua	Yimas-Arafundi-Pidgin	yima1244
-scw	8.77569	9.23281	Africa	Sha	shaa1247
+scw	8.77569	9.23281	Africa	Sya	shaa1247
 aim	94.35562	24.64368	Eurasia	Aimol	aimo1244
 mnc	126.55713	47.31225	Eurasia	Manchu	manc1252
 kuz	-69.0	-23.0	South America	Kunza	kunz1244
@@ -6304,7 +6290,7 @@ kuc			Papua	Kwinsu	kwin1242
 kub	10.09161	7.07479	Africa	Kutep	kute1248
 kua	16.57999	-17.71755	Africa	Kuanyama	kuan1247
 aih	107.84359	25.49083	Eurasia	Ai-Cham	aich1238
-aik	8.75768	8.59543	Africa	Ake	akee1238
+aik	8.75768	8.59543	Africa	Akye	akee1238
 zmk	148.97756	-26.57302	Australia	Mandandanyi	mand1417
 xfa			Eurasia	Faliscan	fali1291
 aij	35.51134	32.45782	Eurasia	Lishanid Noshan	lish1245
@@ -6324,7 +6310,7 @@ gnm	149.69988	-10.02977	Papua	Ginuman	ginu1240
 zmg	129.83741	-14.00579	Australia	Marti Ke	mart1254
 NOCODE_Pidgin-Chinook-Jargon			North America	Pidgin Chinook Jargon	pidg1254
 NOCODE_Kawaway			Africa	Kawaway	kawa1291
-bgl	104.95342	18.18657	Eurasia	Bo (Laos)	bola1249
+bgl	104.95342	18.18657	Eurasia	NA	NA
 NOCODE_Urupa	-62.75	-10.25	South America	Urupa	urup1245
 ena	145.02281	-5.1727	Papua	Apali	apal1256
 enb	35.58662	1.15018	Africa	Markweeta	mark1255
@@ -6334,13 +6320,13 @@ enf	88.2121	69.98287	Eurasia	Forest Enets	fore1265
 eng	-1.0	53.0	Eurasia	English	stan1293
 enh	83.7405	70.16258	Eurasia	Tundra Enets	tund1254
 enm			Eurasia	Middle English	midd1317
-enn	6.37339	5.11931	Africa	Engenni	enge1239
+enn	6.37339	5.11931	Africa	Egene	enge1239
 eno	102.24509	-5.38846	Papua	Enggano	engg1245
 enq	143.68529	-5.45619	Papua	Enga	enga1252
 enr	140.90347	-3.74242	Papua	Emumu	emum1240
 NOCODE_Old-Malay			Papua	Old Malay	oldm1243
 enu	101.85	22.95	Eurasia	Enu	enuu1235
-env	6.07393	7.15316	Africa	Enwan (Edu State)	enwa1246
+env	6.07393	7.15316	Africa	Enwan (Edo State)	enwa1246
 enw	8.20974	4.68739	Africa	Enwan (Akwa Ibom State)	enwa1245
 NOCODE_Kwisi			Africa	Kwisi	kwis1235
 NOCODE_Theen			Eurasia	Theen	thee1239
@@ -6356,7 +6342,7 @@ cld	43.50269	37.09724	Eurasia	Chaldean Neo-Aramaic	chal1275
 cle	-95.92651	17.31625	North America	Lealao Chinantec	leal1235
 iml	-124.258175	43.321506	North America	Miluk	milu1241
 imo	144.02573	-6.13629	Papua	Imbongu	imbo1238
-clc	-123.24458	51.98952	North America	Chilcotin	chil1280
+clc	-123.24458	51.98952	North America	Chilcotin-Nicola	chil1280
 imr	129.65091	-7.96772	Papua	Imroing	imro1237
 cly	-97.15261	16.24374	North America	Eastern Highland Chatino	east2558
 clt			Eurasia	Lautu	laut1236
@@ -6374,14 +6360,14 @@ ajp	38.083716	31.560116	Eurasia	South Levantine Arabic	sout3123
 god	-5.82696	5.3944	Africa	Godie	godi1239
 gog	35.48066	-6.35951	Africa	Gogo	gogo1263
 gof	37.13808	6.57645	Africa	Gofa	gofa1235
-ajt	35.25	31.75	Eurasia	Judeo-Tunisian Arabic	jude1263
+ajt	35.25	31.75	Eurasia	NA	NA
 aju	-7.5	33.5	Africa	Judeo-Moroccan Arabic	jude1265
 goc	146.5794	-6.85564	Papua	Gorakor	gora1262
 ajw	9.89205	10.21005	Africa	Ajawa	ajaw1236
 aji	165.46767	-21.30289	Papua	Ajia	ajie1238
 goy	16.25498	9.46683	Africa	Goundo	goun1238
 gox	20.01943	5.01201	Africa	Gobu	gobu1238
-goz	50.69871	36.41331	Eurasia	Gozarkhani	goza1238
+goz	50.69871	36.41331	Eurasia	Alamuti	goza1238
 gou	13.81878	10.56029	Africa	Gavar	gava1241
 got	29.97861	46.9304	Eurasia	Gothic	goth1244
 gow	35.79962	-4.23575	Africa	Gorowa	goro1270
@@ -6462,7 +6448,7 @@ lbg	100.07886	20.78087	Eurasia	Laopang	laop1234
 lbf	77.99121	32.285175	Eurasia	Tinani	tina1246
 lbi	15.28952	7.85817	Africa	La'bi	labi1244
 lbk			Papua	Central Bontoc	cent2292
-lbj	80.601305	33.468005	Eurasia	Leh-Kenhat	lada1244
+lbj	80.601305	33.468005	Eurasia	Leh Ladakhi	lada1244
 lbm	84.94628	20.89542	Eurasia	Lodhi	lodh1246
 lbo	106.32196	15.27261	Eurasia	Laven	lave1248
 lbn	100.268065	19.88287	Eurasia	Lamet	lame1256
@@ -6483,7 +6469,7 @@ bsl	6.58105	9.94207	Africa	Basa-Gumna	basa1280
 bsm	136.03229	-1.73681	Papua	Busami	busa1254
 bsn	-70.80803	0.02193	South America	Barasana-Eduria	bara1380
 bso	17.60109	12.50084	Africa	Buso	buso1242
-bsh	70.982585	35.41447	Eurasia	Kati	kati1270
+bsh	70.982585	35.41447	Eurasia	Kata	kati1270
 bsi	9.52275	5.23655	Africa	Bassossi	bass1260
 bsj	11.20216	9.57157	Africa	Bangwinji	bang1348
 bsk	74.82364	36.2161	Eurasia	Burushaski	buru1296
@@ -6491,7 +6477,7 @@ bse	10.60354	6.07415	Africa	Wushi	wush1238
 bsf	6.61686	10.20768	Africa	Bauchi	bauc1238
 bsg	53.0	32.0	Eurasia	Bashkardi	bash1263
 bsa	138.89052	-2.92281	Papua	Abinomn	abin1243
-bsb	114.51713	4.60791	Papua	Brunei Bisaya	brun1245
+bsb	114.51713	4.60791	Papua	Brunei Bisaya-Dusun	brun1245
 bsc	-13.3495133333	12.4529066667	Africa	Bassari-Tanda	bass1258
 pkr			Eurasia	Attapady Kurumba	atta1243
 pks	67.88427	28.06668	Eurasia	Pakistan Sign Language	paki1242
@@ -6501,7 +6487,7 @@ pku	115.08663	-1.9063	Papua	Paku	paku1239
 pkb	40.28966	-2.31587	Africa	Pokomo	poko1261
 NOCODE_Apolista	-68.66	-14.83	South America	Apolista	apol1242
 pkg	147.76651	-2.05269	Papua	Pak-Tong	pakt1239
-pkh	92.9461	22.6796533333	Eurasia	Pankhu	pank1249
+pkh	92.9461	22.6796533333	Eurasia	Pangkhua	pank1249
 pkn	142.73992	-15.09085	Australia	Pakanha	paka1251
 pko	35.23183	1.57023	Africa	Pokoot	poko1263
 oci	6.82978666667	44.1415466667	Eurasia	Occitan	occi1239
@@ -6510,7 +6496,7 @@ oca	-72.14215	-2.159	South America	Ocaina	ocai1244
 NOCODE_Tshobdun			Eurasia	Tshobdun	tsho1240
 ocu	-99.92388	19.38715	North America	Atzingo Matlatzinca	atzi1235
 NOCODE_Rengmitca			Eurasia	Rengmitca	reng1255
-xom	34.093915	8.941615	Africa	Komo (Sudan)	komo1258
+xom	34.093915	8.941615	Africa	Komo (Sudan-Ethiopia)	komo1258
 nuz	-99.39922	18.62392	North America	Tlamacazapa Nahuatl	tlam1239
 nux	142.49818	-3.70927	Papua	Mehek	mehe1243
 nuy	135.75267	-14.26229	Australia	Wubuy	nung1290
@@ -6584,7 +6570,7 @@ kwu	13.64458	4.34393	Africa	Kwakum	kwak1266
 kwt	138.85315	-2.03622	Papua	Kwesten	kwes1245
 kww	-56.12663	5.1323	South America	Kwinti	kwin1243
 kwv	19.25663	9.39388	Africa	Sara Kaba Naa	sara1321
-kwy	13.35865	-5.33539	Africa	Cimbala-Cizali	sans1272
+kwy	13.35865	-5.33539	Africa	San Salvador Kongo	sans1272
 kwx	82.96154	23.70624	Eurasia	Khirwar	khir1237
 kwz	12.11474	-15.87448	Africa	Kwadi	kwad1244
 rth	124.85799	1.07592	Papua	Ratahan	rata1244
@@ -6628,10 +6614,10 @@ qxh	-75.4382	-9.85887	South America	Panao Huanuco Quechua	pana1306
 qxi			North America	K'iche', San Andres	kich1263
 qxn	-77.41462	-8.97356	South America	Northern Conchucos Ancash Quechua	nort2979
 qxo	-76.98537	-9.30995	South America	Southern Conchucos Ancash Quechua	sout2992
-qxl	-78.39531	-1.35447	South America	Salasaca Highland Quichua	sala1272
+qxl	-78.39531	-1.35447	South America	Tungurahua Highland Quichua	sala1272
 wdk				NA	NA
 NOCODE_Pidgin-Ngarluma			Australia	Pidgin Ngarluma	pidg1247
-qxr	-78.96725	-2.48314	South America	Canar Highland Quichua	cana1262
+qxr	-78.96725	-2.48314	South America	Canar-Azuay-South Chimborazo Highland Quichua	cana1262
 cnt	-96.54039	17.71151	North America	Tepetotutla Chinantec	tepe1279
 cnu	2.19899	36.59171	Africa	Western Algerian Berber	chen1266
 cns	138.47107	-5.80391	Papua	Central Asmat	cent2117
@@ -6654,7 +6640,7 @@ hsb	14.40984	51.24031	Eurasia	Upper Sorbian	uppe1395
 twb	121.02597	12.82269	Papua	Western Tawbuid	west2559
 pys			South America	Paraguayan Sign Language	para1318
 hsf			North America	Huastec, Southeastern	huas1256
-qxt	-76.27527	-10.33016	South America	Santa Ana de Tusi Pasco Quechua	sant1433
+qxt	-76.27527	-10.33016	South America	NA	NA
 hsh	19.264	47.122	Eurasia	Hungarian Sign Language	hung1263
 qxu	-72.63326	-15.18063	South America	Arequipa-La Union Quechua	areq1237
 hsn	111.47112	27.66847	Eurasia	Xiang Chinese	xian1251
@@ -6762,7 +6748,7 @@ squ	-123.01406	49.32306	North America	Squamish	squa1248
 sqt	53.91675	12.48924	Eurasia	Soqotri	soqo1240
 sqk			Eurasia	Albanian Sign Language	alba1271
 ich	10.35011	7.13773	Africa	Etkywan	etky1238
-sqo	53.21897	35.45652	Eurasia	Sorkhei	sork1239
+sqo	53.21897	35.45652	Eurasia	Sorkhei-Aftari	sork1239
 sqn	-76.208	41.169	North America	Susquehannock	susq1241
 sqm	17.00927	7.0953	Africa	Suma	suma1264
 sqa	6.20275	10.43695	Africa	Shama-Sambuga	sham1278
@@ -6803,14 +6789,14 @@ bqc	3.717705	10.518905	Africa	Boko (Benin)	boko1266
 bqa	2.55627	8.43449	Africa	Tchumbuli	tchu1241
 bqn	25.00265	42.79184	Eurasia	Bulgarian Sign Language	bulg1240
 bqo	9.69365	6.12552	Africa	Balo	balo1264
-bql	145.55945	-4.93116	Papua	Bilakura	bila1257
+bql	145.55945	-4.93116	Papua	Karen	bila1257
 bqm	9.08026	4.24717	Africa	Wumboko-Bubia	wumb1241
 bqj	-16.4245	12.5258	Africa	Bandial	band1340
 bqk	23.010815	7.329235	Africa	Banda-Mbres	band1342
 bqh	103.9524	33.10014	Eurasia	Baima	baim1244
 bqi	49.77132	32.01634	Eurasia	Bakhtiari	bakh1245
 bqv	7.59566	9.40519	Africa	Begbere-Ejar	begb1241
-bqw	10.86175	7.01091	Africa	Buru (Nigeria)	buru1299
+bqw	10.86175	7.01091	Africa	Buru-Angwe	buru1299
 bqt	10.35366	5.87292	Africa	Bamukumbit	bamu1254
 bqu	29.13443	4.49213	Africa	Boguru	bogu1241
 bqr	117.0118	3.36912	Papua	Burusu	buru1304
@@ -6830,7 +6816,7 @@ NOCODE_Gubeeher-Gufangor-Gubelor			Africa	Gubeeher-Gufangor-Gubelor	gube1234
 cni	-73.90728	-11.93109	South America	Ashaninka	asha1243
 der	93.70572	26.86152	Eurasia	Deori	deor1238
 pmt	-140.6576	-21.70902	Papua	Tuamotuan	tuam1242
-pmu	74.37134	33.55823	Eurasia	Mirpur Panjabi	mirp1238
+pmu	74.37134	33.55823	Eurasia	NA	NA
 pmw	-121.42161	38.03083	North America	Plains Miwok	plai1259
 esn	-89.59881	13.7024	North America	Salvadoran Sign Language	salv1237
 pmr	144.8791	-4.94303	Papua	Manat	payn1244
@@ -6845,7 +6831,7 @@ pma	168.23693	-16.47548	Papua	Paama	paam1238
 pmb	26.61	3.739	Africa	Pambia	pamb1243
 pmc	128.762	-3.024	Papua	Palumata	palu1237
 pml	10.85313	33.86126	Africa	Mediterranean Lingua Franca	ling1242
-pmm	16.17	1.83	Africa	Pomo	pomo1271
+pmm	16.17	1.83	Africa	Pol	pomo1271
 pmn	14.28498	7.97779	Africa	Pam (Cameroon)	pamm1242
 pmo	135.61944	-1.64224	Papua	Pom	pomm1237
 pmh			Eurasia	Maharastri Prakrit	maha1305
@@ -6873,7 +6859,7 @@ msm	125.74174	8.62731	Papua	Agusan Manobo	agus1235
 msl	140.55683	-3.41946	Papua	Molof	molo1262
 msk	126.18146	6.79221	Papua	Mansaka	mans1262
 msj	26.99388	3.69351	Africa	Ma (Democratic Republic of Congo)	made1252
-msi	117.02407	4.64808	Papua	Brunei-Sabah Malay	saba1263
+msi	117.02407	4.64808	Papua	Sabah Malay	saba1263
 msh	43.81556	-22.55821	Africa	Masikoro Malagasy	masi1268
 msg	131.96538	-1.04083	Papua	Moraid	mora1239
 msf	140.32614	-2.52264	Papua	Mekwei	mekw1241
@@ -6884,7 +6870,7 @@ msb	123.63579	12.21453	Papua	Masbatenyo	masb1238
 coa	105.75	-10.33	Papua	Cocos Islands Malay	coco1260
 NOCODE_Duvle-Wano-Pidgin			Papua	Duvle-Wano-Pidgin	duvl1238
 NOCODE_Panare-Trade-Spanish			South America	Panare Trade Spanish	pana1311
-bvv	-67.56327	5.26123	South America	Avane	bani1254
+bvv	-67.56327	5.26123	South America	NA	NA
 kyk	126.31393	8.10796	Papua	Kamayo	kama1363
 mgc	30.02285	5.5103	Africa	Morokodo	moro1284
 kyi	114.36735	4.16535	Papua	Kiput	kipu1237
@@ -6924,7 +6910,6 @@ tbi	33.97968	11.46742	Africa	Gaam	gaam1241
 tbh	147.47512	-35.28532	Australia	Thurawal	thur1254
 NOCODE_South-Lucanian			Eurasia	South Lucanian	sout3126
 tbk	120.0938	12.07158	Papua	Calamian Tagbanwa	cala1258
-NOCODE_Pacaguara-Mercier			South America	Pacaguara-Mercier	paca1247
 tbj	150.93502	-2.95505	Papua	Tiang	tian1237
 tbm	26.44754	4.6852	Africa	Tagbu	tagb1255
 tbl	124.53755	6.20377	Papua	Tboli	tbol1240
@@ -6967,13 +6952,13 @@ yus			North America	Maya, Chan Santa Cruz	maya1286
 yur	-123.82432	41.32625	North America	Yurok	yuro1248
 yuu	89.74791	60.87784	Eurasia	Yugh (Retired)	yugh1240
 yut	146.66102	-5.94085	Papua	Yopno	yopn1238
-yuw	146.84099	-6.08274	Papua	Yau (Morobe Province)	yaum1237
+yuw	146.84099	-6.08274	Papua	Yau-Nungon	yaum1237
 yui	-69.695465	0.735585	South America	Yuruti	yuru1263
 jwi	-2.10891	5.10752	Africa	Jwira-Pepesa	jwir1241
-yuk	-123.29566	39.83891	North America	Yuki	yuki1243
+yuk	-123.29566	39.83891	North America	Northern Yukian	yuki1243
 yuj	141.09822	-3.74954	Papua	Karkar-Yuri	kark1258
 yum	-114.59862	32.78589	North America	Quechan	quec1382
-yul	23.6165533333	8.04124333333	Africa	Yulu	yulu1243
+yul	23.6165533333	8.04124333333	Africa	Yulu-Binga	yulu1243
 yun	12.39722	9.74861	Africa	Bena (Nigeria)	bena1260
 yua	-88.95673	18.775675	North America	Yucatec Maya	yuca1254
 yuc	-95.03933	35.96146	North America	Yuchi	yuch1247
@@ -6997,7 +6982,7 @@ NOCODE_Uirina	-63.76648	0.662461	South America	Uirina	uiri1238
 hub	-77.97965	-3.99109	South America	Huambisa	huam1247
 huc	24.69828	-23.93447	Africa	Amkoe	hoaa1235
 hul	147.70512	-9.99427	Papua	Hula	hula1239
-hum	18.43121	-3.69695	Africa	Hungana-Saamba	hung1278
+hum	18.43121	-3.69695	Africa	Hungan	hung1278
 hun	19.6555271429	46.9068585714	Eurasia	Hungarian	hung1274
 huo	100.88061	22.01635	Eurasia	Hu	huuu1240
 huh	-72.76697	-40.06939	South America	Huilliche	huil1244
@@ -7008,7 +6993,7 @@ hut	81.56591	30.14514	Eurasia	Humla	huml1238
 huu	-73.83307	-1.13669	South America	Murui Huitoto	muru1274
 huv	-95.00766	16.21295	North America	San Mateo del Mar Huave	sanm1287
 huw	126.194	-3.274	Papua	Hukumina	huku1237
-hup	-123.67988	41.09821	North America	Hupa	hupa1239
+hup	-123.67988	41.09821	North America	Hupa-Chilula	hupa1239
 huq	109.33558	18.31917	Eurasia	Tsat	tsat1238
 hur	-122.02898	48.07505	North America	Halkomelem	halk1245
 hus	-98.50276	21.6153	North America	Huastec	huas1242
@@ -7027,7 +7012,7 @@ prb	101.21733	19.1198	Eurasia	Lua'	luaa1235
 prm	144.29554	-7.45276	Papua	Kibiri	kibi1239
 prl	-76.82131	-11.90078	South America	Peruvian Sign Language	peru1235
 ann	7.81985	4.62851	Africa	Obolo	obol1243
-prn	70.8004	35.17314	Eurasia	Prasuni	pras1239
+prn	70.8004	35.17314	Eurasia	Prasun	pras1239
 pri	165.15048	-21.096	Papua	Paici	paic1239
 prh	124.45395	10.67263	Papua	Porohanon	poro1253
 anj	144.80097	-4.98449	Papua	Anor	anor1241
@@ -7038,14 +7023,14 @@ anv	9.39989	5.97237	Africa	Denya	deny1238
 anw	7.57969	4.94832	Africa	Anaang	anaa1238
 anp	85.533985	26.004685	Eurasia	Angika	angi1238
 anq	92.65803	11.60889	Eurasia	Jarawa (India)	jara1245
-anr	77.71561	19.47335	Eurasia	Andh	andh1242
+anr	77.71561	19.47335	Eurasia	NA	NA
 ans	-76.04999	6.24999	South America	Anserma	anse1238
 pry	101.02103	19.43064	Eurasia	Pray 3	pray1239
 prx	76.01267	34.33855	Eurasia	Purik-Sham-Nubra	puri1258
 anz	148.99315	-5.54836	Papua	Anem	anem1249
 prz	-81.37	13.35	South America	Providencia Sign Language	prov1243
 gkp	-8.98843	7.93196	Africa	Guinea Kpelle	guin1254
-gku			Africa	Vaal-Orange	vaal1235
+gku			Africa	Danster !Ui	dans1240
 gko	141.608490478	-16.1809531739	Australia	Kok-Nar	kokn1236
 gkn	7.34457	4.61889	Africa	Gokana	goka1239
 gka	146.4531	-5.70374	Papua	Guya	guya1251
@@ -7053,7 +7038,6 @@ gke	14.28884	8.09039	Africa	Ndai	ndai1238
 fcs	-74.87193	45.99654	North America	Quebec Sign Language	queb1245
 NOCODE_Pasto			South America	Pasto	past1243
 uya	8.26925	5.39961	Africa	Doko-Uyanga	doko1243
-NOCODE_Middle-Indo-Aryan			Eurasia	Middle Indo-Aryan	midd1350
 tkf	-61.42	-11.518	South America	Tukumanfed	tuku1240
 tkg			Africa	Tesaka Malagasy	tesa1236
 tkd	125.2828	-8.6788	Papua	Tukudede	tuku1254
@@ -7074,12 +7058,12 @@ nle	34.66264	0.38163	Africa	East Nyala	east2409
 nld	5.0	52.0	Eurasia	Dutch	dutc1256
 nlg	160.1865	-9.04587	Papua	Gela	gela1263
 tkq	7.37553	4.73213	Africa	Tee	teee1242
-nli	70.73232	34.64848	Eurasia	Grangali	gran1245
+nli	70.73232	34.64848	Eurasia	Grangali-Ningalami	gran1245
 nlk	139.39045	-4.4737	Papua	Ninia Yali	nini1235
 nlj	30.0201	1.92098	Africa	Nyali	nyal1250
 tkz	108.0455	15.42987	Eurasia	Takua	taku1254
 nll	76.33177	21.18862	Eurasia	Nihali	niha1238
-nlo	19.51287	-4.09816	Africa	Ngul	ngul1247
+nlo	19.51287	-4.09816	Africa	Ngwii	ngul1247
 nln			North America	NA	NA
 NOCODE_Penange	4.03	14.38	Africa	Penange	pena1270
 ssy	40.168535	14.401905	Africa	Saho	saho1246
@@ -7123,7 +7107,7 @@ rmy	14.8450926316	46.8191236842	Eurasia	Vlax Romani	vlax1238
 lns	11.068415	6.397425	Africa	Lamnso'	lamn1239
 rmb	134.30755	-12.96079	Australia	Rembarrnga	remb1249
 lnl	21.05096	2.941135	Africa	South Central Banda	sout2787
-lno	33.04123	4.04948	Africa	Lango (Sudan)	lang1322
+lno	33.04123	4.04948	Africa	Lango-Logire-Logir	lang1322
 lnn	167.03645	-15.19852	Papua	Nethalp	lore1244
 rmf	19.156445	61.182915	Eurasia	Kalo Finnish Romani	kalo1256
 lnh	100.98621	4.90934	Eurasia	Lanoh	lano1248
@@ -7133,7 +7117,7 @@ lnd	115.500263333	4.25064	Papua	Lundayeh	lund1271
 rmh	140.91328	-4.07548	Papua	Murkim	murk1238
 rmi	45.0	40.0	Eurasia	Lomavren	loma1235
 lna	20.109035	4.875225	Africa	Langbashe	lang1318
-rmo	16.5	47.5	Eurasia	Sinte Romani	sint1235
+rmo	16.5	47.5	Eurasia	Sinte-Manus Romani	sint1235
 rml	38.0	60.0	Eurasia	Baltic Romani	balt1257
 rmm	127.42792	-7.58643	Papua	Roma	roma1332
 NOCODE_Ngubi			Africa	Ngubi	ngub1239
@@ -7165,7 +7149,7 @@ NOCODE_Ramanos	-65.36	-14.93	South America	Ramanos	rama1271
 NOCODE_Coeruna	-74.0	5.5	South America	Coeruna	coer1236
 tnn	169.30251	-19.37332	Papua	North Tanna	nort2847
 mqa	128.4181	0.59011	Papua	Maba (Indonesia)	maba1278
-mqc	125.82233	-1.87941	Papua	Mangole	mang1408
+mqc	125.82233	-1.87941	Papua	NA	NA
 mqb	14.16766	10.77883	Africa	Mbuko	mbuk1243
 mqe	145.61732	-5.13857	Papua	Matepi	mate1260
 mqg	116.29736	-0.27049	Papua	Kota Bangun Kutai Malay	kota1275
@@ -7191,7 +7175,6 @@ mqx	119.082	-2.50762	Papua	Mamuju	mamu1255
 mqz	147.05778	-5.9401	Papua	Malasanga	mala1487
 quk	-77.66152	-6.27021	South America	Chachapoyas Quechua	chac1250
 uha	5.68537	7.38143	Africa	Uhami	uham1238
-NOCODE_Maipure	-67.5	4.8	South America	Maipure	maip1246
 tnh	145.23912	-4.55066	Papua	Maiani	maia1253
 NOCODE_Chairel			Eurasia	Chairel	chai1254
 NOCODE_Alaguilac			North America	Alaguilac	alag1249
@@ -7212,7 +7195,7 @@ wba	-59.3527633333	7.50850666667	South America	Warao	wara1303
 wbl	73.9776975	37.1768425	Eurasia	Wakhi	wakh1245
 wbm	99.108045	23.10242	Eurasia	Zhenkang Wa	nucl1290
 wbj	35.72313	-4.64148	Africa	Alagwa	alag1248
-wbk	70.97609	35.03578	Eurasia	Waigali	waig1243
+wbk	70.97609	35.03578	Eurasia	Nuristani Kalasha	waig1243
 wbh	32.43753	-8.34522	Africa	Wanda	wand1264
 wbi	34.0757	-9.00683	Africa	Vwanji	vwan1235
 NOCODE_Mikaya-Bambengangale-Baluma			Africa	Mikaya-Bambengangale-Baluma	mika1256
@@ -7228,7 +7211,7 @@ gve	146.84068	-6.45752	Papua	Duwet	duwe1237
 gvy	137.661	-34.739	Australia	Guyani	guya1249
 gvr	86.28988	27.41687	Eurasia	Gurung	guru1261
 gvs	150.7623	-9.28497	Papua	Gumawana	guma1254
-gvp	-49.02173	-4.91161	South America	Para Gaviao	para1315
+gvp	-49.02173	-4.91161	South America	Para-Maranhao Gaviao	para1315
 bbl	45.34397	42.1806	Eurasia	Bats	bats1242
 NOCODE_Cusabo			North America	Cusabo	cusa1237
 sqh	9.06674	10.275	Africa	Shau	shau1238
@@ -7243,7 +7226,7 @@ jua	-64.09979	-7.27501	South America	Juma	juma1249
 jud	-6.72244	8.23453	Africa	Worodougou	woro1256
 juk	9.83299	7.97862	Africa	Wapan	wapa1235
 juh	10.92061	9.79715	Africa	Hone	hone1235
-jui				NA	NA
+jui				Ngadjuri	ngad1257
 jun	85.58452	21.26064	Eurasia	Juang	juan1238
 juo	11.50987	9.26508	Africa	Jiba	jiba1237
 jul	86.32005	27.69311	Eurasia	Jirel	jire1238
@@ -7340,7 +7323,7 @@ and	135.86627	-1.7543	Papua	Ansus	ansu1237
 teh	-68.32346	-47.57963	South America	Tehuelche	tehu1242
 tei	142.62226	-3.45292	Papua	Aro	torr1259
 nby	141.45416	-2.77145	Papua	Ningera	ning1275
-nbx	143.21593	-29.24114	Australia	Ngura	ngur1261
+nbx	143.21593	-29.24114	Australia	Wilson River (Grey Range)	ngur1261
 tel	78.702392	16.452944	Eurasia	Telugu	telu1262
 tem	-12.33307	8.90294	Africa	Timne	timn1235
 ten	-75.24999	1.03332	South America	Tama (Colombia)	tama1340
@@ -7360,7 +7343,7 @@ nbh	11.21085	12.00476	Africa	Ngamo	ngam1282
 nbo	8.28051	5.7562	Africa	Nkukoli	nkuk1238
 nbn	134.09802	-2.80683	Papua	Nabi	kuri1260
 nbm	18.12	4.0	Africa	Ngbaka Ma'bo	ngba1284
-nbl	29.04805	-25.62721	Africa	Sumayela Ndebele	sout2808
+nbl	29.04805	-25.62721	Africa	NA	NA
 nbc	94.95357	26.43358	Eurasia	Chang Naga	chan1313
 nbb	8.69131	6.08134	Africa	Ndoe	ndoe1238
 nba	18.25152	-15.70896	Africa	Nyemba	nyem1238
@@ -7368,7 +7351,7 @@ tes	113.03667	-7.89069	Papua	Tengger	teng1272
 nbg	75.85192	25.53987	Eurasia	Nagarchal	naga1399
 nbf	100.18172	27.45988	Eurasia	Naxi (Retired)	naxi1246
 nbe	95.05979	26.68233	Eurasia	Konyak Naga	kony1248
-nbd	23.56694	3.27251	Africa	Ngbinda	ngbi1238
+nbd	23.56694	3.27251	Africa	Ngbinda-Mayeka	ngbi1238
 sug	141.19955	-4.5071	Papua	Suganga	suga1249
 sue	147.53436	-7.76339	Papua	Suena	suen1241
 suc	122.34101	7.79964	Papua	Western Subanon	west2557
@@ -7392,7 +7375,6 @@ mmw	168.39906	-17.05196	Papua	Emae	emae1237
 suy	-53.07426	-11.51782	South America	Suya	suya1243
 sux	45.6666666667	31.3	Eurasia	Sumerian	sume1241
 sby	28.79335	-15.52127	Africa	Soli	soli1239
-NOCODE_Warekena-Velha			South America	Warekena Velha	ware1255
 ett	12.4833333333	41.9	Eurasia	Etruscan	etru1241
 sbb	156.54142	-8.26947	Papua	Simbo	simb1256
 sbc	147.06391	-2.09163	Papua	Kele (Papua New Guinea)	kele1258
@@ -7400,7 +7382,7 @@ NOCODE_Mangio			Africa	Mangio	mang1364
 sba	15.41401	8.57051	Africa	Ngambay	ngam1268
 sbf	35.22304	7.64407	Africa	Shabo	shab1252
 sbg	131.21812	-1.36931	Papua	Seget	sege1235
-rkt	88.4536	26.3833633333	Eurasia	Rangpuri	rang1265
+rkt	88.4536	26.3833633333	Eurasia	Central-Eastern Kamta	rang1265
 rkw			Australia	Arakwal	arak1254
 sbd	-2.9052	12.71302	Africa	Southern Samo	sout2844
 sbe	150.72725	-10.61476	Papua	Saliba	sali1295
@@ -7419,11 +7401,11 @@ sbl	120.16443	15.23154	Papua	Botolan Sambal	boto1242
 sbm	36.91533	-6.98537	Africa	Sagala	saga1256
 NOCODE_Malabar-Sri-Lanka-Portuguese	80.67	7.25	Eurasia	Malabar-Sri Lanka Portuguese	mala1544
 yva	136.26312	-1.77196	Papua	Yawa	nucl1454
-anl	98.5945	23.33942	Eurasia	Anu	anuu1241
+anl	98.5945	23.33942	Eurasia	Anu-Hkongso	anuu1241
 NOCODE_Surgut-Khanty			Eurasia	Surgut Khanty	surg1248
 wky				NA	NA
 anm	94.280625	24.05064	Eurasia	Anal	anal1239
-pzn	95.161755	26.20717	Eurasia	Para Naga	para1302
+pzn	95.161755	26.20717	Eurasia	Jejara Naga	para1302
 sce	103.55807	35.58083	Eurasia	Dongxiang	dong1285
 NOCODE_Yambe	17.530517	2.504085	Africa	Yambe	yamb1255
 oyy	150.65839	-10.53915	Papua	Oya'oya	oyao1237
@@ -7472,7 +7454,7 @@ wlu	149.843	-24.415	Australia	Wuliwuli	wuli1242
 wlv	-61.91171	-24.21891	South America	Wichi Lhamtes Vejoz	wich1263
 wlw	138.83988	-3.8238	Papua	Walak	wala1269
 wli	127.49406	1.2341	Papua	Waioli	waio1238
-wlk	-123.28378	39.15128	North America	Wailaki	wail1244
+wlk	-123.28378	39.15128	North America	Eel River Athabaskan	wail1244
 wll	29.12281	11.86337	Africa	Wali (Sudan)	wali1262
 wln	5.14509	50.22351	Eurasia	Walloon	wall1255
 wlo	122.67	-5.33	Papua	Wolio	woli1241
@@ -7486,7 +7468,7 @@ gpn	144.50616	-4.05047	Papua	Taiap	taia1239
 gpe	-0.283641	5.793241	Africa	Ghanaian Pidgin English	ghan1244
 gpa	6.69128	8.21291	Africa	Gupa-Abawa	gupa1248
 ime	-16.34726	19.37331	Africa	Imeraguen	imer1236
-scv	8.63921	10.52559	Africa	Sheni	shen1250
+scv	8.63921	10.52559	Africa	Sheni-Ziriya	shen1251
 efi	8.38121	4.89379	Africa	Efik	efik1245
 efa	8.27625	4.60447	Africa	Efai	efai1241
 efe	29.29185	1.8798	Africa	Efe	efee1239
@@ -7498,7 +7480,7 @@ NOCODE_Napeca	-63.1	-15.3	South America	Napeca	nape1237
 cdf	94.4072	25.46435	Eurasia	Chiru	chir1283
 cdg	79.62321	21.3532	Eurasia	Chamari	cham1329
 cda	99.82552	27.75524	Eurasia	Choni	chon1285
-rtc				NA	NA
+rtc				Rungtu Chin	rung1263
 rtm	177.06614	-12.50082	Papua	Rotuman	rotu1241
 cdm	84.90168	27.72065	Eurasia	Chepang	chep1245
 cdn	80.48317	29.70331	Eurasia	Chaudangsi	chau1259
@@ -7544,7 +7526,7 @@ tcu	-106.70616	26.72824	North America	Southeastern Tarahumara	sout2972
 NOCODE_Kustenau	-53.15	-14.9	South America	Kustenau	kust1238
 hiw	166.55592	-13.13907	Papua	Hiw	hiww1237
 hix	-58.80153	-0.16265	South America	Hixkaryana	hixk1239
-tcs	142.692	-11.066	Australia	Torres Strait Creole	torr1261
+tcs	142.692	-11.066	Australia	Torres Strait-Lockhart River Creole	torr1261
 hia	13.7362	11.02429	Africa	Lamang	lama1288
 hib	-77.69999	-6.58333	South America	Hibito	hibi1243
 hid	-102.52777	47.75341	North America	Hidatsa	hida1246
@@ -7557,7 +7539,7 @@ hij	10.90806	4.39641	Africa	Hijuk	hiju1238
 hik	128.06828	-3.6111	Papua	Seit-Kaitetu	seit1239
 hil	122.97428	10.40179	Papua	Hiligaynon	hili1240
 hin	77.0	25.0	Eurasia	Hindi	hind1269
-hio	26.96382	-19.79745	Africa	Tsoa	tsoa1238
+hio	26.96382	-19.79745	Africa	Northern Tshwa	tsoa1238
 tcn	83.46725	28.95064	Eurasia	Tichurong	tich1238
 tco	96.74008	20.41039	Eurasia	Taungyo	taun1248
 tcl	95.11708	25.15664	Eurasia	Taman (Myanmar)	tama1328
@@ -7591,10 +7573,10 @@ arn	-71.27701	-38.73917	South America	Mapudungun	mapu1245
 aro	-67.72934	-12.42423	South America	Araona	arao1248
 NOCODE_Wulwulam			Australia	Wulwulam	wulw1234
 uuu	101.77163	22.67668	Eurasia	U	uuuu1243
-fgr	22.56115	11.31789	Africa	Fongoro	fong1243
+fgr	22.56115	11.31789	Africa	NA	NA
 uur	169.08428	-18.67465	Papua	Ura (Vanuatu)	urav1235
 uum	43.994	42.03792	Eurasia	Urum	urum1249
-uun	120.97577	23.75624	Papua	Kulon-Pazeh	kulo1237
+uun	120.97577	23.75624	Papua	NA	NA
 rof	37.53819	-3.07772	Africa	Rombo	romb1244
 NOCODE_Malali	-42.282716	-16.833987	South America	Malali	mala1432
 tgr	107.29597	15.49282	Eurasia	Tareng	tare1239
@@ -7648,7 +7630,7 @@ swu	123.36187	0.4907	Papua	Suwawa	suwa1241
 duu	98.49449	28.00792	Eurasia	Drung	drun1238
 duv	137.96449	-3.21832	Papua	Duvle	duvl1242
 duw	114.97946	-1.57408	Papua	Dusun Witu	dusu1267
-rit	135.25857	-13.45592	Australia	Ritarungo	rita1239
+rit	135.25857	-13.45592	Australia	Ritharrngu	rita1239
 riu	121.12218	-8.60342	Papua	Riung	riun1237
 rir	110.20707	0.32189	Papua	Ribun	ribu1241
 rin	8.62164	8.95481	Africa	Nungu	nung1292
@@ -7689,7 +7671,7 @@ NOCODE_Tawende			South America	Tawende	tawe1235
 xpk	-72.043762	-6.177147	South America	Kulina Pano	kuli1255
 xpj				NA	NA
 xpi			Eurasia	Pictish	pict1238
-ixi			North America	Ixil, Nebaj	ixil1253
+ixi			North America	NA	NA
 xpo			North America	Pochutec	poch1244
 xpn	-38.33332	-8.49999	South America	Kapinawa	kapi1248
 xpm	92.0	58.5	Eurasia	Pumpokol	pump1237
@@ -7703,7 +7685,7 @@ xpr			Eurasia	Parthian	part1239
 xpq				NA	NA
 xpu	10.356444	36.527295	Africa	Punic	puni1241
 xpt				NA	NA
-wnb	145.41873	-4.78822	Papua	Wanambre	wana1269
+wnb	145.41873	-4.78822	Papua	Mokati	wana1269
 wnc	146.51343	-6.15216	Papua	Wantoat	want1252
 wng	140.19449	-5.60094	Papua	Wanggom	wang1299
 wnd	135.7048	-14.29959	Australia	Wandarang	wand1263
@@ -7733,7 +7715,7 @@ grx	141.59654	-3.5718	Papua	Guriaso	guri1248
 gry	-8.09378	4.67843	Africa	Barclayville Grebo	barc1235
 grg	146.4068	-5.63017	Papua	Madi (Papua New Guinea)	madi1261
 grd	10.16204	9.87332	Africa	Guruntum-Mbaaru	guru1271
-grc	21.91293	39.8155	Eurasia	Ancient Greek	anci1242
+grc	21.91293	39.8155	Eurasia	Ionic-Attic Ancient Greek	anci1242
 gra	73.24716	24.54507	Eurasia	Rajput Garasia	rajp1235
 gro	88.854105	27.608875	Eurasia	Groma	grom1238
 grm	116.85329	6.48554	Papua	Kota Marudu Talantang	kota1279
@@ -7763,8 +7745,8 @@ bdm	14.44918	13.069225	Africa	Buduma	budu1265
 bdl	122.25334	-3.68664	Papua	Indonesian Bajau	indo1317
 bdo	17.64653	12.14611	Africa	Morom	moro1281
 bdn	14.46735	10.90776	Africa	Baldemu	bald1241
-bdi	33.92099	10.72505	Africa	Burun	buru1301
-bdh	29.58996	4.659435	Africa	Baka (Sudan)	baka1274
+bdi	33.92099	10.72505	Africa	Northern Burun	buru1301
+bdh	29.58996	4.659435	Africa	Baka (South Sudan)	baka1274
 bdk	48.33533	41.22722	Eurasia	Budukh	budu1248
 bdj	26.48246	7.57221	Africa	Bai	baii1251
 bdu	9.15209	4.89504	Africa	Oroko	orok1266
@@ -7842,7 +7824,7 @@ taf	-50.54379	-10.53729	South America	Tapirape	tapi1254
 tag	30.93062	12.03457	Africa	Tagoi	tago1246
 taa	-149.45142	64.88341	North America	Lower Tanana	lowe1425
 tab	47.83791	42.01976	Eurasia	Tabasaran	taba1259
-tac	-107.85428	27.46229	North America	Lowland Tarahumara	lowl1265
+tac	-107.85428	27.46229	North America	Western Tarahumara	lowl1265
 tal	9.50774	9.15354	Africa	Tal	tall1250
 tam	78.825989	10.520219	Eurasia	Tamil	tami1289
 tan	11.32278	9.75444	Africa	Tangale	nucl1696
@@ -7885,7 +7867,7 @@ kbl	14.84371	13.87489	Africa	Kanembu	kane1243
 kbm	146.98309	-7.20938	Papua	Iwal	iwal1237
 kbb	-55.91008	2.17138	South America	Kaxuiana	kaxu1237
 kbc	-57.58202	-19.72224	South America	Kadiweu	kadi1248
-kba	118.91114	-31.71542	Australia	Kalarko	kala1379
+kba	118.91114	-31.71542	Australia	Kalarko-Mirniny	kala1379
 kbf	-72.3228	-39.04876	South America	Kakauhua	kaka1269
 kbg	95.236	28.731	Eurasia	Khamba	kham1283
 kbd	43.39182	43.50822	Eurasia	Kabardian	kaba1278
@@ -7937,7 +7919,7 @@ nfa	122.65807	-10.80977	Papua	Dhao	dhao1237
 nfl	166.21038	-10.23022	Papua	Äiwoo	ayiw1239
 nfk			Africa	Shakara	shak1238
 nfu	10.99428	6.63304	Africa	Southern Mfumte	mfum1238
-nfr	-2.51001	8.00522	Africa	Nafaanra	nafa1258
+nfr	-2.51001	8.00522	Africa	Nafanan	nafa1258
 NOCODE_Guwar	153.3998245	-27.16698973	Australia	Guwar	guwa1244
 oui			Eurasia	Old Turkic	oldu1238
 oun	14.35	-15.3	Africa	!O!ung	oung1238
@@ -7946,7 +7928,6 @@ pqa	9.30091	11.01752	Africa	Pa'a	paaa1242
 oub	-7.50585	5.399665	Africa	Glio-Oubi	glio1241
 oua	5.28444	31.94537	Africa	Ouargli	taga1278
 oue	155.70809	-6.36069	Papua	Ounge	oung1239
-NOCODE_Joaquiniano	-64.67	-13.4	South America	Joaquiniano	joaq1235
 pqm	-67.40805	45.494475	North America	Malecite-Passamaquoddy	male1292
 lts			Africa	Tachoni	tach1242
 tcg	138.89162	-6.64493	Papua	Tamagario	tama1336
@@ -7966,7 +7947,7 @@ ybj	8.66137	9.14063	Africa	Hasha	hash1238
 ybk	103.7	23.05	Eurasia	Bokha	bokh1237
 ybl	9.977695	6.9183	Africa	Yukuben	yuku1243
 ybm	145.36113	-4.90868	Papua	Yaben	yabe1255
-ybn	-65.49999	0.58332	South America	Yabaana	yaba1249
+ybn	-65.49999	0.58332	South America	Yabaana-Mainatari	yaba1249
 ybo	146.2065	-5.61718	Papua	Yabong	yabo1240
 yba	8.60748	6.73852	Africa	Yala	yala1263
 ybb	10.0214	5.47421	Africa	Yemba	yemb1246
@@ -7990,7 +7971,7 @@ wha	129.42868	-3.1109	Papua	Manusela	manu1258
 whk	116.65543	1.56635	Papua	Eastern Lowland Kenyah	waha1238
 whu	116.6795	1.42088	Papua	Wahau Kayan	waha1239
 NOCODE_Oropom			Africa	Oropom	orop1234
-soo	18.49777	-4.55057	Africa	Nsong	song1299
+soo	18.49777	-4.55057	Africa	Nsong-Mpiin	song1299
 NOCODE_Guinau	-64.73877	4.797607	South America	Guinau	guin1258
 NOCODE_Kankuamo	-73.357544	10.750207	South America	Kankuamo	kank1244
 NOCODE_Opon-Carare			South America	Opon-Carare	opon1234
@@ -8028,7 +8009,7 @@ bbc	99.17614	2.35498	Papua	Batak Toba	bata1289
 bbb	147.89923	-9.46246	Papua	Barai	nucl1630
 bba	2.996075	9.631865	Africa	Baatonum	baat1238
 bbz	16.69248	12.76174	Africa	Babalia Creole Arabic	baba1273
-bby	10.03422	6.27562	Africa	Befang	befa1241
+bby	10.03422	6.27562	Africa	Menchum	befa1241
 bbx	9.22304	4.02178	Africa	Bubia	bubi1249
 bbw	10.52159	6.11222	Africa	Baba	baba1264
 bbv	147.91685	-5.74133	Papua	Karnai	karn1252
@@ -8195,7 +8176,7 @@ vaj	18.18637	-18.26747	Africa	Northern Ju	vase1234
 vah	79.75164	20.7139	Eurasia	Varhadi-Nagpuri	varh1239
 vai	-11.32618	7.050845	Africa	Vai	vaii1241
 van	142.49904	-3.24963	Papua	Walman	valm1241
-vao	167.27077	-15.91787	Papua	Vao	vaoo1237
+vao	167.27077	-15.91787	Papua	Vao-Vovo	vaoo1237
 val	146.89473	-6.92151	Papua	Vehes	vehe1237
 vam	141.25826	-2.68501	Papua	Vanimo	vani1248
 vaa	79.53351	12.215	Eurasia	Vaagri Booli	vaag1238
@@ -8206,7 +8187,7 @@ vay	86.12266	27.30471	Eurasia	Wayu	wayu1241
 var	-108.43724	27.86854	North America	Huarijio	huar1255
 vas	73.86524	21.36235	Eurasia	Vasavi	vasa1239
 vap	93.7195	24.13781	Eurasia	Vaiphei	vaip1239
-vav	73.29746	20.56353	Eurasia	Varli	varl1238
+vav	73.29746	20.56353	Eurasia	Dungar Varli	varl1238
 vau	29.81348	0.93847	Africa	Vanuma	vanu1242
 bcl	123.40331	13.75743	Papua	Coastal-Naga Bikol	cent2087
 bch	148.66608	-5.5087	Papua	Bariai	bari1286
@@ -8236,7 +8217,7 @@ mym	35.62555	6.63207	Africa	Me'en	meen1242
 myl	120.00937	-1.4313	Papua	Moma	moma1242
 myo	34.64701	8.568	Africa	Anfillo	anfi1235
 mya	93.96649	20.792575	Eurasia	Burmese	nucl1310
-myc	17.82247	-1.10038	Africa	Mayeka	maye1238
+myc	17.82247	-1.10038	Africa	NA	NA
 myb	15.7327833333	8.23065666667	Africa	Mbay	mbay1241
 mye	9.50247	-1.48741	Africa	Myene	myen1241
 myd	143.73489	-4.23908	Papua	Maramba	mara1407
@@ -8244,118 +8225,167 @@ myg	9.59489	6.0213	Africa	Manta	mant1267
 myf	34.65218	9.82554	Africa	Bambassi	bamb1262
 NOCODE_Vazimba			Africa	Vazimba	vazi1234
 NOCODE_Abai-Tubu-Abai-Sembuak	NA	NA	NA	Abai Tubu-Abai Sembuak	abai1241
+wsg	NA	NA	NA	Adilabad Gondi	utno1237
 azr	NA	NA	NA	Adzera (Retired)	adze1241
 NOCODE_Afghanistan-Gorbat	NA	NA	NA	Afghanistan Gorbat	afgh1240
+afh	NA	NA	NA	Afrihili	afri1275
 ahe	NA	NA	NA	Ahe	ahea1240
+esg	NA	NA	NA	Aheri Gondi	aher1237
 mzf	NA	NA	NA	Aiku	aiku1240
+nqy	NA	NA	NA	Akyaung Ari Naga	akya1234
+lsc	NA	NA	NA	Albarradas Sign Language	alba1273
 NOCODE_Alipur-Sign-Language	NA	NA	NA	Alipur Sign Language	alip1234
-NOCODE_Amami-O-Shima-Sign-Language	NA	NA	NA	Amami O Shima Sign Language	amam1247
+jks	NA	NA	NA	Amami O Shima Sign Language	amam1247
 amd	NA	NA	NA	Amapa Creole	amap1241
 aex	NA	NA	NA	Amerax	amer1256
 akn	NA	NA	NA	Amikoana	amik1238
 xlg	NA	NA	NA	Ancient Ligurian	anci1248
+NOCODE_Ancient-North-Greek	NA	NA	NA	Ancient North Greek	anci1249
 aqt	NA	NA	NA	Angaite	anga1316
 NOCODE_Angami-Naga-Sign-Language	NA	NA	NA	Angami Naga Sign Language	anga1315
+aqk	NA	NA	NA	Aninka	anin1242
 NOCODE_Apulia-Calabrian-Greek	NA	NA	NA	Apulia-Calabrian Greek	apul1236
+NOCODE_Arab-El-Naim-Sign-Language	NA	NA	NA	Arab El-Naim Sign Language	arab1399
 mhv	NA	NA	NA	Arakanese	arak1256
 NOCODE_Arame-Gubaare	NA	NA	NA	Arame-Gubaare	aram1260
 xrt	NA	NA	NA	Aranama	aran1265
 NOCODE_Archaic-Finnish-Swedish	NA	NA	NA	Archaic Finnish Swedish	east2303
 NOCODE_Archaic-Gutnish	NA	NA	NA	Archaic Gutnish	gutn1238
 NOCODE_Archaic-Norrlandic	NA	NA	NA	Archaic Norrlandic	arch1246
+NOCODE_Aroaqui	NA	NA	NA	Aroaqui	aroa1234
 atf	NA	NA	NA	Atuence	atue1238
 auv	NA	NA	NA	Auvergnat	auve1240
+NOCODE_Avaipa	NA	NA	NA	Avaipa	avai1234
+NOCODE_Awaswas	NA	NA	NA	Awaswas	sant1428
+NOCODE_Awiakay-Karimba	NA	NA	NA	Awiakay-Karimba	awia1234
 NOCODE_Awu	NA	NA	NA	Awu	sout2719
 bwv	NA	NA	NA	Bahau River Kenyah	baha1262
 boc	NA	NA	NA	Bakung Kenyah	baku1265
 NOCODE_Balaybalan	NA	NA	NA	Balaybalan	bala1318
+NOCODE_Baliledu-Buawa	NA	NA	NA	Baliledu-Buawa	bali1287
 bnh	NA	NA	NA	Banawa	bana1306
 NOCODE_Bantang	NA	NA	NA	Bantang	bant1298
+bpe	NA	NA	NA	Bauni	wara1302
 NOCODE_Bauxite-Pidgin	NA	NA	NA	Bauxite Pidgin	baux1234
+NOCODE_Bay-Islands-Sign-Language	NA	NA	NA	Bay Islands Sign Language	fren1280
 bvs	NA	NA	NA	Belgian Sign Language	belg1241
-NOCODE_Belneng	NA	NA	NA	Belneng	beln1234
-bke	NA	NA	NA	Bengkulu	beng1290
+glb	NA	NA	NA	Belneng	beln1234
 NOCODE_Berbey-Sign-Language	NA	NA	NA	Berbey Sign Language	berb1261
 NOCODE_Betoi-Jirara	NA	NA	NA	Betoi-Jirara	beto1236
 bdf	NA	NA	NA	Biage	biag1234
 ibh	NA	NA	NA	Bih	biha1246
+jbm	NA	NA	NA	Bijim	biji1246
 bii	NA	NA	NA	Bisu (Retired)	bisu1247
 NOCODE_Biyanjiida	NA	NA	NA	Biyanjiida	bian1249
+zbl	NA	NA	NA	Blissymbols	blis1239
 NOCODE_Bokar-Ramo	NA	NA	NA	Bokar-Ramo	boka1249
-NOCODE_Bouni-Bobe	NA	NA	NA	Bouni-Bobe	boun1246
-NOCODE_Bribri-Sign-Language	NA	NA	NA	Bribri Sign Language	brib1244
-NOCODE_Brunca-Sign-Language	NA	NA	NA	Brunca Sign Language	brun1247
+NOCODE_Boma-Nkuu	NA	NA	NA	Boma Nkuu	boma1250
+NOCODE_Boma-Nord	NA	NA	NA	Boma Nord	boma1251
+suo	NA	NA	NA	Bouni-Bobe	boun1246
+rib	NA	NA	NA	Bribri Sign Language	brib1244
+bzt	NA	NA	NA	Brithenig	brit1244
+rnb	NA	NA	NA	Brunca Sign Language	brun1247
+zbu	NA	NA	NA	Bu (Zaranda)	zara1252
+NOCODE_Buli-	NA	NA	NA	Buli (Bauchi State)	buli1260
 bvp	NA	NA	NA	Bumang	buma1247
 NOCODE_Bura-Sign-Language	NA	NA	NA	Bura Sign Language	bura1295
-NOCODE_Buraadiiga	NA	NA	NA	Buraadiiga	bura1273
+NOCODE_Buraadiga	NA	NA	NA	Buraadiga	bura1273
 NOCODE_Burkina-Faso-Sign-Language	NA	NA	NA	Burkina Faso Sign Language	burk1234
 pyx	NA	NA	NA	Burma Pyu	burm1262
+ntx	NA	NA	NA	Burma Tangkhul Naga	burm1267
+NOCODE_Buu	NA	NA	NA	Buu	buuu1246
 bxt	NA	NA	NA	Buxinhua	buxi1237
 NOCODE_Bwenelang	NA	NA	NA	Bwenelang	bwen1239
 NOCODE_Cabixi-Natterer	NA	NA	NA	Cabixi-Natterer	cabi1242
-NOCODE_Cambodian-Sign-Language	NA	NA	NA	Cambodian Sign Language	camb1244
+csx	NA	NA	NA	Cambodian Sign Language	camb1244
+NOCODE_Caquetio	NA	NA	NA	Caquetio	arub1238
+NOCODE_Carari	NA	NA	NA	Carari	cara1273
 cru	NA	NA	NA	Carutana	caru1240
 NOCODE_Cashinawa-of-the-Tarauaca-river	NA	NA	NA	Cashinawa of the Tarauaca river	cash1253
 NOCODE_Caspian-and-eastern-Persia-Gypsy	NA	NA	NA	Caspian and eastern Persia Gypsy	casp1241
 NOCODE_Cauho	NA	NA	NA	Cauho	cauh1234
-NOCODE_Cauqui	NA	NA	NA	Cauqui	cauq1239
+NOCODE_Cauqui-of-Cachuy	NA	NA	NA	Cauqui of Cachuy	cauq1239
 NOCODE_Central-Chong	NA	NA	NA	Central Chong	cent2314
 NOCODE_Central-Mansi	NA	NA	NA	Central Mansi	cent2322
 NOCODE_Central-Mfumte	NA	NA	NA	Central Mfumte	cent2312
 NOCODE_Central-Taurus-Sign-Language	NA	NA	NA	Central Taurus Sign Language	cent2319
 NOCODE_Chakato	NA	NA	NA	Chakato	chak1275
 NOCODE_Chashan	NA	NA	NA	Chashan	chas1234
+nqq	NA	NA	NA	Chen-Kayu Naga	chen1271
 NOCODE_Chimwiini	NA	NA	NA	Chimwiini	chim1312
 NOCODE_Chinese-Pidgin-Russian	NA	NA	NA	Chinese Pidgin Russian	kjac1234
 NOCODE_Chirag	NA	NA	NA	Chirag	chir1284
 NOCODE_Chiriqui-Sign-Languages	NA	NA	NA	Chiriqui Sign Languages	chir1296
 cit	NA	NA	NA	Chittagonian (Retired)	chit1285
+cnq	NA	NA	NA	Chung	cung1238
+NOCODE_Coahuitlan-Totonac	NA	NA	NA	Coahuitlan Totonac	coah1253
 gih	NA	NA	NA	Condamine-Upper Clarence Bandjalang	cond1242
 NOCODE_Crimean-Gothic	NA	NA	NA	Crimean Gothic	crim1255
 cuy	NA	NA	NA	Cuitlatec	cuit1236
 NOCODE_Cushitic-Taita	NA	NA	NA	Cushitic Taita	tait1247
 dtn	NA	NA	NA	Daats'iin	daat1234
+NOCODE_Dadhkai-Village-Sign-Language	NA	NA	NA	Dadhkai Village Sign Language	dadh1234
 NOCODE_Dagang-Baoshan-Liangcun	NA	NA	NA	Dagang-Baoshan-Liangcun	daga1277
 NOCODE_Dama-	NA	NA	NA	Dama (Sierra Leone)	dama1262
+NOCODE_Dana	NA	NA	NA	Dana	buld1238
 dat	NA	NA	NA	Darang Deng	dara1255
+dwk	NA	NA	NA	Dawik Kui	dawi1234
 yio	NA	NA	NA	Dayao Yi	daya1245
 dwz	NA	NA	NA	Dewas-Done Danuwar	dhan1265
 ddr	NA	NA	NA	Dhudhuroa	dhud1236
 NOCODE_Digor-Ossetian	NA	NA	NA	Digor Ossetian	digo1242
+NOCODE_Dir-Nyamzak-Mbarimi	NA	NA	NA	Dir-Nyamzak-Mbarimi	lund1276
+NOCODE_Dongo-Kresh	NA	NA	NA	Dongo Kresh	dong1296
 NOCODE_Douentza-Sign-Language	NA	NA	NA	Douentza Sign Language	doue1234
 NOCODE_Drag-yab	NA	NA	NA	Drag-yab	drag1234
 NOCODE_Dre	NA	NA	NA	Dre	dree1234
+dws	NA	NA	NA	Dutton World Speedwords	dutt1234
 NOCODE_East-Danish	NA	NA	NA	East Danish	scan1238
 cek	NA	NA	NA	Eastern Khumi Chin	east2779
 NOCODE_Eastern-Kikongo	NA	NA	NA	Eastern Kikongo	east2782
+emq	NA	NA	NA	Eastern Muya	east2351
 NOCODE_Eastern-Newari	NA	NA	NA	Eastern Newari	east2773
+NOCODE_Eastern-Ong-Be	NA	NA	NA	Eastern Ong-Be	qion1238
 NOCODE_Eastphalian	NA	NA	NA	Eastphalian	east2290
+NOCODE_Ein-Mahal-Sign-Language	NA	NA	NA	Ein Mahal Sign Language	einm1234
 NOCODE_Eka	NA	NA	NA	Eka	ekaa1234
+cey	NA	NA	NA	Ekai Chin	ekai1234
 NOCODE_Enga-Sign-Language	NA	NA	NA	Enga Sign Language	enga1253
-eni	NA	NA	NA	Enim	enim1238
+enl	NA	NA	NA	Enlhet Norte	nort2971
+enx	NA	NA	NA	Enxet Sur	sout2989
+NOCODE_Enya-Kindu	NA	NA	NA	Enya-Kindu	enya1249
 esy	NA	NA	NA	Eskayan	eska1234
 NOCODE_Estonian-Swedish	NA	NA	NA	Estonian Swedish	esto1259
 eur	NA	NA	NA	Europanto	euro1250
 NOCODE_Extreme-North-Cameroon-Sign-Language	NA	NA	NA	Extreme North Cameroon Sign Language	extr1248
 NOCODE_Faeto-and-Celle-San-Vito-Francoprovencal	NA	NA	NA	Faeto and Celle San Vito Francoprovencal	faet1240
+fif	NA	NA	NA	Faifi	faif1234
 flm	NA	NA	NA	Falam Chin (Retired)	fala1245
 NOCODE_Far-North-Queensland-Indigenous-Sign-Language	NA	NA	NA	Far North Queensland Indigenous Sign Language	fnqi1234
 NOCODE_Fio	NA	NA	NA	Fio	fioo1234
 ffi	NA	NA	NA	Foia Foia	foia1236
-NOCODE_French-Harbour-Sign-Language	NA	NA	NA	French Harbour Sign Language	fren1280
+NOCODE_!Gã!ne	NA	NA	NA	!Gã!ne	gane1238
 gie	NA	NA	NA	Gabogbo	gabo1234
 NOCODE_Gambian-Sign-Language	NA	NA	NA	Gambian Sign Language	gamb1259
 NOCODE_Gamela-of-Viana	NA	NA	NA	Gamela of Viana	game1240
+pgd	NA	NA	NA	Gandhari	gand1259
 ggh	NA	NA	NA	Garreh-Ajuran	garr1261
 gsc	NA	NA	NA	Gascon (Retired)	gasc1241
+NOCODE_Gaura	NA	NA	NA	Gaura	ngga1239
 gen	NA	NA	NA	Geman Deng	gema1236
 NOCODE_Georgian-Sign-Language	NA	NA	NA	Georgian Sign Language	geor1254
-NOCODE_Guazapar	NA	NA	NA	Guazapar	guaz1234
+ajs	NA	NA	NA	Ghardaia Sign Language	ghar1240
+gii	NA	NA	NA	Girirra	giri1245
+NOCODE_Golo	NA	NA	NA	Golo	golo1234
+gov	NA	NA	NA	Goo	gooa1234
+NOCODE_Gser-Rdo	NA	NA	NA	Gser-Rdo	gser1236
 NOCODE_Guinea-Bissau-Sign-Language	NA	NA	NA	Guinea-Bissau Sign Language	guin1260
 NOCODE_Gurgani	NA	NA	NA	Gurgani	gurg1241
 gjr	NA	NA	NA	Gurindji Kriol	guri1249
 NOCODE_Guyana-Sign-Language	NA	NA	NA	Guyana Sign Language	guya1253
+gyz	NA	NA	NA	Gyaazi	nucl1692
 NOCODE_Guenoa	NA	NA	NA	Guenoa	guen1235
+NOCODE_Haitian-Sign-Language	NA	NA	NA	Haitian Sign Language	hait1245
 NOCODE_Hamba-NW-of-Nachingwea-south-of-Mbemkuru-River	NA	NA	NA	Hamba NW of Nachingwea south of Mbemkuru River	hamb1239
 xiv	NA	NA	NA	Harappan	hara1272
 NOCODE_Hauna-Trade-Language	NA	NA	NA	Hauna Trade Language	haun1238
@@ -8364,18 +8394,30 @@ NOCODE_Herschel-Island-Eskimo-Trade-Jargon	NA	NA	NA	Herschel Island Eskimo Trade
 NOCODE_Hindeloopen-Molkwerum-Frisian	NA	NA	NA	Hindeloopen-Molkwerum Frisian	hind1273
 blu	NA	NA	NA	Hmong Njua (Retired)	hmon1338
 NOCODE_Horace-Holden's-Pidgin-Tobi	NA	NA	NA	Horace Holden's Pidgin Tobi	hora1238
+hng	NA	NA	NA	Hungu-Pombo	hung1280
+NOCODE_Ibokun-Sign-Language	NA	NA	NA	Ibokun Sign Language	ibok1234
+ido	NA	NA	NA	Ido	idoo1234
+NOCODE_Ikhin-Arokho	NA	NA	NA	Ikhin-Arokho	ikhi1234
+arc	NA	NA	NA	Imperial Aramaic (700-300 BCE)	impe1235
 NOCODE_Imunga-Trade-Language	NA	NA	NA	Imunga Trade Language	imun1234
 NOCODE_Inmaculada-Sign-Language	NA	NA	NA	Inmaculada Sign Language	inma1234
+igs	NA	NA	NA	Interglossa	inte1261
 ile	NA	NA	NA	Interlingue (Occidental)	inte1260
+NOCODE_Interlingue	NA	NA	NA	Interlingue	inte1262
+NOCODE_Interslavic-zonal-constructed-language	NA	NA	NA	Interslavic zonal constructed language	inte1263
 NOCODE_Ioi-Trade-Jargon	NA	NA	NA	Ioi Trade Jargon	ioit1234
 NOCODE_Ipai	NA	NA	NA	Ipai	ipai1240
 paj	NA	NA	NA	Ipeka-Tapuia	ipek1240
 NOCODE_Iraqi-Sign-Language	NA	NA	NA	Iraqi Sign Language	iraq1246
+NOCODE_Isenye	NA	NA	NA	Isenye	isse1238
 isk	NA	NA	NA	Ishkashimi	ishk1246
 NOCODE_Isimjeega-Rootigaanga	NA	NA	NA	Isimjeega-Rootigaanga	isim1234
+NOCODE_Isyarat-Lama-Asli-Bali	NA	NA	NA	Isyarat Lama Asli Bali	isya1234
+NOCODE_Isyarat-Lama-Cicendo	NA	NA	NA	Isyarat Lama Cicendo	isya1235
 itu	NA	NA	NA	Itutang	itut1240
 fiz	NA	NA	NA	Izere (Retired)	izer1243
 rzh	NA	NA	NA	Jabal Razih	jaba1234
+NOCODE_Jalking	NA	NA	NA	Jalking	saka1296
 NOCODE_Jamtska	NA	NA	NA	Jamtska	jamt1238
 jap	NA	NA	NA	Jaruara	jaru1257
 NOCODE_Jedek	NA	NA	NA	Jedek	jede1239
@@ -8383,95 +8425,138 @@ NOCODE_Jenipapo-Kaninde	NA	NA	NA	Jenipapo-Kaninde	jeni1237
 NOCODE_Jiarong	NA	NA	NA	Jiarong	jiar1242
 NOCODE_Jizhao	NA	NA	NA	Jizhao	jizh1234
 NOCODE_Joeka-Oajana-Pidgin	NA	NA	NA	Joeka-Oajana Pidgin	joek1234
-NOCODE_Judeo-Hamadani	NA	NA	NA	Judeo-Hamadani	jude1268
+jog	NA	NA	NA	Jogi in the Sindh area	jogi1234
+NOCODE_Judeo-Hamadani-Borujerdi	NA	NA	NA	Judeo-Hamadani-Borujerdi	jude1268
+ckn	NA	NA	NA	Kaang Chin	kaan1248
+dkg	NA	NA	NA	Kadung	vagh1248
 jka	NA	NA	NA	Kaera	kaer1234
-NOCODE_Kafr-Qasem-Sign-Language	NA	NA	NA	Kafr Qasem Sign Language	kafr1234
+sqx	NA	NA	NA	Kafr Qasem Sign Language	kafr1234
+NOCODE_Kagoshima	NA	NA	NA	Kagoshima	sats1241
 xah	NA	NA	NA	Kahayan	kaha1240
 slb	NA	NA	NA	Kahumamahon Saluan	kahu1242
 NOCODE_Kailge-Sign-Language	NA	NA	NA	Kailge Sign Language	kail1256
 NOCODE_Kajana-Sign-Language	NA	NA	NA	Kajana Sign Language	kaja1257
-NOCODE_Kajtak	NA	NA	NA	Kajtak	kajt1238
+xdq	NA	NA	NA	Kajtak	kajt1238
 NOCODE_Kakesio-Dorobo	NA	NA	NA	Kakesio Dorobo	kake1234
 NOCODE_Kakkala	NA	NA	NA	Kakkala	kakk1234
 NOCODE_Kamona-Bijogo	NA	NA	NA	Kamona Bijogo	kamo1256
 NOCODE_Kariri	NA	NA	NA	Kariri	kari1254
 kxg	NA	NA	NA	Katingan	kati1278
+NOCODE_Kavir	NA	NA	NA	Kavir	kavi1234
 knh	NA	NA	NA	Kayan River Kenyah	kaya1334
 vky	NA	NA	NA	Kayu Agung	kayu1244
 NOCODE_Keresan-Pueblo-Indian-Sign-Language	NA	NA	NA	Keresan Pueblo Indian Sign Language	kere1299
+hkh	NA	NA	NA	Khah	khah1234
 NOCODE_Khamla	NA	NA	NA	Khamla	kham1280
 nky	NA	NA	NA	Khiamniungan Naga (Retired)	khia1237
 NOCODE_Kholosi	NA	NA	NA	Kholosi	khol1241
 NOCODE_KiKAR	NA	NA	NA	KiKAR	kika1240
+NOCODE_Kisisi	NA	NA	NA	Kisisi	kisi1251
 tlh	NA	NA	NA	Klingon	klin1234
 kob	NA	NA	NA	Kohoroxitari	koho1245
+nxk	NA	NA	NA	Kokak Naga	koka1245
 NOCODE_Komi-Yazva	NA	NA	NA	Komi-Yazva	komi1277
 NOCODE_Kontanawa	NA	NA	NA	Kontanawa	kont1246
+vkn	NA	NA	NA	Koro Nulu	koro1323
+vkz	NA	NA	NA	Koro Zuba	koro1324
 cpo	NA	NA	NA	Kpeego	kpee1234
 krq	NA	NA	NA	Krui	krui1237
-NOCODE_Kubachi	NA	NA	NA	Kubachi	kuba1248
+ugh	NA	NA	NA	Kubachi	kuba1248
 NOCODE_Kueretu	NA	NA	NA	Kueretu	cure1236
+ukv	NA	NA	NA	Kuku	kuku1285
+uon	NA	NA	NA	Kulon	kulo1238
 xuf	NA	NA	NA	Kunfal	kunf1238
 NOCODE_Kurdish-Sign-Language	NA	NA	NA	Kurdish Sign Language	kurd1260
 olu	NA	NA	NA	Kuvale	kuva1244
 NOCODE_Kuwaiti-Sign-Language	NA	NA	NA	Kuwaiti Sign Language	kuwa1252
+qwt	NA	NA	NA	Kwalhioqua-Clatskanie	kwal1258
 xdo	NA	NA	NA	Kwandu	kwan1289
 NOCODE_Kwatl	NA	NA	NA	Kwatl	kwat1246
 ztc	NA	NA	NA	Lachirioag Zapotec	lach1251
 kds	NA	NA	NA	Lahu Shi (Retired)	lahu1255
-NOCODE_Lakuramau	NA	NA	NA	Lakuramau	laku1238
+clj	NA	NA	NA	Laitu Chin	lait1239
+tjp	NA	NA	NA	Lake Carnegie Western Desert	pini1245
+lxm	NA	NA	NA	Lakuramau	laku1238
 NOCODE_Lamo	NA	NA	NA	Lamo	lamo1245
 dyk	NA	NA	NA	Land Dayak (Retired)	land1262
 NOCODE_Langue-des-Signes-Zairoise	NA	NA	NA	Langue des Signes Zairoise	lang1335
 NOCODE_Langue-des-Signes-de-Bouakako	NA	NA	NA	Langue des Signes de Bouakako	lang1336
 lnc	NA	NA	NA	Languedocien	lang1334
+nlq	NA	NA	NA	Lao Naga	laon1234
+NOCODE_Late-Middle-Indo-Aryan	NA	NA	NA	Late Middle Indo-Aryan	midd1350
+NOCODE_Late-Palestinian-Aramaic	NA	NA	NA	Late Palestinian Aramaic	late1255
+lvi	NA	NA	NA	Lawi	lawi1235
 NOCODE_Lebu-Wolof	NA	NA	NA	Lebu Wolof	lebu1234
+NOCODE_Leitre	NA	NA	NA	Leitre	leit1234
 lmt	NA	NA	NA	Lematang	lema1244
 NOCODE_Len	NA	NA	NA	Len	lenn1234
 NOCODE_Lesotho-Sign-Language	NA	NA	NA	Lesotho Sign Language	leso1234
 NOCODE_Lianghe-Achang	NA	NA	NA	Lianghe Achang	lian1258
 lms	NA	NA	NA	Limousin	limo1250
 NOCODE_Lingaayat	NA	NA	NA	Lingaayat	ling1261
-lnt	NA	NA	NA	Lintang	lint1237
+jbo	NA	NA	NA	Lojban	lojb1234
 poj	NA	NA	NA	Lower Pokomo	lowe1441
 NOCODE_Lower-Richmond	NA	NA	NA	Lower Richmond	lowe1444
+nsb	NA	NA	NA	Lower-Nosop	lowe1407
 ule	NA	NA	NA	Lule	lule1238
 NOCODE_Luxi-Achang	NA	NA	NA	Luxi Achang	luxi1238
+ldn	NA	NA	NA	Laadan	laad1235
+NOCODE_Macushi-Sign-Language	NA	NA	NA	Macushi Sign Language	macu1262
 mqd	NA	NA	NA	Madang (Malaysia)	mada1299
+NOCODE_Magajingari-Sign-Language	NA	NA	NA	Magajingari Sign Language	maga1273
 gkd	NA	NA	NA	Magi	magi1243
-NOCODE_Mahafaly-Malagasy	NA	NA	NA	Mahafaly Malagasy	maha1309
+gmg	NA	NA	NA	Magiyi	magi1244
+NOCODE_Mahafaly-Antanalana-Malagasy	NA	NA	NA	Mahafaly-Antanalana Malagasy	maha1309
 xkm	NA	NA	NA	Mahakam Kenyah	maha1308
+NOCODE_Maipure-Avane	NA	NA	NA	Maipure-Avane	maip1247
 lws	NA	NA	NA	Malawian Sign Language	mala1549
 mly	NA	NA	NA	Malay (individual language)	mala1546
 NOCODE_Malgwa	NA	NA	NA	Malgwa	malg1251
+NOCODE_Mandalay-Myanmar-Sign-Language	NA	NA	NA	Mandalay Myanmar Sign Language	mand1477
+NOCODE_Mangghuer	NA	NA	NA	Mangghuer	minh1238
 NOCODE_Mango-	NA	NA	NA	Mango (China)	mang1429
 nlm	NA	NA	NA	Mankiyali	mank1256
 NOCODE_Marajo-Sign-Language	NA	NA	NA	Marajo Sign Language	mara1418
-NOCODE_Mardin-Sign-Language	NA	NA	NA	Mardin Sign Language	mard1245
+dsz	NA	NA	NA	Mardin Sign Language	mard1245
+NOCODE_Maunabudhuk-and-Bodhe-Local-Sign	NA	NA	NA	Maunabudhuk and Bodhe Local Sign	maun1242
+cty	NA	NA	NA	Maundadan Chetti	maun1243
 NOCODE_Maxakali-Sign-Language	NA	NA	NA	Maxakali Sign Language	maxa1248
 NOCODE_Mayo-	NA	NA	NA	Mayo (Brazil)	mayo1267
+emz	NA	NA	NA	Mbessa	mbes1239
 NOCODE_Mbour-Sign-Language	NA	NA	NA	Mbour Sign Language	mbou1245
-NOCODE_Mbuk	NA	NA	NA	Mbuk	mbuk1244
+bpc	NA	NA	NA	Mbuk	mbuk1244
 NOCODE_Meakambut	NA	NA	NA	Meakambut	meak1234
+dmf	NA	NA	NA	Medefidrin	mede1238
+NOCODE_Medieval-Greek	NA	NA	NA	Medieval Greek	medi1251
 NOCODE_Mehek-Sign-Language	NA	NA	NA	Mehek Sign Language	mehe1245
+hkn	NA	NA	NA	Mel-Khaonh	melk1242
 NOCODE_Menterap	NA	NA	NA	Menterap	ment1251
+NOCODE_Mepuri	NA	NA	NA	Mepuri	mepu1234
+NOCODE_Middle-Aramaic	NA	NA	NA	Middle Aramaic	midd1366
+NOCODE_Migueleno-Chiquitano	NA	NA	NA	Migueleno Chiquitano	sanm1288
 miv	NA	NA	NA	Mimi	mimi1246
 xxm	NA	NA	NA	Minkin	mink1237
-NOCODE_Miyakubo-Sign-Language	NA	NA	NA	Miyakubo Sign Language	miya1268
+rsm	NA	NA	NA	Miriwoong Sign Language	miri1273
+ehs	NA	NA	NA	Miyakubo Sign Language	miya1268
 mob	NA	NA	NA	Moinba	moin1242
 NOCODE_Mount-Avejaha-Sign-Language	NA	NA	NA	Mount Avejaha Sign Language	moun1255
+xnq	NA	NA	NA	Mozambican Ngoni	moza1251
 NOCODE_Mpalityanh-Luthigh	NA	NA	NA	Mpalityanh-Luthigh	mpal1237
-NOCODE_Mpinda	NA	NA	NA	Mpinda	mpin1234
+pnd	NA	NA	NA	Mpinda	mpin1234
+dmw	NA	NA	NA	Mudburra	mudb1240
 ymj	NA	NA	NA	Muji Yi	muji1236
 NOCODE_Muklomic	NA	NA	NA	Muklomic	mukl1234
-vmo	NA	NA	NA	Muko-Muko	muko1237
 NOCODE_Munaseli-Pandai	NA	NA	NA	Munaseli Pandai	muna1238
 muw	NA	NA	NA	Mundari (Retired)	mund1339
 xak	NA	NA	NA	Maku	maku1246
 NOCODE_Nahenic	NA	NA	NA	Nahenic	nahe1238
+NOCODE_Namut-Nginamanu	NA	NA	NA	Namut-Nginamanu	namu1249
 NOCODE_Nanabin-Sign-Language	NA	NA	NA	Nanabin Sign Language	nana1261
 NOCODE_Nand	NA	NA	NA	Nand	nand1263
 dno	NA	NA	NA	Ndrulo	ndru1234
+nww	NA	NA	NA	Ndwewe	ndwe1234
+NOCODE_Ndzerem	NA	NA	NA	Ndzerem	ndze1235
+NOCODE_Nebaj-Shared-Homesign-Systems	NA	NA	NA	Nebaj Shared Homesign Systems	neba1243
 NOCODE_Ngaalam	NA	NA	NA	Ngaalam	ngaa1241
 NOCODE_Ngala-of-Lake-Chad	NA	NA	NA	Ngala of Lake Chad	ngal1301
 rxd	NA	NA	NA	Ngardi	ngar1288
@@ -8480,6 +8565,8 @@ gnj	NA	NA	NA	Ngen of Djonkro	ngen1256
 nql	NA	NA	NA	Ngendelengo	ngen1257
 NOCODE_Ngkoth	NA	NA	NA	Ngkoth	ngko1236
 NOCODE_Ngochang	NA	NA	NA	Ngochang	ngoc1235
+xnm	NA	NA	NA	Ngumbarl	ngum1253
+NOCODE_Nighvng	NA	NA	NA	Nighvng	sakh1247
 nkq	NA	NA	NA	Nkami	nkam1239
 krg	NA	NA	NA	North Korowai	nort3250
 NOCODE_North-Central-Tangkhul-Naga	NA	NA	NA	North-Central Tangkhul Naga	nort3287
@@ -8487,18 +8574,22 @@ NOCODE_Northeast-Itelmen	NA	NA	NA	Northeast Itelmen	east2812
 NOCODE_Northern-Alantika-Vere	NA	NA	NA	Northern Alantika Vere	nort3260
 ncq	NA	NA	NA	Northern Katang	nort3270
 mbg	NA	NA	NA	Northern Nambikuara	nort3251
-NOCODE_Northern-Pinghua	NA	NA	NA	Northern Pinghua	nort3268
+cnp	NA	NA	NA	Northern Pinghua	nort3268
 NOCODE_Northern-Tangkhul-Naga	NA	NA	NA	Northern Tangkhul Naga	nort3286
 ntd	NA	NA	NA	Northern Tidung	nort3262
 ccx	NA	NA	NA	Northern Zhuang	nort3249
+NOCODE_Northwestern-Lingala	NA	NA	NA	Northwestern Lingala	nort3345
 nov	NA	NA	NA	Novial	novi1234
+nqt	NA	NA	NA	Nteng	nucl1698
+NOCODE_Nueva-Vida-Maijuna-Sign-Language	NA	NA	NA	Nueva Vida Maijuna Sign Language	nuev1238
 NOCODE_Nuoxi-Yao	NA	NA	NA	Nuoxi Yao	naxi1247
 nxj	NA	NA	NA	Nyadu	nyad1241
-xny	NA	NA	NA	Nyiyaparli	nija1241
+xny	NA	NA	NA	Nyiyaparli-Palyku	nija1241
 nzd	NA	NA	NA	Nzadi	nzad1234
 NOCODE_Obdorsk-Khanty	NA	NA	NA	Obdorsk Khanty	obdo1234
 occ	NA	NA	NA	Occidental	occi1241
-ogn	NA	NA	NA	Ogan	ogan1237
+NOCODE_Oinam	NA	NA	NA	Oinam	oina1234
+oie	NA	NA	NA	Okolie	okol1243
 NOCODE_Old-Bangkok-Sign-Language	NA	NA	NA	Old Bangkok Sign Language	oldb1247
 NOCODE_Old-Cayman-Sign-Language	NA	NA	NA	Old Cayman Sign Language	oldc1248
 ope	NA	NA	NA	Old Persian	oldp1255
@@ -8506,53 +8597,74 @@ olk	NA	NA	NA	Olkol	olko1234
 NOCODE_Original-Costa-Rican-Sign-Language	NA	NA	NA	Original Costa Rican Sign Language	orig1234
 fnb	NA	NA	NA	Orkon-Fanbak	orko1234
 ork	NA	NA	NA	Orokaiva (Retired)	orok1270
+phj	NA	NA	NA	Pahari Newari	paha1257
 NOCODE_Pai-lang	NA	NA	NA	Pai-lang	pail1244
-NOCODE_Paiconeca	NA	NA	NA	Paiconeca	paic1240
-plm	NA	NA	NA	Palembang	pale1264
+jkp	NA	NA	NA	Paku Karen	paku1238
+NOCODE_Palawa-Kani	NA	NA	NA	Palawa Kani	pala1356
 bcx	NA	NA	NA	Pamona (Retired)	pamo1255
+NOCODE_Papiu-Yanomama-Sign-Language	NA	NA	NA	Papiu Yanomama Sign Language	papi1256
+NOCODE_Parauana	NA	NA	NA	Parauana	para1324
 tot	NA	NA	NA	Patla-Chicontla Totonac	patl1234
+ptq	NA	NA	NA	Pattapu	patt1247
 pnk	NA	NA	NA	Paunaka	paun1241
-pen	NA	NA	NA	Penesak	pene1237
+pzh	NA	NA	NA	Pazeh-Kahabu	kulo1237
+NOCODE_Phayeng	NA	NA	NA	Phayeng	phay1241
+NOCODE_Phuthi	NA	NA	NA	Phuthi	phut1246
+NOCODE_Pidgin-Bobangi	NA	NA	NA	Pidgin Bobangi	pidg1259
+NOCODE_Pidgin-Hamer	NA	NA	NA	Pidgin Hamer	pidg1260
 NOCODE_Pidgin-Tukang-Besi	NA	NA	NA	Pidgin Tukang Besi	pidg1257
 NOCODE_Pimpama	NA	NA	NA	Pimpama	pimp1234
+NOCODE_Pomo-Kweso	NA	NA	NA	Pomo-Kweso	pomo1276
 NOCODE_Ponthai	NA	NA	NA	Ponthai	pont1258
+npg	NA	NA	NA	Ponyo-Gongwang Naga	pony1234
 prv	NA	NA	NA	Provencal (Retired)	prov1247
 pun	NA	NA	NA	Pubian	pubi1237
+pbm	NA	NA	NA	Puebla and Northeastern Mazatec	pueb1234
 NOCODE_Pukaunu	NA	NA	NA	Pukaunu	puka1244
 ypl	NA	NA	NA	Pula Yi	pula1268
 ypw	NA	NA	NA	Puwa Yi	puwa1234
+NOCODE_Qahvehkhaneh-Sign-Language	NA	NA	NA	Qahvehkhaneh Sign Language	qahv1234
+qya	NA	NA	NA	Quenya	quen1234
 rjb	NA	NA	NA	Rajbanshi (Retired)	rajb1244
 rae	NA	NA	NA	Ranau (Retired)	rana1249
 NOCODE_Ranya	NA	NA	NA	Ranya	rany1238
 rws	NA	NA	NA	Rawas (Retired)	rawa1268
 NOCODE_Remo-of-the-Blanco-river	NA	NA	NA	Remo of the Blanco river	remo1250
 NOCODE_Remo-of-the-Jaquirana-river	NA	NA	NA	Remo of the Jaquirana river	remo1249
+rmv	NA	NA	NA	Romanova	roma1338
+NOCODE_Rumsen	NA	NA	NA	Rumsen	rums1243
+rsn	NA	NA	NA	Rwandan Sign Language	rwan1246
 xsk	NA	NA	NA	Sakan	saka1300
-NOCODE_Sakizaya	NA	NA	NA	Sakizaya	saki1247
+szy	NA	NA	NA	Sakizaya	saki1247
 spv	NA	NA	NA	Sambalpuri	samb1325
 xso	NA	NA	NA	San Francisco Solano	sanf1266
 NOCODE_San-Juan-Quiahije-Chatino-Sign-Language	NA	NA	NA	San Juan Quiahije Chatino Sign Language	chat1269
 spn	NA	NA	NA	Sanapana	sana1298
+NOCODE_Sangar	NA	NA	NA	Sangar	sang1334
 sgy	NA	NA	NA	Sanglechi	sang1344
 NOCODE_Sanqiao	NA	NA	NA	Sanqiao	sanq1234
+NOCODE_Sao-Tome-and-Principe-Sign-Language	NA	NA	NA	Sao Tome and Principe Sign Language	saot1241
 NOCODE_Sar-	NA	NA	NA	Sar (Indonesia)	sarr1247
 bsd	NA	NA	NA	Sarawak Bisaya	sara1350
 NOCODE_Schiermonnikoog-Frisian	NA	NA	NA	Schiermonnikoog Frisian	schi1234
 skl	NA	NA	NA	Selako	sela1262
-sdd	NA	NA	NA	Semendo	seme1248
-srj	NA	NA	NA	Serawai	sera1272
 hbs	NA	NA	NA	Serbian-Croatian-Bosnian	sout1528
+lsw	NA	NA	NA	Seychelles Sign Language	seyc1234
+NOCODE_Shebayo	NA	NA	NA	Shebayo	sheb1234
 sty	NA	NA	NA	Siberian Tatar	sibe1250
 sxc	NA	NA	NA	Sicana	sica1234
 scx	NA	NA	NA	Sicula	sicu1234
 xst	NA	NA	NA	Silt'e (Retired)	silt1241
 NOCODE_Sinasina-Sign-Language	NA	NA	NA	Sinasina Sign Language	sina1273
 sdi	NA	NA	NA	Sindang Kelingi	sind1280
+sjn	NA	NA	NA	Sindarin	sind1281
+NOCODE_Sirajic	NA	NA	NA	Sirajic	sira1263
 NOCODE_Situ	NA	NA	NA	Situ	situ1238
-NOCODE_Sivia-Sign-Language	NA	NA	NA	Sivia Sign Language	sivi1235
-szk	NA	NA	NA	Sizaki	siza1240
+lsv	NA	NA	NA	Sivia Sign Language	sivi1235
 szs	NA	NA	NA	Solomon Islands Sign Language	solo1262
 NOCODE_Soltec	NA	NA	NA	Soltec	solt1234
+csj	NA	NA	NA	Songlai Chin	song1313
+NOCODE_Sorsorian	NA	NA	NA	Sorsorian	sors1241
 bsz	NA	NA	NA	Souletin Basque	soul1243
 vro	NA	NA	NA	South Estonian	sout2679
 NOCODE_South-Itelmen	NA	NA	NA	South Itelmen	sout3274
@@ -8565,7 +8677,7 @@ NOCODE_Southern-Lalo	NA	NA	NA	Southern Lalo	sout3210
 NOCODE_Southern-Mansi	NA	NA	NA	Southern Mansi	sout3253
 tle	NA	NA	NA	Southern Marakwet	sout3225
 pec	NA	NA	NA	Southern Pesisir	sout3224
-NOCODE_Southern-Pinghua	NA	NA	NA	Southern Pinghua	sout3250
+csp	NA	NA	NA	Southern Pinghua	sout3250
 NOCODE_Southern-Tangkhul-Naga	NA	NA	NA	Southern Tangkhul Naga	khan1277
 itd	NA	NA	NA	Southern Tidung	sout3241
 ccy	NA	NA	NA	Southern Zhuang	sout3221
@@ -8574,32 +8686,42 @@ NOCODE_Southwestern-Dargwa	NA	NA	NA	Southwestern Dargwa	sout3261
 NOCODE_Suansu	NA	NA	NA	Suansu	suan1234
 suh	NA	NA	NA	Suba (Retired)	suba1254
 suf	NA	NA	NA	Sufrai	tarp1241
+NOCODE_Sumayela-Ndebele	NA	NA	NA	Sumayela Ndebele	sout2808
 suu	NA	NA	NA	Sungkai (Indonesia)	sung1271
 NOCODE_Tabancal	NA	NA	NA	Tabancal	taba1269
+NOCODE_Tanda	NA	NA	NA	Tanda	tand1259
 tnj	NA	NA	NA	Tanjong	tanj1248
+xnj	NA	NA	NA	Tanzanian Ngoni	tanz1241
 NOCODE_Taparita	NA	NA	NA	Taparita	tapa1262
 tdm	NA	NA	NA	Taruma	taru1236
+NOCODE_Te-Parau-Tinito	NA	NA	NA	Te Parau Tinito	tepa1234
 NOCODE_Tequistlateco-Chontal	NA	NA	NA	Tequistlateco Chontal	tequ1245
+NOCODE_Terena-Sign-Language	NA	NA	NA	Terena Sign Language	tere1282
 NOCODE_Terschelling-Frisian	NA	NA	NA	Terschelling Frisian	ters1236
 tez	NA	NA	NA	Tetserret	tets1235
-NOCODE_Tibetan-Sign-Language	NA	NA	NA	Tibetan Sign Language	tibe1277
+cth	NA	NA	NA	Thaipum Chin	thai1262
+lsn	NA	NA	NA	Tibetan Sign Language	tibe1277
 NOCODE_Tiefo-Nyafogo-Numudara	NA	NA	NA	Tiefo-Nyafogo-Numudara	tief1244
 NOCODE_Tijuana-Sign-Language	NA	NA	NA	Tijuana Sign Language	tiju1234
 NOCODE_Tikhakic	NA	NA	NA	Tikhakic	tikh1243
+tyy	NA	NA	NA	Tiyaa	yaaa1242
 nhj	NA	NA	NA	Tlalitzlipa Nahuatl	tlal1234
+tok	NA	NA	NA	Toki Pona	toki1239
 dto	NA	NA	NA	Tommo So Dogon	tomm1242
 tmx	NA	NA	NA	Tomyang	tomy1239
 xgf	NA	NA	NA	Tongva	tong1329
 NOCODE_Trading-Eleman	NA	NA	NA	Trading Eleman	hiri1235
 NOCODE_Trading-Koriki	NA	NA	NA	Trading Koriki	hiri1236
 NOCODE_Ts'ixa	NA	NA	NA	Ts'ixa	tsix1234
+NOCODE_Tsugaru	NA	NA	NA	Tsugaru	tsug1237
 NOCODE_Tule-Kaweah-Yokuts	NA	NA	NA	Tule-Kaweah Yokuts	tule1245
 NOCODE_Tunisian-Zuwara-Berber	NA	NA	NA	Tunisian-Zuwara Berber	tuni1262
+NOCODE_Turku-Bongor-Pidgin-Arabic	NA	NA	NA	Turku-Bongor Pidgin Arabic	turk1244
 NOCODE_Tushan-Names	NA	NA	NA	Tushan Names	tush1243
 ttx	NA	NA	NA	Tutong 1	tuto1242
 NOCODE_Tyanngayt-Mamngayt-Ntrwangayt-Ntrangit	NA	NA	NA	Tyanngayt-Mamngayt-Ntrwangayt-Ntrangit	tyan1235
 NOCODE_Unainuman	NA	NA	NA	Unainuman	unai1234
-NOCODE_Uni	NA	NA	NA	Uni	unii1234
+uni	NA	NA	NA	Uni	unii1234
 ubm	NA	NA	NA	Upper Baram Kenyah	uppe1459
 xup	NA	NA	NA	Upper Umpqua	uppe1436
 NOCODE_Vach-Vasjugan	NA	NA	NA	Vach-Vasjugan	fare1244
@@ -8607,23 +8729,31 @@ NOCODE_Vere-Kaadam	NA	NA	NA	Vere Kaadam	vere1252
 NOCODE_Vili-of-Ngounie	NA	NA	NA	Vili of Ngounie	vili1239
 vol	NA	NA	NA	Volapuk	vola1234
 wgw	NA	NA	NA	Wagawaga (Retired)	waga1262
+NOCODE_Wanam-Yelmek	NA	NA	NA	Wanam Yelmek	wana1273
 NOCODE_Wanib-Sign-Language	NA	NA	NA	Wanib Sign Language	wani1243
+NOCODE_Warekena-do-San-Miguel	NA	NA	NA	Warekena do San Miguel	ware1255
 NOCODE_Wasulu-	NA	NA	NA	Wasulu (Retired)	wasu1256
 NOCODE_Wawu-II	NA	NA	NA	Wawu-II	wavu1234
+wlh	NA	NA	NA	Welaun	wela1235
 NOCODE_West-!Xoon	NA	NA	NA	West !Xoon	xooo1239
 hyw	NA	NA	NA	Western Armenian	homs1234
 fri	NA	NA	NA	Western Frisian (Retired)	west2863
+wmg	NA	NA	NA	Western Muya	west2417
 NOCODE_Western-Puroik	NA	NA	NA	Western Puroik	west2873
 wmx	NA	NA	NA	Womo-Sumararu	womo1238
 ywm	NA	NA	NA	Wumeng Yi	wume1236
+NOCODE_Wuumu-Mpuono	NA	NA	NA	Wuumu-Mpuono	wuum1239
 NOCODE_Xiong-Nu	NA	NA	NA	Xiong-Nu	xion1234
+NOCODE_Xiyun-Va	NA	NA	NA	Xiyun Va	xiyu1235
 NOCODE_Xuzhang-Lalo	NA	NA	NA	Xuzhang Lalo	xuzh1234
 NOCODE_Yagara-Jandai	NA	NA	NA	Yagara-Jandai	yaga1256
+NOCODE_Yaio	NA	NA	NA	Yaio	yaoa1239
+NOCODE_Yamben	NA	NA	NA	Yamben	yamb1257
 yda	NA	NA	NA	Yanda	yand1251
-NOCODE_Yangathimri	NA	NA	NA	Yangathimri	yang1305
+tjj	NA	NA	NA	Yangathimri	yang1305
 NOCODE_Yangliu	NA	NA	NA	Yangliu	yang1304
+ysm	NA	NA	NA	Yangon Myanmar Sign Language	yang1309
 yro	NA	NA	NA	Yaroame	yaro1235
-NOCODE_Yebarana	NA	NA	NA	Yebarana	yaoa1239
 NOCODE_Yemeni-Sign-Language	NA	NA	NA	Yemeni Sign Language	yeme1237
 yib	NA	NA	NA	Yinglish	ying1248
 ywg	NA	NA	NA	Yinhawangka	yinh1234
@@ -8631,8 +8761,13 @@ ljw	NA	NA	NA	Yirandhali	yira1239
 NOCODE_Yogyakarta-Sign-Language	NA	NA	NA	Yogyakarta Sign Language	yogy1234
 NOCODE_Yoruba-Sign-Language	NA	NA	NA	Yoruba Sign Language	yoru1246
 yym	NA	NA	NA	Yuanjiang-Mojiang Yi	yuan1242
+NOCODE_Yucunicoco-Mixtec	NA	NA	NA	Yucunicoco Mixtec	yucu1254
 ygu	NA	NA	NA	Yugul	yugu1250
 NOCODE_Yupua	NA	NA	NA	Yupua	jupu1235
 NOCODE_Yuputhimri	NA	NA	NA	Yuputhimri	yupu1235
+NOCODE_Yanoma	NA	NA	NA	Yanoma	yano1269
 xzh	NA	NA	NA	Zhangzhung	zhan1239
+NOCODE_Zinacantec-family-homesign	NA	NA	NA	Zinacantec family homesign	zina1239
 NOCODE_Zlarong	NA	NA	NA	Zlarong	zlar1234
+NOCODE_Zul	NA	NA	NA	Zul	zull1239
+zla	NA	NA	NA	Zula	zula1235

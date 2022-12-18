@@ -1,4 +1,4 @@
-setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
+setwd("/home/agricolamz/work/packages/lingtypology/database_creation")
 library(tidyverse); library(stringr); library(zoo)
 # lets download data from glottolog-data github ---------------------------
 # 1. glottocodes ----------------------------------------------------------
@@ -52,7 +52,7 @@ new_iso <- paste0("NOCODE_", gsub(" ", "-", glottocode_df[is.na(glottocode_df$is
 glottocode_df[is.na(glottocode_df$iso),3] <- sapply(new_iso, function(x){
   strsplit(x, "\\(")[[1]][1]})
 
-setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/database_creation")
+setwd("/home/agricolamz/work/packages/lingtypology/database_creation")
 write_tsv(glottocode_df, "glottocode_df.tsv")
 rm(list = ls())
 
@@ -74,7 +74,7 @@ somthing_useless <- sapply(1:length(lginfo), function(x){
   str_split(lginfo[x], "\t")[[1]][5]
 })
 
-lginfo <- data_frame(iso, lang, lat, area)
+lginfo <- tibble(iso, lang, lat, area)
 lginfo[lginfo$iso == "est", 1] <- "ekk"
 glottocode_df <- read_tsv("glottocode_df.tsv")
 glottocode_df <- full_join(lginfo, glottocode_df)

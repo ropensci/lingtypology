@@ -3,7 +3,7 @@
 #' @author George Moroz <agricolamz@gmail.com>
 #' @noRd
 
-.onLoad <- function(libname = find.package("lingtypology"),
+.onAttach <- function(libname = find.package("lingtypology"),
                     pkgname = "lingtypology") {
-  packageStartupMessage("Based on the Glottolog v. 4.6")
+  packageStartupMessage("Based on the Glottolog v. 4.7")
 }

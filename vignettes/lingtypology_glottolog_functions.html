@@ -12,29 +12,42 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2022-01-10" />
+<meta name="date" content="2022-12-18" />
 
 <title>lingtypology: Glottolog functions</title>
 
-<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
@@ -52,55 +65,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -109,13 +121,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -127,7 +146,187 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -139,26 +338,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<h1 class="title toc-ignore"><code>lingtypology</code>: Glottolog functions</h1>
+<h1 class="title toc-ignore"><code>lingtypology</code>: Glottolog
+functions</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2022-01-10</h4>
+<h4 class="date">2022-12-18</h4>
 
 
 
-<p>This package is based on the <a href="https://glottolog.org/">Glottolog database (v. 4.4)</a>, so <code>lingtypology</code> has several functions for accessing data from that database.</p>
+<p>This package is based on the <a href="https://glottolog.org/">Glottolog database</a>, so
+<code>lingtypology</code> has several functions for accessing data from
+that database.</p>
 <div id="command-names-syntax" class="section level3">
 <h3>1. Command name’s syntax</h3>
-<p>Most of the functions in <code>lingtypology</code> have the same syntax: <strong>what you need.what you have</strong>. Most of them are based on <em>language name</em>.</p>
+<p>Most of the functions in <code>lingtypology</code> have the same
+syntax: <strong>what you need.what you have</strong>. Most of them are
+based on <em>language name</em>.</p>
 <ul>
 <li><strong>aff.lang()</strong> — get affiliation by language</li>
 <li><strong>area.lang()</strong> — get macro area by language</li>
 <li><strong>country.lang()</strong> — get country by language</li>
 <li><strong>iso.lang()</strong> — get ISO 639-3 code by language</li>
-<li><strong>gltc.lang()</strong> — get glottocode (identifier for a language in the Glottolog database) code by language</li>
+<li><strong>gltc.lang()</strong> — get glottocode (identifier for a
+language in the Glottolog database) code by language</li>
 <li><strong>lat.lang()</strong> — get latitude by language</li>
 <li><strong>long.lang()</strong> — get longitude by language</li>
 <li><strong>level.lang()</strong> — get level by language</li>
-<li><strong>subc.lang()</strong> — get subclassification in the Newick tree format by language</li>
+<li><strong>subc.lang()</strong> — get subclassification in the Newick
+tree format by language</li>
 </ul>
 <p>Some of them help to define a vector of languages.</p>
 <ul>
@@ -166,26 +372,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>lang.iso()</strong> — get language by ISO 639-3 code</li>
 <li><strong>lang.gltc()</strong> — get language by glottocode</li>
 </ul>
-<p>Additionally there are some functions to convert glottocodes to ISO 639-3 codes and vice versa:</p>
+<p>Additionally there are some functions to convert glottocodes to ISO
+639-3 codes and vice versa:</p>
 <ul>
 <li><strong>gltc.iso()</strong> — get glottocode by ISO 639-3 code</li>
 <li><strong>iso.gltc()</strong> — get ISO 639-3 code by glottocode</li>
 </ul>
-<p>The most important functionality of <code>lingtypology</code> is the ability to create interactive maps based on features and sets of languages (see the third section):</p>
+<p>The most important functionality of <code>lingtypology</code> is the
+ability to create interactive maps based on features and sets of
+languages (see the third section):</p>
 <ul>
 <li><strong>map.feature()</strong></li>
 </ul>
-<p><a href="https://glottolog.org/">Glottolog database (v. 4.1)</a> provides <code>lingtypology</code> with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn’t have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in <code>lingtypology</code>:</p>
+<p><a href="https://glottolog.org/">Glottolog database (v. 4.1)</a>
+provides <code>lingtypology</code> with language names, ISO codes,
+glottocodes, affiliation, macro area, coordinates, and much information.
+This set of functions doesn’t have a goal to cover all possible
+combinations of functions. Check out additional information that is
+preserved in the version of the Glottolog database used in
+<code>lingtypology</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(glottolog)</span></code></pre></div>
 <pre><code>##  [1] &quot;glottocode&quot;        &quot;language&quot;          &quot;iso&quot;              
 ##  [4] &quot;level&quot;             &quot;area&quot;              &quot;latitude&quot;         
 ##  [7] &quot;longitude&quot;         &quot;countries&quot;         &quot;affiliation&quot;      
 ## [10] &quot;subclassification&quot;</code></pre>
-<p>Using R functions for data manipulation you can create your own database for your purpose.</p>
+<p>Using R functions for data manipulation you can create your own
+database for your purpose.</p>
 </div>
 <div id="using-base-functions" class="section level3">
 <h3>2. Using base functions</h3>
-<p>All functions introduced in the previous section are regular functions, so they can take the following objects as input:</p>
+<p>All functions introduced in the previous section are regular
+functions, so they can take the following objects as input:</p>
 <ul>
 <li>a regular string</li>
 </ul>
@@ -197,7 +414,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## &quot;Adyghe&quot;</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lang.aff</span>(<span class="st">&quot;West Caucasian&quot;</span>)</span></code></pre></div>
 <pre><code>## character(0)</code></pre>
-<p>I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that <code>&#39;Ma&#39;ya&#39;</code> is an incorrect string in R.</p>
+<p>I would like to point out that you can create strings in R using
+single or double quotes. Since inserting single quotes in a string
+created with single quotes causes an error in R, I use double quotes in
+my tutorial. You can use single quotes, but be careful and remember that
+<code>&#39;Ma&#39;ya&#39;</code> is an incorrect string in R.</p>
 <ul>
 <li>a vector of strings</li>
 </ul>
@@ -211,41 +432,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                                                                     Russian 
 ## &quot;Indo-European, Classical Indo-European, Balto-Slavic, Slavic, East Slavic&quot;</code></pre>
 <ul>
-<li>other functions. For example, let’s try to get a vector of ISO codes for the Circassian languages</li>
+<li>other functions. For example, let’s try to get a vector of ISO codes
+for the Circassian languages</li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">iso.lang</span>(<span class="fu">lang.aff</span>(<span class="st">&quot;Circassian&quot;</span>))</span></code></pre></div>
 <pre><code>##    Adyghe Kabardian 
 ##     &quot;ady&quot;     &quot;kbd&quot;</code></pre>
-<p>If you are new to R, it is important to mention that you can create a table with languages, features and other parametres with any spreadsheet software you used to work. Then you can import the created file to R using standard tools.</p>
+<p>If you are new to R, it is important to mention that you can create a
+table with languages, features and other parametres with any spreadsheet
+software you used to work. Then you can import the created file to R
+using standard tools.</p>
 </div>
 <div id="spell-checker-look-carefully-at-warnings" class="section level3">
 <h3>3. Spell Checker: look carefully at warnings!</h3>
-<p>All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.</p>
+<p>All functions which take a vector of languages are enriched with a
+kind of a spell checker. If a language from a query is absent in the
+database, functions return a warning message containing a set of
+candidates with the minimal Levenshtein distance to the language from
+the query.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aff.lang</span>(<span class="st">&quot;Adyge&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Language Adyge is absent in our version of the Glottolog database. Did
-## you mean Adyghe, Aduge, Abkhaz-Adyge?</code></pre>
+## you mean Aduge, Adyghe, Abkhaz-Adyge?</code></pre>
 <pre><code>## Adyge 
 ##    NA</code></pre>
 </div>
 <div id="subc.lang-function" class="section level3">
 <h3>4. <code>subc.lang()</code> function</h3>
-<p>The <code>subc.lang()</code> function returns language subclassification in the Newick tree format.</p>
+<p>The <code>subc.lang()</code> function returns language
+subclassification in the Newick tree format.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subc.lang</span>(<span class="st">&quot;Lechitic&quot;</span>)</span></code></pre></div>
 <pre><code>##                                                                                       Lechitic 
 ## &quot;((Kashubian_Proper:1,Slovincian:1)kash1274:1,Polabian:1,(Old_Polish:1)poli1260:1)lech1241:1;&quot;</code></pre>
-<p>This format is hard to interpret by itself, but there are some tools in R that make it possible to visualise those subclassifications:</p>
+<p>This format is hard to interpret by itself, but there are some tools
+in R that make it possible to visualise those subclassifications:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">read.tree</span>(<span class="at">text =</span> <span class="fu">subc.lang</span>(<span class="st">&quot;Lechitic&quot;</span>)))</span></code></pre></div>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
-<p>It is possible to specify colors of tips in case you want to emphasize some nodes:</p>
+<p>It is possible to specify colors of tips in case you want to
+emphasize some nodes:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">read.tree</span>(<span class="at">text =</span> <span class="fu">subc.lang</span>(<span class="st">&quot;Lechitic&quot;</span>)),</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">tip.color =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>))</span></code></pre></div>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
 <p>As you can see nodes are counted from bottom to top.</p>
-<p>For more sophisticated tree visualization you can look into <a href="https://bioconductor.org/packages/release/bioc/html/ggtree.html"><code>ggtree</code> package</a>. There are several linguistic packages that provide some functionality for creating glottolog trees:</p>
+<p>For more sophisticated tree visualization you can look into <a href="https://bioconductor.org/packages/release/bioc/html/ggtree.html"><code>ggtree</code>
+package</a>. There are several linguistic packages that provide some
+functionality for creating glottolog trees:</p>
 <ul>
-<li><a href="https://github.com/erichround/glottoTrees"><code>glottoTrees</code></a> package by Erich Round</li>
-<li><a href="https://gitlab.com/laurabecker/lingtypr"><code>lingtypr</code></a> package by Laura Becker</li>
+<li><a href="https://github.com/erichround/glottoTrees"><code>glottoTrees</code></a>
+package by Erich Round</li>
+<li><a href="https://gitlab.com/laurabecker/lingtypr"><code>lingtypr</code></a>
+package by Laura Becker</li>
 </ul>
 </div>
 

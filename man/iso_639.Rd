@@ -7,15 +7,15 @@
 \format{
 A data frame with 188 rows and 5 variables:
 \describe{
-  \item{ISO_639-3}{The three-letter 639-3 identifier}
-  \item{ISO_639-2_B}{Equivalent 639-2 identifier of the bibliographic applications code set}
-  \item{ISO_639-2_T}{Equivalent 639-2 identifier of the terminology applications code set}
-  \item{ISO_639-1}{Equivalent 639-1 identifier}
+  \item{ISO_639_3}{The three-letter 639-3 identifier}
+  \item{ISO_639_2_B}{Equivalent 639-2 identifier of the bibliographic applications code set}
+  \item{ISO_639_2_T}{Equivalent 639-2 identifier of the terminology applications code set}
+  \item{ISO_639_1}{Equivalent 639-1 identifier}
   \item{Ref_Name}{Reference language name}
 }
 }
 \source{
-\url{www.iso639-3.sil.org}
+\url{https://iso639-3.sil.org/}
 }
 \usage{
 iso_639
@@ -30,6 +30,6 @@ a wide range of applications, including linguistics, lexicography and internatio
 of information systems. It attempts to represent all known full languages.
 }
 \details{
-(Available online at www.iso639-3.sil.org, Accessed on 2022-05-23.)
+(Available online at https://iso639-3.sil.org/, Accessed on 2022-05-23.)
 }
 \keyword{datasets}

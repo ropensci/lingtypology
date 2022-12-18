@@ -1,7 +1,7 @@
 Package: lingtypology
 Type: Package
 Title: Linguistic Typology and Mapping
-Version: 1.1.10
+Version: 1.1.11
 Depends: R (>= 3.5.0)
 Imports:
     leaflet,
@@ -24,14 +24,14 @@ Authors@R: c(person("George", "Moroz",
              person("Anna","Smirnova",
                     email = "annedadaa@gmail.com",
                     role = "ctb"),
-            person("Sasha","Shakhnova",
+            person("Ekaterina","Zalivina",
                     role = "ctb"))
 Description: Provides R with the Glottolog database <https://glottolog.org/> and some more abilities for purposes of linguistic mapping. The Glottolog database contains the catalogue of languages of the world. This package helps researchers to make a linguistic maps, using philosophy of the Cross-Linguistic Linked Data project <https://clld.org/>, which allows for while at the same time facilitating uniform access to the data across publications. A tutorial for this package is available on GitHub pages <https://docs.ropensci.org/lingtypology/> and package vignette. Maps created by this package can be used both for the investigation and linguistic teaching. In addition, package provides an ability to download data from typological databases such as WALS, AUTOTYP and some others and to create your own database website.
 License: GPL (>= 2)
 URL: https://CRAN.R-project.org/package=lingtypology, https://github.com/ropensci/lingtypology/, https://ropensci.github.io/lingtypology/
 BugReports: https://github.com/ropensci/lingtypology/issues
 LazyData: TRUE
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Encoding: UTF-8
 Suggests:
     knitr,
@@ -40,6 +40,6 @@ Suggests:
     covr,
     MASS,
     sp,
-    rgeos,
+    sf,
     ape
 VignetteBuilder: knitr
