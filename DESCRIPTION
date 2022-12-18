@@ -40,6 +40,6 @@ Suggests:
     covr,
     MASS,
     sp,
-    rgeos,
+    sf,
     ape
 VignetteBuilder: knitr
