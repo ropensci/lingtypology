@@ -2,7 +2,7 @@
 % Please edit documentation in R/polygon.points_fd.R
 \name{polygon.points_fd}
 \alias{polygon.points_fd}
-\title{Get poligons from fixed distance circles around coordinates}
+\title{Get polygons from fixed distance circles around coordinates}
 \usage{
 polygon.points_fd(latitude, longitude, width)
 }

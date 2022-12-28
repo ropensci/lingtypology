@@ -32,7 +32,7 @@ country.lang <- function(x, full_name = TRUE) {
     vapply(result, function(y) {
       ifelse(
         !is.na(y),
-        paste0(unique(countries[countries$alpha2 %in% unlist(strsplit(y, ";")),"country_name"]),
+        paste0(unique(countries[countries$alpha2 %in% unlist(strsplit(y, ";")),]$country_name),
                collapse = ";"),
         NA_character_
       )

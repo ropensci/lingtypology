@@ -1,3 +1,8 @@
+lingtypology 1.1.11
+- update glottolog to v. 4.7
+- remove `rgeos` depndency see [details](https://r-spatial.org//r/2022/04/12/evolution.html)
+- correct `contry.lang()`
+
 lingtypology 1.1.10
 - remove `ggplot2` dependencies
 - add startup message with the Glottolog version
