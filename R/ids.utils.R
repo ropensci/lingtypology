@@ -1,8 +1,9 @@
 #' Util fuctions for ids function
 #'
+#' @noRd
 #' @author Mikhail Leonov
 #' @importFrom  utils read.csv
-#' @NoRd
+#'
 
 add_param <-
   function(x,
