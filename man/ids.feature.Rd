@@ -4,16 +4,12 @@
 \alias{ids.feature}
 \title{Download data from The Intercontinental Dictionary Series}
 \usage{
-ids.feature(features = c(), languages = c(), choose_var = TRUE, na.rm = TRUE)
+ids.feature(features = c(), na.rm = TRUE)
 }
 \arguments{
-\item{features}{A vector with parameters from Conepts (\url{https://vanuatuvoices.clld.org/parameters}))}
+\item{features}{A vector with parameters from conepts (\url{https://ids.clld.org/parameters}))}
 
-\item{languages}{A vector with language names from the database.If features not selected, downloads full dictionaries for chosen languages.}
-
-\item{choose_var}{Logical. If TRUE looks for all of the variants of each language. By default is TRUE.}
-
-\item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
+\item{na.rm}{Logical. If TRUE function removes all languages not available in the glottolog database available in lingtypology. By default is TRUE.}
 }
 \description{
 This function downloads data from The Intercontinental Dictionary Series (\url{https://ids.clld.org/}). You need the internet connection.
