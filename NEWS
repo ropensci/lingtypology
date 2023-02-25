@@ -1,3 +1,6 @@
+lingtypology 1.1.12
+- fast fix of the `wals.feature()` function
+
 lingtypology 1.1.11
 - update glottolog to v. 4.7
 - remove `rgeos` depndency see [details](https://r-spatial.org//r/2022/04/12/evolution.html)
