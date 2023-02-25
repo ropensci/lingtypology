@@ -232,7 +232,7 @@ Dryer, Matthew S. & Haspelmath, Martin (eds.) 2013. The World Atlas of Language 
       datalist  <-  lapply(links, function(x) {
         utils::read.csv(x,
                         sep = "\t",
-                        skip = 7,
+                        skip = 6,
                         stringsAsFactors = FALSE)
       })
       final_df <- Reduce(function(x, y) {
