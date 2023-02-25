@@ -26,8 +26,8 @@ install.packages("lingtypology")
 ```
 … or get the development version from GitHub:
 ```R
-install.packages("devtools")
-devtools::install_github("ropensci/lingtypology")
+install.packages("remotes")
+remotes::install_github("ropensci/lingtypology")
 ```
 
 Sometimes installation failed because of the absence of the package `crosstalk`. Just install it using command `install.packages("crosstalk")`. 

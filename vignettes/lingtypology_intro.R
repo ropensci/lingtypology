@@ -2,8 +2,8 @@
 #  install.packages("lingtypology", dependencies = TRUE)
 
 ## ---- eval= FALSE-------------------------------------------------------------
-#  install.packages("devtools")
-#  devtools::install_github("ropensci/lingtypology")
+#  install.packages("remotes")
+#  remotes::install_github("ropensci/lingtypology")
 
 ## -----------------------------------------------------------------------------
 library(lingtypology)
