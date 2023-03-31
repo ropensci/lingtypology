@@ -14,7 +14,7 @@
 
 <title>lingtypology: introduction and installation</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
@@ -45,6 +45,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -127,13 +128,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -168,6 +176,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -225,11 +236,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -258,8 +273,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -267,16 +282,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -393,7 +401,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -429,33 +437,60 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><code>lingtypology</code>: introduction and installation</h1>
-<h4 class="author"><a href="mailto:agricolamz@gmail.com">George Moroz</a>, <a href="https://ilcl.hse.ru/en/">NRU HSE Linguistic Convergence Laboratory</a></h4>
+<h1 class="title toc-ignore"><code>lingtypology</code>: introduction and
+installation</h1>
+<h4 class="author"><a href="mailto:agricolamz@gmail.com">George
+Moroz</a>, <a href="https://ilcl.hse.ru/en/">NRU HSE Linguistic
+Convergence Laboratory</a></h4>
 
 </div>
 
 
 <div id="what-is-lingtypology" class="section level3">
 <h3>What is <code>lingtypology</code>?</h3>
-<p>The <code>lingtypology</code> package connects R with the <a href="http://glottolog.org/">Glottolog database (v. 4.4)</a> and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world’s languages. This package helps researchers to make linguistic maps, using the philosophy of <a href="http://clld.org/">the Cross-Linguistic Linked Data project</a>, which is creating a uniform access to linguistic data across publications. This package is based on the <a href="https://rstudio.github.io/leaflet/">leaflet package</a>, so <code>lingtypology</code> is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4). The functionality of this package intersects with the package <a href="https://gitlab.com/laurabecker/lingtypr"><code>lingtypr</code></a> by Laura Becker. I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya Klyagina for reading and correcting some versions of this vignette.</p>
+<p>The <code>lingtypology</code> package connects R with the <a
+href="http://glottolog.org/">Glottolog database (v. 4.7)</a> and
+provides an additional functionality for linguistic typology. The
+Glottolog database contains a catalogue of the world’s languages. This
+package helps researchers to make linguistic maps, using the philosophy
+of <a href="http://clld.org/">the Cross-Linguistic Linked Data
+project</a>, which is creating a uniform access to linguistic data
+across publications. This package is based on the <a
+href="https://rstudio.github.io/leaflet/">leaflet package</a>, so
+<code>lingtypology</code> is a package for interactive linguistic
+mapping. In addition, the package provides an ability to download data
+from typological databases such as WALS, AUTOTYP and others (see section
+4). The functionality of this package intersects with the package <a
+href="https://gitlab.com/laurabecker/lingtypr"><code>lingtypr</code></a>
+by Laura Becker. I would like to thank Natalya Tyshkevich, Samira
+Verhees and Eugenya Klyagina for reading and correcting some versions of
+this vignette.</p>
 </div>
 <div id="installation" class="section level3">
 <h3>1. Installation</h3>
-<p>Since <code>lingtypology</code> is an R package, you should install <a href="https://www.r-project.org/">R (version &gt;= 3.1.0)</a> on your PC if you haven’t already done so. To install the <code>lingtypology</code> package, run the following command at your R IDE, so you get the stable version from CRAN:</p>
+<p>Since <code>lingtypology</code> is an R package, you should install
+<a href="https://www.r-project.org/">R (version &gt;= 3.1.0)</a> on your
+PC if you haven’t already done so. To install the
+<code>lingtypology</code> package, run the following command at your R
+IDE, so you get the stable version from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;lingtypology&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>You can also get the development version from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</span></code></pre></div>
 <p>Load the package:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lingtypology)</span></code></pre></div>
+<pre><code>## Based on the Glottolog v. 4.7</code></pre>
 </div>
 <div id="citing-lingtyplogy" class="section level3">
 <h3>2. Citing <code>lingtyplogy</code></h3>
-<p>It is important to cite R and R packages when you use them. For this purpose use the <code>citation</code> function:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;lingtypology&quot;</span>)</span></code></pre></div>
+<p>It is important to cite R and R packages when you use them. For this
+purpose use the <code>citation</code> function:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;lingtypology&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## Moroz G (2017). _lingtypology: easy mapping for Linguistic Typology_.
-## &lt;URL: https://CRAN.R-project.org/package=lingtypology&gt;.
+## To cite package &#39;lingtypology&#39; in publications use:
+## 
+##   Moroz G (2017). _lingtypology: easy mapping for Linguistic Typology_.
+##   &lt;https://CRAN.R-project.org/package=lingtypology&gt;.
 ## 
 ## A BibTeX entry for LaTeX users is
 ## 

@@ -81,7 +81,7 @@ map.feature(df$language,
 
 ### 6. ABVD
 The ABVD database is a lexical database, so it is different from clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring by word with the meaning 'hand'.
-```{r}
+```{r, eval = FALSE}
 df <- abvd.feature(c(292, 7))
 head(df)
 new_df <- df[df$word == "hand",]
@@ -94,7 +94,7 @@ map.feature(new_df$language,
 
 `uralex.feature` downloads data from UraLex basic vocabulary dataset. Original language names are stored in the `language` variable. Converted language names for `map.feature` are stored in the `language2` variable.
 
-```{r}
+```{r, warning=FALSE}
 df <- uralex.feature()
 df <- df[df$uralex_mng == "crush",]
 
