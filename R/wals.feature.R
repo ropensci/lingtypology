@@ -211,7 +211,7 @@ wals.feature <-
         "144X",
         "144Y"
       )
-    message(paste0("Don't forget to cite a source (modify in case of using individual chapters):
+    message(paste0("Don't forget to cite the source (modify in case of using individual chapters):
 
 Dryer, Matthew S. & Haspelmath, Martin (eds.) 2013. The World Atlas of Language Structures Online. Leipzig: Max Planck Institute for Evolutionary Anthropology.
 (Available online at https://wals.info/, Accessed on ",

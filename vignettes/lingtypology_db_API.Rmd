@@ -16,6 +16,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 `lingtypology` provides an ability to download data from these typological databases
 
 * [World Atlas of Language Structures](https://wals.info/)
+* [Grambank](https://grambank.clld.org)
 * [AUTOTYP](https://github.com/autotyp/autotyp-data#the-autotyp-database)
 * [PHOIBLE](https://phoible.org/)
 * [Affix Borrowing database](https://afbo.info)
@@ -25,7 +26,9 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 All database function names have identical structure: **database_name.feature**. All functions have as first argument `feature`. All functions create dataframe with column `language` that can be used in `map.feature()` function. It should be noted that all functions cut out the data that can't be maped, so if you want to prevent functions from this behavior set argument `na.rm` to `FALSE`.
 
 ### 1. WALS
+
 The names of the WALS features can be typed in a lower case. This function preserves coordinates from WALS, so you can map coordinates from the WALS or use coordinates from `lingtypology`.
+
 ```{r}
 df <- wals.feature(c("1a", "20a"))
 head(df)
@@ -37,7 +40,24 @@ map.feature(df$language,
             title = "Consonant Inventories")
 ```
 
-### 2. AUTOTYP
+### 2. Grambank
+
+The names of the Grambank features can be typed in a lower case. This function preserves coordinates from Grambank, so you can map coordinates from the WALS or use coordinates from `lingtypology`.
+
+```{r}
+df <- grambank.feature(c("gb026", "gb042"))
+head(df)
+map.feature(df$grambank.name,
+            features = df$`GB042`,
+            latitude = df$latitude,
+            longitude = df$longitude,
+            label = df$grambank.name,
+            title = "Is there productive overt morphological singular marking on nouns?")
+```
+
+
+### 3. AUTOTYP
+
 The AUTOTYP features are listed on [the GitHub page](https://github.com/autotyp/autotyp-data/blob/master/datasets.md). You can use more human way with spaces. You can also use a module names in order to download all variables in a module (e. g. `Gender`):
 
 ```{r}
@@ -49,14 +69,16 @@ map.feature(df$language,
             title = "Presence of Numeral Classifiers")
 ```
 
-### 3. PHOIBLE
+### 4. PHOIBLE
+
 I used only four features from PHOIBLE: the number of phonemes, the number of consonants, the number of tones and the number of vowels. If you need only a set of them, just specify it in the `features` argument. Since there is a lot of doubling information in the PHOIBLE database, there is an argument `source`.
+
 ```{r}
 df <- phoible.feature(source = "UPSID")
 head(df)
 ```
 
-### 4. AfBo
+### 5. AfBo
 The AfBo database has a lot of features that distinguish affix functions, but again you can use a bare function without any arguments to download the whole database. There will be no difference in time, since this function downloads the whole database to your PC. The main destinction is that this database provides recipient and donor languages, so other column names should be used.
 
 ```{r}
@@ -68,7 +90,7 @@ map.feature(df$Recipient.name,
             title = "Borrowed adjectivizer affixes")
 ```
 
-### 5. SAILS
+### 6. SAILS
 The SAILS database provide a lot of [features](https://sails.clld.org/parameters), so the function work with their ids:
 ```{r}
 df <- sails.feature(features = "ics10")
@@ -81,9 +103,11 @@ map.feature(df$language,
             title = "Are there numeral classifiers?")
 ```
 
-### 6. ABVD
+### 7. ABVD
+
 The ABVD database is a lexical database, so it is different from clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring by word with the meaning 'hand'.
-```{r}
+
+```{r, eval = FALSE}
 df <- abvd.feature(c(292, 7))
 head(df)
 new_df <- df[df$word == "hand",]
@@ -92,7 +116,7 @@ map.feature(new_df$language,
             label = new_df$language)
 ```
 
-### 7. UraLex
+### 8. UraLex
 
 `uralex.feature` downloads data from UraLex basic vocabulary dataset. Original language names are stored in the `language` variable. Converted language names for `map.feature` are stored in the `language2` variable.
 

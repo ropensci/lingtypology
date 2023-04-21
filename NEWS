@@ -1,5 +1,6 @@
 lingtypology 1.1.13
 - change `map.feature()` default palette using
+- add `grambank.feature()`
 
 lingtypology 1.1.12
 - fast fix of the `wals.feature()` function
