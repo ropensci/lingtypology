@@ -13,6 +13,16 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #              title = "Consonant Inventories")
 
 ## -----------------------------------------------------------------------------
+#  df <- grambank.feature(c("gb026", "gb042"))
+#  head(df)
+#  map.feature(df$grambank.name,
+#              features = df$`GB042`,
+#              latitude = df$latitude,
+#              longitude = df$longitude,
+#              label = df$grambank.name,
+#              title = "Is there productive overt morphological singular marking on nouns?")
+
+## -----------------------------------------------------------------------------
 #  df <- autotyp.feature(c('Has Gender', 'Has Numeral Classifiers'))
 #  head(df)
 #  map.feature(df$language,
@@ -42,7 +52,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #              label = df$language,
 #              title = "Are there numeral classifiers?")
 
-## -----------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 #  df <- abvd.feature(c(292, 7))
 #  head(df)
 #  new_df <- df[df$word == "hand",]

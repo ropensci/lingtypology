@@ -15,7 +15,7 @@
 
 grambank.feature <-
  function(features,
-          na.rm = FALSE) {
+          na.rm = TRUE) {
   features_set <-
    c(
     "GB020",
