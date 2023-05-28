@@ -773,7 +773,7 @@ map.feature <- function(languages,
         stroke = FALSE,
         radius = 1.15 * width,
         fillOpacity = opacity,
-        color = rev.stroke.pal(mapfeat.stroke$stroke.features),
+        color = stroke.pal(mapfeat.stroke$stroke.features),
         group = mapfeat.stroke$control)
   }
 

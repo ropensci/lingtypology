@@ -14,14 +14,14 @@ system("cd ~/Desktop/; git clone https://github.com/autotyp/autotyp-data")
 files <- list.files("~/Desktop/autotyp-data/data/csv", recursive = TRUE)
 
 
-file_variables %>%
-  distinct(file) %>%
-  pull(file) %>%
+file_variables |>
+  distinct(file) |>
+  pull(file) |>
   map_dfr(function(i){
     data.frame(file = i,
                path = str_subset(files, str_c(i, ".csv")))
-  }) %>%
-  full_join(file_variables) %>%
+  }) |>
+  full_join(file_variables) |>
   filter(!(variable %in% c("LID", "Glottocode", "Language", "NPStructureExample", "Examples"))) ->
   autotyp
 

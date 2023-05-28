@@ -33,7 +33,7 @@ Bickel, Balthasar, Nichols, Johanna, Zakharko, Taras, Witzlack-Makarevich, Alena
     Lowe, John B
   },
   doi = {10.5281/zenodo.6793367},
-  title = {The AUTOTYP database (v1.1.0)},
+  title = {The AUTOTYP database (v1.1.1)},
   url = {https://doi.org/10.5281/zenodo.6793367},
   year = {2022}
 }")

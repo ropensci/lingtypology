@@ -241,25 +241,32 @@ eprint = {https://www.science.org/doi/pdf/10.1126/sciadv.adg6175}}
   if (sum(!toupper(features) %in% features_set) < 1){
    l <- utils::read.csv("https://raw.githubusercontent.com/grambank/grambank/master/cldf/languages.csv")
    v <- utils::read.csv("https://raw.githubusercontent.com/grambank/grambank/master/cldf/values.csv")
+   c <- utils::read.csv("https://raw.githubusercontent.com/grambank/grambank/master/cldf/codes.csv")[,-1]
+   p <- utils::read.csv("https://raw.githubusercontent.com/grambank/grambank/master/cldf/parameters.csv")[,1:2]
+
    merged_df <- merge(l, v, by.x = "ID", by.y = "Language_ID")
+   merged_df <- merge(merged_df, c, by.x = c("Parameter_ID", "Value"), by.y = c("Parameter_ID", "Name"))
+   merged_df <- merge(merged_df, p, by.x = c("Parameter_ID"), by.y = c("ID"))
    merged_df <- merged_df[merged_df$Parameter_ID %in% toupper(features),
-               c("Name", "Glottocode", "Latitude", "Longitude",
-                "level", "Parameter_ID", "Value")]
+               c("Name.x", "Glottocode", "Latitude", "Longitude",
+                "level", "Parameter_ID", "Name.y", "Value", "Description")]
 
    if(na.rm == TRUE){
     merged_df$language <- lingtypology::lang.gltc(merged_df$Glottocode)
     merged_df <- merged_df[!is.na(merged_df$language),]
     colnames(merged_df) <- c("grambank.name", "glottocode", "latitude",
-                 "longitude", "level", "feature_id", "value",
+                 "longitude", "level", "feature_id", "feature_name", "value", "description",
                  "language")
    } else {
     colnames(merged_df) <- c("grambank.name", "glottocode", "latitude",
-                 "longitude", "level", "feature_id", "value")
+                 "longitude", "level", "feature_id", "feature_name", "value", "description")
    }
 
    datasets <- lapply(toupper(features), function(i){
     df <- merged_df[merged_df$feature_id == i, -6]
-    colnames(df)[6] <- i
+    colnames(df)[7] <- i
+    colnames(df)[8] <- paste0("description_", i)
+    colnames(df)[6] <- paste0("feature_name_", i)
     return(df)
    })
    final_df <- Reduce(merge, datasets)
