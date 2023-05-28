@@ -703,8 +703,6 @@ map.feature <- function(languages,
     }
   }
 
-
-
   # if there is density estimation ------------------------------------------
   if (!is.null(density.estimation)) {
     lapply(seq_along(my_poly), function(x) {
