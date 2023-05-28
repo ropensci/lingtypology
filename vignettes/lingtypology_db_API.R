@@ -19,7 +19,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #              features = df$`GB042`,
 #              latitude = df$latitude,
 #              longitude = df$longitude,
-#              label = df$grambank.name,
+#              label = df$language,
 #              title = "Is there productive overt morphological singular marking on nouns?")
 
 ## -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #  df <- uralex.feature()
 #  df <- df[df$uralex_mng == "crush",]
 #  
-#  map.feature(df$language2,
+#  map.feature(df$language,
 #              label = df$item,
 #              title = "crush")
 

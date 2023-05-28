@@ -11,28 +11,40 @@ vignette: >
 
 ### What is `lingtypology`?
 
-The `lingtypology` package connects R with the [Glottolog database (v. 4.4)](https://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](https://clld.org/), which is creating a uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4). The functionality of this package intersects with the package [`lingtypr`](https://gitlab.com/laurabecker/lingtypr) by Laura Becker. I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya  Klyagina for reading and correcting some versions of this vignette.
+The `lingtypology` package connects R with the [Glottolog database (v. 4.7)](https://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](https://clld.org/), which is creating a uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4). The functionality of this package intersects with 
+
+- [lingtypology](https://pypi.org/project/lingtypology/) in Python by Michael Voronov;
+- [glottospace](https://github.com/SietzeN/glottospace) -- R package for the geospatial analysis based on Glottolog by Sietze Norder et al;
+- [`lingtypr`](https://gitlab.com/laurabecker/lingtypr) -- R package which partially intersects with `lingtypology` functionality by Laura Becker;
+- [`glottoTrees`](https://github.com/erichround/glottoTrees) -- R package for visualising and modifing glottolog trees by Erich Round
+
+I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya  Klyagina for reading and correcting some versions of this vignette.
 
 ### 1. Installation
 
-Since `lingtypology` is an R package, you should install [R (version >= 3.5.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
+Since `lingtypology` is an R package, you should install [R (version >= 3.1.0)](https://www.r-project.org/) on your PC if you haven't already done so. To install the `lingtypology` package, run the following command at your R IDE, so you get the stable version from CRAN:
+
 ```{r, eval=FALSE}
 install.packages("lingtypology", dependencies = TRUE)
 ```
 
 You can also get the development version from GitHub:
+
 ```{r, eval= FALSE}
 install.packages("remotes")
 remotes::install_github("ropensci/lingtypology")
 ```
 
 Load the package:
+
 ```{r}
 library(lingtypology)
 ```
 
 ### 2. Citing `lingtyplogy`
+
 It is important to cite R and R packages when you use them. For this purpose use the `citation` function:
+
 ```{r}
 citation("lingtypology")
 ```

@@ -23,8 +23,9 @@ Kaj Syrj\u00E4nen, Jyri Lehtinen, Outi Vesakoski, Mervi de Heer, Toni Suutari, M
         sep = "\t",
         stringsAsFactors = FALSE
       )
-    final_df <- merge(final_df, lingtypology::uralex)
+    final_df <- merge(final_df, lingtypology::uralex, by.x = "language", by.y = "uralex.name")
+    colnames(final_df)[c(1, 19)] <- c("uralex.name", "language")
     if(isTRUE(na.rm)){
-      final_df <- final_df[!is.na(final_df$language2),]}
+      final_df <- final_df[!is.na(final_df$language),]}
     return(final_df)
 }

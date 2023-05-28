@@ -39,6 +39,29 @@ knitr::opts_chunk$set(eval = FALSE)
 #              map.orientation = "Atlantic")
 
 ## -----------------------------------------------------------------------------
+#  m <- map.feature(languages = df$language,
+#                   features = df$features)
+
+## -----------------------------------------------------------------------------
+#  library(htmltools)
+#  browsable(
+#    tagList(
+#      list(
+#        tags$head(
+#          tags$style(
+#            ".leaflet .legend {
+#                   line-height: 20px;
+#                   font-size: 20px;
+#                   }",
+#            ".leaflet .legend i{
+#                  width: 20px;
+#                  height: 20px;
+#                   }"
+#          )
+#        ),
+#        m)))
+
+## -----------------------------------------------------------------------------
 #  df$popup <- aff.lang(df$language)
 
 ## -----------------------------------------------------------------------------
@@ -362,8 +385,4 @@ knitr::opts_chunk$set(eval = FALSE)
 ## -----------------------------------------------------------------------------
 #  map.feature(c("Russian", "Adyghe"),
 #              graticule = 5)
-
-## -----------------------------------------------------------------------------
-#  ggmap.feature(phonological_profiles$language, phonological_profiles$ejectives)
-#  ggmap.feature(phonological_profiles$language, phonological_profiles$consonants)
 

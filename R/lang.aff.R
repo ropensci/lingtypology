@@ -18,7 +18,7 @@ lang.aff <- function(x, include.dialects = FALSE, list = FALSE) {
     }
     ifelse(isTRUE(include.dialects),
            glottolog <- lingtypology::glottolog,
-           glottolog <- lingtypology::glottolog[lingtypology::glottolog$level == "language",]
+           glottolog <- lingtypology::glottolog[lingtypology::glottolog$level %in% c("language", "sign language"),]
     )
     result <- lapply(x, function(y) {
       glottolog[grep(tolower(y), tolower(glottolog$affiliation)),]$language

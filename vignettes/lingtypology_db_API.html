@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2023-04-21" />
+<meta name="date" content="2023-05-28" />
 
 <title>lingtypology: Download typological databases’ data</title>
 
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore"><code>lingtypology</code>: Download
 typological databases’ data</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2023-04-21</h4>
+<h4 class="date">2023-05-28</h4>
 
 
 
@@ -392,7 +392,7 @@ from the WALS or use coordinates from <code>lingtypology</code>.</p>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">GB042</span><span class="st">`</span>,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">latitude =</span> df<span class="sc">$</span>latitude,</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">longitude =</span> df<span class="sc">$</span>longitude,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>grambank.name,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>language,</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Is there productive overt morphological singular marking on nouns?&quot;</span>)</span></code></pre></div>
 </div>
 <div id="autotyp" class="section level3">
@@ -465,13 +465,13 @@ languages and map them coloring by word with the meaning ‘hand’.</p>
 <h3>8. UraLex</h3>
 <p><code>uralex.feature</code> downloads data from UraLex basic
 vocabulary dataset. Original language names are stored in the
-<code>language</code> variable. Converted language names for
-<code>map.feature</code> are stored in the <code>language2</code>
+<code>uralex.name</code> variable. Converted language names for
+<code>map.feature</code> are stored in the <code>language</code>
 variable.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">uralex.feature</span>()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>uralex_mng <span class="sc">==</span> <span class="st">&quot;crush&quot;</span>,]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language2,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language,</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>item,</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;crush&quot;</span>)</span></code></pre></div>
 </div>

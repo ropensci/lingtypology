@@ -410,7 +410,7 @@ phoible %>%
   phoible
 
 # save files --------------------------------------------------------------
-setwd("/home/agricolamz/work/packages/lingtypology/lingtypology/data/")
+setwd("/home/agricolamz/work/packages/lingtypology/data/")
 save(glottolog.modified, file="glottolog.modified.RData", compress= 'xz')
 save(glottolog.original, file="glottolog.original.RData", compress='xz')
 circassian <- as.data.frame(circassian)

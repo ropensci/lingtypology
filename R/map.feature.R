@@ -117,8 +117,6 @@
 #' @importFrom stats coef
 #' @importFrom grDevices gray
 #' @importFrom grDevices topo.colors
-#' @importFrom leaflet %>%
-#' @export %>%
 #' @importFrom leaflet.minicharts addMinicharts
 #' @importFrom leaflet.minicharts popupArgs
 
@@ -612,8 +610,8 @@ map.feature <- function(languages,
       option = leaflet::leafletOptions(zoomControl = zoom.control))
   }
   if (!("none" %in% tile)) {
-    m <- m %>%
-      leaflet::addTiles(tile[1]) %>%
+    m <- m |>
+      leaflet::addTiles(tile[1]) |>
       leaflet::addProviderTiles(tile[1],
                                 group = tile.name[1],
                                 options =
@@ -621,7 +619,7 @@ map.feature <- function(languages,
                                     opacity = tile.opacity))
     if (length(tile) > 1) {
       mapply(function(other.tiles, other.tile.names) {
-        m <<- m %>% leaflet::addProviderTiles(other.tiles,
+        m <<- m |> leaflet::addProviderTiles(other.tiles,
                                               group = other.tile.names,
                                               options =
                                                 leaflet::providerTileOptions(
@@ -632,7 +630,7 @@ map.feature <- function(languages,
 
   # map: add rectangle ------------------------------------------------------
   if (!is.null(rectangle.lng) & !is.null(rectangle.lat)) {
-    m <- m %>% leaflet::addRectangles(
+    m <- m |> leaflet::addRectangles(
       lng1 = rectangle.lng[1],
       lat1 = rectangle.lat[1],
       lng2 = rectangle.lng[2],
@@ -647,7 +645,7 @@ map.feature <- function(languages,
   # map: add line ----------------------------------------------------------------
   if (line.type == "standard") {
     if (!is.null(line.lng) & !is.null(line.lat)) {
-      m <- m %>% leaflet::addPolylines(
+      m <- m |> leaflet::addPolylines(
         lat = line.lat,
         lng = line.lng,
         color = line.color,
@@ -677,7 +675,7 @@ map.feature <- function(languages,
       line.lat <- range(mapfeat.df$lat) +
         c(-stats::sd(mapfeat.df$lat), stats::sd(mapfeat.df$lat))
       line.lng <-  (line.lat - intercept) / slope
-      m <- m %>% leaflet::addPolylines(
+      m <- m |> leaflet::addPolylines(
         lat = line.lat,
         lng = line.lng,
         color = line.color,
@@ -706,7 +704,7 @@ map.feature <- function(languages,
   # if there is density estimation ------------------------------------------
   if (!is.null(density.estimation)) {
     lapply(seq_along(my_poly), function(x) {
-      m <<- m %>% leaflet::addPolygons(
+      m <<- m |> leaflet::addPolygons(
         data = my_poly[[x]],
         color = density.estimation.pal(my_poly_names[x]),
         opacity = 0.2,
@@ -719,7 +717,7 @@ map.feature <- function(languages,
   # map: add isogloss ------------------------------------------
   if (!is.null(isogloss)) {
     lapply(seq_along(my_isogloss), function(x) {
-      m <<- m %>% leaflet::addPolylines(
+      m <<- m |> leaflet::addPolylines(
         data = my_isogloss[[x]],
         color = isogloss.color,
         opacity = isogloss.opacity,
@@ -731,12 +729,12 @@ map.feature <- function(languages,
   }
   # map: add graticule ------------------------------------------------------
   if (!is.null(graticule)) {
-    m <- m %>% leaflet::addSimpleGraticule(interval = graticule)
+    m <- m |> leaflet::addSimpleGraticule(interval = graticule)
   }
 
   # map: if there are stroke features ---------------------------------------
   if (!is.null(stroke.features)) {
-    m <- m %>% leaflet::addCircleMarkers(
+    m <- m |> leaflet::addCircleMarkers(
       lng = mapfeat.stroke$long,
       lat = mapfeat.stroke$lat,
       popup = mapfeat.stroke$link,
@@ -745,7 +743,7 @@ map.feature <- function(languages,
       radius = stroke.radius * 1.15,
       fillOpacity = stroke.opacity,
       color = "black",
-      group = mapfeat.stroke$control) %>%
+      group = mapfeat.stroke$control) |>
       leaflet::addCircleMarkers(
         lng = mapfeat.stroke$long,
         lat = mapfeat.stroke$lat,
@@ -755,7 +753,7 @@ map.feature <- function(languages,
         radius = stroke.radius,
         fillOpacity = stroke.opacity,
         color = stroke.pal(mapfeat.stroke$stroke.features),
-        group = mapfeat.stroke$control) %>%
+        group = mapfeat.stroke$control) |>
       leaflet::addCircleMarkers(
         lng = mapfeat.stroke$long,
         lat = mapfeat.stroke$lat,
@@ -779,7 +777,7 @@ map.feature <- function(languages,
   if (density.points != FALSE &
       is.null(minichart.data) &
       is.null(shape)) {
-    m <- m %>% leaflet::addCircleMarkers(
+    m <- m |> leaflet::addCircleMarkers(
         lng = mapfeat.df$long,
         lat = mapfeat.df$lat,
         popup = mapfeat.df$link,
@@ -827,7 +825,7 @@ map.feature <- function(languages,
 
     mapfeat.df$link <- paste0(mapfeat.df$link, tables)
 
-    m <- m %>% leaflet::addCircleMarkers(
+    m <- m |> leaflet::addCircleMarkers(
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
       clusterOptions = point.cluster,
@@ -845,7 +843,7 @@ map.feature <- function(languages,
         textOnly = TRUE,
         style = list("font-size" = paste0(label.fsize, "px"),
                      "font-family" = label.font)
-      )) %>% leaflet.minicharts::addMinicharts(
+      )) |> leaflet.minicharts::addMinicharts(
         lng = mapfeat.df$long,
         lat = mapfeat.df$lat,
         chartdata = minichart.data,
@@ -877,7 +875,7 @@ map.feature <- function(languages,
       icons <- as.character(shape[as.factor(mapfeat.df$features)])
     }
 
-    m <- m %>% leaflet::addCircleMarkers(
+    m <- m |> leaflet::addCircleMarkers(
       lng = mapfeat.df$long,
       lat = mapfeat.df$lat,
       label = icons,
@@ -893,7 +891,7 @@ map.feature <- function(languages,
         style = list("color" = shape.color,
                      "font-family" = label.font)
       )
-    ) %>%
+    ) |>
       leaflet::addCircleMarkers(
         lng = mapfeat.df$long,
         lat = mapfeat.df$lat,
@@ -915,7 +913,7 @@ map.feature <- function(languages,
         )
       )
     if (legend == TRUE) {
-      m <- m %>%
+      m <- m |>
         leaflet::addControl(html = paste(
           collapse = "",
           ifelse(!is.null(title),
@@ -931,7 +929,7 @@ map.feature <- function(languages,
             collapse = ""
           )
         ),
-        position = legend.position)%>%
+        position = legend.position)|>
         leaflet::addCircleMarkers(
           lng = mapfeat.df$long,
           lat = mapfeat.df$lat,
@@ -958,7 +956,7 @@ map.feature <- function(languages,
   # add label emphasize -----------------------------------------------------
 
   if ("emph" %in% colnames(mapfeat.df)) {
-    m <- m %>% leaflet::addCircleMarkers(
+    m <- m |> leaflet::addCircleMarkers(
       lng = mapfeat.df[mapfeat.df$emph == "emph", ]$long,
       lat = mapfeat.df[mapfeat.df$emph == "emph", ]$lat,
       clusterOptions = point.cluster,
@@ -981,7 +979,7 @@ map.feature <- function(languages,
 
   # map: images -------------------------------------------------------------
   if (!is.null(image.url)) {
-    m <- m %>% leaflet::addMarkers(
+    m <- m |> leaflet::addMarkers(
       lng = mapfeat.image$long,
       lat = mapfeat.image$lat,
       popup = mapfeat.image$link,
@@ -1000,31 +998,31 @@ map.feature <- function(languages,
   # map: tile and control interaction --------------------------------------
   if (length(tile) > 1) {
     if (length(unique(mapfeat.df$control)) > 0 & !("" %in% unique(mapfeat.df$control))) {
-      m <- m %>% leaflet::addLayersControl(
+      m <- m |> leaflet::addLayersControl(
         baseGroups = tile.name,
         overlayGroups = mapfeat.df$control,
         options = leaflet::layersControlOptions(collapsed = FALSE)
       )
     } else if (density.control == TRUE) {
-      m <- m %>% leaflet::addLayersControl(
+      m <- m |> leaflet::addLayersControl(
         baseGroups = tile.name,
         overlayGroups = my_poly_names,
         options = leaflet::layersControlOptions(collapsed = FALSE)
       )
     } else {
-      m <- m %>% leaflet::addLayersControl(
+      m <- m |> leaflet::addLayersControl(
         baseGroups = tile.name,
         options = leaflet::layersControlOptions(collapsed = FALSE)
       )
     }
   } else {
     if (length(unique(mapfeat.df$control))>0 & !("" %in% unique(mapfeat.df$control))) {
-      m <- m %>% leaflet::addLayersControl(
+      m <- m |> leaflet::addLayersControl(
         overlayGroups = mapfeat.df$control,
         options = leaflet::layersControlOptions(collapsed = FALSE)
       )
     } else if (density.control == TRUE) {
-      m <- m %>% leaflet::addLayersControl(
+      m <- m |> leaflet::addLayersControl(
         overlayGroups = my_poly_names,
         options = leaflet::layersControlOptions(collapsed = FALSE)
       )
@@ -1033,7 +1031,7 @@ map.feature <- function(languages,
 
   # map: ScaleBar -----------------------------------------------------------
   if (scale.bar == TRUE) {
-    m <- m %>% leaflet::addScaleBar(position = scale.bar.position)
+    m <- m |> leaflet::addScaleBar(position = scale.bar.position)
   }
 
   # map: legend -------------------------------------------------------------
@@ -1041,7 +1039,7 @@ map.feature <- function(languages,
       legend == TRUE &
       is.null(minichart.data) &
       is.null(shape)) {
-    m <- m %>% leaflet::addLegend(
+    m <- m |> leaflet::addLegend(
       title = title,
       position = legend.position,
       pal = pal,
@@ -1050,7 +1048,7 @@ map.feature <- function(languages,
     )
   } else if(sum(mapfeat.df$features == "") == length(mapfeat.df$features) &
             !is.null(title)){
-    m <- m %>% leaflet::addControl(
+    m <- m |> leaflet::addControl(
       html = paste('<b><font size="4" face = "',
                    label.font,
                    '">',
@@ -1062,7 +1060,7 @@ map.feature <- function(languages,
 
   # map: stroke.legend ------------------------------------------------------
   if (!is.null(stroke.features) & stroke.legend == TRUE) {
-    m <- m %>% leaflet::addLegend(
+    m <- m |> leaflet::addLegend(
       title = stroke.title,
       position = stroke.legend.position,
       pal = stroke.pal,
@@ -1073,7 +1071,7 @@ map.feature <- function(languages,
 
   # map: density.legend ------------------------------------------------------
   if (!is.null(density.estimation) & density.legend == TRUE) {
-    m <- m %>% leaflet::addLegend(
+    m <- m |> leaflet::addLegend(
       title = density.title,
       position = density.legend.position,
       pal = density.estimation.pal,
@@ -1084,7 +1082,7 @@ map.feature <- function(languages,
 
   # map: MiniMap ------------------------------------------------------------
   if (minimap == TRUE) {
-    m <- m %>% leaflet::addMiniMap(
+    m <- m |> leaflet::addMiniMap(
       tiles = tile[1],
       position = minimap.position,
       width = minimap.width,
@@ -1095,7 +1093,7 @@ map.feature <- function(languages,
 
   # zoom.level argument -----------------------------------------------------
   if (!is.null(zoom.level)) {
-    m <- m %>% leaflet::setView(
+    m <- m |> leaflet::setView(
       lng = mean(mapfeat.df$long),
       lat = mean(mapfeat.df$lat),
       zoom = zoom.level

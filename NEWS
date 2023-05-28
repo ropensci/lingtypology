@@ -2,6 +2,9 @@ lingtypology 1.1.14
 - add `description` and `feature_name` fields to `grambank.feature()`
 - update the `autotyp.feature()` function after the new release 1.1.1
 - fix `stroke.color` #87, thanks to Maksim Melenchenko
+- change `%>%` to `|>`
+- fix sign languages in `lang.aff()`, thx to Anton Buzanov
+- update `uralex.feature()`
 
 lingtypology 1.1.13
 - change `map.feature()` default palette using

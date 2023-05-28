@@ -51,7 +51,7 @@ map.feature(df$grambank.name,
             features = df$`GB042`,
             latitude = df$latitude,
             longitude = df$longitude,
-            label = df$grambank.name,
+            label = df$language,
             title = "Is there productive overt morphological singular marking on nouns?")
 ```
 
@@ -118,13 +118,13 @@ map.feature(new_df$language,
 
 ### 8. UraLex
 
-`uralex.feature` downloads data from UraLex basic vocabulary dataset. Original language names are stored in the `language` variable. Converted language names for `map.feature` are stored in the `language2` variable.
+`uralex.feature` downloads data from UraLex basic vocabulary dataset. Original language names are stored in the `uralex.name` variable. Converted language names for `map.feature` are stored in the `language` variable.
 
 ```{r}
 df <- uralex.feature()
 df <- df[df$uralex_mng == "crush",]
 
-map.feature(df$language2,
+map.feature(df$language,
             label = df$item,
             title = "crush")
 ```

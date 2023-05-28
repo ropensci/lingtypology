@@ -1,28 +1,28 @@
-language,Glottocode,language2
+uralex.name,glottocode,language
 Proto-Uralic*,NA,NA
-South Saami,sout2674,Southern Sami
-Ume Saami,umes1235,Ume Sami
-Pite Saami,pite1240,Pite Sami
-North Saami,nort2671,Northern Sami
-Inari Saami,inar1241,Inari Sami
-Skolt Saami,skol1241,Skolt Sami
-Kildin Saami,kild1236,Kildin Sami
+South Saami,sout2674,South Saami
+Ume Saami,umes1235,Ume Saami
+Pite Saami,pite1240,Pite Saami
+North Saami,nort2671,North Saami
+Inari Saami,inar1241,Inari Saami
+Skolt Saami,skol1241,Skolt Saami
+Kildin Saami,kild1236,Kildin Saami
 Standard Finnish,finn1318,Finnish
 Karelian Proper,kare1335,Karelian
 Veps,veps1250,Veps
 Ingrian,ingr1248,Ingrian
-Western Votic,west2391,NA
+Western Votic,west2391,West Vod
 Standard Estonian,esto1258,Estonian
-Võro South Estonian,sout2679,Voro (Uralic)
-Courland Livonian,west1760,NA
+Võro South Estonian,sout2679,South Estonian
+Courland Livonian,west1760,Courland Livonian
 Erzya,erzy1239,Erzya
 Meadow Mari,east2328,Eastern Mari
 Komi-Zyrian,komi1268,Komi-Zyrian
 Komi-Permyak,komi1269,Komi-Permyak
 Udmurt,udmu1245,Udmurt
 Hungarian,hung1274,Hungarian
-Sosva Mansi,nort2677,NA
+Sosva Mansi,nort2677,Sosva Mansi
 Vakh-Vasyugan Khanty,fare1244,Vach-Vasjugan
 Nganasan,ngan1291,Nganasan
 Tundra Nenets,nene1249,Tundra Nenets
-Selkup,tazz1244,NA
+Selkup,selk1253,Selkup

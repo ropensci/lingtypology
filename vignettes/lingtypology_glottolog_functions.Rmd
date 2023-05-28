@@ -18,6 +18,7 @@ library(lingtypology)
 This package is based on the [Glottolog database](https://glottolog.org/), so `lingtypology` has several functions for accessing data from that database.
 
 ### 1. Command name's syntax
+
 Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. Most of them are based on _language name_.
 
 * **aff.lang()** — get affiliation by language
@@ -54,9 +55,11 @@ names(glottolog)
 Using R functions for data manipulation you can create your own database for your purpose.
 
 ### 2. Using base functions
+
 All functions introduced in the previous section are regular functions, so they can take the following objects as input:
 
 * a regular string
+
 ```{r}
 iso.lang("Adyghe")
 lang.iso("ady")
@@ -66,6 +69,7 @@ lang.aff("West Caucasian")
 I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is an incorrect string in R.
 
 * a vector of strings
+
 ```{r}
 area.lang(c("Adyghe", "Aduge"))
 lang <- c("Adyghe", "Russian")
@@ -73,6 +77,7 @@ aff.lang(lang)
 ```
 
 *  other functions. For example, let's try to get a vector of ISO codes for the Circassian languages
+
 ```{r}
 iso.lang(lang.aff("Circassian"))
 ```

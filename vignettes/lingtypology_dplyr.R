@@ -8,60 +8,60 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 
 ## ---- message= FALSE----------------------------------------------------------
 #  library(dplyr)
-#  new_data %>%
-#    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>%
-#    filter(is.glottolog(Language.name) == TRUE) %>%
-#    filter(area.lang(Language.name) == "Africa") %>%
-#    select(Language.name) %>%
+#  new_data |>
+#    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) |>
+#    filter(is.glottolog(Language.name) == TRUE) |>
+#    filter(area.lang(Language.name) == "Africa") |>
+#    select(Language.name) |>
 #    map.feature()
 
 ## ---- message= FALSE----------------------------------------------------------
-#  new_data %>%
-#    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>%
-#    filter(is.glottolog(Language.name) == TRUE) %>%
-#    filter(area.lang(Language.name) == "Africa") %>%
-#    select(Language.name) %>%
-#    map.feature(., minimap = TRUE)
+#  new_data |>
+#    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) |>
+#    filter(is.glottolog(Language.name) == TRUE) |>
+#    filter(area.lang(Language.name) == "Africa") |>
+#    select(Language.name) |>
+#    map.feature(languages = _, minimap = TRUE)
 
 ## -----------------------------------------------------------------------------
 #  library(leaflet)
-#  map.feature(c("French", "Occitan")) %>%
-#    fitBounds(0, 40, 10, 50) %>%
+#  map.feature(c("French", "Occitan")) |>
+#    fitBounds(0, 40, 10, 50) |>
 #    addPopups(2, 48, "Great day!")
 
 ## -----------------------------------------------------------------------------
 #  leaflet() %>%
-#    fitBounds(0, 40, 10, 50) %>%
-#    addPopups(2, 48, "Great day!") %>%
-#    map.feature(c("French", "Occitan"), pipe.data = .)
+#    fitBounds(0, 40, 10, 50) |>
+#    addPopups(2, 48, "Great day!") |>
+#    map.feature(c("French", "Occitan"), pipe.data = _)
 
 ## -----------------------------------------------------------------------------
-#  m <- leaflet() %>%
-#    fitBounds(0, 40, 10, 50) %>%
+#  m <- leaflet() |>
+#    fitBounds(0, 40, 10, 50) |>
 #    addPopups(2, 48, "Great day!")
 #  
 #  map.feature(c("French", "Occitan"), pipe.data = m)
 
 ## -----------------------------------------------------------------------------
-#  leaflet()  %>%
-#    addProviderTiles("Stamen.TonerLite") %>%
-#    fitBounds(0, 40, 10, 50) %>%
-#    addPopups(2, 48, "Great day!") %>%
-#    map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
+#  leaflet()  |>
+#    addProviderTiles("Stamen.TonerLite") |>
+#    fitBounds(0, 40, 10, 50) |>
+#    addPopups(2, 48, "Great day!") |>
+#    map.feature(c("French", "Occitan"), pipe.data = _, tile = "none")
 
 ## -----------------------------------------------------------------------------
-#  map.feature(c("French", "Occitan")) %>%
-#    leaflet.extras::addDrawToolbar()  %>%
+#  map.feature(c("French", "Occitan")) |>
+#    leaflet.extras::addDrawToolbar()  |>
 #    leaflet.extras::addStyleEditor()
-#  map.feature(c("French", "Occitan")) %>%
+#  map.feature(c("French", "Occitan")) |>
 #    leaflet.extras::addFullscreenControl()
 
 ## ---- eval = FALSE------------------------------------------------------------
-#  map.feature(c("Adyghe", "Russian")) %>%
+#  map.feature(c("Adyghe", "Russian")) |>
 #    mapedit::editMap() ->
 #    my_polygone
 #  
-#  map.feature(c("Adyghe", "Russian")) %>%
+#  map.feature(c("Adyghe", "Russian")) |>
 #    leaflet::addPolygons(data = my_polygone$finished)
 
 ## -----------------------------------------------------------------------------

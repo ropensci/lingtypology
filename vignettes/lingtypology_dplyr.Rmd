@@ -15,7 +15,7 @@ library(lingtypology)
 knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 ```
 
-### 1. `dplyr` and `magritr` %>%
+### 1. `dplyr` and pipe `|>`
 
 It is possible to use [`dplyr`](https://github.com/tidyverse/dplyr) functions and pipes with `lingtypology`. It is widely used, so I will give some examples, how to use it with the`lingtypology` package. Using query "list of languages csv" I found Vincent Garnier's [languages-list repository](https://github.com/forxer/languages-list). Let’s download and map all the languages from that set. First download the data:
  
@@ -28,25 +28,25 @@ As we see, some values of the `Language.name` variable contain more than one lan
 
 ```{r, message= FALSE}
 library(dplyr)
-new_data %>%
-  mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
-  filter(is.glottolog(Language.name) == TRUE) %>% 
-  filter(area.lang(Language.name) == "Africa") %>% 
-  select(Language.name) %>% 
+new_data |> 
+  mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) |>  
+  filter(is.glottolog(Language.name) == TRUE) |>  
+  filter(area.lang(Language.name) == "Africa") |>  
+  select(Language.name) |> 
   map.feature()
 ```
 
 We start with a dataframe, here a `new_data`. First we remove spaces at the end of each string. Then we check, whether the language names are in the glottolog database. Then we select only rows that contain languages of Africa. Then we select the `Language.name` variable. And the last line maps all selected languages.
 
-By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, point sign specify what exact position should be piped to. Let’s produce the same map with a minimap.
+By default, the values that came from the pipe are treated as the first argument of a function. But when there are some additional arguments, underline sign specify what exact position should be piped to. Let’s produce the same map with a minimap.
 
 ```{r, message= FALSE}
-new_data %>%
-  mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) %>% 
-  filter(is.glottolog(Language.name) == TRUE) %>% 
-  filter(area.lang(Language.name) == "Africa") %>% 
-  select(Language.name) %>% 
-  map.feature(., minimap = TRUE)
+new_data |> 
+  mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) |>  
+  filter(is.glottolog(Language.name) == TRUE) |>  
+  filter(area.lang(Language.name) == "Africa") |>  
+  select(Language.name) |> 
+  map.feature(languages = _, minimap = TRUE)
 ```
 
 ### 2. `leaflet`, `leaflet.extras`, `mapview`, `mapedit`
@@ -55,25 +55,25 @@ There is also a possibility to use `lingtypology` with other [`leaflet`](https:/
 
 ```{r}
 library(leaflet)
-map.feature(c("French", "Occitan")) %>% 
-  fitBounds(0, 40, 10, 50) %>% 
+map.feature(c("French", "Occitan")) |> 
+  fitBounds(0, 40, 10, 50) |> 
   addPopups(2, 48, "Great day!")
 ```
 
-If you add `leaflet` arguments befor `map.feature` function, you need to use argument `pipe.data = .`:
+If you add `leaflet` arguments befor `map.feature` function, you need to use argument `pipe.data = _`:
 
 ```{r}
 leaflet() %>% 
-  fitBounds(0, 40, 10, 50) %>% 
-  addPopups(2, 48, "Great day!") %>% 
-  map.feature(c("French", "Occitan"), pipe.data = .)
+  fitBounds(0, 40, 10, 50) |> 
+  addPopups(2, 48, "Great day!") |> 
+  map.feature(c("French", "Occitan"), pipe.data = _)
 ```
 
 The other usage of this `pipe.data` argument is to put there a variable with a `leaflet` object:
 
 ```{r}
-m <- leaflet() %>% 
-  fitBounds(0, 40, 10, 50) %>% 
+m <- leaflet() |> 
+  fitBounds(0, 40, 10, 50) |> 
   addPopups(2, 48, "Great day!")
 
 map.feature(c("French", "Occitan"), pipe.data = m)
@@ -82,33 +82,33 @@ map.feature(c("French", "Occitan"), pipe.data = m)
 If you want to define tiles in `leaflet` part, you need to change tile argument in `map.feature` function, because the default value for the `tile` argument is "OpenStreetMap.Mapnik".
 
 ```{r}
-leaflet()  %>% 
-  addProviderTiles("Stamen.TonerLite") %>% 
-  fitBounds(0, 40, 10, 50) %>% 
-  addPopups(2, 48, "Great day!") %>% 
-  map.feature(c("French", "Occitan"), pipe.data = ., tile = "none")
+leaflet()  |> 
+  addProviderTiles("Stamen.TonerLite") |> 
+  fitBounds(0, 40, 10, 50) |> 
+  addPopups(2, 48, "Great day!") |>  
+  map.feature(c("French", "Occitan"), pipe.data = _, tile = "none")
 ```
 
 It is also possible to use some tools provided by [`leaflet.extras` package](https://github.com/RCura/leaflet.extras):
 
 ```{r}
-map.feature(c("French", "Occitan")) %>% 
-  leaflet.extras::addDrawToolbar()  %>%
+map.feature(c("French", "Occitan")) |> 
+  leaflet.extras::addDrawToolbar()  |> 
   leaflet.extras::addStyleEditor()
-map.feature(c("French", "Occitan")) %>% 
+map.feature(c("French", "Occitan")) |>  
   leaflet.extras::addFullscreenControl()
 ```
 
 Also there is a nice package `mapedit` that provide a possibility of creating and editing of leaflet objects by hand:
 ```{r, eval = FALSE}
-map.feature(c("Adyghe", "Russian")) %>% 
+map.feature(c("Adyghe", "Russian")) |>  
   mapedit::editMap() ->
   my_polygone
 
-map.feature(c("Adyghe", "Russian")) %>% 
+map.feature(c("Adyghe", "Russian")) |>  
   leaflet::addPolygons(data = my_polygone$finished)
 ```
-![](use_mapedit.gif)
+![](https://raw.githubusercontent.com/ropensci/lingtypology/master/docs/use_mapedit.gif)
 
 ### 3. Combining maps in a grid and facetisation with `mapview`
 
@@ -172,6 +172,7 @@ map.feature(language = "fake",
 Results are not ideal: there are some villages Дагестанская and Красный Дагестан in Adygeya and Krasnodarskiy district, but the most points are correct. It is also possible to get all data from some polygone created with `mapedit` (see previous section).
 
 ### 5. Create your own atlas with `rmarkdown`
+
 This section is inspired by talk with [Niko Partanen](https://github.com/nikopartanen). It is possible to create an atlas website using `lingtypology` and [`rmarkdown`](https://github.com/rstudio/rmarkdown) packages. The function `atlas.database()` creates a folder in the working directory that contains an `rmarkdown` template for a web-site.
 
 First, lets create a `dataframe` with some data.
@@ -217,6 +218,7 @@ unlink("./atlas_Some_WALS_features/", recursive = TRUE)
 ```
 
 ### 6. Create .kml file using `sp` and `rgdal`
+
 .kml file is a common file type for geospatial data. This kind of files are used in [Google Earth](https://en.wikipedia.org/wiki/Google_Earth), [Gabmap](https://gabmap.let.rug.nl/) (a web application that visualizes dialect variations) and others. In order to produce a .kml file you need to have a dataset with coordinates such as `circassian`:
 ```{r, eval= FALSE}
 sp::coordinates(circassian) <- ~longitude+latitude

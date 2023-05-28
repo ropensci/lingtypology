@@ -14,7 +14,7 @@
 
 <title>lingtypology: introduction and installation</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
@@ -460,11 +460,24 @@ href="https://rstudio.github.io/leaflet/">leaflet package</a>, so
 <code>lingtypology</code> is a package for interactive linguistic
 mapping. In addition, the package provides an ability to download data
 from typological databases such as WALS, AUTOTYP and others (see section
-4). The functionality of this package intersects with the package <a
+4). The functionality of this package intersects with</p>
+<ul>
+<li><a href="https://pypi.org/project/lingtypology/">lingtypology</a> in
+Python by Michael Voronov;</li>
+<li><a href="https://github.com/SietzeN/glottospace">glottospace</a> – R
+package for the geospatial analysis based on Glottolog by Sietze Norder
+et al;</li>
+<li><a
 href="https://gitlab.com/laurabecker/lingtypr"><code>lingtypr</code></a>
-by Laura Becker. I would like to thank Natalya Tyshkevich, Samira
-Verhees and Eugenya Klyagina for reading and correcting some versions of
-this vignette.</p>
+– R package which partially intersects with <code>lingtypology</code>
+functionality by Laura Becker;</li>
+<li><a
+href="https://github.com/erichround/glottoTrees"><code>glottoTrees</code></a>
+– R package for visualising and modifing glottolog trees by Erich
+Round</li>
+</ul>
+<p>I would like to thank Natalya Tyshkevich, Samira Verhees and Eugenya
+Klyagina for reading and correcting some versions of this vignette.</p>
 </div>
 <div id="installation" class="section level3">
 <h3>1. Installation</h3>
@@ -475,8 +488,8 @@ PC if you haven’t already done so. To install the
 IDE, so you get the stable version from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;lingtypology&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>You can also get the development version from GitHub:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ropensci/lingtypology&quot;</span>)</span></code></pre></div>
 <p>Load the package:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lingtypology)</span></code></pre></div>
 <pre><code>## Based on the Glottolog v. 4.7</code></pre>
@@ -486,8 +499,7 @@ IDE, so you get the stable version from CRAN:</p>
 <p>It is important to cite R and R packages when you use them. For this
 purpose use the <code>citation</code> function:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;lingtypology&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## To cite package &#39;lingtypology&#39; in publications use:
+<pre><code>## To cite package &#39;lingtypology&#39; in publications use:
 ## 
 ##   Moroz G (2017). _lingtypology: easy mapping for Linguistic Typology_.
 ##   &lt;https://CRAN.R-project.org/package=lingtypology&gt;.

@@ -56,14 +56,16 @@ Bickel, Balthasar, Nichols, Johanna, Zakharko, Taras, Witzlack-Makarevich, Alena
 
       final_df <- Reduce(function(x, y) {merge(x, y, all = TRUE)}, datalist)
 
-      final_df$language_for_lingtypology <-
-        lingtypology::lang.gltc(final_df$Glottocode)
+      colnames(final_df)[2:3] <- c("glottocode", "autotype.name")
+
+      final_df$language <-
+        lingtypology::lang.gltc(final_df$glottocode)
 
       if(na.rm == TRUE){
-        final_df <- final_df[!is.na(final_df$language_for_lingtypology), ]
+        final_df <- final_df[!is.na(final_df$language), ]
       }
 
-      columns_to_select <- c("LID", "Glottocode", "Language",
+      columns_to_select <- c("LID", "glottocode", "autotyp.name",
                              lingtypology::autotyp[lingtypology::autotyp$file %in% features, ]$variable,
                              features[!(features %in% lingtypology::autotyp$file)],
                              "MarkerID", "MarkerID", "MarkerLabel",
@@ -73,7 +75,7 @@ Bickel, Balthasar, Nichols, Johanna, Zakharko, Taras, Witzlack-Makarevich, Alena
                              "SelectorID", "MarkerID", "SelectorLabel",
                              "PredicateClassID", "PredicateClassLabel",
                              "PredicateClassDescription", "Examples",
-                             "language_for_lingtypology")
+                             "language")
 
       final_df <- final_df[colnames(final_df) %in% unique(columns_to_select)]
 
