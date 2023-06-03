@@ -37,7 +37,7 @@ Load a library:
 library(lingtypology)
 ```
 
-For a detailed tutorial see [GitHub pages](https://docs.ropensci.org/lingtypology/).
+For a detailed tutorial see [GitHub pages](https://ropensci.github.io/lingtypology/).
 
 You can contribute to `lingtypology`, but look through [contribution info](https://github.com/ropensci/lingtypology/blob/master/CONTRIBUTING.md) before.
 
