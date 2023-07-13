@@ -1,4 +1,7 @@
 lingtypology 1.1.14
+- update glottolog to v. 4.8
+
+lingtypology 1.1.14
 - add `description` and `feature_name` fields to `grambank.feature()`
 - update the `autotyp.feature()` function after the new release 1.1.1
 - fix `stroke.color` #87, thanks to Maksim Melenchenko
