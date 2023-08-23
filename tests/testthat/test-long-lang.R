@@ -4,6 +4,7 @@ context("Tests for long.lang function")
 df <- data.frame(my_langs = c("Adyghe", "Russian"), stringsAsFactors = FALSE)
 
 test_that("long.lang", {
+  skip_on_cran()
     expect_equal(long.lang("Adyghe"), c(Adyghe = 39.33))
     expect_equal(long.lang(c("Adyghe", "Russian")), c(Adyghe = 39.33, Russian = 50))
     expect_equal(long.lang(df), c(my_langs1 = 39.33, my_langs2 = 50))

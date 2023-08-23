@@ -5,17 +5,20 @@ map <- map.feature("Abkhaz")
 map3 <- map.feature(data.frame("Abkhaz", stringsAsFactors = FALSE))
 
 test_that("map.feature source", {
+  skip_on_cran()
   expect_equal(exists("map"), TRUE)
   expect_equal(exists("map"), TRUE)
   expect_equal(exists("map3"), TRUE)
 })
 
 test_that("map.feature no coordinates", {
+  skip_on_cran()
   expect_warning(map.feature(c("Yugul", "Adyghe", "Selako")),
                  "There is no coordinates for languages Yugul, Selako")
 })
 
 test_that("map.feature no data to map", {
+  skip_on_cran()
   expect_error(
     expect_warning(
       map.feature("bla-bla-bla"),
@@ -29,6 +32,7 @@ test_that("map.feature no data to map", {
 map_coord <- map.feature("Abkhaz", latitude = 43, longitude = 57)
 
 test_that("map.feature coordinates", {
+  skip_on_cran()
   expect_equal(map$x$limits[[1]][1], unname(lat.lang("Abkhaz")))
   expect_equal(map$x$limits[[2]][1], unname(long.lang("Abkhaz")))
   expect_equal(map_coord$x$limits[[1]][1], 43)
@@ -76,6 +80,7 @@ density4 <- map.feature(
 )
 
 test_that("map.feature density estimation", {
+  skip_on_cran()
   expect_equal(exists("density1"), TRUE)
   expect_equal(exists("density2"), TRUE)
   expect_equal(exists("density3"), TRUE)
@@ -85,6 +90,7 @@ map_image <-
   map.feature("Tabasaran", image.url = "https://goo.gl/Ycn6tJ")
 
 test_that("map.feature images", {
+  skip_on_cran()
   expect_equal(map_image$x$calls[[4]]$args[[3]]$iconUrl$data,
                "https://goo.gl/Ycn6tJ")
 })
@@ -111,6 +117,7 @@ map_stroke2 <-
   )
 
 test_that("map.feature stroke feature", {
+  skip_on_cran()
   expect_equal(length(map_stroke$x$calls), 9)
   expect_equal(
     map_stroke2$x$calls[[4]]$args[[6]]$fillColor,
@@ -136,6 +143,7 @@ map_colorless2 <- map.feature(c("Tabasaran", "Adyghe"),
                               features = c(1, 2))
 
 test_that("map.feature colors", {
+  skip_on_cran()
   expect_equal(map_colors$x$calls[[3]]$args[6][[1]]$fillColor, c("#000080", "#9ACD32"))
   expect_equal(map_colors2$x$calls[[3]]$args[6][[1]]$fillColor, c("#000080", "#9ACD32"))
   expect_equal(map_colorless$x$calls[[3]]$args[6][[1]]$fillColor,
@@ -161,6 +169,7 @@ map_tiles_control <-
   )
 
 test_that("map.feature tiles", {
+  skip_on_cran()
   expect_equal(
     c(map_tiles$x$calls[[2]]$args[[1]], map_tiles$x$calls[[3]]$args[[1]]),
     c(
@@ -203,22 +212,26 @@ map_control <- map.feature(c("Adyghe", "Russian", "Polish"),
                            control = c("a", "b", "b"))
 
 test_that("control", {
+  skip_on_cran()
   expect_equal(map_control$x$calls[[4]]$method, "addLayersControl")
 })
 
 map_minimap <- map.feature(c("Adyghe", "Russian"), minimap = TRUE)
 
 test_that("map.feature minimap", {
+  skip_on_cran()
   expect_equal(map_minimap$x$calls[[5]]$method, "addMiniMap")
 })
 
 test_that("map.feature scale bar", {
+  skip_on_cran()
   expect_equal(map_minimap$x$calls[[4]]$method, "addScaleBar")
 })
 
 map_label <-
   map.feature(c("Adyghe", "Russian"), label = c("a", "b"))
 test_that("map.feature labels", {
+  skip_on_cran()
   expect_equal(map_label$x$calls[[3]]$args[11], list(c("a", "b")))
 })
 
@@ -229,6 +242,7 @@ map_label_emph <-
     label.emphasize = list(1, "red")
   )
 test_that("map.feature emphasized labels", {
+  skip_on_cran()
   expect_equal(map_label_emph$x$calls[[4]]$args[11], list(c("a")))
   expect_equal(map_label_emph$x$calls[[4]]$args[12][[1]]$style$color, "red")
 })
@@ -251,6 +265,7 @@ map_rectangular <-
   )
 
 test_that("map.feature rectangular", {
+  skip_on_cran()
   expect_equal(map_rectangular$x$calls[[3]]$method, "addRectangles")
 })
 
@@ -262,6 +277,7 @@ map_minicharts <-
   )
 
 test_that("map.feature minicharts", {
+  skip_on_cran()
   expect_equal(exists("map_minicharts"), TRUE)
 })
 
@@ -283,6 +299,7 @@ line.logit <- map.feature(
 )
 
 test_that("map.feature lines", {
+  skip_on_cran()
   expect_equal(line$x$calls[[3]]$method, "addPolylines")
   expect_equal(line.logit$x$calls[[3]]$method, "addPolylines")
   expect_warning(
@@ -300,6 +317,7 @@ test_that("map.feature lines", {
 graticule <- map.feature(c("Russian", "Adyghe"), graticule = 5)
 
 test_that("map.feature graticule", {
+  skip_on_cran()
   expect_equal(graticule$x$calls[[3]]$method, "addSimpleGraticule")
 })
 
@@ -315,6 +333,7 @@ shape3 <- map.feature(df$lang,
                       shape = c("p", "p", "f", "f", "f"))
 
 test_that("map.feature shape", {
+  skip_on_cran()
   expect_equal(shape1$x$calls[[3]]$args[[11]], c("▴", "▴", "●", "●", "●"))
   expect_equal(shape2$x$calls[[3]]$args[[11]], c("p", "p", "f", "f", "f"))
   expect_equal(shape3$x$calls[[3]]$args[[11]], c("p", "p", "f", "f", "f"))
@@ -328,6 +347,7 @@ test_that("map.feature shape", {
 map_none_tile <- map.feature("Adyghe", tile = "none")
 
 test_that("map without a tile", {
+  skip_on_cran()
   expect_equal(exists("map_none_tile"), TRUE)
 })
 

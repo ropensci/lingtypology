@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/ropensci/lingtypology/",
   "issueTracker": "https://github.com/ropensci/lingtypology/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "1.1.9",
+  "version": "1.1.15",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
+  "runtimePlatform": "R version 4.3.1 (2023-06-16)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -51,8 +51,8 @@
     },
     {
       "@type": "Person",
-      "givenName": "Sasha",
-      "familyName": "Shakhnova"
+      "givenName": "Ekaterina",
+      "familyName": "Zalivina"
     }
   ],
   "maintainer": [
@@ -139,39 +139,15 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "rgeos",
-      "name": "rgeos",
+      "identifier": "sf",
+      "name": "sf",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=rgeos"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "rgdal",
-      "name": "rgdal",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=rgdal"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "ggplot2",
-      "name": "ggplot2",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=ggplot2"
+      "sameAs": "https://CRAN.R-project.org/package=sf"
     },
     {
       "@type": "SoftwareApplication",
@@ -258,7 +234,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2377.359KB",
+  "fileSize": "2227.264KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
