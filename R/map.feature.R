@@ -823,7 +823,9 @@ map.feature <- function(languages,
       tables <- do.call(paste, df_args)
     }
 
-    mapfeat.df$link <- paste0(mapfeat.df$link, tables)
+    if(popup == ""){
+      mapfeat.df$link <- paste0(mapfeat.df$link, tables)
+    }
 
     m <- m |> leaflet::addCircleMarkers(
       lng = mapfeat.df$long,
