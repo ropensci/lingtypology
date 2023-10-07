@@ -823,7 +823,7 @@ map.feature <- function(languages,
       tables <- do.call(paste, df_args)
     }
 
-    if(popup == ""){
+    if(sum(popup != "") == 0){
       mapfeat.df$link <- paste0(mapfeat.df$link, tables)
     }
 
