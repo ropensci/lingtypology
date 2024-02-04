@@ -222,20 +222,20 @@ knitr::opts_chunk$set(eval = FALSE)
 #                   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 #  
 #  map.feature(df$lang, df$feature, df$popup,
-#              tile = "Stamen.TonerLite")
+#              tile = "Esri.WorldGrayCanvas")
 
 ## -----------------------------------------------------------------------------
 #  map.feature(df$lang, df$feature, df$popup,
-#              tile = c("OpenStreetMap", "Stamen.TonerLite"))
+#              tile = c("OpenStreetMap", "Esri.WorldGrayCanvas"))
 
 ## -----------------------------------------------------------------------------
 #  map.feature(df$lang, df$feature, df$popup,
-#              tile = c("OpenStreetMap", "Stamen.TonerLite"),
+#              tile = c("OpenStreetMap", "Esri.WorldGrayCanvas"),
 #              tile.name = c("colored", "b & w"))
 
 ## -----------------------------------------------------------------------------
 #  map.feature(df$lang, df$feature, df$popup,
-#              tile = c("OpenStreetMap", "Stamen.TonerLite"),
+#              tile = c("OpenStreetMap", "Esri.WorldGrayCanvas"),
 #              control = TRUE)
 
 ## -----------------------------------------------------------------------------

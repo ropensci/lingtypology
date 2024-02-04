@@ -12,7 +12,7 @@ frequency_list.feature(languages, list_type = "full")
 \item{list_type}{Type of frequency list. Possible values: 'full', '50k', 'ignored'. By default is full.}
 }
 \description{
-This function downloads frequency list from OpenSubtitles2018 (\url{https://opus.nlpl.eu/OpenSubtitles2018.php}). You need the internet connection.
+This function downloads frequency list from OpenSubtitles2018 (\url{https://opus.nlpl.eu/}). You need the internet connection.
 }
 \examples{
 # frequency_list.feature('ro')

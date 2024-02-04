@@ -1,6 +1,6 @@
 #' Download frequency list
 #'
-#' This function downloads frequency list from OpenSubtitles2018 (\url{https://opus.nlpl.eu/OpenSubtitles2018.php}). You need the internet connection.
+#' This function downloads frequency list from OpenSubtitles2018 (\url{https://opus.nlpl.eu/}). You need the internet connection.
 #'
 #' @param languages ISO 639-1 language code and some others ('ze_en', 'ze_zh', 'zh_cn', 'zh_tw', 'pt_br'). Possible values: 'af', 'ar', 'bg', 'bn', 'br', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'eo', 'es', 'et', 'eu', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hr', 'hu', 'hy', 'id', 'is', 'it', 'ja', 'ka', 'kk', 'ko', 'lt', 'lv', 'mk', 'ml', 'ms', 'nl', 'no', 'pl', 'pt', 'pt_br', 'ro', 'ru', 'si', 'sk', 'sl', 'sq', 'sr', 'sv', 'ta', 'te', 'tl', 'tr', 'uk', 'ur', 'vi', 'ze_en', 'ze_zh', 'zh_cn', 'zh_tw'.
 #' @param list_type Type of frequency list. Possible values: 'full', '50k', 'ignored'. By default is full.

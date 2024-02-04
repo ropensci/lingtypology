@@ -14,7 +14,7 @@ vignette: >
 The `lingtypology` package connects R with the [Glottolog database (v. 4.8)](https://glottolog.org/) and provides an additional functionality for linguistic typology. The Glottolog database contains a catalogue of the world's languages. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](https://clld.org/), which is creating a uniform access to linguistic data across publications. This package is based on the [leaflet package](https://rstudio.github.io/leaflet/), so `lingtypology` is a package for interactive linguistic mapping. In addition, the package provides an ability to download data from typological databases such as WALS, AUTOTYP and others (see section 4). The functionality of this package intersects with 
 
 - [lingtypology](https://pypi.org/project/lingtypology/) in Python by Michael Voronov;
-- [glottospace](https://github.com/SietzeN/glottospace) -- R package for the geospatial analysis based on Glottolog by Sietze Norder et al;
+- [glottospace](https://github.com/glottospace/glottospace) -- R package for the geospatial analysis based on Glottolog by Sietze Norder et al;
 - [`lingtypr`](https://gitlab.com/laurabecker/lingtypr) -- R package which partially intersects with `lingtypology` functionality by Laura Becker;
 - [`glottoTrees`](https://github.com/erichround/glottoTrees) -- R package for visualising and modifing glottolog trees by Erich Round
 

@@ -351,26 +351,26 @@ df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian
                  popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
 map.feature(df$lang, df$feature, df$popup,
-            tile = "Stamen.TonerLite")
+            tile = "Esri.WorldGrayCanvas")
 ```
 
 It is possible to use different map tiles on the same map. Just add a vector with tiles.
 ```{r}
 map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap", "Stamen.TonerLite"))
+            tile = c("OpenStreetMap", "Esri.WorldGrayCanvas"))
 ```
 
 It is possible to name tiles using the `tile.name` argument.
 ```{r}
 map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap", "Stamen.TonerLite"),
+            tile = c("OpenStreetMap", "Esri.WorldGrayCanvas"),
             tile.name = c("colored", "b & w"))
 ```
 
 It is possible to combine the tiles' control box with the features' control box.
 ```{r}
 map.feature(df$lang, df$feature, df$popup,
-            tile = c("OpenStreetMap", "Stamen.TonerLite"),
+            tile = c("OpenStreetMap", "Esri.WorldGrayCanvas"),
             control = TRUE)
 ```
 

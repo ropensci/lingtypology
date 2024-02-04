@@ -1,7 +1,8 @@
 lingtypology 1.1.16
 - fix not empty popup display whith minicharts
+- fix empty line in multiple warnings in `is.glottolog()`
 
-lingtypology 1.1.14
+lingtypology 1.1.15
 - update glottolog to v. 4.8
 
 lingtypology 1.1.14

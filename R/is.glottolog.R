@@ -10,7 +10,7 @@
 #'
 #' \dontrun{
 #' # Add warning message with sugestions
-#' is.glottolog(c('Adygey', 'Russian'), response = TRUE)
+#' is.glottolog(c('Adyge', 'Russian'), response = TRUE)
 #' # > FALSE TRUE
 #' # Warning message:
 #' # In is.glottolog(c('Adyge', 'Russian'), response = TRUE) :
@@ -68,7 +68,7 @@ is.glottolog <-
             " is absent in our version of the",
             " Glottolog database. Did you mean ",
             candidate,
-            "?",
+            "?\n",
             sep = ""
           ),
           call. = FALSE
