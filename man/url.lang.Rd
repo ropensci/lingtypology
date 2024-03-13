@@ -16,7 +16,7 @@ Takes any vector of languages and returns links to glottolog pages.
 }
 \examples{
 url.lang('Korean')
-url.lang(c('Gangou', 'Hachijo', 'Adyghe', 'Ganai'))
+url.lang(c('Gangou', 'Hachijo', 'West Circassian', 'Ganai'))
 }
 \seealso{
 \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{gltc.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}

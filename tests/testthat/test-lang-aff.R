@@ -9,6 +9,7 @@ test_that("lang.aff", {
                                  my_langs2 = "Latvian"))
     expect_equal(lang.aff(c("Brythonic", "Goidelic")), c("Welsh",
                                                          "Old-Middle Welsh",
+                                                         "Old Cornish",
                                                          "Breton",
                                                          "Cornish",
                                                          "Early Irish",
@@ -18,6 +19,7 @@ test_that("lang.aff", {
     expect_equal(lang.aff(c("Brythonic", "Goidelic"), list = TRUE),
                  list(c("Welsh",
                         "Old-Middle Welsh",
+                        "Old Cornish",
                         "Breton",
                         "Cornish"),
                       c("Early Irish",

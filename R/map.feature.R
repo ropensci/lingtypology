@@ -86,7 +86,7 @@
 #' @param radius deprecated argument
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
-#' map.feature(c("Adyghe", "Russian"))
+#' map.feature(c("Kabardian", "Russian"))
 #'
 #' @export
 #' @importFrom leaflet colorNumeric

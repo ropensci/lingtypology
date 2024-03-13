@@ -101,11 +101,11 @@ map.feature(c("French", "Occitan")) |>
 
 Also there is a nice package `mapedit` that provide a possibility of creating and editing of leaflet objects by hand:
 ```{r, eval = FALSE}
-map.feature(c("Adyghe", "Russian")) |>  
+map.feature(c("West Circassian", "Russian")) |>  
   mapedit::editMap() ->
   my_polygone
 
-map.feature(c("Adyghe", "Russian")) |>  
+map.feature(c("West Circassian", "Russian")) |>  
   leaflet::addPolygons(data = my_polygone$finished)
 ```
 ![](https://raw.githubusercontent.com/ropensci/lingtypology/master/docs/use_mapedit.gif)

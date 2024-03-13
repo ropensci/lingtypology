@@ -15,7 +15,7 @@ is.glottolog(x, response = FALSE)
 Takes any vector of languages or ISO codes and returns a logical vector.
 }
 \examples{
-is.glottolog(c('Adyghe', 'Russian'))
+is.glottolog(c('Kabardian', 'Russian'))
 is.glottolog('Buyaka')
 
 \dontrun{
@@ -23,8 +23,9 @@ is.glottolog('Buyaka')
 is.glottolog(c('Adyge', 'Russian'), response = TRUE)
 # > FALSE TRUE
 # Warning message:
-# In is.glottolog(c('Adyge', 'Russian'), response = TRUE) :
-# Language Adyge is absent in our version of the Glottolog database. Did you mean Aduge, Adyghe?
+# In is.glottolog(c('Kabardia', 'Russian'), response = TRUE) :
+# Language Kabardia is absent in our version of the Glottolog database.
+# Did you mean Kabardian, Greater Kabardian?
 }
 }
 \author{

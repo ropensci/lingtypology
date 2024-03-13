@@ -1,9 +1,12 @@
+lingtypology 1.1.17
+- update Glottolog to v. 5.0
+
 lingtypology 1.1.16
 - fix not empty popup display whith minicharts
 - fix empty line in multiple warnings in `is.glottolog()`
 
 lingtypology 1.1.15
-- update glottolog to v. 4.8
+- update Glottolog to v. 4.8
 
 lingtypology 1.1.14
 - add `description` and `feature_name` fields to `grambank.feature()`
@@ -21,7 +24,7 @@ lingtypology 1.1.12
 - fast fix of the `wals.feature()` function
 
 lingtypology 1.1.11
-- update glottolog to v. 4.7
+- update Glottolog to v. 4.7
 - remove `rgeos` depndency see [details](https://r-spatial.org//r/2022/04/12/evolution.html)
 - correct `contry.lang()`
 
@@ -41,7 +44,7 @@ lingtypology 1.1.9
 
 lingtypology 1.1.8 (12.10.2021)
 - fix `country.lang()` functions, close #70
-- update glottolog to v. 4.5
+- update Glottolog to v. 4.5
 - add the `level.lang()` function
 
 lingtypology 1.1.6 (12.10.2021)
@@ -58,12 +61,12 @@ lingtypology 1.1.5 (15.05.2021)
 - change glottolog v. 4.3 to v. 4.4
 
 lingtypology 1.1.4 (02.10.2020)
-- change glottolog v. 4.2 to v. 4.3
+- change Glottolog v. 4.2 to v. 4.3
 - change `control` argument behaviour of the "map.feature()" function; now it is possible to specify independent variable to appear/disappear.
 
 lingtypology 1.1.3 (26.04.2020)
 - add "point.cluster" argument into the "map.feature()" function
-- change glottolog v. 4.1 to v. 4.2
+- change Glottolog v. 4.1 to v. 4.2
 
 lingtypology 1.1.2 (29.02.2020)
 - correct the sails.feature() function

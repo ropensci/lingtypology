@@ -258,7 +258,7 @@ map.feature(
 Map a set of languages and color them by feature or two sets of features.
 }
 \examples{
-map.feature(c("Adyghe", "Russian"))
+map.feature(c("Kabardian", "Russian"))
 
 }
 \author{

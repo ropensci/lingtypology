@@ -1,5 +1,5 @@
 latitude,longitude,village,district,dialect,language
-45.18333,39.66667,Khatukay,ra,Temirgoy,Adyghe
+45.18333,39.66667,Khatukay,ra,Temirgoy,West Circassian
 43.0925184,43.5220851,Psygansu,kbr,Baksan,Kabardian
 43.2177484,43.7380201,Verkhny Lesken,kbr,Baksan,Kabardian
 43.2602459,43.6537882,Zhemtala,kbr,Baksan,Kabardian
@@ -72,9 +72,9 @@ latitude,longitude,village,district,dialect,language
 43.7999498,43.3276187,Malka,kbr,Malkin,Kabardian
 43.8022258,43.1460561,Sovkhoznoe,kbr,Baksan,Kabardian
 43.8034456,43.7706143,Karagach,kbr,Baksan,Kabardian
-43.822786,39.500981,Malyy Kichmay,kk,Xakuch,Adyghe
+43.822786,39.500981,Malyy Kichmay,kk,Xakuch,West Circassian
 43.8229374,43.1114348,Dzhenal,kbr,Baksan,Kabardian
-43.833917,39.508069,Bolshoy Kichmay,kk,Xakuch,Adyghe
+43.833917,39.508069,Bolshoy Kichmay,kk,Xakuch,West Circassian
 43.835631,43.1531165,Zalukodes,kbr,Baksan,Kabardian
 43.8366461,43.6079187,Psykhurey,kbr,Baksan,Kabardian
 43.8416125,43.2063942,Zolskoye,kbr,Baksan,Kabardian
@@ -84,76 +84,76 @@ latitude,longitude,village,district,dialect,language
 43.8788349,43.1074819,Shordakovo,kbr,Baksan,Kabardian
 43.9468945,43.1721222,Etoko,kbr,Malkin,Kabardian
 43.959349,41.743847,Zhako,kch,Kuban,Kabardian
-43.968217,39.447133,Tkhagapsh,kk,Shapsug,Adyghe
+43.968217,39.447133,Tkhagapsh,kk,Shapsug,West Circassian
 43.988333,41.738889,Ali-Berdukovskiy,kch,Kuban,Kabardian
-44.009389,39.356639,Kalezh,kk,Xakuch,Adyghe
-44.009397,39.335326,Khadzhiko,kk,Xakuch,Adyghe
-44.00941,39.36232,Lygotkh,kk,Xakuch,Adyghe
+44.009389,39.356639,Kalezh,kk,Xakuch,West Circassian
+44.009397,39.335326,Khadzhiko,kk,Xakuch,West Circassian
+44.00941,39.36232,Lygotkh,kk,Xakuch,West Circassian
 44.042366,41.764098,Khabez,kch,Kuban,Kabardian
-44.075833,39.3425,Bolshoye Pseushkho,kk,Temirgoy,Adyghe
+44.075833,39.3425,Bolshoye Pseushkho,kk,Temirgoy,West Circassian
 44.115278,41.828056,Zeyuko,kch,Kuban,Kabardian
-44.116389,39.301667,Maloye Pseushkho,kk,Temirgoy,Adyghe
+44.116389,39.301667,Maloye Pseushkho,kk,Temirgoy,West Circassian
 44.139951,41.853875,Kosh-Khabl',kch,Kuban,Kabardian
-44.184722,39.07,Aguy-Shapsug,kk,Shapsug,Adyghe
+44.184722,39.07,Aguy-Shapsug,kk,Shapsug,West Circassian
 44.1984238,41.6999648,Inzhichishkho,kch,Kuban,Kabardian
 44.206622,41.87764,Psauchye-Dakhe,kch,Kuban,Kabardian
 44.2125,43.7,Urazhaynoe,kbr,Terek,Kabardian
 44.221558,41.899453,Novokhumarinskiy,kch,Kuban,Kabardian
 44.246111,41.741389,Besleney,kch,Besleney,Kabardian
 44.253272,41.900047,Abazakt,kch,Kuban,Kabardian
-44.28361,38.953618,Psebe,kk,Shapsug,Adyghe
+44.28361,38.953618,Psebe,kk,Shapsug,West Circassian
 44.300777,41.742693,Vako-Zhile,kch,Besleney,Kabardian
 44.331111,41.934722,Adyge-Khabl,kch,Kuban,Kabardian
 44.350776,41.801334,Baralki,kch,Kuban,Kabardian
 44.400833,41.935,Malyy Zelenchuk,kch,Kuban,Kabardian
 44.431293,41.763092,Ersakon,kch,Kuban,Kabardian
 44.519722,40.710278,Khodz',ra,Kuban,Kabardian
-44.631132,40.072682,Zapadnyy,ra,Bzhedukh,Adyghe
-44.644722,40.225833,Oktyabrskiy,ra,Bzhedukh,Adyghe
+44.631132,40.072682,Zapadnyy,ra,Bzhedukh,West Circassian
+44.644722,40.225833,Oktyabrskiy,ra,Bzhedukh,West Circassian
 44.821667,40.501667,Blechepsin,ra,Kuban,Kabardian
-44.835,39.208056,Psekups,ra,Bzhedukh,Adyghe
-44.835,41.38389,Uspenskoye,kk,Temirgoy,Adyghe
+44.835,39.208056,Psekups,ra,Bzhedukh,West Circassian
+44.835,41.38389,Uspenskoye,kk,Temirgoy,West Circassian
 44.839167,41.486111,Kurgokovskiy,kk,Besleney,Kabardian
-44.845,39.467778,Assokolay,ra,Bzhedukh,Adyghe
+44.845,39.467778,Assokolay,ra,Bzhedukh,West Circassian
 44.86152,41.335,Konokovo,kk,Besleney,Kabardian
-44.865,38.988056,Natukhay,ra,Shapsug,Adyghe
-44.866667,39.283333,Vochepshiy,ra,Bzhedukh,Adyghe
-44.87391,39.153554,Chetuk,ra,Bzhedukh,Adyghe
-44.874722,39.457778,Krasnoye,ra,Bzhedukh,Adyghe
-44.883056,39.383056,Ponezhukay,ra,Bzhedukh,Adyghe
-44.883942,39.066682,Shendzhiy,ra,Bzhedukh,Adyghe
-44.887778,39.266111,Pchegatlukay,ra,Bzhedukh,Adyghe
-44.892527,39.233689,Gatlukay,ra,Bzhedukh,Adyghe
+44.865,38.988056,Natukhay,ra,Shapsug,West Circassian
+44.866667,39.283333,Vochepshiy,ra,Bzhedukh,West Circassian
+44.87391,39.153554,Chetuk,ra,Bzhedukh,West Circassian
+44.874722,39.457778,Krasnoye,ra,Bzhedukh,West Circassian
+44.883056,39.383056,Ponezhukay,ra,Bzhedukh,West Circassian
+44.883942,39.066682,Shendzhiy,ra,Bzhedukh,West Circassian
+44.887778,39.266111,Pchegatlukay,ra,Bzhedukh,West Circassian
+44.892527,39.233689,Gatlukay,ra,Bzhedukh,West Circassian
 44.9,40.483,Koshekhabl,ra,Kuban,Kabardian
-44.9025,39.174722,Kazazovo,ra,Bzhedukh,Adyghe
-44.905,39.4175,Neshukay,ra,Bzhedukh,Adyghe
-44.905,39.275,Novovochepshiy,ra,Bzhedukh,Adyghe
-44.915421,39.39023,Kolos,ra,Bzhedukh,Adyghe
-44.921111,38.992778,Takhtamukay,ra,Bzhedukh,Adyghe
-44.9225,39.382778,Nachereziy,ra,Bzhedukh,Adyghe
-44.926111,39.566944,Gabukay,ra,Bzhedukh,Adyghe
-44.933889,38.836944,Novobzhegokay,ra,Bzhedukh,Adyghe
-44.941667,39.369444,Pshikuykhabl',ra,Bzhedukh,Adyghe
-44.946389,39.41,Dzhidzhikhabl',ra,Bzhedukh,Adyghe
-44.950833,39.114444,Tugurgoy,ra,Bzhedukh,Adyghe
-44.954747,40.317685,Khachemziy,ra,Temirgoy,Adyghe
-44.965,39.367778,Tauykhabl',ra,Bzhedukh,Adyghe
-44.983056,39.476111,Kunchukokhabl',ra,Bzhedukh,Adyghe
-44.987351,38.715489,Panakhes,ra,Shapsug,Adyghe
-44.993333,40.311389,Dzherokay,ra,Temirgoy,Adyghe
-44.994444,39.0025,Kozet,ra,Bzhedukh,Adyghe
-44.9975,40.392222,Egerukhay,ra,Temirgoy,Adyghe
-44.999167,38.781944,Afipsip,ra,Shapsug,Adyghe
-45.011389,40.217222,Mamkheg,ra,Temirgoy,Adyghe
-45.02,40.23,Khakurinokhabl,ra,Abadzex,Adyghe
-45.023972,38.936994,Novaya Adygeya,ra,Bzhedukh,Adyghe
-45.034167,38.894722,Starobzhegokay,ra,Bzhedukh,Adyghe
-45.045278,38.756111,Khashtuk,ra,Shapsug,Adyghe
-45.046111,40.183056,Kabekhabl',ra,Temirgoy,Adyghe
-45.051111,38.706389,Pseytuk,ra,Shapsug,Adyghe
+44.9025,39.174722,Kazazovo,ra,Bzhedukh,West Circassian
+44.905,39.4175,Neshukay,ra,Bzhedukh,West Circassian
+44.905,39.275,Novovochepshiy,ra,Bzhedukh,West Circassian
+44.915421,39.39023,Kolos,ra,Bzhedukh,West Circassian
+44.921111,38.992778,Takhtamukay,ra,Bzhedukh,West Circassian
+44.9225,39.382778,Nachereziy,ra,Bzhedukh,West Circassian
+44.926111,39.566944,Gabukay,ra,Bzhedukh,West Circassian
+44.933889,38.836944,Novobzhegokay,ra,Bzhedukh,West Circassian
+44.941667,39.369444,Pshikuykhabl',ra,Bzhedukh,West Circassian
+44.946389,39.41,Dzhidzhikhabl',ra,Bzhedukh,West Circassian
+44.950833,39.114444,Tugurgoy,ra,Bzhedukh,West Circassian
+44.954747,40.317685,Khachemziy,ra,Temirgoy,West Circassian
+44.965,39.367778,Tauykhabl',ra,Bzhedukh,West Circassian
+44.983056,39.476111,Kunchukokhabl',ra,Bzhedukh,West Circassian
+44.987351,38.715489,Panakhes,ra,Shapsug,West Circassian
+44.993333,40.311389,Dzherokay,ra,Temirgoy,West Circassian
+44.994444,39.0025,Kozet,ra,Bzhedukh,West Circassian
+44.9975,40.392222,Egerukhay,ra,Temirgoy,West Circassian
+44.999167,38.781944,Afipsip,ra,Shapsug,West Circassian
+45.011389,40.217222,Mamkheg,ra,Temirgoy,West Circassian
+45.02,40.23,Khakurinokhabl,ra,Abadzex,West Circassian
+45.023972,38.936994,Novaya Adygeya,ra,Bzhedukh,West Circassian
+45.034167,38.894722,Starobzhegokay,ra,Bzhedukh,West Circassian
+45.045278,38.756111,Khashtuk,ra,Shapsug,West Circassian
+45.046111,40.183056,Kabekhabl',ra,Temirgoy,West Circassian
+45.051111,38.706389,Pseytuk,ra,Shapsug,West Circassian
 45.054167,39.946389,Ulyap,ra,Besleney,Kabardian
-45.065556,40.174167,Pshicho,ra,Temirgoy,Adyghe
-45.068889,39.4975,Adamiy,ra,Temirgoy,Adyghe
-45.072222,40.188611,Khatazhukay,ra,Temirgoy,Adyghe
-45.083889,39.861389,Dzhambichi,ra,Temirgoy,Adyghe
-45.092222,40.110278,Pshizov,ra,Temirgoy,Adyghe
+45.065556,40.174167,Pshicho,ra,Temirgoy,West Circassian
+45.068889,39.4975,Adamiy,ra,Temirgoy,West Circassian
+45.072222,40.188611,Khatazhukay,ra,Temirgoy,West Circassian
+45.083889,39.861389,Dzhambichi,ra,Temirgoy,West Circassian
+45.092222,40.110278,Pshizov,ra,Temirgoy,West Circassian

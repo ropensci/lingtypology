@@ -13,10 +13,10 @@ lat.lang(x)
 Takes any vector of languages and returns latitude.
 }
 \examples{
-lat.lang('Adyghe')
-long.lang('Adyghe')
-lat.lang(c('Adyghe', 'Russian'))
-long.lang(c('Adyghe', 'Russian'))
+lat.lang('Kabardian')
+long.lang('Kabardian')
+lat.lang(c('Kabardian', 'Russian'))
+long.lang(c('Kabardian', 'Russian'))
 }
 \seealso{
 \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{gltc.lang}}, \code{\link{iso.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}, \code{\link{url.lang}}

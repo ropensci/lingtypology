@@ -57,11 +57,11 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #    leaflet.extras::addFullscreenControl()
 
 ## ---- eval = FALSE------------------------------------------------------------
-#  map.feature(c("Adyghe", "Russian")) |>
+#  map.feature(c("West Circassian", "Russian")) |>
 #    mapedit::editMap() ->
 #    my_polygone
 #  
-#  map.feature(c("Adyghe", "Russian")) |>
+#  map.feature(c("West Circassian", "Russian")) |>
 #    leaflet::addPolygons(data = my_polygone$finished)
 
 ## -----------------------------------------------------------------------------

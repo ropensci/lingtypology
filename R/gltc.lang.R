@@ -5,8 +5,8 @@
 #' @author George Moroz <agricolamz@gmail.com>
 #' @seealso \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}, \code{\link{url.lang}}
 #' @examples
-#' gltc.lang('Adyghe')
-#' gltc.lang(c('Adyghe', 'Udi'))
+#' gltc.lang('Kabardian')
+#' gltc.lang(c('Kabardian', 'Udi'))
 #' @export
 
 gltc.lang <- function(x) {

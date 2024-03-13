@@ -5,20 +5,20 @@ library(lingtypology)
 names(glottolog)
 
 ## -----------------------------------------------------------------------------
-iso.lang("Adyghe")
+iso.lang("West Circassian")
 lang.iso("ady")
-lang.aff("West Caucasian")
+lang.aff("Abkhaz-Adyge")
 
 ## -----------------------------------------------------------------------------
-area.lang(c("Adyghe", "Aduge"))
-lang <- c("Adyghe", "Russian")
+area.lang(c("Kabardian", "Aduge"))
+lang <- c("Kabardian", "Russian")
 aff.lang(lang)
 
 ## -----------------------------------------------------------------------------
-iso.lang(lang.aff("Circassian"))
+iso.lang(lang.aff("Abkhaz-Adyge"))
 
 ## -----------------------------------------------------------------------------
-aff.lang("Adyge")
+aff.lang("Kabardian")
 
 ## -----------------------------------------------------------------------------
 subc.lang("Lechitic")

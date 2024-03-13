@@ -3,16 +3,16 @@ library(lingtypology)
 knitr::opts_chunk$set(eval = FALSE)
 
 ## -----------------------------------------------------------------------------
-#  map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
+#  map.feature(c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"))
 
 ## ---- eval = FALSE------------------------------------------------------------
-#  m <- map.feature(c("Adyghe", "Korean"))
+#  m <- map.feature(c("West Circassian", "Korean"))
 #  # install.packages("htmlwidgets")
 #  library(htmlwidgets)
 #  saveWidget(m, file="TYPE_FILE_PATH/m.html")
 
 ## -----------------------------------------------------------------------------
-#  df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#  df <- data.frame(language = c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #                 features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
 #  df
 
@@ -130,7 +130,7 @@ knitr::opts_chunk$set(eval = FALSE)
 #              point.cluster = TRUE)
 
 ## -----------------------------------------------------------------------------
-#  df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#  df <- data.frame(language = c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #                   features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
 #  map.feature(languages = df$language,
 #              features = df$features,
@@ -212,12 +212,12 @@ knitr::opts_chunk$set(eval = FALSE)
 #              title = "Circassian dialects", stroke.title = "Languages")
 
 ## -----------------------------------------------------------------------------
-#  map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+#  map.feature(c("West Circassian", "Polish", "Kabardian", "Russian"),
 #              scale.bar= TRUE,
 #              scale.bar.position = "topright")
 
 ## -----------------------------------------------------------------------------
-#  df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+#  df <- data.frame(lang = c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"),
 #                   feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
 #                   popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 #  
@@ -239,11 +239,11 @@ knitr::opts_chunk$set(eval = FALSE)
 #              control = TRUE)
 
 ## -----------------------------------------------------------------------------
-#  map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+#  map.feature(c("West Circassian", "Polish", "Kabardian", "Russian"),
 #              minimap = TRUE)
 
 ## -----------------------------------------------------------------------------
-#  map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+#  map.feature(c("West Circassian", "Polish", "Kabardian", "Russian"),
 #              minimap = TRUE,
 #              minimap.position = "topright",
 #              minimap.height = 100,
@@ -383,6 +383,6 @@ knitr::opts_chunk$set(eval = FALSE)
 #              line.type = "logit")
 
 ## -----------------------------------------------------------------------------
-#  map.feature(c("Russian", "Adyghe"),
+#  map.feature(c("Russian", "West Circassian"),
 #              graticule = 5)
 

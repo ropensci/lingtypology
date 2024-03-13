@@ -5,7 +5,7 @@
 #' @param response logical. If TRUE, when language is absent, return warnings with a possible candidates.
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
-#' is.glottolog(c('Adyghe', 'Russian'))
+#' is.glottolog(c('Kabardian', 'Russian'))
 #' is.glottolog('Buyaka')
 #'
 #' \dontrun{
@@ -13,8 +13,9 @@
 #' is.glottolog(c('Adyge', 'Russian'), response = TRUE)
 #' # > FALSE TRUE
 #' # Warning message:
-#' # In is.glottolog(c('Adyge', 'Russian'), response = TRUE) :
-#' # Language Adyge is absent in our version of the Glottolog database. Did you mean Aduge, Adyghe?
+#' # In is.glottolog(c('Kabardia', 'Russian'), response = TRUE) :
+#' # Language Kabardia is absent in our version of the Glottolog database.
+#' # Did you mean Kabardian, Greater Kabardian?
 #' }
 #' @export
 #' @importFrom stringdist stringdist

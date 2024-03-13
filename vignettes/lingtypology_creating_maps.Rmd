@@ -19,7 +19,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 The most important part of the `lingtypology` package is the function `map.feature`. This function allows you to produce maps similar to known projects within [the Cross-Linguistic Linked Data philosophy](https://clld.org/), such as [WALS](https://wals.info/) and [Glottolog](https://glottolog.org/):
 ```{r}
-map.feature(c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"))
+map.feature(c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"))
 ```
 
 As shown in the picture above, this function generates an interactive Leaflet map. All specific points on the map have a pop-up box that appears when markers are clicked (see section 3.3 for more information about editing pop-up boxes). By default, they contain language names linked to the glottolog site.
@@ -27,7 +27,7 @@ As shown in the picture above, this function generates an interactive Leaflet ma
 If for some reasons you are not using RStudio or you want to automatically create and save a lot of maps, you can save a map to a variable and use the `htmlwidgets` package for saving created maps to an .html file. I would like to thank Timo Roettger for mentioning this problem.
 
 ```{r, eval = FALSE}
-m <- map.feature(c("Adyghe", "Korean"))
+m <- map.feature(c("West Circassian", "Korean"))
 # install.packages("htmlwidgets")
 library(htmlwidgets)
 saveWidget(m, file="TYPE_FILE_PATH/m.html")
@@ -39,7 +39,7 @@ There is an export button in RStudio, but for some reason it is not so easy to s
 
 The goal of this package is to allow typologists (or any other linguists) to map language features. A list of languages and correspondent features can be stored in a `data.frame` as follows:
 ```{r}
-df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+df <- data.frame(language = c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"),
                features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
 df
 ```
@@ -215,7 +215,7 @@ map.feature(languages = circassian$language,
 
 You can set your own colors using the argument `color`:
 ```{r}
-df <- data.frame(language = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+df <- data.frame(language = c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"),
                  features = c("polysynthetic", "polysynthetic", "fusional", "fusional", "fusional"))
 map.feature(languages = df$language,
             features = df$features,
@@ -337,7 +337,7 @@ The arguments `legend.position` and `stroke.legend.position` allow you to change
 
 A scale bar is automatically added to a map, but you can control its appearance (set `scale.bar` argument to `TRUE` or`FALSE`) and its position (use `scale.bar.position` argument values "topright", "bottomright", "bottomleft" or"topleft").
 ```{r}
-map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+map.feature(c("West Circassian", "Polish", "Kabardian", "Russian"),
             scale.bar= TRUE,
             scale.bar.position = "topright")
 ```
@@ -346,7 +346,7 @@ map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
 
 It is possible to use different tiles on the same map using the `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
 ```{r}
-df <- data.frame(lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+df <- data.frame(lang = c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"),
                  feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
                  popup = c("Adyghe", "Adyghe", "Slavic", "Slavic", "Slavic"))
 
@@ -378,13 +378,13 @@ map.feature(df$lang, df$feature, df$popup,
 
 It is possible to add a minimap to a map.
 ```{r}
-map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+map.feature(c("West Circassian", "Polish", "Kabardian", "Russian"),
             minimap = TRUE)
 ```
 
 You can control its appearance (by setting the `minimap` argument to `TRUE` or `FALSE`), its position (by using the values "topright", "bottomright", "bottomleft" or"topleft" of the `minimap.position` argument) and its height and width (with the arguments `minimap.height` and `minimap.width`).
 ```{r}
-map.feature(c("Adyghe", "Polish", "Kabardian", "Russian"),
+map.feature(c("West Circassian", "Polish", "Kabardian", "Russian"),
             minimap = TRUE,
             minimap.position = "topright",
             minimap.height = 100,
@@ -585,7 +585,7 @@ map.feature(circassian$language,
 
 It is possible to add a graticule to a map.
 ```{r}
-map.feature(c("Russian", "Adyghe"),
+map.feature(c("Russian", "West Circassian"),
             graticule = 5)
 ```
 

@@ -53,9 +53,9 @@ All functions introduced in the previous section are regular functions, so they 
 * a regular string
 
 ```{r}
-iso.lang("Adyghe")
+iso.lang("West Circassian")
 lang.iso("ady")
-lang.aff("West Caucasian")
+lang.aff("Abkhaz-Adyge")
 ```
 
 I would like to point out that you can create strings in R using single or double quotes. Since inserting single quotes in a string created with single quotes causes an error in R, I use double quotes in my tutorial. You can use single quotes, but be careful and remember that `'Ma'ya'` is an incorrect string in R.
@@ -63,8 +63,8 @@ I would like to point out that you can create strings in R using single or doubl
 * a vector of strings
 
 ```{r}
-area.lang(c("Adyghe", "Aduge"))
-lang <- c("Adyghe", "Russian")
+area.lang(c("Kabardian", "Aduge"))
+lang <- c("Kabardian", "Russian")
 aff.lang(lang)
 ```
 
@@ -81,7 +81,7 @@ If you are new to R, it is important to mention that you can create a table with
 All functions which take a vector of languages are enriched with a kind of a spell checker. If a language from a query is absent in the database, functions return a warning message containing a set of candidates with the minimal Levenshtein distance to the language from the query.
 
 ```{r}
-aff.lang("Adyge")
+aff.lang("Kabardia")
 ```
 
 ### 4. `subc.lang()` function

@@ -13,8 +13,8 @@ iso.lang(x)
 Takes any vector of languages and returns ISO code.
 }
 \examples{
-iso.lang('Adyghe')
-iso.lang(c('Adyghe', 'Udi'))
+iso.lang('Kabardian')
+iso.lang(c('Kabardian', 'Udi'))
 }
 \seealso{
 \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{gltc.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}, \code{\link{url.lang}}

@@ -13,8 +13,8 @@ gltc.lang(x)
 Takes any vector of languages and returns Glottocode.
 }
 \examples{
-gltc.lang('Adyghe')
-gltc.lang(c('Adyghe', 'Udi'))
+gltc.lang('Kabardian')
+gltc.lang(c('Kabardian', 'Udi'))
 }
 \seealso{
 \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}, \code{\link{subc.lang}}, \code{\link{url.lang}}

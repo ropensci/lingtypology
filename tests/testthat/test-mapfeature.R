@@ -13,7 +13,7 @@ test_that("map.feature source", {
 
 test_that("map.feature no coordinates", {
   skip_on_cran()
-  expect_warning(map.feature(c("Yugul", "Adyghe", "Selako")),
+  expect_warning(map.feature(c("Yugul", "Kabardian", "Selako")),
                  "There is no coordinates for languages Yugul, Selako")
 })
 
@@ -97,7 +97,7 @@ test_that("map.feature images", {
 
 df <-
   data.frame(
-    lang = c("Adyghe", "Kabardian", "Polish", "Russian", "Bulgarian"),
+    lang = c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"),
     feature = c("polysynthetic",
                 "polysynthetic", "fusion", "fusion", "fusion"),
     popup = c("Circassian", "Circassian", "Slavic",
@@ -126,20 +126,20 @@ test_that("map.feature stroke feature", {
   )
 })
 
-map_colorless <- map.feature(c("Tabasaran", "Adyghe"))
-map_lang_colors <- map.feature(c("Tabasaran", "Adyghe"),
+map_colorless <- map.feature(c("Tabasaran", "Kabardian"))
+map_lang_colors <- map.feature(c("Tabasaran", "Kabardian"),
                                color = "navy")
 map_colors <- map.feature(
-  c("Tabasaran", "Adyghe"),
+  c("Tabasaran", "Kabardian"),
   features = c("a", "b"),
   color = c("navy", "yellowgreen")
 )
 map_colors2 <- map.feature(
-  c("Tabasaran", "Adyghe"),
+  c("Tabasaran", "Kabardian"),
   features = c(1, 2),
   color = c("navy", "yellowgreen")
 )
-map_colorless2 <- map.feature(c("Tabasaran", "Adyghe"),
+map_colorless2 <- map.feature(c("Tabasaran", "Kabardian"),
                               features = c(1, 2))
 
 test_that("map.feature colors", {
@@ -159,11 +159,11 @@ test_that("map.feature colors", {
 })
 
 map_tiles <-
-  map.feature("Adyghe",
+  map.feature("Kabardian",
               tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
 map_tiles_control <-
   map.feature(
-    "Adyghe",
+    "Kabardian",
     tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
     control = TRUE
   )
@@ -189,7 +189,7 @@ test_that("map.feature tiles", {
   )
   expect_warning(
     map.feature(
-      "Adyghe",
+      "Kabardian",
       tile = c(
         "OpenStreetMap.BlackAndWhite",
         "Thunderforest.OpenCycleMap"
@@ -200,7 +200,7 @@ test_that("map.feature tiles", {
   )
   expect_warning(
     map.feature(
-      "Adyghe",
+      "Kabardian",
       tile = c("OpenStreetMap.BlackAndWhite"),
       tile.name = c("first", "second")
     ),
@@ -208,7 +208,7 @@ test_that("map.feature tiles", {
   )
 })
 
-map_control <- map.feature(c("Adyghe", "Russian", "Polish"),
+map_control <- map.feature(c("Kabardian", "Russian", "Polish"),
                            control = c("a", "b", "b"))
 
 test_that("control", {
@@ -216,7 +216,7 @@ test_that("control", {
   expect_equal(map_control$x$calls[[4]]$method, "addLayersControl")
 })
 
-map_minimap <- map.feature(c("Adyghe", "Russian"), minimap = TRUE)
+map_minimap <- map.feature(c("Kabardian", "Russian"), minimap = TRUE)
 
 test_that("map.feature minimap", {
   skip_on_cran()
@@ -229,7 +229,7 @@ test_that("map.feature scale bar", {
 })
 
 map_label <-
-  map.feature(c("Adyghe", "Russian"), label = c("a", "b"))
+  map.feature(c("Kabardian", "Russian"), label = c("a", "b"))
 test_that("map.feature labels", {
   skip_on_cran()
   expect_equal(map_label$x$calls[[3]]$args[11], list(c("a", "b")))
@@ -237,7 +237,7 @@ test_that("map.feature labels", {
 
 map_label_emph <-
   map.feature(
-    c("Adyghe", "Russian"),
+    c("Kabardian", "Russian"),
     label = c("a", "b"),
     label.emphasize = list(1, "red")
   )
@@ -248,7 +248,7 @@ test_that("map.feature emphasized labels", {
 })
 
 map_zoom <-
-  map.feature(c("Adyghe", "Russian"), zoom.level = 4)
+  map.feature(c("Kabardian", "Russian"), zoom.level = 4)
 test_that("map.feature emphasized labels", {
   expect_equal(map_zoom$x$setView[[2]], 4)
 })
@@ -314,7 +314,7 @@ test_that("map.feature lines", {
   )
 })
 
-graticule <- map.feature(c("Russian", "Adyghe"), graticule = 5)
+graticule <- map.feature(c("Russian", "Kabardian"), graticule = 5)
 
 test_that("map.feature graticule", {
   skip_on_cran()
@@ -344,7 +344,7 @@ test_that("map.feature shape", {
 })
 
 
-map_none_tile <- map.feature("Adyghe", tile = "none")
+map_none_tile <- map.feature("Kabardian", tile = "none")
 
 test_that("map without a tile", {
   skip_on_cran()

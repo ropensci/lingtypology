@@ -15,11 +15,11 @@ long.lang(x, map.orientation = "Pacific")
 Takes any vector of languages and returns longitude.
 }
 \examples{
-lat.lang('Adyghe')
-long.lang('Adyghe')
-lat.lang(c('Adyghe', 'Russian'))
-long.lang(c('Adyghe', 'Russian'))
-long.lang(c('Adyghe', 'Aleut'), map.orientation = "Pacific")
+lat.lang('Kabardian')
+long.lang('Kabardian')
+lat.lang(c('Kabardian', 'Russian'))
+long.lang(c('Kabardian', 'Russian'))
+long.lang(c('Kabardian', 'Aleut'), map.orientation = "Pacific")
 }
 \seealso{
 \code{\link{aff.lang}}, \code{\link{area.lang}}, \code{\link{country.lang}}, \code{\link{gltc.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}},  \code{\link{subc.lang}}, \code{\link{url.lang}}

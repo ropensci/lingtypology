@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2024-02-04" />
+<meta name="date" content="2024-03-13" />
 
 <title>lingtypology: creating maps</title>
 
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore"><code>lingtypology</code>: creating
 maps</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2024-02-04</h4>
+<h4 class="date">2024-03-13</h4>
 
 
 
@@ -351,7 +351,7 @@ maps</h1>
 the function <code>map.feature</code>. This function allows you to
 produce maps similar to known projects within <a href="https://clld.org/">the Cross-Linguistic Linked Data
 philosophy</a>, such as <a href="https://wals.info/">WALS</a> and <a href="https://glottolog.org/">Glottolog</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;West Circassian&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>))</span></code></pre></div>
 <p>As shown in the picture above, this function generates an interactive
 Leaflet map. All specific points on the map have a pop-up box that
 appears when markers are clicked (see section 3.3 for more information
@@ -362,7 +362,7 @@ automatically create and save a lot of maps, you can save a map to a
 variable and use the <code>htmlwidgets</code> package for saving created
 maps to an .html file. I would like to thank Timo Roettger for
 mentioning this problem.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Korean&quot;</span>))</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;West Circassian&quot;</span>, <span class="st">&quot;Korean&quot;</span>))</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># install.packages(&quot;htmlwidgets&quot;)</span></span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">library</span>(htmlwidgets)</span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">saveWidget</span>(m, <span class="at">file=</span><span class="st">&quot;TYPE_FILE_PATH/m.html&quot;</span>)</span></code></pre></div>
@@ -376,7 +376,7 @@ possible solution.</p>
 linguists) to map language features. A list of languages and
 correspondent features can be stored in a <code>data.frame</code> as
 follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">language =</span> <span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">language =</span> <span class="fu">c</span>(<span class="st">&quot;West Circassian&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>               <span class="at">features =</span> <span class="fu">c</span>(<span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;fusional&quot;</span>, <span class="st">&quot;fusional&quot;</span>, <span class="st">&quot;fusional&quot;</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>df</span></code></pre></div>
 <p>Now we can draw a map:</p>
@@ -546,7 +546,7 @@ villages:</p>
 <h3>6. Set colors</h3>
 <p>You can set your own colors using the argument
 <code>color</code>:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">language =</span> <span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">language =</span> <span class="fu">c</span>(<span class="st">&quot;West Circassian&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
 <span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>                 <span class="at">features =</span> <span class="fu">c</span>(<span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;fusional&quot;</span>, <span class="st">&quot;fusional&quot;</span>, <span class="st">&quot;fusional&quot;</span>))</span>
 <span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="at">languages =</span> df<span class="sc">$</span>language,</span>
 <span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span>features,</span>
@@ -671,7 +671,7 @@ appearance (set <code>scale.bar</code> argument to <code>TRUE</code>
 or<code>FALSE</code>) and its position (use
 <code>scale.bar.position</code> argument values “topright”,
 “bottomright”, “bottomleft” or”topleft”).</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;West Circassian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
 <span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a>            <span class="at">scale.bar=</span> <span class="cn">TRUE</span>,</span>
 <span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a>            <span class="at">scale.bar.position =</span> <span class="st">&quot;topright&quot;</span>)</span></code></pre></div>
 </div>
@@ -679,7 +679,7 @@ or<code>FALSE</code>) and its position (use
 <h3>13. Set layouts</h3>
 <p>It is possible to use different tiles on the same map using the
 <code>tile</code> argument. For more tiles see <a href="https://leaflet-extras.github.io/leaflet-providers/preview/index.html">here</a>.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lang =</span> <span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lang =</span> <span class="fu">c</span>(<span class="st">&quot;West Circassian&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Bulgarian&quot;</span>),</span>
 <span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>                 <span class="at">feature =</span> <span class="fu">c</span>(<span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;polysynthetic&quot;</span>, <span class="st">&quot;fusion&quot;</span>, <span class="st">&quot;fusion&quot;</span>, <span class="st">&quot;fusion&quot;</span>),</span>
 <span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a>                 <span class="at">popup =</span> <span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Slavic&quot;</span>, <span class="st">&quot;Slavic&quot;</span>, <span class="st">&quot;Slavic&quot;</span>))</span>
 <span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a></span>
@@ -703,7 +703,7 @@ control box.</p>
 <div id="add-a-minimap-to-a-map" class="section level3">
 <h3>14. Add a minimap to a map</h3>
 <p>It is possible to add a minimap to a map.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;West Circassian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
 <span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a>            <span class="at">minimap =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>You can control its appearance (by setting the <code>minimap</code>
 argument to <code>TRUE</code> or <code>FALSE</code>), its position (by
@@ -711,7 +711,7 @@ using the values “topright”, “bottomright”, “bottomleft” or”toplef
 the <code>minimap.position</code> argument) and its height and width
 (with the arguments <code>minimap.height</code> and
 <code>minimap.width</code>).</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;Adyghe&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;West Circassian&quot;</span>, <span class="st">&quot;Polish&quot;</span>, <span class="st">&quot;Kabardian&quot;</span>, <span class="st">&quot;Russian&quot;</span>),</span>
 <span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a>            <span class="at">minimap =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb36-3"><a href="#cb36-3" tabindex="-1"></a>            <span class="at">minimap.position =</span> <span class="st">&quot;topright&quot;</span>,</span>
 <span id="cb36-4"><a href="#cb36-4" tabindex="-1"></a>            <span class="at">minimap.height =</span> <span class="dv">100</span>,</span>
@@ -895,7 +895,7 @@ regression is used for calculation).</p>
 <span id="cb53-4"><a href="#cb53-4" tabindex="-1"></a>            <span class="at">latitude =</span> circassian<span class="sc">$</span>latitude,</span>
 <span id="cb53-5"><a href="#cb53-5" tabindex="-1"></a>            <span class="at">line.type =</span> <span class="st">&quot;logit&quot;</span>)</span></code></pre></div>
 <p>It is possible to add a graticule to a map.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;Adyghe&quot;</span>),</span>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">&quot;Russian&quot;</span>, <span class="st">&quot;West Circassian&quot;</span>),</span>
 <span id="cb54-2"><a href="#cb54-2" tabindex="-1"></a>            <span class="at">graticule =</span> <span class="dv">5</span>)</span></code></pre></div>
 </div>
 
