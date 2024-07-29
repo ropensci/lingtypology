@@ -5,7 +5,7 @@
 \alias{wals}
 \title{WALS's Language identifiers}
 \format{
-A data frame with 2950 rows and 2 variables:
+A data frame with 2678 rows and 2 variables:
 \describe{
   \item{wals.code}{WALS language identifier}
   \item{glottocode}{Glottocode}

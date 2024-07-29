@@ -1,4 +1,4 @@
-## ---- include=FALSE-----------------------------------------------------------
+## ----include=FALSE------------------------------------------------------------
 library(lingtypology)
 knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 
@@ -6,7 +6,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #  new_data <- read.csv("https://goo.gl/GgscBE")
 #  tail(new_data)
 
-## ---- message= FALSE----------------------------------------------------------
+## ----message= FALSE-----------------------------------------------------------
 #  library(dplyr)
 #  new_data |>
 #    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) |>
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #    select(Language.name) |>
 #    map.feature()
 
-## ---- message= FALSE----------------------------------------------------------
+## ----message= FALSE-----------------------------------------------------------
 #  new_data |>
 #    mutate(Language.name = gsub(pattern = " ", replacement = "", Language.name)) |>
 #    filter(is.glottolog(Language.name) == TRUE) |>
@@ -56,7 +56,7 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #  map.feature(c("French", "Occitan")) |>
 #    leaflet.extras::addFullscreenControl()
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  map.feature(c("West Circassian", "Russian")) |>
 #    mapedit::editMap() ->
 #    my_polygone
@@ -73,27 +73,27 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 #  library(leafsync)
 #  sync(faceted, no.initial.sync = FALSE)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  m1 <- map.feature(lang.aff("Tsezic"), label = lang.aff("Tsezic"))
 #  m2 <- map.feature(lang.aff("Avar-Andi"), label = lang.aff("Avar-Andi"))
 #  sync(m1, m2)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(overpass)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  settlements <- 'area[name~"Дагестан|Ингушетия|Чечня"];
 #  (node["place"~"city|village|town|hamlet"](area););
 #  out;'
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  query_result <- overpass_query(settlements)
 #  settlement_data <- as.data.frame(query_result[, c("id", "lon", "lat", "name")])
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  settlement_data <- settlement_data[complete.cases(settlement_data),]
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  map.feature(language = "fake",
 #              latitude = settlement_data$lat,
 #              longitude = settlement_data$lon,
@@ -113,13 +113,13 @@ knitr::opts_chunk$set(message= FALSE, eval=FALSE)
 ## -----------------------------------------------------------------------------
 #  list.files("./atlas_Some_WALS_features/")
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  rmarkdown::render_site("./atlas_Some_WALS_features/")
 
-## ---- include=FALSE-----------------------------------------------------------
+## ----include=FALSE------------------------------------------------------------
 #  unlink("./atlas_Some_WALS_features/", recursive = TRUE)
 
-## ---- eval= FALSE-------------------------------------------------------------
+## ----eval= FALSE--------------------------------------------------------------
 #  sp::coordinates(circassian) <- ~longitude+latitude
 #  sp::proj4string(circassian) <- sp::CRS("+proj=longlat +datum=WGS84")
 #  rgdal::writeOGR(circassian["village"],

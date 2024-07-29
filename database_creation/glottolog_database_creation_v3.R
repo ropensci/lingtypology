@@ -148,3 +148,13 @@ setwd("/home/agricolamz/work/packages/lingtypology/database_creation")
 countries <- read_csv("country.data.csv")
 setwd("/home/agricolamz/work/packages/lingtypology/data/")
 save(countries, file="countries.RData", compress='xz')
+
+
+# wals --------------------------------------------------------------------
+setwd("/home/agricolamz/work/packages/lingtypology/database_creation")
+wals <- read_csv("wals.csv")
+setwd("/home/agricolamz/work/packages/lingtypology/data/")
+save(wals, file="wals.RData", compress='xz')
+
+
+

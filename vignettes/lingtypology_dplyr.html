@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2024-03-13" />
+<meta name="date" content="2024-07-29" />
 
 <title>lingtypology and other packages</title>
 
@@ -51,7 +51,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore"><code>lingtypology</code> and other
 packages</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2024-03-13</h4>
+<h4 class="date">2024-07-29</h4>
 
 
 
@@ -546,9 +546,9 @@ command.</li>
 <h3>6. Create .kml file using <code>sp</code> and
 <code>rgdal</code></h3>
 <p>.kml file is a common file type for geospatial data. This kind of
-files are used in <a href="https://en.wikipedia.org/wiki/Google_Earth">Google Earth</a>, <a href="https://gabmap.let.rug.nl/">Gabmap</a> (a web application that
-visualizes dialect variations) and others. In order to produce a .kml
-file you need to have a dataset with coordinates such as
+files are used in <a href="https://en.wikipedia.org/wiki/Google_Earth">Google Earth</a>, <a href="https://github.com/pebbe/Gabmap">Gabmap</a> (a web application
+that visualizes dialect variations) and others. In order to produce a
+.kml file you need to have a dataset with coordinates such as
 <code>circassian</code>:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>sp<span class="sc">::</span><span class="fu">coordinates</span>(circassian) <span class="ot">&lt;-</span> <span class="er">~</span>longitude<span class="sc">+</span>latitude</span>
 <span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>sp<span class="sc">::</span><span class="fu">proj4string</span>(circassian) <span class="ot">&lt;-</span> sp<span class="sc">::</span><span class="fu">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)</span>
