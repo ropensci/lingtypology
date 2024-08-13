@@ -3,8 +3,8 @@
 #' This function is based on this answer: https://gis.stackexchange.com/a/203623/
 #' @param latitude numeric vector of latitudes
 #' @param longitude numeric vector of longitudes
-#' @param latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
-#' @param longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param latitude.width bandwidths for latitude values. Defaults to normal reference bandwidth (see \link[MASS]{bandwidth.nrd}).
+#' @param longitude.width bandwidths for longitude values. Defaults to normal reference bandwidth (see \link[MASS]{bandwidth.nrd}).
 #'
 #' @importFrom stats density
 #' @importFrom stats sd

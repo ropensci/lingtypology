@@ -11,9 +11,9 @@ polygon.points_kde(latitude, longitude, latitude.width, longitude.width)
 
 \item{longitude}{numeric vector of longitudes}
 
-\item{latitude.width}{bandwidths for latitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).}
+\item{latitude.width}{bandwidths for latitude values. Defaults to normal reference bandwidth (see \link[MASS]{bandwidth.nrd}).}
 
-\item{longitude.width}{bandwidths for longitude values. Defaults to normal reference bandwidth (see \link{bandwidth.nrd}).}
+\item{longitude.width}{bandwidths for longitude values. Defaults to normal reference bandwidth (see \link[MASS]{bandwidth.nrd}).}
 }
 \description{
 This function is based on this answer: https://gis.stackexchange.com/a/203623/

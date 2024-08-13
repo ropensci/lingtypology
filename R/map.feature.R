@@ -13,7 +13,7 @@
 #' @param minimap logical. If TRUE, function shows mini map. By default is FALSE.
 #' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
 #' @param tile.opacity numeric value from 0 to 1 denoting opacity of the tile.
-#' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link{colorNumeric}}
+#' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link[leaflet]{colorNumeric}}
 #' @param control vector of grouping values that make it possible to create control panel that can turn off/on some points on the map.
 #' @param density.method string with one of the two methods: "kernal density estimation" or "fixed distance" (default)
 #' @param density.estimation.color vector of density polygons' colors
@@ -29,7 +29,7 @@
 #' @param isogloss.color vector of isoglosses' colors
 #' @param isogloss.opacity a numeric vector of density polygons opacity.
 #' @param isogloss.line.width a numeric value for line width
-#' @param isogloss.width for density.method = "fixed distance" it is a numeric measure (1 is 1km). For density.method = "kernal density estimation" it is a vector with two meausures (first is latitude, secong is longitude). Defaults are normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param isogloss.width for density.method = "fixed distance" it is a numeric measure (1 is 1km). For density.method = "kernal density estimation" it is a vector with two meausures (first is latitude, secong is longitude). Defaults are normal reference bandwidth (see \link[MASS]{bandwidth.nrd}).
 #' @param image.height numeric vector of image heights
 #' @param image.url character vector of URLs with an images
 #' @param image.width numeric vector of image widths
