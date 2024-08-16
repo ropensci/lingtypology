@@ -21,7 +21,7 @@
 #' @param density.legend logical. If TRUE, function show legend for density features. By default is FALSE.
 #' @param density.legend.opacity a numeric vector of density-legend opacity.
 #' @param density.legend.position the position of the legend: "topright", "bottomright", "bottomleft","topleft"
-#' @param density.width for density.method = "fixed distance" it is a numeric measure (1 is 1km). For density.method = "kernal density estimation" it is a vector with two meausures (first is latitude, secong is longitude). Defaults are normal reference bandwidth (see \link{bandwidth.nrd}).
+#' @param density.width for density.method = "fixed distance" it is a numeric measure (1 is 1km). For density.method = "kernal density estimation" it is a vector with two meausures (first is latitude, secong is longitude). Defaults are normal reference bandwidth (see \link[MASS]{bandwidth.nrd}).
 #' @param density.points logical. If FALSE, it doesn't show points in polygones.
 #' @param density.title title of a density-feature legend
 #' @param density.control logical. If TRUE, function show layer control buttons for density plot. By default is FALSE

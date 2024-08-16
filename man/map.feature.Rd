@@ -134,7 +134,7 @@ map.feature(
 
 \item{density.points}{logical. If FALSE, it doesn't show points in polygones.}
 
-\item{density.width}{for density.method = "fixed distance" it is a numeric measure (1 is 1km). For density.method = "kernal density estimation" it is a vector with two meausures (first is latitude, secong is longitude). Defaults are normal reference bandwidth (see \link{bandwidth.nrd}).}
+\item{density.width}{for density.method = "fixed distance" it is a numeric measure (1 is 1km). For density.method = "kernal density estimation" it is a vector with two meausures (first is latitude, secong is longitude). Defaults are normal reference bandwidth (see \link[MASS]{bandwidth.nrd}).}
 
 \item{density.legend}{logical. If TRUE, function show legend for density features. By default is FALSE.}
 
