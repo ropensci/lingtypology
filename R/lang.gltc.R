@@ -14,7 +14,7 @@ lang.gltc <- function(x) {
     x <- unlist(x)
   }
   glottolog <- lingtypology::glottolog
-  x <- gsub("\\W", "", x)
+  x <- gsub("\\s{1,}", " ", x)
   vapply(x, function(y) {
     if(is.na(y)){
       NA_character_
