@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/ropensci/lingtypology/",
   "issueTracker": "https://github.com/ropensci/lingtypology/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "1.1.15",
+  "version": "1.1.20",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.1 (2023-06-16)",
+  "runtimePlatform": "R version 4.3.3 (2024-02-29)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -103,27 +103,8 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "covr",
-      "name": "covr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=covr"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "MASS",
-      "name": "MASS",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=MASS"
+      "name": "MASS"
     },
     {
       "@type": "SoftwareApplication",
@@ -234,7 +215,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2227.264KB",
+  "fileSize": "2238.975KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

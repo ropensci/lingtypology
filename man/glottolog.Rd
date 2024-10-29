@@ -5,9 +5,9 @@
 \alias{glottolog}
 \title{Catalogue of languages of the world}
 \format{
-A data frame with 26879 rows and 10 variables:
+A data frame with 26953 rows and 10 variables:
 \describe{
-  \item{glottocode}{languoid code from Glottolog 5.0}
+  \item{glottocode}{languoid code from Glottolog 5.1}
   \item{language}{name of the language}
   \item{iso}{code based on ISO 639--3 \url{https://iso639-3.sil.org/}}
   \item{level}{languoid type: dialect or language (possible values are dialect, language, family, bookkeeping, pseudo family, sign language, unclassifiable, pidgin, unattested, artificial language, speech register, mixed language)}
@@ -32,7 +32,7 @@ and coordinates.
 }
 \details{
 Hammarstrom, Harald and Forkel, Robert and Haspelmath, Martin and Bank, Sebastian. 2023.
-Glottolog 5.0.
+Glottolog 5.1.
 Leipzig: Max Planck Institute for Evolutionary Anthropology.
 https://doi.org/10.5281/zenodo.10804357
 (Available online at http://glottolog.org, Accessed on 2024-03-12.)

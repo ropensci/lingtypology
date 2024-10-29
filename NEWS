@@ -1,3 +1,6 @@
+lingtypology 1.1.20
+- update Glottolog to v. 5.1
+
 lingtypology 1.1.19
 - update `lang.gltc()` function
 

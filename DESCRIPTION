@@ -1,7 +1,7 @@
 Package: lingtypology
 Type: Package
 Title: Linguistic Typology and Mapping
-Version: 1.1.19
+Version: 1.1.20
 Depends: R (>= 3.5.0)
 Imports:
     leaflet,
@@ -31,7 +31,7 @@ License: GPL (>= 2)
 URL: https://CRAN.R-project.org/package=lingtypology, https://github.com/ropensci/lingtypology/, https://ropensci.github.io/lingtypology/
 BugReports: https://github.com/ropensci/lingtypology/issues
 LazyData: TRUE
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.2.9000
 Encoding: UTF-8
 Suggests:
     knitr,
