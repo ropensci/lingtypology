@@ -16,3 +16,4 @@
 ^vignettes/compile_vignettes.R$
 ^\.github$
 codemeta.json
+^lingtypology\.Rproj$
