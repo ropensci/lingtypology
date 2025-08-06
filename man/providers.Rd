@@ -8,7 +8,7 @@
 A list of characters
 }
 \source{
-\url{https://github.com/leaflet-extras/leaflet-providers/blob/master/leaflet-providers.js}
+\url{https://leaflet-extras.github.io/leaflet-providers/preview/}
 }
 \usage{
 providers

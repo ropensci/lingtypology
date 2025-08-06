@@ -5,12 +5,12 @@
 #' and coordinates.
 #'
 #' Hammarstrom, Harald and Forkel, Robert and Haspelmath, Martin and Bank, Sebastian. 2025.
-#' Glottolog 5.2.
+#' Glottolog 5.2
 #' Leipzig: Max Planck Institute for Evolutionary Anthropology.
 #' https://doi.org/10.5281/zenodo.10804357
-#' (Available online at http://glottolog.org, Accessed on 2024-03-12.)
+#' (Available online at http://glottolog.org, Accessed on 2025-06-14.)
 #'
-#' @format A data frame with 27034 rows and 10 variables:
+#' @format A data frame with 27037 rows and 10 variables:
 #' \describe{
 #'   \item{glottocode}{languoid code from Glottolog 5.2}
 #'   \item{language}{name of the language}

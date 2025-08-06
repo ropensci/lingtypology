@@ -21,7 +21,7 @@ values %>%
   select(Language_ID, Parameter_ID, Value) %>%
   pivot_wider(names_from = Parameter_ID, values_from = Value) %>%
   left_join(languages, c("Language_ID" = "ID")) %>%
-  mutate(Longitude = ifelse(Longitude < -37, Longitude + 360, Longitude),
+  mutate(Longitude = ifelse(Longitude < -36, Longitude + 360, Longitude),
          level = case_when(category == "Artificial_Language" ~ "artificial language",
                            category == "Bookkeeping" ~ "bookkeeping",
                            category == "Mixed_Language" ~ "mixed language",

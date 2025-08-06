@@ -11,7 +11,7 @@
 #' @param popup character vector of strings that will appear in pop-up window
 #' @param label character vector of strings that will appear near points
 #' @param minimap logical. If TRUE, function shows mini map. By default is FALSE.
-#' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.
+#' @param tile a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/}{here} for the complete set.
 #' @param tile.opacity numeric value from 0 to 1 denoting opacity of the tile.
 #' @param color vector of colors or palette. The color argument can be (1) a character vector of RGM or named colors; (2) the name of an RColorBrewer palette; (3) the full name of a viridis palette; (4) a function that receives a single value between 0 and 1 and returns a color. For more examples see \code{\link[leaflet]{colorNumeric}}
 #' @param control vector of grouping values that make it possible to create control panel that can turn off/on some points on the map.

@@ -210,7 +210,7 @@ map.feature(
 
 \item{facet}{character vector that provide a grouping variable. If it is no \code{NULL}, then as a result a list of leaflets for \code{sync} or \code{latticeView} functions from \code{mapview} package is returned.}
 
-\item{tile}{a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/index.html}{here} for the complete set.}
+\item{tile}{a character verctor with a map tiles, popularized by Google Maps. See \href{https://leaflet-extras.github.io/leaflet-providers/preview/}{here} for the complete set.}
 
 \item{tile.name}{a character verctor with a user's map tiles' names.}
 

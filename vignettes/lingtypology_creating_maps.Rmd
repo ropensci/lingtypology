@@ -344,7 +344,7 @@ map.feature(c("West Circassian", "Polish", "Kabardian", "Russian"),
 
 ### 13. Set layouts
 
-It is possible to use different tiles on the same map using the `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/index.html).
+It is possible to use different tiles on the same map using the `tile` argument. For more tiles see [here](https://leaflet-extras.github.io/leaflet-providers/preview/).
 ```{r}
 df <- data.frame(lang = c("West Circassian", "Kabardian", "Polish", "Russian", "Bulgarian"),
                  feature = c("polysynthetic", "polysynthetic", "fusion", "fusion", "fusion"),
