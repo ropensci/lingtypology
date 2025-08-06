@@ -160,11 +160,11 @@ test_that("map.feature colors", {
 
 map_tiles <-
   map.feature("Kabardian",
-              tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"))
+              tile = c("CartoDB.Positron", "Thunderforest.OpenCycleMap"))
 map_tiles_control <-
   map.feature(
     "Kabardian",
-    tile = c("OpenStreetMap.BlackAndWhite", "Thunderforest.OpenCycleMap"),
+    tile = c("CartoDB.Positron", "Thunderforest.OpenCycleMap"),
     control = TRUE
   )
 
@@ -173,7 +173,7 @@ test_that("map.feature tiles", {
   expect_equal(
     c(map_tiles$x$calls[[2]]$args[[1]], map_tiles$x$calls[[3]]$args[[1]]),
     c(
-      "OpenStreetMap.BlackAndWhite",
+      "CartoDB.Positron",
       "Thunderforest.OpenCycleMap"
     )
   )
@@ -183,7 +183,7 @@ test_that("map.feature tiles", {
       map_tiles_control$x$calls[[3]]$args[[1]]
     ),
     c(
-      "OpenStreetMap.BlackAndWhite",
+      "CartoDB.Positron",
       "Thunderforest.OpenCycleMap"
     )
   )
@@ -191,7 +191,7 @@ test_that("map.feature tiles", {
     map.feature(
       "Kabardian",
       tile = c(
-        "OpenStreetMap.BlackAndWhite",
+        "CartoDB.Positron",
         "Thunderforest.OpenCycleMap"
       ),
       tile.name = c("first")
@@ -201,7 +201,7 @@ test_that("map.feature tiles", {
   expect_warning(
     map.feature(
       "Kabardian",
-      tile = c("OpenStreetMap.BlackAndWhite"),
+      tile = c("CartoDB.Positron"),
       tile.name = c("first", "second")
     ),
     'number of tile names \\(tile.name argument\\) is less than number of tiles \\(tile argument\\)'
