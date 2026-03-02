@@ -4,8 +4,8 @@ author: "George Moroz"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{`lingtypology`: Glottolog functions}
   %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{`lingtypology`: Glottolog functions}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
   chunk_output_type: console
@@ -46,7 +46,7 @@ The most important functionality of `lingtypology` is the ability to create inte
 
 * **map.feature()**
 
-[Glottolog database (v. 4.1)](https://glottolog.org/) provides `lingtypology` with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
+[Glottolog database (v. 5.3)](https://glottolog.org/) provides `lingtypology` with language names, ISO codes, glottocodes, affiliation, macro area, coordinates, and much information. This set of functions doesn't have a goal to cover all possible combinations of functions. Check out additional information that is preserved in the version of the Glottolog database used in `lingtypology`:
 
 ```{r}
 names(glottolog)

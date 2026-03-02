@@ -21,7 +21,14 @@ lang.aff <- function(x, include.dialects = FALSE, list = FALSE) {
            glottolog <- lingtypology::glottolog[lingtypology::glottolog$level %in% c("language", "sign language"),]
     )
     result <- lapply(x, function(y) {
-      glottolog[grep(tolower(y), tolower(glottolog$affiliation)),]$language
+
+      affiliation_for_search <- lingtypology::glottolog[lingtypology::glottolog$language == y,]$affiliation
+
+      affiliation_for_search <- ifelse(affiliation_for_search == "",
+                                       y,
+                                       paste0(affiliation_for_search, ", ", y))
+
+      glottolog[grep(affiliation_for_search, glottolog$affiliation),]$language
     })
     if (list == FALSE) {
       unlist(result)

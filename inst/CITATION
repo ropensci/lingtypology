@@ -1,5 +1,7 @@
 bibentry(bibtype = "Manual",
+         textVersion = "Moroz, George (2017). lingtypology: easy mapping for Linguistic Typology. R package. doi:10.32614/CRAN.package.lingtypology",
          title = "lingtypology: easy mapping for Linguistic Typology",
          author = person("George", "Moroz"),
          year = 2017,
+         doi = "10.32614/CRAN.package.lingtypology",
          url = "https://CRAN.R-project.org/package=lingtypology")

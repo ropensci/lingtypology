@@ -1,3 +1,9 @@
+lingtypology 1.1.25
+- update Glottolog to v. 5.3
+
+lingtypology 1.1.24
+- update the `lang.aff()` function
+
 lingtypology 1.1.23
 - small updates
 
@@ -11,10 +17,10 @@ lingtypology 1.1.20
 - update Glottolog to v. 5.1
 
 lingtypology 1.1.19
-- update `lang.gltc()` function
+- update the `lang.gltc()` function
 
 lingtypology 1.1.18
-- update `wals` dataset after Michael Cysouw's comment #89
+- update the `wals` dataset after Michael Cysouw's comment #89
 
 lingtypology 1.1.17
 - update Glottolog to v. 5.0
