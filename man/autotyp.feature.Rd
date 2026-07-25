@@ -4,10 +4,12 @@
 \alias{autotyp.feature}
 \title{Download AUTOTYP data}
 \usage{
-autotyp.feature(features, na.rm = TRUE)
+autotyp.feature(features, version = "v1.1.1", na.rm = TRUE)
 }
 \arguments{
 \item{features}{A character vector that define with a feature names from AUTOTYP.}
+
+\item{version}{A character verctor that defines version of the dataset.}
 
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }

@@ -12,7 +12,7 @@ A data frame with 2678 rows and 2 variables:
 }
 }
 \usage{
-wals
+data(wals)
 }
 \description{
 Language identifiers from WALS (\url{https://wals.info/}). This dataset is created for \code{\link{wals.feature}} function.

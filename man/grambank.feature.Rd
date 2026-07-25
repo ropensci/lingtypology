@@ -4,10 +4,12 @@
 \alias{grambank.feature}
 \title{Download Grambank data}
 \usage{
-grambank.feature(features, na.rm = TRUE)
+grambank.feature(features, version = "v1.0.3", na.rm = TRUE)
 }
 \arguments{
-\item{features}{A character vector that define with a feature ids from Grambank (e. g. "gb026", "gb042").}
+\item{features}{A character vector that defines feature ids from Grambank (e. g. "gb026", "gb042").}
+
+\item{version}{A character verctor that defines version of the dataset}
 
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }

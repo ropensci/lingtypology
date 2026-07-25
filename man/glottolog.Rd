@@ -23,7 +23,7 @@ A data frame with 27177 rows and 10 variables:
 \url{https://glottolog.org/}
 }
 \usage{
-glottolog
+data(glottolog)
 }
 \description{
 A dataset containes the original catalogue of languages of the world

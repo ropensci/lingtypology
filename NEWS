@@ -1,3 +1,10 @@
+lingtypology 1.1.26
+- fix the name of Hedvig Skirgård in the `grambank.feature()` function #92
+- add versioning for the folowing functions thanks to Hedvig Skirgård @HedvigS
+  - `grambank.feature()`
+  - `autotyp.feature()`
+  - `uralex.feature()`
+
 lingtypology 1.1.25
 - update Glottolog to v. 5.3
 

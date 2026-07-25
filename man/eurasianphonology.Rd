@@ -29,7 +29,7 @@ A data frame with 19825 rows and 19 variables:
 }
 }
 \usage{
-eurasianphonology
+data(eurasianphonology)
 }
 \description{
 Data from The database of Eurasian phonological inventories (\url{https://eurphon.info}). This dataset is created for \code{\link{eurasianphonology.feature}} function.

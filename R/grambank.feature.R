@@ -2,7 +2,8 @@
 #'
 #' This function downloads data from Grambank (\url{https://grambank.clld.org/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
-#' @param features A character vector that define with a feature ids from Grambank (e. g. "gb026", "gb042").
+#' @param features A character vector that defines feature ids from Grambank (e. g. "gb026", "gb042").
+#' @param version A character verctor that defines version of the dataset
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{bivaltyp.feature}}, \code{\link{eurasianphonology.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{soundcomparisons.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{vanuatu.feature}}, \code{\link{wals.feature}}
 #' @author George Moroz <agricolamz@gmail.com>
@@ -15,6 +16,7 @@
 
 grambank.feature <-
  function(features,
+          version = "v1.0.3",
           na.rm = TRUE) {
   features_set <-
    c(
@@ -214,23 +216,24 @@ grambank.feature <-
     "GB521",
     "GB522"
     )
-  message(paste0("Grambank v.1.0.3
+
+  stopifnot(version %in% c("v1.0", "v1.0.1", "v1.0.2", "v1.0.3"))
+
+  message(paste0("Grambank ", version, "
 
 Don't forget to cite the source (modify in case of using individual chapters):
 
-Hedvig Skirg\r{a}rd et al., Grambank reveals the importance of genealogical
+Hedvig Skirg\u00e5rd et al., Grambank reveals the importance of genealogical
 constraints on linguistic diversity and highlights the impact of language
 loss.Sci. Adv.9, eadg6175(2023). DOI:10.1126/sciadv.adg6175
 
 
-@article{
-doi:10.1126/sciadv.adg6175,
+@article{skirgardGrambankRevealsImportance2023,
 author = {Hedvig Skirg\u00E5rd and Hannah J. Haynie and Dami\u00E1n E. Blasi and Harald Hammarstr\u00F6m and Jeremy Collins and Jay J. Latarche and Jakob Lesage and Tobias Weber and Alena Witzlack-Makarevich and Sam Passmore and Angela Chira and Luke Maurits and Russell Dinnage and Michael Dunn and Ger Reesink and Ruth Singer and Claire Bowern and Patience Epps and Jane Hill and Outi Vesakoski and Martine Robbeets and Noor Karolin Abbas and Daniel Auer and Nancy A. Bakker and Giulia Barbos and Robert D. Borges and Swintha Danielsen and Luise Dorenbusch and Ella Dorn and John Elliott and Giada Falcone and Jana Fischer and Yustinus Ghanggo Ate and Hannah Gibson and Hans-Philipp G\u00F6bel and Jemima A. Goodall and Victoria Gruner and Andrew Harvey and Rebekah Hayes and Leonard Heer and Roberto E. Herrera Miranda and Nataliia H\u00FCbler and Biu Huntington-Rainey and Jessica K. Ivani and Marilen Johns and Erika Just and Eri Kashima and Carolina Kipf and Janina V. Klingenberg and Nikita K\u00F6nig and Aikaterina Koti and Richard G. A. Kowalik and Olga Krasnoukhova and Nora L. M. Lindvall and Mandy Lorenzen and Hannah Lutzenberger and T\u00E2nia R. A. Martins and Celia Mata German and Suzanne van der Meer and Jaime Montoya Samam\u00E9 and Michael M\u00FCller and Saliha Muradoglu and Kelsey Neely and Johanna Nickel and Miina Norvik and Cheryl Akinyi Oluoch and Jesse Peacock and India O. C. Pearey and Naomi Peck and Stephanie Petit and S\u00F6ren Pieper and Mariana Poblete and Daniel Prestipino and Linda Raabe and Amna Raja and Janis Reimringer and Sydney C. Rey and Julia Rizaew and Eloisa Ruppert and Kim K. Salmon and Jill Sammet and Rhiannon Schembri and Lars Schlabbach and Frederick W. P. Schmidt and Amalia Skilton and Wikaliler Daniel Smith and Hil\u00E1rio de Sousa and Kristin Sverredal and Daniel Valle and Javier Vera and Judith Vo\u00DF and Tim Witte and Henry Wu and Stephanie Yam and Jingting Ye and Maisie Yong and Tessa Yuditha and Roberto Zariquiey and Robert Forkel and Nicholas Evans and Stephen C. Levinson and Martin Haspelmath and Simon J. Greenhill and Quentin D. Atkinson and Russell D. Gray},
 title = {Grambank reveals the importance of genealogical constraints on linguistic diversity and highlights the impact of language loss},
 journal = {Science Advances},
 volume = {9},
 number = {16},
-pages = {eadg6175},
 year = {2023},
 doi = {10.1126/sciadv.adg6175},
 URL = {https://www.science.org/doi/abs/10.1126/sciadv.adg6175},
@@ -239,10 +242,10 @@ eprint = {https://www.science.org/doi/pdf/10.1126/sciadv.adg6175}}
 "))
 
   if (sum(!toupper(features) %in% features_set) < 1){
-   l <- utils::read.csv("https://raw.githubusercontent.com/grambank/grambank/master/cldf/languages.csv")
-   v <- utils::read.csv("https://raw.githubusercontent.com/grambank/grambank/master/cldf/values.csv")
-   c <- utils::read.csv("https://raw.githubusercontent.com/grambank/grambank/master/cldf/codes.csv")[,-1]
-   p <- utils::read.csv("https://raw.githubusercontent.com/grambank/grambank/master/cldf/parameters.csv")[,1:2]
+   l <- utils::read.csv(paste0("https://raw.githubusercontent.com/grambank/grambank/", version, "/cldf/languages.csv"))
+   v <- utils::read.csv(paste0("https://raw.githubusercontent.com/grambank/grambank/", version, "/cldf/values.csv"))
+   c <- utils::read.csv(paste0("https://raw.githubusercontent.com/grambank/grambank/", version, "/cldf/codes.csv"))[,-1]
+   p <- utils::read.csv(paste0("https://raw.githubusercontent.com/grambank/grambank/", version, "/cldf/parameters.csv"))[,1:2]
 
    merged_df <- merge(l, v, by.x = "ID", by.y = "Language_ID")
    merged_df <- merge(merged_df, c, by.x = c("Parameter_ID", "Value"), by.y = c("Parameter_ID", "Name"))

@@ -2,7 +2,7 @@
 #'
 #' This function downloads data from WALS (\url{https://wals.info/}) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
-#' @param features A character vector that define with a feature ids from WALS (e. g. "1a", "21b").
+#' @param features A character vector that defines a feature ids from WALS (e. g. "1a", "21b").
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
 #' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{autotyp.feature}}, \code{\link{bivaltyp.feature}}, \code{\link{eurasianphonology.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{soundcomparisons.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{vanuatu.feature}}
 #' @author George Moroz <agricolamz@gmail.com>
@@ -211,6 +211,8 @@ wals.feature <-
         "144X",
         "144Y"
       )
+
+
     message(paste0("Don't forget to cite the source (modify in case of using individual chapters):
 
 Dryer, Matthew S. & Haspelmath, Martin (eds.) 2013. The World Atlas of Language Structures Online. Leipzig: Max Planck Institute for Evolutionary Anthropology.

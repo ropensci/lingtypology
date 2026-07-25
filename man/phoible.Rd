@@ -12,7 +12,7 @@ A data frame with 2185 rows and 2 variables:
 }
 }
 \usage{
-phoible
+data(phoible)
 }
 \description{
 Language correspondencies for Phoible (\url{https://phoible.org/}). This dataset is created for \code{\link{phoible.feature}} function.

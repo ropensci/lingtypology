@@ -17,7 +17,7 @@ A data frame with 19 rows and 4 variables:
 }
 }
 \usage{
-phonological_profiles
+data(phonological_profiles)
 }
 \description{
 Number of consonants and presence of ejectives

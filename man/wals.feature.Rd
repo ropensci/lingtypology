@@ -7,7 +7,7 @@
 wals.feature(features, na.rm = TRUE)
 }
 \arguments{
-\item{features}{A character vector that define with a feature ids from WALS (e. g. "1a", "21b").}
+\item{features}{A character vector that defines a feature ids from WALS (e. g. "1a", "21b").}
 
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }

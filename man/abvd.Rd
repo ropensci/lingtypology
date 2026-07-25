@@ -12,7 +12,7 @@ A data frame with 1468 rows and 2 variables:
 }
 }
 \usage{
-abvd
+data(abvd)
 }
 \description{
 Language identifiers from ABVD (\url{https://abvd.eva.mpg.de/austronesian/}). This dataset is created for \code{\link{abvd.feature}} function.

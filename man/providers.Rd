@@ -11,7 +11,7 @@ A list of characters
 \url{https://leaflet-extras.github.io/leaflet-providers/preview/}
 }
 \usage{
-providers
+data(providers)
 }
 \description{
 List of all providers with their variations taken from leaflet package

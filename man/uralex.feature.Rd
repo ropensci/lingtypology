@@ -4,9 +4,11 @@
 \alias{uralex.feature}
 \title{Download UraLex data}
 \usage{
-uralex.feature(na.rm = TRUE)
+uralex.feature(version = "v2.0", na.rm = TRUE)
 }
 \arguments{
+\item{version}{A character verctor that defines version of the dataset}
+
 \item{na.rm}{Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.}
 }
 \description{

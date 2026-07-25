@@ -8,7 +8,7 @@
 An object of class \code{data.frame} with 556 rows and 3 columns.
 }
 \usage{
-soundcomparisons
+data(soundcomparisons)
 }
 \description{
 Language identifiers from SOUNDCOMPARISONS. This dataset is created for \code{\link{soundcomparisons.feature}} function.

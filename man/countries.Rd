@@ -15,7 +15,7 @@ A data frame with 189 rows and 5 variables:
 }
 }
 \usage{
-countries
+data(countries)
 }
 \description{
 Catalogue of countries, ISO-codes and official languages
