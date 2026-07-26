@@ -17,3 +17,6 @@
 ^\.github$
 codemeta.json
 ^lingtypology\.Rproj$
+^CRAN-SUBMISSION$
+^cran-comments\.md$
+^revdep$

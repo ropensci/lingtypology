@@ -2,7 +2,6 @@
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![R build status](https://github.com/ropensci/lingtypology/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/lingtypology/actions)
-[![Coverage Status](https://img.shields.io/codecov/c/github/ropensci/lingtypology/master.svg)](https://codecov.io/github/ropensci/lingtypology?branch=master)
 
 [![CRAN version](https://www.r-pkg.org/badges/version/lingtypology)](https://cran.r-project.org/package=lingtypology)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/lingtypology)](https://CRAN.R-project.org/package=lingtypology)
