@@ -5,5 +5,5 @@
 
 .onAttach <- function(libname = find.package("lingtypology"),
                     pkgname = "lingtypology") {
-  packageStartupMessage("Based on the Glottolog v. 5.3")
+  packageStartupMessage("Based on the Glottolog v. 5.4")
 }

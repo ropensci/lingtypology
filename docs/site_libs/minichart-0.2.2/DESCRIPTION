@@ -1,12 +1,12 @@
 Package: leaflet.minicharts
 Type: Package
 Title: Mini Charts for Interactive Maps
-Version: 0.6.2
+Version: 0.6.3
 Authors@R: c(
-    person(given = "Veronique",
-           family = "Bachelier",
+    person(given = "Tatiana",
+           family = "Vargas",
            role = c("aut", "cre"),
-           email = "veronique.bachelier@rte-france.com"),
+           email = "tatiana.vargas@rte-france.com"),
     person("Jalal-Edine", "ZAWAM", role = "aut"),
     person("Benoit", "Thieurmel", email = "benoit.thieurmel@datastorm.fr", role = "aut"),
     person("Francois", "Guillem", role = "aut"),
@@ -20,18 +20,23 @@ Depends: R (>= 2.10)
 Imports: leaflet (>= 1.1.0), htmltools
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.2
 Suggests: knitr, rmarkdown, dplyr, shiny, manipulateWidget, testthat,
         covr
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2021-05-11 08:41:37 UTC; bthie
-Author: Veronique Bachelier [aut, cre],
+Packaged: 2025-10-29 10:13:14 UTC; berthetcle
+Author: Tatiana Vargas [aut, cre],
   Jalal-Edine ZAWAM [aut],
   Benoit Thieurmel [aut],
   Francois Guillem [aut],
   RTE [cph]
-Maintainer: Veronique Bachelier <veronique.bachelier@rte-france.com>
+Maintainer: Tatiana Vargas <tatiana.vargas@rte-france.com>
 Repository: CRAN
-Date/Publication: 2021-05-11 09:20:10 UTC
-Built: R 4.3.3; ; 2024-09-02 10:57:09 UTC; unix
+Date/Publication: 2025-10-29 11:40:02 UTC
+Built: R 4.3.3; ; 2025-11-03 12:06:17 UTC; unix
+RemoteType: standard
+RemotePkgRef: leaflet.minicharts
+RemoteRef: leaflet.minicharts
+RemoteRepos: https://cloud.r-project.org
+RemoteSha: 0.6.3

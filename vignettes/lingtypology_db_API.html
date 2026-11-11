@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2023-05-28" />
+<meta name="date" content="2026-11-11" />
 
 <title>lingtypology: Download typological databases’ data</title>
 
@@ -50,6 +50,7 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -341,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore"><code>lingtypology</code>: Download
 typological databases’ data</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2023-05-28</h4>
+<h4 class="date">2026-11-11</h4>
 
 
 
@@ -356,8 +357,6 @@ Structures</a></li>
 <li><a href="https://afbo.info">Affix Borrowing database</a></li>
 <li><a href="https://sails.clld.org/">South American Indigenous Language
 Structures</a></li>
-<li><a href="https://abvd.eva.mpg.de/austronesian/">Austronesian Basic
-Vocabulary Database</a></li>
 </ul>
 <p>All database function names have identical structure:
 <strong>database_name.feature</strong>. All functions have as first
@@ -372,28 +371,28 @@ prevent functions from this behavior set argument <code>na.rm</code> to
 <p>The names of the WALS features can be typed in a lower case. This
 function preserves coordinates from WALS, so you can map coordinates
 from the WALS or use coordinates from <code>lingtypology</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">wals.feature</span>(<span class="fu">c</span>(<span class="st">&quot;1a&quot;</span>, <span class="st">&quot;20a&quot;</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">1a</span><span class="st">`</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">latitude =</span> df<span class="sc">$</span>latitude,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">longitude =</span> df<span class="sc">$</span>longitude,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>language,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Consonant Inventories&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">wals.feature</span>(<span class="fu">c</span>(<span class="st">&quot;1a&quot;</span>, <span class="st">&quot;20a&quot;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language,</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">1a</span><span class="st">`</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>            <span class="at">latitude =</span> df<span class="sc">$</span>latitude,</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>            <span class="at">longitude =</span> df<span class="sc">$</span>longitude,</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>language,</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Consonant Inventories&quot;</span>)</span></code></pre></div>
 </div>
 <div id="grambank" class="section level3">
 <h3>2. Grambank</h3>
 <p>The names of the Grambank features can be typed in a lower case. This
 function preserves coordinates from Grambank, so you can map coordinates
 from the WALS or use coordinates from <code>lingtypology</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">grambank.feature</span>(<span class="fu">c</span>(<span class="st">&quot;gb026&quot;</span>, <span class="st">&quot;gb042&quot;</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>grambank.name,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">GB042</span><span class="st">`</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">latitude =</span> df<span class="sc">$</span>latitude,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">longitude =</span> df<span class="sc">$</span>longitude,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>language,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Is there productive overt morphological singular marking on nouns?&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">grambank.feature</span>(<span class="fu">c</span>(<span class="st">&quot;gb026&quot;</span>, <span class="st">&quot;gb042&quot;</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>grambank.name,</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span><span class="st">`</span><span class="at">GB042</span><span class="st">`</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>            <span class="at">latitude =</span> df<span class="sc">$</span>latitude,</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>            <span class="at">longitude =</span> df<span class="sc">$</span>longitude,</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>language,</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Is there productive overt morphological singular marking on nouns?&quot;</span>)</span></code></pre></div>
 </div>
 <div id="autotyp" class="section level3">
 <h3>3. AUTOTYP</h3>
@@ -401,12 +400,12 @@ from the WALS or use coordinates from <code>lingtypology</code>.</p>
 GitHub page</a>. You can use more human way with spaces. You can also
 use a module names in order to download all variables in a module (e. g.
 <code>Gender</code>):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">autotyp.feature</span>(<span class="fu">c</span>(<span class="st">&#39;Has Gender&#39;</span>, <span class="st">&#39;Has Numeral Classifiers&#39;</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span>HasNumeralClassifiers,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>language_for_lingtypology,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Presence of Numeral Classifiers&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">autotyp.feature</span>(<span class="fu">c</span>(<span class="st">&#39;Has Gender&#39;</span>, <span class="st">&#39;Has Numeral Classifiers&#39;</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span>HasNumeralClassifiers,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>language_for_lingtypology,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Presence of Numeral Classifiers&quot;</span>)</span></code></pre></div>
 </div>
 <div id="phoible" class="section level3">
 <h3>4. PHOIBLE</h3>
@@ -416,8 +415,8 @@ you need only a set of them, just specify it in the
 <code>features</code> argument. Since there is a lot of doubling
 information in the PHOIBLE database, there is an argument
 <code>source</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">phoible.feature</span>(<span class="at">source =</span> <span class="st">&quot;UPSID&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">phoible.feature</span>(<span class="at">source =</span> <span class="st">&quot;UPSID&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 </div>
 <div id="afbo" class="section level3">
 <h3>5. AfBo</h3>
@@ -427,53 +426,39 @@ to download the whole database. There will be no difference in time,
 since this function downloads the whole database to your PC. The main
 destinction is that this database provides recipient and donor
 languages, so other column names should be used.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">afbo.feature</span>(<span class="fu">c</span>(<span class="st">&quot;adjectivizer&quot;</span>, <span class="st">&quot;adverbializer&quot;</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>Recipient.name,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span>adjectivizer,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>Recipient.name,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Borrowed adjectivizer affixes&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">afbo.feature</span>(<span class="fu">c</span>(<span class="st">&quot;adjectivizer&quot;</span>, <span class="st">&quot;adverbializer&quot;</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>Recipient.name,</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span>adjectivizer,</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>Recipient.name,</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Borrowed adjectivizer affixes&quot;</span>)</span></code></pre></div>
 </div>
 <div id="sails" class="section level3">
 <h3>6. SAILS</h3>
 <p>The SAILS database provide a lot of <a href="https://sails.clld.org/parameters">features</a>, so the function
 work with their ids:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">sails.feature</span>(<span class="at">features =</span> <span class="st">&quot;ics10&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span>ics10_description,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">longitude =</span> df<span class="sc">$</span>longitude,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">latitude =</span> df<span class="sc">$</span>latitude,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>language,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Are there numeral classifiers?&quot;</span>)</span></code></pre></div>
-</div>
-<div id="abvd" class="section level3">
-<h3>7. ABVD</h3>
-<p>The ABVD database is a lexical database, so it is different from clld
-databases. First of all, ABVD has its own language classification ids.
-The information about the same language from different sources can be
-received from these database different ids. So I select several
-languages and map them coloring by word with the meaning ‘hand’.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">abvd.feature</span>(<span class="fu">c</span>(<span class="dv">292</span>, <span class="dv">7</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>new_df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>word <span class="sc">==</span> <span class="st">&quot;hand&quot;</span>,]</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">map.feature</span>(new_df<span class="sc">$</span>language,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">features =</span> new_df<span class="sc">$</span>item,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> new_df<span class="sc">$</span>language)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">sails.feature</span>(<span class="at">features =</span> <span class="st">&quot;ics10&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language,</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>            <span class="at">features =</span> df<span class="sc">$</span>ics10_description,</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>            <span class="at">longitude =</span> df<span class="sc">$</span>longitude,</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>            <span class="at">latitude =</span> df<span class="sc">$</span>latitude,</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>language,</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Are there numeral classifiers?&quot;</span>)</span></code></pre></div>
 </div>
 <div id="uralex" class="section level3">
-<h3>8. UraLex</h3>
+<h3>7. UraLex</h3>
 <p><code>uralex.feature</code> downloads data from UraLex basic
 vocabulary dataset. Original language names are stored in the
 <code>uralex.name</code> variable. Converted language names for
 <code>map.feature</code> are stored in the <code>language</code>
 variable.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">uralex.feature</span>()</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>uralex_mng <span class="sc">==</span> <span class="st">&quot;crush&quot;</span>,]</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>item,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;crush&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">uralex.feature</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>uralex_mng <span class="sc">==</span> <span class="st">&quot;crush&quot;</span>,]</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="fu">map.feature</span>(df<span class="sc">$</span>language,</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>            <span class="at">label =</span> df<span class="sc">$</span>item,</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;crush&quot;</span>)</span></code></pre></div>
 </div>
 
 

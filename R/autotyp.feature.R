@@ -3,10 +3,8 @@
 #' This function downloads data from AUTOTYP (https://github.com/autotyp/autotyp-data#the-autotyp-database) and changes language names to the names from lingtypology database. You need the internet connection.
 #'
 #' @param features A character vector that define with a feature names from AUTOTYP.
-#' @param version A character verctor that defines version of the dataset.
 #' @param na.rm Logical. If TRUE function removes all languages not available in lingtypology database. By default is TRUE.
-#' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{bivaltyp.feature}}, \code{\link{eurasianphonology.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{soundcomparisons.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{vanuatu.feature}}, \code{\link{wals.feature}}
-#' @seealso \code{\link{abvd.feature}}, \code{\link{afbo.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{wals.feature}}
+#' @seealso \code{\link{afbo.feature}}, \code{\link{bivaltyp.feature}}, \code{\link{eurasianphonology.feature}}, \code{\link{oto_mangueanIC.feature}}, \code{\link{phoible.feature}}, \code{\link{sails.feature}}, \code{\link{soundcomparisons.feature}}, \code{\link{uralex.feature}}, \code{\link{valpal.feature}}, \code{\link{vanuatu.feature}}, \code{\link{wals.feature}}
 #' @examples
 #' # autotyp.feature(c('Has Gender', 'Has Numeral Classifiers'))
 #' @export
@@ -16,10 +14,8 @@
 
 autotyp.feature <-
   function(features,
-           version = "v1.1.1",
            na.rm = TRUE) {
 
-    stopifnot(version %in% c("v1.1.1", "v1.1.0", "v1.0.1", "v1.0.0", "v0.1.2", "v0.1.1", "v0.1.0"))
 
     message(paste0("Don't forget to cite a source:
 
@@ -54,7 +50,7 @@ Bickel, Balthasar, Nichols, Johanna, Zakharko, Taras, Witzlack-Makarevich, Alena
                  lingtypology::autotyp[lingtypology::autotyp$file %in% features,]$path)
 
       links <- paste0(
-          "https://raw.githubusercontent.com/autotyp/autotyp-data/", version, "/data/csv/",
+          "https://raw.githubusercontent.com/autotyp/autotyp-data/refs/heads/master/data/csv/",
           unique(paths))
       datalist  <-  lapply(links, function(x) {
         utils::read.csv(x, stringsAsFactors = FALSE)

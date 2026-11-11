@@ -13,7 +13,7 @@ A data frame with 27 rows and 3 variables:
 }
 }
 \usage{
-data(uralex)
+uralex
 }
 \description{
 Language identifiers from UraLex (\url{https://github.com/lexibank/uralex/}). This dataset is created for \code{\link{uralex.feature}} function.

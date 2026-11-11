@@ -18,7 +18,6 @@ knitr::opts_chunk$set(fig.width=7.5, fig.height=3.4, comment = "")
 * [PHOIBLE](https://phoible.org/)
 * [Affix Borrowing database](https://afbo.info)
 * [South American Indigenous Language Structures](https://sails.clld.org/)
-* [Austronesian Basic Vocabulary Database](https://abvd.eva.mpg.de/austronesian/)
 
 All database function names have identical structure: **database_name.feature**. All functions have as first argument `feature`. All functions create dataframe with column `language` that can be used in `map.feature()` function. It should be noted that all functions cut out the data that can't be maped, so if you want to prevent functions from this behavior set argument `na.rm` to `FALSE`.
 
@@ -100,20 +99,7 @@ map.feature(df$language,
             title = "Are there numeral classifiers?")
 ```
 
-### 7. ABVD
-
-The ABVD database is a lexical database, so it is different from clld databases. First of all, ABVD has its own language classification ids. The information about the same language from different sources can be received from these database different ids. So I select several languages and map them coloring by word with the meaning 'hand'.
-
-```{r, eval = FALSE}
-df <- abvd.feature(c(292, 7))
-head(df)
-new_df <- df[df$word == "hand",]
-map.feature(new_df$language,
-            features = new_df$item,
-            label = new_df$language)
-```
-
-### 8. UraLex
+### 7. UraLex
 
 `uralex.feature` downloads data from UraLex basic vocabulary dataset. Original language names are stored in the `uralex.name` variable. Converted language names for `map.feature` are stored in the `language` variable.
 

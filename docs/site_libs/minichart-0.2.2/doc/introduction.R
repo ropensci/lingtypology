@@ -83,25 +83,25 @@ basemap %>%
   )
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  server <- function(input, output, session) {
-#    # Initialize map
-#    output$mymap <- renderLeaflet(
-#      leaflet() %>% addTiles() %>%
-#        addMinicharts(lon, lat, layerId = uniqueChartIds)
-#    )
-#  }
+# server <- function(input, output, session) {
+#   # Initialize map
+#   output$mymap <- renderLeaflet(
+#     leaflet() %>% addTiles() %>%
+#       addMinicharts(lon, lat, layerId = uniqueChartIds)
+#   )
+# }
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  server <- function(input, output, session) {
-#    # Initialize map
-#    ...
-#  
-#    # Update map
-#    observe({
-#      newdata <- getData(input$myinput)
-#  
-#      leafletProxy("mymap") %>%
-#        updateMinicharts(uniqueChartIds, chartdata = newdata, ...)
-#    })
-#  }
+# server <- function(input, output, session) {
+#   # Initialize map
+#   ...
+# 
+#   # Update map
+#   observe({
+#     newdata <- getData(input$myinput)
+# 
+#     leafletProxy("mymap") %>%
+#       updateMinicharts(uniqueChartIds, chartdata = newdata, ...)
+#   })
+# }
 

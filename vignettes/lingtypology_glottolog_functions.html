@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2026-03-03" />
+<meta name="date" content="2026-11-10" />
 
 <title>lingtypology: Glottolog functions</title>
 
@@ -342,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore"><code>lingtypology</code>: Glottolog
 functions</h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2026-03-03</h4>
+<h4 class="date">2026-11-10</h4>
 
 
 
@@ -385,7 +385,7 @@ languages (see the third section):</p>
 <ul>
 <li><strong>map.feature()</strong></li>
 </ul>
-<p><a href="https://glottolog.org/">Glottolog database (v. 5.3)</a>
+<p><a href="https://glottolog.org/">Glottolog database (v. 5.4)</a>
 provides <code>lingtypology</code> with language names, ISO codes,
 glottocodes, affiliation, macro area, coordinates, and much information.
 This set of functions doesn’t have a goal to cover all possible
@@ -414,8 +414,8 @@ functions, so they can take the following objects as input:</p>
 <pre><code>##               ady 
 ## &quot;West Circassian&quot;</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">lang.aff</span>(<span class="st">&quot;Abkhaz-Adyge&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Ubykh&quot;           &quot;West Circassian&quot; &quot;Kabardian&quot;       &quot;Abkhaz&quot;         
-## [5] &quot;Abaza&quot;</code></pre>
+<pre><code>## [1] &quot;Ubykh&quot;           &quot;Abkhaz&quot;          &quot;Abaza&quot;           &quot;West Circassian&quot;
+## [5] &quot;Kabardian&quot;</code></pre>
 <p>I would like to point out that you can create strings in R using
 single or double quotes. Since inserting single quotes in a string
 created with single quotes causes an error in R, I use double quotes in
@@ -438,8 +438,8 @@ my tutorial. You can use single quotes, but be careful and remember that
 for the Circassian languages</li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">iso.lang</span>(<span class="fu">lang.aff</span>(<span class="st">&quot;Abkhaz-Adyge&quot;</span>))</span></code></pre></div>
-<pre><code>##           Ubykh West Circassian       Kabardian          Abkhaz           Abaza 
-##           &quot;uby&quot;           &quot;ady&quot;           &quot;kbd&quot;           &quot;abk&quot;           &quot;abq&quot;</code></pre>
+<pre><code>##           Ubykh          Abkhaz           Abaza West Circassian       Kabardian 
+##           &quot;uby&quot;           &quot;abk&quot;           &quot;abq&quot;           &quot;ady&quot;           &quot;kbd&quot;</code></pre>
 <p>If you are new to R, it is important to mention that you can create a
 table with languages, features and other parametres with any spreadsheet
 software you used to work. Then you can import the created file to R

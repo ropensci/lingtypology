@@ -4,15 +4,15 @@ df <- data.frame(my_langs = c("Eastern Baltic"), stringsAsFactors = FALSE)
 
 test_that("lang.aff", {
   skip_on_cran()
-    expect_equal(lang.aff("Eastern Baltic"), c("Lithuanian", "Latvian"))
-    expect_equal(lang.aff(df), c(my_langs1 = "Lithuanian",
-                                 my_langs2 = "Latvian"))
+    expect_equal(lang.aff("Eastern Baltic"), c("Latvian", "Lithuanian"))
+    expect_equal(lang.aff(df), c(my_langs1 = "Latvian",
+                                 my_langs2 = "Lithuanian"))
     expect_equal(lang.aff(c("Brythonic", "Goidelic")), c("Old South-West British",
                                                          "Welsh",
                                                          "Old-Middle Welsh",
                                                          "Cornish",
-                                                         "Vannetais",
                                                          "Breton",
+                                                         "Vannetais",
                                                          "Early Irish",
                                                          "Irish",
                                                          "Scottish Gaelic",
@@ -22,8 +22,8 @@ test_that("lang.aff", {
                         "Welsh",
                         "Old-Middle Welsh",
                         "Cornish",
-                        "Vannetais",
-                        "Breton"),
+                        "Breton",
+                        "Vannetais"),
                       c("Early Irish",
                         "Irish",
                         "Scottish Gaelic",

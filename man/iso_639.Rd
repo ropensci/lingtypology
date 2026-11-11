@@ -18,7 +18,7 @@ A data frame with 188 rows and 5 variables:
 \url{https://iso639-3.sil.org/}
 }
 \usage{
-data(iso_639)
+iso_639
 }
 \description{
 ISO 639 provides three language code sets: one is a two-letter code (ISO 639-1) and two others are

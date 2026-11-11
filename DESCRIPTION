@@ -1,7 +1,7 @@
 Package: lingtypology
 Type: Package
 Title: Linguistic Typology and Mapping
-Version: 1.1.26
+Version: 1.1.27
 Depends: R (>= 4.2.0)
 Imports:
     leaflet,
@@ -41,4 +41,4 @@ Suggests:
     sf,
     ape
 VignetteBuilder: knitr
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.1

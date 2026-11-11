@@ -16,7 +16,7 @@ A data frame with 158 rows and 6 variables:
 }
 }
 \usage{
-data(circassian)
+circassian
 }
 \description{
 A dataset containes the list of the Circassian villages in Russia
