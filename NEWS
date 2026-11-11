@@ -1,6 +1,7 @@
 lingtypology 1.1.27
 - update Glottolog to v. 5.4
-- remove the `abvd` dataset and the `abvd.feature()` function, since their server is down see <https://abvd.clld.org/> for the data via web-interface and <https://github.com/lexibank/abvd> for the raw data
+- remove the `abvd` dataset and the `abvd.feature()` function, since their server is down, see <https://abvd.clld.org/> for the data via web-interface and <https://github.com/lexibank/abvd> for the raw data
+- remove the `bantu` dataset and the `bantu.feature()` function, since their server is down.
 
 lingtypology 1.1.26
 - fix the name of Hedvig Skirgård in the `grambank.feature()` function #92
